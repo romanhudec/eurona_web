@@ -1,0 +1,48 @@
+<root>	
+	<tools>
+		<tool name="Cut"/>
+		<tool name="Copy"/>
+		<tool name="Paste"/>
+		
+		<tool separator="true"/>
+		<tool name="Undo"/>
+		<tool name="Redo"/>
+		<tool separator="true"/>
+    <tool name="DocumentManager" />
+    <tool name="ImageManager"/>		
+		<tool name="InsertTable"/>
+    <tool name="InsertOrderedList" shortcut="CTRL+ALT+L" />
+    <tool name="InsertUnorderedList" shortcut="CTRL+ALT+U" />
+    <tool name="InsertGroupbox" />
+    <tool name="InsertHorizontalRule" />
+		<tool separator="true"/>
+		<tool name="LinkManager"/>
+		<tool name="Unlink"/>
+		<tool name="InsertSymbol"/>	
+		<tool name="ToggleTableBorder"/>
+    <tool name="ToggleScreenMode" shortcut="F11"/>
+  </tools>
+	<tools>
+		<tool name="Bold"/>
+		<tool name="Italic"/>
+		<tool name="Underline"/>
+		<tool separator="true"/>
+		<tool name="JustifyLeft"/>
+		<tool name="JustifyCenter"/>
+		<tool name="JustifyRight"/>
+		<tool name="JustifyFull"/>
+		<tool separator="true"/>
+		<tool name="InsertOrderedList"/>
+		<tool name="InsertUnorderedList"/>
+		<tool name="Outdent"/>
+		<tool name="Indent"/>
+		<tool name="FormatBlock"/>
+		<tool separator="true"/>				
+	</tools>
+	<tools>
+		<tool name="FontName"/>
+		<tool name="FontSize"/>
+		<tool name="ForeColor"/>
+		<tool name="BackColor"/>
+	</tools>
+</root>

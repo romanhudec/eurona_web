@@ -1,0 +1,703 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="AdministrationMode_Header" xml:space="preserve">
+    <value>E-Shop</value>
+  </data>
+  <data name="AdministrationMode_Categories" xml:space="preserve">
+    <value>Kategórie</value>
+  </data>
+  <data name="Navigation_Categories" xml:space="preserve">
+    <value>Kategórie</value>
+  </data>
+  <data name="AdministrationMode_HeaderAdministration" xml:space="preserve">
+    <value>e-Shop Administrácia</value>
+  </data>
+  <data name="Navigation_Administration" xml:space="preserve">
+    <value>e-Shop Administrácia</value>
+  </data>
+  <data name="Navigation_Attributes" xml:space="preserve">
+    <value>Atribúty kategórie</value>
+  </data>
+  <data name="Navigation_Products" xml:space="preserve">
+    <value>Produkty</value>
+  </data>
+  <data name="Navigation_Product" xml:space="preserve">
+    <value>Produkt</value>
+  </data>
+  <data name="Navigation_Classifiers" xml:space="preserve">
+    <value>Číselníky</value>
+  </data>
+  <data name="AdministrationMode_Products" xml:space="preserve">
+    <value>Produkty</value>
+  </data>
+  <data name="AdministrationMode_Classifiers" xml:space="preserve">
+    <value>Číselníky</value>
+  </data>
+  <data name="AdministrationMode_UrlAliases" xml:space="preserve">
+    <value>URL Aliasy</value>
+  </data>
+  <data name="ClassifiersPage_EshopGroup" xml:space="preserve">
+    <value>Číselníky elektronického obchodu</value>
+  </data>
+  <data name="Navigation_Classifier_OrderStatuses" xml:space="preserve">
+    <value>Stavy objednávky</value>
+  </data>
+  <data name="Navigation_Classifier_Shipments" xml:space="preserve">
+    <value>Spôsob prepravy</value>
+  </data>
+  <data name="Navigation_UrlAliases" xml:space="preserve">
+    <value>URL Aliasy</value>
+  </data>
+  <data name="Navigation_Classifier_OrderStatus" xml:space="preserve">
+    <value>Stav objednávky</value>
+  </data>
+  <data name="Navigation_Classifier_Shipment" xml:space="preserve">
+    <value>Spôsob prepravy</value>
+  </data>
+  <data name="Navigation_UrlAlias" xml:space="preserve">
+    <value>URL Alias</value>
+  </data>
+  <data name="CartControl_Cart" xml:space="preserve">
+    <value>Nákupný košík</value>
+  </data>
+  <data name="OrderControl_Order" xml:space="preserve">
+    <value>Objednávka</value>
+  </data>
+  <data name="OrderFinish_Text" xml:space="preserve">
+    <value>Vaša objednávka bola zaznamenaná v systéme.&lt;br/&gt;Stav Vašej objednávky si môžete zkontrolovať v sekcii</value>
+  </data>
+  <data name="OrderFinish_Title" xml:space="preserve">
+    <value>Vaša objednávka bola prijatá</value>
+  </data>
+  <data name="OrderControl_MyOrders" xml:space="preserve">
+    <value>moje objednávky</value>
+  </data>
+  <data name="Navigation_Orders" xml:space="preserve">
+    <value>Objednávky</value>
+  </data>
+  <data name="AdministrationMode_Orders" xml:space="preserve">
+    <value>Objednávky</value>
+  </data>
+  <data name="Navigation_Order" xml:space="preserve">
+    <value>Objednávka</value>
+  </data>
+  <data name="UserOrderFinishPage_Email2Central_Message" xml:space="preserve">
+    <value>Nová požiadavka na spracovanie objednávky. &lt;br/&gt;&lt;br/&gt;Detail objednávky si môžete pozrieť na stránke &lt;a href='{0}'&gt;objednávka&lt;/a&gt;</value>
+  </data>
+  <data name="UserOrderFinishPage_Email2Central_Subject" xml:space="preserve">
+    <value>Nová objednávka č.: {0}</value>
+  </data>
+  <data name="UserOrderFinishPage_Email2User_Message" xml:space="preserve">
+    <value>Dobrý deň,&lt;br /&gt;&lt;br /&gt;
+ďakujeme za Vašu objednávku a nákup v Eurona. O ďalšom priebehu spracovania objednávky - expedíciu budete informovaní správou od dopravcu. Stav svojej objednávky môžete sledovať prostredníctvom tohto &lt;a href='{0}'&gt;odkazu&lt;/a&gt; alebo &lt;a href='{1}'&gt;prihlásením&lt;/a&gt; do svojho používateľského účtu na našich webových stránkach. Pre prihlásenie na webových stránkach využite, prosím, svoje užívateľské meno a heslo, ktoré ste uviedol / a pri vyplnení údajov pre objednanie.
+&lt;br /&gt;&lt;br /&gt;
+Ešte raz Vám ďakujeme za Vašu objednávku a prajeme Vám pekný deň!
+&lt;br /&gt;&lt;br /&gt;
+S pozdravom EURONA s.r.o.
+&lt;br /&gt;&lt;br /&gt;
+Eurona s.r.o.&lt;br /&gt;
+Lhota za Červeným Kostelcem 261&lt;br /&gt;
+549 41 ČERVENÝ KOSTELEC&lt;br /&gt;
+Česká republika&lt;br /&gt;
+&lt;br /&gt;
+Kontakt na naše operátorky: 
+&lt;br /&gt;
+T: +420 491 477 361
+&lt;br /&gt;
+E: prodej@eurona.cz</value>
+  </data>
+  <data name="UserOrderFinishPage_Email2User_Subject" xml:space="preserve">
+    <value>Objednávka č.: {0}</value>
+  </data>
+  <data name="Navigation_Classifier_Payment" xml:space="preserve">
+    <value>Spôsob platby</value>
+  </data>
+  <data name="Navigation_Classifier_Payments" xml:space="preserve">
+    <value>Spôsoby platby</value>
+  </data>
+  <data name="Navigation_Classifier_Currencies" xml:space="preserve">
+    <value>Meny</value>
+  </data>
+  <data name="Navigation_Classifier_Currency" xml:space="preserve">
+    <value>Mena</value>
+  </data>
+  <data name="Navigation_Classifier_VAT" xml:space="preserve">
+    <value>DPH</value>
+  </data>
+  <data name="Navigation_Classifier_VATs" xml:space="preserve">
+    <value>Zoznam DPH</value>
+  </data>
+  <data name="Navigation_ProductComments" xml:space="preserve">
+    <value>Komentáre produktu</value>
+  </data>
+  <data name="CartControl_Host" xml:space="preserve">
+    <value>Hosť :</value>
+  </data>
+  <data name="CartControl_MyOrder" xml:space="preserve">
+    <value>Moja objednávka</value>
+  </data>
+  <data name="ProductControl_AlternateProducts" xml:space="preserve">
+    <value>Alternatívne produkty</value>
+  </data>
+  <data name="ProductControl_Description" xml:space="preserve">
+    <value>Popis</value>
+  </data>
+  <data name="ProductControl_ProductReviews" xml:space="preserve">
+    <value>Recenzie</value>
+  </data>
+  <data name="ProductControl_RelatedProducts" xml:space="preserve">
+    <value>Súvisiace produkty</value>
+  </data>
+  <data name="ProductControl_NoProductFound" xml:space="preserve">
+    <value>Nebol nájdený žiadny produkt</value>
+  </data>
+  <data name="ProductControl_NoReviewsFound" xml:space="preserve">
+    <value>Nebola nájdená žiadna recenzia</value>
+  </data>
+  <data name="Navigation_Classifier_Highlights" xml:space="preserve">
+    <value>Zvýraznenie</value>
+  </data>
+  <data name="Navigation_Classifier_Highlight" xml:space="preserve">
+    <value>Zvýraznenie</value>
+  </data>
+  <data name="Navigation_MenuItem_ActionProducts" xml:space="preserve">
+    <value>Akčné ponuky!</value>
+  </data>
+  <data name="Navigation_MenuItem_NewProducts" xml:space="preserve">
+    <value>Novinky</value>
+  </data>
+  <data name="Navigation_MenuItem_SpecialProducts" xml:space="preserve">
+    <value>Špeciálna ponuky</value>
+  </data>
+  <data name="Navigation_MenuItem_TopProducts" xml:space="preserve">
+    <value>TOP výrobky</value>
+  </data>
+  <data name="CartControl_ItemsCount" xml:space="preserve">
+    <value>Počet položiek :</value>
+  </data>
+  <data name="CartControl_Price" xml:space="preserve">
+    <value>Cena :</value>
+  </data>
+  <data name="ProductControl_AdditionalInformation" xml:space="preserve">
+    <value>Doplňújúce informácie</value>
+  </data>
+  <data name="ProductControl_InstructionsForUse" xml:space="preserve">
+    <value>Návod na použitie</value>
+  </data>
+  <data name="ProductControl_Parfumation" xml:space="preserve">
+    <value>Parfumácia</value>
+  </data>
+  <data name="ProductControl_Pictograms" xml:space="preserve">
+    <value>Piktogramy</value>
+  </data>
+  <data name="ProductControl_Properties" xml:space="preserve">
+    <value>Vlastnosti</value>
+  </data>
+  <data name="ProductControl_SpecialEffects" xml:space="preserve">
+    <value>Špeciálne účinky</value>
+  </data>
+  <data name="CartControl_RecalculateCartButton_Text" xml:space="preserve">
+    <value>Prepočítať marže a body</value>
+  </data>
+  <data name="AdminOrdersControl_Title_ActiveOrders" xml:space="preserve">
+    <value>ULOŽENÉ OBJEDNÁVKY</value>
+  </data>
+  <data name="AdminOrdersControl_Title_OrderArchiv" xml:space="preserve">
+    <value>Archív objednávok</value>
+  </data>
+  <data name="CartControl_CreateOrderButton_Text" xml:space="preserve">
+    <value>Vytvoriť objednávku</value>
+  </data>
+  <data name="Navigation_AssociatedOrders" xml:space="preserve">
+    <value>Pridružené objednávky</value>
+  </data>
+  <data name="CartControl_CreateOrderForUserButton_Text" xml:space="preserve">
+    <value>Vytvoriť objednávku pre poradcu</value>
+  </data>
+  <data name="OrderControl_OrderCreatedUser" xml:space="preserve">
+    <value>Objednávku vytvoril :</value>
+  </data>
+  <data name="OrderControl_OrderUser" xml:space="preserve">
+    <value>Objednávka užívateľa :</value>
+  </data>
+  <data name="AdminOrdersControl_ColumnAssociated" xml:space="preserve">
+    <value>Pridruženie</value>
+  </data>
+  <data name="AdminOrdersControl_AsociateSelectedOrders" xml:space="preserve">
+    <value>Pridružiť vybraté objednávky</value>
+  </data>
+  <data name="AdminOrdersControl_ColumnOrderOwnerName" xml:space="preserve">
+    <value>Poradca</value>
+  </data>
+  <data name="Navigation_AssociatedOrder" xml:space="preserve">
+    <value>Pridružená objednávka</value>
+  </data>
+  <data name="CartControl_NotVeriedUserCanOnly1OrderCreate" xml:space="preserve">
+    <value>Neoverený používateľ môže vytvoriť len jednu objednávku!</value>
+  </data>
+  <data name="ProductControl_Code" xml:space="preserve">
+    <value>Kód :</value>
+  </data>
+  <data name="ProductControl_Points" xml:space="preserve">
+    <value>body :</value>
+  </data>
+  <data name="ProductControl_Quantity" xml:space="preserve">
+    <value>Množstvo </value>
+  </data>
+  <data name="Navigation_DPDPackage" xml:space="preserve">
+    <value>DPD balík</value>
+  </data>
+  <data name="BackToCatalog" xml:space="preserve">
+    <value>&gt; Späť na katalóg výrobkov</value>
+  </data>
+  <data name="ProductControl_AditionalInfo" xml:space="preserve">
+    <value>Doplňujúce info</value>
+  </data>
+  <data name="ProductControl_AlternativeProducts" xml:space="preserve">
+    <value>Alternatívne produkty</value>
+  </data>
+  <data name="ProductControl_PrednostiAVlastnosti" xml:space="preserve">
+    <value>Prednosti a vlastnosti</value>
+  </data>
+  <data name="CartControl_RegisterButton_Text" xml:space="preserve">
+    <value>Zaregistrujte sa</value>
+  </data>
+  <data name="Navigation_AssociateSelectedOrdersToAdvisor" xml:space="preserve">
+    <value>Pridruženie vybraných objednávok k objednávke iného poradcu</value>
+  </data>
+  <data name="OrderControl_AssociationAdvisor" xml:space="preserve">
+    <value>Pridružená k objednávke poradcu :</value>
+  </data>
+  <data name="OrderControl_AssociationStatus" xml:space="preserve">
+    <value>Stav pridruženia :</value>
+  </data>
+  <data name="Navigation_OrdersToAssociate" xml:space="preserve">
+    <value>Objednávky pre združenie</value>
+  </data>
+  <data name="CartControl_CreateOrderAsAnotherAdvisor" xml:space="preserve">
+    <value>Vytvorenie objednávky za iného poradcu</value>
+  </data>
+  <data name="AdministrationMode_Cart" xml:space="preserve">
+    <value>Nákupný košík</value>
+  </data>
+  <data name="AdministrationMode_MyOrders" xml:space="preserve">
+    <value>Moje objednávky</value>
+  </data>
+  <data name="GenerateRegisterDocument" xml:space="preserve">
+    <value>(generovať registračný formulár)</value>
+  </data>
+  <data name="GridView_ToolTip_StornoItem" xml:space="preserve">
+    <value>Storno</value>
+  </data>
+  <data name="Navigation_MyCart" xml:space="preserve">
+    <value>môj košik</value>
+  </data>
+  <data name="CartControl_1VybertePoradce" xml:space="preserve">
+    <value>1. Vyberte poradcu</value>
+  </data>
+  <data name="CartControl_2VytvortePoradciObjednavku" xml:space="preserve">
+    <value>2. Vytvorte poradcovi objednávku</value>
+  </data>
+  <data name="CartControl_Add" xml:space="preserve">
+    <value>Pridať</value>
+  </data>
+  <data name="CartControl_ProductCode" xml:space="preserve">
+    <value>Kód produktu : </value>
+  </data>
+  <data name="CartControl_ProductQuantity" xml:space="preserve">
+    <value>Množstvo : </value>
+  </data>
+  <data name="AdminOrderControl_BodyCelkem" xml:space="preserve">
+    <value>Body celkom :</value>
+  </data>
+  <data name="AdminOrderControl_FakturovanaSuma" xml:space="preserve">
+    <value>Fakturovaná suma :</value>
+  </data>
+  <data name="AdminOrderControl_InformaceOCene" xml:space="preserve">
+    <value>Informácie o cene</value>
+  </data>
+  <data name="AdminOrderControl_KatalogovaCeneCelkem" xml:space="preserve">
+    <value>Katalogová cena celkom :</value>
+  </data>
+  <data name="Anonymous_MujKosikPoPrepoctu" xml:space="preserve">
+    <value>Môj košík (po prerátaní)</value>
+  </data>
+  <data name="Anonymous_MujKosikPredPrepoctem" xml:space="preserve">
+    <value>Môj košík (pred prerátaním)</value>
+  </data>
+  <data name="Anonymous_NakupniKosik" xml:space="preserve">
+    <value>Nákupný košík</value>
+  </data>
+  <data name="Anonymous_OrderFinish_Dekujeme" xml:space="preserve">
+    <value> Vaše objednávka proběhla úspěšně!</value>
+  </data>
+  <data name="Anonymous_OrderFinish_Zde" xml:space="preserve">
+    <value>tu</value>
+  </data>
+  <data name="Anonymous_PokracovatVObjednavce" xml:space="preserve">
+    <value>Pokračovať v objednávke</value>
+  </data>
+  <data name="Anonymous_PotvrzeniObjednavky" xml:space="preserve">
+    <value>Potvrdenie objednávky </value>
+  </data>
+  <data name="Anonymous_PridatDalsiVyrobky" xml:space="preserve">
+    <value>Pridať ďalšie výrobky</value>
+  </data>
+  <data name="Anonymous_Register_BankovniUcet" xml:space="preserve">
+    <value>Bankový účet:</value>
+  </data>
+  <data name="Anonymous_Register_DatumNarozeni" xml:space="preserve">
+    <value>Dátum narodenia:</value>
+  </data>
+  <data name="Anonymous_Register_DIC" xml:space="preserve">
+    <value>DIČ:</value>
+  </data>
+  <data name="Anonymous_Register_DodaciAdresa" xml:space="preserve">
+    <value>Dodacia adresa:</value>
+  </data>
+  <data name="Anonymous_Register_FakturacniAdresa" xml:space="preserve">
+    <value>Fakturačná adresa:</value>
+  </data>
+  <data name="Anonymous_Register_HesloProHosta" xml:space="preserve">
+    <value>Heslo pre hosťa:</value>
+  </data>
+  <data name="Anonymous_Register_ICO" xml:space="preserve">
+    <value>IČO:</value>
+  </data>
+  <data name="Anonymous_Register_JinaVyplnte" xml:space="preserve">
+    <value>Iná (prosím vyplňte)</value>
+  </data>
+  <data name="Anonymous_Register_JmenoAPrijmeni" xml:space="preserve">
+    <value>Meno a prizvisko/Názov:</value>
+  </data>
+  <data name="Anonymous_Register_Kraj" xml:space="preserve">
+    <value>Kraj:</value>
+  </data>
+  <data name="Anonymous_Register_Mesto" xml:space="preserve">
+    <value>Mesto:</value>
+  </data>
+  <data name="Anonymous_Register_ObchodnimiPodminkami" xml:space="preserve">
+    <value>Obchodnými podmienkami</value>
+  </data>
+  <data name="Anonymous_Register_PlatceDPH" xml:space="preserve">
+    <value>Plátca DPH:</value>
+  </data>
+  <data name="Anonymous_Register_PovinneUdaje" xml:space="preserve">
+    <value>Povinné údaje</value>
+  </data>
+  <data name="Anonymous_Register_ProsimVyplnte" xml:space="preserve">
+    <value>Prosím vyplňte</value>
+  </data>
+  <data name="Anonymous_Register_ProVasiDalsiObjednavku" xml:space="preserve">
+    <value>pre Vašu dalšíu objednávku</value>
+  </data>
+  <data name="Anonymous_Register_PSC" xml:space="preserve">
+    <value>PSČ:</value>
+  </data>
+  <data name="Anonymous_Register_SmluvnimiPodminkami" xml:space="preserve">
+    <value>Zmluvnými  podmienkami</value>
+  </data>
+  <data name="Anonymous_Register_StejnaJakoFakturacni" xml:space="preserve">
+    <value>Rovnaká ako fakturačná</value>
+  </data>
+  <data name="Anonymous_Register_Telefon" xml:space="preserve">
+    <value>Telefón:</value>
+  </data>
+  <data name="Anonymous_Register_Ulice" xml:space="preserve">
+    <value>Ulica:</value>
+  </data>
+  <data name="Anonymous_Register_VasePrihlasovaciUdaje" xml:space="preserve">
+    <value>Vaše prihlasovacie údaje</value>
+  </data>
+  <data name="Anonymous_Register_VyplntePovinnouPolozku" xml:space="preserve">
+    <value>Prosím vyplňte!</value>
+  </data>
+  <data name="Anonymous_Register_ZadejteHesloVeTvaru" xml:space="preserve">
+    <value>( Zadajte heslo v tvare : 420-1122334455 )</value>
+  </data>
+  <data name="Anonymous_Vitejte" xml:space="preserve">
+    <value>Vitajte v našom nákupnom košíku! Vytvorenie objednávky je veľmi jednoduché. :-)&lt;br /&gt;V nasledujúcich 5 krokoch Vás rýchle prevedieme cez objednávku a pomôžeme Vám vyplniť potrebné údaje pre úspešné doručenie tovaru k Vám!</value>
+  </data>
+  <data name="Anonymous_VyberDopravy" xml:space="preserve">
+    <value>Výber dopravy:</value>
+  </data>
+  <data name="ATP_CekajiciNovacci" xml:space="preserve">
+    <value>Čakajúci nováčikovia Príležitosť pre Vás</value>
+  </data>
+  <data name="ATP_Diskuze" xml:space="preserve">
+    <value>Diskusia</value>
+  </data>
+  <data name="ATP_DoVIPATP" xml:space="preserve">
+    <value>do V.I.P Angel teamu Professional</value>
+  </data>
+  <data name="ATP_Gratulujeme1" xml:space="preserve">
+    <value>Gratulujeme Vám, na ďalší mesiac ostávate členom V.I.P. Angel team Professional</value>
+  </data>
+  <data name="ATP_Gratulujeme2" xml:space="preserve">
+    <value>Gratulujeme Vám, splnili ste podmienky pre vstup do V.I.P. Angel team Professional, od nasledujúceho mesiaca môžete využiť rovnaké</value>
+  </data>
+  <data name="ATP_JizPrijatiDnesniNovacci" xml:space="preserve">
+    <value>Už prijatí dnešní nováčikovia </value>
+  </data>
+  <data name="ATP_Lektori" xml:space="preserve">
+    <value>lektori</value>
+  </data>
+  <data name="ATP_MojeCestaKeHvezdam" xml:space="preserve">
+    <value>Moja cesta ku hviezdam</value>
+  </data>
+  <data name="ATP_MojePoziceNaCesteKeHvezdam" xml:space="preserve">
+    <value>Moja pozícia na ceste ku hviezdam.  Počet mojich Eurona star.</value>
+  </data>
+  <data name="ATP_PocetEuronaStarProUdrzeni" xml:space="preserve">
+    <value>Počet Eurona Star nutných na udržanie sa vo V.I.P. Angel teamu Professional</value>
+  </data>
+  <data name="ATP_PocetEuronaStarProVstup" xml:space="preserve">
+    <value>Počet Eurona Star nutných na vstup</value>
+  </data>
+  <data name="ATP_PocetMychEuronaStar" xml:space="preserve">
+    <value>Počet mojich Eurona star.</value>
+  </data>
+  <data name="ATP_Podminky" xml:space="preserve">
+    <value>Podmienky</value>
+  </data>
+  <data name="ATP_PrijmoutNovacka" xml:space="preserve">
+    <value>Prijať nováčika</value>
+  </data>
+  <data name="ATP_RegistracniCislo" xml:space="preserve">
+    <value>Registračné číslo</value>
+  </data>
+  <data name="ATP_VeVIPATP" xml:space="preserve">
+    <value>vo V.I.P. Angel teamu Professional</value>
+  </data>
+  <data name="ATP_VyhodyJakoVIPATP" xml:space="preserve">
+    <value> výhody ako V.I.P. Angel team Professional.</value>
+  </data>
+  <data name="ATP_ZpetDoKancelare" xml:space="preserve">
+    <value>Späť do kancelárie</value>
+  </data>
+  <data name="PayOrderControl_OrderIsNotPayed" xml:space="preserve">
+    <value>Objednávka nie je uhradená! Môžete ju uhradiť teraz.</value>
+  </data>
+  <data name="PayOrderControl_PayNow" xml:space="preserve">
+    <value>Uhradiť objednávku</value>
+  </data>
+  <data name="Pay_TransactionWasNotSuccessfully" xml:space="preserve">
+    <value>Došlo k přerušení transakce. Nyní se můžete vrátit zpět do objednávky a zvolit jiný způsob platby.</value>
+  </data>
+  <data name="Pay_TransactionWasSuccessfully" xml:space="preserve">
+    <value>Vaša transakcia bola úspešne spracovaná.</value>
+  </data>
+  <data name="Navigation_MenuItem_DarkoveSady" xml:space="preserve">
+    <value>Novinky</value>
+  </data>
+  <data name="CartControl_KPokladne" xml:space="preserve">
+    <value>K pokladni</value>
+  </data>
+  <data name="AdminOrderControl_Dopravne" xml:space="preserve">
+    <value>Prepravné :</value>
+  </data>
+  <data name="OrderFinish_AkceptujemeKarty" xml:space="preserve">
+    <value>Príjmame platby z týchto kariet</value>
+  </data>
+  <data name="OrderFinish_DekujemeZaVasiObjednavku" xml:space="preserve">
+    <value>Ďakujeme za Vašu objednávku!</value>
+  </data>
+  <data name="OrderFinish_NeviteSiRady" xml:space="preserve">
+    <value>Neviete si rady, kontaktujte&lt;br/&gt; naše operátorky</value>
+  </data>
+  <data name="OrderFinish_PomocSNakupem" xml:space="preserve">
+    <value>Pomoc s nákupom&lt;br/&gt; i objednávkou</value>
+  </data>
+  <data name="OrderFinish_PtejteSeEmailem" xml:space="preserve">
+    <value>Pýtajte se mailom!</value>
+  </data>
+  <data name="OrderFinish_Volejte" xml:space="preserve">
+    <value>Volajte!</value>
+  </data>
+  <data name="PayOrderControl_OrderHeader" xml:space="preserve">
+    <value>Vyberte si teraz spôsob úhrady Vašej objednávky</value>
+  </data>
+  <data name="PayOrderControl_UhradaDobirkou" xml:space="preserve">
+    <value>ÚHRADA DOBIERKOU</value>
+  </data>
+  <data name="PayOrderControl_UhradaKartou" xml:space="preserve">
+    <value>ZAPLAŤTE KARTOU ONLINE</value>
+  </data>
+  <data name="AddressControl_notest_description" xml:space="preserve">
+    <value>(neslúží na zadávanie adresy a kontaktov.)</value>
+  </data>
+  <data name="AdminOrderControl_approval_text" xml:space="preserve">
+    <value>&lt;span&gt;Súhlasím s &lt;a href='{0}' target='_blank'&gt;obchodnými podmienkami&lt;/a&gt;.&lt;span&gt;</value>
+  </data>
+  <data name="AdminOrderControl_order_text" xml:space="preserve">
+    <value>Pre konečné odoslanie objednávky</value>
+  </data>
+  <data name="AdminOrderControl_save_text" xml:space="preserve">
+    <value>Uložte objednávku pre združenia, alebo prípadnú úpravu</value>
+  </data>
+  <data name="AdminOrderControl_warning" xml:space="preserve">
+    <value>&lt;b&gt;VYPLŇTE DORUČOVACÍ ÚDAJE&lt;/b&gt;</value>
+  </data>
+  <data name="CartControl_OrderAndPayButton_Text" xml:space="preserve">
+    <value>ODOSLAŤ OBJEDNÁVKU A ZVOLIŤ PLATBU</value>
+  </data>
+  <data name="OrderFinish_NelzeVyuzitProSdruzeneObjednavky" xml:space="preserve">
+    <value>(nie je možné využíť pre združené objednávky)</value>
+  </data>
+  <data name="Anonymous_UhradaObjednavky" xml:space="preserve">
+    <value>Úhrada objednávky</value>
+  </data>
+  <data name="AutomaticEmptyCartWarning" xml:space="preserve">
+    <value>Upozornenie! Odošlite svoju objednávku do {0} hod. Obsah nákupného košíka sa každý deň o {0} hod. v noci automaticky vyprázdni.</value>
+  </data>
+  <data name="Vanoce" xml:space="preserve">
+    <value>Vianoce 2014!</value>
+  </data>
+  <data name="PasswordPolicyMessage" xml:space="preserve">
+    <value>Heslo musí obsahovať čisla, malé a velké písmená.&lt;br/&gt;Minimálna dĺžka je 8 znakov!</value>
+  </data>
+  <data name="ProductControl_BackList" xml:space="preserve">
+    <value>Zadná etiketa výrobku</value>
+  </data>
+  <data name="AdvisorCookieLinkControl_label" xml:space="preserve">
+    <value>Váš jedinečný odkaz</value>
+  </data>
+  <data name="OrderFinish_SdruzeneObjednavkyCenaCelkem_Format" xml:space="preserve">
+    <value>Pri platbe platobnou kartou je celková čiastka za združené objednávky &lt;span  style='color:#eb0a5b;font-size:18px;'&gt;{0}&lt;/span&gt;</value>
+  </data>
+  <data name="OrderFinish_EET" xml:space="preserve">
+    <value>Podle zákona o evidenci tržeb je prodávající povinen vystavit kupujícímu účtenku. Zároveň je povinen zaevidovat přijatou tržbu u správce daně online; v případě technického výpadku pak nejpozději do 48 hodin.</value>
+  </data>
+  <data name="AdminOrderControl_save_delivery_addres_as_main" xml:space="preserve">
+    <value>Uložiť údaje pre budúci objednávku.</value>
+  </data>
+  <data name="AdminOrderControl_approval_error" xml:space="preserve">
+    <value>Musíte súhlasiť s obchodnými podmienkami</value>
+  </data>
+  <data name="Navigation_MenuItem_Vyprodej" xml:space="preserve">
+    <value>Výpredaj</value>
+  </data>
+  <data name="Anonymous_Register_IvalidMobile" xml:space="preserve">
+    <value>Zadali ste číslo v nesprávnom formáte. Zadajte ho, prosím, v tvare 123456789.</value>
+  </data>
+  <data name="AdminOrdersControl_AsociatePriceLimitMessage" xml:space="preserve">
+    <value>Katalógová cena pridružené objednávky musí byť vyššia ako {0}euro</value>
+  </data>
+</root>

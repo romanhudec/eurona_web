@@ -1,0 +1,939 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="AddressControl_City" xml:space="preserve">
+    <value>Miasto</value>
+  </data>
+  <data name="AddressControl_Country" xml:space="preserve">
+    <value>Kraj</value>
+  </data>
+  <data name="AddressControl_District" xml:space="preserve">
+    <value>Powiat</value>
+  </data>
+  <data name="AddressControl_Notes" xml:space="preserve">
+    <value>Uwagi</value>
+  </data>
+  <data name="AddressControl_Region" xml:space="preserve">
+    <value>Województwo</value>
+  </data>
+  <data name="AddressControl_State" xml:space="preserve">
+    <value>Kraj</value>
+  </data>
+  <data name="AddressControl_Street" xml:space="preserve">
+    <value>Ulica</value>
+  </data>
+  <data name="AddressControl_Zip" xml:space="preserve">
+    <value>Kod pocztowy</value>
+  </data>
+  <data name="AdminAccountControl_LabelEmail" xml:space="preserve">
+    <value>Email</value>
+  </data>
+  <data name="AdminAccountControl_LabelEnabled" xml:space="preserve">
+    <value>Zezwolone</value>
+  </data>
+  <data name="AdminAccountControl_LabelLogin" xml:space="preserve">
+    <value>Konto</value>
+  </data>
+  <data name="AdminAccountControl_LabelRoles" xml:space="preserve">
+    <value>Rola</value>
+  </data>
+  <data name="AdminAccountControl_LabelVerified" xml:space="preserve">
+    <value>Sprawdzony</value>
+  </data>
+  <data name="AdminAccountControl_LabelVerifyCode" xml:space="preserve">
+    <value>Kod sprawdzenia</value>
+  </data>
+  <data name="AdminAccountsControl_ColumnCredit" xml:space="preserve">
+    <value>Kredyt</value>
+  </data>
+  <data name="AdminAccountsControl_ColumnEmail" xml:space="preserve">
+    <value>Email</value>
+  </data>
+  <data name="AdminAccountsControl_ColumnEnabled" xml:space="preserve">
+    <value>Zezwolono</value>
+  </data>
+  <data name="AdminAccountsControl_ColumnLogin" xml:space="preserve">
+    <value>Konto</value>
+  </data>
+  <data name="AdminAccountsControl_ColumnRole" xml:space="preserve">
+    <value>Rola</value>
+  </data>
+  <data name="AdminAccountsControl_ColumnRoles" xml:space="preserve">
+    <value>Rola</value>
+  </data>
+  <data name="AdminAccountsControl_ColumnVerified" xml:space="preserve">
+    <value>Sprawdzone</value>
+  </data>
+  <data name="AdminAccountsControl_NewAccountButton_Text" xml:space="preserve">
+    <value>Nowe konto</value>
+  </data>
+  <data name="AdminAccountsControl_ToolTip_AddCredit" xml:space="preserve">
+    <value>Dodać kredyt użytkownika</value>
+  </data>
+  <data name="AdminAddAccountCreditControl_CreditToAdd" xml:space="preserve">
+    <value>Dodać kredyt </value>
+  </data>
+  <data name="AdminAddAccountCreditControl_CurrentCredit" xml:space="preserve">
+    <value>Kredyt aktualny</value>
+  </data>
+  <data name="AdminAddAccountCreditControl_User" xml:space="preserve">
+    <value>Użytkownik</value>
+  </data>
+  <data name="AdminArticleControl_Approved" xml:space="preserve">
+    <value>Zatwierdzono</value>
+  </data>
+  <data name="AdminArticleControl_Category" xml:space="preserve">
+    <value>Kategoria</value>
+  </data>
+  <data name="AdminArticleControl_City" xml:space="preserve">
+    <value>Miasto</value>
+  </data>
+  <data name="AdminArticleControl_Content" xml:space="preserve">
+    <value>Artykuł</value>
+  </data>
+  <data name="AdminArticleControl_Country" xml:space="preserve">
+    <value>Kraina</value>
+  </data>
+  <data name="AdminArticleControl_EnableComments" xml:space="preserve">
+    <value>Zezwolić komentarze</value>
+  </data>
+  <data name="AdminArticleControl_ExpireDate" xml:space="preserve">
+    <value>Data ekspiracji</value>
+  </data>
+  <data name="AdminArticleControl_ReleaseDate" xml:space="preserve">
+    <value>Data ekspiracji</value>
+  </data>
+  <data name="AdminArticleControl_Role" xml:space="preserve">
+    <value>Rola</value>
+  </data>
+  <data name="AdminArticleControl_Tags" xml:space="preserve">
+    <value>Tagy</value>
+  </data>
+  <data name="AdminArticleControl_Teaser" xml:space="preserve">
+    <value>Wstęp</value>
+  </data>
+  <data name="AdminArticleControl_Title" xml:space="preserve">
+    <value>Tytuł</value>
+  </data>
+  <data name="AdminArticleControl_Visible" xml:space="preserve">
+    <value>Widoczny</value>
+  </data>
+  <data name="AdminArticlesControl_ColumnReleaseDate" xml:space="preserve">
+    <value>Data opublikowania</value>
+  </data>
+  <data name="AdminArticlesControl_ColumnTitle" xml:space="preserve">
+    <value>Tytuł</value>
+  </data>
+  <data name="AdminArticlesControl_NewArticle" xml:space="preserve">
+    <value>Nowy artykuł</value>
+  </data>
+  <data name="AdminBlogControl_Approved" xml:space="preserve">
+    <value>Zatwierdzony</value>
+  </data>
+  <data name="AdminBlogControl_City" xml:space="preserve">
+    <value>Miasto</value>
+  </data>
+  <data name="AdminBlogControl_Content" xml:space="preserve">
+    <value>Treść blogu</value>
+  </data>
+  <data name="AdminBlogControl_Country" xml:space="preserve">
+    <value>Kraina</value>
+  </data>
+  <data name="AdminBlogControl_EnableComments" xml:space="preserve">
+    <value>Zezwolić komentarze</value>
+  </data>
+  <data name="AdminBlogControl_ExpireDate" xml:space="preserve">
+    <value>Data ekspiracji</value>
+  </data>
+  <data name="AdminBlogControl_ReleaseDate" xml:space="preserve">
+    <value>Data opublikowania</value>
+  </data>
+  <data name="AdminBlogControl_Role" xml:space="preserve">
+    <value>Rola</value>
+  </data>
+  <data name="AdminBlogControl_Tags" xml:space="preserve">
+    <value>Tagy</value>
+  </data>
+  <data name="AdminBlogControl_Teaser" xml:space="preserve">
+    <value>Wstęp</value>
+  </data>
+  <data name="AdminBlogControl_Title" xml:space="preserve">
+    <value>Tytuł</value>
+  </data>
+  <data name="AdminBlogControl_Visible" xml:space="preserve">
+    <value>Widoczny</value>
+  </data>
+  <data name="AdminBlogsControl_ColumnReleaseDate" xml:space="preserve">
+    <value>Data opublikowania</value>
+  </data>
+  <data name="AdminBlogsControl_ColumnTitle" xml:space="preserve">
+    <value>Tytuł</value>
+  </data>
+  <data name="AdminBlogsControl_NewBlog" xml:space="preserve">
+    <value>Nowy blog</value>
+  </data>
+  <data name="AdminFAQControl_Answer" xml:space="preserve">
+    <value>Odpowiedż</value>
+  </data>
+  <data name="AdminFAQControl_Order" xml:space="preserve">
+    <value>Kolejność</value>
+  </data>
+  <data name="AdminFAQControl_Question" xml:space="preserve">
+    <value>Zapytanie</value>
+  </data>
+  <data name="AdminFAQsControl_ColumnAnswer" xml:space="preserve">
+    <value>Odpowiedż</value>
+  </data>
+  <data name="AdminFAQsControl_ColumnOrder" xml:space="preserve">
+    <value>Kolejność</value>
+  </data>
+  <data name="AdminFAQsControl_ColumnQuestion" xml:space="preserve">
+    <value>Zapytanie</value>
+  </data>
+  <data name="AdminFAQsControl_NewFAQ" xml:space="preserve">
+    <value>Nowa FAQ</value>
+  </data>
+  <data name="AdminImageGalleriesControl_ColumnDate" xml:space="preserve">
+    <value>Data</value>
+  </data>
+  <data name="AdminImageGalleriesControl_ColumnName" xml:space="preserve">
+    <value>Nazwa</value>
+  </data>
+  <data name="AdminImageGalleriesControl_GalleryItemsToolTip" xml:space="preserve">
+    <value>Pozycje galerii</value>
+  </data>
+  <data name="AdminImageGalleriesControl_NewGallery" xml:space="preserve">
+    <value>Nowa galeria</value>
+  </data>
+  <data name="AdminImageGalleryControl_EnableComments" xml:space="preserve">
+    <value>Zezwolić komentarze</value>
+  </data>
+  <data name="AdminImageGalleryControl_EnableVotes" xml:space="preserve">
+    <value>Zezwolić raporty</value>
+  </data>
+  <data name="AdminImageGalleryControl_Name" xml:space="preserve">
+    <value>Nazwa</value>
+  </data>
+  <data name="AdminImageGalleryControl_Role" xml:space="preserve">
+    <value>Rola</value>
+  </data>
+  <data name="AdminImageGalleryControl_Tags" xml:space="preserve">
+    <value>Tagy</value>
+  </data>
+  <data name="AdminImageGalleryControl_Visible" xml:space="preserve">
+    <value>Widoczny</value>
+  </data>
+  <data name="AdminMenuControl_LabelName" xml:space="preserve">
+    <value>Imię</value>
+  </data>
+  <data name="AdminMenuControl_LabelOrder" xml:space="preserve">
+    <value>Kolejność</value>
+  </data>
+  <data name="AdminMenuControl_LabelAlias" xml:space="preserve">
+    <value>Strona</value>
+  </data>
+  <data name="AdminMenuControl_LabelRole" xml:space="preserve">
+    <value>Rola</value>
+  </data>
+  <data name="AdminMenusControl_ColumnName" xml:space="preserve">
+    <value>Nazwa</value>
+  </data>
+  <data name="AdminMenusControl_ColumnOrder" xml:space="preserve">
+    <value>Kolejność</value>
+  </data>
+  <data name="AdminMenusControl_ColumnAlias" xml:space="preserve">
+    <value>Strona</value>
+  </data>
+  <data name="AdminMenusControl_NewMenuButton_Text" xml:space="preserve">
+    <value>Nowa pozycja menu</value>
+  </data>
+  <data name="AdminNewsControl_Content" xml:space="preserve">
+    <value>Treść</value>
+  </data>
+  <data name="AdminNewsControl_Date" xml:space="preserve">
+    <value>Data</value>
+  </data>
+  <data name="AdminNewsControl_Description" xml:space="preserve">
+    <value>Opis</value>
+  </data>
+  <data name="AdminNewsControl_Title" xml:space="preserve">
+    <value>Wstęp</value>
+  </data>
+  <data name="AdminNewsletterControl_Content" xml:space="preserve">
+    <value>Treść</value>
+  </data>
+  <data name="AdminNewsletterControl_Date" xml:space="preserve">
+    <value>Data</value>
+  </data>
+  <data name="AdminNewsletterControl_Roles" xml:space="preserve">
+    <value>Rola</value>
+  </data>
+  <data name="AdminNewsletterControl_Subject" xml:space="preserve">
+    <value>Przedmiot</value>
+  </data>
+  <data name="AdminNewsletterListControl_ColumnDate" xml:space="preserve">
+    <value>Data</value>
+  </data>
+  <data name="AdminNewsletterListControl_ColumnSendDate" xml:space="preserve">
+    <value>Data wysłania</value>
+  </data>
+  <data name="AdminNewsletterListControl_ColumnSubject" xml:space="preserve">
+    <value>Przedmiot</value>
+  </data>
+  <data name="AdminNewsletterListControl_NewNewsletter" xml:space="preserve">
+    <value>Nowy biuletyn</value>
+  </data>
+  <data name="AdminNewsListControl_ColumnDate" xml:space="preserve">
+    <value>Data</value>
+  </data>
+  <data name="AdminNewsListControl_ColumnTitle" xml:space="preserve">
+    <value>Wstęp</value>
+  </data>
+  <data name="AdminNewsListControl_NewNews" xml:space="preserve">
+    <value>Nowa nowość</value>
+  </data>
+  <data name="AdminOptionControl_Name" xml:space="preserve">
+    <value>Nazwa</value>
+  </data>
+  <data name="AdminOptionControl_Order" xml:space="preserve">
+    <value>Kolejność</value>
+  </data>
+  <data name="AdminOptionsControl_ColumnName" xml:space="preserve">
+    <value>Nazwa</value>
+  </data>
+  <data name="AdminOptionsControl_ColumnOrder" xml:space="preserve">
+    <value>Kolejność</value>
+  </data>
+  <data name="AdminOptionsControl_NewOption" xml:space="preserve">
+    <value>Nowa możliwość</value>
+  </data>
+  <data name="AdminOptionsControl_Poll" xml:space="preserve">
+    <value>Ankieta</value>
+  </data>
+  <data name="AdminOptionsControl_Title" xml:space="preserve">
+    <value>Administracja nowej ankiety</value>
+  </data>
+  <data name="AdminPageControl_LabelMasterPage" xml:space="preserve">
+    <value>Szablon</value>
+  </data>
+  <data name="AdminPageControl_LabelName" xml:space="preserve">
+    <value>Nazwa</value>
+  </data>
+  <data name="AdminPageControl_LabelRole" xml:space="preserve">
+    <value>Rola</value>
+  </data>
+  <data name="AdminPageControl_LabelTitle" xml:space="preserve">
+    <value>Tytuł</value>
+  </data>
+  <data name="AdminPagesControl_ColumnName" xml:space="preserve">
+    <value>Nazwa</value>
+  </data>
+  <data name="AdminPagesControl_ColumnRole" xml:space="preserve">
+    <value>Rola</value>
+  </data>
+  <data name="AdminPagesControl_ColumnTitle" xml:space="preserve">
+    <value>Tytuł</value>
+  </data>
+  <data name="AdminPagesControl_NewPageButton_Text" xml:space="preserve">
+    <value>Nowa strona</value>
+  </data>
+  <data name="AdminPaidServiceControl_CreditCost" xml:space="preserve">
+    <value>Cena usługi w kredytech</value>
+  </data>
+  <data name="AdminPaidServiceControl_Name" xml:space="preserve">
+    <value>Nazwa</value>
+  </data>
+  <data name="AdminPaidServicesControl_ColumnCreditCost" xml:space="preserve">
+    <value>Cena usługi w kredytech</value>
+  </data>
+  <data name="AdminPaidServicesControl_ColumnName" xml:space="preserve">
+    <value>Nazwa</value>
+  </data>
+  <data name="AdminPaidServicesControl_ColumnNotes" xml:space="preserve">
+    <value>Opis</value>
+  </data>
+  <data name="AdminPollControl_DateFrom" xml:space="preserve">
+    <value>Data od</value>
+  </data>
+  <data name="AdminPollControl_DateTo" xml:space="preserve">
+    <value>Data do</value>
+  </data>
+  <data name="AdminPollControl_Question" xml:space="preserve">
+    <value>Zapytanie</value>
+  </data>
+  <data name="AdminPollsControl_ColumnClosed" xml:space="preserve">
+    <value>Zakończono</value>
+  </data>
+  <data name="AdminPollsControl_ColumnClosePoll" xml:space="preserve">
+    <value>Zakończyć ankietę</value>
+  </data>
+  <data name="AdminPollsControl_ColumnDateFrom" xml:space="preserve">
+    <value>Data od</value>
+  </data>
+  <data name="AdminPollsControl_ColumnDateTo" xml:space="preserve">
+    <value>Data do</value>
+  </data>
+  <data name="AdminPollsControl_ColumnPollOptions" xml:space="preserve">
+    <value>Możliwości ankiety</value>
+  </data>
+  <data name="AdminPollsControl_ColumnQuestion" xml:space="preserve">
+    <value>Zapytanie</value>
+  </data>
+  <data name="AdminPollsControl_ColumnShowPollResult" xml:space="preserve">
+    <value>Wyobrazić wynik ankiety</value>
+  </data>
+  <data name="AdminPollsControl_NewPoll" xml:space="preserve">
+    <value>Nowa ankieta</value>
+  </data>
+  <data name="AdminPollsControl_Title" xml:space="preserve">
+    <value>Administracja ankiet</value>
+  </data>
+  <data name="AdminTagControl_LabelName" xml:space="preserve">
+    <value>Nazwa</value>
+  </data>
+  <data name="AdminTagsControl_ColumnName" xml:space="preserve">
+    <value>Nazwa</value>
+  </data>
+  <data name="AdminTagsControl_NewTagButton_Text" xml:space="preserve">
+    <value>Nowy tag</value>
+  </data>
+  <data name="ArchivedArticlesControl_Categories" xml:space="preserve">
+    <value>Kategoria</value>
+  </data>
+  <data name="ArchivedPollsControl_Title" xml:space="preserve">
+    <value>Archiwum ankiety</value>
+  </data>
+  <data name="ArticleCommentsControl_Reply" xml:space="preserve">
+    <value>Reagować</value>
+  </data>
+  <data name="ArticleControl_ArticleArchivLink" xml:space="preserve">
+    <value>Archiwum artykułów</value>
+  </data>
+  <data name="ArticleControl_CommentsCount" xml:space="preserve">
+    <value>Komentarze</value>
+  </data>
+  <data name="ArticleControl_ViewCount" xml:space="preserve">
+    <value>Odczytany</value>
+  </data>
+  <data name="BankContactControl_AccountNumber" xml:space="preserve">
+    <value>Numer konta</value>
+  </data>
+  <data name="BankContactControl_BankCode" xml:space="preserve">
+    <value>Kod banku</value>
+  </data>
+  <data name="BankContactControl_BankName" xml:space="preserve">
+    <value>Nazwa banku</value>
+  </data>
+  <data name="BankContactControl_IBAN" xml:space="preserve">
+    <value>IBAN</value>
+  </data>
+  <data name="BankContactControl_SWIFT" xml:space="preserve">
+    <value>SWIFT</value>
+  </data>
+  <data name="BlogCommentsControl_Reply" xml:space="preserve">
+    <value>Reagować</value>
+  </data>
+  <data name="BlogControl_BlogArchivLink" xml:space="preserve">
+    <value>Archiwum blogów</value>
+  </data>
+  <data name="BlogControl_CommentsCount" xml:space="preserve">
+    <value>Komentarze</value>
+  </data>
+  <data name="BlogControl_UserBlogs" xml:space="preserve">
+    <value>Blogi użytkownika</value>
+  </data>
+  <data name="BlogControl_ViewCount" xml:space="preserve">
+    <value>Odczytany</value>
+  </data>
+  <data name="CancelButton_Text" xml:space="preserve">
+    <value>Usunąć</value>
+  </data>
+  <data name="CommentControl_Content" xml:space="preserve">
+    <value>Tekst wkładki</value>
+  </data>
+  <data name="CommentControl_NewComment" xml:space="preserve">
+    <value>Nowy komentarz</value>
+  </data>
+  <data name="CommentControl_SendCommentButton_Text" xml:space="preserve">
+    <value>Inny wkład</value>
+  </data>
+  <data name="CommentControl_Title" xml:space="preserve">
+    <value>Nagłówek</value>
+  </data>
+  <data name="ContactFormControl_Email" xml:space="preserve">
+    <value>Twój emial</value>
+  </data>
+  <data name="ContactFormControl_Message" xml:space="preserve">
+    <value>Wiadomość</value>
+  </data>
+  <data name="ContactFormControl_Name" xml:space="preserve">
+    <value>Twoje nazwisko</value>
+  </data>
+  <data name="ContactFormControl_Phone" xml:space="preserve">
+    <value>Twój telefon</value>
+  </data>
+  <data name="ContactFormControl_SendErrorMessage" xml:space="preserve">
+    <value>Wiadomość nie została wysłana! Prosimy powtórzyć później. </value>
+  </data>
+  <data name="ContactFormControl_SendSuccessMessage" xml:space="preserve">
+    <value>Twoja wiadomość została wysłana!</value>
+  </data>
+  <data name="ContactFormControl_Subject" xml:space="preserve">
+    <value>Przedmiot</value>
+  </data>
+  <data name="DeleteItemQuestion" xml:space="preserve">
+    <value>Czy naprawdę chcesz usunąć ten zapis?</value>
+  </data>
+  <data name="GridView_ToolTip_Approve" xml:space="preserve">
+    <value>Zatwierdzić</value>
+  </data>
+  <data name="GridView_ToolTip_DeleteItem" xml:space="preserve">
+    <value>Usunąć pozycję</value>
+  </data>
+  <data name="GridView_ToolTip_EditItem" xml:space="preserve">
+    <value>Korekta</value>
+  </data>
+  <data name="GridView_ToolTip_Hide" xml:space="preserve">
+    <value>Zakazać wyobrażenie</value>
+  </data>
+  <data name="GridView_ToolTip_MoveDown" xml:space="preserve">
+    <value>Przesunąć w dół</value>
+  </data>
+  <data name="GridView_ToolTip_MoveUp" xml:space="preserve">
+    <value>Przesunąć do góry</value>
+  </data>
+  <data name="GridView_ToolTip_SendEmail" xml:space="preserve">
+    <value>Wyślij email</value>
+  </data>
+  <data name="GridView_ToolTip_Show" xml:space="preserve">
+    <value>Zezwolić wyobrażenie</value>
+  </data>
+  <data name="ImageGalleriesControl_CommentsCount" xml:space="preserve">
+    <value>Komentarze</value>
+  </data>
+  <data name="ImageGalleriesControl_Date" xml:space="preserve">
+    <value>Data</value>
+  </data>
+  <data name="ImageGalleriesControl_PhotosCount" xml:space="preserve">
+    <value>Fotografii</value>
+  </data>
+  <data name="ImageGalleriesControl_ViewCount" xml:space="preserve">
+    <value>Wyobrażone</value>
+  </data>
+  <data name="ImageGalleryCommentsControl_Reply" xml:space="preserve">
+    <value>Reagować</value>
+  </data>
+  <data name="ImageGalleryItemCommentsControl_Reply" xml:space="preserve">
+    <value>Reagować</value>
+  </data>
+  <data name="NavigationMenusControl_SubMenuToolTip" xml:space="preserve">
+    <value>Definicja podmenu</value>
+  </data>
+  <data name="NewsControl_NewsArchivLink" xml:space="preserve">
+    <value>Archiwum nowości</value>
+  </data>
+  <data name="OrganizationControl_BankContactTitle" xml:space="preserve">
+    <value>Kontakt bankowy</value>
+  </data>
+  <data name="OrganizationControl_ContactPersonTitle" xml:space="preserve">
+    <value>Osoba kontaktowa</value>
+  </data>
+  <data name="OrganizationControl_CorrespondenceAddressTitle" xml:space="preserve">
+    <value>Adres korespondencyjny</value>
+  </data>
+  <data name="OrganizationControl_EqualWithRegisteredAdress" xml:space="preserve">
+    <value>Identyczny jako siedziba</value>
+  </data>
+  <data name="OrganizationControl_Id1" xml:space="preserve">
+    <value>REGON</value>
+  </data>
+  <data name="OrganizationControl_Id2" xml:space="preserve">
+    <value>NIP</value>
+  </data>
+  <data name="OrganizationControl_Id3" xml:space="preserve">
+    <value>Id3</value>
+  </data>
+  <data name="OrganizationControl_InvoicingAddressTitle" xml:space="preserve">
+    <value>Adres do fakturowania</value>
+  </data>
+  <data name="OrganizationControl_Name" xml:space="preserve">
+    <value>Nazwa</value>
+  </data>
+  <data name="OrganizationControl_Notes" xml:space="preserve">
+    <value>Uwagi</value>
+  </data>
+  <data name="OrganizationControl_RegisteredAddressTitle" xml:space="preserve">
+    <value>Siedziba</value>
+  </data>
+  <data name="OrganizationControl_Web" xml:space="preserve">
+    <value>Strony www</value>
+  </data>
+  <data name="PersonControl_Email" xml:space="preserve">
+    <value>Email</value>
+  </data>
+  <data name="PersonControl_EqualWithHomeAdress" xml:space="preserve">
+    <value>Identyczny jak adres</value>
+  </data>
+  <data name="PersonControl_FirstName" xml:space="preserve">
+    <value>Imię</value>
+  </data>
+  <data name="PersonControl_HomeAddress" xml:space="preserve">
+    <value>Adres</value>
+  </data>
+  <data name="PersonControl_LastName" xml:space="preserve">
+    <value>Nazwisko</value>
+  </data>
+  <data name="PersonControl_Mobile" xml:space="preserve">
+    <value>Tel.komórkowy</value>
+  </data>
+  <data name="PersonControl_Notes" xml:space="preserve">
+    <value>Uwagi</value>
+  </data>
+  <data name="PersonControl_Phone" xml:space="preserve">
+    <value>Telefon</value>
+  </data>
+  <data name="PersonControl_TempAddress" xml:space="preserve">
+    <value>Adres korespondencyjny</value>
+  </data>
+  <data name="PersonControl_Title" xml:space="preserve">
+    <value>Tytuł</value>
+  </data>
+  <data name="PollControl_VoteTotal" xml:space="preserve">
+    <value>Liczba głosów razem</value>
+  </data>
+  <data name="SaveButton_Text" xml:space="preserve">
+    <value>Zapisać</value>
+  </data>
+  <data name="SendButton_Text" xml:space="preserve">
+    <value>Wysłać</value>
+  </data>
+  <data name="AdminUrlAliasControl_LabelAlias" xml:space="preserve">
+    <value>Alias</value>
+  </data>
+  <data name="AdminUrlAliasControl_LabelName" xml:space="preserve">
+    <value>Nazwa</value>
+  </data>
+  <data name="AdminUrlAliasControl_LabelUrl" xml:space="preserve">
+    <value>Url</value>
+  </data>
+  <data name="AdminUrlAliasesControl_CanNotDeleteUsedUrlAlias_Message" xml:space="preserve">
+    <value>Url, alias który jest wykorzystywany, nie można usunąć</value>
+  </data>
+  <data name="AdminUrlAliasesControl_ColumnAlias" xml:space="preserve">
+    <value>Alias</value>
+  </data>
+  <data name="AdminUrlAliasesControl_ColumnName" xml:space="preserve">
+    <value>Nazwa</value>
+  </data>
+  <data name="AdminUrlAliasesControl_ColumnUrl" xml:space="preserve">
+    <value>Url</value>
+  </data>
+  <data name="AdminUrlAliasesControl_NewUrlAliasButton_Text" xml:space="preserve">
+    <value>Nowy URL alias</value>
+  </data>
+  <data name="AdminImageGalleryControl_Date" xml:space="preserve">
+    <value>Data</value>
+  </data>
+  <data name="AdminUrlAliasesControl_AliasType" xml:space="preserve">
+    <value>Rodzaj aliasu</value>
+  </data>
+  <data name="AdminUrlAliasesControl_AliasType_All" xml:space="preserve">
+    <value>Wszystkie</value>
+  </data>
+  <data name="AdminUrlAliasesControl_AliasType_Articles" xml:space="preserve">
+    <value>Artykuły</value>
+  </data>
+  <data name="AdminUrlAliasesControl_AliasType_Blogs" xml:space="preserve">
+    <value>Blogi</value>
+  </data>
+  <data name="AdminUrlAliasesControl_AliasType_Custom" xml:space="preserve">
+    <value>Własne</value>
+  </data>
+  <data name="AdminUrlAliasesControl_AliasType_ImageGalleries" xml:space="preserve">
+    <value>Galeria obrazkowa</value>
+  </data>
+  <data name="AdminUrlAliasesControl_AliasType_News" xml:space="preserve">
+    <value>Nowości</value>
+  </data>
+  <data name="AdminUrlAliasesControl_AliasType_Pages" xml:space="preserve">
+    <value>Strony </value>
+  </data>
+  <data name="AdminPageControl_LabelUrlAlias" xml:space="preserve">
+    <value>Url alias</value>
+  </data>
+  <data name="AdminArticleControl_UrlAlias" xml:space="preserve">
+    <value>Url alias</value>
+  </data>
+  <data name="AdminImageGalleryControl_UrlAlias" xml:space="preserve">
+    <value>Url alias</value>
+  </data>
+  <data name="AdminBlogControl_UrlAlias" xml:space="preserve">
+    <value>Url alias</value>
+  </data>
+  <data name="AdminNewsControl_UrlAlias" xml:space="preserve">
+    <value>Url alias</value>
+  </data>
+  <data name="AdminUrlAliasesControl_UrlAliasExist_Message" xml:space="preserve">
+    <value>Url alias, który próbujesz utworzyć, już istnieje. Spróbuj utoworzyć inny Url alias.</value>
+  </data>
+  <data name="PageEditToolBar_EditButtonText" xml:space="preserve">
+    <value>Korekta</value>
+  </data>
+  <data name="PageEditToolBar_ManageButtonText" xml:space="preserve">
+    <value>Zarządzać</value>
+  </data>
+  <data name="PageEditToolBar_NewButtonText" xml:space="preserve">
+    <value>Nowy</value>
+  </data>
+  <data name="GridView_ToolTip_EditContent" xml:space="preserve">
+    <value>Poprawić treść</value>
+  </data>
+  <data name="SearchEngineResultControl_ResultFormatText" xml:space="preserve">
+    <value>Wyszukiwany wyraz : &lt;b&gt;'{1}'&lt;/b&gt;, odnalezione wyniki : &lt;b&gt;{0}&lt;/b&gt;</value>
+  </data>
+  <data name="Comment_AliasText" xml:space="preserve">
+    <value>Komentarze</value>
+  </data>
+  <data name="ChangePassword_Text" xml:space="preserve">
+    <value>Zmienić hasło</value>
+  </data>
+  <data name="ChangePasswordControl_ConfirmNewPassword_Label" xml:space="preserve">
+    <value>Potwierdzenie nowego hasła</value>
+  </data>
+  <data name="ChangePasswordControl_InvalidOldPasswordMessage" xml:space="preserve">
+    <value>Niewłaściwe stare hasło</value>
+  </data>
+  <data name="ChangePasswordControl_Login_Label" xml:space="preserve">
+    <value>Login (hasło)</value>
+  </data>
+  <data name="ChangePasswordControl_NewPassword_Label" xml:space="preserve">
+    <value>Nowe hasło</value>
+  </data>
+  <data name="ChangePasswordControl_OldPassword_Label" xml:space="preserve">
+    <value>Stare hasło</value>
+  </data>
+  <data name="ForgotPasswordControl_Email_ForgotPassword_Message" xml:space="preserve">
+    <value>Dzień dobry,&lt;/br&gt;&lt;/br&gt;Twoje imię do zameldowania :&lt;b&gt;{0}&lt;/b&gt;&lt;/br&gt;Twoje nowe hasło: &lt;b&gt;{1}&lt;/b&gt;&lt;/br&gt;&lt;/br&gt;Pozdrawiam&lt;/br&gt;{2}</value>
+  </data>
+  <data name="ForgotPasswordControl_Email_ForgotPassword_Subject" xml:space="preserve">
+    <value>Zapomniane hasło</value>
+  </data>
+  <data name="ForgotPasswordControl_LoginNotExists" xml:space="preserve">
+    <value>Konto nie istnieje</value>
+  </data>
+  <data name="ForgotPasswordControl_Capcha_TextBoxLabel" xml:space="preserve">
+    <value>&lt;/br&gt;Przepisać tekst z obrazku </value>
+  </data>
+  <data name="ForgotPasswordControl_Capcha_LinkButtonText" xml:space="preserve">
+    <value>Wygenerować nowy obrazek</value>
+  </data>
+  <data name="AdminRoleControl_LabelName" xml:space="preserve">
+    <value>Nazwa</value>
+  </data>
+  <data name="AdminRoleControl_LabelNotes" xml:space="preserve">
+    <value>Opis</value>
+  </data>
+  <data name="AdminRolesControl_CanNotDeleteUsedRole_Message" xml:space="preserve">
+    <value>Rolę, która jest wykorzystywana, nie można usunąć!</value>
+  </data>
+  <data name="AdminRolesControl_ColumnName" xml:space="preserve">
+    <value>Nazwa</value>
+  </data>
+  <data name="AdminRolesControl_ColumnNotes" xml:space="preserve">
+    <value>Opis</value>
+  </data>
+  <data name="AdminRolesControl_NewRoleButton_Text" xml:space="preserve">
+    <value>Nowa rola</value>
+  </data>
+  <data name="BackLink" xml:space="preserve">
+    <value>spowrotem</value>
+  </data>
+  <data name="AdminArticleControl_Icon" xml:space="preserve">
+    <value>Ikona</value>
+  </data>
+  <data name="AdminArticleControl__RemoveIcon" xml:space="preserve">
+    <value>Usunąć ikonę</value>
+  </data>
+  <data name="AdminNewsControl_Icon" xml:space="preserve">
+    <value>Ikona</value>
+  </data>
+  <data name="AdminNewsControl__RemoveIcon" xml:space="preserve">
+    <value>Usunąć ikonę</value>
+  </data>
+  <data name="AdminMenusControl_ColumnCode" xml:space="preserve">
+    <value>Kod </value>
+  </data>
+  <data name="AdminMenuControl_LabelCode" xml:space="preserve">
+    <value>Kod </value>
+  </data>
+  <data name="AdminMenusControl_MenuGroup" xml:space="preserve">
+    <value>Grupa</value>
+  </data>
+  <data name="ForgotPasswordControl_LoginOrEmail_Label" xml:space="preserve">
+    <value>Imię dla zameldowania lub email</value>
+  </data>
+  <data name="AdminMenuControl_RemoveIcon" xml:space="preserve">
+    <value>Usunąć ikonę</value>
+  </data>
+  <data name="AdminMenuControl_Icon" xml:space="preserve">
+    <value>Ikona</value>
+  </data>
+  <data name="AdminMenusControl_ColumnIcon" xml:space="preserve">
+    <value>Ikona</value>
+  </data>
+  <data name="ChangePasswordControl_Change_ButtonText" xml:space="preserve">
+    <value>Zmienić </value>
+  </data>
+  <data name="AdminImageGalleryControl_Description" xml:space="preserve">
+    <value>Opis</value>
+  </data>
+  <data name="AdminMenuControl_LabelPage" xml:space="preserve">
+    <value />
+  </data>
+  <data name="AdminMenusControl_ColumnPage" xml:space="preserve">
+    <value />
+  </data>
+  <data name="AdminNewsControl_Head" xml:space="preserve">
+    <value />
+  </data>
+  <data name="AdminNewsListControl_ColumnHead" xml:space="preserve">
+    <value />
+  </data>
+  <data name="AdminTranslationsControl_ColumnNotes" xml:space="preserve">
+    <value>Uwagi</value>
+  </data>
+  <data name="AdminTranslationsControl_ColumnTerm" xml:space="preserve">
+    <value>Wyraz</value>
+  </data>
+  <data name="AdminVocabulariesControl_ColumnName" xml:space="preserve">
+    <value>Słownik</value>
+  </data>
+  <data name="AdminVocabulariesControl_ColumnTranslation" xml:space="preserve">
+    <value>Tłumaczenie</value>
+  </data>
+  <data name="RaitingControl_RatingLabel" xml:space="preserve">
+    <value>Rating</value>
+  </data>
+  <data name="ForgotPasswordControl_Capcha_ErrorMessage" xml:space="preserve">
+    <value>Zadany kod jest niewłaściwy</value>
+  </data>
+  <data name="ForgotPasswordControl_Send_ButtonText" xml:space="preserve">
+    <value>Prześlij</value>
+  </data>
+</root>

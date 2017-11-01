@@ -1,0 +1,88 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" Inherits="EmptyMasterPage" CodeBehind="empty.master.cs" EnableTheming="true" %>
+
+<%@ Register Src="Controls/Login.ascx" TagName="Login" TagPrefix="web" %>
+<%@ Register Assembly="cms" Namespace="CMS.Controls.Menu" TagPrefix="cmsMenu" %>
+<%@ Register Assembly="cms" Namespace="CMS.Controls.Page" TagPrefix="cmsPage" %>
+<%@ Register Assembly="cms" Namespace="CMS.Controls.Translations" TagPrefix="cmsVocabulary" %>
+<%@ Register Assembly="cms" Namespace="CMS.Controls" TagPrefix="cmsCtrls" %>
+<%@ Register Assembly="Eurona" Namespace="Eurona.Controls" TagPrefix="euronaCtrls" %>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title>EURONA by CERNY</title>
+    <meta name="author" content="Mothiva s.r.o." />
+    <meta name="copyright" content="2010 (C) Mothiva s.r.o." />
+    <meta name="description" content="WebCMS"  />
+    <meta name="keywords" content="EURONA by CERNY, Eurona, CMS, Mothiva s.r.o., Mothiva" />
+    <meta name="language" content="sk" />
+    <link rel="shortcut icon" href="" />
+    <!-- RSS -->
+   <%-- <link rel="alternate" title="<%$ Resources:Strings, RSS_NewsTitle %>" href="/rss/news.ashx" type="application/rss+xml" />--%>
+    <link href="~/styles/default.css" type="text/css" rel="Stylesheet" />
+    <link href="~/styles/cms.css" type="text/css" rel="stylesheet" />
+    <link href="~/styles/ASPxDatePicker.css" type="text/css" rel="stylesheet" />
+    <link href="~/styles/ASPxMultipleFileUpload.css" rel="stylesheet" type="text/css" />
+
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+    
+</head>
+<body class="main-body">
+    <form id="form1" runat="server">
+    <%//-- Definicia ScripManagera AJAX, TELERIK %>
+    <asp:ScriptManager id="ScriptManager" runat="server"/> 
+        
+    <script src="<%=Root%>javascripts/mothiva.js" type="text/javascript"></script>
+    <script src="<%=Root%>javascripts/mothiva.ajax.js" type="text/javascript"></script>
+    <script src="<%=Root%>javascripts/mothiva.dom.js" type="text/javascript"></script>
+                     
+    <div class="page">
+        <div class="page-container">
+            <div class="page-container-overlay">
+                <div class="page-container-header">
+                    <!--[if gte IE 8]>
+                    <![endif]-->
+
+                    <!--[if lt IE 7]>
+                    <p id='tablespace'>
+                        <div style="padding:10px;background-color:white;border:3px solid red;color:red;font-weight:bold;">
+                            <asp:Literal runat="server" id="lblIEVersion" Text="<%$ Resources:Strings, BrowserVersionWarning %>"></asp:Literal>
+                        </div>
+                    </p>
+                    <![endif]-->
+                
+                   <%-- <![if !IE]>
+                    <![endif]>--%>
+                    <p runat="server" id="debugVersion" visible="false">
+                        <div style="padding:10px;background-color:white;border:3px solid red;color:red;font-weight:bold;text-align:center;">
+                            <asp:Literal runat="server" id="lblDEBUGVersion" Text="TESTOVACI VERZE"></asp:Literal>
+                        </div>
+                    </p> 
+                    <div class="logo">
+                    </div>
+                    <div class="sitemenu-container">
+                        <div class="navigation">
+                            <asp:ContentPlaceHolder ID="navigation" runat="server">
+                            </asp:ContentPlaceHolder>
+                        </div>
+                    </div>
+                    <div class="banner">
+                        <asp:ContentPlaceHolder ID="banner" runat="server">
+                        </asp:ContentPlaceHolder>
+                    </div>
+                </div>
+                <div class="content">
+                    <asp:ContentPlaceHolder ID="content" runat="server">
+                    </asp:ContentPlaceHolder>
+                </div>
+                <div class="lotos">
+                    <img id="lotosImage" src="" alt="lotos" />
+                </div>
+            </div>
+        </div>
+    </div>
+    </form>
+</body>
+</html>

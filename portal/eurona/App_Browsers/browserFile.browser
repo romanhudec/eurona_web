@@ -1,0 +1,37 @@
+﻿<!--
+    You can find existing browser definitions at
+    <windir>\Microsoft.NET\Framework\<ver>\CONFIG\Browsers
+-->
+<browsers>
+  <!--
+  <browser id="NewBrowser" parentID="Mozilla">
+    <identification>
+      <userAgent match="Unique User Agent Regular Expression" />
+    </identification>
+
+    <capture>
+      <userAgent match="NewBrowser (?'version'\d+\.\d+)" />
+    </capture>
+
+    <capabilities>
+      <capability name="browser" value="My New Browser" />
+      <capability name="version" value="${version}" />
+    </capabilities>
+  </browser>
+
+  <browser refID="Mozilla">
+    <capabilities>
+      <capability name="xml" value="true" />
+    </capabilities>
+  </browser>
+  -->
+  
+  <browser refID="Default">
+    <controlAdapters>
+      <adapter controlType="System.Web.UI.Page" adapterType="Telerik.Web.UI.RadHiddenFieldPageStateCompression" />
+      <!--Uncomment the following line to use SessionStateCompression and remove ViewState from the page-->
+      <adapter controlType="System.Web.UI.Page" adapterType="Telerik.Web.UI.RadSessionPageStateCompression" />
+      <adapter controlType="System.Web.UI.WebControls.Menu" adapterType="" />
+    </controlAdapters>
+  </browser>
+</browsers>

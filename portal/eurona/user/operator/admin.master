@@ -1,0 +1,53 @@
+﻿<%@ Master Language="C#" MasterPageFile="~/default.master" AutoEventWireup="true" Inherits="Eurona.Operator.AdminMasterPage" Codebehind="admin.master.cs" %>
+<%@ Register Assembly="cms" Namespace="CMS.Controls.Version" TagPrefix="cmsVersion" %>
+
+<asp:Content ID="Content1" ContentPlaceHolderID="head" Runat="Server">
+    <link href='<%=ResolveUrl("~/styles/operator.css") %>' type="text/css" rel="stylesheet" />
+    <link href='<%=ResolveUrl("~/styles/eshop.css") %>' type="text/css" rel="stylesheet" />
+    <style type="text/css">
+        .navigation-links{display:none;}
+        .admin-right-content{background-image:url('../../images/roundPanelEx/bg-1px.png'); background-repeat:repeat;}
+    </style>
+</asp:Content>
+<asp:Content ID="Content2" ContentPlaceHolderID="banner" Runat="Server">
+    <div style="display:inline; float:right;">
+        <cmsVersion:VersionInfoControl ID="VersionInfoControl1" runat="server"></cmsVersion:VersionInfoControl>
+    </div>
+</asp:Content>
+<asp:Content ID="Content5" ContentPlaceHolderID="navigation" runat="server">
+    <asp:ContentPlaceHolder ID="navigation" runat="server"></asp:ContentPlaceHolder>
+</asp:Content>
+<asp:Content ID="Content4" ContentPlaceHolderID="content" Runat="Server">
+	<table width="100%">
+        <tr>
+            <td valign="top" class="sidebar-left">
+                <div class="pagemenu-header">
+                    <b><asp:Label ID="Label1" runat="server" Text="<%$ Resources:Strings, AdministrationMode_HeaderAdministration %>"></asp:Label></b>
+                </div>
+                <div class="pagemenu">
+	                <a runat="server" href="~/user/operator/default.aspx">Úvod</a>
+                </div>
+                <div class="pagemenu-header">
+                    <b><asp:Label ID="Label2" runat="server" Text="<%$ Resources:Strings, AdministrationMode_HeaderMenu %>"></asp:Label></b>
+                </div>
+	            <div class="pagemenu">
+	                <a id="A4" runat="server" href="~/user/operator/accounts.aspx"><asp:Literal ID="Literal4" runat="server" Text="<%$ Resources:Strings, AdministrationMode_Users %>"></asp:Literal></a>
+					<a id="A8" runat="server" href="~/user/operator/newsletterAccounts.aspx"><asp:Literal ID="Literal8" runat="server" Text="Příjemci tisk. a el. materiálů"></asp:Literal></a>
+                    <a id="A17" runat="server" href="~/user/operator/bkaccounts.aspx"><asp:Literal ID="Literal17" runat="server" Text="BK Uživatelé"></asp:Literal></a>
+					<a id="A6" runat="server" href="~/user/operator/anonymousNAssignedAccounts.aspx"><asp:Literal ID="Literal6" runat="server" Text="Nezařazení nováčci ve VIP"></asp:Literal></a>
+					<a runat="server" href='~/user/operator/anonymousAssign.aspx'> <asp:Literal runat="server" Text="Potvrzení přijetí nováčků"></asp:Literal></a>
+					<a id="A7" runat="server" href="~/user/operator/loggedAccounts.aspx"><asp:Literal ID="Literal7" runat="server" Text="Právě přihlášení poradci"></asp:Literal></a>
+                   <%-- <a id="A5" runat="server" href="~/user/operator/_checkAccounts.aspx"><asp:Literal ID="Literal5" runat="server" Text="Kontrola uživatelských účtů"></asp:Literal></a>--%>
+                    <a id="A1" runat="server" href="~/user/operator/orders.aspx"><asp:Literal ID="Literal1" runat="server" Text="<%$ Resources:EShopStrings, AdministrationMode_Orders %>"></asp:Literal></a>
+                    <a id="A2" runat="server" href="~/user/operator/myorders.aspx"><asp:Literal ID="Literal2" runat="server" Text="Sdružování objednávek"></asp:Literal></a>
+                    <a id="A3" runat="server" href="~/user/operator/cart.aspx"><asp:Literal ID="Literal3" runat="server" Text="Vytvořit objednávku"></asp:Literal></a>
+                    <a id="A5" runat="server" href="~/user/operator/products.aspx"><asp:Literal ID="Literal5" runat="server" Text="Komentáře produktů"></asp:Literal></a>
+	            </div>
+            </td>
+            <td valign="top" class="admin-right-content">
+	            <asp:ContentPlaceHolder runat="server" ID="content"></asp:ContentPlaceHolder>
+            </td>
+        </tr>
+    </table>
+</asp:Content>
+

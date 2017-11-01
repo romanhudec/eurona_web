@@ -1,0 +1,18 @@
+﻿User-agent: *
+Disallow: /WebResource.axd
+# Directories
+Disallow: /rss/
+Disallow: /user/
+Disallow: /admin/
+Disallow: /ajax/
+Disallow: /user/
+Disallow: /scripts/
+Disallow: /userfiles/
+Disallow: /styles/
+
+Disallow: /login.aspx/
+
+# Paths (no clean URLs)
+Disallow: /?q=id/
+
+

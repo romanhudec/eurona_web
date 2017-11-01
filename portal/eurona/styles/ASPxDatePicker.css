@@ -1,0 +1,55 @@
+
+.ASPxDatePicker{
+	border-style:solid;
+	border-width:1px;
+	border-color:#ccccff;
+	z-index:99;
+}
+
+.calendarImage{
+	cursor:pointer;
+}
+.ASPxDatePicker .header{
+		
+	border-bottom-style:solid;
+	border-width:1px;
+	border-bottom-color:#ccccff;
+	background-color:#ecf5ff;
+}
+.ASPxDatePicker .headerItem{
+	font-weight:bold;
+}
+.ASPxDatePicker .headerItemHover{
+	font-weight:bold;
+	color:#9999cc;
+}
+
+.ASPxDatePicker .prevButton{
+}
+
+.ASPxDatePicker .nextButton{
+}
+.ASPxDatePicker .closeButton{
+}
+.ASPxDatePicker .daysInWeek{
+	border-bottom-style:solid;
+	border-width:1px;
+	border-bottom-color:#ccccff;
+	background-color:#ecf5ff;
+	font-weight:normal;
+}
+.ASPxDatePicker .weekendItem{
+	color:red;
+}
+.ASPxDatePicker .item{
+	background-color:white;
+	padding: 2px 0px 2px 0px;
+}
+
+.ASPxDatePicker .moreYearsItem{
+	background-color:white;
+	padding: 4px 0px 4px 0px;
+}
+.ASPxDatePicker .selectedItem{
+	background-color:#ccccff;
+}

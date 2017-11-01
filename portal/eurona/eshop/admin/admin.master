@@ -1,0 +1,50 @@
+﻿<%@ Master Language="C#" MasterPageFile="~/default.master" AutoEventWireup="true" Inherits="Eurona.EShop.Admin.AdminMasterPage" Codebehind="admin.master.cs" %>
+<%@ Register Assembly="cms" Namespace="CMS.Controls.Version" TagPrefix="cmsVersion" %>
+
+<asp:Content ID="Content1" ContentPlaceHolderID="head" Runat="Server">
+    <link href='<%=ResolveUrl("~/styles/admin.css") %>' type="text/css" rel="stylesheet" />
+</asp:Content>
+<asp:Content ID="Content2" ContentPlaceHolderID="banner" Runat="Server">
+    <div style="display:inline; float:right;">
+        <cmsVersion:VersionInfoControl ID="VersionInfoControl1" runat="server"></cmsVersion:VersionInfoControl>
+    </div>
+</asp:Content>
+<asp:Content ID="Content3" ContentPlaceHolderID="content" Runat="Server">
+	<table width="100%">
+        <tr>
+            <td valign="top" class="sidebar-left">
+	            <div class="pagemenu">
+                    <div class="pagemenu-header">
+                        <b><asp:Label ID="Label1" runat="server" Text="<%$ Resources:EShopStrings, AdministrationMode_HeaderAdministration %>"></asp:Label></b>
+                    </div>
+                    <div class="pagemenu">
+	                    <a id="A1" runat="server" href="~/default.aspx">Úvod</a>
+	                    <a id="A2" runat="server" href="~/admin/default.aspx">Administrace</a>
+                    </div>
+                    <div class="pagemenu-header">
+                        <b><asp:Label ID="Label2" runat="server" Text="<%$ Resources:Strings, AdministrationMode_HeaderMenu %>"></asp:Label></b>
+                    </div>
+                    <a runat="server" href="~/eshop/admin/uzavierka.aspx"><asp:Literal ID="Literal1" runat="server" Text="Uzávěrka"></asp:Literal></a>
+                    <a runat="server" href="~/eshop/admin/categories.aspx"><asp:Literal runat="server" Text="<%$ Resources:EShopStrings, AdministrationMode_Categories %>"></asp:Literal></a>
+                    <a runat="server" href="~/eshop/admin/products.aspx"><asp:Literal runat="server" Text="<%$ Resources:EShopStrings, AdministrationMode_Products %>"></asp:Literal></a>
+                    <a runat="server" href="~/eshop/admin/orders.aspx"><asp:Literal runat="server" Text="<%$ Resources:EShopStrings, AdministrationMode_Orders %>"></asp:Literal></a>
+                    <a runat="server" href="~/eshop/admin/urlAliases.aspx"><asp:Literal runat="server" Text="<%$ Resources:EShopStrings, AdministrationMode_UrlAliases %>"></asp:Literal></a>
+                    <a runat="server" href="~/eshop/admin/classifiers.aspx"><asp:Literal runat="server" Text="<%$ Resources:EShopStrings, AdministrationMode_Classifiers %>"></asp:Literal></a>
+                    <a runat="server" href="~/eshop/admin/nastaveniObjednavky.aspx"><asp:Literal ID="Literal2" runat="server" Text="Nastavení objednávky"></asp:Literal></a>
+                    <div class="pagemenu-header">
+                        <b><asp:Label ID="Label3" runat="server" Text="Reporty"></asp:Label></b>
+                    </div>
+                    <a runat="server" href="~/eshop/admin/reporty/odeslaneDatoveListy.aspx"><asp:Literal ID="Literal3" runat="server" Text="Odeslané datové listy"></asp:Literal></a>
+	            </div>
+            </td>
+            <td valign="top">
+	            <asp:ContentPlaceHolder runat="server" ID="content"></asp:ContentPlaceHolder>
+            </td>
+        </tr>
+    </table>
+</asp:Content>
+<asp:Content ID="navigation" ContentPlaceHolderID="navigation" runat="server">
+    <asp:ContentPlaceHolder ID="navigation" runat="server"></asp:ContentPlaceHolder>
+</asp:Content>
+
+

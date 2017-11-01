@@ -1,0 +1,64 @@
+﻿<%@ Master Language="C#" MasterPageFile="~/default.master" AutoEventWireup="true" Inherits="Eurona.PageMasterPage" Codebehind="page.master.cs" %>
+
+<%@ Register Assembly="cms" Namespace="CMS.Controls.Menu" TagPrefix="cmsMenu" %>
+<%@ Register Assembly="cms" Namespace="CMS.Controls.News" TagPrefix="cmsNews" %>
+<%@ Register Assembly="cms" Namespace="CMS.Controls.Article" TagPrefix="cmsArticle" %>
+<%@ Register Assembly="cms" Namespace="CMS.Controls.Poll" TagPrefix="cmsPoll" %>
+<%@ Register Assembly="cms" Namespace="CMS.Controls" TagPrefix="cms" %>
+<%@ Register Assembly="shp" Namespace="SHP.Controls.Category" TagPrefix="shpCategory" %>
+<%@ Register Assembly="shp" Namespace="SHP.Controls.Cart" TagPrefix="shpCart" %>
+<%@ Register src="eshop/CartInfoControl.ascx" tagname="CartInfoControl" tagprefix="uc1" %>
+
+
+<asp:Content ID="Content1" ContentPlaceHolderID="head" runat="Server">
+    <link href='<%=ResolveUrl("~/styles/eshop.css") %>' type="text/css" rel="stylesheet" />
+    <asp:ContentPlaceHolder ID="head" runat="server"></asp:ContentPlaceHolder>
+</asp:Content>
+<asp:Content ID="_banner" ContentPlaceHolderID="banner" runat="Server">
+    <asp:ContentPlaceHolder ID="banner" runat="server"></asp:ContentPlaceHolder>
+</asp:Content>
+<asp:Content ID="_navigation" ContentPlaceHolderID="navigation" runat="server">
+    <asp:ContentPlaceHolder ID="navigation" runat="server"></asp:ContentPlaceHolder>
+</asp:Content> 
+<asp:Content ID="Content3" ContentPlaceHolderID="loginContent" Runat="Server">
+	<div>
+		<table border="0" cellpadding="0" cellspacing="0">
+			<tr>
+				<td valign="top">
+					<asp:ContentPlaceHolder ID="loginContent" runat="server"></asp:ContentPlaceHolder>
+				</td>
+				<td valign="top">
+					<div style="width:1px;height:30px;background-color:#fff;"></div>
+				</td>
+				<td valign="top" runat="server" id="trAkcniNabidky">
+					<div class="category-sitemenu-container" style="padding-left:10px!important;padding-right:10px!important;">
+						<a runat="server" id="lblAkcniNabidky" href="~/eshop/pageFB.aspx?name=eshop-action-products" runat="server" style="font-weight:bold;line-height:30px;color:#FFD800;text-decoration:none;padding-left:10px!important;padding-right:10px!important;text-transform:none!important;"><asp:Literal ID="Literal1" runat="server" Text="<%$ Resources:EShopStrings, Navigation_MenuItem_ActionProducts %>"></asp:Literal></a>
+					</div>
+				</td>
+				<td valign="top">
+					<div style="width:1px;height:30px;background-color:#fff;"></div>
+				</td>
+				<td valign="top" runat="server" id="trNovinky">
+					<div class="category-sitemenu-container" style="padding-left:10px!important;padding-right:10px!important;background-color:#FFD800!important;">
+                        <a runat="server" id="lblNovinky" href="~/eshop/novinky" runat="server" style="font-weight:bold;line-height:30px;color:#FFD800;text-decoration:none;padding-left:10px!important;padding-right:10px!important;text-transform:none!important;"><asp:Literal ID="Literal2" runat="server" Text="<%$ Resources:EShopStrings, Navigation_MenuItem_NewProducts %>"></asp:Literal></a>
+					</div>
+				</td>
+				<td valign="top" runat="server" id="trVanoce" visible="false">
+					<div class="category-sitemenu-container_" style="padding-left:10px!important;padding-right:10px!important;background-color:#FFD800!important;">                   
+						<a runat="server" id="lblVanoce2014" href="~/eshop/vanoce2014!" runat="server" style="font-weight:bold;line-height:30px;color:#FF0000;text-decoration:none;padding-left:10px!important;padding-right:10px!important;text-transform:none!important;"><asp:Literal ID="Literal3" runat="server" Text="<%$ Resources:EShopStrings, Vanoce %>"></asp:Literal></a>
+					</div>
+				</td>
+				<td valign="top">
+					<uc1:CartInfoControl ID="cartInfoControl" runat="server" />
+				</td>
+			</tr>
+		</table>
+    </div>
+</asp:Content>
+<asp:Content ID="_content" ContentPlaceHolderID="content" runat="server">
+     <div class="pagemenu-container">
+        <cmsMenu:NavigationMenuControl runat="server" ID="pagemenu" Code="page-menu" RemoveLastSeparator="true" CssClass="sitemenu2" MenuItemSeparatorImageUrl="~/images/main-menu-item-separator.png">
+        </cmsMenu:NavigationMenuControl>
+    </div>
+	<asp:ContentPlaceHolder ID="content" runat="server"></asp:ContentPlaceHolder>
+</asp:Content>

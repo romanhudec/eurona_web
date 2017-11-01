@@ -1,0 +1,221 @@
+﻿.logo{}
+.content{padding:5px;}
+.contentEditorToolbar_item a{ background-image:none!important;}
+.page-container-header{padding-bottom:0px!important;}
+.page-container-overlay{background-image:none;background-color:transparent;}
+.button
+{
+	height:24px;
+	line-height:24px;
+	padding:0px 10px 0px 10px;
+	border: 0px none #fff!important;
+	background-color:#fff!important;
+	background-image:url(../images/anonymous-button-bg.png)!important;
+	color: #FFFFFF;
+	cursor:pointer;
+	display:inline-block;
+	text-decoration:none;
+}
+.button:hover{color:#FFFFFF;}
+
+.add-button-150
+{
+	height:24px;
+	line-height:24px;
+	padding:0px 10px 0px 25px;
+	border: 0px none #fff!important;
+	background-color:#fff!important;
+	background-image:url(../images/anonymous-button-add-bg.png)!important;
+	background-repeat:no-repeat;
+	color: #FFFFFF;
+	cursor:pointer;
+	display:inline-block;
+	text-decoration:none;
+}
+.add-button-150:hover{color:#FFFFFF;}
+/*-------------------------------------------------------------------------------------------------------
+/*TWEET CSS STYLES*/
+/*-------------------------------------------------------------------------------------------------------*/
+.twitter-bar{width:1004px!important;height:33px;display:block;margin:10px 10px 0px 10px!important;background-image:url(../images/twitter-anonymous.png)!important;background-repeat:no-repeat;}
+.twitter-bar .tweet{margin-left:45px!important;padding-top:15px;width:930px!important;}
+.twitter-bar .tweet span{Font-size:14px;color:#eb0a5b;}
+/*-------------------------------------------------------------------------------------------------------
+/*ADVISOR HEADER CONTAINER CSS STYLES*/
+/*-------------------------------------------------------------------------------------------------------*/
+.anonymous_content{background-image: url(../images/roundPanelEx/bg2-1px.png);margin:5px;padding:5px;}
+.content_header{height:36px; border: 1px solid #36AFE2;background-image: url(../images/anonymous-contentheader-bg.png); text-align:center;}
+.content_header .title {font-size:16px; font-weight:bold; line-height:36px; color:#317CB4;text-transform:uppercase;}
+.content_content{height:100%;}
+
+.content-separator{width:100%;height:15px;background-color:#0087C7;margin:5px 0px 5px 0px;}
+/*-------------------------------------------------------------------------------------------------------
+/*CartProductQuantityItemTemplate CSS STYLES*/
+/*-------------------------------------------------------------------------------------------------------*/
+.cpQuantityItemTemplate{ width:55px;}
+.cpQuantityItemTemplate td { white-space:nowrap;}
+.cpQuantityItemTemplate .quantity{ width:30px; text-align:center;}
+.cpQuantityItemTemplate .refresh{ vertical-align:middle; padding-left:3px;}
+
+/*-------------------------------------------------------------------------------------------------------
+/*CATEGORY SITE MENU (horizontal) CSS STYLES*/
+/*-------------------------------------------------------------------------------------------------------*/
+.category_sitemenu_subMenu {width:740px!important;}
+/*-------------------------------------------------------------------------------------------------------
+/*PRODUCTS CONTROL CSS STYLES*/
+/*-------------------------------------------------------------------------------------------------------*/
+
+.products{width:100%; vertical-align:middle;}
+.products .product-pager-right, .products .product-pager-left{width:20px;height:306px;}
+.products .product-pager-left{background-image:url(../images/products-pagger-left-bg.png);background-repeat:no-repeat}
+.products .product-pager-right{background-image:url(../images/products-pagger-right-bg.png);background-repeat:no-repeat}
+
+.products_resultMessage{ display:inline-block; width:100%; text-align:center; font-weight:bold; padding-top:10px; margin-top:10px;}
+.products_list{}
+.products_dataPager{}
+
+.products_item_image {width:80px; padding:5px;}
+.products_item_priceContainer{ width:40%;}
+.products_item_labelOlPrice{ width:100px; color:#FF0000; text-decoration:line-through; padding-right:10px;}
+.products_item_labelPrice{ font-weight:bold; font-size:10px;}
+.products_item_buttonAddCart{ vertical-align:bottom; width:16px; background-color:Transparent!important; height:16px!important; background-image:url(../images/cart.png);border: none 0px #fff!important;}
+.products_item_labelAvailability{color:#25368E;}
+.products_item_labelQuantity{}
+.products_item_inputQuantity{ height:16px!important; line-height:16px!important;width:25px;margin-right:5px!important; }
+/*products_item (round panel) CSS STYLES*/
+
+.products_item{ width:100%; margin-bottom:5px;}
+.products_item_main{ table-layout:fixed; width:100%; height:100%; border: solid 1px #D6D6D6;}
+.products_item_content table { background-color:Transparent; vertical-align:top ;border: none 0px #000;}
+.products_item_topLeft{width:8px;height:8px;}
+.products_item_top{}
+.products_item_topRight{width:8px;height:8px;}	
+.products_item_topLeftHead{width:8px;height:8px;background-color:#E8E8E8;}
+.products_item_topRightHead{width:8px;height:8px;background-color:#E8E8E8;}
+.products_item_headFill{ text-align:left;
+	background-color:#E8E8E8;
+	color:#191f2f;
+	font-weight:bold;
+	text-transform: uppercase;
+	height:10px;
+	white-space:nowrap;
+}
+.products_item_headNoFill{text-align:left;color:#191f2f;height:15px;}
+.products_item_headFillLeft{background-color:#E8E8E8;height:10px;}
+.products_item_headFillRight{background-color:#E8E8E8;height:10px;}
+.products_item_headNoFillLeft{}
+.products_item_headNoFillRight{}
+.products_item_left{width:8px;}
+.products_item_content{}
+.products_item_right{width:8px;}
+.products_item_bottomLeft{width:8px;height:8px;}
+.products_item_bottom{height:8px;}
+.products_item_bottomRight{width:8px;height:8px;}
+
+/*-------------------------------------------------------------------------------------------------------
+/*PRODUCT CONTROL CSS STYLES*/
+/*-------------------------------------------------------------------------------------------------------*/
+.product{margin:10px;}
+.product_imageGallery{ border: solid 1px #d0d0d0; padding:10px;}
+.product_infoHeader{ width:100%; background-color:#C1C1C1;}
+.product_infoHeader td{ padding:3px;}
+.product_infoHeader_label{ font-size:10px; text-align:left;}
+.product_infoHeader_value{ font-weight:bold; font-size:12px; text-align:left;}
+.product_infoHeader_cart{ border-top: solid 1px #A1A1A1;}
+.product_infoHeader_cart_buttonAddCart{ vertical-align:bottom; width:16px; background-color:Transparent!important; height:16px!important; background-image:url(../images/cart.png);border: none 0px #fff!important;}
+.product_infoHeader_cart_labelQuantity{}
+.product_infoHeader_cart_inputQuantity{ height:16px!important; line-height:16px!important;width:25px;margin-right:5px!important; vertical-align:middle; }
+.product_labelDescription{padding:5px;}
+
+.product_comment {text-decoration:none;}
+.product_viewCount {}
+.product_carma div{ background-color:#F0F0F0; width:150px;}
+/*-------------------------------------------------------------------------------------------------------
+/*NEWS ROTATOR*/
+/*-------------------------------------------------------------------------------------------------------*/
+.newsRotator{border: 1px solid #36AFE2;vertical-align:middle!important; height:260px;width:683px;padding:5px;background-image: url(../images/rotator-bg.png);}
+.newsRotator .container{display:block; margin:auto; height:225px;padding-top:15px;}
+.newsRotator .outerWrapper
+{
+    display:block;
+    /*border: solid 1px #dff3ff;*/
+    padding:5px;
+    margin:5px;
+    width:180px;
+    height:200px;
+}
+
+.newsRotator .rrClipRegion{border: none 0px #fff!important;}
+.newsRotator .rrRelativeWrapper{margin-left:5px;padding-left:5px;margin-right:5px;padding-right:5px;}
+.newsRotator .rrButton{background-image:none!important; width:21px!important;height:22px!important;}
+.newsRotator .rrButton.rrButtonDisabled
+{
+	filter: alpha(opacity=10)!important;
+	opacity: .1!important;
+	-moz-opacity: .1!important;
+}
+.newsRotator .rrButtonLeft, .newsRotator .rrButton.rrButtonLeft:hover{background-position: 0px 0px!Important;left:-20px!important;}
+.newsRotator .rrButtonRight, .newsRotator .rrButton.rrButtonRight:hover{ background-position: 0px 0px!Important;}
+
+.newsRotator .rrButtonLeft{background-image:url(../images/rrButtonLeft.png)!Important;}
+.newsRotator .rrButtonRight{background-image:url(../images/rrButtonRight.png)!Important;}
+/*-------------------------------------------------------------------------------------------------------
+/*ADVISOR DESKTOP*/
+/*-------------------------------------------------------------------------------------------------------*/
+.advisor-desktop{}
+.advisor-desktop .item{border: 1px solid #36AFE2;background-image: url(../../images/roundPanelEx/bg-1px.png); width:200px; height:120px;}
+.advisor-desktop .item-navigation-container{border:0px none #fff;text-decoration:none;}
+.advisor-desktop img{border:0px none #fff;}
+
+.advisor-desktop .item-header, .advisor-desktop .item-header span{color:#317CB4; text-transform:uppercase;}
+
+
+.advisor-desktop .item-content{}
+.advisor-desktop .item-button{background-color:#9BD9FC!important; width:70px; border:1px solid #9BF0FC!important;}
+
+.advisor-desktop .item-header-blink, .advisor-desktop .item-header-blink span{color:#FF0000; text-transform:uppercase;}
+.advisor-desktop .item-blink{border: 1px solid #FF0000;background-image: url(../../images/roundPanelEx/bg-1px.png); width:200px; height:105px;}
+/*-------------------------------------------------------------------------------------------------------
+/* COUNT DOWN CSS STYLES*/
+/*-------------------------------------------------------------------------------------------------------*/
+.countDown{ height:36px; border: 1px solid #36AFE2; margin-top:10px; color:#317CB4; text-align:left;background-image: url(../images/anonymous-countdown-bg.png); line-height:36px;}
+.countDown .dnes-info{color:#317CB4 !important;font-weight:bold; padding-left:5px;}
+.countDown .uzavierka-info{color:#EA324E !important; }
+.countDown .zbyva-info{color:#EA324E !important;}
+.countDown .cas-info{font-weight:bold; color:#EA324E;text-align:right!important;}
+
+/*-------------------------------------------------------------------------------------------------------
+/* REGISTE NAVIGATION CSS STYLES*/
+/*-------------------------------------------------------------------------------------------------------*/
+.register-navigation{height:36px; margin-top:10px; margin-bottom:5px;}
+.register-navigation .first-item{width:126px;height:37px;background-image:url(../images/anonymous-register-navigation-item-first.png);}
+.register-navigation .item {width:126px;height:37px;background-image:url(../images/anonymous-register-navigation-item.png);}
+.register-navigation .last-item{width:126px;height:37px;background-image:url(../images/anonymous-register-navigation-item-last.png);}
+.register-navigation a{text-align:center;color:#fff;text-decoration:none;}
+/*-------------------------------------------------------------------------------------------------------
+/*GRID VIEW CSS STYLES*/
+/*-------------------------------------------------------------------------------------------------------*/
+.dataGrid{width: 100%;height: 100%;}
+.dataGrid .dataGrid_rowStyle{background-color: #F3F3F3;}
+.dataGrid th{padding: 2px 10px 2px 2px;}
+.dataGrid td{padding: 2px 10px 2px 2px;}
+.dataGrid .dataGrid_alternatingRowStyle{background-color: #f8f8f8;}
+.dataGrid .dataGrid_footerStyle{background-color: #0087C7;font-weight: bold;}
+.dataGrid .dataGrid_footerStyle td{color:#fff;}
+.dataGrid .dataGrid_pagerStyle{background-color: #6E6E9B;color: White;}
+.dataGrid .dataGrid_headerStyle{background-color: #0087C7;font-weight: bold;color:#fff;text-decoration: none;white-space: nowrap;}
+.dataGrid .dataGrid_headerStyle th{text-align: left;}
+.dataGrid th a{text-decoration: none;color: White;}
+.dataGrid .dataGrid_editRowStyle{background-color: #2461BF;}
+.dataGridCommand{color: #BC6A06;}
+.dataGrid_newItem
+{
+	display: inline-block;
+	padding-top: 5px;
+	padding-bottom: 5px;
+	padding-left: 20px;
+	height: 16px;
+	line-height: 16px;
+	background-image: url(../images/plus.png);
+	background-repeat: no-repeat;
+	background-position: left center;
+}

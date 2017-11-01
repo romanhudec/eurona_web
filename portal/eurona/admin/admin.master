@@ -1,0 +1,74 @@
+﻿<%@ Master Language="C#" MasterPageFile="~/default.master" AutoEventWireup="true" Inherits="Eurona.Admin.AdminMasterPage" Codebehind="admin.master.cs" %>
+<%@ Register Assembly="cms" Namespace="CMS.Controls.Version" TagPrefix="cmsVersion" %>
+
+<asp:Content ID="Content1" ContentPlaceHolderID="head" Runat="Server">
+    <link href='<%=ResolveUrl("~/styles/admin.css") %>' type="text/css" rel="stylesheet" />
+    <style type="text/css">
+        .navigation-links{display:none;}
+    </style>
+</asp:Content>
+<asp:Content ID="Content2" ContentPlaceHolderID="banner" Runat="Server">
+    <div style="display:inline; float:right;">
+        <cmsVersion:VersionInfoControl ID="VersionInfoControl1" runat="server"></cmsVersion:VersionInfoControl>
+    </div>
+</asp:Content>
+<asp:Content ID="Content5" ContentPlaceHolderID="navigation" runat="server">
+    <asp:ContentPlaceHolder ID="navigation" runat="server"></asp:ContentPlaceHolder>
+</asp:Content>
+<asp:Content ID="Content4" ContentPlaceHolderID="content" Runat="Server">
+	<table width="100%">
+        <tr>
+            <td valign="top" class="sidebar-left">
+                <div class="pagemenu-header">
+                    <b><asp:Label ID="Label1" runat="server" Text="<%$ Resources:Strings, AdministrationMode_HeaderAdministration %>"></asp:Label></b>
+                </div>
+                <div class="pagemenu">
+	                <a runat="server" href="~/default.aspx">Úvod</a>
+                </div>
+                <div class="pagemenu-header">
+                    <b><asp:Label ID="Label2" runat="server" Text="<%$ Resources:Strings, AdministrationMode_HeaderMenu %>"></asp:Label></b>
+                </div>
+	            <div class="pagemenu">
+                    <a id="A26" runat="server" href="~/admin/emails.aspx"><asp:Literal ID="Literal26" runat="server" Text="Odeslané emaily"></asp:Literal></a>    
+				<a id="A22" runat="server" href="~/admin/webErrors.aspx"><asp:Literal ID="Literal22" runat="server" Text="WEB Chyby"></asp:Literal></a>    
+	            <a id="A1" runat="server" href="~/admin/pages.aspx"><asp:Literal ID="Literal1" runat="server" Text="<%$ Resources:Strings, AdministrationMode_Pages %>"></asp:Literal></a>    
+                <a id="A25" runat="server" href="~/admin/advisorPages.aspx"><asp:Literal ID="Literal25" runat="server" Text="<%$ Resources:Strings, AdministrationMode_AdvisorPages %>"></asp:Literal></a>    
+	            <a id="A2" runat="server" href="~/admin/navigationMenus.aspx"><asp:Literal ID="Literal2" runat="server" Text="<%$ Resources:Strings, AdministrationMode_NavigationMenus %>"></asp:Literal></a>	
+	            <%--<a runat="server" href="~/admin/menus.aspx"><asp:Literal runat="server" Text="<%$ Resources:Strings, AdministrationMode_Menus %>"></asp:Literal></a>--%>
+	            <a id="A3" runat="server" href="~/admin/urlAliases.aspx"><asp:Literal ID="Literal3" runat="server" Text="<%$ Resources:Strings, AdministrationMode_UrlAliases %>"></asp:Literal></a>
+	            <a id="A4" runat="server" href="~/admin/accounts.aspx"><asp:Literal ID="Literal4" runat="server" Text="<%$ Resources:Strings, AdministrationMode_Users %>"></asp:Literal></a>
+				<a id="A20" runat="server" href="~/admin/loggedAccounts.aspx"><asp:Literal ID="Literal20" runat="server" Text="Právě přihlášení poradci"></asp:Literal></a>
+                <a id="A17" runat="server" href="~/admin/bkaccounts.aspx"><asp:Literal ID="Literal17" runat="server" Text="BK Uživatelé"></asp:Literal></a>
+	            <a id="A5" runat="server" href="~/admin/roles.aspx"><asp:Literal ID="Literal5" runat="server" Text="<%$ Resources:Strings, AdministrationMode_Roles %>"></asp:Literal></a>
+	            <a id="A6" runat="server" href="~/admin/polls.aspx"><asp:Literal ID="Literal6" runat="server" Text="<%$ Resources:Strings, AdministrationMode_Polls %>"></asp:Literal></a>
+	            <%--<a runat="server" href="~/admin/tags.aspx"><asp:Literal runat="server" Text="<%$ Resources:Strings, AdministrationMode_Tags %>"></asp:Literal></a>--%>
+	            <a id="A23" runat="server" href="~/admin/mimoradnaNabidka.aspx?ReturnUrl=/admin"><asp:Literal ID="Literal23" runat="server" Text="Mimořádná nabídka"></asp:Literal></a>
+	            <a id="A7" runat="server" href="~/admin/newsList.aspx"><asp:Literal ID="Literal7" runat="server" Text="<%$ Resources:Strings, AdministrationMode_News %>"></asp:Literal></a>
+	            <a id="A8" runat="server" href="~/admin/articles.aspx"><asp:Literal ID="Literal8" runat="server" Text="<%$ Resources:Strings, AdministrationMode_Articles %>"></asp:Literal></a>
+	            <a id="A9" runat="server" href="~/admin/imageGalleries.aspx"><asp:Literal ID="Literal9" runat="server" Text="<%$ Resources:Strings, AdministrationMode_ImageGalleries %>"></asp:Literal></a>
+	            <a id="A10" runat="server" href="~/admin/newsletterList.aspx"><asp:Literal ID="Literal10" runat="server" Text="<%$ Resources:Strings, AdministrationMode_Newsletters %>"></asp:Literal></a>
+	            <a id="A11" runat="server" href="~/admin/faqs.aspx"><asp:Literal ID="Literal11" runat="server" Text="<%$ Resources:Strings, AdministrationMode_FAQs %>"></asp:Literal></a>
+                <hr />
+                <a id="A14" runat="server" href="~/admin/forumThreads.aspx"><asp:Literal ID="Literal14" runat="server" Text="<%$ Resources:Strings, AdministrationMode_ForumThreads %>"></asp:Literal></a>
+                <a id="A15" runat="server" href="~/admin/forums.aspx"><asp:Literal ID="Literal15" runat="server" Text="<%$ Resources:Strings, AdministrationMode_Forums %>"></asp:Literal></a>
+                <hr />
+	            <a id="A12" runat="server" href="~/admin/classifiers.aspx"><asp:Literal ID="Literal12" runat="server" Text="<%$ Resources:Strings, AdministrationMode_Classifiers %>"></asp:Literal></a>
+                <hr />
+                <a id="A13" runat="server" href="~/eshop/admin/default.aspx"><asp:Literal ID="Literal13" runat="server" Text="<%$ Resources:EShopStrings, AdministrationMode_Header %>"></asp:Literal></a>
+                 <hr />
+                <a id="A16" runat="server" href="~/admin/bkdefault.aspx"><asp:Literal ID="Literal16" runat="server" Text="Bonusové kredity"></asp:Literal></a>
+                <a id="A28" runat="server" href="~/admin/singleUserCookieReports.aspx"><asp:Literal ID="Literal28" runat="server" Text="Výstupy odkazů poradců"></asp:Literal></a>
+                <a id="A19" runat="server" href="~/admin/nastaveniAnonymniRegistrace.aspx"><asp:Literal ID="Literal19" runat="server" Text="Nastavení nezařazených nováčků"></asp:Literal></a> 
+				<a id="A21" runat="server" href="~/admin/anonymniRegistraceNeprirazene.aspx"><asp:Literal ID="Literal21" runat="server" Text="Nezařazení nováčci ve VIP"></asp:Literal></a>				               
+                <a id="A18" runat="server" href="~/admin/angelTeam.aspx"><asp:Literal ID="Literal18" runat="server" Text="Nastavení Angel Team Profesional"></asp:Literal></a>
+                <a id="A24" runat="server" href="~/admin/nastaveni.aspx"><asp:Literal ID="Literal24" runat="server" Text="Nastavení (všeobecná)"></asp:Literal></a>
+                <a id="A27" runat="server" style="cursor:pointer" onclick="window.open('../getPPCFeed.ashx', '_blank');"><asp:Literal ID="Literal27" runat="server" Text="Generovat PPC Feed xml"></asp:Literal></a>
+	            </div>
+            </td>
+            <td valign="top" class="admin-right-content">
+	            <asp:ContentPlaceHolder runat="server" ID="content"></asp:ContentPlaceHolder>
+            </td>
+        </tr>
+    </table>
+</asp:Content>
+

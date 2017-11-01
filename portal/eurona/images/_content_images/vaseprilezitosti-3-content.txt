@@ -1,0 +1,19 @@
+<table width="100%" cellspacing="0" cellpadding="0">
+    <tbody>
+        <tr>
+            <td style="padding-left: 10px; width: 19px;"><img alt="" src="http://eurona.euronabycerny.com/userfiles/_content_images/sipka-modra.png" /></td>
+            <td style="width: 100%;">
+            <p style="text-align: center;"><span style="padding-right: 20px; color: #007eff; font-size: 16px;"><strong>VAŠE PØÍLEŽITOSTI 3</strong></span></p>
+            </td>
+        </tr>
+        <tr>
+            <td valign="top" style="height: 200px;" colspan="2">
+            <div style="padding-left: 5px; padding-right: 5px; color: #102f71; font-size: 14px;"><strong>Cras vel purus eros</strong></div>
+            <div style="text-align: justify; padding-left: 5px; padding-right: 5px; color: #102f71; font-size: 10px;">Duis mattis condimentum augue, in euismod justo lobortis ut. Sed dignissim est cursus elit fermentum dictum. Phasellus adipiscing eleifend aliquet. Donec viverra lorem eget massa tincidunt placerat. Praesent libero urna, consequat nec pharetra vel, iaculis pulvinar dui.</div>
+            <br />
+            <div style="padding-left: 5px; padding-right: 5px; color: #102f71; font-size: 14px;"><strong>Duis mattis condimentum augue</strong></div>
+            <div style="text-align: justify; padding-left: 5px; padding-right: 5px; color: #102f71; font-size: 10px;">Nulla nisi augue, porttitor lobortis ornare vitae, consectetur vel nulla. Donec ultrices auctor dolor sit amet cursus. Fusce condimentum tempor pretium. In placerat nisi in turpis convallis luctus. Sed sodales vehicula augue, et porttitor dolor interdum ac. Sed vel nunc eros.</div>
+            </td>
+        </tr>
+    </tbody>
+</table>

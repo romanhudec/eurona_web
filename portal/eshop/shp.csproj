@@ -1,0 +1,383 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.30729</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{67763982-4777-46A1-971C-B60CC61E5CC8}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>SHP</RootNamespace>
+    <AssemblyName>shp</AssemblyName>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <OldToolsVersion>3.5</OldToolsVersion>
+    <UpgradeBackupLocation />
+    <TargetFrameworkProfile />
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.configuration" />
+    <Reference Include="System.Core">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Extensions">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Xml.Linq">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data.DataSetExtensions">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+    <Reference Include="Telerik.Web.UI, Version=2009.3.1314.35, Culture=neutral, PublicKeyToken=121fae78165ba3d4, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\libs\Telerik\RadControls for ASP.NET AJAX Q2 2010\Bin35\Telerik.Web.UI.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Controls\AddressControl.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Controls\Attribute\AdminAttributesControl.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Controls\Attribute\AdminAttributeControl.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Controls\Attribute\AdminAttributeTypeControl.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Controls\Attribute\AttributeTypeValueControl.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Controls\Cart\CartHelper.cs" />
+    <Compile Include="Controls\Cart\CartInfoControl.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Controls\Cart\CartControl.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Controls\Category\AdminCategoriesControl.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Controls\Category\AdminCategoryControl.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Controls\Category\CategoriesControl.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Controls\Category\CategoryControl.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Controls\Category\CategoryPathControl.cs" />
+    <Compile Include="Controls\Classifiers\ClassifierControl.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Controls\Classifiers\ClassifiersControl.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Controls\Classifiers\CurrenciesControl.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Controls\Classifiers\CurrencyControl.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Controls\Classifiers\VATControl.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Controls\Classifiers\VATsControl.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Controls\Classifiers\ShipmentsControl.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Controls\Classifiers\ShipmentControl.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Controls\GridPriceColumn.cs" />
+    <Compile Include="Controls\Order\AdminOrderControl.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Controls\Order\AdminOrdersControl.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Controls\PriceField.cs" />
+    <Compile Include="Controls\CartProductQuantityItemTemplate.cs" />
+    <Compile Include="Controls\Product\AdminProductControl.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Controls\Product\AdminProductRelationControl.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Controls\Product\AdminProductsControl.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Controls\Product\AdminProductReviewsControl.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Controls\Product\AdminProductHighlightsControl.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Controls\Product\HighlightsProductsControl.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Controls\Product\ProductCommentFormControl.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Controls\Product\ProductCommentsControl.cs" />
+    <Compile Include="Controls\Product\ProductControl.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Controls\Product\ProductsControl.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Controls\Product\ProductsFilterControl.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Controls\SearchEngine\SearchEngineResultControl.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Controls\Settings\CurrencySettingsControl.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Controls\UrlAlias\AdminUrlAliasesControl.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Entities\AccountVote.cs" />
+    <Compile Include="Entities\Address.cs" />
+    <Compile Include="Entities\ProductHighlights.cs" />
+    <Compile Include="MSSQL\ProductHighlightsStorage.cs" />
+    <Compile Include="MSSQL\ProductReviewsStorage.cs" />
+    <Compile Include="Entities\ProductReviews.cs" />
+    <Compile Include="Entities\ProductRelation.cs" />
+    <Compile Include="Entities\ProductComment.cs" />
+    <Compile Include="Entities\Category.cs" />
+    <Compile Include="Entities\Attribute.cs" />
+    <Compile Include="Entities\Classifiers\Clasifiers.cs" />
+    <Compile Include="Entities\Cart.cs" />
+    <Compile Include="Entities\CartProduct.cs" />
+    <Compile Include="Entities\Order.cs" />
+    <Compile Include="Entities\ProductCategories.cs" />
+    <Compile Include="Entities\ProductValue.cs" />
+    <Compile Include="Entities\Product.cs" />
+    <Compile Include="Entities\SearchEngine.cs" />
+    <Compile Include="Entities\UrlAlias.cs" />
+    <Compile Include="MSSQL\AddressStorage.cs" />
+    <Compile Include="MSSQL\ProductRelationStorage.cs" />
+    <Compile Include="MSSQL\ProductCommentStorage.cs" />
+    <Compile Include="MSSQL\CategoryStorage.cs" />
+    <Compile Include="MSSQL\Classifiers\CurrencyStorage.cs" />
+    <Compile Include="MSSQL\Classifiers\VATStorage.cs" />
+    <Compile Include="MSSQL\Classifiers\PaymentStorage.cs" />
+    <Compile Include="MSSQL\Classifiers\ShipmentStorage.cs" />
+    <Compile Include="MSSQL\Classifiers\OrderStatusStorage.cs" />
+    <Compile Include="MSSQL\Classifiers\HighlightStorage.cs" />
+    <Compile Include="MSSQL\AttributeStorage.cs" />
+    <Compile Include="MSSQL\CartStorage.cs" />
+    <Compile Include="MSSQL\CartProductStorage.cs" />
+    <Compile Include="MSSQL\OrderStorage.cs" />
+    <Compile Include="MSSQL\ProductCategoriesStorage.cs" />
+    <Compile Include="MSSQL\ProductStorage.cs" />
+    <Compile Include="MSSQL\SearchEngineStorage.cs" />
+    <Compile Include="MSSQL\UrlAliasStorage.cs" />
+    <Compile Include="Notification.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Resources\AttributeType.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>AttributeType.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Resources\Controls.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Controls.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Storage.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Utilities\CultureUtilities.cs" />
+    <Compile Include="WebStorage.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\AttributeType.pl.resx" />
+    <EmbeddedResource Include="Resources\AttributeType.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>AttributeType.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\Controls.cs.resx">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\Controls.de.resx" />
+    <EmbeddedResource Include="Resources\Controls.pl.resx" />
+    <EmbeddedResource Include="Resources\Controls.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>Controls.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\Controls.ru.resx" />
+    <EmbeddedResource Include="Resources\Controls.sk.resx" />
+    <EmbeddedResource Include="Resources\AttributeType.cs.resx">
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\AttributeType.sk.resx">
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Scripts\pShpProductHighlightsCreate.sql" />
+    <None Include="Scripts\pShpProductHighlightsDelete.sql" />
+    <None Include="Scripts\vShpProductHighlights.sql" />
+    <None Include="Scripts\pShpProductIncrementViewCount.sql" />
+    <None Include="Scripts\pShpProductIncrementVote.sql" />
+    <None Include="Scripts\pShpProductCommentCreate.sql" />
+    <None Include="Scripts\pShpProductRelationCreate.sql" />
+    <None Include="Scripts\pShpProductRelationDelete.sql" />
+    <None Include="Scripts\pShpProductReviewsCreate.sql" />
+    <None Include="Scripts\pShpProductReviewsDelete.sql" />
+    <None Include="Scripts\vShpProductComments.sql" />
+    <None Include="Scripts\vShpCurrencies.sql" />
+    <None Include="Scripts\pShpCurrencyCreate.sql" />
+    <None Include="Scripts\pShpCurrencyDelete.sql" />
+    <None Include="Scripts\pShpCurrencyModify.sql" />
+    <None Include="Scripts\vShpProductRelations.sql" />
+    <None Include="Scripts\vShpProductReviews.sql" />
+    <None Include="Scripts\vShpVATs.sql" />
+    <None Include="Scripts\pShpVATCreate.sql" />
+    <None Include="Scripts\pShpVATDelete.sql" />
+    <None Include="Scripts\pShpVATModify.sql" />
+    <None Include="Scripts\pShpSearchProducts.sql" />
+    <None Include="Scripts\pShpAddressCreate.sql" />
+    <None Include="Scripts\pShpAddressDelete.sql" />
+    <None Include="Scripts\pShpAddressModify.sql" />
+    <None Include="Scripts\pShpOrderCreate.sql" />
+    <None Include="Scripts\pShpOrdertDelete.sql" />
+    <None Include="Scripts\pShpOrderModify.sql" />
+    <None Include="Scripts\pShpPaymentCreate.sql" />
+    <None Include="Scripts\pShpPaymentDelete.sql" />
+    <None Include="Scripts\pShpPaymentModify.sql" />
+    <None Include="Scripts\vShpAddresses.sql" />
+    <None Include="Scripts\vShpOrders.sql" />
+    <None Include="Scripts\pShpCartProductCreate.sql" />
+    <None Include="Scripts\pShpCartProductDelete.sql" />
+    <None Include="Scripts\pShpCartProductModify.sql" />
+    <None Include="Scripts\pShpCartCreate.sql" />
+    <None Include="Scripts\pShpCartDelete.sql" />
+    <None Include="Scripts\pShpCartModify.sql" />
+    <None Include="Scripts\vShpCartProducts.sql" />
+    <None Include="Scripts\vShpCarts.sql" />
+    <None Include="Scripts\vShpPayments.sql" />
+    <None Include="Scripts\vShpShipments.sql" />
+    <None Include="Scripts\pShpShipmentCreate.sql" />
+    <None Include="Scripts\pShpShipmentDelete.sql" />
+    <None Include="Scripts\pShpShipmentModify.sql" />
+    <None Include="Scripts\vShpOrderStatuses.sql" />
+    <None Include="Scripts\pShpOrderStatusCreate.sql" />
+    <None Include="Scripts\pShpOrderStatusDelete.sql" />
+    <None Include="Scripts\pShpOrderStatusModify.sql" />
+    <None Include="Scripts\pShpProductCategoriesCreate.sql" />
+    <None Include="Scripts\fAllChildCategories.sql" />
+    <None Include="Scripts\fAllInheritCategoryAttributes.sql" />
+    <None Include="Scripts\pShpAttributeCreate.sql" />
+    <None Include="Scripts\pShpAttributeDelete.sql" />
+    <None Include="Scripts\pShpAttributeModify.sql" />
+    <None Include="Scripts\pShpCategoryCreate.sql" />
+    <None Include="Scripts\pShpCategoryDelete.sql" />
+    <None Include="Scripts\pShpCategoryModify.sql" />
+    <None Include="Scripts\pShpHighlightCreate.sql" />
+    <None Include="Scripts\pShpHighlightDelete.sql" />
+    <None Include="Scripts\pShpHighlightModify.sql" />
+    <None Include="Scripts\pShpProductCreate.sql" />
+    <None Include="Scripts\pShpProductDelete.sql" />
+    <None Include="Scripts\pShpProductModify.sql" />
+    <None Include="Scripts\pShpProductValueCreate.sql" />
+    <None Include="Scripts\pShpProductValueDelete.sql" />
+    <None Include="Scripts\pShpProductValueModify.sql" />
+    <None Include="Scripts\vShpProductValues.sql" />
+    <None Include="Scripts\vShpAttributes.sql" />
+    <None Include="Scripts\vShpProducts.sql" />
+    <None Include="Scripts\vShpCategories.sql" />
+    <None Include="Scripts\dbInit.sql" />
+    <None Include="Scripts\dbRights.sql" />
+    <None Include="Scripts\dbStructClassifiers.sql" />
+    <None Include="Scripts\dbStructFunctions.sql" />
+    <None Include="Scripts\dbStructProcedures.sql" />
+    <None Include="Scripts\dbStructTabs.sql" />
+    <None Include="Scripts\dbStructTriggers.sql" />
+    <None Include="Scripts\dbStructViews.sql" />
+    <None Include="Scripts\dbUpgrade.sql" />
+    <None Include="Scripts\dbver.sql" />
+    <None Include="Scripts\vShpHighlights.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Controls\Product\VAT.js" />
+    <Content Include="Scripts\_InstanceId.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Windows.Installer.3.1">
+      <Visible>False</Visible>
+      <ProductName>Windows Installer 3.1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\cms\cms.csproj">
+      <Project>{5DBFB6C9-56AF-4025-90E2-79B58EE579A2}</Project>
+      <Name>cms</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

@@ -1,0 +1,50 @@
+﻿<%@ Master Language="C#" MasterPageFile="~/page.master" AutoEventWireup="true" Inherits="Page3ContentMasterPage" CodeBehind="page3content.master.cs" EnableTheming="true" %>
+
+<%@ Register Src="Controls/Login.ascx" TagName="Login" TagPrefix="web" %>
+<%@ Register Assembly="cms" Namespace="CMS.Controls.Menu" TagPrefix="cmsMenu" %>
+<%@ Register Assembly="cms" Namespace="CMS.Controls.Page" TagPrefix="cmsPage" %>
+<%@ Register Assembly="cms" Namespace="CMS.Controls.Translations" TagPrefix="cmsVocabulary" %>
+<%@ Register Assembly="Eurona" Namespace="Eurona.Controls" TagPrefix="shpSettings" %>
+
+<asp:Content ID="head" ContentPlaceHolderID="head" runat="Server">
+    <link href='<%=ResolveUrl("~/styles/page3contet.css") %>' type="text/css" rel="stylesheet" />
+    <asp:ContentPlaceHolder ID="head" runat="server"></asp:ContentPlaceHolder>
+</asp:Content>
+<asp:Content ID="_banner" ContentPlaceHolderID="banner" runat="Server">
+    <asp:ContentPlaceHolder ID="banner" runat="server"></asp:ContentPlaceHolder>
+</asp:Content>
+<asp:Content ID="_navigation" ContentPlaceHolderID="navigation" runat="server">
+    <asp:ContentPlaceHolder ID="navigation" runat="server"></asp:ContentPlaceHolder>
+</asp:Content> 
+<asp:Content ID="Content3" ContentPlaceHolderID="loginContent" Runat="Server">
+    <asp:ContentPlaceHolder ID="loginContent" runat="server"></asp:ContentPlaceHolder>
+</asp:Content>
+<asp:Content ID="_content" ContentPlaceHolderID="content" runat="server">
+    <table class="table3content" border="0" cellpadding="0" cellspacing="0">
+        <tr>
+            <td colspan="3" valign="top">
+                <asp:ContentPlaceHolder ID="content" runat="server"></asp:ContentPlaceHolder>
+            </td>
+        </tr>
+        <tr>
+            <td class="sidebar-container-left">
+                <div class="sidebar-left">
+                    <asp:ContentPlaceHolder ID="sidebar_left" runat="server">
+                    </asp:ContentPlaceHolder>
+                </div>
+            </td>
+            <td class="sidebar-container-center">
+                <div class="sidebar-center">
+                    <asp:ContentPlaceHolder ID="sidebar_center" runat="server">
+                    </asp:ContentPlaceHolder>
+                </div>
+            </td> 
+            <td class="sidebar-container-right">
+                <div class="sidebar-right">
+                    <asp:ContentPlaceHolder ID="sidebar_right" runat="server">
+                    </asp:ContentPlaceHolder>
+                </div>
+            </td>           
+        </tr>
+    </table>
+</asp:Content>

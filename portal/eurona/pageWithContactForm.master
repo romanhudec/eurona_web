@@ -1,0 +1,24 @@
+﻿<%@ Master Language="C#" MasterPageFile="~/page.master" AutoEventWireup="true" Inherits="Eurona.PageWithContactFormMasterPage" Codebehind="pageWithContactForm.master.cs" %>
+
+<%@ Register Assembly="cms" Namespace="CMS.Controls" TagPrefix="cms" %>
+<%@ Register assembly="cms" namespace="CMS.Controls.ContactForm" tagprefix="cmsContactForm" %>
+
+<asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
+    <asp:ContentPlaceHolder ID="head" runat="server"></asp:ContentPlaceHolder>
+</asp:Content>
+<asp:Content ID="Content2" ContentPlaceHolderID="banner" runat="server">
+    <asp:ContentPlaceHolder ID="banner" runat="server"></asp:ContentPlaceHolder>
+</asp:Content>
+<asp:Content ID="_navigation" ContentPlaceHolderID="navigation" runat="server">
+    <asp:ContentPlaceHolder ID="navigation" runat="server"></asp:ContentPlaceHolder>
+</asp:Content>
+
+<asp:Content ID="Content4" ContentPlaceHolderID="content" runat="server">
+    <asp:ContentPlaceHolder ID="content" runat="server"></asp:ContentPlaceHolder>
+    <div>
+        <cms:RoundPanel ID="RoundPanel1" runat="server" CssClass="roundPanel" Width="550px" Height="100%">
+	        <cmsContactForm:ContactFormControl ID="cfc" CssClass="contactForm" runat="server" Width="500px" Height="300px" />
+	    </cms:RoundPanel>
+	</div>
+</asp:Content>
+

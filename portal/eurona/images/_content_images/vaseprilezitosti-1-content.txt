@@ -1,0 +1,15 @@
+<table width="100%" cellspacing="0" cellpadding="0">
+    <tbody>
+        <tr>
+            <td style="padding-left: 10px; width: 19px;"><img alt="" src="http://eurona.euronabycerny.com/userfiles/_content_images/sipka-modra.png" /></td>
+            <td style="width: 100%;">
+            <p style="text-align: center;"><span style="padding-right: 20px; color: #007eff; font-size: 16px;"><strong>VAŠE PØÍLEŽITOSTI 1</strong></span></p>
+            </td>
+        </tr>
+        <tr>
+            <td valign="top" style="height: 200px;" colspan="2">
+            <div style="padding-left:5px;padding-right:5px;text-align: justify; color: #102f71; font-size: 10px;">Pellentesque sollicitudin rutrum elit, in eleifend lectus dictum ac. Proin semper convallis mauris tincidunt congue. Donec accumsan bibendum nisi, vel iaculis magna semper non. Phasellus facilisis velit id sem dictum quis vulputate leo venenatis. Ut quis arcu turpis, nec euismod lorem. Donec dignissim sem non elit tristique sed eleifend dui elementum. Proin nec turpis turpis, eu accumsan nibh. Fusce ultricies sem et ipsum vehicula tristique. Suspendisse potenti. Cras eget tincidunt metus. Nunc nec turpis quis diam dictum porttitor. Praesent orci nunc, lobortis at pharetra nec, laoreet eu magna. Donec vehicula dignissim massa quis ullamcorper. Aenean viverra feugiat metus, sit amet consequat tortor condimentum id. Nam in justo a neque pulvinar lacinia id blandit velit. Nunc blandit iaculis rhoncus. </div>
+            </td>
+        </tr>
+    </tbody>
+</table>

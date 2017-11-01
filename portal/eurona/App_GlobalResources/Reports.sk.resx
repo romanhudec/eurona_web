@@ -1,0 +1,351 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="Advisor" xml:space="preserve">
+    <value>Poradca : </value>
+  </data>
+  <data name="AktivityReportPoradce" xml:space="preserve">
+    <value>&gt; Aktivity report poradcu</value>
+  </data>
+  <data name="AktivityReportPoradce_Title" xml:space="preserve">
+    <value>Aktivity report poradcu</value>
+  </data>
+  <data name="AktualniZbyvajiciKreditProCerpani" xml:space="preserve">
+    <value>aktuálnz zostávajúci kredit pre čerpanie</value>
+  </data>
+  <data name="AktualnyNarokBonusu" xml:space="preserve">
+    <value>Aktuálný nárok bonusov</value>
+  </data>
+  <data name="BodyDoDosazeniDalsiUrovne" xml:space="preserve">
+    <value>body do dosiahnutie daľšej úrovne</value>
+  </data>
+  <data name="CeleSkupiny" xml:space="preserve">
+    <value>Celej skupiny</value>
+  </data>
+  <data name="CelkemPoradcuV1Linii" xml:space="preserve">
+    <value>celkom poradcov v 1.línii</value>
+  </data>
+  <data name="CelkemPoradcuVeSkupine" xml:space="preserve">
+    <value>celkom poradcov v skupine</value>
+  </data>
+  <data name="CelkemPoradcuVOsobniSkupine" xml:space="preserve">
+    <value>celkom poradcov v osobnej skupine</value>
+  </data>
+  <data name="Chart_PostupVKariere" xml:space="preserve">
+    <value>Postup v kariére - províznej hladiny {0}</value>
+  </data>
+  <data name="Chart_VyvojCelkoveProvize" xml:space="preserve">
+    <value>Vývoj celkovej provízie</value>
+  </data>
+  <data name="Chart_VyvojNovychRegistraciSkupiny" xml:space="preserve">
+    <value>Vývoj celkových nových registrácií skupiny {0}</value>
+  </data>
+  <data name="Chart_VyvojObratuSkupiny" xml:space="preserve">
+    <value>Vývoj obratu skupiny {0}</value>
+  </data>
+  <data name="Chart_VyvojOsobnichObjednavek" xml:space="preserve">
+    <value>Vývoj obratu osobných objednávok {0}</value>
+  </data>
+  <data name="Chart_VyvojPridelenychLeaderskychBosusu" xml:space="preserve">
+    <value>Vývoj pridelených leaderských bonusov {0}</value>
+  </data>
+  <data name="Chart_VyvojSkupinovychBodu" xml:space="preserve">
+    <value>Vývoj skupinových bodov {0}</value>
+  </data>
+  <data name="Chart_VyvojVlastnichNovychRegistraci" xml:space="preserve">
+    <value>Vývoj vlastných nových registrácií {0}</value>
+  </data>
+  <data name="DalsiUroven" xml:space="preserve">
+    <value>dalšia úroveň</value>
+  </data>
+  <data name="Datum1Obj_Column" xml:space="preserve">
+    <value>Dátum 1.obj.</value>
+  </data>
+  <data name="DatumReg_Column" xml:space="preserve">
+    <value>Dátum reg.</value>
+  </data>
+  <data name="Generovat" xml:space="preserve">
+    <value>Generovať</value>
+  </data>
+  <data name="GenerovatMujMesicniReportPDF" xml:space="preserve">
+    <value>Generovať môj mesačný report vo formáte pdf</value>
+  </data>
+  <data name="Jmeno" xml:space="preserve">
+    <value>meno</value>
+  </data>
+  <data name="JmenoSp_Column" xml:space="preserve">
+    <value>Meno sp.</value>
+  </data>
+  <data name="Jmeno_Column" xml:space="preserve">
+    <value>Meno</value>
+  </data>
+  <data name="KodPoradce" xml:space="preserve">
+    <value>kód poradcu</value>
+  </data>
+  <data name="KreditZiskanyVMesici" xml:space="preserve">
+    <value>kredit získaný v mesiaci</value>
+  </data>
+  <data name="Marze" xml:space="preserve">
+    <value>Marža</value>
+  </data>
+  <data name="MarzeNaTentoMesic" xml:space="preserve">
+    <value>marža na tento mesiac %</value>
+  </data>
+  <data name="Mesic_Column" xml:space="preserve">
+    <value>Mesiac</value>
+  </data>
+  <data name="MobilniTelefon" xml:space="preserve">
+    <value>mobilný telefón</value>
+  </data>
+  <data name="NezauctovanaProdukcevReportech" xml:space="preserve">
+    <value>&gt; Nezaúčtovaná produkcia v reportoch</value>
+  </data>
+  <data name="NezauctovanaProdukcevReportech_Title" xml:space="preserve">
+    <value>Nezaúčtovaná produkcia v reportoch</value>
+  </data>
+  <data name="NoviPoradci" xml:space="preserve">
+    <value>&gt; Noví poradcovia</value>
+  </data>
+  <data name="NoviPoradci_Title" xml:space="preserve">
+    <value>Noví poradcovia</value>
+  </data>
+  <data name="Obdobi" xml:space="preserve">
+    <value>Obdobie : </value>
+  </data>
+  <data name="ObjemProMarzi_Column" xml:space="preserve">
+    <value>objem pre maržu</value>
+  </data>
+  <data name="OsobniAktivita" xml:space="preserve">
+    <value>osobná aktivita</value>
+  </data>
+  <data name="OsobniPrehledPoradce" xml:space="preserve">
+    <value>&gt; Osobný prehľad poradcu</value>
+  </data>
+  <data name="OsobniPrehledPoradce_Title" xml:space="preserve">
+    <value>Osobný prehľad poradcu</value>
+  </data>
+  <data name="PredbeznyNarokNaMarziProPristiMesic" xml:space="preserve">
+    <value>predbežný nárok na maržu pre budúci mesiac % </value>
+  </data>
+  <data name="PrehledProdukceSkupiny" xml:space="preserve">
+    <value>&gt; Prehľad produkcie skupiny</value>
+  </data>
+  <data name="PrehledProdukceSkupiny_Title" xml:space="preserve">
+    <value>Prehľad produkcie skupiny</value>
+  </data>
+  <data name="ProcentualniHladina" xml:space="preserve">
+    <value>percentuálna hladina %</value>
+  </data>
+  <data name="ProDosazeni25MarzeZbyvaObjednat" xml:space="preserve">
+    <value>Pre dosianutie 25% marže Vám zostáva objednať výrobky v kat. cene</value>
+  </data>
+  <data name="ProDosazeni30MarzeZbyvaObjednat" xml:space="preserve">
+    <value>Pre dosiahnutie 30% marže Vám zostáva objednať výrobky v kat. cene</value>
+  </data>
+  <data name="ProvizeVAktualnimMesiciZeSkupiny" xml:space="preserve">
+    <value>provízie v aktuálom mesiaci zo skupiny</value>
+  </data>
+  <data name="ProvizeVAktualnimMesiciZVLObjemu" xml:space="preserve">
+    <value>provízie v aktuálom mesiaci z vlastného objemu</value>
+  </data>
+  <data name="ProZiskaniDalsihoEuraZbyvaObjednatZa" xml:space="preserve">
+    <value>Pre získánie ďalšieho Eura zostáva objednať za</value>
+  </data>
+  <data name="PrvniLinie" xml:space="preserve">
+    <value>Prvej línie</value>
+  </data>
+  <data name="Rok_Column" xml:space="preserve">
+    <value>Rok</value>
+  </data>
+  <data name="RozdilHl_Column" xml:space="preserve">
+    <value>Rozdiel.hl.</value>
+  </data>
+  <data name="TelefonDomu" xml:space="preserve">
+    <value>telefon domov</value>
+  </data>
+  <data name="TelefonDoPrace" xml:space="preserve">
+    <value>telefon do práce</value>
+  </data>
+  <data name="TelefonSp_Column" xml:space="preserve">
+    <value>Telefón sp.</value>
+  </data>
+  <data name="Telefon_Column" xml:space="preserve">
+    <value>Telefón</value>
+  </data>
+  <data name="VaseDiamantovaCesta" xml:space="preserve">
+    <value>VAŠA DIAMANTOVÁ CESTA</value>
+  </data>
+  <data name="VasNevycerpanyNarokNaSlevuKeKonciMinulehoMesice" xml:space="preserve">
+    <value>Váš nevyčerpaný nárok na zľavu ku konci minulého mesiaca</value>
+  </data>
+  <data name="VasNevycerpanyNarokNaSlevuNRZ" xml:space="preserve">
+    <value>Váš nevyčerpaný nárok na zľavu (NRZ+) k poslednej aktualizácii</value>
+  </data>
+  <data name="VyplacenaProvizeVMene" xml:space="preserve">
+    <value>vyplatená provízia v mene </value>
+  </data>
+  <data name="ZpetDoMojiKancelare" xml:space="preserve">
+    <value>Späť do mojej kancelárie</value>
+  </data>
+  <data name="DnesZauctovanaProdukce" xml:space="preserve">
+    <value>&gt; Dnes zaúčtovaná produkcia</value>
+  </data>
+  <data name="DnesZauctovanaProdukce_Title" xml:space="preserve">
+    <value>Dnes zaúčtovaná produkcia</value>
+  </data>
+  <data name="HistorieObjednavek" xml:space="preserve">
+    <value>&gt; História objednávok</value>
+  </data>
+  <data name="HistorieObjednavek_Title" xml:space="preserve">
+    <value>História objednávok</value>
+  </data>
+  <data name="Bez21Poradcu" xml:space="preserve">
+    <value>Bez 21% poradcov</value>
+  </data>
+  <data name="Bez21Skupin" xml:space="preserve">
+    <value>Osobní skupina bez 21% podřízených skupin</value>
+  </data>  
+  <data name="PrehledProdukceSkupinyATP" xml:space="preserve">
+    <value>&gt; Prehľad produkcie skupiny ATP</value>
+  </data>
+  <data name="PrehledProdukceSkupinyATP_Title" xml:space="preserve">
+    <value>Prehľad produkcie skupiny  ATP</value>
+  </data>
+  <data name="DatumVymazu_Column" xml:space="preserve">
+    <value>Dátum zrušenia</value>
+  </data>
+  <data name="ZruseniPoradci" xml:space="preserve">
+    <value>&gt; Zrušení poradcovia</value>
+  </data>
+  <data name="ZruseniPoradci_Title" xml:space="preserve">
+    <value>Zrušení poradcovia</value>
+  </data>
+  <data name="JenMojeSkupina" xml:space="preserve">
+    <value>Len moja skupina</value>
+  </data>
+  <data name="DatovyList_ProductNenalezen" xml:space="preserve">
+    <value>Pod takýmto kódom nebol nájdený žiadny produkt!</value>
+  </data>
+  <data name="DenniPrehledObjednavek" xml:space="preserve">
+    <value>&gt; Denný prehľad objednávok</value>
+  </data>
+  <data name="DenniPrehledObjednavek_Title" xml:space="preserve">
+    <value>Denný prehľad objednávok</value>
+  </data>
+</root>

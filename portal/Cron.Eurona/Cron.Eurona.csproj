@@ -1,0 +1,92 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{71EFE44D-9A6B-4B12-B985-C66F2C2F8A5F}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Cron.Eurona</RootNamespace>
+    <AssemblyName>Cron.Eurona</AssemblyName>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>TRACE;DEBUG</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Mothiva.Cron, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <ExecutableExtension>.exe</ExecutableExtension>
+      <HintPath>..\Cron\bin\Debug\Mothiva.Cron.exe</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="CronCommand.cs" />
+    <Compile Include="Imaging.cs" />
+    <Compile Include="Import\CernyForLifeTVDDAL.cs" />
+    <Compile Include="CronCommandIntensa.cs" />
+    <Compile Include="Import\CernyForLifeClsImagesSynchronize.cs" />
+    <Compile Include="Import\CernyForLifeAccoutsSynchronize.cs" />
+    <Compile Include="Import\CernyForLifeCategorySynchronize.cs" />
+    <Compile Include="Import\CernyForLifeOrdersSynchronize.cs" />
+    <Compile Include="Import\CernyForLifeProductSynchronize.cs" />
+    <Compile Include="Import\CernyForLifeBonusoveKredityUzivateleSynchronize.cs" />
+    <Compile Include="Import\CernyForLifeProductStockSynchronize.cs" />
+    <Compile Include="Import\EuronaProductStockSynchronize.cs" />
+    <Compile Include="Import\EuronaBonusoveKredityUzivateleSynchronize.cs" />
+    <Compile Include="Import\EuronaAccoutsSynchronize.cs" />
+    <Compile Include="Import\EuronaOrdersSynchronize.cs" />
+    <Compile Include="Import\EuronaCategorySynchronize.cs" />
+    <Compile Include="Import\EuronaDAL.cs" />
+    <Compile Include="Import\EuronaClsImagesSynchronize.cs" />
+    <Compile Include="Import\EuronaProductSynchronize.cs" />
+    <Compile Include="Import\Synchronize.cs" />
+    <Compile Include="Import\EuronaTVDDAL.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Mothiva.Cron.exe.config">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <SubType>Designer</SubType>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\cms\cms.csproj">
+      <Project>{5dbfb6c9-56af-4025-90e2-79b58ee579a2}</Project>
+      <Name>cms</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

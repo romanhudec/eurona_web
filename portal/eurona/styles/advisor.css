@@ -1,0 +1,180 @@
+﻿.logo{}
+.contentEditorToolbar_item a{ background-image:none!important;}
+.page-container-header{padding-bottom:0px!important;}
+.page-container-overlay{background-image:none;background-color:transparent;}
+/*-------------------------------------------------------------------------------------------------------
+/*TWEET CSS STYLES*/
+/*-------------------------------------------------------------------------------------------------------*/
+.twitter-banner {display:block;height:33px;}
+.twitter-bar{background-image:url(../images/twitter-advisor.png)!important;background-repeat:no-repeat;width:743px!important;height:33px;margin-left:0px!important;}
+.twitter-bar .tweet{margin-left:40px!important;padding-top:8px;width:690px!important;}
+.twitter-bar .tweet span{Font-size:14px;color:#eb0a5b;}
+/*-------------------------------------------------------------------------------------------------------
+/*ADVISOR PAGE MENU CSS STYLES*/
+/*-------------------------------------------------------------------------------------------------------*/
+.advisor-pagemenu{ border: 1px solid #1FE8FF;background-image: url(../images/roundPanelEx/bg-1px.png);padding:10px 0px 10px 0px;}
+.advisor-pagemenu a
+{	
+	display: block;
+	
+	min-height:23px;
+    line-height:23px;
+    
+	vertical-align:middle;
+	text-decoration: none;
+	text-transform:uppercase;
+	color: #00B8EC;
+	font-weight:bold;
+    
+    background-image: url(../images/menu-item-separator-bg.png);
+    background-repeat:no-repeat;
+    background-position:10px 8px;
+    padding-left:25px;
+}
+.advisor-pagemenu a:hover{color: #FF14FF;}
+
+/*-------------------------------------------*/
+.advisor-pagesubmenu {margin-left:10px;display: block;text-transform:none!important;}
+.advisor-pagemenuparent{ background-image: url(../images/menu-item-separator-parent-bg.png)!important;
+    background-repeat:no-repeat;}
+
+/*-------------------------------------------------------------------------------------------------------
+/*ADVISOR HEADER CONTAINER CSS STYLES*/
+/*-------------------------------------------------------------------------------------------------------*/
+.content_header{margin-bottom:5px;border: 1px solid #1FE8FF;background-image: url(../images/roundPanelEx/bg-1px.png); text-align:center; }
+.content_header .title {font-size:16px; font-weight:bold; line-height:75px;}
+.content_content{/*height:100%;*/border: 1px solid #1FE8FF;background-image: url(../images/roundPanelEx/bg-1px.png); padding:5px; vertical-align:top;}
+/*-------------------------------------------------------------------------------------------------------
+/*CartProductQuantityItemTemplate CSS STYLES*/
+/*-------------------------------------------------------------------------------------------------------*/
+.cpQuantityItemTemplate{ width:55px;}
+.cpQuantityItemTemplate td { white-space:nowrap;}
+.cpQuantityItemTemplate .quantity{ width:30px; text-align:center;}
+.cpQuantityItemTemplate .refresh{ vertical-align:middle; padding-left:3px;}
+
+/*-------------------------------------------------------------------------------------------------------
+/*CATEGORY SITE MENU (horizontal) CSS STYLES*/
+/*-------------------------------------------------------------------------------------------------------*/
+.category_sitemenu_subMenu {width:740px!important;}
+/*-------------------------------------------------------------------------------------------------------
+/*PRODUCTS CONTROL CSS STYLES*/
+/*-------------------------------------------------------------------------------------------------------*/
+
+.products{width:100%; vertical-align:middle;}
+.products .product-pager-right, .products .product-pager-left{width:20px;height:306px;}
+.products .product-pager-left{background-image:url(../images/products-pagger-left-bg.png);background-repeat:no-repeat}
+.products .product-pager-right{background-image:url(../images/products-pagger-right-bg.png);background-repeat:no-repeat}
+
+.products_resultMessage{ display:inline-block; width:100%; text-align:center; font-weight:bold; padding-top:10px; margin-top:10px;}
+.products_list{}
+.products_dataPager{}
+
+.products_item_image {width:80px; padding:5px;}
+.products_item_priceContainer{ width:40%;}
+.products_item_labelOlPrice{ width:100px; color:#FF0000; text-decoration:line-through; padding-right:10px;}
+.products_item_labelPrice{ font-weight:bold; font-size:10px;}
+.products_item_buttonAddCart{ vertical-align:bottom; width:16px; background-color:Transparent!important; height:16px!important; background-image:url(../images/cart.png);border: none 0px #fff!important;}
+.products_item_labelAvailability{color:#25368E;}
+.products_item_labelQuantity{}
+.products_item_inputQuantity{ height:16px!important; line-height:16px!important;width:25px;margin-right:5px!important; }
+/*products_item (round panel) CSS STYLES*/
+
+.products_item{ width:100%; margin-bottom:5px;}
+.products_item_main{ table-layout:fixed; width:100%; height:100%; border: solid 1px #D6D6D6;}
+.products_item_content table { background-color:Transparent; vertical-align:top ;border: none 0px #000;}
+.products_item_topLeft{width:8px;height:8px;}
+.products_item_top{}
+.products_item_topRight{width:8px;height:8px;}	
+.products_item_topLeftHead{width:8px;height:8px;background-color:#E8E8E8;}
+.products_item_topRightHead{width:8px;height:8px;background-color:#E8E8E8;}
+.products_item_headFill{ text-align:left;
+	background-color:#E8E8E8;
+	color:#191f2f;
+	font-weight:bold;
+	text-transform: uppercase;
+	height:10px;
+	white-space:nowrap;
+}
+.products_item_headNoFill{text-align:left;color:#191f2f;height:15px;}
+.products_item_headFillLeft{background-color:#E8E8E8;height:10px;}
+.products_item_headFillRight{background-color:#E8E8E8;height:10px;}
+.products_item_headNoFillLeft{}
+.products_item_headNoFillRight{}
+.products_item_left{width:8px;}
+.products_item_content{}
+.products_item_right{width:8px;}
+.products_item_bottomLeft{width:8px;height:8px;}
+.products_item_bottom{height:8px;}
+.products_item_bottomRight{width:8px;height:8px;}
+
+/*-------------------------------------------------------------------------------------------------------
+/*PRODUCT CONTROL CSS STYLES*/
+/*-------------------------------------------------------------------------------------------------------*/
+.product{margin:10px;}
+.product_imageGallery{ border: solid 1px #d0d0d0; padding:10px;}
+.product_infoHeader{ width:100%; background-color:#C1C1C1;}
+.product_infoHeader td{ padding:3px;}
+.product_infoHeader_label{ font-size:10px; text-align:left;}
+.product_infoHeader_value{ font-weight:bold; font-size:12px; text-align:left;}
+.product_infoHeader_cart{ border-top: solid 1px #A1A1A1;}
+.product_infoHeader_cart_buttonAddCart{ vertical-align:bottom; width:16px; background-color:Transparent!important; height:16px!important; background-image:url(../images/cart.png);border: none 0px #fff!important;}
+.product_infoHeader_cart_labelQuantity{}
+.product_infoHeader_cart_inputQuantity{ height:16px!important; line-height:16px!important;width:25px;margin-right:5px!important; vertical-align:middle; }
+.product_labelDescription{padding:5px;}
+
+.product_comment {text-decoration:none;}
+.product_viewCount {}
+.product_carma div{ background-color:#F0F0F0; width:150px;}
+/*-------------------------------------------------------------------------------------------------------
+/*NEWS ROTATOR*/
+/*-------------------------------------------------------------------------------------------------------*/
+.newsRotator{border: 1px solid #1FE8FF;vertical-align:middle!important; height:260px;width:683px;padding:5px;background-image: url(../images/rotator-bg.png);}
+.newsRotator .container{display:block; margin:auto; height:225px;padding-top:15px;}
+.newsRotator .outerWrapper
+{
+    display:block;
+    /*border: solid 1px #dff3ff;*/
+    padding:5px;
+    margin:5px;
+    width:180px;
+    height:200px;
+}
+
+.newsRotator .rrClipRegion{border: none 0px #fff!important;}
+.newsRotator .rrRelativeWrapper{margin-left:5px;padding-left:5px;margin-right:5px;padding-right:5px;}
+.newsRotator .rrButton{background-image:none!important; width:21px!important;height:22px!important;}
+.newsRotator .rrButton.rrButtonDisabled
+{
+	filter: alpha(opacity=10)!important;
+	opacity: .1!important;
+	-moz-opacity: .1!important;
+}
+.newsRotator .rrButtonLeft, .newsRotator .rrButton.rrButtonLeft:hover{background-position: 0px 0px!Important;left:-20px!important;}
+.newsRotator .rrButtonRight, .newsRotator .rrButton.rrButtonRight:hover{ background-position: 0px 0px!Important;}
+
+.newsRotator .rrButtonLeft{background-image:url(../images/rrButtonLeft.png)!Important;}
+.newsRotator .rrButtonRight{background-image:url(../images/rrButtonRight.png)!Important;}
+/*-------------------------------------------------------------------------------------------------------
+/*ADVISOR DESKTOP*/
+/*-------------------------------------------------------------------------------------------------------*/
+.advisor-desktop{}
+.advisor-desktop .item{border: 1px solid #1FE8FF;background-image: url(../../images/roundPanelEx/bg-1px.png); width:200px; height:120px;}
+.advisor-desktop .item-navigation-container{border:0px none #fff;text-decoration:none;}
+.advisor-desktop img{border:0px none #fff;}
+
+.advisor-desktop .item-header, .advisor-desktop .item-header span{color:#00B8EC; text-transform:uppercase;}
+
+
+.advisor-desktop .item-content{}
+.advisor-desktop .item-button{background-color:#9BD9FC!important; width:70px; border:1px solid #9BF0FC!important;}
+
+.advisor-desktop .item-header-blink, .advisor-desktop .item-header-blink span{color:#FF0000; text-transform:uppercase;}
+.advisor-desktop .item-blink{border: 1px solid #FF0000;background-image: url(../../images/roundPanelEx/bg-1px.png); width:200px; height:105px;}
+/*-------------------------------------------------------------------------------------------------------
+/* COUNT DOWN CSS STYLES*/
+/*-------------------------------------------------------------------------------------------------------*/
+.countDown{ border: 1px solid #1FE8FF; padding:10px; color:#00B8EC; text-align:left;background-image: url(../images/roundPanelEx/bg-1px.png);}
+.countDown .dnes-info{color:#00b8ec !important; font-size:16px;font-weight:bold;}
+.countDown .uzavierka-info{color:#ff0000 !important; font-size:14px;}
+.countDown .zbyva-info{color:#ff0000 !important; font-size:14px;}
+.countDown .cas-info{font-size:16px; font-weight:bold; color:#ff0000;text-align:right!important;}

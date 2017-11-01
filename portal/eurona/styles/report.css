@@ -1,0 +1,9 @@
+﻿/*table, tr, td, a, span, div, b, i, u, p, input, select
+{
+	color:#000;
+}*/
+.rgRow td, .rgAltRow td, .rgHeader a{font-size:10px!important;color:#000;}
+.rgAltRow td { background-color:#E8E8E8!important;}
+.rgAltRow td a, .rgRow td a{font-size:10px!important;}
+.page-container .content{padding:0px!important;}
+.content .content_content{padding:0px!important;}

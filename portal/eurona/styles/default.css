@@ -1,0 +1,388 @@
+﻿
+html, body, form
+{
+	width: 100%;
+	height: 100%;
+	margin: 0px;
+	padding: 0px;
+	/*position:absolute;
+	z-index:1;*/
+}
+
+.ui-helper-hidden-accessible { display:none; }
+
+body{}
+.main-body{background-color: #DADADA;}
+
+body, table, tr, td, a, span, div, b, i, u, p, input, select
+{
+	font-family: helvetica ,Tahoma, Verdana, Arial, sans-serif;
+	font-size: 12px;
+	color:#878787;
+}
+
+input[type=text], input[type=password], select
+{
+	height: 19px;
+	line-height: 19px;
+	vertical-align: middle;
+	border-left: solid 1px #939393;
+	border-top: solid 1px #525252;
+	border-right: solid 1px #d0d0d0;
+	border-bottom: solid 1px #d0d0d0;
+	padding: 0px;
+	margin: 0px;
+}
+.riTextBox{height:16px!important;line-height:16px!important}
+input[type=button], input[type=submit]
+{
+	height:24px;
+	border: solid 1px #DD0000;
+	
+	background-color:#DD0000;
+	color: #FFFFFF;
+	margin:2px;
+	cursor:pointer;
+}
+
+/*a:link, a:visited, a:active*/
+a, a:hover{	color: #00B8EC;}
+
+.checkBox{}
+.checkBox label { vertical-align:top; line-height:18px;}
+
+/*-------------------------------------------------------------------------------------------------------
+/*WHOLE PAGE CSS STYLES*/
+/*-------------------------------------------------------------------------------------------------------*/
+.page{width: 1064px; margin: 0 auto 0 auto; text-align:left; background-image:url(../images/bg-shadow.png); background-repeat:repeat-y;}
+.page-container{width: 1024px;background: #FAFAFA url(../images/bg.png) no-repeat; background-position:bottom; color: inherit; margin: 0 auto 0 auto; padding-bottom:3px;text-align:left;}
+.page-container-header{position:relative;z-index:2;height:80px;padding:10px!important;}
+.page-container-overlay{width:1024px;background-image:url(../images/bg-overlay.png);background-repeat:no-repeat;background-position:bottom;}
+
+/*-------------------------------------------------------------------------------------------------------
+/*LOGO CSS STYLES*/
+/*-------------------------------------------------------------------------------------------------------*/
+.logo{ height:60px;width:190px;float:left;  display:inline-block;background-image: url(../images/logo.png); background-repeat:no-repeat;}
+/*-------------------------------------------------------------------------------------------------------
+/*SITE MENU CONTAINER CSS STYLES*/
+/*-------------------------------------------------------------------------------------------------------*/
+.sitemenu-container
+{
+	vertical-align: top;
+	float:right;
+	text-align:right;
+	width:1004px;
+}
+/*-------------------------------------------------------------------------------------------------------
+/*BANNER CSS STYLES*/
+/*-------------------------------------------------------------------------------------------------------*/
+.banner{ width:100%;height:10px; display:block;clear:both;}
+/*-------------------------------------------------------------------------------------------------------
+/*NAVIHATION CSS STYLES*/
+/*-------------------------------------------------------------------------------------------------------*/
+.navigation{display:none;text-align:right; padding-right:10px;height:30px;line-height:30px;}
+.navigation-links{ padding-bottom:5px;}
+.navigation-links { color: #00B8EC;}
+.navigation-links a{ color: #878787;}
+.navigation-links a:hover{ color: #878787;}
+
+/*-------------------------------------------------------------------------------------------------------
+/*PAGE MENU CONTAINER CSS STYLES*/
+/*-------------------------------------------------------------------------------------------------------*/
+.pagemenu-container{text-align:center;padding-top:0px;}
+.pagemenu-container table{margin:auto;}
+
+/*-------------------------------------------------------------------------------------------------------
+/*PAGE MENU CONTAINER CSS STYLES*/
+/*-------------------------------------------------------------------------------------------------------*/
+.usermenu-container{float:left; width:200px;}
+/*-------------------------------------------------------------------------------------------------------
+/*CONTENT CSS STYLES*/
+/*-------------------------------------------------------------------------------------------------------*/
+.content{width: 99%; min-height: 680px; padding:5px;position:relative;z-index:1;}
+.content-title
+{
+    background-image:url(../images/page-title-bg.png);
+    background-repeat:repeat-x;
+    height:45px;
+    line-height:45px;
+    padding-bottom:5px;
+}
+.content-title span
+{
+   color:#ffffff;
+   font-size:14pt;
+   float:right;
+   padding-right:20px;
+   background-image:url(../images/page-title-separator.png);
+   background-repeat:no-repeat;
+   padding-left:25px;
+}
+
+/*-------------------------------------------------------------------------------------------------------
+/*FOOTER CSS STYLES*/
+/*-------------------------------------------------------------------------------------------------------*/
+.footer{height: 77px;line-height: 77px;color: #fff; background-color:#fff; background-image:url(../images/footer-bg.png);background-repeat:no-repeat;}
+.footer a{color: #fff;text-decoration: none;}
+.footer a:hover{color: #fff;text-decoration: none;}
+/*-------------------------------------------------------------------------------------------------------
+/*FOOTER MENU CONTAINER CSS STYLES*/
+/*-------------------------------------------------------------------------------------------------------*/
+.footermenu-container table{margin:auto;}
+.footermenu-container a{height: 77px;line-height: 77px;}
+/*-------------------------------------------------------------------------------------------------------
+/*LOGIN FORM CSS STYLES*/
+/*-------------------------------------------------------------------------------------------------------*/
+.login-form-header
+{
+
+	height:43px;
+	line-height:43px;
+    background-image: url(../images/menuheader-bg.png);
+	background-repeat:repeat-x;
+	border: solid 1px #D6D8D7;
+    font-weight:bold;
+    margin-bottom:5px;
+}
+.login-form-header span{text-transform:uppercase;vertical-align:middle;padding-left:6px;}
+.login-form{width: 90%;height: 100%;vertical-align: middle;}
+.login-form a{text-decoration:none;}
+.login-form a:hover{text-decoration:underline;}
+.login-form .login{width: 99%;color: #000;}
+.login-form .password{width: 99%;color: #000;}
+.login-form .navigation-link{color: #7D7D7D;}
+.register_user{}
+/*-------------------------------------------------------------------------------------------------------
+/*RSS CSS STYLES*/
+/*-------------------------------------------------------------------------------------------------------*/
+.rssLink {border: none 0px #ffffff; width:100%; text-align:right;}
+.rssLink a{margin-right:26px;}
+.rssLink img{border: none 0px #ffffff;}
+/*-------------------------------------------------------------------------------------------------------
+/*GRID VIEW CSS STYLES*/
+/*-------------------------------------------------------------------------------------------------------*/
+.dataGrid{width: 100%;height: auto;}
+.dataGrid .dataGrid_rowStyle{background-color: #F3F3F3;}
+.dataGrid th{padding: 2px 10px 2px 2px;}
+.dataGrid td{padding: 2px 10px 2px 2px;}
+.dataGrid .dataGrid_alternatingRowStyle{background-color: #f8f8f8;}
+.dataGrid .dataGrid_footerStyle{background-color: #0092F3;font-weight: bold;}
+.dataGrid .dataGrid_footerStyle td{color:#fff;}
+.dataGrid .dataGrid_pagerStyle{background-color: #6E6E9B;color: White;}
+.dataGrid .dataGrid_headerStyle{background-color: #0092F3;font-weight: bold;color:#fff;text-decoration: none;white-space: nowrap;}
+.dataGrid .dataGrid_headerStyle th{text-align: left;}
+.dataGrid th a{text-decoration: none;color: White;}
+.dataGrid .dataGrid_editRowStyle{background-color: #2461BF;}
+.dataGridCommand{color: #BC6A06;}
+.dataGrid_newItem
+{
+	display: inline-block;
+	padding-top: 5px;
+	padding-bottom: 5px;
+	padding-left: 20px;
+	height: 16px;
+	line-height: 16px;
+	background-image: url(../images/plus.png);
+	background-repeat: no-repeat;
+	background-position: left center;
+}
+
+/*-------------------------------------------------------------------------------------------------------
+/*TREE VIEW CSS STYLES*/
+/*-------------------------------------------------------------------------------------------------------*/
+.treeView{background-color: #fff; border: solid 1px #d0d0d0;}
+.treeView a{color: #534848;}
+.treeView_selectedItem a{ font-weight:bold;}
+/*-------------------------------------------------------------------------------------------------------
+/*ROUND PANEL EX*/
+/*-------------------------------------------------------------------------------------------------------*/
+/*
+.roundPanelEx{ width:230px; padding:5px; margin-bottom:10px;margin-top:10px; background-image: url(../images/roundPanelEx/bg-1px.png);}
+.roundPanelEx .top{}
+.roundPanelEx .middle{}
+.roundPanelEx .bottom{}
+.roundPanelEx .top-label{ margin:10px;font-weight:bold; color:#0077B6;}
+*/
+/*-------------------------------------------------------------------------------------------------------
+/*NEWS ROTATOR*/
+/*-------------------------------------------------------------------------------------------------------*/
+.newsRotator{display:block;vertical-align:middle!important; height:240px;width:30px;padding:5px;background-image: url(../images/roundPanelEx/bg-1px.png);}
+.newsRotator .container{display:none; margin:auto; height:225px;padding-top:15px;}
+.newsRotator .outerWrapper
+{
+    display:block;
+    padding:5px;
+    margin:5px;
+    width:190px;
+    height:190px;
+}
+
+.newsRotator .rrClipRegion{border: none 0px #fff!important;}
+.newsRotator .rrRelativeWrapper{margin-left:5px;padding-left:5px;margin-right:5px;padding-right:5px;}
+.newsRotator .rrButton{background-image:none!important; width:21px!important;height:22px!important;}
+.newsRotator .rrButton.rrButtonDisabled
+{
+	filter: alpha(opacity=10)!important;
+	opacity: .1!important;
+	-moz-opacity: .1!important;
+}
+.newsRotator .rrButtonLeft, .newsRotator .rrButton.rrButtonLeft:hover{background-position: 0px 0px!Important;left:-20px!important;}
+.newsRotator .rrButtonRight, .newsRotator .rrButton.rrButtonRight:hover{ background-position: 0px 0px!Important;}
+
+.newsRotator .rrButtonLeft{background-image:url(../images/rrButtonLeft.png)!Important;}
+.newsRotator .rrButtonRight{background-image:url(../images/rrButtonRight.png)!Important;}
+
+.rotator .rotator-minus, .rotator-visibled .rotator-minus{position:relative;margin:0px 20px -23px 0px;display:none;background-image:url(../images/rotator-minus.png);width:45px;height:45px;cursor:pointer;z-index:3;}
+.rotator .rotator-plus, .rotator-hidden .rotator-plus{position:relative;margin:0px -23px 0px 0px;display:block;background-image:url(../images/rotator-plus.png);width:45px;height:45px;cursor:pointer;z-index:3;}
+
+/*-------------------------------------------------------------------------------------------------------
+/*NEWS ROTATOR*/
+/*-------------------------------------------------------------------------------------------------------*/
+.lotos{position:relative; z-index:0;}
+.lotos img{position:absolute;left:695px; bottom:-10px; display:none;}
+.homeFlashControl{position:absolute;z-index:-2; top:-80px; background-color:#fff; width:1024px;height:768px;}
+
+.virtual-catalog{width:100%;}
+.virtual-catalog table td img{margin:5px;}
+.virtual-catalog .link{display:inline-block; cursor:pointer!important;}
+.virtual-catalog .link:hover{display:inline-block; cursor:pointer!important;}
+.virtual-catalog .link img{cursor:pointer!important; margin:2px;}
+.virtual-catalog table{ margin:auto;width:90%;}
+.virtual-catalog .catalogtitle
+{
+	margin-top: 2px;
+	margin-bottom: 2px;
+	font-size: medium;
+	font-weight: bold;
+	text-align:center;
+	display:block;
+}
+.virtual-catalog .catalogdesc{font-size: 11px;display:block; text-align:center;}
+.virtual-catalog a{ text-decoration:none;}
+
+/*-------------------------------------------------------------------------------------------------------
+/*ANONYMOUS NEWS ROTATOR*/
+/*-------------------------------------------------------------------------------------------------------*/
+.anonymousNewsRotator{display:block;vertical-align:middle!important; height:290px;/*width:30px;*/padding:5px;background-image: url(../images/roundPanelEx/bg-1px.png);}
+.anonymousNewsRotator .container{/*display:block; */margin:auto; height:225px;padding-top:15px;}
+.anonymousNewsRotator .outerWrapper
+{
+    display:block;
+    padding:5px;
+    margin:5px;
+    width:250px;
+    height:190px;
+}
+
+.anonymousNewsRotator .rrClipRegion{border: none 0px #fff!important;}
+.anonymousNewsRotator .rrRelativeWrapper{margin-left:5px;padding-left:5px;margin-right:5px;padding-right:5px;}
+.anonymousNewsRotator .rrButton{background-image:none!important; width:21px!important;height:22px!important;}
+.anonymousNewsRotator .rrButton.rrButtonDisabled
+{
+	filter: alpha(opacity=10)!important;
+	opacity: .1!important;
+	-moz-opacity: .1!important;
+}
+.anonymousNewsRotator .rrButtonLeft, .anonymousNewsRotator .rrButton.rrButtonLeft:hover{background-position: 0px 0px!Important;left:-20px!important;}
+.anonymousNewsRotator .rrButtonRight, .anonymousNewsRotator .rrButton.rrButtonRight:hover{ background-position: 0px 0px!Important;}
+
+.anonymousNewsRotator .rrButtonLeft{background-image:url(../images/rrButtonLeft.png)!Important;}
+.anonymousNewsRotator .rrButtonRight{background-image:url(../images/rrButtonRight.png)!Important;}
+/*
+.rotator .rotator-minus, .anonymous-rotator-visibled .rotator-minus{position:relative;margin:0px 20px -23px 0px;display:none;background-image:url(../images/rotator-minus.png);width:45px;height:45px;cursor:pointer;z-index:3;}
+.rotator .rotator-plus, .anonymous-rotator-hidden .rotator-plus{position:relative;margin:0px -23px 0px 0px;display:block;background-image:url(../images/rotator-plus.png);width:45px;height:45px;cursor:pointer;z-index:3;}
+*/
+/*-------------------------------------------------------------------------------------------------------*/
+/*-------------------------------------------------------------------------------------------------------*/
+/*jQuery UI CSS Framework */
+/*-------------------------------------------------------------------------------------------------------*/
+/*-------------------------------------------------------------------------------------------------------*/
+/*Autocomplette*/
+/*-------------------------------------------------------------------------------------------------------*/
+.ui-autocomplete { position: absolute; cursor: default; }	
+.ui-autocomplete-loading { background: white url('../images/ui-anim_basic_16x16.gif') right center no-repeat; }
+/* workarounds */
+* html .ui-autocomplete { width:1px; } /* without this, the menu expands to 100% in IE6 */
+
+/* Component containers
+----------------------------------*/
+.ui-widget { font-family: Verdana,Arial,sans-serif/*{ffDefault}*/; /*font-size: 1.1em*//*{fsDefault}*/; }
+.ui-widget .ui-widget { font-size: 1em; }
+.ui-widget input, .ui-widget select, .ui-widget textarea, .ui-widget button { /*font-family: Verdana,Arial,sans-serif; font-size: 1em;*/ }
+.ui-widget-content { border: 1px solid #aaaaaa/*{borderColorContent}*/; background: #ffffff/*{bgColorContent}*/ url(images/ui-bg_flat_75_ffffff_40x100.png)/*{bgImgUrlContent}*/ 50%/*{bgContentXPos}*/ 50%/*{bgContentYPos}*/ repeat-x/*{bgContentRepeat}*/; color: #222222/*{fcContent}*/; }
+.ui-widget-content a { color: #222222/*{fcContent}*/; }
+.ui-widget-header { border: 1px solid #aaaaaa/*{borderColorHeader}*/; background: #cccccc/*{bgColorHeader}*/ url(images/ui-bg_highlight-soft_75_cccccc_1x100.png)/*{bgImgUrlHeader}*/ 50%/*{bgHeaderXPos}*/ 50%/*{bgHeaderYPos}*/ repeat-x/*{bgHeaderRepeat}*/; color: #222222/*{fcHeader}*/; font-weight: bold; }
+.ui-widget-header a { color: #222222/*{fcHeader}*/; }
+/* Interaction states
+----------------------------------*/
+.ui-state-default, .ui-widget-content .ui-state-default, .ui-widget-header .ui-state-default { border: 1px solid #d3d3d3/*{borderColorDefault}*/; background: #e6e6e6/*{bgColorDefault}*/ url(images/ui-bg_glass_75_e6e6e6_1x400.png)/*{bgImgUrlDefault}*/ 50%/*{bgDefaultXPos}*/ 50%/*{bgDefaultYPos}*/ repeat-x/*{bgDefaultRepeat}*/; font-weight: normal/*{fwDefault}*/; color: #555555/*{fcDefault}*/; }
+.ui-state-default a, .ui-state-default a:link, .ui-state-default a:visited { color: #555555/*{fcDefault}*/; text-decoration: none; }
+.ui-state-hover, .ui-widget-content .ui-state-hover, .ui-widget-header .ui-state-hover, .ui-state-focus, .ui-widget-content .ui-state-focus, .ui-widget-header .ui-state-focus { border: 1px solid #999999/*{borderColorHover}*/; background: #dadada/*{bgColorHover}*/ url(images/ui-bg_glass_75_dadada_1x400.png)/*{bgImgUrlHover}*/ 50%/*{bgHoverXPos}*/ 50%/*{bgHoverYPos}*/ repeat-x/*{bgHoverRepeat}*/; font-weight: normal/*{fwDefault}*/; color: #212121/*{fcHover}*/; }
+.ui-state-hover a, .ui-state-hover a:hover { color: #212121/*{fcHover}*/; text-decoration: none; }
+.ui-state-active, .ui-widget-content .ui-state-active, .ui-widget-header .ui-state-active { border: 1px solid #aaaaaa/*{borderColorActive}*/; background: #ffffff/*{bgColorActive}*/ url(images/ui-bg_glass_65_ffffff_1x400.png)/*{bgImgUrlActive}*/ 50%/*{bgActiveXPos}*/ 50%/*{bgActiveYPos}*/ repeat-x/*{bgActiveRepeat}*/; font-weight: normal/*{fwDefault}*/; color: #212121/*{fcActive}*/; }
+.ui-state-active a, .ui-state-active a:link, .ui-state-active a:visited { color: #212121/*{fcActive}*/; text-decoration: none; }
+.ui-widget :active { outline: none; }
+
+/* Interaction Cues
+----------------------------------*/
+.ui-state-highlight, .ui-widget-content .ui-state-highlight, .ui-widget-header .ui-state-highlight  {border: 1px solid #fcefa1/*{borderColorHighlight}*/; background: #fbf9ee/*{bgColorHighlight}*/ url(images/ui-bg_glass_55_fbf9ee_1x400.png)/*{bgImgUrlHighlight}*/ 50%/*{bgHighlightXPos}*/ 50%/*{bgHighlightYPos}*/ repeat-x/*{bgHighlightRepeat}*/; color: #363636/*{fcHighlight}*/; }
+.ui-state-highlight a, .ui-widget-content .ui-state-highlight a,.ui-widget-header .ui-state-highlight a { color: #363636/*{fcHighlight}*/; }
+.ui-state-error, .ui-widget-content .ui-state-error, .ui-widget-header .ui-state-error {border: 1px solid #cd0a0a/*{borderColorError}*/; background: #fef1ec/*{bgColorError}*/ url(images/ui-bg_glass_95_fef1ec_1x400.png)/*{bgImgUrlError}*/ 50%/*{bgErrorXPos}*/ 50%/*{bgErrorYPos}*/ repeat-x/*{bgErrorRepeat}*/; color: #cd0a0a/*{fcError}*/; }
+.ui-state-error a, .ui-widget-content .ui-state-error a, .ui-widget-header .ui-state-error a { color: #cd0a0a/*{fcError}*/; }
+.ui-state-error-text, .ui-widget-content .ui-state-error-text, .ui-widget-header .ui-state-error-text { color: #cd0a0a/*{fcError}*/; }
+.ui-priority-primary, .ui-widget-content .ui-priority-primary, .ui-widget-header .ui-priority-primary { font-weight: bold; }
+.ui-priority-secondary, .ui-widget-content .ui-priority-secondary,  .ui-widget-header .ui-priority-secondary { opacity: .7; filter:Alpha(Opacity=70); font-weight: normal; }
+.ui-state-disabled, .ui-widget-content .ui-state-disabled, .ui-widget-header .ui-state-disabled { opacity: .35; filter:Alpha(Opacity=35); background-image: none; } 
+/*----------------------------------*/
+.ui-menu {
+	list-style:none;
+	padding: 2px;
+	margin: 0;
+	display:block;
+}
+.ui-menu .ui-menu {
+	margin-top: -3px;
+}
+.ui-menu .ui-menu-item {
+	margin:0;
+	padding: 0;
+	zoom: 1;
+	float: left;
+	clear: left;
+	width: 100%;
+}
+.ui-menu .ui-menu-item a {
+	text-decoration:none;
+	display:block;
+	padding:.2em .4em;
+	line-height:1.5;
+	zoom:1;
+}
+.ui-menu .ui-menu-item a.ui-state-hover,
+.ui-menu .ui-menu-item a.ui-state-active {
+	font-weight: normal;
+	margin: -1px;
+}
+
+/*-------------------------------------------------------------------------------------------------------
+/*CART INFO CSS STYLES*/
+/*-------------------------------------------------------------------------------------------------------*/
+.cartInfo{ width:200px; /*border: 1px solid #1FE8FF;*/padding:0px 5px 0px 5px; color:#00B8EC; text-align:left;}
+.cartInfo .title{margin-bottom:5px;white-space:nowrap;}
+.cartInfo .title a{color:#327DB6!important; font-weight:bold;font-size:14px; text-decoration:none;}
+.cartInfo .items{white-space:nowrap; color:#00B8EC; }
+.cartInfo .price{white-space:nowrap; color:#00B8EC; }
+.cartInfo .image{background-image:url(../images/cart-button-small.png); width:30px; height:20px; margin-top:5px;margin-bottom:13px;}  
+.cartInfo .kpokladne{text-align:right;color:#878787;}
+
+/* CUSTOM STYLES */
+
+.header
+{
+    display: none;
+}
+
+P.description
+{
+    display: none;    
+}

@@ -1,0 +1,195 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" Inherits="DefaultMasterPage" CodeBehind="default.master.cs" EnableTheming="true" %>
+
+<%@ Register Assembly="cms" Namespace="CMS.Controls.Menu" TagPrefix="cmsMenu" %>
+<%@ Register Assembly="cms" Namespace="CMS.Controls.Page" TagPrefix="cmsPage" %>
+<%@ Register Assembly="cms" Namespace="CMS.Controls.Translations" TagPrefix="cmsVocabulary" %>
+<%@ Register Assembly="cms" Namespace="CMS.Controls" TagPrefix="cmsCtrls" %>
+<%@ Register Assembly="Eurona" Namespace="Eurona.Controls" TagPrefix="euronaCtrls" %>
+<%@ Register src="Controls/LoginControl.ascx" tagname="Login" tagprefix="uc1" %>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <!-- Google Tag Manager -->
+    <script>(function (w, d, s, l, i) {
+    w[l] = w[l] || []; w[l].push({
+    'gtm.start':
+    new Date().getTime(), event: 'gtm.js'
+    }); var f = d.getElementsByTagName(s)[0],
+    j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : ''; j.async = true; j.src =
+    'https://www.googletagmanager.com/gtm.js?id=' + i + dl; f.parentNode.insertBefore(j, f);
+    })(window, document, 'script', 'dataLayer', 'GTM-P7NM5X6');</script>
+    <!-- End Google Tag Manager -->
+
+
+    <title>Eurona by Cerny</title>
+    <meta name="author" content="EuronabyCerny (prodej@eurona.cz)" />
+    <meta name="copyright" content="2010 (C) Mothiva s.r.o." />
+    <meta name="description" content="Ekologická bytová kosmetika"  />
+    <meta name="keywords" content="EuronabyCerny, Eurona, ekologie, kosmetika, drogerie" />
+    <meta name="language" content="cz" />
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+    <meta name="robots" content="index, follow, all" />
+    <link rel="shortcut icon" href="https://www.euronabycerny.com/favicon.ico" type="image/x-icon" />
+	<link rel="icon" href="https://www.euronabycerny.com/favicon.ico" type="image/x-icon" />
+    <!-- RSS -->
+   <%-- <link rel="alternate" title="<%$ Resources:Strings, RSS_NewsTitle %>" href="/rss/news.ashx" type="application/rss+xml" />--%>
+    <link href="~/styles/default.css" type="text/css" rel="Stylesheet" />
+    <link href="~/styles/cms.css" type="text/css" rel="stylesheet" />
+    <link href="~/styles/ASPxDatePicker.css" type="text/css" rel="stylesheet" />
+    <link href="~/styles/ASPxMultipleFileUpload.css" rel="stylesheet" type="text/css" />
+    
+    <script type="text/javascript"  src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script type="text/javascript"  src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
+
+	<!--Start of Zopim Live Chat Script-->
+	<script type="text/javascript">
+	window.$zopim || (function (d, s) {
+		var z = $zopim = function (c) { z._.push(c) }, $ = z.s =
+	d.createElement(s), e = d.getElementsByTagName(s)[0]; z.set = function (o) {
+	z.set.
+	_.push(o)
+	}; z._ = []; z.set._ = []; $.async = !0; $.setAttribute('charset', 'utf-8');
+		$.src = '//cdn.zopim.com/?lYOJqpdiUMuC15cyivZHm3iCjditkI1M'; z.t = +new Date; $.
+	type = 'text/javascript'; e.parentNode.insertBefore($, e)
+	})(document, 'script');
+	</script>
+	<!--End of Zopim Live Chat Script-->
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body class="main-body">
+    <!-- Google Tag Manager (noscript) -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-P7NM5X6"
+    height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <!-- End Google Tag Manager (noscript) -->
+
+    <form id="form1" runat="server">
+    <%//-- Definicia ScripManagera AJAX, TELERIK %>
+    <asp:ScriptManager id="ScriptManager" runat="server"/> 
+        
+    <script src="<%=Root%>javascripts/mothiva.js" type="text/javascript"></script>
+    <script src="<%=Root%>javascripts/mothiva.ajax.js" type="text/javascript"></script>
+    <script src="<%=Root%>javascripts/mothiva.dom.js" type="text/javascript"></script>
+    <script type="text/javascript" src="https://yandex.st/dojo/1.6.0/dojo/dojo.xd.js" djConfig="parseOnLoad: true"></script>
+
+    <% if ( Eurona.Security.IsLogged( false ) && ( Eurona.Security.Account.IsInRole( Eurona.DAL.Entities.Role.ADMINISTRATOR ) || Eurona.Security.Account.IsInRole( Eurona.DAL.Entities.Role.OPERATOR ) ) )
+        {%>
+        <style type="text/css">
+            .sitemenu-container a{font-size:10px!important;}
+        </style>
+    <%} %>
+      
+	<script language="javascript" type="text/javascript">
+	    var currentImageIndex = 0;
+	    var currentAnimateIndex = 0;
+	    var animationType = 1; /*1-rozvyjanie, 2-zvyjanie*/
+	    window.onload = startLotosAnimation
+    </script>               
+    <div class="page">
+        <div class="page-container">
+            <div class="page-container-overlay">
+                <div class="page-container-header">
+					<div>
+                        <div class="header"><h1>EURONA by CERNY</h1></div>
+                        <p class="description">Vítejte na stránkách českého výrobce ekologické bytové a tělové kosmetiky. Přeji Vám příjemné nakupování.</p>
+                        <p class="description">EURONA by CERNY je česká dynamicky se rozvíjející společnost, která vyrábí ekologicky šetrné prací, úklidové a kosmetické prostředky, které neškodí našemu zdraví a životnímu prostředí. Jedná se o široký sortiment praktických výrobků každodenní potřeby, vhodných i pro alergiky, astmatiky, osoby trpící ekzémy, obvzláště oblíbené jsou v rodinách s dětmi, u lidí s ekologickým zaměřením, nebo příznivcům moderního stylu života a trendy výrobků.</p>
+                        <p class="description">Předností všech výrobků EURONA by CERNY je vysoká účinnost a přitom jemnost. Nedochází k poškozování čištěných povrchů. Účinek je okamžitý. Nezanechávají žádné stopy na čištěných plochách. Všechny se jednoduše aplikují. Naprosto bezkonkurenční je široká paleta vůní, ve kterých se produkty vyrábí, a to hlavně aviváže s kondicionerem (stejně tak, jako funguje kondicioner na lidské vlasy, opečovávají podobným způsobem tyto aviváže vlákna textilií).</p>                                                
+                        <p class="description">Zákazníkům nabízíme trvale výhodné ceny při nákupu v e-shopu přímo od výrobce, dále navíc pravidelné měsíční akční nabídky s dalšími slevami! Zboží obdržíte až do domu a objednávat můžete v pohodlí domova, kdykoliv i on-line.</p>
+						<!--[if gte IE 8]>
+						<![endif]-->
+
+						<!--[if lt IE 7]>
+						<p id='tablespace'>
+							<div style="padding:10px;background-color:white;border:3px solid red;color:red;font-weight:bold;">
+								<asp:Literal runat="server" id="lblIEVersion" Text="<%$ Resources:Strings, BrowserVersionWarning %>"></asp:Literal>
+							</div>
+						</p>
+						<![endif]-->
+                
+					   <%-- <![if !IE]>
+						<![endif]>--%>
+						<p runat="server" id="debugVersion" visible="false">
+							<div style="padding:10px;background-color:white;border:3px solid red;color:red;font-weight:bold;text-align:center;">
+								<asp:Literal runat="server" id="lblDEBUGVersion" Text="TESTOVACI VERZE"></asp:Literal>
+							</div>
+						</p> 
+					</div>
+                    <div class="sitemenu-container">
+                        <table width="100%" border="0" cellpadding="0" cellspacing="0">
+                            <tr>
+								<td rowspan="2">
+									<a href="/">
+										<div class="logo"></div>
+									</a>
+								</td>
+                                <td colspan="3" align="right">
+                                    <cmsMenu:NavigationMenuControl runat="server" ID="sitemenu" Code="main-menu" RemoveLastSeparator="true" CssClass="sitemenu" MenuItemSeparatorImageUrl="~/images/main-menu-item-separator.png">
+                                    </cmsMenu:NavigationMenuControl>
+                                </td>
+                             </tr>
+                             <tr>
+                                <td align="right" valign="top">
+                                    <div runat="server" id="loginContainer" runat="server" class="loginContainer" visible="false">
+                                        <uc1:Login ID="loginControl" runat="server"  />
+                                    </div>
+                                </td>
+                                <td align="right" valign="top" >
+                                    <asp:ContentPlaceHolder ID="loginContent" runat="server">
+                                    </asp:ContentPlaceHolder>
+                                </td>
+<%--                                <td align="right" style="width:80px;">
+                                    <euronaCtrls:LocaleSwitchControl runat="server" ID="localeSwitchControl" CssClass="localeSwitch" />
+                                </td>--%>
+                             </tr>
+                             <tr>
+                                <td align="right" colspan="2">
+                                    <div class="navigation">
+                                        <asp:ContentPlaceHolder ID="navigation" runat="server">
+                                        </asp:ContentPlaceHolder>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div id="muteContainer"></div>
+                                </td>
+                             </tr>
+                        </table>
+                    </div>
+                    <div class="banner">
+                        <asp:ContentPlaceHolder ID="banner" runat="server">
+                        </asp:ContentPlaceHolder>
+                    </div>
+                </div>
+                <div class="content">
+                    <asp:ContentPlaceHolder ID="content" runat="server">
+                    </asp:ContentPlaceHolder>
+                </div>
+                <div class="lotos">
+                    <img id="lotosImage" src="" alt="lotos" />
+                </div>
+            </div>
+        </div>
+       <%-- <div class="footer">
+            <div class="footermenu-container">
+                <cmsMenu:NavigationMenuControl runat="server" ID="footermenu" Code="footer-menu" RemoveLastSeparator="true" CssClass="sitemenu" MenuItemSeparatorImageUrl="~/images/main-menu-item-separator.png">
+                </cmsMenu:NavigationMenuControl>
+            </div>
+        </div>--%>
+    </div>
+	<%--VOCABULARIES--%>
+	<cmsVocabulary:Vocabulary ID="vocMasterPage" CssClass="vocabulary" runat="server" Name="MasterPage" />   
+    </form>
+    <script type="text/javascript">
+        (function (i, s, o, g, r, a, m) {
+            i['GoogleAnalyticsObject'] = r; i[r] = i[r] || function () {
+                (i[r].q = i[r].q || []).push(arguments)
+            }, i[r].l = 1 * new Date(); a = s.createElement(o),
+            m = s.getElementsByTagName(o)[0]; a.async = 1; a.src = g; m.parentNode.insertBefore(a, m)
+        })(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
+        ga('create', 'UA-18595003-1', 'auto');
+        ga('require', 'linkid');
+        ga('send', 'pageview');
+    </script>
+</body>
+</html>

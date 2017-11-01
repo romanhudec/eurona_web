@@ -1,0 +1,4 @@
+<div style="text-align: center; padding-left: 100px; padding-right: 100px; padding-top: 20px;"><span style="color: #ea008a; font-size: 18px;">VÍTEJTE!</span> </div>
+<br />
+<br />
+<div style="text-align: justify; padding-bottom: 20px; padding-left: 100px; padding-right: 100px;"><span style="text-align: justify; color: #102f71; font-size: 16px;">Tìší nás Váš zájem o spoleènost EURONA a její produkty. Podrobné informace naleznete v sekci O spoleènosti, v sekci Výrobky a rovnìž si mùžete prolistovat naším aktuálním virtuálním katalogem a vybírat mùžete i v akèní èi speciální nabídce. Objednat zboží si mùžete pøímo do Vašeho nákupního košíku. V pøípadì dotazù se mùžete obrátit pøímo na našeho poradce, který Vás kontaktoval nebo na nìkterou z našich operátorek na uvedených kontaktech. Dìkujeme Vám a pøejeme pøíjemné nakupování s Euronou!</span></div>

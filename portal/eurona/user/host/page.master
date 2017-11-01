@@ -1,0 +1,45 @@
+﻿<%@ Master Language="C#" MasterPageFile="~/page.master" AutoEventWireup="true" CodeBehind="page.master.cs" Inherits="Eurona.User.Host.PageMasterPage" %>
+
+<%@ Register Assembly="cms" Namespace="CMS.Controls.Menu" TagPrefix="cmsMenu" %>
+<%@ Register Assembly="cms" Namespace="CMS.Controls" TagPrefix="cms" %>
+
+<%@ Register src="LogedHostControl.ascx" tagname="LogedHostControl" tagprefix="uc1" %>
+<%@ Register src="CartInfoControl.ascx" tagname="CartInfoControl" tagprefix="uc2" %>
+
+<asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
+    <link href='<%=ResolveUrl("~/styles/host.css") %>' type="text/css" rel="stylesheet" />
+    <asp:ContentPlaceHolder ID="head" runat="server"></asp:ContentPlaceHolder>
+</asp:Content>
+<asp:Content ID="Content2" ContentPlaceHolderID="banner" runat="server">
+    <asp:ContentPlaceHolder ID="banner" runat="server"></asp:ContentPlaceHolder>
+</asp:Content>
+<asp:Content ID="Content3" ContentPlaceHolderID="navigation" runat="server">
+    <asp:ContentPlaceHolder ID="navigation" runat="server"></asp:ContentPlaceHolder>
+</asp:Content>
+<asp:Content ID="Content4" ContentPlaceHolderID="content" runat="server">
+    <table border="0" style="width:95%;height:100%;margin:auto;padding:20px 0px 0px 0px;" cellspacing="8">
+    <tr>
+        <td valign="top">
+            <div class="usermenu-container">
+	            <cmsMenu:VerticalMenuControl id="menu" Code="host-menu" cssclass="pagemenu" runat="server" />
+	            <div class="pagemenu" id="menuAdmin" runat="server" visible="false">
+		            <a id="A1" href="~/admin" runat="server"><asp:Literal ID="Literal1" runat="server" Text="<%$ Resources:Strings, AdministrationMode_HeaderAdministration %>" /></a>
+	            </div>        
+            </div>
+        </td>
+        <td valign="top" style="width:100%;background-image: url(../images/roundPanelEx/bg-1px.png);">
+            <div style="margin-left:5px;margin-right:5px;" >
+                <asp:ContentPlaceHolder ID="content" runat="server"></asp:ContentPlaceHolder>
+            </div>
+        </td>
+        <td valign="top" align="center" style="background-image: url(../images/roundPanelEx/bg-1px.png);">
+            <cms:RoundPanel ID="RoundPanel1" runat="server" CssClass="%roundPanel" Text="" Width="230px">
+                <uc1:LogedHostControl ID="LogedHostControl1" runat="server" />
+            </cms:RoundPanel>
+<%--            <div style="width:200px;">
+                <uc2:CartInfoControl ID="cartInfoControl"  runat="server" />
+            </div>--%>
+        </td>
+    </tr>
+    </table>
+</asp:Content>

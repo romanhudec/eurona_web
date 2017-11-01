@@ -1,0 +1,1820 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.30729</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{5DBFB6C9-56AF-4025-90E2-79B58EE579A2}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>CMS</RootNamespace>
+    <AssemblyName>cms</AssemblyName>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <OldToolsVersion>3.5</OldToolsVersion>
+    <UpgradeBackupLocation />
+    <TargetFrameworkProfile />
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.configuration" />
+    <Reference Include="System.Core">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Design" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Extensions">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml.Linq">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data.DataSetExtensions">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+    <Reference Include="Telerik.Web.UI, Version=2009.3.1314.20, Culture=neutral, PublicKeyToken=121fae78165ba3d4, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\libs\Telerik\RadControls for ASP.NET AJAX Q2 2010\Bin35\Telerik.Web.UI.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Controls\Account\AdminAccountControl.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Controls\Account\AdminAccountsControl.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Controls\Account\AdminAddAccountCreditControl.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Controls\Account\ChangePasswordControl.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Controls\Account\ForgotPasswordControl.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Controls\Article\AdminArticleControl.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Controls\Article\AdminArticlesControl.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Controls\Article\ArchivedArticlesControl.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Controls\Article\ArticleControl.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Controls\Article\ArticleCommentsControl.cs">
+    </Compile>
+    <Compile Include="Controls\Article\ArticleCommentFormControl.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Controls\Article\RSS.cs" />
+    <Compile Include="Controls\Article\LatestArticlesControl.cs" />
+    <Compile Include="Controls\ASPxDatePicker.cs" />
+    <Compile Include="Controls\ASPxMultipleFileUpload.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Controls\Blog\AdminBlogControl.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Controls\Blog\AdminBlogsControl.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Controls\Blog\ArchivedBlogsControl.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Controls\Blog\BlogCommentFormControl.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Controls\Blog\BlogCommentsControl.cs" />
+    <Compile Include="Controls\Blog\BlogControl.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Controls\Blog\LatestBlogsControl.cs" />
+    <Compile Include="Controls\Blog\RSS.cs" />
+    <Compile Include="Controls\ButtonField.cs" />
+    <Compile Include="Controls\ASPxUrlAliasTextBox.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Controls\ContentEditorCmsControl.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Controls\Forum\AdminForumControl.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Controls\Forum\AdminForumsControl.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Controls\Forum\AdminForumThreadControl.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Controls\Forum\AdminForumThreadsControl.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Controls\Forum\AdminForumPostsControl.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Controls\Forum\AdminForumPostControl.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Controls\Forum\ForumPostAttachmentHelper.cs" />
+    <Compile Include="Controls\Forum\RSSForum.cs" />
+    <Compile Include="Controls\Forum\ForumPostFormControl.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Controls\Forum\ForumControl.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Controls\Forum\ForumPostsControl.cs" />
+    <Compile Include="Controls\Forum\ForumsControl.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Controls\Forum\ForumThreadsControl.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Controls\Forum\RSSForumThread.cs" />
+    <Compile Include="Controls\GridIconColumn.cs" />
+    <Compile Include="Controls\ImageGallery\AdminImageGalleryControl.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Controls\ImageGallery\AdminImageGalleriesControl.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Controls\ImageGallery\AdminImageGalleryItemsControl.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Controls\ImageGallery\ImageGalleryItemCommentFormControl.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Controls\ImageGallery\ImageGalleryItemCommentsControl.cs" />
+    <Compile Include="Controls\ImageGallery\ImageGalleryItemsControl.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Controls\ImageGallery\ImageGalleryCommentFormControl.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Controls\ImageGallery\ImageGalleryCommentsControl.cs" />
+    <Compile Include="Controls\ImageGallery\ImageGalleriesControl.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Controls\ContentEditorToolbarItemControl.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Controls\ContentEditorToolbarControl.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Controls\LocaleSwitchControl.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Controls\Menu\VerticalMenuControl.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Controls\MultipleFieldsValidator.cs" />
+    <Compile Include="Controls\RadEditor\RadEditor.cs" />
+    <Compile Include="Controls\SearchEngine\SearchEngineResultControl.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Controls\UrlAlias\AdminUrlAliasControl.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Controls\UrlAlias\AdminUrlAliasesControl.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Controls\Version\VersionInfoControl.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Controls\Vote\CarmaControl.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Controls\Comment\CommentFormControl.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Controls\ContactForm\ContactFormControl.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Controls\Vote\RaitingControl.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Controls\Menu\AdminNavigationMenusControl.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Controls\Menu\AdminNavigationMenuControl.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Controls\Menu\AdminNavigationMenuItemsControl.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Controls\Menu\AdminNavigationMenuItemControl.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Controls\Menu\NavigationMenuControl.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Controls\Newsletter\AdminNewsletterControl.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Controls\Newsletter\AdminNewsletterListControl.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Controls\News\RSS.cs" />
+    <Compile Include="Controls\Role\AdminRoleControl.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Controls\Role\AdminRolesControl.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Controls\Services\AdminPaidServiceControl.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Controls\Services\AdminPaidServicesControl.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Controls\FAQ\AdminFAQControl.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Controls\FAQ\AdminFAQsControl.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Controls\FAQ\FAQControl.cs">
+    </Compile>
+    <Compile Include="Controls\ImageGalleryControl.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Controls\Menu\AdminMenusControl.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Controls\Menu\AdminMenuControl.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Controls\News\AdminNewsControl.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Controls\News\AdminNewsListControl.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Controls\News\ArchivedNewsControl.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Controls\News\LatestNewsControl.cs">
+    </Compile>
+    <Compile Include="Controls\News\NewsControl.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Controls\Page\AdminPageControl.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Controls\Page\AdminPagesControl.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Controls\Poll\AdminOptionsControl.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Controls\Poll\AdminPollsControl.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Controls\CmsControl.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Controls\Page\PageControl.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Controls\Poll\AdminOptionControl.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Controls\Poll\ArchivedPollsControl.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Controls\Poll\PollControl.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Controls\Poll\AdminPollControl.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Controls\RoundPanel.cs">
+    </Compile>
+    <Compile Include="Controls\Tag\AdminTagControl.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Controls\Tag\AdminTagsControl.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Controls\Translations\AdminTranslationsControl.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Controls\Translations\AdminVocabulariesControl.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Controls\Translations\Vocabulary.cs" />
+    <Compile Include="Controls\UserManagement\AddressControl.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Controls\UserManagement\BankContactControl.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Controls\UserManagement\OrganizationControl.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Controls\UserManagement\PersonControl.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ConvertNullable.cs" />
+    <Compile Include="Entities\Account.cs" />
+    <Compile Include="Entities\Address.cs" />
+    <Compile Include="Entities\Classifiers\Clasifiers.cs" />
+    <Compile Include="Entities\Classifiers\ClassifierBase.cs" />
+    <Compile Include="Entities\Classifiers\PaidService.cs" />
+    <Compile Include="Entities\AccountCredit.cs" />
+    <Compile Include="Entities\BankContact.cs" />
+    <Compile Include="Entities\Article.cs" />
+    <Compile Include="Entities\ArticleTag.cs" />
+    <Compile Include="Entities\Comment.cs" />
+    <Compile Include="Entities\ArticleComment.cs" />
+    <Compile Include="Entities\AccountVote.cs" />
+    <Compile Include="Entities\Blog.cs" />
+    <Compile Include="Entities\BlogComment.cs" />
+    <Compile Include="Entities\BlogTag.cs" />
+    <Compile Include="Entities\AccountProfile.cs" />
+    <Compile Include="Entities\EmailLog.cs" />
+    <Compile Include="HttpModules\DosAttackModule.cs" />
+    <Compile Include="MSSQL\EmailLogStorage.cs" />
+    <Compile Include="Entities\ForumPostAttachment.cs" />
+    <Compile Include="Entities\ForumFavorites.cs" />
+    <Compile Include="Entities\ForumTracking.cs" />
+    <Compile Include="Entities\ForumPost.cs" />
+    <Compile Include="Entities\Forum.cs" />
+    <Compile Include="Entities\ForumThread.cs" />
+    <Compile Include="Entities\Upgrade.cs" />
+    <Compile Include="Entities\SearchEngine.cs" />
+    <Compile Include="Entities\Entity.cs" />
+    <Compile Include="Entities\IUrlAliasEntity.cs" />
+    <Compile Include="Entities\UrlAlias.cs" />
+    <Compile Include="Entities\ImageGalleryItemComment.cs" />
+    <Compile Include="Entities\ImageGalleryComment.cs" />
+    <Compile Include="Entities\ImageGalleryItem.cs" />
+    <Compile Include="Entities\ImageGalleryTag.cs" />
+    <Compile Include="Entities\ImageGallery.cs" />
+    <Compile Include="Entities\Profile.cs" />
+    <Compile Include="Entities\Tag.cs" />
+    <Compile Include="Entities\IPNF.cs" />
+    <Compile Include="Entities\Newsletter.cs" />
+    <Compile Include="Entities\NavigationMenuItem.cs" />
+    <Compile Include="Entities\NavigationMenu.cs" />
+    <Compile Include="Entities\ProvidedService.cs" />
+    <Compile Include="Entities\FAQ.cs" />
+    <Compile Include="Entities\MasterPage.cs" />
+    <Compile Include="Entities\Menu.cs" />
+    <Compile Include="Entities\News.cs" />
+    <Compile Include="Entities\Organization.cs" />
+    <Compile Include="Entities\Page.cs" />
+    <Compile Include="Entities\Person.cs" />
+    <Compile Include="Entities\Poll.cs" />
+    <Compile Include="Entities\PollAnswer.cs" />
+    <Compile Include="Entities\PollIOption.cs" />
+    <Compile Include="Entities\Role.cs" />
+    <Compile Include="Entities\Translation.cs" />
+    <Compile Include="Entities\Vocabulary.cs" />
+    <Compile Include="EvenLog.cs" />
+    <Compile Include="HttpModules\UrlAliasModule.cs" />
+    <Compile Include="IStorage.cs" />
+    <Compile Include="Log.cs" />
+    <Compile Include="MSSQL\AccountStorage.cs" />
+    <Compile Include="MSSQL\AddressStorage.cs" />
+    <Compile Include="MSSQL\Classifiers\ArticleCategoryStorage.cs" />
+    <Compile Include="MSSQL\Classifiers\SupportedLocaleStorage.cs" />
+    <Compile Include="MSSQL\Classifiers\UrlAliasPrefixStorage.cs" />
+    <Compile Include="MSSQL\Classifiers\PaidServiceStorage.cs" />
+    <Compile Include="MSSQL\AccountCreditStorage.cs" />
+    <Compile Include="MSSQL\BankContactStorage.cs" />
+    <Compile Include="MSSQL\ArticleStorage.cs" />
+    <Compile Include="MSSQL\ArticleTagStorage.cs" />
+    <Compile Include="MSSQL\CommentStorage.cs" />
+    <Compile Include="MSSQL\ArticleCommentStorage.cs" />
+    <Compile Include="MSSQL\AccountVoteStorage.cs" />
+    <Compile Include="MSSQL\BlogCommentStorage.cs" />
+    <Compile Include="MSSQL\BlogStorage.cs" />
+    <Compile Include="MSSQL\BlogTagStorage.cs" />
+    <Compile Include="MSSQL\AccountProfileStorage.cs" />
+    <Compile Include="MSSQL\ForumPostAttachmentStorage.cs" />
+    <Compile Include="MSSQL\ForumFavoritesStorage.cs" />
+    <Compile Include="MSSQL\ForumTrackingStorage.cs" />
+    <Compile Include="MSSQL\ForumPostStorage.cs" />
+    <Compile Include="MSSQL\ForumStorage.cs" />
+    <Compile Include="MSSQL\ForumThreadStorage.cs" />
+    <Compile Include="MSSQL\MenuStorage.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="MSSQL\UpgradeStorage.cs" />
+    <Compile Include="MSSQL\SearchEngineStorage.cs" />
+    <Compile Include="MSSQL\UrlAliasStorage.cs" />
+    <Compile Include="MSSQL\ImageGalleryItemCommentStorage.cs" />
+    <Compile Include="MSSQL\ImageGalleryCommentStorage.cs" />
+    <Compile Include="MSSQL\ImageGalleryItemStorage.cs" />
+    <Compile Include="MSSQL\ImageGalleryStorage.cs" />
+    <Compile Include="MSSQL\ImageGalleryTagStorage.cs" />
+    <Compile Include="MSSQL\ProfileStorage.cs" />
+    <Compile Include="MSSQL\TagStorage.cs" />
+    <Compile Include="MSSQL\IPNFStorage.cs" />
+    <Compile Include="MSSQL\NewsletterStorage.cs" />
+    <Compile Include="MSSQL\NavigationMenuItemStorage.cs" />
+    <Compile Include="MSSQL\NavigationMenuStorage.cs" />
+    <Compile Include="MSSQL\ProvidedServiceStorage.cs" />
+    <Compile Include="MSSQL\MasterPageStorage.cs" />
+    <Compile Include="MSSQL\PollAnswerStorage.cs" />
+    <Compile Include="MSSQL\PollOptionStorage.cs" />
+    <Compile Include="MSSQL\PollStorage.cs" />
+    <Compile Include="MSSQL\PageStorage.cs" />
+    <Compile Include="MSSQL\RoleStorage.cs" />
+    <Compile Include="MSSQL\NewsStorage.cs" />
+    <Compile Include="MSSQL\FAQStorage.cs" />
+    <Compile Include="MSSQL\MSSQLException.cs" />
+    <Compile Include="MSSQL\MSSQLStorage.cs" />
+    <Compile Include="MSSQL\OrganizationStorage.cs" />
+    <Compile Include="MSSQL\PersonStorage.cs" />
+    <Compile Include="MSSQL\TranslationStorage.cs" />
+    <Compile Include="MSSQL\VocabularyStorage.cs" />
+    <Compile Include="Notification.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Pump\CsvFileDataStorage.cs" />
+    <Compile Include="Pump\DataStorage.cs" />
+    <Compile Include="Pump\DataSynchronize.cs" />
+    <Compile Include="Pump\FileDataStorage.cs" />
+    <Compile Include="Pump\MSSQLStorage.cs" />
+    <Compile Include="Pump\MSSQLStorageException.cs" />
+    <Compile Include="Pump\XmlDataStorage.cs" />
+    <Compile Include="Resources\ASPxDatePicker.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ASPxDatePicker.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Resources\ASPxMultipleFileUpload.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ASPxMultipleFileUpload.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Resources\Controls.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Controls.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Resources\RadGrid.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>RadGrid.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Resources\Vocabulary.de.Designer.cs">
+      <DependentUpon>Vocabulary.de.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Resources\Vocabulary.cs.Designer.cs">
+      <DependentUpon>Vocabulary.cs.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Resources\Vocabulary.sk.Designer.cs">
+      <DependentUpon>Vocabulary.sk.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Resources\Vocabulary.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Vocabulary.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Security.cs" />
+    <Compile Include="Storage.cs" />
+    <Compile Include="Utilities\ConfigUtilities.cs" />
+    <Compile Include="Utilities\AliasUtilities.cs">
+    </Compile>
+    <Compile Include="Utilities\CultureUtilities.cs" />
+    <Compile Include="Utilities\DefaultContentProcessor.cs" />
+    <Compile Include="Utilities\RadGridUtilities.cs" />
+    <Compile Include="Utilities\ServerUtilities.cs" />
+    <Compile Include="Utilities\Cryptographer.cs" />
+    <Compile Include="Utilities\DynamicQueryable.cs" />
+    <Compile Include="Utilities\StringUtilities.cs" />
+    <Compile Include="WebStorage.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\ASPxDatePicker.cs.resx" />
+    <EmbeddedResource Include="Resources\ASPxDatePicker.de.resx" />
+    <EmbeddedResource Include="Resources\ASPxDatePicker.pl.resx" />
+    <EmbeddedResource Include="Resources\ASPxDatePicker.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>ASPxDatePicker.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\ASPxDatePicker.ru.resx" />
+    <EmbeddedResource Include="Resources\ASPxDatePicker.sk.resx" />
+    <EmbeddedResource Include="Resources\ASPxMultipleFileUpload.cs.resx" />
+    <EmbeddedResource Include="Resources\ASPxMultipleFileUpload.de.resx" />
+    <EmbeddedResource Include="Resources\ASPxMultipleFileUpload.pl.resx" />
+    <EmbeddedResource Include="Resources\ASPxMultipleFileUpload.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>ASPxMultipleFileUpload.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\ASPxMultipleFileUpload.ru.resx" />
+    <EmbeddedResource Include="Resources\ASPxMultipleFileUpload.sk.resx" />
+    <EmbeddedResource Include="Resources\Controls.cs.resx">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\Controls.de.resx" />
+    <EmbeddedResource Include="Resources\Controls.pl.resx" />
+    <EmbeddedResource Include="Resources\Controls.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>Controls.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\Controls.ru.resx" />
+    <EmbeddedResource Include="Resources\Controls.sk.resx">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Controls\Translations\vocabulary.js" />
+    <EmbeddedResource Include="Resources\RadGrid.pl.resx" />
+    <EmbeddedResource Include="Resources\Vocabulary.de.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Vocabulary.de.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\Vocabulary.cs.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Vocabulary.cs.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\Vocabulary.pl.resx" />
+    <EmbeddedResource Include="Resources\Vocabulary.sk.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Vocabulary.sk.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\Vocabulary.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Vocabulary.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Controls\ASPxDatePicker.js" />
+    <EmbeddedResource Include="Controls\ASPxMultipleFileUpload.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Controls\ImageGallery\lightbox\effects.js" />
+    <EmbeddedResource Include="Controls\ImageGallery\lightbox\lightbox.css" />
+    <EmbeddedResource Include="Controls\ImageGallery\lightbox\lightbox.js" />
+    <EmbeddedResource Include="Controls\ImageGallery\lightbox\prototype.js" />
+    <EmbeddedResource Include="Controls\ImageGallery\lightbox\scriptaculous.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Controls\Comment\CommentForm.js" />
+    <EmbeddedResource Include="Resources\RadGrid.cs.resx" />
+    <EmbeddedResource Include="Resources\RadGrid.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>RadGrid.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\RadGrid.sk.resx" />
+    <EmbeddedResource Include="Resources\RadGrid.en.resx" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Scripts\build-upgrade.bat" />
+    <None Include="Scripts\build.bat" />
+    <None Include="Scripts\create-drop-database.sql" />
+    <None Include="Scripts\dbInit.sql" />
+    <None Include="Scripts\dbRights.sql" />
+    <None Include="Scripts\dbStructClassifiers.sql" />
+    <None Include="Scripts\dbStructFunctions.sql" />
+    <None Include="Scripts\dbStructProcedures.sql" />
+    <None Include="Scripts\dbStructTabs.sql" />
+    <None Include="Scripts\dbStructTriggers.sql" />
+    <None Include="Scripts\dbStructViews.sql" />
+    <None Include="Scripts\dbUpgrade.sql" />
+    <None Include="Scripts\dbUpgrade_draft.sql" />
+    <None Include="Scripts\fAccountRoles.sql" />
+    <None Include="Scripts\fCompareKeywords.sql" />
+    <None Include="Scripts\fCompareKeywordsEx.sql" />
+    <None Include="Scripts\fFormatAddress.sql" />
+    <None Include="Scripts\fFormatPerson.sql" />
+    <None Include="Scripts\fMakeAnsi.sql" />
+    <None Include="Scripts\fStringToTable.sql" />
+    <None Include="Scripts\pAccountCreate.sql" />
+    <None Include="Scripts\pAccountCreditCreate.sql" />
+    <None Include="Scripts\pAccountCreditDelete.sql" />
+    <None Include="Scripts\pAccountCreditModify.sql" />
+    <None Include="Scripts\pAccountDelete.sql" />
+    <None Include="Scripts\pAccountModify.sql" />
+    <None Include="Scripts\pAccountProfileCreate.sql" />
+    <None Include="Scripts\pAccountProfileDelete.sql" />
+    <None Include="Scripts\pAccountProfileModify.sql" />
+    <None Include="Scripts\pAccountVerify.sql" />
+    <None Include="Scripts\pAccountVoteCreate.sql" />
+    <None Include="Scripts\pAddressCreate.sql" />
+    <None Include="Scripts\pAddressDelete.sql" />
+    <None Include="Scripts\pAddressModify.sql" />
+    <None Include="Scripts\pArticleCategoryCreate.sql" />
+    <None Include="Scripts\pArticleCategoryDelete.sql" />
+    <None Include="Scripts\pArticleCategoryModify.sql" />
+    <None Include="Scripts\pArticleCommentCreate.sql" />
+    <None Include="Scripts\pArticleCreate.sql" />
+    <None Include="Scripts\pArticleDelete.sql" />
+    <None Include="Scripts\pArticleIncrementViewCount.sql" />
+    <None Include="Scripts\pArticleIncrementVote.sql" />
+    <None Include="Scripts\pArticleModify.sql" />
+    <None Include="Scripts\pArticleTagCreate.sql" />
+    <None Include="Scripts\pBankContactCreate.sql" />
+    <None Include="Scripts\pBankContactDelete.sql" />
+    <None Include="Scripts\pBankContactModify.sql" />
+    <None Include="Scripts\pBlogCommentCreate.sql" />
+    <None Include="Scripts\pBlogCreate.sql" />
+    <None Include="Scripts\pBlogDelete.sql" />
+    <None Include="Scripts\pBlogIncrementViewCount.sql" />
+    <None Include="Scripts\pBlogIncrementVote.sql" />
+    <None Include="Scripts\pBlogModify.sql" />
+    <None Include="Scripts\pBlogTagCreate.sql" />
+    <None Include="Scripts\pCommentCreate.sql" />
+    <None Include="Scripts\pCommentDelete.sql" />
+    <None Include="Scripts\pCommentIncrementVote.sql" />
+    <None Include="Scripts\pCommentModify.sql" />
+    <None Include="Scripts\pFaqCreate.sql" />
+    <None Include="Scripts\pFaqDelete.sql" />
+    <None Include="Scripts\pFaqModify.sql" />
+    <None Include="Scripts\pImageGalleryCommentCreate.sql" />
+    <None Include="Scripts\pImageGalleryCreate.sql" />
+    <None Include="Scripts\pImageGalleryDelete.sql" />
+    <None Include="Scripts\pImageGalleryIncrementViewCount.sql" />
+    <None Include="Scripts\pImageGalleryItemCommentCreate.sql" />
+    <None Include="Scripts\pImageGalleryItemCreate.sql" />
+    <None Include="Scripts\pImageGalleryItemDelete.sql" />
+    <None Include="Scripts\pImageGalleryItemIncrementViewCount.sql" />
+    <None Include="Scripts\pImageGalleryItemIncrementVote.sql" />
+    <None Include="Scripts\pImageGalleryItemModify.sql" />
+    <None Include="Scripts\pImageGalleryModify.sql" />
+    <None Include="Scripts\pImageGalleryTagCreate.sql" />
+    <None Include="Scripts\pMenuCreate.sql" />
+    <None Include="Scripts\pMenuDelete.sql" />
+    <None Include="Scripts\pMenuModify.sql" />
+    <None Include="Scripts\pNavigationMenuCreate.sql" />
+    <None Include="Scripts\pNavigationMenuDelete.sql" />
+    <None Include="Scripts\pNavigationMenuItemCreate.sql" />
+    <None Include="Scripts\pNavigationMenuItemDelete.sql" />
+    <None Include="Scripts\pNavigationMenuItemModify.sql" />
+    <None Include="Scripts\pNavigationMenuModify.sql" />
+    <None Include="Scripts\pNewsCreate.sql" />
+    <None Include="Scripts\pNewsDelete.sql" />
+    <None Include="Scripts\pNewsletterCreate.sql" />
+    <None Include="Scripts\pNewsletterDelete.sql" />
+    <None Include="Scripts\pNewsletterModify.sql" />
+    <None Include="Scripts\pNewsModify.sql" />
+    <None Include="Scripts\pOrganizationCreate.sql" />
+    <None Include="Scripts\pOrganizationDelete.sql" />
+    <None Include="Scripts\pOrganizationModify.sql" />
+    <None Include="Scripts\pPageCreate.sql" />
+    <None Include="Scripts\pPageDelete.sql" />
+    <None Include="Scripts\pPageModify.sql" />
+    <None Include="Scripts\pPaidServiceModify.sql" />
+    <None Include="Scripts\pPersonCreate.sql" />
+    <None Include="Scripts\pPersonDelete.sql" />
+    <None Include="Scripts\pPersonModify.sql" />
+    <None Include="Scripts\pPollAnswerCreate.sql" />
+    <None Include="Scripts\pPollCreate.sql" />
+    <None Include="Scripts\pPollDelete.sql" />
+    <None Include="Scripts\pPollModify.sql" />
+    <None Include="Scripts\pPollOptionCreate.sql" />
+    <None Include="Scripts\pPollOptionDelete.sql" />
+    <None Include="Scripts\pPollOptionModify.sql" />
+    <None Include="Scripts\pProvidedServiceCreate.sql" />
+    <None Include="Scripts\pRoleCreate.sql" />
+    <None Include="Scripts\pRoleDelete.sql" />
+    <None Include="Scripts\pSearchArticleComments.sql" />
+    <None Include="Scripts\pSearchArticles.sql" />
+    <None Include="Scripts\pSearchBlogComments.sql" />
+    <None Include="Scripts\pSearchBlogs.sql" />
+    <None Include="Scripts\pSearchImageGalleries.sql" />
+    <None Include="Scripts\pSearchImageGalleryComments.sql" />
+    <None Include="Scripts\pSearchImageGalleryItemComments.sql" />
+    <None Include="Scripts\pSearchNews.sql" />
+    <None Include="Scripts\pSearchPages.sql" />
+    <None Include="Scripts\pTagCreate.sql" />
+    <None Include="Scripts\pTagDelete.sql" />
+    <None Include="Scripts\pTagModify.sql" />
+    <None Include="Scripts\pTranslationCreateEx.sql" />
+    <None Include="Scripts\pTranslationModify.sql" />
+    <None Include="Scripts\pUrlAliasCreate.sql" />
+    <None Include="Scripts\pUrlAliasDelete.sql" />
+    <None Include="Scripts\pUrlAliasModify.sql" />
+    <None Include="Scripts\pUrlAliasPrefixModify.sql" />
+    <None Include="Scripts\script-upgrade.sql" />
+    <None Include="Scripts\script.sql" />
+    <None Include="Scripts\v.0.0\build.bat" />
+    <None Include="Scripts\v.0.0\create-drop-database.sql" />
+    <None Include="Scripts\v.0.0\dbInit.sql" />
+    <None Include="Scripts\v.0.0\dbRights.sql" />
+    <None Include="Scripts\v.0.0\dbStructClassifiers.sql" />
+    <None Include="Scripts\v.0.0\dbStructFunctions.sql" />
+    <None Include="Scripts\v.0.0\dbStructProcedures.sql" />
+    <None Include="Scripts\v.0.0\dbStructTabs.sql" />
+    <None Include="Scripts\v.0.0\dbStructTriggers.sql" />
+    <None Include="Scripts\v.0.0\dbStructViews.sql" />
+    <None Include="Scripts\v.0.0\dbver.sql" />
+    <None Include="Scripts\v.0.0\fAccountRoles.sql" />
+    <None Include="Scripts\v.0.0\fCompareKeywords.sql" />
+    <None Include="Scripts\v.0.0\fFormatAddress.sql" />
+    <None Include="Scripts\v.0.0\fFormatPerson.sql" />
+    <None Include="Scripts\v.0.0\fMakeAnsi.sql" />
+    <None Include="Scripts\v.0.0\fStringToTable.sql" />
+    <None Include="Scripts\v.0.0\pAccountCreate.sql" />
+    <None Include="Scripts\v.0.0\pAccountCreditCreate.sql" />
+    <None Include="Scripts\v.0.0\pAccountCreditDelete.sql" />
+    <None Include="Scripts\v.0.0\pAccountCreditModify.sql" />
+    <None Include="Scripts\v.0.0\pAccountDelete.sql" />
+    <None Include="Scripts\v.0.0\pAccountModify.sql" />
+    <None Include="Scripts\v.0.0\pAccountVerify.sql" />
+    <None Include="Scripts\v.0.0\pAddressCreate.sql" />
+    <None Include="Scripts\v.0.0\pAddressDelete.sql" />
+    <None Include="Scripts\v.0.0\pAddressModify.sql" />
+    <None Include="Scripts\v.0.0\pBankContactCreate.sql" />
+    <None Include="Scripts\v.0.0\pBankContactDelete.sql" />
+    <None Include="Scripts\v.0.0\pBankContactModify.sql" />
+    <None Include="Scripts\v.0.0\pFaqCreate.sql" />
+    <None Include="Scripts\v.0.0\pFaqDelete.sql" />
+    <None Include="Scripts\v.0.0\pFaqModify.sql" />
+    <None Include="Scripts\v.0.0\pMenuCreate.sql" />
+    <None Include="Scripts\v.0.0\pMenuDelete.sql" />
+    <None Include="Scripts\v.0.0\pMenuModify.sql" />
+    <None Include="Scripts\v.0.0\pNavigationMenuCreate.sql" />
+    <None Include="Scripts\v.0.0\pNavigationMenuDelete.sql" />
+    <None Include="Scripts\v.0.0\pNavigationMenuItemCreate.sql" />
+    <None Include="Scripts\v.0.0\pNavigationMenuItemDelete.sql" />
+    <None Include="Scripts\v.0.0\pNavigationMenuItemModify.sql" />
+    <None Include="Scripts\v.0.0\pNavigationMenuModify.sql" />
+    <None Include="Scripts\v.0.0\pNewsCreate.sql" />
+    <None Include="Scripts\v.0.0\pNewsDelete.sql" />
+    <None Include="Scripts\v.0.0\pNewsletterCreate.sql" />
+    <None Include="Scripts\v.0.0\pNewsletterDelete.sql" />
+    <None Include="Scripts\v.0.0\pNewsletterModify.sql" />
+    <None Include="Scripts\v.0.0\pNewsModify.sql" />
+    <None Include="Scripts\v.0.0\pOrganizationCreate.sql" />
+    <None Include="Scripts\v.0.0\pOrganizationDelete.sql" />
+    <None Include="Scripts\v.0.0\pOrganizationModify.sql" />
+    <None Include="Scripts\v.0.0\pPageCreate.sql" />
+    <None Include="Scripts\v.0.0\pPageDelete.sql" />
+    <None Include="Scripts\v.0.0\pPageModify.sql" />
+    <None Include="Scripts\v.0.0\pPaidServiceModify.sql" />
+    <None Include="Scripts\v.0.0\pPersonCreate.sql" />
+    <None Include="Scripts\v.0.0\pPersonDelete.sql" />
+    <None Include="Scripts\v.0.0\pPersonModify.sql" />
+    <None Include="Scripts\v.0.0\pPollAnswerCreate.sql" />
+    <None Include="Scripts\v.0.0\pPollCreate.sql" />
+    <None Include="Scripts\v.0.0\pPollDelete.sql" />
+    <None Include="Scripts\v.0.0\pPollModify.sql" />
+    <None Include="Scripts\v.0.0\pPollOptionCreate.sql" />
+    <None Include="Scripts\v.0.0\pPollOptionDelete.sql" />
+    <None Include="Scripts\v.0.0\pPollOptionModify.sql" />
+    <None Include="Scripts\v.0.0\pProvidedServiceCreate.sql" />
+    <None Include="Scripts\v.0.0\pRoleCreate.sql" />
+    <None Include="Scripts\v.0.0\pRoleDelete.sql" />
+    <None Include="Scripts\v.0.0\script.sql" />
+    <None Include="Scripts\v.0.0\vAccountRoles.sql" />
+    <None Include="Scripts\v.0.0\vAccounts.sql" />
+    <None Include="Scripts\v.0.0\vAccountsCredit.sql" />
+    <None Include="Scripts\v.0.0\vAddresses.sql" />
+    <None Include="Scripts\v.0.0\vBankContacts.sql" />
+    <None Include="Scripts\v.0.0\vFaqs.sql" />
+    <None Include="Scripts\v.0.0\vMasterPages.sql" />
+    <None Include="Scripts\v.0.0\vMenu.sql" />
+    <None Include="Scripts\v.0.0\vNavigationMenu.sql" />
+    <None Include="Scripts\v.0.0\vNavigationMenuItem.sql" />
+    <None Include="Scripts\v.0.0\vNews.sql" />
+    <None Include="Scripts\v.0.0\vNewsletter.sql" />
+    <None Include="Scripts\v.0.0\vOrganizations.sql" />
+    <None Include="Scripts\v.0.0\vPages.sql" />
+    <None Include="Scripts\v.0.0\vPaidServices.sql" />
+    <None Include="Scripts\v.0.0\vPersons.sql" />
+    <None Include="Scripts\v.0.0\vPollAnswers.sql" />
+    <None Include="Scripts\v.0.0\vPollOptions.sql" />
+    <None Include="Scripts\v.0.0\vPolls.sql" />
+    <None Include="Scripts\v.0.0\vProvidedServices.sql" />
+    <None Include="Scripts\v.0.0\vRoles.sql" />
+    <None Include="Scripts\v.0.1\build-upgrade.bat" />
+    <None Include="Scripts\v.0.1\build.bat" />
+    <None Include="Scripts\v.0.1\create-drop-database.sql" />
+    <None Include="Scripts\v.0.1\dbInit.sql" />
+    <None Include="Scripts\v.0.1\dbRights.sql" />
+    <None Include="Scripts\v.0.1\dbStructClassifiers.sql" />
+    <None Include="Scripts\v.0.1\dbStructFunctions.sql" />
+    <None Include="Scripts\v.0.1\dbStructProcedures.sql" />
+    <None Include="Scripts\v.0.1\dbStructTabs.sql" />
+    <None Include="Scripts\v.0.1\dbStructTriggers.sql" />
+    <None Include="Scripts\v.0.1\dbStructViews.sql" />
+    <None Include="Scripts\v.0.1\dbUpgrade.sql" />
+    <None Include="Scripts\v.0.1\dbver.sql" />
+    <None Include="Scripts\v.0.1\fAccountRoles.sql" />
+    <None Include="Scripts\v.0.1\fCompareKeywords.sql" />
+    <None Include="Scripts\v.0.1\fFormatAddress.sql" />
+    <None Include="Scripts\v.0.1\fFormatPerson.sql" />
+    <None Include="Scripts\v.0.1\fMakeAnsi.sql" />
+    <None Include="Scripts\v.0.1\fStringToTable.sql" />
+    <None Include="Scripts\v.0.1\pAccountCreate.sql" />
+    <None Include="Scripts\v.0.1\pAccountCreditCreate.sql" />
+    <None Include="Scripts\v.0.1\pAccountCreditDelete.sql" />
+    <None Include="Scripts\v.0.1\pAccountCreditModify.sql" />
+    <None Include="Scripts\v.0.1\pAccountDelete.sql" />
+    <None Include="Scripts\v.0.1\pAccountModify.sql" />
+    <None Include="Scripts\v.0.1\pAccountVerify.sql" />
+    <None Include="Scripts\v.0.1\pAddressCreate.sql" />
+    <None Include="Scripts\v.0.1\pAddressDelete.sql" />
+    <None Include="Scripts\v.0.1\pAddressModify.sql" />
+    <None Include="Scripts\v.0.1\pBankContactCreate.sql" />
+    <None Include="Scripts\v.0.1\pBankContactDelete.sql" />
+    <None Include="Scripts\v.0.1\pBankContactModify.sql" />
+    <None Include="Scripts\v.0.1\pFaqCreate.sql" />
+    <None Include="Scripts\v.0.1\pFaqDelete.sql" />
+    <None Include="Scripts\v.0.1\pFaqModify.sql" />
+    <None Include="Scripts\v.0.1\pMenuCreate.sql" />
+    <None Include="Scripts\v.0.1\pMenuDelete.sql" />
+    <None Include="Scripts\v.0.1\pMenuModify.sql" />
+    <None Include="Scripts\v.0.1\pNavigationMenuCreate.sql" />
+    <None Include="Scripts\v.0.1\pNavigationMenuDelete.sql" />
+    <None Include="Scripts\v.0.1\pNavigationMenuItemCreate.sql" />
+    <None Include="Scripts\v.0.1\pNavigationMenuItemDelete.sql" />
+    <None Include="Scripts\v.0.1\pNavigationMenuItemModify.sql" />
+    <None Include="Scripts\v.0.1\pNavigationMenuModify.sql" />
+    <None Include="Scripts\v.0.1\pNewsCreate.sql" />
+    <None Include="Scripts\v.0.1\pNewsDelete.sql" />
+    <None Include="Scripts\v.0.1\pNewsletterCreate.sql" />
+    <None Include="Scripts\v.0.1\pNewsletterDelete.sql" />
+    <None Include="Scripts\v.0.1\pNewsletterModify.sql" />
+    <None Include="Scripts\v.0.1\pNewsModify.sql" />
+    <None Include="Scripts\v.0.1\pOrganizationCreate.sql" />
+    <None Include="Scripts\v.0.1\pOrganizationDelete.sql" />
+    <None Include="Scripts\v.0.1\pOrganizationModify.sql" />
+    <None Include="Scripts\v.0.1\pPageCreate.sql" />
+    <None Include="Scripts\v.0.1\pPageDelete.sql" />
+    <None Include="Scripts\v.0.1\pPageModify.sql" />
+    <None Include="Scripts\v.0.1\pPaidServiceModify.sql" />
+    <None Include="Scripts\v.0.1\pPersonCreate.sql" />
+    <None Include="Scripts\v.0.1\pPersonDelete.sql" />
+    <None Include="Scripts\v.0.1\pPersonModify.sql" />
+    <None Include="Scripts\v.0.1\pPollAnswerCreate.sql" />
+    <None Include="Scripts\v.0.1\pPollCreate.sql" />
+    <None Include="Scripts\v.0.1\pPollDelete.sql" />
+    <None Include="Scripts\v.0.1\pPollModify.sql" />
+    <None Include="Scripts\v.0.1\pPollOptionCreate.sql" />
+    <None Include="Scripts\v.0.1\pPollOptionDelete.sql" />
+    <None Include="Scripts\v.0.1\pPollOptionModify.sql" />
+    <None Include="Scripts\v.0.1\pProvidedServiceCreate.sql" />
+    <None Include="Scripts\v.0.1\pRoleCreate.sql" />
+    <None Include="Scripts\v.0.1\pRoleDelete.sql" />
+    <None Include="Scripts\v.0.1\script-upgrade.sql" />
+    <None Include="Scripts\v.0.1\script.sql" />
+    <None Include="Scripts\v.0.1\vAccountRoles.sql" />
+    <None Include="Scripts\v.0.1\vAccounts.sql" />
+    <None Include="Scripts\v.0.1\vAccountsCredit.sql" />
+    <None Include="Scripts\v.0.1\vAddresses.sql" />
+    <None Include="Scripts\v.0.1\vBankContacts.sql" />
+    <None Include="Scripts\v.0.1\vFaqs.sql" />
+    <None Include="Scripts\v.0.1\vIPNFs.sql" />
+    <None Include="Scripts\v.0.1\vMasterPages.sql" />
+    <None Include="Scripts\v.0.1\vMenu.sql" />
+    <None Include="Scripts\v.0.1\vNavigationMenu.sql" />
+    <None Include="Scripts\v.0.1\vNavigationMenuItem.sql" />
+    <None Include="Scripts\v.0.1\vNews.sql" />
+    <None Include="Scripts\v.0.1\vNewsletter.sql" />
+    <None Include="Scripts\v.0.1\vOrganizations.sql" />
+    <None Include="Scripts\v.0.1\vPages.sql" />
+    <None Include="Scripts\v.0.1\vPaidServices.sql" />
+    <None Include="Scripts\v.0.1\vPersons.sql" />
+    <None Include="Scripts\v.0.1\vPollAnswers.sql" />
+    <None Include="Scripts\v.0.1\vPollOptions.sql" />
+    <None Include="Scripts\v.0.1\vPolls.sql" />
+    <None Include="Scripts\v.0.1\vProvidedServices.sql" />
+    <None Include="Scripts\v.0.1\vRoles.sql" />
+    <None Include="Scripts\v.0.2\build-upgrade.bat" />
+    <None Include="Scripts\v.0.2\build.bat" />
+    <None Include="Scripts\v.0.2\create-drop-database.sql" />
+    <None Include="Scripts\v.0.2\dbInit.sql" />
+    <None Include="Scripts\v.0.2\dbRights.sql" />
+    <None Include="Scripts\v.0.2\dbStructClassifiers.sql" />
+    <None Include="Scripts\v.0.2\dbStructFunctions.sql" />
+    <None Include="Scripts\v.0.2\dbStructProcedures.sql" />
+    <None Include="Scripts\v.0.2\dbStructTabs.sql" />
+    <None Include="Scripts\v.0.2\dbStructTriggers.sql" />
+    <None Include="Scripts\v.0.2\dbStructViews.sql" />
+    <None Include="Scripts\v.0.2\dbUpgrade.sql" />
+    <None Include="Scripts\v.0.2\dbver.sql" />
+    <None Include="Scripts\v.0.2\fAccountRoles.sql" />
+    <None Include="Scripts\v.0.2\fCompareKeywords.sql" />
+    <None Include="Scripts\v.0.2\fFormatAddress.sql" />
+    <None Include="Scripts\v.0.2\fFormatPerson.sql" />
+    <None Include="Scripts\v.0.2\fMakeAnsi.sql" />
+    <None Include="Scripts\v.0.2\fStringToTable.sql" />
+    <None Include="Scripts\v.0.2\pAccountCreate.sql" />
+    <None Include="Scripts\v.0.2\pAccountCreditCreate.sql" />
+    <None Include="Scripts\v.0.2\pAccountCreditDelete.sql" />
+    <None Include="Scripts\v.0.2\pAccountCreditModify.sql" />
+    <None Include="Scripts\v.0.2\pAccountDelete.sql" />
+    <None Include="Scripts\v.0.2\pAccountModify.sql" />
+    <None Include="Scripts\v.0.2\pAccountVerify.sql" />
+    <None Include="Scripts\v.0.2\pAddressCreate.sql" />
+    <None Include="Scripts\v.0.2\pAddressDelete.sql" />
+    <None Include="Scripts\v.0.2\pAddressModify.sql" />
+    <None Include="Scripts\v.0.2\pBankContactCreate.sql" />
+    <None Include="Scripts\v.0.2\pBankContactDelete.sql" />
+    <None Include="Scripts\v.0.2\pBankContactModify.sql" />
+    <None Include="Scripts\v.0.2\pFaqCreate.sql" />
+    <None Include="Scripts\v.0.2\pFaqDelete.sql" />
+    <None Include="Scripts\v.0.2\pFaqModify.sql" />
+    <None Include="Scripts\v.0.2\pMenuCreate.sql" />
+    <None Include="Scripts\v.0.2\pMenuDelete.sql" />
+    <None Include="Scripts\v.0.2\pMenuModify.sql" />
+    <None Include="Scripts\v.0.2\pNavigationMenuCreate.sql" />
+    <None Include="Scripts\v.0.2\pNavigationMenuDelete.sql" />
+    <None Include="Scripts\v.0.2\pNavigationMenuItemCreate.sql" />
+    <None Include="Scripts\v.0.2\pNavigationMenuItemDelete.sql" />
+    <None Include="Scripts\v.0.2\pNavigationMenuItemModify.sql" />
+    <None Include="Scripts\v.0.2\pNavigationMenuModify.sql" />
+    <None Include="Scripts\v.0.2\pNewsCreate.sql" />
+    <None Include="Scripts\v.0.2\pNewsDelete.sql" />
+    <None Include="Scripts\v.0.2\pNewsletterCreate.sql" />
+    <None Include="Scripts\v.0.2\pNewsletterDelete.sql" />
+    <None Include="Scripts\v.0.2\pNewsletterModify.sql" />
+    <None Include="Scripts\v.0.2\pNewsModify.sql" />
+    <None Include="Scripts\v.0.2\pOrganizationCreate.sql" />
+    <None Include="Scripts\v.0.2\pOrganizationDelete.sql" />
+    <None Include="Scripts\v.0.2\pOrganizationModify.sql" />
+    <None Include="Scripts\v.0.2\pPageCreate.sql" />
+    <None Include="Scripts\v.0.2\pPageDelete.sql" />
+    <None Include="Scripts\v.0.2\pPageModify.sql" />
+    <None Include="Scripts\v.0.2\pPaidServiceModify.sql" />
+    <None Include="Scripts\v.0.2\pPersonCreate.sql" />
+    <None Include="Scripts\v.0.2\pPersonDelete.sql" />
+    <None Include="Scripts\v.0.2\pPersonModify.sql" />
+    <None Include="Scripts\v.0.2\pPollAnswerCreate.sql" />
+    <None Include="Scripts\v.0.2\pPollCreate.sql" />
+    <None Include="Scripts\v.0.2\pPollDelete.sql" />
+    <None Include="Scripts\v.0.2\pPollModify.sql" />
+    <None Include="Scripts\v.0.2\pPollOptionCreate.sql" />
+    <None Include="Scripts\v.0.2\pPollOptionDelete.sql" />
+    <None Include="Scripts\v.0.2\pPollOptionModify.sql" />
+    <None Include="Scripts\v.0.2\pProvidedServiceCreate.sql" />
+    <None Include="Scripts\v.0.2\pRoleCreate.sql" />
+    <None Include="Scripts\v.0.2\pRoleDelete.sql" />
+    <None Include="Scripts\v.0.2\pTranslationCreateEx.sql" />
+    <None Include="Scripts\v.0.2\pTranslationModify.sql" />
+    <None Include="Scripts\v.0.2\script-upgrade.sql" />
+    <None Include="Scripts\v.0.2\script.sql" />
+    <None Include="Scripts\v.0.2\vAccountRoles.sql" />
+    <None Include="Scripts\v.0.2\vAccounts.sql" />
+    <None Include="Scripts\v.0.2\vAccountsCredit.sql" />
+    <None Include="Scripts\v.0.2\vAddresses.sql" />
+    <None Include="Scripts\v.0.2\vBankContacts.sql" />
+    <None Include="Scripts\v.0.2\vFaqs.sql" />
+    <None Include="Scripts\v.0.2\vIPNFs.sql" />
+    <None Include="Scripts\v.0.2\vMasterPages.sql" />
+    <None Include="Scripts\v.0.2\vMenu.sql" />
+    <None Include="Scripts\v.0.2\vNavigationMenu.sql" />
+    <None Include="Scripts\v.0.2\vNavigationMenuItem.sql" />
+    <None Include="Scripts\v.0.2\vNews.sql" />
+    <None Include="Scripts\v.0.2\vNewsletter.sql" />
+    <None Include="Scripts\v.0.2\vOrganizations.sql" />
+    <None Include="Scripts\v.0.2\vPages.sql" />
+    <None Include="Scripts\v.0.2\vPaidServices.sql" />
+    <None Include="Scripts\v.0.2\vPersons.sql" />
+    <None Include="Scripts\v.0.2\vPollAnswers.sql" />
+    <None Include="Scripts\v.0.2\vPollOptions.sql" />
+    <None Include="Scripts\v.0.2\vPolls.sql" />
+    <None Include="Scripts\v.0.2\vProvidedServices.sql" />
+    <None Include="Scripts\v.0.2\vRoles.sql" />
+    <None Include="Scripts\v.0.2\vTranslations.sql" />
+    <None Include="Scripts\v.0.2\vVocabularies.sql" />
+    <None Include="Scripts\v.0.3\build-upgrade.bat" />
+    <None Include="Scripts\v.0.3\build.bat" />
+    <None Include="Scripts\v.0.3\create-drop-database.sql" />
+    <None Include="Scripts\v.0.3\dbInit.sql" />
+    <None Include="Scripts\v.0.3\dbRights.sql" />
+    <None Include="Scripts\v.0.3\dbStructClassifiers.sql" />
+    <None Include="Scripts\v.0.3\dbStructFunctions.sql" />
+    <None Include="Scripts\v.0.3\dbStructProcedures.sql" />
+    <None Include="Scripts\v.0.3\dbStructTabs.sql" />
+    <None Include="Scripts\v.0.3\dbStructTriggers.sql" />
+    <None Include="Scripts\v.0.3\dbStructViews.sql" />
+    <None Include="Scripts\v.0.3\dbUpgrade.sql" />
+    <None Include="Scripts\v.0.3\dbver.sql" />
+    <None Include="Scripts\v.0.3\fAccountRoles.sql" />
+    <None Include="Scripts\v.0.3\fCompareKeywords.sql" />
+    <None Include="Scripts\v.0.3\fFormatAddress.sql" />
+    <None Include="Scripts\v.0.3\fFormatPerson.sql" />
+    <None Include="Scripts\v.0.3\fMakeAnsi.sql" />
+    <None Include="Scripts\v.0.3\fStringToTable.sql" />
+    <None Include="Scripts\v.0.3\pAccountCreate.sql" />
+    <None Include="Scripts\v.0.3\pAccountCreditCreate.sql" />
+    <None Include="Scripts\v.0.3\pAccountCreditDelete.sql" />
+    <None Include="Scripts\v.0.3\pAccountCreditModify.sql" />
+    <None Include="Scripts\v.0.3\pAccountDelete.sql" />
+    <None Include="Scripts\v.0.3\pAccountModify.sql" />
+    <None Include="Scripts\v.0.3\pAccountProfileCreate.sql" />
+    <None Include="Scripts\v.0.3\pAccountProfileDelete.sql" />
+    <None Include="Scripts\v.0.3\pAccountProfileModify.sql" />
+    <None Include="Scripts\v.0.3\pAccountVerify.sql" />
+    <None Include="Scripts\v.0.3\pAccountVoteCreate.sql" />
+    <None Include="Scripts\v.0.3\pAddressCreate.sql" />
+    <None Include="Scripts\v.0.3\pAddressDelete.sql" />
+    <None Include="Scripts\v.0.3\pAddressModify.sql" />
+    <None Include="Scripts\v.0.3\pArticleCategoryCreate.sql" />
+    <None Include="Scripts\v.0.3\pArticleCategoryDelete.sql" />
+    <None Include="Scripts\v.0.3\pArticleCategoryModify.sql" />
+    <None Include="Scripts\v.0.3\pArticleCommentCreate.sql" />
+    <None Include="Scripts\v.0.3\pArticleCreate.sql" />
+    <None Include="Scripts\v.0.3\pArticleDelete.sql" />
+    <None Include="Scripts\v.0.3\pArticleIncrementViewCount.sql" />
+    <None Include="Scripts\v.0.3\pArticleIncrementVote.sql" />
+    <None Include="Scripts\v.0.3\pArticleModify.sql" />
+    <None Include="Scripts\v.0.3\pArticleTagCreate.sql" />
+    <None Include="Scripts\v.0.3\pBankContactCreate.sql" />
+    <None Include="Scripts\v.0.3\pBankContactDelete.sql" />
+    <None Include="Scripts\v.0.3\pBankContactModify.sql" />
+    <None Include="Scripts\v.0.3\pBlogCommentCreate.sql" />
+    <None Include="Scripts\v.0.3\pBlogCreate.sql" />
+    <None Include="Scripts\v.0.3\pBlogDelete.sql" />
+    <None Include="Scripts\v.0.3\pBlogIncrementViewCount.sql" />
+    <None Include="Scripts\v.0.3\pBlogIncrementVote.sql" />
+    <None Include="Scripts\v.0.3\pBlogModify.sql" />
+    <None Include="Scripts\v.0.3\pBlogTagCreate.sql" />
+    <None Include="Scripts\v.0.3\pCommentCreate.sql" />
+    <None Include="Scripts\v.0.3\pCommentDelete.sql" />
+    <None Include="Scripts\v.0.3\pCommentIncrementVote.sql" />
+    <None Include="Scripts\v.0.3\pCommentModify.sql" />
+    <None Include="Scripts\v.0.3\pFaqCreate.sql" />
+    <None Include="Scripts\v.0.3\pFaqDelete.sql" />
+    <None Include="Scripts\v.0.3\pFaqModify.sql" />
+    <None Include="Scripts\v.0.3\pImageGalleryCommentCreate.sql" />
+    <None Include="Scripts\v.0.3\pImageGalleryCreate.sql" />
+    <None Include="Scripts\v.0.3\pImageGalleryDelete.sql" />
+    <None Include="Scripts\v.0.3\pImageGalleryIncrementViewCount.sql" />
+    <None Include="Scripts\v.0.3\pImageGalleryItemCommentCreate.sql" />
+    <None Include="Scripts\v.0.3\pImageGalleryItemCreate.sql" />
+    <None Include="Scripts\v.0.3\pImageGalleryItemDelete.sql" />
+    <None Include="Scripts\v.0.3\pImageGalleryItemIncrementViewCount.sql" />
+    <None Include="Scripts\v.0.3\pImageGalleryItemIncrementVote.sql" />
+    <None Include="Scripts\v.0.3\pImageGalleryItemModify.sql" />
+    <None Include="Scripts\v.0.3\pImageGalleryModify.sql" />
+    <None Include="Scripts\v.0.3\pImageGalleryTagCreate.sql" />
+    <None Include="Scripts\v.0.3\pMenuCreate.sql" />
+    <None Include="Scripts\v.0.3\pMenuDelete.sql" />
+    <None Include="Scripts\v.0.3\pMenuModify.sql" />
+    <None Include="Scripts\v.0.3\pNavigationMenuCreate.sql" />
+    <None Include="Scripts\v.0.3\pNavigationMenuDelete.sql" />
+    <None Include="Scripts\v.0.3\pNavigationMenuItemCreate.sql" />
+    <None Include="Scripts\v.0.3\pNavigationMenuItemDelete.sql" />
+    <None Include="Scripts\v.0.3\pNavigationMenuItemModify.sql" />
+    <None Include="Scripts\v.0.3\pNavigationMenuModify.sql" />
+    <None Include="Scripts\v.0.3\pNewsCreate.sql" />
+    <None Include="Scripts\v.0.3\pNewsDelete.sql" />
+    <None Include="Scripts\v.0.3\pNewsletterCreate.sql" />
+    <None Include="Scripts\v.0.3\pNewsletterDelete.sql" />
+    <None Include="Scripts\v.0.3\pNewsletterModify.sql" />
+    <None Include="Scripts\v.0.3\pNewsModify.sql" />
+    <None Include="Scripts\v.0.3\pOrganizationCreate.sql" />
+    <None Include="Scripts\v.0.3\pOrganizationDelete.sql" />
+    <None Include="Scripts\v.0.3\pOrganizationModify.sql" />
+    <None Include="Scripts\v.0.3\pPageCreate.sql" />
+    <None Include="Scripts\v.0.3\pPageDelete.sql" />
+    <None Include="Scripts\v.0.3\pPageModify.sql" />
+    <None Include="Scripts\v.0.3\pPaidServiceModify.sql" />
+    <None Include="Scripts\v.0.3\pPersonCreate.sql" />
+    <None Include="Scripts\v.0.3\pPersonDelete.sql" />
+    <None Include="Scripts\v.0.3\pPersonModify.sql" />
+    <None Include="Scripts\v.0.3\pPollAnswerCreate.sql" />
+    <None Include="Scripts\v.0.3\pPollCreate.sql" />
+    <None Include="Scripts\v.0.3\pPollDelete.sql" />
+    <None Include="Scripts\v.0.3\pPollModify.sql" />
+    <None Include="Scripts\v.0.3\pPollOptionCreate.sql" />
+    <None Include="Scripts\v.0.3\pPollOptionDelete.sql" />
+    <None Include="Scripts\v.0.3\pPollOptionModify.sql" />
+    <None Include="Scripts\v.0.3\pProvidedServiceCreate.sql" />
+    <None Include="Scripts\v.0.3\pRoleCreate.sql" />
+    <None Include="Scripts\v.0.3\pRoleDelete.sql" />
+    <None Include="Scripts\v.0.3\pTagCreate.sql" />
+    <None Include="Scripts\v.0.3\pTagDelete.sql" />
+    <None Include="Scripts\v.0.3\pTagModify.sql" />
+    <None Include="Scripts\v.0.3\pTranslationCreateEx.sql" />
+    <None Include="Scripts\v.0.3\pTranslationModify.sql" />
+    <None Include="Scripts\v.0.3\pUrlAliasCreate.sql" />
+    <None Include="Scripts\v.0.3\pUrlAliasDelete.sql" />
+    <None Include="Scripts\v.0.3\pUrlAliasModify.sql" />
+    <None Include="Scripts\v.0.3\script-upgrade.sql" />
+    <None Include="Scripts\v.0.3\script.sql" />
+    <None Include="Scripts\v.0.3\vAccountProfiles.sql" />
+    <None Include="Scripts\v.0.3\vAccountRoles.sql" />
+    <None Include="Scripts\v.0.3\vAccounts.sql" />
+    <None Include="Scripts\v.0.3\vAccountsCredit.sql" />
+    <None Include="Scripts\v.0.3\vAccountVotes.sql" />
+    <None Include="Scripts\v.0.3\vAddresses.sql" />
+    <None Include="Scripts\v.0.3\vArticleCategories.sql" />
+    <None Include="Scripts\v.0.3\vArticleComments.sql" />
+    <None Include="Scripts\v.0.3\vArticles.sql" />
+    <None Include="Scripts\v.0.3\vArticleTags.sql" />
+    <None Include="Scripts\v.0.3\vBankContacts.sql" />
+    <None Include="Scripts\v.0.3\vBlogComments.sql" />
+    <None Include="Scripts\v.0.3\vBlogs.sql" />
+    <None Include="Scripts\v.0.3\vBlogTags.sql" />
+    <None Include="Scripts\v.0.3\vComments.sql" />
+    <None Include="Scripts\v.0.3\vFaqs.sql" />
+    <None Include="Scripts\v.0.3\vImageGalleries.sql" />
+    <None Include="Scripts\v.0.3\vImageGalleryComments.sql" />
+    <None Include="Scripts\v.0.3\vImageGalleryItemComments.sql" />
+    <None Include="Scripts\v.0.3\vImageGalleryItems.sql" />
+    <None Include="Scripts\v.0.3\vImageGalleryTags.sql" />
+    <None Include="Scripts\v.0.3\vIPNFs.sql" />
+    <None Include="Scripts\v.0.3\vMasterPages.sql" />
+    <None Include="Scripts\v.0.3\vMenu.sql" />
+    <None Include="Scripts\v.0.3\vNavigationMenu.sql" />
+    <None Include="Scripts\v.0.3\vNavigationMenuItem.sql" />
+    <None Include="Scripts\v.0.3\vNews.sql" />
+    <None Include="Scripts\v.0.3\vNewsletter.sql" />
+    <None Include="Scripts\v.0.3\vOrganizations.sql" />
+    <None Include="Scripts\v.0.3\vPages.sql" />
+    <None Include="Scripts\v.0.3\vPaidServices.sql" />
+    <None Include="Scripts\v.0.3\vPersons.sql" />
+    <None Include="Scripts\v.0.3\vPollAnswers.sql" />
+    <None Include="Scripts\v.0.3\vPollOptions.sql" />
+    <None Include="Scripts\v.0.3\vPolls.sql" />
+    <None Include="Scripts\v.0.3\vProfiles.sql" />
+    <None Include="Scripts\v.0.3\vProvidedServices.sql" />
+    <None Include="Scripts\v.0.3\vRoles.sql" />
+    <None Include="Scripts\v.0.3\vTags.sql" />
+    <None Include="Scripts\v.0.3\vTranslations.sql" />
+    <None Include="Scripts\v.0.3\vUrlAliases.sql" />
+    <None Include="Scripts\v.0.3\vVocabularies.sql" />
+    <None Include="Scripts\v.0.4\build-upgrade.bat" />
+    <None Include="Scripts\v.0.4\build.bat" />
+    <None Include="Scripts\v.0.4\create-drop-database.sql" />
+    <None Include="Scripts\v.0.4\dbInit.sql" />
+    <None Include="Scripts\v.0.4\dbRights.sql" />
+    <None Include="Scripts\v.0.4\dbStructClassifiers.sql" />
+    <None Include="Scripts\v.0.4\dbStructFunctions.sql" />
+    <None Include="Scripts\v.0.4\dbStructProcedures.sql" />
+    <None Include="Scripts\v.0.4\dbStructTabs.sql" />
+    <None Include="Scripts\v.0.4\dbStructTriggers.sql" />
+    <None Include="Scripts\v.0.4\dbStructViews.sql" />
+    <None Include="Scripts\v.0.4\dbUpgrade.sql" />
+    <None Include="Scripts\v.0.4\dbver.sql" />
+    <None Include="Scripts\v.0.4\fAccountRoles.sql" />
+    <None Include="Scripts\v.0.4\fCompareKeywords.sql" />
+    <None Include="Scripts\v.0.4\fFormatAddress.sql" />
+    <None Include="Scripts\v.0.4\fFormatPerson.sql" />
+    <None Include="Scripts\v.0.4\fMakeAnsi.sql" />
+    <None Include="Scripts\v.0.4\fStringToTable.sql" />
+    <None Include="Scripts\v.0.4\pAccountCreate.sql" />
+    <None Include="Scripts\v.0.4\pAccountCreditCreate.sql" />
+    <None Include="Scripts\v.0.4\pAccountCreditDelete.sql" />
+    <None Include="Scripts\v.0.4\pAccountCreditModify.sql" />
+    <None Include="Scripts\v.0.4\pAccountDelete.sql" />
+    <None Include="Scripts\v.0.4\pAccountModify.sql" />
+    <None Include="Scripts\v.0.4\pAccountProfileCreate.sql" />
+    <None Include="Scripts\v.0.4\pAccountProfileDelete.sql" />
+    <None Include="Scripts\v.0.4\pAccountProfileModify.sql" />
+    <None Include="Scripts\v.0.4\pAccountVerify.sql" />
+    <None Include="Scripts\v.0.4\pAccountVoteCreate.sql" />
+    <None Include="Scripts\v.0.4\pAddressCreate.sql" />
+    <None Include="Scripts\v.0.4\pAddressDelete.sql" />
+    <None Include="Scripts\v.0.4\pAddressModify.sql" />
+    <None Include="Scripts\v.0.4\pArticleCategoryCreate.sql" />
+    <None Include="Scripts\v.0.4\pArticleCategoryDelete.sql" />
+    <None Include="Scripts\v.0.4\pArticleCategoryModify.sql" />
+    <None Include="Scripts\v.0.4\pArticleCommentCreate.sql" />
+    <None Include="Scripts\v.0.4\pArticleCreate.sql" />
+    <None Include="Scripts\v.0.4\pArticleDelete.sql" />
+    <None Include="Scripts\v.0.4\pArticleIncrementViewCount.sql" />
+    <None Include="Scripts\v.0.4\pArticleIncrementVote.sql" />
+    <None Include="Scripts\v.0.4\pArticleModify.sql" />
+    <None Include="Scripts\v.0.4\pArticleTagCreate.sql" />
+    <None Include="Scripts\v.0.4\pBankContactCreate.sql" />
+    <None Include="Scripts\v.0.4\pBankContactDelete.sql" />
+    <None Include="Scripts\v.0.4\pBankContactModify.sql" />
+    <None Include="Scripts\v.0.4\pBlogCommentCreate.sql" />
+    <None Include="Scripts\v.0.4\pBlogCreate.sql" />
+    <None Include="Scripts\v.0.4\pBlogDelete.sql" />
+    <None Include="Scripts\v.0.4\pBlogIncrementViewCount.sql" />
+    <None Include="Scripts\v.0.4\pBlogIncrementVote.sql" />
+    <None Include="Scripts\v.0.4\pBlogModify.sql" />
+    <None Include="Scripts\v.0.4\pBlogTagCreate.sql" />
+    <None Include="Scripts\v.0.4\pCommentCreate.sql" />
+    <None Include="Scripts\v.0.4\pCommentDelete.sql" />
+    <None Include="Scripts\v.0.4\pCommentIncrementVote.sql" />
+    <None Include="Scripts\v.0.4\pCommentModify.sql" />
+    <None Include="Scripts\v.0.4\pFaqCreate.sql" />
+    <None Include="Scripts\v.0.4\pFaqDelete.sql" />
+    <None Include="Scripts\v.0.4\pFaqModify.sql" />
+    <None Include="Scripts\v.0.4\pImageGalleryCommentCreate.sql" />
+    <None Include="Scripts\v.0.4\pImageGalleryCreate.sql" />
+    <None Include="Scripts\v.0.4\pImageGalleryDelete.sql" />
+    <None Include="Scripts\v.0.4\pImageGalleryIncrementViewCount.sql" />
+    <None Include="Scripts\v.0.4\pImageGalleryItemCommentCreate.sql" />
+    <None Include="Scripts\v.0.4\pImageGalleryItemCreate.sql" />
+    <None Include="Scripts\v.0.4\pImageGalleryItemDelete.sql" />
+    <None Include="Scripts\v.0.4\pImageGalleryItemIncrementViewCount.sql" />
+    <None Include="Scripts\v.0.4\pImageGalleryItemIncrementVote.sql" />
+    <None Include="Scripts\v.0.4\pImageGalleryItemModify.sql" />
+    <None Include="Scripts\v.0.4\pImageGalleryModify.sql" />
+    <None Include="Scripts\v.0.4\pImageGalleryTagCreate.sql" />
+    <None Include="Scripts\v.0.4\pMenuCreate.sql" />
+    <None Include="Scripts\v.0.4\pMenuDelete.sql" />
+    <None Include="Scripts\v.0.4\pMenuModify.sql" />
+    <None Include="Scripts\v.0.4\pNavigationMenuCreate.sql" />
+    <None Include="Scripts\v.0.4\pNavigationMenuDelete.sql" />
+    <None Include="Scripts\v.0.4\pNavigationMenuItemCreate.sql" />
+    <None Include="Scripts\v.0.4\pNavigationMenuItemDelete.sql" />
+    <None Include="Scripts\v.0.4\pNavigationMenuItemModify.sql" />
+    <None Include="Scripts\v.0.4\pNavigationMenuModify.sql" />
+    <None Include="Scripts\v.0.4\pNewsCreate.sql" />
+    <None Include="Scripts\v.0.4\pNewsDelete.sql" />
+    <None Include="Scripts\v.0.4\pNewsletterCreate.sql" />
+    <None Include="Scripts\v.0.4\pNewsletterDelete.sql" />
+    <None Include="Scripts\v.0.4\pNewsletterModify.sql" />
+    <None Include="Scripts\v.0.4\pNewsModify.sql" />
+    <None Include="Scripts\v.0.4\pOrganizationCreate.sql" />
+    <None Include="Scripts\v.0.4\pOrganizationDelete.sql" />
+    <None Include="Scripts\v.0.4\pOrganizationModify.sql" />
+    <None Include="Scripts\v.0.4\pPageCreate.sql" />
+    <None Include="Scripts\v.0.4\pPageDelete.sql" />
+    <None Include="Scripts\v.0.4\pPageModify.sql" />
+    <None Include="Scripts\v.0.4\pPaidServiceModify.sql" />
+    <None Include="Scripts\v.0.4\pPersonCreate.sql" />
+    <None Include="Scripts\v.0.4\pPersonDelete.sql" />
+    <None Include="Scripts\v.0.4\pPersonModify.sql" />
+    <None Include="Scripts\v.0.4\pPollAnswerCreate.sql" />
+    <None Include="Scripts\v.0.4\pPollCreate.sql" />
+    <None Include="Scripts\v.0.4\pPollDelete.sql" />
+    <None Include="Scripts\v.0.4\pPollModify.sql" />
+    <None Include="Scripts\v.0.4\pPollOptionCreate.sql" />
+    <None Include="Scripts\v.0.4\pPollOptionDelete.sql" />
+    <None Include="Scripts\v.0.4\pPollOptionModify.sql" />
+    <None Include="Scripts\v.0.4\pProvidedServiceCreate.sql" />
+    <None Include="Scripts\v.0.4\pRoleCreate.sql" />
+    <None Include="Scripts\v.0.4\pRoleDelete.sql" />
+    <None Include="Scripts\v.0.4\pTagCreate.sql" />
+    <None Include="Scripts\v.0.4\pTagDelete.sql" />
+    <None Include="Scripts\v.0.4\pTagModify.sql" />
+    <None Include="Scripts\v.0.4\pTranslationCreateEx.sql" />
+    <None Include="Scripts\v.0.4\pTranslationModify.sql" />
+    <None Include="Scripts\v.0.4\pUrlAliasCreate.sql" />
+    <None Include="Scripts\v.0.4\pUrlAliasDelete.sql" />
+    <None Include="Scripts\v.0.4\pUrlAliasModify.sql" />
+    <None Include="Scripts\v.0.4\pUrlAliasPrefixModify.sql" />
+    <None Include="Scripts\v.0.4\script-upgrade.sql" />
+    <None Include="Scripts\v.0.4\script.sql" />
+    <None Include="Scripts\v.0.4\vAccountProfiles.sql" />
+    <None Include="Scripts\v.0.4\vAccountRoles.sql" />
+    <None Include="Scripts\v.0.4\vAccounts.sql" />
+    <None Include="Scripts\v.0.4\vAccountsCredit.sql" />
+    <None Include="Scripts\v.0.4\vAccountVotes.sql" />
+    <None Include="Scripts\v.0.4\vAddresses.sql" />
+    <None Include="Scripts\v.0.4\vArticleCategories.sql" />
+    <None Include="Scripts\v.0.4\vArticleComments.sql" />
+    <None Include="Scripts\v.0.4\vArticles.sql" />
+    <None Include="Scripts\v.0.4\vArticleTags.sql" />
+    <None Include="Scripts\v.0.4\vBankContacts.sql" />
+    <None Include="Scripts\v.0.4\vBlogComments.sql" />
+    <None Include="Scripts\v.0.4\vBlogs.sql" />
+    <None Include="Scripts\v.0.4\vBlogTags.sql" />
+    <None Include="Scripts\v.0.4\vComments.sql" />
+    <None Include="Scripts\v.0.4\vFaqs.sql" />
+    <None Include="Scripts\v.0.4\vImageGalleries.sql" />
+    <None Include="Scripts\v.0.4\vImageGalleryComments.sql" />
+    <None Include="Scripts\v.0.4\vImageGalleryItemComments.sql" />
+    <None Include="Scripts\v.0.4\vImageGalleryItems.sql" />
+    <None Include="Scripts\v.0.4\vImageGalleryTags.sql" />
+    <None Include="Scripts\v.0.4\vIPNFs.sql" />
+    <None Include="Scripts\v.0.4\vMasterPages.sql" />
+    <None Include="Scripts\v.0.4\vMenu.sql" />
+    <None Include="Scripts\v.0.4\vNavigationMenu.sql" />
+    <None Include="Scripts\v.0.4\vNavigationMenuItem.sql" />
+    <None Include="Scripts\v.0.4\vNews.sql" />
+    <None Include="Scripts\v.0.4\vNewsletter.sql" />
+    <None Include="Scripts\v.0.4\vOrganizations.sql" />
+    <None Include="Scripts\v.0.4\vPages.sql" />
+    <None Include="Scripts\v.0.4\vPaidServices.sql" />
+    <None Include="Scripts\v.0.4\vPersons.sql" />
+    <None Include="Scripts\v.0.4\vPollAnswers.sql" />
+    <None Include="Scripts\v.0.4\vPollOptions.sql" />
+    <None Include="Scripts\v.0.4\vPolls.sql" />
+    <None Include="Scripts\v.0.4\vProfiles.sql" />
+    <None Include="Scripts\v.0.4\vProvidedServices.sql" />
+    <None Include="Scripts\v.0.4\vRoles.sql" />
+    <None Include="Scripts\v.0.4\vTags.sql" />
+    <None Include="Scripts\v.0.4\vTranslations.sql" />
+    <None Include="Scripts\v.0.4\vUrlAliases.sql" />
+    <None Include="Scripts\v.0.4\vUrlAliasPrefixes.sql" />
+    <None Include="Scripts\v.0.4\vVocabularies.sql" />
+    <None Include="Scripts\v.0.5\build-upgrade.bat" />
+    <None Include="Scripts\v.0.5\build.bat" />
+    <None Include="Scripts\v.0.5\create-drop-database.sql" />
+    <None Include="Scripts\v.0.5\dbInit.sql" />
+    <None Include="Scripts\v.0.5\dbRights.sql" />
+    <None Include="Scripts\v.0.5\dbStructClassifiers.sql" />
+    <None Include="Scripts\v.0.5\dbStructFunctions.sql" />
+    <None Include="Scripts\v.0.5\dbStructProcedures.sql" />
+    <None Include="Scripts\v.0.5\dbStructTabs.sql" />
+    <None Include="Scripts\v.0.5\dbStructTriggers.sql" />
+    <None Include="Scripts\v.0.5\dbStructViews.sql" />
+    <None Include="Scripts\v.0.5\dbUpgrade.sql" />
+    <None Include="Scripts\v.0.5\dbUpgrade_draft.sql" />
+    <None Include="Scripts\v.0.5\dbver.sql" />
+    <None Include="Scripts\v.0.5\fAccountRoles.sql" />
+    <None Include="Scripts\v.0.5\fCompareKeywords.sql" />
+    <None Include="Scripts\v.0.5\fCompareKeywordsEx.sql" />
+    <None Include="Scripts\v.0.5\fFormatAddress.sql" />
+    <None Include="Scripts\v.0.5\fFormatPerson.sql" />
+    <None Include="Scripts\v.0.5\fMakeAnsi.sql" />
+    <None Include="Scripts\v.0.5\fStringToTable.sql" />
+    <None Include="Scripts\v.0.5\pAccountCreate.sql" />
+    <None Include="Scripts\v.0.5\pAccountCreditCreate.sql" />
+    <None Include="Scripts\v.0.5\pAccountCreditDelete.sql" />
+    <None Include="Scripts\v.0.5\pAccountCreditModify.sql" />
+    <None Include="Scripts\v.0.5\pAccountDelete.sql" />
+    <None Include="Scripts\v.0.5\pAccountModify.sql" />
+    <None Include="Scripts\v.0.5\pAccountProfileCreate.sql" />
+    <None Include="Scripts\v.0.5\pAccountProfileDelete.sql" />
+    <None Include="Scripts\v.0.5\pAccountProfileModify.sql" />
+    <None Include="Scripts\v.0.5\pAccountVerify.sql" />
+    <None Include="Scripts\v.0.5\pAccountVoteCreate.sql" />
+    <None Include="Scripts\v.0.5\pAddressCreate.sql" />
+    <None Include="Scripts\v.0.5\pAddressDelete.sql" />
+    <None Include="Scripts\v.0.5\pAddressModify.sql" />
+    <None Include="Scripts\v.0.5\pArticleCategoryCreate.sql" />
+    <None Include="Scripts\v.0.5\pArticleCategoryDelete.sql" />
+    <None Include="Scripts\v.0.5\pArticleCategoryModify.sql" />
+    <None Include="Scripts\v.0.5\pArticleCommentCreate.sql" />
+    <None Include="Scripts\v.0.5\pArticleCreate.sql" />
+    <None Include="Scripts\v.0.5\pArticleDelete.sql" />
+    <None Include="Scripts\v.0.5\pArticleIncrementViewCount.sql" />
+    <None Include="Scripts\v.0.5\pArticleIncrementVote.sql" />
+    <None Include="Scripts\v.0.5\pArticleModify.sql" />
+    <None Include="Scripts\v.0.5\pArticleTagCreate.sql" />
+    <None Include="Scripts\v.0.5\pBankContactCreate.sql" />
+    <None Include="Scripts\v.0.5\pBankContactDelete.sql" />
+    <None Include="Scripts\v.0.5\pBankContactModify.sql" />
+    <None Include="Scripts\v.0.5\pBlogCommentCreate.sql" />
+    <None Include="Scripts\v.0.5\pBlogCreate.sql" />
+    <None Include="Scripts\v.0.5\pBlogDelete.sql" />
+    <None Include="Scripts\v.0.5\pBlogIncrementViewCount.sql" />
+    <None Include="Scripts\v.0.5\pBlogIncrementVote.sql" />
+    <None Include="Scripts\v.0.5\pBlogModify.sql" />
+    <None Include="Scripts\v.0.5\pBlogTagCreate.sql" />
+    <None Include="Scripts\v.0.5\pCommentCreate.sql" />
+    <None Include="Scripts\v.0.5\pCommentDelete.sql" />
+    <None Include="Scripts\v.0.5\pCommentIncrementVote.sql" />
+    <None Include="Scripts\v.0.5\pCommentModify.sql" />
+    <None Include="Scripts\v.0.5\pFaqCreate.sql" />
+    <None Include="Scripts\v.0.5\pFaqDelete.sql" />
+    <None Include="Scripts\v.0.5\pFaqModify.sql" />
+    <None Include="Scripts\v.0.5\pImageGalleryCommentCreate.sql" />
+    <None Include="Scripts\v.0.5\pImageGalleryCreate.sql" />
+    <None Include="Scripts\v.0.5\pImageGalleryDelete.sql" />
+    <None Include="Scripts\v.0.5\pImageGalleryIncrementViewCount.sql" />
+    <None Include="Scripts\v.0.5\pImageGalleryItemCommentCreate.sql" />
+    <None Include="Scripts\v.0.5\pImageGalleryItemCreate.sql" />
+    <None Include="Scripts\v.0.5\pImageGalleryItemDelete.sql" />
+    <None Include="Scripts\v.0.5\pImageGalleryItemIncrementViewCount.sql" />
+    <None Include="Scripts\v.0.5\pImageGalleryItemIncrementVote.sql" />
+    <None Include="Scripts\v.0.5\pImageGalleryItemModify.sql" />
+    <None Include="Scripts\v.0.5\pImageGalleryModify.sql" />
+    <None Include="Scripts\v.0.5\pImageGalleryTagCreate.sql" />
+    <None Include="Scripts\v.0.5\pMenuCreate.sql" />
+    <None Include="Scripts\v.0.5\pMenuDelete.sql" />
+    <None Include="Scripts\v.0.5\pMenuModify.sql" />
+    <None Include="Scripts\v.0.5\pNavigationMenuCreate.sql" />
+    <None Include="Scripts\v.0.5\pNavigationMenuDelete.sql" />
+    <None Include="Scripts\v.0.5\pNavigationMenuItemCreate.sql" />
+    <None Include="Scripts\v.0.5\pNavigationMenuItemDelete.sql" />
+    <None Include="Scripts\v.0.5\pNavigationMenuItemModify.sql" />
+    <None Include="Scripts\v.0.5\pNavigationMenuModify.sql" />
+    <None Include="Scripts\v.0.5\pNewsCreate.sql" />
+    <None Include="Scripts\v.0.5\pNewsDelete.sql" />
+    <None Include="Scripts\v.0.5\pNewsletterCreate.sql" />
+    <None Include="Scripts\v.0.5\pNewsletterDelete.sql" />
+    <None Include="Scripts\v.0.5\pNewsletterModify.sql" />
+    <None Include="Scripts\v.0.5\pNewsModify.sql" />
+    <None Include="Scripts\v.0.5\pOrganizationCreate.sql" />
+    <None Include="Scripts\v.0.5\pOrganizationDelete.sql" />
+    <None Include="Scripts\v.0.5\pOrganizationModify.sql" />
+    <None Include="Scripts\v.0.5\pPageCreate.sql" />
+    <None Include="Scripts\v.0.5\pPageDelete.sql" />
+    <None Include="Scripts\v.0.5\pPageModify.sql" />
+    <None Include="Scripts\v.0.5\pPaidServiceModify.sql" />
+    <None Include="Scripts\v.0.5\pPersonCreate.sql" />
+    <None Include="Scripts\v.0.5\pPersonDelete.sql" />
+    <None Include="Scripts\v.0.5\pPersonModify.sql" />
+    <None Include="Scripts\v.0.5\pPollAnswerCreate.sql" />
+    <None Include="Scripts\v.0.5\pPollCreate.sql" />
+    <None Include="Scripts\v.0.5\pPollDelete.sql" />
+    <None Include="Scripts\v.0.5\pPollModify.sql" />
+    <None Include="Scripts\v.0.5\pPollOptionCreate.sql" />
+    <None Include="Scripts\v.0.5\pPollOptionDelete.sql" />
+    <None Include="Scripts\v.0.5\pPollOptionModify.sql" />
+    <None Include="Scripts\v.0.5\pProvidedServiceCreate.sql" />
+    <None Include="Scripts\v.0.5\pRoleCreate.sql" />
+    <None Include="Scripts\v.0.5\pRoleDelete.sql" />
+    <None Include="Scripts\v.0.5\pSearchArticles.sql" />
+    <None Include="Scripts\v.0.5\pSearchBlogs.sql" />
+    <None Include="Scripts\v.0.5\pSearchImageGalleries.sql" />
+    <None Include="Scripts\v.0.5\pSearchNews.sql" />
+    <None Include="Scripts\v.0.5\pSearchPages.sql" />
+    <None Include="Scripts\v.0.5\pTagCreate.sql" />
+    <None Include="Scripts\v.0.5\pTagDelete.sql" />
+    <None Include="Scripts\v.0.5\pTagModify.sql" />
+    <None Include="Scripts\v.0.5\pTranslationCreateEx.sql" />
+    <None Include="Scripts\v.0.5\pTranslationModify.sql" />
+    <None Include="Scripts\v.0.5\pUrlAliasCreate.sql" />
+    <None Include="Scripts\v.0.5\pUrlAliasDelete.sql" />
+    <None Include="Scripts\v.0.5\pUrlAliasModify.sql" />
+    <None Include="Scripts\v.0.5\pUrlAliasPrefixModify.sql" />
+    <None Include="Scripts\v.0.5\script-upgrade.sql" />
+    <None Include="Scripts\v.0.5\script.sql" />
+    <None Include="Scripts\v.0.5\update_locale.sql" />
+    <None Include="Scripts\v.0.5\vAccountProfiles.sql" />
+    <None Include="Scripts\v.0.5\vAccountRoles.sql" />
+    <None Include="Scripts\v.0.5\vAccounts.sql" />
+    <None Include="Scripts\v.0.5\vAccountsCredit.sql" />
+    <None Include="Scripts\v.0.5\vAccountVotes.sql" />
+    <None Include="Scripts\v.0.5\vAddresses.sql" />
+    <None Include="Scripts\v.0.5\vArticleCategories.sql" />
+    <None Include="Scripts\v.0.5\vArticleComments.sql" />
+    <None Include="Scripts\v.0.5\vArticles.sql" />
+    <None Include="Scripts\v.0.5\vArticleTags.sql" />
+    <None Include="Scripts\v.0.5\vBankContacts.sql" />
+    <None Include="Scripts\v.0.5\vBlogComments.sql" />
+    <None Include="Scripts\v.0.5\vBlogs.sql" />
+    <None Include="Scripts\v.0.5\vBlogTags.sql" />
+    <None Include="Scripts\v.0.5\vComments.sql" />
+    <None Include="Scripts\v.0.5\vFaqs.sql" />
+    <None Include="Scripts\v.0.5\vImageGalleries.sql" />
+    <None Include="Scripts\v.0.5\vImageGalleryComments.sql" />
+    <None Include="Scripts\v.0.5\vImageGalleryItemComments.sql" />
+    <None Include="Scripts\v.0.5\vImageGalleryItems.sql" />
+    <None Include="Scripts\v.0.5\vImageGalleryTags.sql" />
+    <None Include="Scripts\v.0.5\vIPNFs.sql" />
+    <None Include="Scripts\v.0.5\vMasterPages.sql" />
+    <None Include="Scripts\v.0.5\vMenu.sql" />
+    <None Include="Scripts\v.0.5\vNavigationMenu.sql" />
+    <None Include="Scripts\v.0.5\vNavigationMenuItem.sql" />
+    <None Include="Scripts\v.0.5\vNews.sql" />
+    <None Include="Scripts\v.0.5\vNewsletter.sql" />
+    <None Include="Scripts\v.0.5\vOrganizations.sql" />
+    <None Include="Scripts\v.0.5\vPages.sql" />
+    <None Include="Scripts\v.0.5\vPaidServices.sql" />
+    <None Include="Scripts\v.0.5\vPersons.sql" />
+    <None Include="Scripts\v.0.5\vPollAnswers.sql" />
+    <None Include="Scripts\v.0.5\vPollOptions.sql" />
+    <None Include="Scripts\v.0.5\vPolls.sql" />
+    <None Include="Scripts\v.0.5\vProfiles.sql" />
+    <None Include="Scripts\v.0.5\vProvidedServices.sql" />
+    <None Include="Scripts\v.0.5\vRoles.sql" />
+    <None Include="Scripts\v.0.5\vTags.sql" />
+    <None Include="Scripts\v.0.5\vTranslations.sql" />
+    <None Include="Scripts\v.0.5\vUrlAliases.sql" />
+    <None Include="Scripts\v.0.5\vUrlAliasPrefixes.sql" />
+    <None Include="Scripts\v.0.5\vVocabularies.sql" />
+    <None Include="Scripts\v.0.6\build-upgrade.bat" />
+    <None Include="Scripts\v.0.6\build.bat" />
+    <None Include="Scripts\v.0.6\create-drop-database.sql" />
+    <None Include="Scripts\v.0.6\dbInit.sql" />
+    <None Include="Scripts\v.0.6\dbRights.sql" />
+    <None Include="Scripts\v.0.6\dbStructClassifiers.sql" />
+    <None Include="Scripts\v.0.6\dbStructFunctions.sql" />
+    <None Include="Scripts\v.0.6\dbStructProcedures.sql" />
+    <None Include="Scripts\v.0.6\dbStructTabs.sql" />
+    <None Include="Scripts\v.0.6\dbStructTriggers.sql" />
+    <None Include="Scripts\v.0.6\dbStructViews.sql" />
+    <None Include="Scripts\v.0.6\dbUpgrade.sql" />
+    <None Include="Scripts\v.0.6\dbUpgrade_draft.sql" />
+    <None Include="Scripts\v.0.6\dbver.sql" />
+    <None Include="Scripts\v.0.6\fAccountRoles.sql" />
+    <None Include="Scripts\v.0.6\fCompareKeywords.sql" />
+    <None Include="Scripts\v.0.6\fCompareKeywordsEx.sql" />
+    <None Include="Scripts\v.0.6\fFormatAddress.sql" />
+    <None Include="Scripts\v.0.6\fFormatPerson.sql" />
+    <None Include="Scripts\v.0.6\fMakeAnsi.sql" />
+    <None Include="Scripts\v.0.6\fStringToTable.sql" />
+    <None Include="Scripts\v.0.6\pAccountCreate.sql" />
+    <None Include="Scripts\v.0.6\pAccountCreditCreate.sql" />
+    <None Include="Scripts\v.0.6\pAccountCreditDelete.sql" />
+    <None Include="Scripts\v.0.6\pAccountCreditModify.sql" />
+    <None Include="Scripts\v.0.6\pAccountDelete.sql" />
+    <None Include="Scripts\v.0.6\pAccountModify.sql" />
+    <None Include="Scripts\v.0.6\pAccountProfileCreate.sql" />
+    <None Include="Scripts\v.0.6\pAccountProfileDelete.sql" />
+    <None Include="Scripts\v.0.6\pAccountProfileModify.sql" />
+    <None Include="Scripts\v.0.6\pAccountVerify.sql" />
+    <None Include="Scripts\v.0.6\pAccountVoteCreate.sql" />
+    <None Include="Scripts\v.0.6\pAddressCreate.sql" />
+    <None Include="Scripts\v.0.6\pAddressDelete.sql" />
+    <None Include="Scripts\v.0.6\pAddressModify.sql" />
+    <None Include="Scripts\v.0.6\pArticleCategoryCreate.sql" />
+    <None Include="Scripts\v.0.6\pArticleCategoryDelete.sql" />
+    <None Include="Scripts\v.0.6\pArticleCategoryModify.sql" />
+    <None Include="Scripts\v.0.6\pArticleCommentCreate.sql" />
+    <None Include="Scripts\v.0.6\pArticleCreate.sql" />
+    <None Include="Scripts\v.0.6\pArticleDelete.sql" />
+    <None Include="Scripts\v.0.6\pArticleIncrementViewCount.sql" />
+    <None Include="Scripts\v.0.6\pArticleIncrementVote.sql" />
+    <None Include="Scripts\v.0.6\pArticleModify.sql" />
+    <None Include="Scripts\v.0.6\pArticleTagCreate.sql" />
+    <None Include="Scripts\v.0.6\pBankContactCreate.sql" />
+    <None Include="Scripts\v.0.6\pBankContactDelete.sql" />
+    <None Include="Scripts\v.0.6\pBankContactModify.sql" />
+    <None Include="Scripts\v.0.6\pBlogCommentCreate.sql" />
+    <None Include="Scripts\v.0.6\pBlogCreate.sql" />
+    <None Include="Scripts\v.0.6\pBlogDelete.sql" />
+    <None Include="Scripts\v.0.6\pBlogIncrementViewCount.sql" />
+    <None Include="Scripts\v.0.6\pBlogIncrementVote.sql" />
+    <None Include="Scripts\v.0.6\pBlogModify.sql" />
+    <None Include="Scripts\v.0.6\pBlogTagCreate.sql" />
+    <None Include="Scripts\v.0.6\pCommentCreate.sql" />
+    <None Include="Scripts\v.0.6\pCommentDelete.sql" />
+    <None Include="Scripts\v.0.6\pCommentIncrementVote.sql" />
+    <None Include="Scripts\v.0.6\pCommentModify.sql" />
+    <None Include="Scripts\v.0.6\pFaqCreate.sql" />
+    <None Include="Scripts\v.0.6\pFaqDelete.sql" />
+    <None Include="Scripts\v.0.6\pFaqModify.sql" />
+    <None Include="Scripts\v.0.6\pImageGalleryCommentCreate.sql" />
+    <None Include="Scripts\v.0.6\pImageGalleryCreate.sql" />
+    <None Include="Scripts\v.0.6\pImageGalleryDelete.sql" />
+    <None Include="Scripts\v.0.6\pImageGalleryIncrementViewCount.sql" />
+    <None Include="Scripts\v.0.6\pImageGalleryItemCommentCreate.sql" />
+    <None Include="Scripts\v.0.6\pImageGalleryItemCreate.sql" />
+    <None Include="Scripts\v.0.6\pImageGalleryItemDelete.sql" />
+    <None Include="Scripts\v.0.6\pImageGalleryItemIncrementViewCount.sql" />
+    <None Include="Scripts\v.0.6\pImageGalleryItemIncrementVote.sql" />
+    <None Include="Scripts\v.0.6\pImageGalleryItemModify.sql" />
+    <None Include="Scripts\v.0.6\pImageGalleryModify.sql" />
+    <None Include="Scripts\v.0.6\pImageGalleryTagCreate.sql" />
+    <None Include="Scripts\v.0.6\pMenuCreate.sql" />
+    <None Include="Scripts\v.0.6\pMenuDelete.sql" />
+    <None Include="Scripts\v.0.6\pMenuModify.sql" />
+    <None Include="Scripts\v.0.6\pNavigationMenuCreate.sql" />
+    <None Include="Scripts\v.0.6\pNavigationMenuDelete.sql" />
+    <None Include="Scripts\v.0.6\pNavigationMenuItemCreate.sql" />
+    <None Include="Scripts\v.0.6\pNavigationMenuItemDelete.sql" />
+    <None Include="Scripts\v.0.6\pNavigationMenuItemModify.sql" />
+    <None Include="Scripts\v.0.6\pNavigationMenuModify.sql" />
+    <None Include="Scripts\v.0.6\pNewsCreate.sql" />
+    <None Include="Scripts\v.0.6\pNewsDelete.sql" />
+    <None Include="Scripts\v.0.6\pNewsletterCreate.sql" />
+    <None Include="Scripts\v.0.6\pNewsletterDelete.sql" />
+    <None Include="Scripts\v.0.6\pNewsletterModify.sql" />
+    <None Include="Scripts\v.0.6\pNewsModify.sql" />
+    <None Include="Scripts\v.0.6\pOrganizationCreate.sql" />
+    <None Include="Scripts\v.0.6\pOrganizationDelete.sql" />
+    <None Include="Scripts\v.0.6\pOrganizationModify.sql" />
+    <None Include="Scripts\v.0.6\pPageCreate.sql" />
+    <None Include="Scripts\v.0.6\pPageDelete.sql" />
+    <None Include="Scripts\v.0.6\pPageModify.sql" />
+    <None Include="Scripts\v.0.6\pPaidServiceModify.sql" />
+    <None Include="Scripts\v.0.6\pPersonCreate.sql" />
+    <None Include="Scripts\v.0.6\pPersonDelete.sql" />
+    <None Include="Scripts\v.0.6\pPersonModify.sql" />
+    <None Include="Scripts\v.0.6\pPollAnswerCreate.sql" />
+    <None Include="Scripts\v.0.6\pPollCreate.sql" />
+    <None Include="Scripts\v.0.6\pPollDelete.sql" />
+    <None Include="Scripts\v.0.6\pPollModify.sql" />
+    <None Include="Scripts\v.0.6\pPollOptionCreate.sql" />
+    <None Include="Scripts\v.0.6\pPollOptionDelete.sql" />
+    <None Include="Scripts\v.0.6\pPollOptionModify.sql" />
+    <None Include="Scripts\v.0.6\pProvidedServiceCreate.sql" />
+    <None Include="Scripts\v.0.6\pRoleCreate.sql" />
+    <None Include="Scripts\v.0.6\pRoleDelete.sql" />
+    <None Include="Scripts\v.0.6\pSearchArticleComments.sql" />
+    <None Include="Scripts\v.0.6\pSearchArticles.sql" />
+    <None Include="Scripts\v.0.6\pSearchBlogComments.sql" />
+    <None Include="Scripts\v.0.6\pSearchBlogs.sql" />
+    <None Include="Scripts\v.0.6\pSearchImageGalleries.sql" />
+    <None Include="Scripts\v.0.6\pSearchImageGalleryComments.sql" />
+    <None Include="Scripts\v.0.6\pSearchImageGalleryItemComments.sql" />
+    <None Include="Scripts\v.0.6\pSearchNews.sql" />
+    <None Include="Scripts\v.0.6\pSearchPages.sql" />
+    <None Include="Scripts\v.0.6\pTagCreate.sql" />
+    <None Include="Scripts\v.0.6\pTagDelete.sql" />
+    <None Include="Scripts\v.0.6\pTagModify.sql" />
+    <None Include="Scripts\v.0.6\pTranslationCreateEx.sql" />
+    <None Include="Scripts\v.0.6\pTranslationModify.sql" />
+    <None Include="Scripts\v.0.6\pUrlAliasCreate.sql" />
+    <None Include="Scripts\v.0.6\pUrlAliasDelete.sql" />
+    <None Include="Scripts\v.0.6\pUrlAliasModify.sql" />
+    <None Include="Scripts\v.0.6\pUrlAliasPrefixModify.sql" />
+    <None Include="Scripts\v.0.6\script-upgrade.sql" />
+    <None Include="Scripts\v.0.6\script.sql" />
+    <None Include="Scripts\v.0.6\update_locale.sql" />
+    <None Include="Scripts\v.0.6\vAccountProfiles.sql" />
+    <None Include="Scripts\v.0.6\vAccountRoles.sql" />
+    <None Include="Scripts\v.0.6\vAccounts.sql" />
+    <None Include="Scripts\v.0.6\vAccountsCredit.sql" />
+    <None Include="Scripts\v.0.6\vAccountVotes.sql" />
+    <None Include="Scripts\v.0.6\vAddresses.sql" />
+    <None Include="Scripts\v.0.6\vArticleCategories.sql" />
+    <None Include="Scripts\v.0.6\vArticleComments.sql" />
+    <None Include="Scripts\v.0.6\vArticles.sql" />
+    <None Include="Scripts\v.0.6\vArticleTags.sql" />
+    <None Include="Scripts\v.0.6\vBankContacts.sql" />
+    <None Include="Scripts\v.0.6\vBlogComments.sql" />
+    <None Include="Scripts\v.0.6\vBlogs.sql" />
+    <None Include="Scripts\v.0.6\vBlogTags.sql" />
+    <None Include="Scripts\v.0.6\vComments.sql" />
+    <None Include="Scripts\v.0.6\vFaqs.sql" />
+    <None Include="Scripts\v.0.6\vImageGalleries.sql" />
+    <None Include="Scripts\v.0.6\vImageGalleryComments.sql" />
+    <None Include="Scripts\v.0.6\vImageGalleryItemComments.sql" />
+    <None Include="Scripts\v.0.6\vImageGalleryItems.sql" />
+    <None Include="Scripts\v.0.6\vImageGalleryTags.sql" />
+    <None Include="Scripts\v.0.6\vIPNFs.sql" />
+    <None Include="Scripts\v.0.6\vMasterPages.sql" />
+    <None Include="Scripts\v.0.6\vMenu.sql" />
+    <None Include="Scripts\v.0.6\vNavigationMenu.sql" />
+    <None Include="Scripts\v.0.6\vNavigationMenuItem.sql" />
+    <None Include="Scripts\v.0.6\vNews.sql" />
+    <None Include="Scripts\v.0.6\vNewsletter.sql" />
+    <None Include="Scripts\v.0.6\vOrganizations.sql" />
+    <None Include="Scripts\v.0.6\vPages.sql" />
+    <None Include="Scripts\v.0.6\vPaidServices.sql" />
+    <None Include="Scripts\v.0.6\vPersons.sql" />
+    <None Include="Scripts\v.0.6\vPollAnswers.sql" />
+    <None Include="Scripts\v.0.6\vPollOptions.sql" />
+    <None Include="Scripts\v.0.6\vPolls.sql" />
+    <None Include="Scripts\v.0.6\vProfiles.sql" />
+    <None Include="Scripts\v.0.6\vProvidedServices.sql" />
+    <None Include="Scripts\v.0.6\vRoles.sql" />
+    <None Include="Scripts\v.0.6\vTags.sql" />
+    <None Include="Scripts\v.0.6\vTranslations.sql" />
+    <None Include="Scripts\v.0.6\vUrlAliases.sql" />
+    <None Include="Scripts\v.0.6\vUrlAliasPrefixes.sql" />
+    <None Include="Scripts\v.0.6\vVocabularies.sql" />
+    <None Include="Scripts\vAccountProfiles.sql" />
+    <None Include="Scripts\vAccountRoles.sql" />
+    <None Include="Scripts\vAccounts.sql" />
+    <None Include="Scripts\vAccountsCredit.sql" />
+    <None Include="Scripts\vAccountVotes.sql" />
+    <None Include="Scripts\vAddresses.sql" />
+    <None Include="Scripts\vArticleCategories.sql" />
+    <None Include="Scripts\vArticleComments.sql" />
+    <None Include="Scripts\vArticles.sql" />
+    <None Include="Scripts\vArticleTags.sql" />
+    <None Include="Scripts\vBankContacts.sql" />
+    <None Include="Scripts\vBlogComments.sql" />
+    <None Include="Scripts\vBlogs.sql" />
+    <None Include="Scripts\vBlogTags.sql" />
+    <None Include="Scripts\vComments.sql" />
+    <None Include="Scripts\vFaqs.sql" />
+    <None Include="Scripts\vImageGalleries.sql" />
+    <None Include="Scripts\vImageGalleryComments.sql" />
+    <None Include="Scripts\vImageGalleryItemComments.sql" />
+    <None Include="Scripts\vImageGalleryItems.sql" />
+    <None Include="Scripts\vImageGalleryTags.sql" />
+    <None Include="Scripts\vIPNFs.sql" />
+    <None Include="Scripts\vMasterPages.sql" />
+    <None Include="Scripts\vMenu.sql" />
+    <None Include="Scripts\vNavigationMenu.sql" />
+    <None Include="Scripts\vNavigationMenuItem.sql" />
+    <None Include="Scripts\vNews.sql" />
+    <None Include="Scripts\vNewsletter.sql" />
+    <None Include="Scripts\vOrganizations.sql" />
+    <None Include="Scripts\vPages.sql" />
+    <None Include="Scripts\vPaidServices.sql" />
+    <None Include="Scripts\vPersons.sql" />
+    <None Include="Scripts\vPollAnswers.sql" />
+    <None Include="Scripts\vPollOptions.sql" />
+    <None Include="Scripts\vPolls.sql" />
+    <None Include="Scripts\vProfiles.sql" />
+    <None Include="Scripts\vProvidedServices.sql" />
+    <None Include="Scripts\vRoles.sql" />
+    <None Include="Scripts\vTags.sql" />
+    <None Include="Scripts\vTranslations.sql" />
+    <None Include="Scripts\vUrlAliases.sql" />
+    <None Include="Scripts\vUrlAliasPrefixes.sql" />
+    <None Include="Scripts\vVocabularies.sql" />
+    <None Include="Scripts\_Template_Structure\dbInit.sql" />
+    <None Include="Scripts\_Template_Structure\dbRights.sql" />
+    <None Include="Scripts\_Template_Structure\dbStructClassifiers.sql" />
+    <None Include="Scripts\_Template_Structure\dbStructFunctions.sql" />
+    <None Include="Scripts\_Template_Structure\dbStructProcedures.sql" />
+    <None Include="Scripts\_Template_Structure\dbStructTabs.sql" />
+    <None Include="Scripts\_Template_Structure\dbStructTriggers.sql" />
+    <None Include="Scripts\_Template_Structure\dbStructViews.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Controls\MultipleFieldsValidator.js" />
+    <EmbeddedResource Include="Controls\Forum\ForumPosts.js" />
+    <EmbeddedResource Include="Controls\Forum\ForumPostForm.js" />
+    <Content Include="Scripts\build-upgrade.xml" />
+    <Content Include="Scripts\build.xml" />
+    <None Include="Scripts\pSupportedLocaleCreate.sql" />
+    <None Include="Scripts\pSupportedLocaleModify.sql" />
+    <None Include="Scripts\pSupportedLocaleDelete.sql" />
+    <Content Include="Scripts\dbSetupVersion.sql" />
+    <Content Include="Scripts\pForumCreate.sql" />
+    <Content Include="Scripts\pForumDelete.sql" />
+    <Content Include="Scripts\pForumFavoriteCreate.sql" />
+    <Content Include="Scripts\pForumFavoriteDelete.sql" />
+    <Content Include="Scripts\pForumFavoriteModify.sql" />
+    <Content Include="Scripts\pForumIncrementViewCount.sql" />
+    <Content Include="Scripts\pForumModify.sql" />
+    <Content Include="Scripts\pForumPostAttachmentCreate.sql" />
+    <Content Include="Scripts\pForumPostAttachmentDelete.sql" />
+    <Content Include="Scripts\pForumPostAttachmentModify.sql" />
+    <Content Include="Scripts\pForumPostCreate.sql" />
+    <Content Include="Scripts\pForumPostDelete.sql" />
+    <Content Include="Scripts\pForumPostIncrementVote.sql" />
+    <Content Include="Scripts\pForumPostModify.sql" />
+    <Content Include="Scripts\pForumThreadCreate.sql" />
+    <Content Include="Scripts\pForumThreadDelete.sql" />
+    <Content Include="Scripts\pForumThreadModify.sql" />
+    <Content Include="Scripts\pForumTrackingCreate.sql" />
+    <Content Include="Scripts\pForumTrackingDelete.sql" />
+    <Content Include="Scripts\pForumTrackingModify.sql" />
+    <Content Include="Scripts\v.0.0\build.xml" />
+    <Content Include="Scripts\v.0.1\build-upgrade.xml" />
+    <Content Include="Scripts\v.0.1\build.xml" />
+    <Content Include="Scripts\v.0.2\build-upgrade.xml" />
+    <Content Include="Scripts\v.0.2\build.xml" />
+    <Content Include="Scripts\v.0.3\build-upgrade.xml" />
+    <Content Include="Scripts\v.0.3\build.xml" />
+    <Content Include="Scripts\v.0.4\build-upgrade.xml" />
+    <Content Include="Scripts\v.0.4\build.xml" />
+    <Content Include="Scripts\v.0.5\build-upgrade.xml" />
+    <Content Include="Scripts\v.0.5\build.xml" />
+    <Content Include="Scripts\v.0.6\build-upgrade.xml" />
+    <Content Include="Scripts\v.0.6\build.xml" />
+    <None Include="Scripts\vSupportedLocales.sql" />
+    <Content Include="Scripts\vForumFavorites.sql" />
+    <Content Include="Scripts\vForumPostAttachments.sql" />
+    <Content Include="Scripts\vForumPosts.sql" />
+    <Content Include="Scripts\vForums.sql" />
+    <Content Include="Scripts\vForumThreads.sql" />
+    <Content Include="Scripts\vForumTrackings.sql" />
+    <Content Include="Scripts\_InstanceId.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Windows.Installer.3.1">
+      <Visible>False</Visible>
+      <ProductName>Windows Installer 3.1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

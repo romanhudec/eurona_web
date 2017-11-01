@@ -1,0 +1,84 @@
+﻿<%@ Master Language="C#" MasterPageFile="~/page3content.master" AutoEventWireup="true" Inherits="Eurona.EShop.DefautMasterPage" CodeBehind="default.master.cs" EnableTheming="true" %>
+
+<%@ Register Assembly="cms" Namespace="CMS.Controls.Menu" TagPrefix="cmsMenu" %>
+<%@ Register Assembly="cms" Namespace="CMS.Controls.Page" TagPrefix="cmsPage" %>
+<%@ Register Assembly="cms" Namespace="CMS.Controls.Translations" TagPrefix="cmsVocabulary" %>
+<%@ Register Assembly="Eurona" Namespace="Eurona.Controls" TagPrefix="shpSettings" %>
+<%@ Register Assembly="Eurona.Common" Namespace="Eurona.Common.Controls" TagPrefix="euronaCommon" %>
+<%@ Register src="CategoryNavigation.ascx" tagname="CategoryNavigation" tagprefix="uc1" %>
+
+<%@ Register src="CategoryNavigationPathControl.ascx" tagname="CategoryNavigationPathControl" tagprefix="uc2" %>
+
+<asp:Content ID="_head" ContentPlaceHolderID="head" runat="Server">
+    <link href='<%=ResolveUrl("~/styles/page3contet.css") %>' type="text/css" rel="stylesheet" />
+    <link href='<%=ResolveUrl("~/styles/eshop.css") %>' type="text/css" rel="stylesheet" />
+
+    <style type="text/css">
+        .banner{display:none!important;}
+        .page-container-header{padding-bottom:0px!important;}
+        .pagemenu-container{display:none;}
+        .table3content{padding:0px;}
+        .sidebar-left{background-image: url(../images/roundPanelEx/3Content-bg.png);}
+        .sidebar-center{background-image: url(../images/roundPanelEx/3Content-bg2.png);}
+        .products-content{background-color:#fff;}
+        .loginContainer{display:none;}
+    </style>
+    <asp:ContentPlaceHolder ID="head" runat="server"></asp:ContentPlaceHolder>
+</asp:Content>
+<asp:Content ID="_navigation" ContentPlaceHolderID="navigation" Runat="Server">
+    <div class="navigation-links">
+	    <a id="aHome" href="~/default.aspx" runat="server"><asp:Literal ID="Literal3" runat="server" Text="<%$ Resources:Strings, Navigation_Home %>" /></a>
+	    <span>&nbsp;-&nbsp;</span>
+	    <asp:Literal id="aThisPage" runat="server" />	
+    </div>
+    <asp:ContentPlaceHolder ID="navigation" runat="server"></asp:ContentPlaceHolder>
+</asp:Content>
+<asp:Content ID="Content3" ContentPlaceHolderID="loginContent" Runat="Server">
+	<table cellpadding="0" cellspacing="0">
+		<tr>
+			<td>
+				<div class="search">
+					<asp:TextBox runat="server" ID="txtSearchKeywords" class="search-box" ></asp:TextBox>
+					<asp:Button ID="btnSearch" runat="server"  OnClick="OnSearch" CausesValidation="false" CssClass="search-button"/>
+				</div> 
+			</td>
+		</tr>
+	</table>
+</asp:Content>
+<asp:Content ID="_content" ContentPlaceHolderID="content" runat="server">
+    <div style="margin:10px;">
+    <table border="0" width="994px" cellpadding="0" cellspacing="0">
+        <tr>
+            <td valign="top">
+                <div class="category-sitemenu-container">
+                    <uc1:CategoryNavigation ID="categoryNavigation" runat="server" CssClass="category-sitemenu" MenuItemSeparatorImageUrl="~/images/category-menu-item-separator.png" RemoveLastSeparator="true" />
+                </div>
+                <div style="margin-top:5px;">
+                    <uc2:CategoryNavigationPathControl ID="categoryNavigationPathControl" runat="server"  CssClass="category-navigation-path" />
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td valign="middle" align="center" style="min-height:380px;padding:0px 0px 0px 0px;">
+                <div class="products-content" style="width:100%;height:100%;">
+                    <asp:ContentPlaceHolder ID="content" runat="server">
+                    </asp:ContentPlaceHolder>
+                </div>
+            </td>
+        </tr>
+    </table>
+    </div>
+</asp:Content>
+<asp:Content ID="Content4" ContentPlaceHolderID="sidebar_left" Runat="Server">
+    <cmsPage:PageControl ID="genericPage1" IsEditing="false" runat="server" CssEditorToolBar="contentEditorToolbar" CssEditorContent="contentEditorContent" NewUrl="~/admin/page.aspx" 
+	ManageUrl="~/admin/pages.aspx" NotFoundUrlFormat="~/notFound.aspx?page={0}" PopUpEditorUrlFormat="~/admin/contentEditor.aspx?id={0}" />
+</asp:Content>
+<asp:Content ID="Content1" ContentPlaceHolderID="sidebar_center" Runat="Server">
+    <cmsPage:PageControl ID="genericPage2" IsEditing="false" runat="server" CssEditorToolBar="contentEditorToolbar" CssEditorContent="contentEditorContent" NewUrl="~/admin/page.aspx" 
+	ManageUrl="~/admin/pages.aspx" NotFoundUrlFormat="~/notFound.aspx?page={0}" PopUpEditorUrlFormat="~/admin/contentEditor.aspx?id={0}" />
+</asp:Content>
+<asp:Content ID="Content2" ContentPlaceHolderID="sidebar_right" Runat="Server">
+    <cmsPage:PageControl ID="genericPage3" IsEditing="false" runat="server" CssEditorToolBar="contentEditorToolbar" CssEditorContent="contentEditorContent" NewUrl="~/admin/page.aspx" 
+	ManageUrl="~/admin/pages.aspx" NotFoundUrlFormat="~/notFound.aspx?page={0}" PopUpEditorUrlFormat="~/admin/contentEditor.aspx?id={0}" />
+</asp:Content>
+

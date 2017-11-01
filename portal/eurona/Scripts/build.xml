@@ -1,0 +1,88 @@
+<?xml version="1.0"?>
+<project name="artemis.cms.eurona" default="create">
+
+  <property name="script" value="script.sql" overwrite="false" />
+  <property name="database" value="eurona" overwrite="false" />
+
+  <target name="init">
+  </target>
+
+  <target name="clean" depends="init">
+    <delete file="${script}" failonerror="false" />
+  </target>
+
+  <target name="create" depends="clean">
+
+    <loadfile encoding="unicode" file="dbStructClassifiers.sql" property="content" />
+    <echo append="true" file= "${script}">${content}</echo>
+
+    <loadfile encoding="unicode" file="dbStructTabs.sql" property="content" />
+    <echo append="true" file= "${script}">${content}</echo>
+
+    <loadfile encoding="unicode" file="dbStructViews.sql" property="content" />
+    <echo append="true" file= "${script}">${content}</echo>
+
+    <loadfile encoding="unicode" file="dbStructFunctions.sql" property="content" />
+    <echo append="true" file= "${script}">${content}</echo>
+
+    <loadfile encoding="unicode" file="dbStructProcedures.sql" property="content" />
+    <echo append="true" file= "${script}">${content}</echo>
+
+    <loadfile encoding="unicode" file="dbStructTriggers.sql" property="content" />
+    <echo append="true" file= "${script}">${content}</echo>
+
+    <foreach item="File" property="filename">
+      <in>
+        <items>
+          <include name="f*.sql"></include>
+        </items>
+      </in>
+      <do>
+        <loadfile encoding="unicode" file="${filename}" property="content" />
+        <echo append="true" file= "${script}">${content}</echo>
+      </do>
+    </foreach>
+
+    <foreach item="File" property="filename">
+      <in>
+        <items>
+          <include name="v*.sql"></include>
+        </items>
+      </in>
+      <do>
+        <loadfile encoding="unicode" file="${filename}" property="content" />
+        <echo append="true" file= "${script}">${content}</echo>
+      </do>
+    </foreach>
+
+    <foreach item="File" property="filename">
+      <in>
+        <items>
+          <include name="p*.sql"></include>
+        </items>
+      </in>
+      <do>
+        <loadfile encoding="unicode" file="${filename}" property="content" />
+        <echo append="true" file= "${script}">${content}</echo>
+      </do>
+    </foreach>
+
+    <foreach item="File" property="filename">
+      <in>
+        <items>
+          <include name="r*.sql"></include>
+        </items>
+      </in>
+      <do>
+        <loadfile encoding="unicode" file="${filename}" property="content" />
+        <echo append="true" file= "${script}">${content}</echo>
+      </do>
+    </foreach>
+
+    <loadfile encoding="unicode" file="dbInit.sql" property="dbInit" />
+    <echo append="true" file= "${script}">${dbInit}</echo>
+
+  </target>
+
+
+</project>

@@ -1,0 +1,538 @@
+﻿/*-------------------------------------------------------------------------------------------------------
+/* FORM CONTROLS, FORM LABEL CSS STYLES*/
+/*-------------------------------------------------------------------------------------------------------*/
+.horizontalSeparator{display:block; width:100%; text-align:left; border-bottom: solid 2px #7f7f7f;}
+.ms-formvalidation{color:#ff0000;}
+.form_label{font-family:inherit;font-size:inherit;white-space: nowrap;text-align: right;margin: 2px;}
+.form_label_required{font-family:inherit;font-size:inherit;font-weight: bold;white-space: nowrap;text-align: right;margin: 2px;}
+
+.form_control{width: 100%;margin: 2px;white-space: nowrap;text-align: left;}
+.form_control_wrap{width: 100%;margin: 2px;}
+
+/*-------------------------------------------------------------------------------------------------------
+/*SITE MENU (horizontal) CSS STYLES*/
+/*-------------------------------------------------------------------------------------------------------*/
+.sitemenu{}
+.sitemenu_StaticMenuStyle {}
+.sitemenu_StaticMenuItemStyle
+{
+	padding-left: 5px;
+	padding-right: 5px;
+	color: #878787;
+	text-decoration: none;
+	line-height:24px;
+	display: inline-block;
+	font-weight : bold;
+}
+
+.sitemenu_StaticSelectedStyle{color:#EB0A5B!important;	font-weight:bold;}
+.sitemenu_StaticHoverStyle tr{cursor:pointer;}
+.sitemenu_StaticHoverStyle a {text-decoration: none;}
+.sitemenu_DynamicMenuStyle{background-color:transparent; border-left:solid 1px #2FF8FF;border-right:solid 1px #1FE8FF;border-bottom:solid 1px #1FE8FF;margin-left:-1px;}
+.sitemenu_DynamicMenuItemStyle
+{
+    height: 24px;
+	line-height: 24px;
+	
+	vertical-align: middle;
+	display: block;
+	color: #878787;	
+	text-decoration: none;	
+	
+	min-width:120px;
+	padding: 2px 5px 3px 5px;
+	margin-bottom:-1px;
+	display: block;
+}
+.sitemenu_DynamicHoverStyle {text-decoration: none; }
+.sitemenu_DynamicHoverStyle a {text-decoration: none;}
+.sitemenu_DynamicSelectedStyle{}
+/*-------------------------------------------------------------------------------------------------------
+/*SITE BIG MENU (horizontal) CSS STYLES*/
+/*-------------------------------------------------------------------------------------------------------*/
+.sitemenu2{}
+.sitemenu2_StaticMenuStyle{}
+.sitemenu2_StaticMenuItemStyle
+{
+	padding-left: 10px;
+	padding-right: 10px;
+	color: #0077B6;
+	text-decoration: none;
+	line-height:24px;
+	display: inline-block;
+	font-size:16px!important;
+	text-transform:uppercase;
+	font-weight:bold;
+}
+
+.sitemenu2_StaticSelectedStyle{}
+.sitemenu2_StaticHoverStyle tr{cursor:pointer;}
+.sitemenu2_StaticHoverStyle a {text-decoration: none;}
+.sitemenu2_DynamicMenuStyle{background-color:transparent; border-left:solid 1px #1FE8FF;border-right:solid 1px #1FE8FF;border-bottom:solid 1px #1FE8FF;margin-left:-1px;}
+.sitemenu2_DynamicMenuItemStyle
+{
+    height: 24px;
+	line-height: 24px;
+	
+	vertical-align: middle;
+	display: block;
+	color: #0077B6;	
+	text-decoration: none;	
+	
+	min-width:120px;
+	padding: 2px 5px 3px 5px;
+	margin-bottom:-1px;
+	display: block;
+}
+.sitemenu2_DynamicHoverStyle {text-decoration: none; }
+.sitemenu2_DynamicHoverStyle a {text-decoration: none;}
+.sitemenu2_DynamicSelectedStyle{}
+/*-------------------------------------------------------------------------------------------------------
+/*STANDARD PAGE MENU CSS STYLES*/
+/*-------------------------------------------------------------------------------------------------------*/
+.pagemenu{ border: 1px solid #1FE8FF;}
+.pagemenu a
+{	
+	display: block;
+	
+	height:30px;
+    line-height:30px;
+    
+	vertical-align:middle;
+	text-decoration: none;
+	color: #0077B6;
+	font-weight:bold;
+    
+    background-image: url(../images/menu-item-bg.png);
+    padding-left:25px;
+}
+.pagemenu a:hover{color: #FF14FF; background-position: 0 -30px;}
+
+/*PAGE MENU HEADER CSS STYLES*/
+.pagemenu-header
+{
+	height:30px;
+	line-height:30px;
+    background-image: url(../images/menuheader-bg.png);
+	background-repeat:repeat-x;
+    font-weight:bold;
+    border: solid 1px #1FE8FF;
+    margin-bottom:2px;
+    margin-top:2px;
+    
+}
+.pagemenu-header span{text-transform:uppercase; vertical-align:middle; padding-left:6px;}
+/*-------------------------------------------------------------------------------------------------------
+/*LOCALE SWITCH CSS STYLES*/
+/*-------------------------------------------------------------------------------------------------------*/
+.localeSwitch{float:right;/*margin-left:10px; */text-align:right;white-space:nowrap;}
+.loginContainer{background-image:url(../images/navigation-menu-bg.png);  padding:0px 5px 0px 5px;}
+.loginContainer span, .loginContainer a{color:#fff!important;}
+.loginContainer a {text-decoration:none;}
+/*-------------------------------------------------------------------------------------------------------
+/*VOCABULARY EDITOR CSS STYLES*/
+/*-------------------------------------------------------------------------------------------------------*/
+.vocabulary{position:relative;z-index:2;cursor:pointer; border:dashed 1px #808080;font-size:inherit!important;font-family:inherit!important;font-style:inherit!important;font-weight:inherit!important;color:inherit!important; }
+.vocabulary_editControl{position:relative;z-index:2;cursor:pointer;width:16px; height:16px; background-image:url(../images/Pen.png); background-repeat:no-repeat; background-color:Black;}
+.vocabulary_popUpContent{position:relative;z-index:2;/*background-color:#BBBBBB; filter: alpha(opacity = 30);*/}
+.vocabulary_popUpControl{width:350px;height:150px;background-color:#BBBBBB;vertical-align:middle; padding:10px;border:solid 1px #ABABAB;}
+.vocabulary_popUpControl_header{height:15px;}
+.vocabulary_popUpControl_header_title{width:100%;font-weight:bold;}
+.vocabulary_popUpControl_header_closeButton{ width:16px; height:16px;cursor:pointer;background-image:url(../images/close.png); background-repeat:no-repeat;}
+.vocabulary_popUpControl_content{height:90px;}
+.vocabulary_popUpControl_content_inputArea{}
+.vocabulary_popUpControl_content_inputArea_textBox{width:98%; height:70px;}
+.vocabulary_popUpControl_footer{height:20px;}
+.vocabulary_popUpControl_footer_inputArea{ text-align:right;}
+.vocabulary_popUpControl_footer_inputArea_button{}
+/*-------------------------------------------------------------------------------------------------------
+/*CONTENT EDITOR CSS STYLES*/
+/*-------------------------------------------------------------------------------------------------------*/
+.contentEditorToolbar{width:100%; border:dashed 1px #808080; margin-bottom:3px; cursor:pointer; background-image:url(../images/content-editor-toolbar-bg.png); background-repeat:repeat-x; }
+.contentEditorToolbar_item{}
+.contentEditorToolbar_item { padding:5px 8px 5px 8px; min-width:32px;}
+/*.contentEditorToolbar_item a:hover{}*/
+.contentEditorContent{width:100%; border:dashed 1px #808080; min-height:10px; opacity:0.5; filter:alpha(opacity = 50); background-color:#F2F2F2; }
+.contentEditorContent_selected{width:100%; border:dashed 1px #808080; min-height:10px; background-color:#CAE8F7; opacity:1;filter: alpha(opacity = 100);}
+.contentEditorToolbar_item .RadComboBox{height:inherit!important;width:130px!Important;}
+/*-------------------------------------------------------------------------------------------------------
+/*CARMA CONTROL CSS STYLES*/
+/*-------------------------------------------------------------------------------------------------------*/
+.carma{ width:100px; height:20px;}
+.carma table{ width:100%;}
+.carma input[type=submit], .carma  input[type=button]{border-style:none; background-color:Transparent; height:16px;}
+.carma_negative_carma_button{ background-image:url(../images/vote-minus.png);}
+.carma_positive_carma_button{ background-image:url(../images/vote-plus.png);}
+.carma_negative_carma_label{color: #7F0000;}
+.carma_positive_carma_label{color: #306335;}
+
+/*-------------------------------------------------------------------------------------------------------
+/*RATING CONTROL CSS STYLES*/
+/*-------------------------------------------------------------------------------------------------------*/
+.rating{ width:200px; height:20px;}
+.rating table{ width:100%;}
+.rating input[type=submit]{ background-color:Transparent; border-style:none; display:table-cell; height:16px;width:16px;}
+.rating_negative_star_button{ background-image:url(../images/vote-star-shadow.png);}
+.rating_positive_star_button{ background-image:url(../images/vote-star.png);}
+.rating_rating{padding-left:10px;}
+
+/*-------------------------------------------------------------------------------------------------------
+/*COMMENTS FORM CSS STYLES*/
+/*-------------------------------------------------------------------------------------------------------*/
+.commentForm{ background-color:#EAEAEA; padding:10px;}
+.commentForm table{ width:100%;}
+.commentForm_header{ font-size:16px; font-weight:bold; height:30px; vertical-align:top;}
+.commentForm_title{}
+.commentForm_content{ font-weight:bold;}
+
+/*-------------------------------------------------------------------------------------------------------
+/*COMMENTS CONTROL CSS STYLES*/
+/*-------------------------------------------------------------------------------------------------------*/
+.comments{ padding:10px;margin:10px; background-color:#fff;}
+.comments_title a{ font-weight:bold; font-size:16px; color:#0077B6;}
+.comments_item{ display:block; border: solid 1px #E7E7E7;padding:0px; margin-bottom:5px;background-image:url(../images/comment-header.png); background-repeat:repeat-x;}
+.comments_item table { width:100%; padding-left:5px;}
+.comments_item_title{ font-size:10pt; font-weight:bold; color:#707070; height:20px;}
+.comments_item_carma {}
+.comments_item_content{}
+.comments_item_reply{ background-image:url(../images/reply.png); background-repeat:no-repeat; padding-left:20px; cursor:pointer; color:#0077B6; text-decoration:underline;}
+.comments_item_user{color:#707070; padding-right:5px;}
+.comments_item_date{color:#707070; padding-left:3px;}
+.comments_item_deletecomment{padding-left:3px;}
+.comments_item_children{margin-left:10px;}
+
+/*-------------------------------------------------------------------------------------------------------
+/*NEWS CONTROL CSS STYLES*/
+/*-------------------------------------------------------------------------------------------------------*/
+.news{margin:10px;}
+.news_title { font-weight:bold; font-size:20px; color:#0077B6;}
+.news_archivLink { text-align:right;}
+
+.newsArchiv{width:100%;}
+.newsArchiv_newsItem{}
+.newsArchiv_articleItem table{ width:100%;margin:10px;} 
+.newsArchiv_title{font-weight:bold; font-size:16px; color:#0077B6;}
+.newsArchiv_date { color:#A0A0A0;}
+.newsArchiv_description{text-align:justify; text-decoration:none; color:#000000;}
+.newsArchiv_rowStyle { background-color: white;}
+.newsArchiv_alternatingRowStyle {background-color: #E0F7FF;}
+
+.latestNews, .latestNews a{}
+.latestNews_news{}
+.latestNews_rowStyle{}
+.latestNews_alternatingRowStyle{}
+
+/*-------------------------------------------------------------------------------------------------------
+/*ARTICLES CONTROL CSS STYLES*/
+/*-------------------------------------------------------------------------------------------------------*/
+.article{margin:10px;}
+.article_title { font-weight:bold; font-size:20px; color:#0077B6;}
+.article_source {color:#A0A0A0;}
+.article_tag {color:#A0A0A0;}
+.article_category {}
+.article_teaser{}
+.article_content{}
+.article_comment {text-decoration:none;}
+.article_viewCount {}
+.article_carma div{ background-color:#F0F0F0; width:150px;}
+.article_archivLink { text-align:right; height:25px;}
+
+.articleArchiv{ width:98%;margin:10px;}
+.articleArchiv_filter{ width:98%;margin:10px;}
+.articleArchiv_articleItem{margin:10px; } 
+.articleArchiv_articleItem table{ width:100%;} 
+.articleArchiv_title{font-weight:bold; font-size:16px; color:#0077B6;}
+.articleArchiv_source {color:#A0A0A0;}
+.articleArchiv_tag {color:#A0A0A0;}
+.articleArchiv_category {color:#A0A0A0; white-space:nowrap;}
+.articleArchiv_teaser{text-align:justify; text-decoration:none; color:#000000;}
+.articleArchiv_comment {text-decoration:none;}
+.articleArchiv_rowStyle { background-color: white;}
+.articleArchiv_alternatingRowStyle {background-color: #E0F7FF;}
+
+.latestArticles, .latestArticles a{color:#0077B6;}
+.latestArticles_article{}
+
+/*-------------------------------------------------------------------------------------------------------
+/*BLOGS CONTROL CSS STYLES*/
+/*-------------------------------------------------------------------------------------------------------*/
+.blog{margin:10px;}
+.blog_title { font-weight:bold; font-size:20px; color:#0077B6;}
+.blog_source {color:#A0A0A0;}
+.blog_tag {color:#A0A0A0;}
+.blog_user {}
+.blog_teaser{}
+.blog_content{}
+.blog_comment {text-decoration:none;}
+.blog_viewCount {}
+.blog_carma div{ background-color:#F0F0F0; width:150px;}
+.blog_archivLink { text-align:right; height:25px;}
+
+.blogArchiv{ width:98%;margin:10px;}
+.blogArchiv_filter{ width:98%;margin:10px;}
+.blogArchiv_blogItem{margin:10px; } 
+.blogArchiv_blogItem table{ width:100%;} 
+.blogArchiv_title{font-weight:bold; font-size:16px; color:#0077B6;}
+.blogArchiv_source {color:#A0A0A0;}
+.blogArchiv_tag {color:#A0A0A0;}
+.blogArchiv_user {color:#A0A0A0; white-space:nowrap;}
+.blogArchiv_teaser{text-align:justify; text-decoration:none; color:#000000;}
+.blogArchiv_comment {text-decoration:none;}
+.blogArchiv_rowStyle { background-color: white;}
+.blogArchiv_alternatingRowStyle {background-color: #E0F7FF;}
+
+.latestBlogs, .latestBlogs a{color:#0077B6;}
+.latestBlogs_blog{margin:5px;}
+
+/*-------------------------------------------------------------------------------------------------------
+/*POLL CONTROL CSS STYLES*/
+/*-------------------------------------------------------------------------------------------------------*/
+.poll{ table-layout:fixed; width:90%;}
+.poll_header{ font-weight: bold; color: #000000; }
+.poll_option{}
+.poll_optionName{ margin-bottom: 2px; }
+.poll_optionName a{ text-decoration: none; cursor: pointer; color: #000;}
+.poll_voteBar{ table-layout:fixed;}
+.poll_optionVoteBarLeft{width: 5px;height: 21px;background-image: url(../images/bar_left.gif);}
+.poll_optionVoteBar{height: 21px;background-image: url(../images/bar.gif);background-repeat: repeat-x;}
+.poll_optionVoteBarRight{width: 5px;height: 21px;background-image: url(../images/bar_right.gif);}
+.poll_footer { font-weight: bold; color: #0077B6; }
+
+/*ARCHIVED POLLS CSS STYLES*/
+.archivedPolls{margin:10px;}
+.archivedPolls_pollLink{}
+.archivedPolls_header { font-weight:bold; font-size:20px; color:#0077B6; }
+.archivedPolls_content{}
+
+/*-------------------------------------------------------------------------------------------------------
+/*FAQ CONTROL CSS STYLES*/
+/*-------------------------------------------------------------------------------------------------------*/
+.faq{margin:10px;}
+.faq_faqItem{ margin:10px;}
+.faq_question{font-weight:bold; font-size:12px;}
+.faq_answer{ text-align:center;}
+.faq_rowStyle { background-color: white;}
+.faq_alternatingRowStyle {background-color: #E0F7FF;}
+
+/*-------------------------------------------------------------------------------------------------------
+/*CONTACT FORM CSS STYLES*/
+/*-------------------------------------------------------------------------------------------------------*/
+.contactForm{}
+.contactForm .form_label_required{width: 90px;vertical-align: middle;}
+.contactForm .form_control input, .contactForm .form_control textarea{width: 100%;}
+.contactForm textarea{	height: 100%;}
+
+/*-------------------------------------------------------------------------------------------------------
+/*ROUND PANEL CSS STYLES*/
+/*-------------------------------------------------------------------------------------------------------*/
+.roundPanel {margin:auto;background-image: url(../images/roundPanelEx/bg-1px.png); background-repeat:repeat; }
+.roundPanel_main{width:100%; padding:10px;}
+.roundPanel_content {vertical-align:top;}
+.roundPanel_headFill, .roundPanel_headNoFill{font-weight:bold; color:#0077B6;}
+
+.roundPanelNoBg {margin:auto;}
+.roundPanelNoBg_main{width:100%; padding:10px;}
+.roundPanelNoBg_content {vertical-align:top;}
+.roundPanelNoBg_headFill, .roundPanelNoBg_headNoFill{font-weight:bold; color:#0077B6;}
+
+/*-------------------------------------------------------------------------------------------------------
+/*ADMIN GALLERY ITEMS CONTROL CSS STYLES*/
+/*-------------------------------------------------------------------------------------------------------*/
+.adminImageGalleryItemsControl{ width:100%; padding-top:20px;}
+.adminImageGalleryItemsControl_header{ width:100%; text-align:center;}
+.adminImageGalleryItemsControl_header span{ font-weight:bold; font-size:16px; color:#0077B6;}
+.adminImageGalleryItemsControl_content{ width:100%;}
+.adminImageGalleryItemsControl_imageGallery{ margin:5px;}
+.adminImageGalleryItemsControl_imageGallery_itemShiftLeft{width:20px; height:20px;background-image:url(../images/arrow_left.png);}
+.adminImageGalleryItemsControl_imageGallery_itemShiftRight{width:20px; height:20px;background-image:url(../images/arrow_right.png);}
+.adminImageGalleryItemsControl_imageGallery_itemShiftLeft_disabled{width:20px; height:20px;background-image:url(../images/arrow_left_D.png);}
+.adminImageGalleryItemsControl_imageGallery_itemShiftRight_disabled{width:20px; height:20px;background-image:url(../images/arrow_right_D.png);}
+.adminImageGalleryItemsControl_imageGallery_item{ width:150px; padding:10px; margin:5px; border-style:solid; border-color:#AEAEAE; border-width:1px; background-color:#EBEDED;}
+.adminImageGalleryItemsControl_imageGallery_itemHeader{ width:100%;color:#0E4E74; margin-bottom:5px;}
+.adminImageGalleryItemsControl_imageGallery_itemDeleteLink{width:16px; height:16px;background-image:url(../images/delete.png);}
+.adminImageGalleryItemsControl_imageGallery_imageItem{ width:100%;}
+.adminImageGalleryItemsControl_imageGallery_imageItemImage{}
+.adminImageGalleryItemsControl_imageGallery_imageItemAditionalProperties{ white-space:normal;}
+.adminImageGalleryItemsControl table.tableFiles th.header{}
+
+/*-------------------------------------------------------------------------------------------------------
+/*IMAGE GALLERIES CONTROL CSS STYLES*/
+/*-------------------------------------------------------------------------------------------------------*/
+.imageGalleriesControl{}
+.imageGalleriesControl_list{ border-spacing:10px;margin:0px auto; text-align:center;}/*centrovanie tabulky v dive*/
+.imageGalleriesControl_dataPager{margin:0px auto; text-align:center;}/*centrovanie tabulky v dive*/
+.imageGalleriesControl_item{ padding:10px; margin:5px; border-style:solid; border-color:#AEAEAE; border-width:1px; background-color:#EBEDED;}
+.imageGalleriesControl_item_galleryName{ width:100%; padding-bottom:10px; text-align:center; }
+.imageGalleriesControl_item_galleryName a{font-weight:bold; font-size:12px; color:#0077B6;}
+.imageGalleriesControl_item_image{ display:block;/*width:90%; height:90%;*/ max-height:150px; padding-right:3px;}
+.imageGalleriesControl_item_info{color:#4E4E4E;}
+/*-------------------------------------------------------------------------------------------------------
+/*IMAGE GALLERY ITEMS CONTROL CSS STYLES*/
+/*-------------------------------------------------------------------------------------------------------*/
+.imageGalleryItemsControl{}
+.imageGalleryItemsControl_galleryName{ width:100%; padding-bottom:10px; text-align:center;}
+.imageGalleryItemsControl_galleryName a{ font-weight:bold; font-size:16px; color:#0077B6;}
+.imageGalleryItemsControl_list{border-spacing:10px;margin:0px auto; text-align:center;}/*centrovanie tabulky v dive*/
+.imageGalleryItemsControl_dataPager{margin:0px auto; text-align:center;}/*centrovanie tabulky v dive*/
+.imageGalleryItemsControl_item{padding:5px; margin:5px; border-style:solid; border-color:#AEAEAE; border-width:1px; background-color:#EBEDED;}
+.imageGalleryItemsControl_item_imageContainer{ height:155px}
+.imageGalleryItemsControl_item_image{margin-bottom:5px;}
+.imageGalleryItemsControl_item_description{color:#4E4E4E;}
+.imageGalleryItemsControl_item_comments {margin:0px auto; text-align:left;}
+/*-------------------------------------------------------------------------------------------------------
+/*IMAGE GALLERY ITEM COMMENTS CONTROL CSS STYLES*/
+/*-------------------------------------------------------------------------------------------------------*/
+/*Comment*/
+.imageGalleryItemComments{}
+.imageGalleryItemComments_title{margin:0px auto; text-align:center;}
+.imageGalleryItemComments_title a{font-weight:bold; font-size:16px; color:#0077B6;}
+.imageGalleryItemComments_image{text-align:center;padding:10px; margin:5px; }
+.imageGalleryItemComments_description{margin:0px auto; text-align:center;color:#4E4E4E;}
+.imageGalleryItemComments_item{ display:block; border: solid 1px #E7E7E7;padding:0px; margin-bottom:5px;background-image:url(../images/comment-header.png); background-repeat:repeat-x;}
+.imageGalleryItemComments_item table { width:100%; padding-left:5px;}
+.imageGalleryItemComments_item_title{ font-size:10pt; font-weight:bold; color:#707070; height:20px;}
+.imageGalleryItemComments_item_carma {}
+.imageGalleryItemComments_item_content{}
+.imageGalleryItemComments_item_reply{ background-image:url(../images/reply.png); background-repeat:no-repeat; padding-left:20px; cursor:pointer; color:#0077B6; text-decoration:underline;}
+.imageGalleryItemComments_item_user{color:#707070; padding-right:5px;}
+.imageGalleryItemComments_item_date{color:#707070; padding-left:3px;}
+.imageGalleryItemComments_item_children{margin-left:10px;}
+/*-------------------------------------------------------------------------------------------------------
+/*IMAGE GALERY CSS STYLES*/
+/*-------------------------------------------------------------------------------------------------------*/
+.imageGalery{ margin:5px;}
+.imageGalery_item{ padding:10px;margin:5px; border-style:solid; border-color:#AEAEAE; border-width:1px;}
+.imageGalery_itemHeader{ width:100%;color:#0E4E74; margin-bottom:5px;}
+.imageGalery_itemDeleteLink{text-align:right;}
+.imageGalery_imageItem{}
+.imageGalery_imageItemImage{}
+.imageGalery_imageItemAditionalProperties{}
+table .tableFiles th.header{}
+
+/*-------------------------------------------------------------------------------------------------------
+/*SEARCH RESULT CONTROL CSS STYLES*/
+/*-------------------------------------------------------------------------------------------------------*/
+.searchResultControl{ width:100%;}
+.searchResultControl_resutHeader{width:100%;background-color:#E5E5E5; height:30px; line-height:30px;text-align:right;}
+.searchResultControl_resutHeader span{margin-right:15px;}
+.searchResultControl_resultItem{ margin:10px;}
+.searchResultControl_title{ font-size:12px;font-weight:bold; color:#0077B6;}
+.searchResultControl_title .highlight{font-size:12px;text-decoration: none;color:black;background:yellow!important;}
+.searchResultControl_content{text-align:justify; text-decoration:none;}
+.searchResultControl_content .highlight{text-decoration: none;background:yellow!important;}
+.searchResultControl_rowStyle { background-color: white;}
+.searchResultControl_alternatingRowStyle {background-color: #E0F7FF;}
+/*-------------------------------------------------------------------------------------------------------
+/*FORUM THREADS CONTROL CSS STYLES*/
+/*-------------------------------------------------------------------------------------------------------*/
+.forumThreads{width: 100%;height:100%;}
+.forumThreads th{padding: 2px 10px 2px 2px;}
+.forumThreads td{padding: 2px 10px 2px 2px; }
+.forumThreads tr:hover{background-color: #EDF5FF;}
+.forumThreads .forumThreads_headerStyle{height:20px;background-color: #0092f3;text-transform:uppercase;color:White;text-decoration: none;white-space: nowrap;}
+.forumThreads .forumThreads_headerStyle:hover{background-color: #0092f3;}
+.forumThreads .forumThreads_headerStyle th{padding-bottom:5px;text-align: left;font-weight:normal;}
+.forumThreads .forumThreads_rowStyle{height:60px;background-color: #fff;border-bottom:1px solid #6A98E8;border-right:1px solid #6A98E8;}
+.forumThreads .forumThreads_alternatingRowStyle{height:60px;background-color: #FFEDED;border-bottom:1px solid #6A98E8;border-right:1px solid #6A98E8;}
+.forumThreads .forumThreads_footerStyle{background-color: #0092f3;font-weight: bold;color: White;}
+.forumThreads .forumThreads_pagerStyle{background-color: #0092f3;color: White;}
+.forumThreads_icon{text-align:center;margin:auto;width:100%;}
+.forumThreads_rss {background-image:url(../images/rss.png);width:16px; height:16px;}
+.forumThreads_rss a{width:16px; height:16px;}
+.forumThreads_nameItem_name{font-size:12px;text-transform:uppercase;text-decoration:none;font-weight:bold;}
+.forumThreads_nameItem_description{}
+.forumThreads_itemLocked{background-image:url(../images/locked.png);width:30px;height:30px;}
+.forumThreads_itemUnLocked{}
+
+/*-------------------------------------------------------------------------------------------------------
+/*FORUMS CONTROL CSS STYLES*/
+/*-------------------------------------------------------------------------------------------------------*/
+.forums_forumHeader{margin-bottom:5px;border-bottom:1px solid #6A98E8; background-image:url(../images/forum-header-bg.png);background-position:bottom;background-repeat:repeat-x;}
+.forums_forumHeader, .forums_forumHeader a{color:#F2F2F2;text-decoration:none;}
+.forums_forumHeader_forumContentLink{background-image:url(../images/forum-navigate-top.png);width:13px;height:12px;background-repeat:no-repeat; background-position:left;padding-left:15px;}
+.forums_forumHeader_link{padding-left:5px;}
+.forums_forumHeader_linkSeparator{padding-left:5px;color:#F2F2F2;}
+
+.forums_forumHeader_newForum input{height:18px;padding:0px 5px 0px 5px;margin:0px;border:1px solid #6A98E8;}
+
+.forums{width: 100%;height:100%;}
+.forums th{padding: 2px 10px 2px 2px;}
+.forums td{padding: 2px 10px 2px 2px;}
+.forums tr:hover{background-color: #EDF5FF;}
+.forums .forums_headerStyle{height:20px;background-color: #0092f3;text-transform:uppercase;color:White;text-decoration: none;white-space: nowrap;}
+.forums .forums_headerStyle:hover{background-color: #0092f3;}
+.forums .forums_headerStyle th{padding-bottom:5px;text-align: left;font-weight:normal;}
+.forums .forums_rowStyle{height:60px;background-color: #fff;border-bottom:1px solid #6A98E8; border-right:1px solid #6A98E8;}
+.forums .forums_rowStyle:hover{background-color: #EDF5FF;}
+.forums .forums_alternatingRowStyle{height:60px;background-color: #FFEDED;border-bottom:1px solid #6A98E8; border-right:1px solid #6A98E8;}
+.forums .forums_footerStyle{background-color: #0092f3;font-weight: bold;color: White;}
+.forums .forums_pagerStyle{background-color: #0092f3;color: White;}
+.forums_icon{text-align:center;margin:auto;width:100%;}
+.forums_icon img{width:60px;}
+.forums_rss {background-image:url(../images/rss.png);width:16px; height:16px;}
+.forums_rss a{width:16px; height:16px;}
+.forums_nameItem_name{font-size:12px;text-transform:uppercase;text-decoration:none;font-weight:bold;}
+.forums_nameItem_description{}
+.forums_itemLocked{background-image:url(../images/locked.png);width:30px;height:30px;}
+.forums_itemUnLocked{}
+.forums_itemPinned{background-image:url(../images/pinned.png);width:30px;height:30px;}
+.forums_itemUnPinned{}
+
+/*-------------------------------------------------------------------------------------------------------
+/*FORUM CONTROL CSS STYLES*/
+/*-------------------------------------------------------------------------------------------------------*/
+.forum_forumHeader{margin-bottom:5px;border-bottom:1px solid #6A98E8; background-image:url(../images/forum-header-bg.png);}
+.forum_forumHeader, .forum_forumHeader a, .forum_forumHeader label{color:#F2F2F2;text-decoration:none;}
+.forum_forumHeader_forumContentLink{background-image:url(../images/forum-navigate-top.png);width:13px;height:12px;background-repeat:no-repeat; background-position:left;padding-left:15px;}
+.forum_forumHeader_link{padding-left:5px;}
+.forum_forumHeader_linkSeparator{padding-left:5px;color:#F2F2F2;}
+
+/*-------------------------------------------------------------------------------------------------------
+/*FORUM CONTROL CSS STYLES*/
+/*-------------------------------------------------------------------------------------------------------*/
+.forumPosts{background-color:#fff;}
+.forumPosts_forumHeader{color:#F2F2F2;padding-bottom:5px;background-color:#0092f3;border-bottom:1px solid #6A98E8; background-image:url(../images/forum-header-bg.png);background-position:center;background-repeat:repeat-x;}
+.forumPosts_forumHeader td {color:#F2F2F2!important;}
+.forumPosts_forumHeader, .forumPosts_forumHeader a{color:#F2F2F2;text-decoration:none;}
+.forumPosts_forumHeader_forumContentLink{background-image:url(../images/forum-navigate-top.png);width:13px;height:12px;background-repeat:no-repeat; background-position:left;padding-left:15px;}
+.forumPosts_forumHeader_link{padding-left:5px;}
+.forumPosts_forumHeader_linkSeparator{padding-left:5px;color:#F2F2F2;}
+.forumPosts_forumHeader_viewType{}
+
+.forumPosts_title{padding-top:10px;}
+.forumPosts_title a{ font-weight:bold; font-size:16px; color:#00b8ec; padding-left:10px;}
+.forumPosts_item{ display:block; border: solid 1px #E7E7E7;padding:0px; margin-bottom:5px;background-image:url(../images/forum-post-header-bg.png); background-repeat:repeat-x;}
+.forumPosts_item table { width:100%; padding-left:5px;}
+.forumPosts_item_title{ font-size:10pt; font-weight:bold; color:#707070;height:15px;}
+.forumPosts_item_carma {}
+.forumPosts_item_content{padding-top:5px;white-space:normal;}
+.forumPosts_item_reply{ background-image:url(../images/reply.png); background-repeat:no-repeat; padding-left:20px; cursor:pointer; color:#0077b6; text-decoration:underline;}
+.forumPosts_item_user{color:#707070; padding-right:5px;height:15px;}
+.forumPosts_item_date{color:#707070; padding-left:3px;}
+.forumPosts_item_children{margin-left:10px;}
+
+.forumPosts_item_attachmnets{margin-left:10px;}
+.forumPosts_item_attachmnets_table {border:1px solid #c8cbd9;}
+.forumPosts_item_attachmnets_table th{text-align:left; color:#336699; background-color:#eaecf2; border:1px solid #c8cbd9;}
+.forumPosts_item_attachmnets_table .th-left{width:15px;}
+.forumPosts_item_attachmnets_table .th-left-collapse{cursor:pointer;background-image:url(../images/forum-attachment-collapse.png);width:16px;height:16px;display:none;}
+.forumPosts_item_attachmnets_table .th-left-expand{cursor:pointer;background-image:url(../images/forum-attachment-expand.png);width:16px;height:16px;}
+.forumPosts_item_attachmnets_table .th-top{height:15px;padding-left:5px;}
+.forumPosts_item_attachmnets_table td{padding:10px;}
+.forumPosts_item_attachment_description_label{font-weight:bold;}
+.forumPosts_item_attachment_description_text{}
+.forumPosts_item_attachment_type_image{display:block; width:400px;}
+.forumPosts_item_attachment_type_image img{width:100%;}
+.forumPosts_item_attachment_type_file{display:block;padding-left:25px;padding-top:5px;padding-bottom:5px;background-image:url(../images/download.png); background-repeat:no-repeat; background-position:left;}
+.forumPosts_item_attachment_size_label{font-weight:bold;}
+.forumPosts_item_attachment_size_text{}
+/*-------------------------------------------------------------------------------------------------------
+/*FORUM POST FORM CONTROL CSS STYLES*/
+/*-------------------------------------------------------------------------------------------------------*/
+.forumPostForm{ background-color:#EAEAEA; padding:10px;}
+.forumPostForm table{ width:100%;}
+.forumPostForm_header{ font-size:16px; font-weight:bold; height:30px; vertical-align:top;}
+.forumPostForm_title{}
+.forumPostForm_content{ font-weight:bold;}
+.forumPostForm_settings{ font-weight:bold;padding-top:10px;border-bottom:1px solid #000;}
+.forumPostForm_attachments{ font-weight:bold;padding-top:10px;border-bottom:1px solid #000;}

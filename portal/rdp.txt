@@ -1,0 +1,18 @@
+IP adresa : 81.91.80.137
+Doména : WIN-MBA40MHMTBI
+Pøihlašovací jméno : mothiva_admin
+Heslo : q+fJJd@+pa
+C3uMID4n
+
+Dobrý den,
+==VPN==
+Jedná se o standardní VPN ve Windows.
+Adresa pro pøipojení klientù je rdp-vpn.web4u.cz.
+Interní IP adresa serveru: 192.168.89.40
+VPN uživatel pro Vás: vw40_2 / ittacCamcet3
+==VPN==
+==RDP==
+Interní IP adresa vašeho serveru: 192.168.89.40
+RDP uživatel pro Vás: cvl_admin / tbwUC4TKLDN
+==RDP==
+

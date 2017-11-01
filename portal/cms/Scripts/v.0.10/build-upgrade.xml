@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<project name="artemis.cms" default="create">
+
+	<property name="script" value="script-upgrade.sql" overwrite="false" />
+
+	<target name="init">
+	</target>
+
+  <target name="clean" depends="init">
+    <delete file="${script}" failonerror="false" />
+  </target>
+
+	<target name="create" depends="clean">
+    <loadfile encoding="unicode" file="dbUpgrade.sql" property="content" />
+    <echo append="true" file= "${script}">${content}</echo>
+
+    <loadfile encoding="unicode" file="dbSetupVersion.sql" property="content" />
+    <echo append="true" file= "${script}">${content}</echo>
+	</target>
+
+</project>

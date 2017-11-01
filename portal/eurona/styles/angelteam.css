@@ -1,0 +1,80 @@
+﻿.logo{}
+.contentEditorToolbar_item a{ background-image:none!important;}
+.page-container-header{padding-bottom:0px!important;}
+.page-container-overlay{background-image:none;background-color:transparent;}
+
+.button
+{
+	height:24px;
+	line-height:24px;
+	padding:0px 10px 0px 10px;
+	border: 0px none #fff!important;
+	background-color:#fff!important;
+	background-image:url(../images/angel-button-bg.png)!important;
+	color: #FFFFFF;
+	cursor:pointer;
+	display:inline-block;
+	text-decoration:none;
+}
+.button:hover{color:#FFFFFF;}
+
+.blue-button
+{
+    background-color:transparent!important;    
+    background-image:url(../images/navigation-menu-bg.png)!important;
+	padding:0px 10px 0px 10px;
+	border: 0px none #fff!important;    
+    height:24px;
+	line-height:24px;
+	color:#fff;
+	cursor:pointer;
+}
+
+.add-button-150
+{
+	height:24px;
+	line-height:24px;
+	padding:0px 10px 0px 25px;
+	border: 0px none #fff!important;
+	background-color:#fff!important;
+	background-image:url(../images/angel-button-add-bg.png)!important;
+	background-repeat:no-repeat;
+	color: #FFFFFF;
+	cursor:pointer;
+	display:inline-block;
+	text-decoration:none;
+}
+.add-button-150:hover{color:#FFFFFF;}
+/*-------------------------------------------------------------------------------------------------------
+/*TWEET CSS STYLES*/
+/*-------------------------------------------------------------------------------------------------------*/
+.twitter-bar{width:1004px!important;height:33px;display:block;margin:10px 10px 0px 10px!important;background-image:url(../images/twitter-angel.png)!important;background-repeat:no-repeat;}
+.twitter-bar .tweet{margin-left:45px!important;padding-top:0px!important;width:755px!important;}
+.twitter-bar .tweet span{Font-size:14px;color:#eb0a5b;}
+
+.twitter-bar .back-to-office{width:160px; height:33px;line-height:33px;}
+.twitter-bar .back-to-office a{color:#fff;text-decoration:none;}
+/*-------------------------------------------------------------------------------------------------------
+/*ADVISOR HEADER CONTAINER CSS STYLES*/
+/*-------------------------------------------------------------------------------------------------------*/
+.angelteam_content{background-image: url(../images/roundPanelEx/bg2-1px.png);margin:5px;padding:5px;}
+/*-------------------------------------------------------------------------------------------------------
+/*CATEGORY SITE MENU (horizontal) CSS STYLES*/
+/*-------------------------------------------------------------------------------------------------------*/
+.category-sitemenu-container{margin:10px 10px 0px 10px;}
+.category_sitemenu_subMenu {width:740px!important;}
+
+/*-------------------------------------------------------------------------------------------------------
+/*ANGEL TEAM BANNER CSS STYLES*/
+/*-------------------------------------------------------------------------------------------------------*/
+.angelteam_banner{min-height:100px;margin:10px 0px 10px 0px;}
+
+/*-------------------------------------------------------------------------------------------------------
+/*ANGEL TEAM MENUITEM CSS STYLES*/
+/*-------------------------------------------------------------------------------------------------------*/
+.angel-menuitem{border: 1px solid #36AFE2;background-image: url(../images/angel-menuitem-bg.png);height:33px;width:33%;}
+.angel-menuitem:hover{background-image: url(../images/angel-menuitem-selected-bg.png);}
+.angel-menuitem a{line-height:33px;color:#317CB4;text-align:center;text-decoration:none;}
+
+#atmi_mojecesta{border: 1px solid #36AFE2;background-image: url(../images/angel-menuitem-cesta-bg.png);height:33px;width:33%; background-position:center;}
+#atmi_mojecesta:hover{background-image: url(../images/angel-menuitem-cesta-selected-bg.png);height:33px;width:33%;}

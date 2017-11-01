@@ -1,0 +1,345 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="Advisor" xml:space="preserve">
+    <value>Konsultant:</value>
+  </data>
+  <data name="AktivityReportPoradce" xml:space="preserve">
+    <value>&gt; Aktivity raport kosultanta</value>
+  </data>
+  <data name="AktivityReportPoradce_Title" xml:space="preserve">
+    <value>Aktivity raport konsultanta</value>
+  </data>
+  <data name="AktualniZbyvajiciKreditProCerpani" xml:space="preserve">
+    <value>aktualny pozostały kredyt dla czerpania</value>
+  </data>
+  <data name="AktualnyNarokBonusu" xml:space="preserve">
+    <value>Aktualne prawo nabunus</value>
+  </data>
+  <data name="BodyDoDosazeniDalsiUrovne" xml:space="preserve">
+    <value>punkty dla osiągnięcia następnej pozycji</value>
+  </data>
+  <data name="CeleSkupiny" xml:space="preserve">
+    <value>Cae grupy</value>
+  </data>
+  <data name="CelkemPoradcuV1Linii" xml:space="preserve">
+    <value>łącznie konsultantów w 1 linii</value>
+  </data>
+  <data name="CelkemPoradcuVeSkupine" xml:space="preserve">
+    <value>łącznie konsultantów w grupie</value>
+  </data>
+  <data name="CelkemPoradcuVOsobniSkupine" xml:space="preserve">
+    <value>łącznie konsultantów w grupie osobowej</value>
+  </data>
+  <data name="Chart_PostupVKariere" xml:space="preserve">
+    <value>Postęp w karierze - poziomy prowizji {0}</value>
+  </data>
+  <data name="Chart_VyvojCelkoveProvize" xml:space="preserve">
+    <value>Rozwój całkowitej prowizji</value>
+  </data>
+  <data name="Chart_VyvojNovychRegistraciSkupiny" xml:space="preserve">
+    <value>Rozwój ogólnych nowych rejetsrów grupy {0}</value>
+  </data>
+  <data name="Chart_VyvojObratuSkupiny" xml:space="preserve">
+    <value>Rozwój obrotu w grupie {0}</value>
+  </data>
+  <data name="Chart_VyvojOsobnichObjednavek" xml:space="preserve">
+    <value>Rozwój obrotu zamówień osobistych {0}</value>
+  </data>
+  <data name="Chart_VyvojPridelenychLeaderskychBosusu" xml:space="preserve">
+    <value>Rozwój przyznaczonych bonusów liderskich {0}</value>
+  </data>
+  <data name="Chart_VyvojSkupinovychBodu" xml:space="preserve">
+    <value>Rozwój punktów grupowych {0}</value>
+  </data>
+  <data name="Chart_VyvojVlastnichNovychRegistraci" xml:space="preserve">
+    <value>Rozwój wasnych nowych rejestrów {0}</value>
+  </data>
+  <data name="DalsiUroven" xml:space="preserve">
+    <value>następny poziom</value>
+  </data>
+  <data name="Datum1Obj_Column" xml:space="preserve">
+    <value>Data 1 zamówienia</value>
+  </data>
+  <data name="DatumReg_Column" xml:space="preserve">
+    <value>Data rejestracji</value>
+  </data>
+  <data name="Generovat" xml:space="preserve">
+    <value>Generować</value>
+  </data>
+  <data name="GenerovatMujMesicniReportPDF" xml:space="preserve">
+    <value>Generować mój raport miesięczny w formacie pdf</value>
+  </data>
+  <data name="Jmeno" xml:space="preserve">
+    <value>Imię</value>
+  </data>
+  <data name="JmenoSp_Column" xml:space="preserve">
+    <value>Imię sp.</value>
+  </data>
+  <data name="Jmeno_Column" xml:space="preserve">
+    <value>Imię</value>
+  </data>
+  <data name="KodPoradce" xml:space="preserve">
+    <value>Kod konsultanta</value>
+  </data>
+  <data name="KreditZiskanyVMesici" xml:space="preserve">
+    <value>Kredyt pozyskany w miesiącu</value>
+  </data>
+  <data name="Marze" xml:space="preserve">
+    <value>Marża</value>
+  </data>
+  <data name="MarzeNaTentoMesic" xml:space="preserve">
+    <value>marża na ten miesiąc %</value>
+  </data>
+  <data name="Mesic_Column" xml:space="preserve">
+    <value>Miesiąc</value>
+  </data>
+  <data name="MobilniTelefon" xml:space="preserve">
+    <value>Tel.komórkowy</value>
+  </data>
+  <data name="NezauctovanaProdukcevReportech" xml:space="preserve">
+    <value>&gt; Niezaliczona produkcja w raportach</value>
+  </data>
+  <data name="NezauctovanaProdukcevReportech_Title" xml:space="preserve">
+    <value>Niezaliczona produkcja w raportach</value>
+  </data>
+  <data name="NoviPoradci" xml:space="preserve">
+    <value>&gt; Nowi konsultanci</value>
+  </data>
+  <data name="NoviPoradci_Title" xml:space="preserve">
+    <value>Nowi konsultanci</value>
+  </data>
+  <data name="Obdobi" xml:space="preserve">
+    <value>Okres:</value>
+  </data>
+  <data name="ObjemProMarzi_Column" xml:space="preserve">
+    <value>Pojemność dla marży</value>
+  </data>
+  <data name="OsobniAktivita" xml:space="preserve">
+    <value>aktywność osobowa</value>
+  </data>
+  <data name="OsobniPrehledPoradce" xml:space="preserve">
+    <value>&gt; przegląd osobowy konsultanta</value>
+  </data>
+  <data name="OsobniPrehledPoradce_Title" xml:space="preserve">
+    <value>Przegląd osobowy konsultanta</value>
+  </data>
+  <data name="PredbeznyNarokNaMarziProPristiMesic" xml:space="preserve">
+    <value>wstępne roszczenia dla marży na przyszły miesiąc % </value>
+  </data>
+  <data name="PrehledProdukceSkupiny" xml:space="preserve">
+    <value>&gt; Przegląd produkcji grupy</value>
+  </data>
+  <data name="PrehledProdukceSkupiny_Title" xml:space="preserve">
+    <value>Przegląd produkcji grupy</value>
+  </data>
+  <data name="ProcentualniHladina" xml:space="preserve">
+    <value>poziom procentowy</value>
+  </data>
+  <data name="ProDosazeni25MarzeZbyvaObjednat" xml:space="preserve">
+    <value />
+  </data>
+  <data name="ProDosazeni30MarzeZbyvaObjednat" xml:space="preserve">
+    <value />
+  </data>
+  <data name="ProvizeVAktualnimMesiciZeSkupiny" xml:space="preserve">
+    <value>prowizja w aktualnym miesiącu z grupy</value>
+  </data>
+  <data name="ProvizeVAktualnimMesiciZVLObjemu" xml:space="preserve">
+    <value>prowizja w aktulanym miesiącu z wkasnej pojemności </value>
+  </data>
+  <data name="ProZiskaniDalsihoEuraZbyvaObjednatZa" xml:space="preserve">
+    <value>Dla uzyskania następnego Euro pozostaje zamówić w cenie</value>
+  </data>
+  <data name="PrvniLinie" xml:space="preserve">
+    <value>Pierwsza linia</value>
+  </data>
+  <data name="Rok_Column" xml:space="preserve">
+    <value>Rok</value>
+  </data>
+  <data name="RozdilHl_Column" xml:space="preserve">
+    <value>Różnica.hl.</value>
+  </data>
+  <data name="SoucetBonusu" xml:space="preserve">
+    <value>suma bonusów</value>
+  </data>
+  <data name="TelefonDomu" xml:space="preserve">
+    <value>telefon domowy</value>
+  </data>
+  <data name="TelefonDoPrace" xml:space="preserve">
+    <value>telefon do pracy</value>
+  </data>
+  <data name="TelefonSp_Column" xml:space="preserve">
+    <value>Telefon sp.</value>
+  </data>
+  <data name="Telefon_Column" xml:space="preserve">
+    <value>Telefon</value>
+  </data>
+  <data name="VaseDiamantovaCesta" xml:space="preserve">
+    <value>TWOJA DROGA DIAMANTOWA</value>
+  </data>
+  <data name="VasNevycerpanyNarokNaSlevuKeKonciMinulehoMesice" xml:space="preserve">
+    <value />
+  </data>
+  <data name="VasNevycerpanyNarokNaSlevuNRZ" xml:space="preserve">
+    <value />
+  </data>
+  <data name="VyplacenaProvizeVMene" xml:space="preserve">
+    <value>wypłacona prowizja w walucie </value>
+  </data>
+  <data name="ZpetDoMojiKancelare" xml:space="preserve">
+    <value>Spowrotem do mojej kancelarii </value>
+  </data>
+  <data name="DnesZauctovanaProdukce" xml:space="preserve">
+    <value>&gt; Dziś zaliczona produkcja</value>
+  </data>
+  <data name="DnesZauctovanaProdukce_Title" xml:space="preserve">
+    <value>Dziś zaksięgowana produkcja</value>
+  </data>
+  <data name="HistorieObjednavek" xml:space="preserve">
+    <value>&gt; Historia zamówień</value>
+  </data>
+  <data name="HistorieObjednavek_Title" xml:space="preserve">
+    <value>Historia zamówień</value>
+  </data>
+  <data name="PrehledProdukceSkupinyATP" xml:space="preserve">
+    <value>&gt; Przegląd produkcji grupy ATP</value>
+  </data>
+  <data name="PrehledProdukceSkupinyATP_Title" xml:space="preserve">
+    <value>Przegląd produkcji grupy ATP</value>
+  </data>
+  <data name="DatumVymazu_Column" xml:space="preserve">
+    <value>Data odwołania</value>
+  </data>
+  <data name="ZruseniPoradci" xml:space="preserve">
+    <value>&gt; Uchylenie consultants</value>
+  </data>
+  <data name="ZruseniPoradci_Title" xml:space="preserve">
+    <value>Uchylenie consultants</value>
+  </data>
+  <data name="JenMojeSkupina" xml:space="preserve">
+    <value>Tylko moja grupa</value>
+  </data>
+  <data name="DenniPrehledObjednavek" xml:space="preserve">
+    <value>&gt; Briefing rozkazy dzienne</value>
+  </data>
+  <data name="DenniPrehledObjednavek_Title" xml:space="preserve">
+    <value>Briefing rozkazy dzienne</value>
+  </data>
+</root>

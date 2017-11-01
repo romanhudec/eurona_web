@@ -1,0 +1,1115 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="AccountControl_InvalidVerifyCodeMessage" xml:space="preserve">
+    <value>Nesprávny ověřovací kód!</value>
+  </data>
+  <data name="AccountControl_LabelEmail" xml:space="preserve">
+    <value>Email :</value>
+  </data>
+  <data name="AccountControl_LabelEnabled" xml:space="preserve">
+    <value>Povoleno :</value>
+  </data>
+  <data name="AccountControl_LabelLogin" xml:space="preserve">
+    <value>Konto :</value>
+  </data>
+  <data name="AccountControl_LabelRoles" xml:space="preserve">
+    <value>Role :</value>
+  </data>
+  <data name="AccountControl_LabelVerified" xml:space="preserve">
+    <value>Ověřený :</value>
+  </data>
+  <data name="AccountControl_LabelVerifyCode" xml:space="preserve">
+    <value>Ověřovací kód :</value>
+  </data>
+  <data name="AccountControl_SendInformationEmails" xml:space="preserve">
+    <value>Posílat informační e-maily</value>
+  </data>
+  <data name="AdministrationMode_Classifiers" xml:space="preserve">
+    <value>Číselníky</value>
+  </data>
+  <data name="AdministrationMode_FAQs" xml:space="preserve">
+    <value>FAQs</value>
+  </data>
+  <data name="AdministrationMode_HeaderAdministration" xml:space="preserve">
+    <value>Administrace</value>
+  </data>
+  <data name="AdministrationMode_HeaderMenu" xml:space="preserve">
+    <value>Položka menu</value>
+  </data>
+  <data name="AdministrationMode_Menus" xml:space="preserve">
+    <value>Menu</value>
+  </data>
+  <data name="AdministrationMode_NavigationMenus" xml:space="preserve">
+    <value>Navigační menu</value>
+  </data>
+  <data name="AdministrationMode_News" xml:space="preserve">
+    <value>Aktuality</value>
+  </data>
+  <data name="AdministrationMode_Newsletters" xml:space="preserve">
+    <value>Informační buletíny</value>
+  </data>
+  <data name="AdministrationMode_Pages" xml:space="preserve">
+    <value>Stránky</value>
+  </data>
+  <data name="AdministrationMode_Polls" xml:space="preserve">
+    <value>Ankety</value>
+  </data>
+  <data name="AdministrationMode_Users" xml:space="preserve">
+    <value>Uživatelé</value>
+  </data>
+  <data name="AuthenticatedMenuItem_ChangePassword" xml:space="preserve">
+    <value>Změna hesla</value>
+  </data>
+  <data name="AuthenticatedMenuItem_ChangePersonalData" xml:space="preserve">
+    <value>Změna osobních údajů</value>
+  </data>
+  <data name="AuthenticatedMenuItem_LogOut" xml:space="preserve">
+    <value>Odhlásit</value>
+  </data>
+  <data name="AuthenticatedMenuItem_MyAccount" xml:space="preserve">
+    <value>Moje konto</value>
+  </data>
+  <data name="BackLink" xml:space="preserve">
+    <value>zpět</value>
+  </data>
+  <data name="CancelButton_Text" xml:space="preserve">
+    <value>Zrušit</value>
+  </data>
+  <data name="Classifier_ProvidedService_AddingCredit" xml:space="preserve">
+    <value>Doplnení kreditu uživatele</value>
+  </data>
+  <data name="Classifier_ProvidedService_AddingCredit_Description" xml:space="preserve">
+    <value>Doplnení kreditu uživatele</value>
+  </data>
+  <data name="ClassifierControl_Name" xml:space="preserve">
+    <value>Název :</value>
+  </data>
+  <data name="ClassifierControl_Notes" xml:space="preserve">
+    <value>Poznámka :</value>
+  </data>
+  <data name="ClassifiersControl_AddItem" xml:space="preserve">
+    <value>Přidať položku</value>
+  </data>
+  <data name="ClassifiersControl_ColumnName" xml:space="preserve">
+    <value>Název</value>
+  </data>
+  <data name="ClassifiersControl_ColumnNotes" xml:space="preserve">
+    <value>Poznámka</value>
+  </data>
+  <data name="ContinueButton_Text" xml:space="preserve">
+    <value>Pokračovat</value>
+  </data>
+  <data name="UserRegistrationPage_Email2Central_Message" xml:space="preserve">
+    <value>Právě byl zaregistrován nový uživatel '{1}'. Zkontrolujte uživatele zde: {0}</value>
+  </data>
+  <data name="UserRegistrationPage_Email2Central_Subject" xml:space="preserve">
+    <value>Registrace nového uživatele</value>
+  </data>
+  <data name="UserRegistrationPage_Email2User_Message" xml:space="preserve">
+    <value>&lt;html&gt;
+&lt;body&gt;
+&lt;p&gt;Dobrý den,&lt;/p&gt;
+&lt;p&gt;blahopřejeme, Vaše registrace proběhla úspěšně. Jsme rádi, že jste si pro svůj nákup zvolil/a &lt;br/&gt;právě českou společnost Eurona s.r.o.&lt;/p&gt;
+&lt;p&gt;
+    Vaše přihlašovací jméno: {0}
+    &lt;br /&gt;
+    Heslo:  {1}
+&lt;/p&gt;
+&lt;p&gt;Co Vám můžeme nabídnout? Výhodnější nákupní ceny, odměny, prémie, bonusy, soutěže, &lt;br/&gt;motivační programy, pasivní příjem a mnohem víc.&lt;/p&gt;
+&lt;p&gt;Než Vám doručíme objednaný balíček přímo do Vašich rukou, můžete se přihlásit do své &lt;br/&gt;kanceláře poradce Eurona, v níž najdete užitečné rady a informace&lt;/p&gt;
+&lt;p&gt;Jako první výhodu Vám nabízíme možnost splnit podmínky akce „Úspěšný start“, v němž &lt;br/&gt;můžete získat výrobky Eurona v celkové hodnotě 793Kč zcela ZDARMA.&lt;/p&gt;
+&lt;p&gt;S radostí Vás budeme pravidelně informovat o aktuálních měsíčních a mimořádných akcích.&lt;/p&gt;
+&lt;p&gt;V případě jakýchkoli dotazů se můžete obrátit na naše zákaznické centrum, nebo na svého &lt;br/&gt;TOP manažera. Kontakt na něj naleznete na faktuře.&lt;/p&gt;
+&lt;p&gt;Děkujeme, těšíme se na Vaše další nákupy a případnou spolupráci&lt;/p&gt;
+&lt;p&gt;Eurona s.r.o.&lt;br/&gt;&lt;a href="www.euronabycerny.com"&gt;www.euronabycerny.com&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Kontakt na naše zákaznické centrum:&lt;br/&gt;
+Tel.: +420&amp;nbsp;491&amp;nbsp;477&amp;nbsp;361&lt;br/&gt;
+e-mail: &lt;a href="mailto:prodej@eurona.cz"&gt;prodej@eurona.cz&lt;/a&gt;&lt;/p&gt;
+&lt;/body&gt;
+&lt;/html&gt;</value>
+  </data>
+  <data name="UserRegistrationPage_Email2User_Subject" xml:space="preserve">
+    <value>Registrace nového uživatele</value>
+  </data>
+  <data name="UserRegistrationPage_Finished" xml:space="preserve">
+    <value>Gratulujeme, Vaše registrace je úspěšně ukončena!</value>
+  </data>
+  <data name="DeleteItemQuestion" xml:space="preserve">
+    <value>Skutečne si přejete vymazat tento záznam?</value>
+  </data>
+  <data name="GridView_ToolTip_DeleteItem" xml:space="preserve">
+    <value>Vymazat položku</value>
+  </data>
+  <data name="GridView_ToolTip_DisplayItem" xml:space="preserve">
+    <value>Zobraziť položku</value>
+  </data>
+  <data name="GridView_ToolTip_EditItem" xml:space="preserve">
+    <value>Upravit položku</value>
+  </data>
+  <data name="LoginControl_LoginButton" xml:space="preserve">
+    <value>Přihlásit</value>
+  </data>
+  <data name="LoginControl_LoginLabel" xml:space="preserve">
+    <value>Přihlašovací jméno</value>
+  </data>
+  <data name="LoginControl_LogoutButton" xml:space="preserve">
+    <value>Odhlásit</value>
+  </data>
+  <data name="LoginControl_PasswordLabel" xml:space="preserve">
+    <value>Heslo</value>
+  </data>
+  <data name="LoginControl_Welcome" xml:space="preserve">
+    <value>Vitejte</value>
+  </data>
+  <data name="LoginControl_YourCurrentCreditIs" xml:space="preserve">
+    <value>Váš aktuální kredit je  &lt;b&gt;{0}&lt;/b&gt;</value>
+  </data>
+  <data name="Navigation_AddAccountCredit" xml:space="preserve">
+    <value>Přidání kreditu uživatele</value>
+  </data>
+  <data name="Navigation_Administration" xml:space="preserve">
+    <value>Administrace</value>
+  </data>
+  <data name="Navigation_ArchivedNews" xml:space="preserve">
+    <value>Archiv novinek</value>
+  </data>
+  <data name="Navigation_ChangePassword" xml:space="preserve">
+    <value>Změna hesla</value>
+  </data>
+  <data name="Navigation_Classifier_PaidService" xml:space="preserve">
+    <value>Placená služba</value>
+  </data>
+  <data name="Navigation_Classifier_Paidservices" xml:space="preserve">
+    <value>Placené služby</value>
+  </data>
+  <data name="Navigation_Classifiers" xml:space="preserve">
+    <value>Číselníky</value>
+  </data>
+  <data name="Navigation_ContactForm" xml:space="preserve">
+    <value>Kontaktní formulář</value>
+  </data>
+  <data name="Navigation_FAQ" xml:space="preserve">
+    <value>FAQ</value>
+  </data>
+  <data name="Navigation_FAQs" xml:space="preserve">
+    <value>FAQs</value>
+  </data>
+  <data name="Navigation_Home" xml:space="preserve">
+    <value>Eurona by Cerny</value>
+  </data>
+  <data name="Navigation_Invoices" xml:space="preserve">
+    <value>Faktúry</value>
+  </data>
+  <data name="Navigation_Menu" xml:space="preserve">
+    <value>Položka menu</value>
+  </data>
+  <data name="Navigation_Menus" xml:space="preserve">
+    <value>Menu</value>
+  </data>
+  <data name="Navigation_MyAccount" xml:space="preserve">
+    <value>Moje konto</value>
+  </data>
+  <data name="Navigation_NavigationMenu" xml:space="preserve">
+    <value>Navigační menu</value>
+  </data>
+  <data name="Navigation_NavigationMenuItem" xml:space="preserve">
+    <value>Navigační podmenu</value>
+  </data>
+  <data name="Navigation_NavigationMenuItems" xml:space="preserve">
+    <value>Navigační podmenu</value>
+  </data>
+  <data name="Navigation_NavigationMenus" xml:space="preserve">
+    <value>Navigační menu</value>
+  </data>
+  <data name="Navigation_News" xml:space="preserve">
+    <value>Aktualita</value>
+  </data>
+  <data name="Navigation_Newsletter" xml:space="preserve">
+    <value>Informační buletín</value>
+  </data>
+  <data name="Navigation_NewsletterList" xml:space="preserve">
+    <value>Informačné buletíny</value>
+  </data>
+  <data name="Navigation_NewsList" xml:space="preserve">
+    <value>Seznam noviniek</value>
+  </data>
+  <data name="Navigation_Page" xml:space="preserve">
+    <value>Stránka</value>
+  </data>
+  <data name="Navigation_Pages" xml:space="preserve">
+    <value>Stránky</value>
+  </data>
+  <data name="Navigation_Poll" xml:space="preserve">
+    <value>Anketa</value>
+  </data>
+  <data name="Navigation_PollOption" xml:space="preserve">
+    <value>Možnost ankety</value>
+  </data>
+  <data name="Navigation_PollOptions" xml:space="preserve">
+    <value>Možnosti ankety</value>
+  </data>
+  <data name="Navigation_Polls" xml:space="preserve">
+    <value>Ankety</value>
+  </data>
+  <data name="Navigation_Registration" xml:space="preserve">
+    <value>Registrace</value>
+  </data>
+  <data name="Navigation_User" xml:space="preserve">
+    <value>Uživatel</value>
+  </data>
+  <data name="Navigation_Users" xml:space="preserve">
+    <value>Uživatelé</value>
+  </data>
+  <data name="RegisterControl_AccountAlreadyExists" xml:space="preserve">
+    <value>Konto již existuje!</value>
+  </data>
+  <data name="RegisterControl_ContinueButton" xml:space="preserve">
+    <value>Pokračovat</value>
+  </data>
+  <data name="RegisterControl_EmailLabel" xml:space="preserve">
+    <value>Email :</value>
+  </data>
+  <data name="RegisterControl_LoginLabel" xml:space="preserve">
+    <value>Přihlašovací jméno :</value>
+  </data>
+  <data name="RegisterControl_PasswordConfirmLabel" xml:space="preserve">
+    <value>Kontrola hesla :</value>
+  </data>
+  <data name="RegisterControl_PasswordLabel" xml:space="preserve">
+    <value>Heslo :</value>
+  </data>
+  <data name="SaveButton_Text" xml:space="preserve">
+    <value>Uložit</value>
+  </data>
+  <data name="UserPage_OrganizationDetail" xml:space="preserve">
+    <value>Údaje organizace</value>
+  </data>
+  <data name="UserPage_PersonDetail" xml:space="preserve">
+    <value>Osobní údaje uživatele</value>
+  </data>
+  <data name="ClassifiersPage_CommonGroup" xml:space="preserve">
+    <value>Společné číselníky</value>
+  </data>
+  <data name="Navigation_Role" xml:space="preserve">
+    <value>Role</value>
+  </data>
+  <data name="Navigation_Roles" xml:space="preserve">
+    <value>Role</value>
+  </data>
+  <data name="AdministrationMode_Roles" xml:space="preserve">
+    <value>Role</value>
+  </data>
+  <data name="RSS_NewsTitle" xml:space="preserve">
+    <value>EURONA novinky</value>
+  </data>
+  <data name="BackButton_Text" xml:space="preserve">
+    <value>Zpět</value>
+  </data>
+  <data name="EditButton_Text" xml:space="preserve">
+    <value>Upravit</value>
+  </data>
+  <data name="Navigation_Classifier_ArticleCategories" xml:space="preserve">
+    <value>Kategorie článků</value>
+  </data>
+  <data name="Navigation_Classifier_ArticleCategory" xml:space="preserve">
+    <value>Kategoria článku</value>
+  </data>
+  <data name="Navigation_Article" xml:space="preserve">
+    <value>Článek</value>
+  </data>
+  <data name="Navigation_ArchivedArticles" xml:space="preserve">
+    <value>Archiv článků</value>
+  </data>
+  <data name="RSS_ArticleTitle" xml:space="preserve">
+    <value>Článek</value>
+  </data>
+  <data name="AdministrationMode_Articles" xml:space="preserve">
+    <value>Články</value>
+  </data>
+  <data name="Navigation_Articles" xml:space="preserve">
+    <value>Články</value>
+  </data>
+  <data name="Navigation_Tag" xml:space="preserve">
+    <value>Tag</value>
+  </data>
+  <data name="Navigation_Tags" xml:space="preserve">
+    <value>Tagy</value>
+  </data>
+  <data name="AdministrationMode_Tags" xml:space="preserve">
+    <value>Tagy</value>
+  </data>
+  <data name="Navigation_ArticleComments" xml:space="preserve">
+    <value>Komentáře k článku</value>
+  </data>
+  <data name="Navigation_Blog" xml:space="preserve">
+    <value>Blog</value>
+  </data>
+  <data name="Navigation_BlogComments" xml:space="preserve">
+    <value>Komentáře</value>
+  </data>
+  <data name="Navigation_ArchivedBlogs" xml:space="preserve">
+    <value>Archiv blogů</value>
+  </data>
+  <data name="AdministrationMode_Blogs" xml:space="preserve">
+    <value>Blogy</value>
+  </data>
+  <data name="Navigation_Blogs" xml:space="preserve">
+    <value>Blogy</value>
+  </data>
+  <data name="AuthenticatedMenuItem_MyBlogs" xml:space="preserve">
+    <value>Moje Blogy</value>
+  </data>
+  <data name="AuthenticatedMenuItem_MyProfile" xml:space="preserve">
+    <value>Můj profil</value>
+  </data>
+  <data name="Navigation_MyProfile" xml:space="preserve">
+    <value>Můj profil</value>
+  </data>
+  <data name="Navigation_AccountProfile" xml:space="preserve">
+    <value>Profil uživatele</value>
+  </data>
+  <data name="Navigation_ImageGalleries" xml:space="preserve">
+    <value>Galérie obrázků</value>
+  </data>
+  <data name="Navigation_ImageGallery" xml:space="preserve">
+    <value>Galéria obrázků</value>
+  </data>
+  <data name="AdministrationMode_ImageGalleries" xml:space="preserve">
+    <value>Galérie obrázků</value>
+  </data>
+  <data name="Navigation_ImageGalleryComments" xml:space="preserve">
+    <value>Komentráře galérie obrázků</value>
+  </data>
+  <data name="Navigation_ImageGalleryItemComments" xml:space="preserve">
+    <value>Komentáře obrázku</value>
+  </data>
+  <data name="LoginControl_LoginHeaderLabel" xml:space="preserve">
+    <value>Přihlášení</value>
+  </data>
+  <data name="Navigation_UrlAliases" xml:space="preserve">
+    <value>URL Aliasy</value>
+  </data>
+  <data name="Navigation_UrlAlias" xml:space="preserve">
+    <value>URL Alias</value>
+  </data>
+  <data name="AdministrationMode_UrlAliases" xml:space="preserve">
+    <value>URL Aliasy</value>
+  </data>
+  <data name="Navigation_Classifier_UrlAliasPrefix" xml:space="preserve">
+    <value>Prefix url aliasu</value>
+  </data>
+  <data name="Navigation_Classifier_UrlAliasPrefixes" xml:space="preserve">
+    <value>Prefixy url aliasů</value>
+  </data>
+  <data name="AuthenticatedMenuItem_Orders" xml:space="preserve">
+    <value>Objednávky</value>
+  </data>
+  <data name="Navigation_SearchResult" xml:space="preserve">
+    <value>Výsledek vyhledávání</value>
+  </data>
+  <data name="LoginControl_ForgotPasswordButton" xml:space="preserve">
+    <value>Zapomenuté heslo</value>
+  </data>
+  <data name="RegisterControl_AdvisorLabel" xml:space="preserve">
+    <value>Poradce :</value>
+  </data>
+  <data name="Navigation_Classifier_SupportedLocale" xml:space="preserve">
+    <value>Jazyk</value>
+  </data>
+  <data name="ClassifierControl_Icon" xml:space="preserve">
+    <value>Ikona :</value>
+  </data>
+  <data name="ClassifierControl_RemoveIcon" xml:space="preserve">
+    <value>Odstranit ikonu</value>
+  </data>
+  <data name="ClassifiersControl_ColumnIcon" xml:space="preserve">
+    <value>Ikona</value>
+  </data>
+  <data name="Navigation_Classifier_SupportedLocales" xml:space="preserve">
+    <value>Podporované jazyky</value>
+  </data>
+  <data name="ClassifierControl_Code" xml:space="preserve">
+    <value>Kód :</value>
+  </data>
+  <data name="ClassifiersControl_ColumnCode" xml:space="preserve">
+    <value>Kód</value>
+  </data>
+  <data name="Navigation_Products" xml:space="preserve">
+    <value>Výrobky</value>
+  </data>
+  <data name="Navigation_ProductsCatalog" xml:space="preserve">
+    <value>Virtuální katalog</value>
+  </data>
+  <data name="HostLogin_Advisor" xml:space="preserve">
+    <value>Poradce :</value>
+  </data>
+  <data name="HostLogin_AdvisorLabel" xml:space="preserve">
+    <value>Poradce</value>
+  </data>
+  <data name="HostLogin_DistrictLabel" xml:space="preserve">
+    <value>Kraj</value>
+  </data>
+  <data name="HostLogin_Login" xml:space="preserve">
+    <value>Přihlásit</value>
+  </data>
+  <data name="HostLogin_Name" xml:space="preserve">
+    <value>Příjmení  a jméno :</value>
+  </data>
+  <data name="HostLogin_RegionLabel" xml:space="preserve">
+    <value>Okres</value>
+  </data>
+  <data name="LogedHostControl_Welcome" xml:space="preserve">
+    <value>Vážený(á) pane/paní</value>
+  </data>
+  <data name="LogedHostControl_YouAreLogedAsHost" xml:space="preserve">
+    <value>Jste přihlášený(á) jako host</value>
+  </data>
+  <data name="HostLogin_StateLabel" xml:space="preserve">
+    <value>Stát</value>
+  </data>
+  <data name="HostLogin_ZipLabel" xml:space="preserve">
+    <value>PSČ</value>
+  </data>
+  <data name="HostLogin_PleaseEneterCity" xml:space="preserve">
+    <value>Hledat dle města</value>
+  </data>
+  <data name="HostLogin_FindAdvisor_ButtonText" xml:space="preserve">
+    <value>Najít poradce</value>
+  </data>
+  <data name="HostLogin_CityLabel" xml:space="preserve">
+    <value>Město</value>
+  </data>
+  <data name="HostLogin_PleaseEneterAdvisor" xml:space="preserve">
+    <value>Hledat dle jména poradce</value>
+  </data>
+  <data name="FindAdvisorControl_ColumnName" xml:space="preserve">
+    <value>Jméno</value>
+  </data>
+  <data name="FindAdvisorControl_ColumnAddress" xml:space="preserve">
+    <value>Adresa</value>
+  </data>
+  <data name="FindAdvisorControl_ColumnMobile" xml:space="preserve">
+    <value>Mobil</value>
+  </data>
+  <data name="FindAdvisorControl_ColumnPhone" xml:space="preserve">
+    <value>Telefon</value>
+  </data>
+  <data name="FindAdvisor" xml:space="preserve">
+    <value>Vyhledávání poradce</value>
+  </data>
+  <data name="RegisterControl_Title" xml:space="preserve">
+    <value>Registrace</value>
+  </data>
+  <data name="RegisterControl_AcceptTermsAndConditions" xml:space="preserve">
+    <value>Souhlasím z obchodními podmínkami</value>
+  </data>
+  <data name="RegisterControl_TermsAndConditions" xml:space="preserve">
+    <value>Obchodní podmínky</value>
+  </data>
+  <data name="HostLogin_PleaseEneterRegionCode" xml:space="preserve">
+    <value>Hledat dle kódu oblasti</value>
+  </data>
+  <data name="ContactAdvisor" xml:space="preserve">
+    <value>Kontaktovat poradce</value>
+  </data>
+  <data name="HostLogin_Password" xml:space="preserve">
+    <value>Heslo :</value>
+  </data>
+  <data name="Navigation_Office" xml:space="preserve">
+    <value>Kancelář</value>
+  </data>
+  <data name="UserRegistrationPage_GotoMyOffice" xml:space="preserve">
+    <value>Vstoupit do mé kanceláře</value>
+  </data>
+  <data name="NotVerifiedTimeSpanUserMessage" xml:space="preserve">
+    <value>Do odeslání Vašeho registračního formuláře zbývá :</value>
+  </data>
+  <data name="Days" xml:space="preserve">
+    <value>dní</value>
+  </data>
+  <data name="AdvisorDesktop_AktualniStav" xml:space="preserve">
+    <value>Aktuální stav</value>
+  </data>
+  <data name="AdvisorDesktop_CilovyStav" xml:space="preserve">
+    <value>Cílový stav</value>
+  </data>
+  <data name="AdvisorDesktop_CoUdelatDoCilovehoStavu" xml:space="preserve">
+    <value>Co udělat do cílového stavu</value>
+  </data>
+  <data name="AdvisorDesktop_GrafyLideVSiti" xml:space="preserve">
+    <value>Grafy | Lidé v síti</value>
+  </data>
+  <data name="AdvisorDesktop_ObjednavkyProZdruzeni" xml:space="preserve">
+    <value>Objednávky pro sdružení</value>
+  </data>
+  <data name="AdvisorDesktop_StavOdPocatkuRoku" xml:space="preserve">
+    <value>Stav od počátku roku</value>
+  </data>
+  <data name="Navigation_MyOffice" xml:space="preserve">
+    <value>Moje kancelář</value>
+  </data>
+  <data name="NewAdvisorsControl_ColumnAddress" xml:space="preserve">
+    <value>Adresa</value>
+  </data>
+  <data name="NewAdvisorsControl_ColumnEmail" xml:space="preserve">
+    <value>Email</value>
+  </data>
+  <data name="NewAdvisorsControl_ColumnMobile" xml:space="preserve">
+    <value>Mobil</value>
+  </data>
+  <data name="NewAdvisorsControl_ColumnName" xml:space="preserve">
+    <value>Název</value>
+  </data>
+  <data name="Navigation_NewAdvisors" xml:space="preserve">
+    <value>Noví poradci</value>
+  </data>
+  <data name="NewAdvisorsControl_ColumnLeftToVerification" xml:space="preserve">
+    <value>Do odeslání reg. formuláře zbývá</value>
+  </data>
+  <data name="HostLogin_PleaseEneterAdvisorCode" xml:space="preserve">
+    <value>Hledat dle kódu poradce</value>
+  </data>
+  <data name="AdvisorDesktop_YourTopBuyProducts" xml:space="preserve">
+    <value>Vámi nejvíce nakupované produkty</value>
+  </data>
+  <data name="Navigation_DPD_InformaceOMoznostiDoruceni" xml:space="preserve">
+    <value>Informace o možnosti doručování balíku</value>
+  </data>
+  <data name="Navigation_DPD_NedorucenaZasilka" xml:space="preserve">
+    <value>Nedoručená zásilka</value>
+  </data>
+  <data name="Navigation_DPD_OnlineCasDoruceni" xml:space="preserve">
+    <value>Online čas doručení</value>
+  </data>
+  <data name="Navigation_DPD_SledovaniZasilky" xml:space="preserve">
+    <value>Sledování zásilky</value>
+  </data>
+  <data name="LogedHostControl_ContinueInRegistration" xml:space="preserve">
+    <value>» Pokračujte v registraci</value>
+  </data>
+  <data name="Navigation_Podpora_AkcniCenik" xml:space="preserve">
+    <value>Akční ceník</value>
+  </data>
+  <data name="Navigation_Podpora_EuronaNews" xml:space="preserve">
+    <value>EURONA News</value>
+  </data>
+  <data name="Navigation_Podpora_PodporaProdeje" xml:space="preserve">
+    <value>Podpora prodeje</value>
+  </data>
+  <data name="Navigation_Podpora_PrezentacniLetaky" xml:space="preserve">
+    <value>Prezentační letáky</value>
+  </data>
+  <data name="Navigation_Podpora_UspesnyStart" xml:space="preserve">
+    <value>Úspěšný start</value>
+  </data>
+  <data name="Navigation_Podpora_Vzdelavani" xml:space="preserve">
+    <value>Vzdělávání</value>
+  </data>
+  <data name="OrderControl_ShipmentFrom" xml:space="preserve">
+    <value>Datum dodání od :</value>
+  </data>
+  <data name="OrderControl_ShipmentTo" xml:space="preserve">
+    <value>Datum dodání do :</value>
+  </data>
+  <data name="StornoItemQuestion" xml:space="preserve">
+    <value>Skutečne si přejete stornovat tuto objednávku?</value>
+  </data>
+  <data name="Vice" xml:space="preserve">
+    <value>Více</value>
+  </data>
+  <data name="UserRegistrationPage_Warning" xml:space="preserve">
+    <value>Pro plnou aktivaci účtu, nezapomeňte odeslat do 14 dnů registrační formulář a do 48 hodin učiňte Vaši první objednávku.</value>
+  </data>
+  <data name="BrowserVersionWarning" xml:space="preserve">
+    <value>Vážený uživateli, zřejmě používáte starý prohlížeč Internet Explorer. Je pravdepodobné, že nekteré části se Vám nezobrazí správne, anebo vůbec. Doporučujeme proto použít bezpečnejší &lt;a target=_blank href='http://www.browserchoice.eu'&gt;prohlížeč&lt;/a&gt;</value>
+  </data>
+  <data name="AdministrationMode_Forums" xml:space="preserve">
+    <value>Fórum</value>
+  </data>
+  <data name="AdministrationMode_ForumThreads" xml:space="preserve">
+    <value>Fórum kategorie</value>
+  </data>
+  <data name="Navigation_Forum" xml:space="preserve">
+    <value>Fórum</value>
+  </data>
+  <data name="Navigation_ForumPost" xml:space="preserve">
+    <value>Fórum příspěvek</value>
+  </data>
+  <data name="Navigation_ForumPosts" xml:space="preserve">
+    <value>Fórum příspěvky</value>
+  </data>
+  <data name="Navigation_Forums" xml:space="preserve">
+    <value>Fórum</value>
+  </data>
+  <data name="Navigation_ForumThread" xml:space="preserve">
+    <value>Fórum kategorie</value>
+  </data>
+  <data name="Navigation_ForumThreads" xml:space="preserve">
+    <value>Fórum kategorie</value>
+  </data>
+  <data name="UserRegistrationPage_Email2Sponsor_Message" xml:space="preserve">
+    <value>&lt;p align="left"&gt;
+		&lt;font color="#000080" face="Calibri" size="3"&gt;&lt;b&gt;
+		&lt;span style="BACKGROUND: none transparent scroll repeat 0% 0%"&gt;Gratulujeme Vám!&lt;/span&gt;&lt;/b&gt;&lt;/font&gt;&lt;/p&gt;
+	&lt;p align="left"&gt;
+		&lt;font color="#000080" face="Calibri" size="2"&gt;&lt;span style="FONT-WEIGHT: normal"&gt;
+		&lt;span style="BACKGROUND: none transparent scroll repeat 0% 0%"&gt;Tím že jste 
+		dosáhli na možnost &lt;/span&gt;&lt;/span&gt;&lt;/font&gt;&lt;font color="#000080" face="Calibri" 
+			size="2"&gt;&lt;span style="FONT-WEIGHT: normal"&gt;
+		&lt;span style="BACKGROUND: none transparent scroll repeat 0% 0%"&gt;čerpání výhod
+		&lt;/span&gt;&lt;/span&gt;&lt;/font&gt;&lt;font color="#000080" face="Calibri" size="2"&gt;&lt;b&gt;
+		&lt;span style="BACKGROUND: none transparent scroll repeat 0% 0%"&gt;V.I.P. Angel Team 
+		Professional&lt;/span&gt;&lt;/b&gt;&lt;/font&gt;&lt;font color="#000080" face="Calibri" size="2"&gt;&lt;span 
+			style="FONT-WEIGHT: normal"&gt;&lt;span 
+			style="BACKGROUND: none transparent scroll repeat 0% 0%"&gt; budete i nadále 
+		rozšiřovat svůj obchodní team o nově příchozí &lt;/span&gt;&lt;/span&gt;&lt;/font&gt;
+		&lt;font color="#000080" face="Calibri" size="2"&gt;&lt;b&gt;
+		&lt;span style="BACKGROUND: none transparent scroll repeat 0% 0%"&gt;nováčky&lt;/span&gt;&lt;/b&gt;&lt;/font&gt;&lt;font 
+			color="#000080" face="Calibri" size="2"&gt;&lt;span style="FONT-WEIGHT: normal"&gt;&lt;span 
+			style="BACKGROUND: none transparent scroll repeat 0% 0%"&gt;. &lt;/span&gt;&lt;/span&gt;
+		&lt;/font&gt;
+	&lt;/p&gt;
+	&lt;p align="left"&gt;
+		&lt;font color="#000080" face="Calibri" size="2"&gt;&lt;u&gt;&lt;b&gt;
+		&lt;span style="BACKGROUND: none transparent scroll repeat 0% 0%"&gt;Práv&lt;/span&gt;&lt;/b&gt;&lt;/u&gt;&lt;/font&gt;&lt;font 
+			color="#000080" face="Calibri" size="2"&gt;&lt;u&gt;&lt;b&gt;&lt;span 
+			style="BACKGROUND: none transparent scroll repeat 0% 0%"&gt;ě jste přijali 
+		svého nováčka:&lt;/span&gt;&lt;/b&gt;&lt;/u&gt;&lt;/font&gt;&lt;/p&gt;
+	&lt;p align="left"&gt;
+		&lt;font color="#000080"&gt;&lt;font face="Calibri" size="3"&gt;
+		&lt;span style="FONT-WEIGHT: normal"&gt;{0}&lt;/span&gt;
+		&lt;/font&gt;
+	&lt;/p&gt;
+	&lt;p align="left"&gt;
+		&lt;font color="#ff3399" face="Calibri" size="3"&gt;&lt;b&gt;
+		&lt;span style="BACKGROUND: none transparent scroll repeat 0% 0%"&gt;Nyní je to na 
+		Vás!&lt;/span&gt;&lt;/b&gt;&lt;/font&gt;&lt;/p&gt;
+	&lt;p align="left"&gt;
+		&lt;font color="#000080" face="Calibri" size="2"&gt;&lt;span style="FONT-WEIGHT: normal"&gt;
+		&lt;span style="BACKGROUND: none transparent scroll repeat 0% 0%"&gt;Kontaktujte nová&lt;/span&gt;&lt;/span&gt;&lt;/font&gt;&lt;font 
+			color="#000080" face="Calibri" size="2"&gt;&lt;span style="FONT-WEIGHT: normal"&gt;&lt;span 
+			style="BACKGROUND: none transparent scroll repeat 0% 0%"&gt;čka a nabídněte mu 
+		Váš 100% servis, sjednejte si schůzku, kde mu představíte společnost Eurona 
+		s.r.o. a její jedinečné výrobky. Seznamte jej s výhodami, které mu Eurona nabízí 
+		– marže, slevy, Úspěšný start, dárky zdarma, provize, on-line objednávky, 
+		kancelář poradce atd. Doporučte mu, jakým způsobem může začít spolupracovat s 
+		Vámi, jak úspěšně rozvíjet své podnikání, a nastartovat jeho finanční 
+		nezávislost. &lt;/span&gt;&lt;/span&gt;&lt;/font&gt;
+	&lt;/p&gt;
+	&lt;p align="left"&gt;
+		&lt;font color="#ff3399" face="Calibri" size="3"&gt;&lt;b&gt;
+		&lt;span style="BACKGROUND: none transparent scroll repeat 0% 0%"&gt;Dejte nová&lt;/span&gt;&lt;/b&gt;&lt;/font&gt;&lt;font 
+			color="#ff3399" face="Calibri" size="3"&gt;&lt;b&gt;&lt;span 
+			style="BACKGROUND: none transparent scroll repeat 0% 0%"&gt;čkovi cenné rady 
+		jak začít:&lt;/span&gt;&lt;/b&gt;&lt;/font&gt;&lt;/p&gt;
+	&lt;ul&gt;
+		&lt;li&gt;
+			&lt;p align="left"&gt;
+				&lt;font color="#000080" face="Calibri" size="2"&gt;&lt;b&gt;
+				&lt;span style="BACKGROUND: none transparent scroll repeat 0% 0%"&gt;Koho má 
+				kontaktovat&lt;/span&gt;&lt;/b&gt;&lt;/font&gt;&lt;font color="#000080" face="Calibri" size="2"&gt;&lt;span 
+					style="FONT-WEIGHT: normal"&gt;&lt;span 
+					style="BACKGROUND: none transparent scroll repeat 0% 0%"&gt; – Nejprve oslovit 
+				lidi ve svém okolí – vytvo&lt;/span&gt;&lt;/span&gt;&lt;/font&gt;&lt;font color="#000080" 
+					face="Calibri" size="2"&gt;&lt;span style="FONT-WEIGHT: normal"&gt;&lt;span 
+					style="BACKGROUND: none transparent scroll repeat 0% 0%"&gt;řit si jmenný 
+				seznam (příbuzní, známí, kolegové, spolužáci, …), mnoho kontaktů má každý ve 
+				svém mobilním telefonu.&lt;/span&gt;&lt;/span&gt;&lt;/font&gt;&lt;/p&gt;
+		&lt;/li&gt;
+		&lt;li&gt;
+			&lt;p align="left"&gt;
+				&lt;font color="#000080" face="Calibri" size="2"&gt;&lt;b&gt;
+				&lt;span style="BACKGROUND: none transparent scroll repeat 0% 0%"&gt;Na jaké výrobky 
+				se má zam&lt;/span&gt;&lt;/b&gt;&lt;/font&gt;&lt;font color="#000080" face="Calibri" size="2"&gt;&lt;b&gt;&lt;span 
+					style="BACKGROUND: none transparent scroll repeat 0% 0%"&gt;ěřit&lt;/span&gt;&lt;/b&gt;&lt;/font&gt;&lt;font 
+					color="#000080" face="Calibri" size="2"&gt;&lt;span style="FONT-WEIGHT: normal"&gt;&lt;span 
+					style="BACKGROUND: none transparent scroll repeat 0% 0%"&gt;, které výrobky 
+				zákaznice nejčastěji kupují .&lt;/span&gt;&lt;/span&gt;&lt;/font&gt;&lt;/p&gt;
+		&lt;/li&gt;
+	&lt;/ul&gt;
+	&lt;p align="left"&gt;
+		&lt;font color="#000080" face="Calibri" size="2"&gt;&lt;span style="FONT-WEIGHT: normal"&gt;
+		&lt;span style="BACKGROUND: none transparent scroll repeat 0% 0%"&gt;1) Je d&lt;/span&gt;&lt;/span&gt;&lt;/font&gt;&lt;font 
+			color="#000080" face="Calibri" size="2"&gt;&lt;span style="FONT-WEIGHT: normal"&gt;&lt;span 
+			style="BACKGROUND: none transparent scroll repeat 0% 0%"&gt;ůležité mít&lt;/span&gt;&lt;/span&gt;&lt;/font&gt;&lt;font 
+			color="#000000" face="Calibri" size="2"&gt;&lt;span style="FONT-WEIGHT: normal"&gt;&lt;span 
+			style="BACKGROUND: none transparent scroll repeat 0% 0%"&gt; &lt;/span&gt;&lt;/span&gt;
+		&lt;/font&gt;&lt;font color="#ff3399" face="Calibri" size="2"&gt;&lt;b&gt;
+		&lt;span style="BACKGROUND: none transparent scroll repeat 0% 0%"&gt;katalog&lt;/span&gt;&lt;/b&gt;&lt;/font&gt;&lt;font 
+			color="#000000" face="Calibri" size="2"&gt;&lt;span style="FONT-WEIGHT: normal"&gt;&lt;span 
+			style="BACKGROUND: none transparent scroll repeat 0% 0%"&gt;, &lt;/span&gt;&lt;/span&gt;
+		&lt;/font&gt;&lt;font color="#ff3399" face="Calibri" size="2"&gt;&lt;b&gt;
+		&lt;span style="BACKGROUND: none transparent scroll repeat 0% 0%"&gt;sadu vzorků 
+		aviváží&lt;/span&gt;&lt;/b&gt;&lt;/font&gt;&lt;font color="#ff3399" face="Calibri" size="2"&gt;&lt;span 
+			style="FONT-WEIGHT: normal"&gt;&lt;span 
+			style="BACKGROUND: none transparent scroll repeat 0% 0%"&gt; &lt;/span&gt;&lt;/span&gt;
+		&lt;/font&gt;&lt;font color="#000080" face="Calibri" size="2"&gt;
+		&lt;span style="FONT-WEIGHT: normal"&gt;
+		&lt;span style="BACKGROUND: none transparent scroll repeat 0% 0%"&gt;(získá&lt;/span&gt;&lt;/span&gt;&lt;/font&gt;&lt;font 
+			color="#000000" face="Calibri" size="2"&gt;&lt;span style="FONT-WEIGHT: normal"&gt;&lt;span 
+			style="BACKGROUND: none transparent scroll repeat 0% 0%"&gt; &lt;/span&gt;&lt;/span&gt;
+		&lt;/font&gt;&lt;font color="#ff3399" face="Calibri" size="2"&gt;&lt;b&gt;
+		&lt;span style="BACKGROUND: none transparent scroll repeat 0% 0%"&gt;ZDARMA &lt;/span&gt;
+		&lt;/b&gt;&lt;/font&gt;&lt;font color="#000080" face="Calibri" size="2"&gt;
+		&lt;span style="FONT-WEIGHT: normal"&gt;
+		&lt;span style="BACKGROUND: none transparent scroll repeat 0% 0%"&gt;s 1. objednávkou 
+		nad 2000 Kč). &lt;/span&gt;&lt;/span&gt;&lt;/font&gt;
+	&lt;/p&gt;
+	&lt;p align="left"&gt;
+		&lt;font color="#000080" face="Calibri" size="2"&gt;&lt;span style="FONT-WEIGHT: normal"&gt;
+		&lt;span style="BACKGROUND: none transparent scroll repeat 0% 0%"&gt;2) Seznam doporu&lt;/span&gt;&lt;/span&gt;&lt;/font&gt;&lt;font 
+			color="#000080" face="Calibri" size="2"&gt;&lt;span style="FONT-WEIGHT: normal"&gt;&lt;span 
+			style="BACKGROUND: none transparent scroll repeat 0% 0%"&gt;čených výrobků, 
+		lahvičky na vzorky zákazníkům, letáky – Akční, Leporelo nebo Eurona v kostce.
+		&lt;/span&gt;&lt;/span&gt;&lt;/font&gt;
+	&lt;/p&gt;
+	&lt;ul&gt;
+		&lt;li&gt;
+			&lt;p align="left"&gt;
+				&lt;font color="#000080" face="Calibri" size="2"&gt;&lt;b&gt;
+				&lt;span style="BACKGROUND: none transparent scroll repeat 0% 0%"&gt;Jak se p&lt;/span&gt;&lt;/b&gt;&lt;/font&gt;&lt;font 
+					color="#000080" face="Calibri" size="2"&gt;&lt;b&gt;&lt;span 
+					style="BACKGROUND: none transparent scroll repeat 0% 0%"&gt;řipravit na první 
+				schůzku se zákaznicemi&lt;/span&gt;&lt;/b&gt;&lt;/font&gt;&lt;/p&gt;
+		&lt;/li&gt;
+	&lt;/ul&gt;
+	&lt;p align="left"&gt;
+		&lt;font color="#000080" face="Calibri" size="2"&gt;&lt;span style="FONT-WEIGHT: normal"&gt;
+		&lt;span style="BACKGROUND: none transparent scroll repeat 0% 0%"&gt;- P&lt;/span&gt;&lt;/span&gt;&lt;/font&gt;&lt;font 
+			color="#000080" face="Calibri" size="2"&gt;&lt;span style="FONT-WEIGHT: normal"&gt;&lt;span 
+			style="BACKGROUND: none transparent scroll repeat 0% 0%"&gt;řipravit si sadu 
+		vzorků aviváží.&lt;/span&gt;&lt;/span&gt;&lt;/font&gt;&lt;/p&gt;
+	&lt;p align="left"&gt;
+		&lt;font color="#000080" face="Calibri" size="2"&gt;&lt;span style="FONT-WEIGHT: normal"&gt;
+		&lt;span style="BACKGROUND: none transparent scroll repeat 0% 0%"&gt;- p&lt;/span&gt;&lt;/span&gt;&lt;/font&gt;&lt;font 
+			color="#000080" face="Calibri" size="2"&gt;&lt;span style="FONT-WEIGHT: normal"&gt;&lt;span 
+			style="BACKGROUND: none transparent scroll repeat 0% 0%"&gt;řipravit si do 
+		lahviček vzorky prostředků – univerzál, na koupelny, na nádobí.&lt;/span&gt;&lt;/span&gt;&lt;/font&gt;&lt;/p&gt;
+	&lt;p align="left"&gt;
+		&lt;font color="#000080" face="Calibri" size="2"&gt;&lt;span style="FONT-WEIGHT: normal"&gt;
+		&lt;span style="BACKGROUND: none transparent scroll repeat 0% 0%"&gt;- sebou mít na 
+		ukázku a p&lt;/span&gt;&lt;/span&gt;&lt;/font&gt;&lt;font color="#000080" face="Calibri" size="2"&gt;&lt;span 
+			style="FONT-WEIGHT: normal"&gt;&lt;span 
+			style="BACKGROUND: none transparent scroll repeat 0% 0%"&gt;ředvedení – čistič 
+		na grily, tekuté mýdlo, aromatikum, žehličku ve spreji, sašetku, další dle 
+		uvážení.&lt;/span&gt;&lt;/span&gt;&lt;/font&gt;&lt;/p&gt;
+	&lt;ul&gt;
+		&lt;li&gt;
+			&lt;p align="left"&gt;
+				&lt;font color="#000080" face="Calibri" size="2"&gt;&lt;b&gt;
+				&lt;span style="BACKGROUND: none transparent scroll repeat 0% 0%"&gt;Jaké jsou pro n&lt;/span&gt;&lt;/b&gt;&lt;/font&gt;&lt;font 
+					color="#000080" face="Calibri" size="2"&gt;&lt;b&gt;&lt;span 
+					style="BACKGROUND: none transparent scroll repeat 0% 0%"&gt;ěj připraveny 
+				motivační programy&lt;/span&gt;&lt;/b&gt;&lt;/font&gt;&lt;/p&gt;
+		&lt;/li&gt;
+	&lt;/ul&gt;
+	&lt;p align="left"&gt;
+		&lt;font color="#000080" face="Calibri" size="2"&gt;&lt;span style="FONT-WEIGHT: normal"&gt;
+		&lt;span style="BACKGROUND: none transparent scroll repeat 0% 0%"&gt;- t&lt;/span&gt;&lt;/span&gt;&lt;/font&gt;&lt;font 
+			color="#000080" face="Calibri" size="2"&gt;&lt;span style="FONT-WEIGHT: normal"&gt;&lt;span 
+			style="BACKGROUND: none transparent scroll repeat 0% 0%"&gt;říměsíční program&lt;/span&gt;&lt;/span&gt;&lt;/font&gt;&lt;font 
+			color="#000000" face="Calibri" size="2"&gt;&lt;span style="FONT-WEIGHT: normal"&gt;&lt;span 
+			style="BACKGROUND: none transparent scroll repeat 0% 0%"&gt; &lt;/span&gt;&lt;/span&gt;
+		&lt;/font&gt;&lt;font color="#ff3399" face="Calibri" size="2"&gt;&lt;b&gt;
+		&lt;span style="BACKGROUND: none transparent scroll repeat 0% 0%"&gt;Úspěšný start&lt;/span&gt;&lt;/b&gt;&lt;/font&gt;&lt;font 
+			color="#ff3399" face="Calibri" size="2"&gt;&lt;span style="FONT-WEIGHT: normal"&gt;&lt;span 
+			style="BACKGROUND: none transparent scroll repeat 0% 0%"&gt; &lt;/span&gt;&lt;/span&gt;
+		&lt;/font&gt;&lt;font color="#000080" face="Calibri" size="2"&gt;
+		&lt;span style="FONT-WEIGHT: normal"&gt;
+		&lt;span style="BACKGROUND: none transparent scroll repeat 0% 0%"&gt;– možnost získat 
+		3 dárky &lt;/span&gt;&lt;/span&gt;&lt;/font&gt;
+	&lt;/p&gt;
+	&lt;p align="left"&gt;
+		&lt;font color="#000000" face="Calibri" size="2"&gt;&lt;span style="FONT-WEIGHT: normal"&gt;
+		&lt;span style="BACKGROUND: none transparent scroll repeat 0% 0%"&gt;- &lt;/span&gt;&lt;/span&gt;
+		&lt;/font&gt;&lt;font color="#ff3399" face="Calibri" size="2"&gt;&lt;b&gt;
+		&lt;span style="BACKGROUND: none transparent scroll repeat 0% 0%"&gt;marže&lt;/span&gt;&lt;/b&gt;&lt;/font&gt;&lt;font 
+			color="#000000" face="Calibri" size="2"&gt;&lt;span style="FONT-WEIGHT: normal"&gt;&lt;span 
+			style="BACKGROUND: none transparent scroll repeat 0% 0%"&gt; &lt;/span&gt;&lt;/span&gt;
+		&lt;/font&gt;&lt;font color="#000080" face="Calibri" size="2"&gt;
+		&lt;span style="FONT-WEIGHT: normal"&gt;
+		&lt;span style="BACKGROUND: none transparent scroll repeat 0% 0%"&gt;(zisk)&lt;/span&gt;&lt;/span&gt;&lt;/font&gt;&lt;font 
+			color="#000000" face="Calibri" size="2"&gt;&lt;span style="FONT-WEIGHT: normal"&gt;&lt;span 
+			style="BACKGROUND: none transparent scroll repeat 0% 0%"&gt; &lt;/span&gt;&lt;/span&gt;
+		&lt;/font&gt;&lt;font color="#ff3399" face="Calibri" size="2"&gt;&lt;b&gt;
+		&lt;span style="BACKGROUND: none transparent scroll repeat 0% 0%"&gt;20%, 25%, 30%&lt;/span&gt;&lt;/b&gt;&lt;/font&gt;&lt;font 
+			color="#000000" face="Calibri" size="2"&gt;&lt;span style="FONT-WEIGHT: normal"&gt;&lt;span 
+			style="BACKGROUND: none transparent scroll repeat 0% 0%"&gt; &lt;/span&gt;&lt;/span&gt;
+		&lt;/font&gt;&lt;font color="#000080" face="Calibri" size="2"&gt;
+		&lt;span style="FONT-WEIGHT: normal"&gt;
+		&lt;span style="BACKGROUND: none transparent scroll repeat 0% 0%"&gt;z nákupu výrobk&lt;/span&gt;&lt;/span&gt;&lt;/font&gt;&lt;font 
+			color="#000080" face="Calibri" size="2"&gt;&lt;span style="FONT-WEIGHT: normal"&gt;&lt;span 
+			style="BACKGROUND: none transparent scroll repeat 0% 0%"&gt;ů&lt;/span&gt;&lt;/span&gt;&lt;/font&gt;&lt;/p&gt;
+	&lt;p align="left"&gt;
+		&lt;font color="#000080" face="Calibri" size="2"&gt;&lt;span style="FONT-WEIGHT: normal"&gt;
+		&lt;span style="BACKGROUND: none transparent scroll repeat 0% 0%"&gt;- možnost 
+		nominace do&lt;/span&gt;&lt;/span&gt;&lt;/font&gt;&lt;font color="#000000" face="Calibri" size="2"&gt;&lt;span 
+			style="FONT-WEIGHT: normal"&gt;&lt;span 
+			style="BACKGROUND: none transparent scroll repeat 0% 0%"&gt; &lt;/span&gt;&lt;/span&gt;
+		&lt;/font&gt;&lt;font color="#ff3399" face="Calibri" size="2"&gt;&lt;b&gt;
+		&lt;span style="BACKGROUND: none transparent scroll repeat 0% 0%"&gt;V.I.P. Angel Team 
+		Professional &lt;/span&gt;&lt;/b&gt;&lt;/font&gt;&lt;font color="#000080" face="Calibri" size="2"&gt;
+		&lt;span style="FONT-WEIGHT: normal"&gt;
+		&lt;span style="BACKGROUND: none transparent scroll repeat 0% 0%"&gt;– další výhody 
+		jako &lt;/span&gt;&lt;/span&gt;&lt;/font&gt;&lt;font color="#000080" face="Calibri" size="2"&gt;
+		&lt;span style="FONT-WEIGHT: normal"&gt;
+		&lt;span style="BACKGROUND: none transparent scroll repeat 0% 0%"&gt;člen V.I.P. ATP&lt;/span&gt;&lt;/span&gt;&lt;/font&gt;&lt;/p&gt;
+	&lt;p align="left"&gt;
+		&lt;font color="#000000" face="Calibri" size="2"&gt;&lt;span style="FONT-WEIGHT: normal"&gt;
+		&lt;span style="BACKGROUND: none transparent scroll repeat 0% 0%"&gt;- &lt;/span&gt;&lt;/span&gt;
+		&lt;/font&gt;&lt;font color="#ff3399" face="Calibri" size="2"&gt;&lt;b&gt;
+		&lt;span style="BACKGROUND: none transparent scroll repeat 0% 0%"&gt;provizní systém&lt;/span&gt;&lt;/b&gt;&lt;/font&gt;&lt;font 
+			color="#ff3399" face="Calibri" size="2"&gt;&lt;span style="FONT-WEIGHT: normal"&gt;&lt;span 
+			style="BACKGROUND: none transparent scroll repeat 0% 0%"&gt; &lt;/span&gt;&lt;/span&gt;
+		&lt;/font&gt;&lt;font color="#000080" face="Calibri" size="2"&gt;
+		&lt;span style="FONT-WEIGHT: normal"&gt;
+		&lt;span style="BACKGROUND: none transparent scroll repeat 0% 0%"&gt;21%&lt;/span&gt;&lt;/span&gt;&lt;/font&gt;&lt;/p&gt;
+	&lt;p align="left"&gt;
+		&lt;font color="#000080" face="Calibri" size="2"&gt;&lt;span style="FONT-WEIGHT: normal"&gt;
+		&lt;span style="BACKGROUND: none transparent scroll repeat 0% 0%"&gt;- ak&lt;/span&gt;&lt;/span&gt;&lt;/font&gt;&lt;font 
+			color="#000080" face="Calibri" size="2"&gt;&lt;span style="FONT-WEIGHT: normal"&gt;&lt;span 
+			style="BACKGROUND: none transparent scroll repeat 0% 0%"&gt;ční měsíční 
+		nabídka, mimořádné akční nabídky&lt;/span&gt;&lt;/span&gt;&lt;/font&gt;&lt;/p&gt;
+	&lt;p align="left"&gt;
+		&lt;font color="#000080" face="Calibri" size="2"&gt;&lt;span style="FONT-WEIGHT: normal"&gt;
+		&lt;span style="BACKGROUND: none transparent scroll repeat 0% 0%"&gt;- sout&lt;/span&gt;&lt;/span&gt;&lt;/font&gt;&lt;font 
+			color="#000080" face="Calibri" size="2"&gt;&lt;span style="FONT-WEIGHT: normal"&gt;&lt;span 
+			style="BACKGROUND: none transparent scroll repeat 0% 0%"&gt;ěže&lt;/span&gt;&lt;/span&gt;&lt;/font&gt;&lt;/p&gt;
+	&lt;p align="left"&gt;
+		&lt;font color="#000080" face="Calibri" size="2"&gt;
+		&lt;span style="BACKGROUND: none transparent scroll repeat 0% 0%"&gt;- prezentace 
+		Angel teamu&lt;/span&gt;&lt;/font&gt;&lt;/p&gt;
+	&lt;p align="left"&gt;
+		&lt;font color="#000080" face="Calibri" size="2"&gt;&lt;span style="FONT-WEIGHT: normal"&gt;
+		&lt;span style="BACKGROUND: none transparent scroll repeat 0% 0%"&gt;- Party katalog – 
+		návod na uspo&lt;/span&gt;&lt;/span&gt;&lt;/font&gt;&lt;font color="#000080" face="Calibri" size="2"&gt;&lt;span 
+			style="FONT-WEIGHT: normal"&gt;&lt;span 
+			style="BACKGROUND: none transparent scroll repeat 0% 0%"&gt;řádání předváděcí 
+		akce současně pro několik kamarádek&lt;/span&gt;&lt;/span&gt;&lt;/font&gt;&lt;/p&gt;
+	&lt;p align="left"&gt;
+		&lt;font color="#000080" face="Calibri" size="2"&gt;&lt;b&gt;
+		&lt;span style="BACKGROUND: none transparent scroll repeat 0% 0%"&gt;Vaše cenné 
+		zkušenosti a rady pomohou nová&lt;/span&gt;&lt;/b&gt;&lt;/font&gt;&lt;font color="#000080" 
+			face="Calibri" size="2"&gt;&lt;b&gt;&lt;span 
+			style="BACKGROUND: none transparent scroll repeat 0% 0%"&gt;čkovi seznámit se s 
+		Euronou, jejími jedinečnými výrobky a možnostmi, jaké svým zákazníkům nabízí.&lt;br /&gt;
+		&lt;/span&gt;&lt;/b&gt;&lt;/font&gt;&lt;font color="#000080" face="Calibri" size="2"&gt;&lt;b&gt;
+		&lt;span style="BACKGROUND: none transparent scroll repeat 0% 0%"&gt;Vy naopak získáte 
+		možnost rozší&lt;/span&gt;&lt;/b&gt;&lt;/font&gt;&lt;font color="#000080" face="Calibri" size="2"&gt;&lt;b&gt;&lt;span 
+			style="BACKGROUND: none transparent scroll repeat 0% 0%"&gt;řit si svoji 
+		obchodní síť o další poradce Eurona, a postupovat výše ve Vaši kariéře s 
+		Euronou.&lt;/span&gt;&lt;/b&gt;&lt;/font&gt;&lt;/p&gt;
+	&lt;p align="left"&gt;
+		&lt;font color="#000080" face="Calibri" size="2"&gt;
+		&lt;span style="BACKGROUND: none transparent scroll repeat 0% 0%"&gt;Váš marketingový 
+		team Eurona s.r.o. &lt;/span&gt;&lt;/font&gt;
+	&lt;/p&gt;
+	&lt;p&gt;
+	&lt;/p&gt;</value>
+  </data>
+  <data name="Forums_ForumContent" xml:space="preserve">
+    <value>Obsah fóra</value>
+  </data>
+  <data name="ZipDescription" xml:space="preserve">
+    <value>PSČ zadávejte ve tvaru XXXXX</value>
+  </data>
+  <data name="JenMojeSkupina" xml:space="preserve">
+    <value>Jen moje skupina</value>
+  </data>
+  <data name="AdministrationMode_AdvisorPages" xml:space="preserve">
+    <value>Osobní stránky uživatelů</value>
+  </data>
+  <data name="Navigation_AdvisorPages" xml:space="preserve">
+    <value>Osobní stránky uživatelů</value>
+  </data>
+  <data name="Navigation_AdvisorPage" xml:space="preserve">
+    <value>Osobní stránka uživatele</value>
+  </data>
+  <data name="AdminPagesControl_ColumnAdvisor" xml:space="preserve">
+    <value>Poradce</value>
+  </data>
+  <data name="AdminPagesControl_ColumnBlocked" xml:space="preserve">
+    <value>Blokace</value>
+  </data>
+  <data name="AdminPagesControl_ColumnEmail" xml:space="preserve">
+    <value>Email</value>
+  </data>
+  <data name="AdminPagesControl_ColumnRegistrationNumber" xml:space="preserve">
+    <value>Číslo</value>
+  </data>
+  <data name="Navigation_MyPersonalWeb" xml:space="preserve">
+    <value>Můj osobní web</value>
+  </data>
+  <data name="AuthenticatedMenuItem_ReklamniZasilky" xml:space="preserve">
+    <value>Reklamní zásilky</value>
+  </data>
+  <data name="DatovyList_ProductNenalezen" xml:space="preserve">
+    <value>Pod tímto kódem nebyl nalezen žádny produkt!</value>
+  </data>
+  <data name="Navigation_DatovyList" xml:space="preserve">
+    <value>Datový list</value>
+  </data>
+  <data name="DatovyList_ZadneDokumentyProduktu" xml:space="preserve">
+    <value>V souladu s platnou legislativou pro tento výrobek není datový list k dispozici.</value>
+  </data>
+  <data name="DatovyList_EmailBylOdeslan" xml:space="preserve">
+    <value>Datový list byl odeslán na Váš e-mail.</value>
+  </data>
+  <data name="DatovyList_EmailNEBylOdeslan" xml:space="preserve">
+    <value>Datový list se nepodařilo odeslat na Váš e-mail.</value>
+  </data>
+  <data name="DatovyListDescription" xml:space="preserve">
+    <value>Pro získání datového listu zadejte kód produktu a Vaši e-mailovou adresu, kam Vám bude obratem datový list zaslán.</value>
+  </data>
+  <data name="DatovyList_Email" xml:space="preserve">
+    <value>Dobrý den,
+zasíláme Vám datový list dle Vašeho požadavku.
+Přejeme Vám krásný zbytek dne!
+
+Eurona s.r.o.
+Lhota za Červeným Kostelcem 261
+549 41 Červený Kostelec
+tel.  +420491451516
+       +420491477361
+prodej@eurona.cz
+www.euronabycerny.com</value>
+  </data>
+  <data name="DatovyList_KodProduktu" xml:space="preserve">
+    <value>Kód produktu*:</value>
+  </data>
+  <data name="DatovyList_KodProduktuHint" xml:space="preserve">
+    <value>*(např.: 1001, CC6403)</value>
+  </data>
+  <data name="DatovyList_Odeslat" xml:space="preserve">
+    <value>Odeslat</value>
+  </data>
+  <data name="BKErrorMessage" xml:space="preserve">
+    <value>Je nám líto, ale vzhledem k tomu, že jste v minulém měsíci neobjednal/a, nesplnil/a jste tak podmínku pro připsání bonusových kreditů z daného měsíce nebo jste si již tento měsíc své BK vyčerpal/a.</value>
+  </data>
+  <data name="AdminAccountControl_LabelSingleUserCookesEnabled" xml:space="preserve">
+    <value>Jedninečný cookie odkaz uživatele povolen:</value>
+  </data>
+  <data name="Navigation_GLS_MujBalik" xml:space="preserve">
+    <value>Můj balík</value>
+  </data>
+  <data name="Navigation_GLS_SledovaniZasilky" xml:space="preserve">
+    <value>Sledování zásilek</value>
+  </data>
+</root>

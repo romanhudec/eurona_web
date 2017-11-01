@@ -1,0 +1,612 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="AddressControl_City" xml:space="preserve">
+    <value>Město :</value>
+  </data>
+  <data name="AddressControl_Email" xml:space="preserve">
+    <value>Email :</value>
+  </data>
+  <data name="AddressControl_FirstName" xml:space="preserve">
+    <value>Jméno :</value>
+  </data>
+  <data name="AddressControl_Id1" xml:space="preserve">
+    <value>IČO :</value>
+  </data>
+  <data name="AddressControl_Id2" xml:space="preserve">
+    <value>DIČ :</value>
+  </data>
+  <data name="AddressControl_Id3" xml:space="preserve">
+    <value>IČ DPH :</value>
+  </data>
+  <data name="AddressControl_LastName" xml:space="preserve">
+    <value>Příjmení :</value>
+  </data>
+  <data name="AddressControl_Notes" xml:space="preserve">
+    <value>Poznámka :</value>
+  </data>
+  <data name="AddressControl_Organization" xml:space="preserve">
+    <value>Firma :</value>
+  </data>
+  <data name="AddressControl_Phone" xml:space="preserve">
+    <value>Telefon :</value>
+  </data>
+  <data name="AddressControl_State" xml:space="preserve">
+    <value>Stát :</value>
+  </data>
+  <data name="AddressControl_Street" xml:space="preserve">
+    <value>Ulice :</value>
+  </data>
+  <data name="AddressControl_Zip" xml:space="preserve">
+    <value>PSČ :</value>
+  </data>
+  <data name="AdminAttributeControl_DefaultValue" xml:space="preserve">
+    <value>Přednastavená hodnota :</value>
+  </data>
+  <data name="AdminAttributeControl_Name" xml:space="preserve">
+    <value>Název :</value>
+  </data>
+  <data name="AdminAttributeControl_Type" xml:space="preserve">
+    <value>Typ :</value>
+  </data>
+  <data name="AdminAttributesControl_ColumnDefaultValue" xml:space="preserve">
+    <value>Přednastavená hodnota</value>
+  </data>
+  <data name="AdminAttributesControl_ColumnName" xml:space="preserve">
+    <value>Název</value>
+  </data>
+  <data name="AdminAttributesControl_ColumnType" xml:space="preserve">
+    <value>Typ</value>
+  </data>
+  <data name="AdminAttributesControl_NewAttributeButton_Text" xml:space="preserve">
+    <value>Nový atribut</value>
+  </data>
+  <data name="AdminCategoriesControl_AttributesToolTip" xml:space="preserve">
+    <value>Attributy kategorie</value>
+  </data>
+  <data name="AdminCategoriesControl_ColumnAlias" xml:space="preserve">
+    <value>URL Alias</value>
+  </data>
+  <data name="AdminCategoriesControl_ColumnName" xml:space="preserve">
+    <value>Název</value>
+  </data>
+  <data name="AdminCategoriesControl_ColumnOrder" xml:space="preserve">
+    <value>Pořadí</value>
+  </data>
+  <data name="AdminCategoriesControl_NewCategoryButton_Text" xml:space="preserve">
+    <value>Nová kategorie</value>
+  </data>
+  <data name="AdminCategoriesControl_SubCategoriesToolTip" xml:space="preserve">
+    <value>Podkategorie</value>
+  </data>
+  <data name="AdminCategoryControl_Name" xml:space="preserve">
+    <value>Název :</value>
+  </data>
+  <data name="AdminCategoryControl_Order" xml:space="preserve">
+    <value>Pořadí :</value>
+  </data>
+  <data name="AdminCategoryControl_UrlAlias" xml:space="preserve">
+    <value>Url alias :</value>
+  </data>
+  <data name="AdminOrdersControl_ColumnOrderDate" xml:space="preserve">
+    <value>Datum objednávky</value>
+  </data>
+  <data name="AdminOrdersControl_ColumnOrderNumber" xml:space="preserve">
+    <value>Číslo</value>
+  </data>
+  <data name="AdminOrdersControl_ColumnOrderStatus" xml:space="preserve">
+    <value>Stav</value>
+  </data>
+  <data name="AdminOrdersControl_ColumnPayed" xml:space="preserve">
+    <value>Zaplaceno</value>
+  </data>
+  <data name="AdminOrdersControl_ColumnPayment" xml:space="preserve">
+    <value>Úhrada</value>
+  </data>
+  <data name="AdminOrdersControl_ColumnPriceTotal" xml:space="preserve">
+    <value>Celkem</value>
+  </data>
+  <data name="AdminOrdersControl_ColumnPriceTotalWVAT" xml:space="preserve">
+    <value>Celkem s DPH</value>
+  </data>
+  <data name="AdminOrdersControl_ColumnShipment" xml:space="preserve">
+    <value>Přeprava</value>
+  </data>
+  <data name="AdminOrdersControl_ColumnUser" xml:space="preserve">
+    <value>Uživatel</value>
+  </data>
+  <data name="AdminOrdersControl_Find" xml:space="preserve">
+    <value>Hledat</value>
+  </data>
+  <data name="AdminOrdersControl_OptionAll" xml:space="preserve">
+    <value>- všechny -</value>
+  </data>
+  <data name="AdminOrdersControl_OrderNumber" xml:space="preserve">
+    <value>Číslo objednávky :</value>
+  </data>
+  <data name="AdminOrdersControl_OrderStatus" xml:space="preserve">
+    <value>Stav :</value>
+  </data>
+  <data name="AdminOrdersControl_Shipment" xml:space="preserve">
+    <value>Přeprava :</value>
+  </data>
+  <data name="AdminProductControl_AddProductToCart_ToolTip" xml:space="preserve">
+    <value>Vložit produkt do košíku</value>
+  </data>
+  <data name="AdminProductControl_AdvancedProperties" xml:space="preserve">
+    <value>Doplnkové vlastnosti</value>
+  </data>
+  <data name="AdminProductControl_AlternateProducts" xml:space="preserve">
+    <value>Alternativní produkty</value>
+  </data>
+  <data name="AdminProductControl_Availability" xml:space="preserve">
+    <value>Dostupnost :</value>
+  </data>
+  <data name="AdminProductControl_BasicProperties" xml:space="preserve">
+    <value>Základní vlastnosti</value>
+  </data>
+  <data name="AdminProductControl_Categories" xml:space="preserve">
+    <value>Kategorie :</value>
+  </data>
+  <data name="AdminProductControl_Code" xml:space="preserve">
+    <value>Kód produktu :</value>
+  </data>
+  <data name="AdminProductControl_Description" xml:space="preserve">
+    <value>Popis :</value>
+  </data>
+  <data name="AdminProductControl_Discount" xml:space="preserve">
+    <value>Sleva :</value>
+  </data>
+  <data name="AdminProductControl_DiscountType" xml:space="preserve">
+    <value>Typ slevy :</value>
+  </data>
+  <data name="AdminProductControl_DiscountType_Percent" xml:space="preserve">
+    <value>%</value>
+  </data>
+  <data name="AdminProductControl_DiscountType_Price" xml:space="preserve">
+    <value>Suma</value>
+  </data>
+  <data name="AdminProductControl_Highlights" xml:space="preserve">
+    <value>Zvýraznení produktu :</value>
+  </data>
+  <data name="AdminProductControl_Manufacturer" xml:space="preserve">
+    <value>Výrobce :</value>
+  </data>
+  <data name="AdminProductControl_Name" xml:space="preserve">
+    <value>Název :</value>
+  </data>
+  <data name="AdminProductControl_Photos" xml:space="preserve">
+    <value>Fotografie</value>
+  </data>
+  <data name="AdminProductControl_Price" xml:space="preserve">
+    <value>Cena bez DPH :</value>
+  </data>
+  <data name="AdminProductControl_PriceWVAT" xml:space="preserve">
+    <value>Cena s DPH :</value>
+  </data>
+  <data name="AdminProductControl_ProductWasAddedToCart_Message" xml:space="preserve">
+    <value>{0}, byl přidán do nákupního košíku v počtu {1}Ks.</value>
+  </data>
+  <data name="AdminProductControl_Quantity" xml:space="preserve">
+    <value>Počet kusů :</value>
+  </data>
+  <data name="AdminProductControl_RelatedProducts" xml:space="preserve">
+    <value>Související produkty</value>
+  </data>
+  <data name="AdminProductControl_Reviews" xml:space="preserve">
+    <value>Recenze</value>
+  </data>
+  <data name="AdminProductControl_ShortDescription" xml:space="preserve">
+    <value>Krátký popis :</value>
+  </data>
+  <data name="AdminProductControl_StorageCount" xml:space="preserve">
+    <value>Na sklade  :</value>
+  </data>
+  <data name="AdminProductControl_UrlAlias" xml:space="preserve">
+    <value>Url alias :</value>
+  </data>
+  <data name="AdminProductControl_VAT" xml:space="preserve">
+    <value>DPH :</value>
+  </data>
+  <data name="AdminProductRelationControl_Category" xml:space="preserve">
+    <value>Kategorie :</value>
+  </data>
+  <data name="AdminProductReviewsControl_Category" xml:space="preserve">
+    <value>Kategorie článku :</value>
+  </data>
+  <data name="AdminProductsControl_ColumnAlias" xml:space="preserve">
+    <value>URL Alias</value>
+  </data>
+  <data name="AdminProductsControl_ColumnCode" xml:space="preserve">
+    <value>Kód</value>
+  </data>
+  <data name="AdminProductsControl_ColumnDescription" xml:space="preserve">
+    <value>Popis</value>
+  </data>
+  <data name="AdminProductsControl_ColumnDiscount" xml:space="preserve">
+    <value>Sleva</value>
+  </data>
+  <data name="AdminProductsControl_ColumnDiscountType" xml:space="preserve">
+    <value>Typ slevy</value>
+  </data>
+  <data name="AdminProductsControl_ColumnManufacturer" xml:space="preserve">
+    <value>Výrobce</value>
+  </data>
+  <data name="AdminProductsControl_ColumnName" xml:space="preserve">
+    <value>Název</value>
+  </data>
+  <data name="AdminProductsControl_ColumnPrice" xml:space="preserve">
+    <value>Cena</value>
+  </data>
+  <data name="AdminProductsControl_NewProductButton_Text" xml:space="preserve">
+    <value>Nový produkt</value>
+  </data>
+  <data name="AdminUrlAliasesControl_AliasType_Categories" xml:space="preserve">
+    <value>Kategorie</value>
+  </data>
+  <data name="AdminUrlAliasesControl_AliasType_Products" xml:space="preserve">
+    <value>Produkty</value>
+  </data>
+  <data name="BackLink" xml:space="preserve">
+    <value>zpět</value>
+  </data>
+  <data name="CancelButton_Text" xml:space="preserve">
+    <value>Zrušit</value>
+  </data>
+  <data name="CartControl_ColumnId" xml:space="preserve">
+    <value>Číslo objednávky</value>
+  </data>
+  <data name="CartControl_ColumnName" xml:space="preserve">
+    <value>Název</value>
+  </data>
+  <data name="CartControl_ColumnPrice" xml:space="preserve">
+    <value>Cena/Ks</value>
+  </data>
+  <data name="CartControl_ColumnPriceTotal" xml:space="preserve">
+    <value>Celkem</value>
+  </data>
+  <data name="CartControl_ColumnPriceTotalWithVAT" xml:space="preserve">
+    <value>Celkem s DPH</value>
+  </data>
+  <data name="CartControl_ColumnPriceWithDiscount" xml:space="preserve">
+    <value>Cena se slevou/Ks</value>
+  </data>
+  <data name="CartControl_ColumnQuantity" xml:space="preserve">
+    <value>Ks</value>
+  </data>
+  <data name="CartControl_ContinueButton_Text" xml:space="preserve">
+    <value>Pokračovat</value>
+  </data>
+  <data name="CartControl_DeliveryAddress" xml:space="preserve">
+    <value>Adresa pro doručení</value>
+  </data>
+  <data name="CartControl_InvoiceAddress" xml:space="preserve">
+    <value>Fakturační adresa</value>
+  </data>
+  <data name="CartControl_LoginButton_Text" xml:space="preserve">
+    <value>Přihlásit</value>
+  </data>
+  <data name="CartControl_NextStepButton_Text" xml:space="preserve">
+    <value>Pokračovat</value>
+  </data>
+  <data name="CartControl_OrderButton_Text" xml:space="preserve">
+    <value>Objednat</value>
+  </data>
+  <data name="CartControl_Payment" xml:space="preserve">
+    <value>Spůsob platby :</value>
+  </data>
+  <data name="CartControl_Shipment" xml:space="preserve">
+    <value>Spůsob přepravy :</value>
+  </data>
+  <data name="CartControl_ShowCart" xml:space="preserve">
+    <value>» zobrazit košík</value>
+  </data>
+  <data name="ClassifierControl_Icon" xml:space="preserve">
+    <value>Ikona :</value>
+  </data>
+  <data name="ClassifierControl_Name" xml:space="preserve">
+    <value>Název :</value>
+  </data>
+  <data name="ClassifierControl_Notes" xml:space="preserve">
+    <value>Poznámka :</value>
+  </data>
+  <data name="ClassifierControl_RemoveIcon" xml:space="preserve">
+    <value>Odstranit ikonu</value>
+  </data>
+  <data name="ClassifiersControl_AddItem" xml:space="preserve">
+    <value>Přidat položku</value>
+  </data>
+  <data name="ClassifiersControl_ColumnIcon" xml:space="preserve">
+    <value>Ikona</value>
+  </data>
+  <data name="ClassifiersControl_ColumnName" xml:space="preserve">
+    <value>Název</value>
+  </data>
+  <data name="ClassifiersControl_ColumnNotes" xml:space="preserve">
+    <value>Poznámka</value>
+  </data>
+  <data name="ClassifiersControl_ColumnPrecent" xml:space="preserve">
+    <value>Procent</value>
+  </data>
+  <data name="ClassifiersControl_ColumnPrice" xml:space="preserve">
+    <value>Cena</value>
+  </data>
+  <data name="ClassifiersControl_ColumnPriceWithVAT" xml:space="preserve">
+    <value>Cena s DPH</value>
+  </data>
+  <data name="ClassifiersControl_ColumnRate" xml:space="preserve">
+    <value>Výměnný kurz</value>
+  </data>
+  <data name="ClassifiersControl_ColumnSymbol" xml:space="preserve">
+    <value>Symbol měny</value>
+  </data>
+  <data name="ClassifiersControl_ColumnVAT" xml:space="preserve">
+    <value>DPH</value>
+  </data>
+  <data name="Comment_AliasText" xml:space="preserve">
+    <value>komentare</value>
+  </data>
+  <data name="CurrencyChoiceControl_ChoiceButtonText" xml:space="preserve">
+    <value>Vyberte měnu</value>
+  </data>
+  <data name="CurrencyControl_Rate" xml:space="preserve">
+    <value>Výměnný kurz :</value>
+  </data>
+  <data name="CurrencyControl_Symbol" xml:space="preserve">
+    <value>Symbol měny :</value>
+  </data>
+  <data name="DeleteItemQuestion" xml:space="preserve">
+    <value>Opravdu chcete smazat tento záznam?</value>
+  </data>
+  <data name="FilterControl_CancelFindButtonText" xml:space="preserve">
+    <value>Zrušit</value>
+  </data>
+  <data name="FilterControl_FindButtonText" xml:space="preserve">
+    <value>Vyhledat</value>
+  </data>
+  <data name="GridView_ToolTip_DeleteItem" xml:space="preserve">
+    <value>Vymazat položku</value>
+  </data>
+  <data name="GridView_ToolTip_EditItem" xml:space="preserve">
+    <value>Upravit</value>
+  </data>
+  <data name="OrderControl_DeliveryAddress" xml:space="preserve">
+    <value>Adresa pro doručení</value>
+  </data>
+  <data name="OrderControl_InvoiceAddress" xml:space="preserve">
+    <value>Fakturační adresa</value>
+  </data>
+  <data name="OrderControl_OrderButton_Text" xml:space="preserve">
+    <value>Objednat</value>
+  </data>
+  <data name="OrderControl_OrderNumberFormatText" xml:space="preserve">
+    <value>Objednávka č.: {0}</value>
+  </data>
+  <data name="OrderControl_OrderProducts" xml:space="preserve">
+    <value>Objednané zboží</value>
+  </data>
+  <data name="OrderControl_OrderStatus" xml:space="preserve">
+    <value>Stav obj. :</value>
+  </data>
+  <data name="OrderControl_OrderStatusChanged_Email_Message" xml:space="preserve">
+    <value>Dobrý den &lt;br/&gt;&lt;br/&gt;
+stav Vaší objednávky č. {0} se změnil na &lt;b&gt;{1}&lt;/b&gt;&lt;br/&gt;&lt;/br&gt;
+S pozdravem&lt;br/&gt;
+{2}</value>
+  </data>
+  <data name="OrderControl_PaydDate" xml:space="preserve">
+    <value>Datum úhrady :</value>
+  </data>
+  <data name="OrderControl_Payment" xml:space="preserve">
+    <value>Platba :</value>
+  </data>
+  <data name="OrderControl_Price" xml:space="preserve">
+    <value>Cena</value>
+  </data>
+  <data name="OrderControl_PriceForProducts" xml:space="preserve">
+    <value>Cena za tovar:</value>
+  </data>
+  <data name="OrderControl_PriceForShipment" xml:space="preserve">
+    <value>Cena za přepravu :</value>
+  </data>
+  <data name="OrderControl_PriceTotal" xml:space="preserve">
+    <value>Celkem :</value>
+  </data>
+  <data name="OrderControl_PriceTotalWVAT" xml:space="preserve">
+    <value>K úhrade s DPH :</value>
+  </data>
+  <data name="OrderControl_Shipment" xml:space="preserve">
+    <value>Přeprava :</value>
+  </data>
+  <data name="ProductCommentsControl_InappropriatePost" xml:space="preserve">
+    <value>Nevhodný příspěvek</value>
+  </data>
+  <data name="ProductCommentsControl_Reply" xml:space="preserve">
+    <value>Reagovat</value>
+  </data>
+  <data name="ProductControl_AlternateProducts" xml:space="preserve">
+    <value>Alternativní produkty</value>
+  </data>
+  <data name="ProductControl_Availability" xml:space="preserve">
+    <value>Dostupnost :</value>
+  </data>
+  <data name="ProductControl_CommentsCount" xml:space="preserve">
+    <value>Komentáře</value>
+  </data>
+  <data name="ProductControl_Description" xml:space="preserve">
+    <value>Popis</value>
+  </data>
+  <data name="ProductControl_Price" xml:space="preserve">
+    <value>Cena bez DPH :</value>
+  </data>
+  <data name="ProductControl_PriceWVAT" xml:space="preserve">
+    <value>Cena s DPH :</value>
+  </data>
+  <data name="ProductControl_ProductReviews" xml:space="preserve">
+    <value>Recenze</value>
+  </data>
+  <data name="ProductControl_RelatedProducts" xml:space="preserve">
+    <value>Související produkty</value>
+  </data>
+  <data name="ProductsControl_NoProductsFound_Message" xml:space="preserve">
+    <value>Nebyly nalezeny žádne produkty</value>
+  </data>
+  <data name="ProductsFilterControl_Expression" xml:space="preserve">
+    <value>Výraz</value>
+  </data>
+  <data name="ProductsFilterControl_Manufacturer" xml:space="preserve">
+    <value>Výrobce</value>
+  </data>
+  <data name="ProductsFilterControl_PriceFrom" xml:space="preserve">
+    <value>Cena od</value>
+  </data>
+  <data name="ProductsFilterControl_PriceTo" xml:space="preserve">
+    <value>do</value>
+  </data>
+  <data name="ProductsFilterControl_Sort" xml:space="preserve">
+    <value>Seřadit</value>
+  </data>
+  <data name="ProductsFilterControl_SortBy_NameASC_Label" xml:space="preserve">
+    <value>Názvu</value>
+  </data>
+  <data name="ProductsFilterControl_SortBy_None_Label" xml:space="preserve">
+    <value />
+  </data>
+  <data name="ProductsFilterControl_SortBy_PriceASC_Label" xml:space="preserve">
+    <value>Od nejlevnejšího</value>
+  </data>
+  <data name="ProductsFilterControl_SortBy_PriceDESC_Label" xml:space="preserve">
+    <value>Od nejdražšího</value>
+  </data>
+  <data name="SaveButton_Text" xml:space="preserve">
+    <value>Uložit</value>
+  </data>
+  <data name="ShipmentControl_Price" xml:space="preserve">
+    <value>Cena :</value>
+  </data>
+  <data name="ShipmentControl_VAT" xml:space="preserve">
+    <value>DPH :</value>
+  </data>
+  <data name="VATControl_Percent" xml:space="preserve">
+    <value>Procent :</value>
+  </data>
+  <data name="WithVAT" xml:space="preserve">
+    <value>s DPH</value>
+  </data>
+</root>

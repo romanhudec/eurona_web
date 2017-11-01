@@ -1,0 +1,1062 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="AccountControl_InvalidVerifyCodeMessage" xml:space="preserve">
+    <value>Niewłaściwy kod do sprawdzania</value>
+  </data>
+  <data name="AccountControl_LabelEmail" xml:space="preserve">
+    <value>Email</value>
+  </data>
+  <data name="AccountControl_LabelEnabled" xml:space="preserve">
+    <value>Zezwolono</value>
+  </data>
+  <data name="AccountControl_LabelLogin" xml:space="preserve">
+    <value>Konto</value>
+  </data>
+  <data name="AccountControl_LabelRoles" xml:space="preserve">
+    <value>Rola</value>
+  </data>
+  <data name="AccountControl_LabelVerified" xml:space="preserve">
+    <value>Sprawdzony</value>
+  </data>
+  <data name="AccountControl_LabelVerifyCode" xml:space="preserve">
+    <value>Kod sprawdzenia</value>
+  </data>
+  <data name="AccountControl_SendInformationEmails" xml:space="preserve">
+    <value>Przysyłać emaile informacyjne </value>
+  </data>
+  <data name="AdministrationMode_Classifiers" xml:space="preserve">
+    <value>Tarcze </value>
+  </data>
+  <data name="AdministrationMode_FAQs" xml:space="preserve">
+    <value>FAQs</value>
+  </data>
+  <data name="AdministrationMode_HeaderAdministration" xml:space="preserve">
+    <value>Administracja</value>
+  </data>
+  <data name="AdministrationMode_HeaderMenu" xml:space="preserve">
+    <value>Pozycja menu</value>
+  </data>
+  <data name="AdministrationMode_Menus" xml:space="preserve">
+    <value>Menu</value>
+  </data>
+  <data name="AdministrationMode_NavigationMenus" xml:space="preserve">
+    <value>Menu nawigacyjne</value>
+  </data>
+  <data name="AdministrationMode_News" xml:space="preserve">
+    <value>Aktualności</value>
+  </data>
+  <data name="AdministrationMode_Newsletters" xml:space="preserve">
+    <value>Biuletyn informacyjny</value>
+  </data>
+  <data name="AdministrationMode_Pages" xml:space="preserve">
+    <value>Strony</value>
+  </data>
+  <data name="AdministrationMode_Polls" xml:space="preserve">
+    <value>Ankiety</value>
+  </data>
+  <data name="AdministrationMode_Users" xml:space="preserve">
+    <value>Użytkownicy</value>
+  </data>
+  <data name="AuthenticatedMenuItem_ChangePassword" xml:space="preserve">
+    <value>Zmiana hasła</value>
+  </data>
+  <data name="AuthenticatedMenuItem_ChangePersonalData" xml:space="preserve">
+    <value>Zmiana danych osobowych</value>
+  </data>
+  <data name="AuthenticatedMenuItem_LogOut" xml:space="preserve">
+    <value>Wymeldować</value>
+  </data>
+  <data name="AuthenticatedMenuItem_MyAccount" xml:space="preserve">
+    <value>Moje konto</value>
+  </data>
+  <data name="BackLink" xml:space="preserve">
+    <value>spowrotem</value>
+  </data>
+  <data name="CancelButton_Text" xml:space="preserve">
+    <value>Anulować</value>
+  </data>
+  <data name="Classifier_ProvidedService_AddingCredit" xml:space="preserve">
+    <value>Uzupełnienie kredytu użytkownika</value>
+  </data>
+  <data name="Classifier_ProvidedService_AddingCredit_Description" xml:space="preserve">
+    <value>Uzupełnienie kredytu użytkownika</value>
+  </data>
+  <data name="ClassifierControl_Name" xml:space="preserve">
+    <value>Nazwa</value>
+  </data>
+  <data name="ClassifierControl_Notes" xml:space="preserve">
+    <value>Uwagi</value>
+  </data>
+  <data name="ClassifiersControl_AddItem" xml:space="preserve">
+    <value>Dodać pozycję</value>
+  </data>
+  <data name="ClassifiersControl_ColumnName" xml:space="preserve">
+    <value>Nazwa</value>
+  </data>
+  <data name="ClassifiersControl_ColumnNotes" xml:space="preserve">
+    <value>Uwagi</value>
+  </data>
+  <data name="ContinueButton_Text" xml:space="preserve">
+    <value>Kontynuować</value>
+  </data>
+  <data name="UserRegistrationPage_Email2Central_Message" xml:space="preserve">
+    <value>Właśnie został zarejetsrowany nowy użytkownik  '{1}'. Skontrolować użytkownika tutaj: {0}</value>
+  </data>
+  <data name="UserRegistrationPage_Email2Central_Subject" xml:space="preserve">
+    <value>Rejestracja nowego użytkownika</value>
+  </data>
+  <data name="UserRegistrationPage_Email2User_Message" xml:space="preserve">
+    <value>&lt;html&gt;
+&lt;body&gt;
+&lt;p&gt;Witamy,&lt;/p&gt;
+&lt;p&gt;wielkie gratulacje, Twoja rejestracja udała się. Cieszy nas, że wybrałeś/aś na swój zakup&lt;br/&gt;właśnie czeską spółkę Eurona s.r.o.&lt;/p&gt;
+&lt;p&gt;
+    Twoja nazwa użytkownika: {0}
+&lt;br /&gt;
+    Hasło: {1}
+&lt;/p&gt;
+&lt;p&gt;Co możemy zaoferować ? Korzystne ceny zakupu, nagrody, premie, bonusy, konkursy,&lt;br/&gt;programy motywacyjne, dochód pasywny  i wiele innych.&lt;/p&gt;
+&lt;p&gt;Przed dostarczeniem paczki bezpośrednio do Twoich rąk, możesz się zgłosić do swojego&lt;br/&gt;biura poradni Eurona, w której otrzymasz przydatne rady oraz informacje.&lt;/p&gt;
+&lt;p&gt;Jako pierwszą zaletę proponujemy możliwość spełnienia warunku promocji „Udany start“, w&lt;br/&gt;której możesz uzyskać produkty Eurona o wartości Zł 132,20  całkiem GRATIS.&lt;/p&gt;
+&lt;p&gt;Z przyjemnością będziemy Cię systematycznie informować o aktualnych miesięcznych i&lt;br/&gt;specjalnych wydarzeniach.&lt;/p&gt;
+&lt;p&gt;Jeśli masz jakiekolwiek zapytania, skontaktuj się z naszym Punktem klienta, lub u swojego&lt;br/&gt;TOP menadżera. Kontakt do niego mieści się na fakturze.&lt;/p&gt;
+&lt;p&gt;Dziękujemy i cieszymy się na Twoje zakupy lub ewentualną współpracę. &lt;/p&gt;
+&lt;p&gt;Eurona s.r.o.&lt;br/&gt;&lt;a href="www.euronabycerny.com"&gt;www.euronabycerny.com&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Kontakt na nasz Punkt Klienta:&lt;br/&gt;
+Tel.: +420&amp;nbsp;491&amp;nbsp;477&amp;nbsp;361&lt;br/&gt;
+e-mail: &lt;a href="mailto:prodej@eurona.cz"&gt;prodej@eurona.cz&lt;/a&gt;&lt;/p&gt;
+&lt;/body&gt;
+&lt;/html&gt;</value>
+  </data>
+  <data name="UserRegistrationPage_Email2User_Subject" xml:space="preserve">
+    <value>Rejestracja nowego użytkownika</value>
+  </data>
+  <data name="UserRegistrationPage_Finished" xml:space="preserve">
+    <value>Gratulujemy, rejestrację zakończono właściwie!</value>
+  </data>
+  <data name="DeleteItemQuestion" xml:space="preserve">
+    <value>Naprawdę chcesz usunąć ten zapis?</value>
+  </data>
+  <data name="GridView_ToolTip_DeleteItem" xml:space="preserve">
+    <value>Usunąć pozycję</value>
+  </data>
+  <data name="GridView_ToolTip_DisplayItem" xml:space="preserve">
+    <value>Wyobrazić pozycję</value>
+  </data>
+  <data name="GridView_ToolTip_EditItem" xml:space="preserve">
+    <value>Poprawić pozycję</value>
+  </data>
+  <data name="LoginControl_LoginButton" xml:space="preserve">
+    <value>Zameldować</value>
+  </data>
+  <data name="LoginControl_LoginLabel" xml:space="preserve">
+    <value>Konto</value>
+  </data>
+  <data name="LoginControl_LogoutButton" xml:space="preserve">
+    <value>Odmeldować</value>
+  </data>
+  <data name="LoginControl_PasswordLabel" xml:space="preserve">
+    <value>Hasło</value>
+  </data>
+  <data name="LoginControl_Welcome" xml:space="preserve">
+    <value>Witamy</value>
+  </data>
+  <data name="LoginControl_YourCurrentCreditIs" xml:space="preserve">
+    <value>Twój aktualny kredyt jest  &lt;b&gt;{0}&lt;/b&gt;</value>
+  </data>
+  <data name="Navigation_AddAccountCredit" xml:space="preserve">
+    <value>Dodanie kredytu użytkownika</value>
+  </data>
+  <data name="Navigation_Administration" xml:space="preserve">
+    <value>Administracja</value>
+  </data>
+  <data name="Navigation_ArchivedNews" xml:space="preserve">
+    <value>Archiwum nowości</value>
+  </data>
+  <data name="Navigation_ChangePassword" xml:space="preserve">
+    <value>Zmiana hasła</value>
+  </data>
+  <data name="Navigation_Classifier_PaidService" xml:space="preserve">
+    <value>Usługa odpłatna</value>
+  </data>
+  <data name="Navigation_Classifier_Paidservices" xml:space="preserve">
+    <value>Usługi odpłatne</value>
+  </data>
+  <data name="Navigation_Classifiers" xml:space="preserve">
+    <value>Tarcze </value>
+  </data>
+  <data name="Navigation_ContactForm" xml:space="preserve">
+    <value>Formularz kontaktowy</value>
+  </data>
+  <data name="Navigation_FAQ" xml:space="preserve">
+    <value>FAQ</value>
+  </data>
+  <data name="Navigation_FAQs" xml:space="preserve">
+    <value>FAQs</value>
+  </data>
+  <data name="Navigation_Home" xml:space="preserve">
+    <value>Eurona by Cerny</value>
+  </data>
+  <data name="Navigation_Invoices" xml:space="preserve">
+    <value>Faktury</value>
+  </data>
+  <data name="Navigation_Menu" xml:space="preserve">
+    <value>Pozycja menu</value>
+  </data>
+  <data name="Navigation_Menus" xml:space="preserve">
+    <value>Menu</value>
+  </data>
+  <data name="Navigation_MyAccount" xml:space="preserve">
+    <value>Moje konto</value>
+  </data>
+  <data name="Navigation_NavigationMenu" xml:space="preserve">
+    <value>Menu nawigacyjne</value>
+  </data>
+  <data name="Navigation_NavigationMenuItem" xml:space="preserve">
+    <value>Podmenu nawigacyjne</value>
+  </data>
+  <data name="Navigation_NavigationMenuItems" xml:space="preserve">
+    <value>Podmenu nawigacyjne</value>
+  </data>
+  <data name="Navigation_NavigationMenus" xml:space="preserve">
+    <value>Menu nawigacyjne</value>
+  </data>
+  <data name="Navigation_News" xml:space="preserve">
+    <value>Aktualności</value>
+  </data>
+  <data name="Navigation_Newsletter" xml:space="preserve">
+    <value>Biuletyn informacyjny</value>
+  </data>
+  <data name="Navigation_NewsletterList" xml:space="preserve">
+    <value>Biuletyny informacyjne</value>
+  </data>
+  <data name="Navigation_NewsList" xml:space="preserve">
+    <value>Przegląd nowości</value>
+  </data>
+  <data name="Navigation_Page" xml:space="preserve">
+    <value>Strona</value>
+  </data>
+  <data name="Navigation_Pages" xml:space="preserve">
+    <value>Strony</value>
+  </data>
+  <data name="Navigation_Poll" xml:space="preserve">
+    <value>Ankieta</value>
+  </data>
+  <data name="Navigation_PollOption" xml:space="preserve">
+    <value>Możliwość ankiety</value>
+  </data>
+  <data name="Navigation_PollOptions" xml:space="preserve">
+    <value>Możliwości ankiety</value>
+  </data>
+  <data name="Navigation_Polls" xml:space="preserve">
+    <value>Ankiety</value>
+  </data>
+  <data name="Navigation_Registration" xml:space="preserve">
+    <value>Rejestracja </value>
+  </data>
+  <data name="Navigation_User" xml:space="preserve">
+    <value>Użytkownik</value>
+  </data>
+  <data name="Navigation_Users" xml:space="preserve">
+    <value>Użytkownicy</value>
+  </data>
+  <data name="RegisterControl_AccountAlreadyExists" xml:space="preserve">
+    <value>Konto już istnieje</value>
+  </data>
+  <data name="RegisterControl_ContinueButton" xml:space="preserve">
+    <value>Kontynuować</value>
+  </data>
+  <data name="RegisterControl_EmailLabel" xml:space="preserve">
+    <value>Email</value>
+  </data>
+  <data name="RegisterControl_LoginLabel" xml:space="preserve">
+    <value>Imię do zameldowania</value>
+  </data>
+  <data name="RegisterControl_PasswordConfirmLabel" xml:space="preserve">
+    <value>Kontrola hasła</value>
+  </data>
+  <data name="RegisterControl_PasswordLabel" xml:space="preserve">
+    <value>Hasło</value>
+  </data>
+  <data name="SaveButton_Text" xml:space="preserve">
+    <value>Zapisać</value>
+  </data>
+  <data name="UserPage_OrganizationDetail" xml:space="preserve">
+    <value>Dane organizacji</value>
+  </data>
+  <data name="UserPage_PersonDetail" xml:space="preserve">
+    <value>Dane osobowe użytkownika</value>
+  </data>
+  <data name="ClassifiersPage_CommonGroup" xml:space="preserve">
+    <value>Wspólne tarcze</value>
+  </data>
+  <data name="Navigation_Role" xml:space="preserve">
+    <value>Rola</value>
+  </data>
+  <data name="Navigation_Roles" xml:space="preserve">
+    <value>Rola</value>
+  </data>
+  <data name="AdministrationMode_Roles" xml:space="preserve">
+    <value>Rola</value>
+  </data>
+  <data name="RSS_NewsTitle" xml:space="preserve">
+    <value>Nowości EURONA</value>
+  </data>
+  <data name="BackButton_Text" xml:space="preserve">
+    <value>Spowrotem</value>
+  </data>
+  <data name="EditButton_Text" xml:space="preserve">
+    <value>Korekta</value>
+  </data>
+  <data name="Navigation_Classifier_ArticleCategories" xml:space="preserve">
+    <value>Kategoria artykułów</value>
+  </data>
+  <data name="Navigation_Classifier_ArticleCategory" xml:space="preserve">
+    <value>Kategoria artykułu</value>
+  </data>
+  <data name="Navigation_Article" xml:space="preserve">
+    <value>Artykuł</value>
+  </data>
+  <data name="Navigation_ArchivedArticles" xml:space="preserve">
+    <value>Archiwum artykułów</value>
+  </data>
+  <data name="RSS_ArticleTitle" xml:space="preserve">
+    <value>Artykuł</value>
+  </data>
+  <data name="AdministrationMode_Articles" xml:space="preserve">
+    <value>Artykuły</value>
+  </data>
+  <data name="Navigation_Articles" xml:space="preserve">
+    <value>Artykuły</value>
+  </data>
+  <data name="Navigation_Tag" xml:space="preserve">
+    <value>Tag</value>
+  </data>
+  <data name="Navigation_Tags" xml:space="preserve">
+    <value>Tagi</value>
+  </data>
+  <data name="AdministrationMode_Tags" xml:space="preserve">
+    <value>Tagi</value>
+  </data>
+  <data name="Navigation_ArticleComments" xml:space="preserve">
+    <value>Komentarze do artykułu</value>
+  </data>
+  <data name="Navigation_Blog" xml:space="preserve">
+    <value>Blog</value>
+  </data>
+  <data name="Navigation_BlogComments" xml:space="preserve">
+    <value>Komentarze</value>
+  </data>
+  <data name="Navigation_ArchivedBlogs" xml:space="preserve">
+    <value>Archiwum blogów</value>
+  </data>
+  <data name="AdministrationMode_Blogs" xml:space="preserve">
+    <value>Blogi</value>
+  </data>
+  <data name="Navigation_Blogs" xml:space="preserve">
+    <value>Blogi</value>
+  </data>
+  <data name="AuthenticatedMenuItem_MyBlogs" xml:space="preserve">
+    <value>Moje blogi</value>
+  </data>
+  <data name="AuthenticatedMenuItem_MyProfile" xml:space="preserve">
+    <value>Mój profil</value>
+  </data>
+  <data name="Navigation_MyProfile" xml:space="preserve">
+    <value>Mój profil</value>
+  </data>
+  <data name="Navigation_AccountProfile" xml:space="preserve">
+    <value>Profil użytkownika</value>
+  </data>
+  <data name="Navigation_ImageGalleries" xml:space="preserve">
+    <value>Galeria obrazków </value>
+  </data>
+  <data name="Navigation_ImageGallery" xml:space="preserve">
+    <value>Galeria obrazków </value>
+  </data>
+  <data name="AdministrationMode_ImageGalleries" xml:space="preserve">
+    <value>Galeria obrazków </value>
+  </data>
+  <data name="Navigation_ImageGalleryComments" xml:space="preserve">
+    <value>Komentarze do galerii obrazków</value>
+  </data>
+  <data name="Navigation_ImageGalleryItemComments" xml:space="preserve">
+    <value>Komentarze do obrazków</value>
+  </data>
+  <data name="LoginControl_LoginHeaderLabel" xml:space="preserve">
+    <value>Zameldowanie</value>
+  </data>
+  <data name="Navigation_UrlAliases" xml:space="preserve">
+    <value>URL Alias</value>
+  </data>
+  <data name="Navigation_UrlAlias" xml:space="preserve">
+    <value>URL Alias</value>
+  </data>
+  <data name="AdministrationMode_UrlAliases" xml:space="preserve">
+    <value>URL Alias</value>
+  </data>
+  <data name="Navigation_Classifier_UrlAliasPrefix" xml:space="preserve">
+    <value>Prefiks URL Aliasu</value>
+  </data>
+  <data name="Navigation_Classifier_UrlAliasPrefixes" xml:space="preserve">
+    <value>Prefiks URL Aliasu</value>
+  </data>
+  <data name="AuthenticatedMenuItem_Orders" xml:space="preserve">
+    <value>Zamówienia</value>
+  </data>
+  <data name="Navigation_SearchResult" xml:space="preserve">
+    <value>Wynik wyszukiwania </value>
+  </data>
+  <data name="LoginControl_ForgotPasswordButton" xml:space="preserve">
+    <value>Zapomniane hasło</value>
+  </data>
+  <data name="RegisterControl_AdvisorLabel" xml:space="preserve">
+    <value>Konsultant</value>
+  </data>
+  <data name="Navigation_Classifier_SupportedLocale" xml:space="preserve">
+    <value>Język</value>
+  </data>
+  <data name="ClassifierControl_Icon" xml:space="preserve">
+    <value>Ikona</value>
+  </data>
+  <data name="ClassifierControl_RemoveIcon" xml:space="preserve">
+    <value>Usunąć ikonę</value>
+  </data>
+  <data name="ClassifiersControl_ColumnIcon" xml:space="preserve">
+    <value>Ikona</value>
+  </data>
+  <data name="Navigation_Classifier_SupportedLocales" xml:space="preserve">
+    <value>Języki dla wsparcia</value>
+  </data>
+  <data name="ClassifierControl_Code" xml:space="preserve">
+    <value>Kod </value>
+  </data>
+  <data name="ClassifiersControl_ColumnCode" xml:space="preserve">
+    <value>Kod </value>
+  </data>
+  <data name="Navigation_Products" xml:space="preserve">
+    <value>Produkty</value>
+  </data>
+  <data name="Navigation_ProductsCatalog" xml:space="preserve">
+    <value>Katalog wirtualny</value>
+  </data>
+  <data name="HostLogin_Advisor" xml:space="preserve">
+    <value>Konsultant</value>
+  </data>
+  <data name="HostLogin_AdvisorLabel" xml:space="preserve">
+    <value>Konsultant</value>
+  </data>
+  <data name="HostLogin_DistrictLabel" xml:space="preserve">
+    <value>Kraj</value>
+  </data>
+  <data name="HostLogin_Login" xml:space="preserve">
+    <value>Zameldować</value>
+  </data>
+  <data name="HostLogin_Name" xml:space="preserve">
+    <value>Nazwisko i imię</value>
+  </data>
+  <data name="HostLogin_RegionLabel" xml:space="preserve">
+    <value>Powiat</value>
+  </data>
+  <data name="LogedHostControl_Welcome" xml:space="preserve">
+    <value>Szanowna Pani, Panie</value>
+  </data>
+  <data name="LogedHostControl_YouAreLogedAsHost" xml:space="preserve">
+    <value>Jestem zameldowany jako gość</value>
+  </data>
+  <data name="HostLogin_StateLabel" xml:space="preserve">
+    <value>Kraj</value>
+  </data>
+  <data name="HostLogin_ZipLabel" xml:space="preserve">
+    <value>Kod pocztowy</value>
+  </data>
+  <data name="HostLogin_PleaseEneterCity" xml:space="preserve">
+    <value>Wyszukać wd miasta</value>
+  </data>
+  <data name="HostLogin_FindAdvisor_ButtonText" xml:space="preserve">
+    <value>Odnaleść pozycje</value>
+  </data>
+  <data name="HostLogin_CityLabel" xml:space="preserve">
+    <value>Miasto</value>
+  </data>
+  <data name="HostLogin_PleaseEneterAdvisor" xml:space="preserve">
+    <value>Wyszukać wd pozycji</value>
+  </data>
+  <data name="FindAdvisorControl_ColumnName" xml:space="preserve">
+    <value>Imię</value>
+  </data>
+  <data name="FindAdvisorControl_ColumnAddress" xml:space="preserve">
+    <value>Adres</value>
+  </data>
+  <data name="FindAdvisorControl_ColumnMobile" xml:space="preserve">
+    <value>Tel.komórkowy</value>
+  </data>
+  <data name="FindAdvisorControl_ColumnPhone" xml:space="preserve">
+    <value>Telefon</value>
+  </data>
+  <data name="FindAdvisor" xml:space="preserve">
+    <value>Wyszukiwanie pozycji</value>
+  </data>
+  <data name="RegisterControl_Title" xml:space="preserve">
+    <value>Rejestracja</value>
+  </data>
+  <data name="RegisterControl_AcceptTermsAndConditions" xml:space="preserve">
+    <value>Wyrażam zgodę na warunki handlowe</value>
+  </data>
+  <data name="RegisterControl_TermsAndConditions" xml:space="preserve">
+    <value>Warunki handlowe</value>
+  </data>
+  <data name="HostLogin_PleaseEneterRegionCode" xml:space="preserve">
+    <value>Wyszukiwać wg kodu rejonu</value>
+  </data>
+  <data name="ContactAdvisor" xml:space="preserve">
+    <value>Skontaktować konsultanta</value>
+  </data>
+  <data name="HostLogin_Password" xml:space="preserve">
+    <value>Hasło</value>
+  </data>
+  <data name="Navigation_Office" xml:space="preserve">
+    <value>Biuro</value>
+  </data>
+  <data name="UserRegistrationPage_GotoMyOffice" xml:space="preserve">
+    <value>Wstęp do mojego biura</value>
+  </data>
+  <data name="NotVerifiedTimeSpanUserMessage" xml:space="preserve">
+    <value>Do odesłania Państwa formularza rejestracji pozostaje</value>
+  </data>
+  <data name="Days" xml:space="preserve">
+    <value>dni</value>
+  </data>
+  <data name="AdvisorDesktop_AktualniStav" xml:space="preserve">
+    <value>Stan aktualny</value>
+  </data>
+  <data name="AdvisorDesktop_CilovyStav" xml:space="preserve">
+    <value>Stan docelowy</value>
+  </data>
+  <data name="AdvisorDesktop_CoUdelatDoCilovehoStavu" xml:space="preserve">
+    <value>Co wykonać do stanu docelowego</value>
+  </data>
+  <data name="AdvisorDesktop_GrafyLideVSiti" xml:space="preserve">
+    <value>Grafy | Ludzie w sieci</value>
+  </data>
+  <data name="AdvisorDesktop_ObjednavkyProZdruzeni" xml:space="preserve">
+    <value>Zamówienia po połączeniu</value>
+  </data>
+  <data name="AdvisorDesktop_StavOdPocatkuRoku" xml:space="preserve">
+    <value>Stan od początku roku</value>
+  </data>
+  <data name="Navigation_MyOffice" xml:space="preserve">
+    <value>Moje biuro</value>
+  </data>
+  <data name="NewAdvisorsControl_ColumnAddress" xml:space="preserve">
+    <value>Adres</value>
+  </data>
+  <data name="NewAdvisorsControl_ColumnEmail" xml:space="preserve">
+    <value>Email</value>
+  </data>
+  <data name="NewAdvisorsControl_ColumnMobile" xml:space="preserve">
+    <value>Tel. Komórkowy</value>
+  </data>
+  <data name="NewAdvisorsControl_ColumnName" xml:space="preserve">
+    <value>nazwa</value>
+  </data>
+  <data name="Navigation_NewAdvisors" xml:space="preserve">
+    <value>Nowi konsultanci</value>
+  </data>
+  <data name="NewAdvisorsControl_ColumnLeftToVerification" xml:space="preserve">
+    <value>Do odesłania formularza rejestracji pozostaje</value>
+  </data>
+  <data name="HostLogin_PleaseEneterAdvisorCode" xml:space="preserve">
+    <value>Wyszukiwać wg kodu konsultanta</value>
+  </data>
+  <data name="AdvisorDesktop_YourTopBuyProducts" xml:space="preserve">
+    <value>Najwięcej kupywane produkty przez Państwa</value>
+  </data>
+  <data name="Navigation_DPD_InformaceOMoznostiDoruceni" xml:space="preserve">
+    <value>Informacje dot. doręczenia wysyłek</value>
+  </data>
+  <data name="Navigation_DPD_NedorucenaZasilka" xml:space="preserve">
+    <value>Wysyłka nie doręczona </value>
+  </data>
+  <data name="Navigation_DPD_OnlineCasDoruceni" xml:space="preserve">
+    <value>Online czas doręczenia</value>
+  </data>
+  <data name="Navigation_DPD_SledovaniZasilky" xml:space="preserve">
+    <value>Śledzenie wysyłki</value>
+  </data>
+  <data name="LogedHostControl_ContinueInRegistration" xml:space="preserve">
+    <value>» Rejestracja Kontynuuj</value>
+  </data>
+  <data name="Navigation_Podpora_AkcniCenik" xml:space="preserve">
+    <value>Cennik promocyjny</value>
+  </data>
+  <data name="Navigation_Podpora_EuronaNews" xml:space="preserve">
+    <value>EURONA News</value>
+  </data>
+  <data name="Navigation_Podpora_PodporaProdeje" xml:space="preserve">
+    <value>Wsparcie sprzedaży</value>
+  </data>
+  <data name="Navigation_Podpora_PrezentacniLetaky" xml:space="preserve">
+    <value>Ulotki reprezentacyjne</value>
+  </data>
+  <data name="Navigation_Podpora_UspesnyStart" xml:space="preserve">
+    <value>Udany start</value>
+  </data>
+  <data name="Navigation_Podpora_Vzdelavani" xml:space="preserve">
+    <value>Ksztacenie</value>
+  </data>
+  <data name="OrderControl_ShipmentFrom" xml:space="preserve">
+    <value>Data dostawy od:</value>
+  </data>
+  <data name="OrderControl_ShipmentTo" xml:space="preserve">
+    <value>Data dostawy do:</value>
+  </data>
+  <data name="StornoItemQuestion" xml:space="preserve">
+    <value>Naprwadę chcesz anulować zamówienie?</value>
+  </data>
+  <data name="Vice" xml:space="preserve">
+    <value>Więcej</value>
+  </data>
+  <data name="UserRegistrationPage_Warning" xml:space="preserve">
+    <value>Pro plnou aktivaci účtu, nezapomeňte odeslat do 14 dnů registrační formulář a do 48 hodin učiňte Vaši první objednávku.</value>
+  </data>
+  <data name="BrowserVersionWarning" xml:space="preserve">
+    <value>Drodzy użytkownicy, prawdopodobnie za pomocą starej przeglądarki Internet Explorer. Jest prawdopodobne, że niektórzy z was nie poprawnie lub w ogóle. Dlatego zalecamy korzystanie z przeglądarki bezpieczniejsze &lt;a target="_blank" href='http://www.browserchoice.eu'&gt; przeglądarki &lt;/ a&gt;</value>
+  </data>
+  <data name="AdministrationMode_Forums" xml:space="preserve">
+    <value>Fórum</value>
+  </data>
+  <data name="AdministrationMode_ForumThreads" xml:space="preserve">
+    <value>Fórum kategorie</value>
+  </data>
+  <data name="Navigation_Forum" xml:space="preserve">
+    <value>Forum</value>
+  </data>
+  <data name="Navigation_ForumPost" xml:space="preserve">
+    <value>Fórum příspěvek</value>
+  </data>
+  <data name="Navigation_ForumPosts" xml:space="preserve">
+    <value>Fórum příspěvky</value>
+  </data>
+  <data name="Navigation_Forums" xml:space="preserve">
+    <value>Fórum</value>
+  </data>
+  <data name="Navigation_ForumThread" xml:space="preserve">
+    <value>Fórum kategorie</value>
+  </data>
+  <data name="Navigation_ForumThreads" xml:space="preserve">
+    <value>Fórum kategorie</value>
+  </data>
+  <data name="UserRegistrationPage_Email2Sponsor_Message" xml:space="preserve">
+    <value>&lt;p align="left"&gt;
+		&lt;font color="#000080" face="Calibri"&gt;&lt;font size="2" style="FONT-SIZE: 11pt"&gt;&lt;b&gt;
+		&lt;span style="BACKGROUND: none transparent scroll repeat 0% 0%"&gt;Gratulacje!&lt;/span&gt;&lt;/b&gt;&lt;/font&gt;&lt;/font&gt;&lt;/p&gt;
+	&lt;p align="left"&gt;
+		&lt;font color="#000080" face="Calibri" size="2"&gt;
+		&lt;span style="BACKGROUND: none transparent scroll repeat 0% 0%"&gt;Że jesteś przy 
+		możliwością korzystania z VIP Anioł Professional Team nadal będzie rozwijać swój 
+		zespół sprzedaży przez przybyszów nowoprzybyłych. &lt;/span&gt;&lt;/font&gt;
+	&lt;/p&gt;
+	&lt;p align="left"&gt;
+		&lt;font color="#000080" face="Calibri" size="2"&gt;&lt;b&gt;
+		&lt;span style="BACKGROUND: none transparent scroll repeat 0% 0%"&gt;W&lt;/span&gt;&lt;/b&gt;&lt;/font&gt;&lt;font 
+			color="#000080" face="Calibri" size="2"&gt;&lt;b&gt;&lt;span 
+			style="BACKGROUND: none transparent scroll repeat 0% 0%"&gt;łaśnie otrzymałem 
+		początkujących:&lt;br /&gt;
+		&lt;/span&gt;&lt;/b&gt;&lt;/font&gt;
+		&lt;font color="#000080" face="Calibri" size="4"&gt;
+			&lt;span style="FONT-WEIGHT: normal"&gt;
+				&lt;span style="BACKGROUND: none transparent scroll repeat 0% 0%"&gt;{0}&lt;/span&gt;
+			&lt;/span&gt;
+		&lt;/font&gt;
+	&lt;/p&gt;
+	&lt;p align="left"&gt;
+		&lt;font color="#ff00ff" face="Calibri" size="2"&gt;&lt;b&gt;
+		&lt;span style="BACKGROUND: none transparent scroll repeat 0% 0%"&gt;Teraz wszystko 
+		zale&lt;/span&gt;&lt;/b&gt;&lt;/font&gt;&lt;font color="#ff00ff" face="Calibri" size="2"&gt;&lt;b&gt;&lt;span 
+			style="BACKGROUND: none transparent scroll repeat 0% 0%"&gt;ży od Ciebie!&lt;/span&gt;&lt;/b&gt;&lt;/font&gt;&lt;/p&gt;
+	&lt;p align="left"&gt;
+		&lt;font color="#000080" face="Calibri" size="2"&gt;&lt;span style="FONT-WEIGHT: normal"&gt;
+		&lt;span style="BACKGROUND: none transparent scroll repeat 0% 0%"&gt;Skontaktuj si&lt;/span&gt;&lt;/span&gt;&lt;/font&gt;&lt;font 
+			color="#000080" face="Calibri" size="2"&gt;&lt;span style="FONT-WEIGHT: normal"&gt;&lt;span 
+			style="BACKGROUND: none transparent scroll repeat 0% 0%"&gt;ę z nowicjusza i 
+		zaoferować mu 100% Twojego serwisu, umówić się, wyobrazić sobie firmę, gdzie 
+		Euronat Ltd. i jej wyjątkowe produkty. Spotkanie z zalet, które oferuje Eurona - 
+		marginesy, rabatów oraz godziny rozpoczęcia udanej, prezenty, prowizje, 
+		zamówienia online, więc przedsiębiorstwa konsultanta polecam go, w jaki sposób 
+		można zacząć pracować, jak z powodzeniem rozwijać swoją działalność i rozpocząć 
+		jego niezależność finansowa.&lt;/span&gt;&lt;/span&gt;&lt;/font&gt;&lt;/p&gt;
+	&lt;p align="left"&gt;
+		&lt;font color="#ff00ff" face="Calibri" size="2"&gt;&lt;b&gt;
+		&lt;span style="BACKGROUND: none transparent scroll repeat 0% 0%"&gt;Doradza&lt;/span&gt;&lt;/b&gt;&lt;/font&gt;&lt;font 
+			color="#ff00ff" face="Calibri" size="2"&gt;&lt;b&gt;&lt;span 
+			style="BACKGROUND: none transparent scroll repeat 0% 0%"&gt;ć początkujących 
+		cenne wskazówki, jak zacząć:&lt;/span&gt;&lt;/b&gt;&lt;/font&gt;&lt;/p&gt;
+	&lt;ul&gt;
+		&lt;li&gt;
+			&lt;p align="left"&gt;
+				&lt;font color="#000080" face="Calibri" size="2"&gt;&lt;b&gt;
+				&lt;span style="BACKGROUND: none transparent scroll repeat 0% 0%"&gt;Kto jest kontakt&lt;/span&gt;&lt;/b&gt;&lt;/font&gt;&lt;font 
+					color="#000080" face="Calibri" size="2"&gt;&lt;span style="FONT-WEIGHT: normal"&gt;&lt;span 
+					style="BACKGROUND: none transparent scroll repeat 0% 0%"&gt; - najpierw dotrze&lt;/span&gt;&lt;/span&gt;&lt;/font&gt;&lt;font 
+					color="#000080" face="Calibri" size="2"&gt;&lt;span style="FONT-WEIGHT: normal"&gt;&lt;span 
+					style="BACKGROUND: none transparent scroll repeat 0% 0%"&gt;ć do ludzi w swoim 
+				otoczeniu - stworzyć listę nazwisk (krewni, znajomi, koledzy, koledzy z klasy, 
+				...), każdy z nas ma wiele kontaktów w telefonie komórkowym.&lt;/span&gt;&lt;/span&gt;&lt;/font&gt;&lt;/p&gt;
+		&lt;/li&gt;
+		&lt;li&gt;
+			&lt;p align="left"&gt;
+				&lt;font color="#000080" face="Calibri" size="2"&gt;&lt;b&gt;
+				&lt;span style="BACKGROUND: none transparent scroll repeat 0% 0%"&gt;Jakie produkty 
+				powinny koncentrowa&lt;/span&gt;&lt;/b&gt;&lt;/font&gt;&lt;font color="#000080" face="Calibri" 
+					size="2"&gt;&lt;b&gt;&lt;span style="BACKGROUND: none transparent scroll repeat 0% 0%"&gt;ć 
+				się&lt;/span&gt;&lt;/b&gt;&lt;/font&gt;&lt;font color="#000080" face="Calibri" size="2"&gt;&lt;span 
+					style="FONT-WEIGHT: normal"&gt;&lt;span 
+					style="BACKGROUND: none transparent scroll repeat 0% 0%"&gt; na produktach, 
+				które klienci kupują najczęściej.&lt;br /&gt;
+				&lt;/span&gt;&lt;/span&gt;&lt;/font&gt;&lt;font color="#000080" face="Calibri" size="2"&gt;
+				&lt;span style="FONT-WEIGHT: normal"&gt;
+				&lt;span style="BACKGROUND: none transparent scroll repeat 0% 0%"&gt;1) Jest wa&lt;/span&gt;&lt;/span&gt;&lt;/font&gt;&lt;font 
+					color="#000080" face="Calibri" size="2"&gt;&lt;span style="FONT-WEIGHT: normal"&gt;&lt;span 
+					style="BACKGROUND: none transparent scroll repeat 0% 0%"&gt;żne, aby mieć
+				&lt;/span&gt;&lt;/span&gt;&lt;/font&gt;&lt;font color="#ff00ff" face="Calibri" size="2"&gt;&lt;b&gt;
+				&lt;span style="BACKGROUND: none transparent scroll repeat 0% 0%"&gt;katalog, zestaw 
+				próbek do zmiękczania tkanin&lt;/span&gt;&lt;/b&gt;&lt;/font&gt;&lt;font color="#000080" 
+					face="Calibri" size="2"&gt;&lt;span style="FONT-WEIGHT: normal"&gt;&lt;span 
+					style="BACKGROUND: none transparent scroll repeat 0% 0%"&gt; (otrzymany &lt;/span&gt;
+				&lt;/span&gt;&lt;/font&gt;&lt;font color="#ff00ff" face="Calibri" size="2"&gt;&lt;b&gt;
+				&lt;span style="BACKGROUND: none transparent scroll repeat 0% 0%"&gt;ZADARMO&lt;/span&gt;&lt;/b&gt;&lt;/font&gt;&lt;font 
+					color="#000080" face="Calibri" size="2"&gt;&lt;span style="FONT-WEIGHT: normal"&gt;&lt;span 
+					style="BACKGROUND: none transparent scroll repeat 0% 0%"&gt; kolejności 
+				pierwszy ponad 350 zł).&lt;br /&gt;
+				&lt;/span&gt;&lt;/span&gt;&lt;/font&gt;&lt;font color="#000080" face="Calibri" size="2"&gt;
+				&lt;span style="FONT-WEIGHT: normal"&gt;
+				&lt;span style="BACKGROUND: none transparent scroll repeat 0% 0%"&gt;2) list&lt;/span&gt;&lt;/span&gt;&lt;/font&gt;&lt;font 
+					color="#000080" face="Calibri" size="2"&gt;&lt;span style="FONT-WEIGHT: normal"&gt;&lt;span 
+					style="BACKGROUND: none transparent scroll repeat 0% 0%"&gt;ę zalecanych 
+				produktów, butelki do próbek do klientów, ulotki - Akcja, Leporelo, Eurona v 
+				kostce.&lt;/span&gt;&lt;/span&gt;&lt;/font&gt;&lt;/p&gt;
+		&lt;/li&gt;
+		&lt;li&gt;
+			&lt;p align="left"&gt;
+				&lt;font color="#000080" face="Calibri" size="2"&gt;&lt;b&gt;
+				&lt;span style="BACKGROUND: none transparent scroll repeat 0% 0%"&gt;Jak przygotowa&lt;/span&gt;&lt;/b&gt;&lt;/font&gt;&lt;font 
+					color="#000080" face="Calibri" size="2"&gt;&lt;b&gt;&lt;span 
+					style="BACKGROUND: none transparent scroll repeat 0% 0%"&gt;ć się do pierwszych 
+				klientów na spotkania&lt;/span&gt;&lt;/b&gt;&lt;/font&gt;&lt;font color="#000080" face="Calibri" 
+					size="2"&gt;&lt;span style="FONT-WEIGHT: normal"&gt;&lt;span 
+					style="BACKGROUND: none transparent scroll repeat 0% 0%"&gt;&lt;br /&gt;
+				&lt;/span&gt;&lt;/span&gt;&lt;/font&gt;&lt;font color="#000080" face="Calibri" size="2"&gt;
+				&lt;span style="FONT-WEIGHT: normal"&gt;
+				&lt;span style="BACKGROUND: none transparent scroll repeat 0% 0%"&gt;- Przygotowa&lt;/span&gt;&lt;/span&gt;&lt;/font&gt;&lt;font 
+					color="#000080" face="Calibri" size="2"&gt;&lt;span style="FONT-WEIGHT: normal"&gt;&lt;span 
+					style="BACKGROUND: none transparent scroll repeat 0% 0%"&gt;ć zestaw próbek do 
+				zmiękczania tkanin.&lt;br /&gt;
+				&lt;/span&gt;&lt;/span&gt;&lt;/font&gt;&lt;font color="#000080" face="Calibri" size="2"&gt;
+				&lt;span style="FONT-WEIGHT: normal"&gt;
+				&lt;span style="BACKGROUND: none transparent scroll repeat 0% 0%"&gt;- Przygotowanie 
+				próbki w fiolkach pomoc&lt;/span&gt;&lt;/span&gt;&lt;/font&gt;&lt;font color="#000080" 
+					face="Calibri" size="2"&gt;&lt;span style="FONT-WEIGHT: normal"&gt;&lt;span 
+					style="BACKGROUND: none transparent scroll repeat 0% 0%"&gt;ą - uniwersalna, 
+				łazienki, pralka.&lt;br /&gt;
+				&lt;/span&gt;&lt;/span&gt;&lt;/font&gt;&lt;font color="#000080" face="Calibri" size="2"&gt;
+				&lt;span style="FONT-WEIGHT: normal"&gt;
+				&lt;span style="BACKGROUND: none transparent scroll repeat 0% 0%"&gt;- Trzeba pokaza&lt;/span&gt;&lt;/span&gt;&lt;/font&gt;&lt;font 
+					color="#000080" face="Calibri" size="2"&gt;&lt;span style="FONT-WEIGHT: normal"&gt;&lt;span 
+					style="BACKGROUND: none transparent scroll repeat 0% 0%"&gt;ć i udowodnić - 
+				środek do czyszczenia grilli, mydło w płynie, aromatikum, żelazo spray, sašetku, 
+				więcej swobody.&lt;/span&gt;&lt;/span&gt;&lt;/font&gt;&lt;/p&gt;
+		&lt;/li&gt;
+		&lt;li&gt;
+			&lt;p align="left"&gt;
+				&lt;font color="#000080" face="Calibri" size="2"&gt;&lt;span style="FONT-WEIGHT: normal"&gt;
+				&lt;span style="BACKGROUND: none transparent scroll repeat 0% 0%"&gt;Co to jest gotowy 
+				do programów motywacyjnych&lt;br /&gt;
+				- Pomy&lt;/span&gt;&lt;/span&gt;&lt;/font&gt;&lt;font color="#000080" face="Calibri" size="2"&gt;&lt;span 
+					style="FONT-WEIGHT: normal"&gt;&lt;span 
+					style="BACKGROUND: none transparent scroll repeat 0% 0%"&gt;ślne uruchomienie
+				&lt;/span&gt;&lt;/span&gt;&lt;/font&gt;&lt;font color="#ff00ff" face="Calibri" size="2"&gt;&lt;b&gt;
+				&lt;span style="BACKGROUND: none transparent scroll repeat 0% 0%"&gt;programu trzech 
+				miesięcy&lt;/span&gt;&lt;/b&gt;&lt;/font&gt;&lt;font color="#000080" face="Calibri" size="2"&gt;&lt;span 
+					style="FONT-WEIGHT: normal"&gt;&lt;span 
+					style="BACKGROUND: none transparent scroll repeat 0% 0%"&gt; - do dostać 3 
+				prezenty
+				&lt;br /&gt;
+				&lt;/span&gt;&lt;/span&gt;&lt;/font&gt;&lt;font color="#000080" face="Calibri" size="2"&gt;
+				&lt;span style="FONT-WEIGHT: normal"&gt;
+				&lt;span style="BACKGROUND: none transparent scroll repeat 0% 0%"&gt;- &lt;/span&gt;&lt;/span&gt;
+				&lt;/font&gt;&lt;font color="#ff00ff" face="Calibri" size="2"&gt;&lt;b&gt;
+				&lt;span style="BACKGROUND: none transparent scroll repeat 0% 0%"&gt;Mar&lt;/span&gt;&lt;/b&gt;&lt;/font&gt;&lt;font 
+					color="#ff00ff" face="Calibri" size="2"&gt;&lt;b&gt;&lt;span 
+					style="BACKGROUND: none transparent scroll repeat 0% 0%"&gt;ża&lt;/span&gt;&lt;/b&gt;&lt;/font&gt;&lt;font 
+					color="#000080" face="Calibri" size="2"&gt;&lt;span style="FONT-WEIGHT: normal"&gt;&lt;span 
+					style="BACKGROUND: none transparent scroll repeat 0% 0%"&gt; (zysk) 20%, 25%, 
+				30% z zakupu produktów&lt;br /&gt;
+				&lt;/span&gt;&lt;/span&gt;&lt;/font&gt;&lt;font color="#000080" face="Calibri" size="2"&gt;
+				&lt;span style="FONT-WEIGHT: normal"&gt;
+				&lt;span style="BACKGROUND: none transparent scroll repeat 0% 0%"&gt;- Mo&lt;/span&gt;&lt;/span&gt;&lt;/font&gt;&lt;font 
+					color="#000080" face="Calibri" size="2"&gt;&lt;span style="FONT-WEIGHT: normal"&gt;&lt;span 
+					style="BACKGROUND: none transparent scroll repeat 0% 0%"&gt;żliwe nominacja do
+				&lt;/span&gt;&lt;/span&gt;&lt;/font&gt;&lt;font color="#ff00ff" face="Calibri" size="2"&gt;&lt;b&gt;
+				&lt;span style="BACKGROUND: none transparent scroll repeat 0% 0%"&gt;V.I.P. Angel Team 
+				Professional&lt;/span&gt;&lt;/b&gt;&lt;/font&gt;&lt;font color="#000080" face="Calibri" size="2"&gt;&lt;span 
+					style="FONT-WEIGHT: normal"&gt;&lt;span 
+					style="BACKGROUND: none transparent scroll repeat 0% 0%"&gt; - inne świadczenia 
+				jako członka VIP ATP&lt;br /&gt;
+				&lt;/span&gt;&lt;/span&gt;&lt;/font&gt;&lt;font color="#000080" face="Calibri" size="2"&gt;
+				&lt;span style="FONT-WEIGHT: normal"&gt;
+				&lt;span style="BACKGROUND: none transparent scroll repeat 0% 0%"&gt;- 21% &lt;/span&gt;
+				&lt;/span&gt;&lt;/font&gt;&lt;font color="#ff00ff" face="Calibri" size="2"&gt;&lt;b&gt;
+				&lt;span style="BACKGROUND: none transparent scroll repeat 0% 0%"&gt;system prowizyjny&lt;/span&gt;&lt;/b&gt;&lt;/font&gt;&lt;font 
+					color="#000080" face="Calibri" size="2"&gt;&lt;span style="FONT-WEIGHT: normal"&gt;&lt;span 
+					style="BACKGROUND: none transparent scroll repeat 0% 0%"&gt;&lt;br /&gt;
+				- Miesi&lt;/span&gt;&lt;/span&gt;&lt;/font&gt;&lt;font color="#000080" face="Calibri" size="2"&gt;&lt;span 
+					style="FONT-WEIGHT: normal"&gt;&lt;span 
+					style="BACKGROUND: none transparent scroll repeat 0% 0%"&gt;ęczne oferty 
+				specjalne, specjalne promocje&lt;br /&gt;
+				&lt;/span&gt;&lt;/span&gt;&lt;/font&gt;&lt;font color="#000080" face="Calibri" size="2"&gt;
+				&lt;span style="FONT-WEIGHT: normal"&gt;
+				&lt;span style="BACKGROUND: none transparent scroll repeat 0% 0%"&gt;- Konkurencja&lt;br /&gt;
+				- Prezentacja zespo&lt;/span&gt;&lt;/span&gt;&lt;/font&gt;&lt;font color="#000080" face="Calibri" 
+					size="2"&gt;&lt;span style="FONT-WEIGHT: normal"&gt;&lt;span 
+					style="BACKGROUND: none transparent scroll repeat 0% 0%"&gt;łu Anioła&lt;br /&gt;
+				&lt;/span&gt;&lt;/span&gt;&lt;/font&gt;&lt;font color="#000080" face="Calibri" size="2"&gt;
+				&lt;span style="FONT-WEIGHT: normal"&gt;
+				&lt;span style="BACKGROUND: none transparent scroll repeat 0% 0%"&gt;- Katalog Stron - 
+				instrukcje zorganizowania demonstracji równocze&lt;/span&gt;&lt;/span&gt;&lt;/font&gt;&lt;font 
+					color="#000080" face="Calibri" size="2"&gt;&lt;span style="FONT-WEIGHT: normal"&gt;&lt;span 
+					style="BACKGROUND: none transparent scroll repeat 0% 0%"&gt;śnie dla kilku 
+				przyjaciół&lt;/span&gt;&lt;/span&gt;&lt;/font&gt;&lt;/p&gt;
+		&lt;/li&gt;
+	&lt;/ul&gt;
+	&lt;p align="left"&gt;
+		&lt;font color="#000080" face="Calibri" size="2"&gt;&lt;b&gt;
+		&lt;span style="BACKGROUND: none transparent scroll repeat 0% 0%"&gt;Twoje cenne do&lt;/span&gt;&lt;/b&gt;&lt;/font&gt;&lt;font 
+			color="#000080" face="Calibri" size="2"&gt;&lt;b&gt;&lt;span 
+			style="BACKGROUND: none transparent scroll repeat 0% 0%"&gt;świadczenie i rady, 
+		aby pomóc początkującym zapoznanie się z Eurona, jej wyjątkowe produkty i 
+		możliwości, które oferuje swoim klientom.&lt;br /&gt;
+		&lt;/span&gt;&lt;/b&gt;&lt;/font&gt;&lt;font color="#000080" face="Calibri" size="2"&gt;&lt;b&gt;
+		&lt;span style="BACKGROUND: none transparent scroll repeat 0% 0%"&gt;Czy z drugiej 
+		strony masz szans&lt;/span&gt;&lt;/b&gt;&lt;/font&gt;&lt;font color="#000080" face="Calibri" 
+			size="2"&gt;&lt;b&gt;&lt;span style="BACKGROUND: none transparent scroll repeat 0% 0%"&gt;ę, 
+		aby rozwinąć swoją sieć biznesową do innego Euronat konsultant i postępuj 
+		zgodnie z wyżej w swojej karierze z Eurona.&lt;/span&gt;&lt;/b&gt;&lt;/font&gt;&lt;/p&gt;
+	&lt;p align="left"&gt;
+		&lt;font color="#000080" face="Calibri" size="2"&gt;&lt;span style="FONT-WEIGHT: normal"&gt;
+		&lt;span style="BACKGROUND: none transparent scroll repeat 0% 0%"&gt;Twój marketing 
+		TEAM Eurona s.r.o.&lt;/span&gt;&lt;/span&gt;&lt;/font&gt;&lt;font color="#000080" face="Calibri"&gt;&lt;font 
+			size="2" style="FONT-SIZE: 11pt"&gt;&lt;span style="FONT-WEIGHT: normal"&gt;&lt;span 
+			style="BACKGROUND: none transparent scroll repeat 0% 0%"&gt;&lt;br /&gt;
+		&lt;/span&gt;&lt;/span&gt;&lt;/font&gt;&lt;/font&gt;
+	&lt;/p&gt;</value>
+  </data>
+  <data name="Forums_ForumContent" xml:space="preserve">
+    <value>Forum zawartość</value>
+  </data>
+  <data name="Bez21Poradcu" xml:space="preserve">
+    <value>Bez 21% konsultantów</value>
+  </data>
+  <data name="Bez21Skupin" xml:space="preserve">
+    <value>Osobní skupina bez 21% podřízených skupin</value>
+  </data>
+  <data name="ZipDescription" xml:space="preserve">
+    <value>PSČ pisz kształcie XXXXX</value>
+  </data>
+  <data name="AdministrationMode_AdvisorPages" xml:space="preserve">
+    <value>Osobní stránky uživatelů</value>
+  </data>
+  <data name="Navigation_AdvisorPages" xml:space="preserve">
+    <value>Osobní stránky uživatelů</value>
+  </data>
+  <data name="Navigation_AdvisorPage" xml:space="preserve">
+    <value>Osobní stránka uživatele</value>
+  </data>
+  <data name="AdminPagesControl_ColumnAdvisor" xml:space="preserve">
+    <value>Poradce</value>
+  </data>
+  <data name="AdminPagesControl_ColumnBlocked" xml:space="preserve">
+    <value>Blokace</value>
+  </data>
+  <data name="AdminPagesControl_ColumnEmail" xml:space="preserve">
+    <value>Email</value>
+  </data>
+  <data name="AdminPagesControl_ColumnRegistrationNumber" xml:space="preserve">
+    <value>Číslo</value>
+  </data>
+  <data name="Navigation_MyPersonalWeb" xml:space="preserve">
+    <value>Můj osobní web</value>
+  </data>
+  <data name="AuthenticatedMenuItem_ReklamniZasilky" xml:space="preserve">
+    <value>Reklamní zásilky</value>
+  </data>
+  <data name="DatovyList_ProductNenalezen" xml:space="preserve">
+    <value>Pod tímto kódem nebyl nalezen žádny produkt!</value>
+  </data>
+  <data name="Navigation_DatovyList" xml:space="preserve">
+    <value>Datový list</value>
+  </data>
+  <data name="DatovyList_ZadneDokumentyProduktu" xml:space="preserve">
+    <value>Zgodnie z obowiązującymi przepisami dla tego produktu nie jest karta.</value>
+  </data>
+  <data name="DatovyList_EmailBylOdeslan" xml:space="preserve">
+    <value>Karta produktu została wysłana na Twój adres e-mail.</value>
+  </data>
+  <data name="DatovyList_EmailNEBylOdeslan" xml:space="preserve">
+    <value>Karta produktu została newysłana na Twój adres e-mail.</value>
+  </data>
+  <data name="DatovyListDescription" xml:space="preserve">
+    <value>Do uzyskania karcie produktu, należy wprowadzić kod produktu i swój adres e-mail.</value>
+  </data>
+  <data name="DatovyList_Email" xml:space="preserve">
+    <value>Witaj,
+Wysyłamy karcie produktu w zależności od zapotrzebowania.
+Miłego resztę dnia!
+
+Eurona s.r.o.
+Lhota za Červeným Kostelcem 261
+549 41 Červený Kostelec
+tel.  +420491451516
+       +420491477361
+prodej@eurona.cz
+www.euronabycerny.com</value>
+  </data>
+  <data name="DatovyList_KodProduktu" xml:space="preserve">
+    <value>Kod produktu*:</value>
+  </data>
+  <data name="DatovyList_KodProduktuHint" xml:space="preserve">
+    <value>* (np. 1001, CC6403)</value>
+  </data>
+  <data name="DatovyList_Odeslat" xml:space="preserve">
+    <value>Wysłać</value>
+  </data>
+  <data name="BKErrorMessage" xml:space="preserve">
+    <value>Przykro nam, ale w ubiegłym miesiącu nie zamówiłeś/łaś, nie spełniełeś/łaś tym warunek zaliczenia bonusowych kretytów w danym miesiącu lub w danym miesiącu wyczerpałeś/łaś swoje BK.</value>
+  </data>
+  <data name="AdminAccountControl_LabelSingleUserCookesEnabled" xml:space="preserve">
+    <value>Jedninečný cookie odkaz uživatele povolen:</value>
+  </data>
+  <data name="Navigation_GLS_MujBalik" xml:space="preserve">
+    <value>Mój pakiet</value>
+  </data>
+  <data name="Navigation_GLS_SledovaniZasilky" xml:space="preserve">
+    <value>Śledzenie przesyłek</value>
+  </data>
+</root>

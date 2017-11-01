@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<project name="artemis.cms" default="create">
+
+  <property name="script" value="script-upgrade.sql" overwrite="false" />
+  <property name="database" value="webhracek" overwrite="false" />
+
+  <target name="init">
+    <nant buildfile="../../../cms/scripts/build-upgrade.xml" />
+    <nant buildfile="../../../eshop/scripts/build-upgrade.xml" />
+  </target>
+  <target name="clean" depends="init">
+    <delete file="${script}" failonerror="false" />
+    <loadfile encoding="UTF-8" file="../../../cms/scripts/script-upgrade.sql" property="content" />
+    <echo file="${script}">${content}</echo>
+    <loadfile encoding="UTF-8" file="../../../eshop/scripts/script-upgrade.sql" property="content" />
+    <echo append="true" file="${script}">${content}</echo>
+  </target>
+
+  <target name="create" depends="clean">
+    <loadfile encoding="unicode" file="dbUpgrade.sql" property="content" />
+    <echo append="true" file= "${script}">${content}</echo>
+  </target>
+
+</project>

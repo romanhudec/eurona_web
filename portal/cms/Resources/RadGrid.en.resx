@@ -1,0 +1,252 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="RadGrid_FilterMenu_ToolTip" xml:space="preserve">
+    <value>Filter</value>
+  </data>
+  <data name="RadGrid_GroupingSettings_CollapseTooltip" xml:space="preserve">
+    <value>Collapse group</value>
+  </data>
+  <data name="RadGrid_GroupingSettings_ExpandTooltip" xml:space="preserve">
+    <value>Expand group</value>
+  </data>
+  <data name="RadGrid_GroupingSettings_GroupByFieldsSeparator" xml:space="preserve">
+    <value>; </value>
+  </data>
+  <data name="RadGrid_GroupingSettings_GroupContinuedFormatString" xml:space="preserve">
+    <value>... group continued from the previous page.</value>
+  </data>
+  <data name="RadGrid_GroupingSettings_GroupContinuesFormatString" xml:space="preserve">
+    <value>Group continues on the next page.</value>
+  </data>
+  <data name="RadGrid_GroupingSettings_GroupSplitDisplayFormat" xml:space="preserve">
+    <value>Showing {0} of {1} items.</value>
+  </data>
+  <data name="RadGrid_GroupingSettings_GroupSplitFormat" xml:space="preserve">
+    <value> ({0})</value>
+  </data>
+  <data name="RadGrid_GroupingSettings_UnGroupTooltip" xml:space="preserve">
+    <value>Drag out of the bar to ungroup</value>
+  </data>
+  <data name="RadGrid_GroupPanel_Text" xml:space="preserve">
+    <value>Drag a column header and drop it here to group by that column</value>
+  </data>
+  <data name="RadGrid_GroupPanel_ToolTip" xml:space="preserve">
+    <value>Drag the column here to group</value>
+  </data>
+  <data name="RadGrid_HierarchySettings_CollapseTooltip" xml:space="preserve">
+    <value>Collapse</value>
+  </data>
+  <data name="RadGrid_HierarchySettings_ExpandTooltip" xml:space="preserve">
+    <value>Expand</value>
+  </data>
+  <data name="RadGrid_HierarchySettings_SelfCollapseTooltip" xml:space="preserve">
+    <value>Self reference collapse</value>
+  </data>
+  <data name="RadGrid_HierarchySettings_SelfExpandTooltip" xml:space="preserve">
+    <value>Self reference expand</value>
+  </data>
+  <data name="RadGrid_MasterTableView_NoDetailRecordsText" xml:space="preserve">
+    <value>No child records to display.</value>
+  </data>
+  <data name="RadGrid_MasterTableView_NoMasterRecordsText" xml:space="preserve">
+    <value>No records to display.</value>
+  </data>
+  <data name="RadGrid_PagerStyle_FirstPageToolTip" xml:space="preserve">
+    <value>First Page</value>
+  </data>
+  <data name="RadGrid_PagerStyle_LastPageToolTip" xml:space="preserve">
+    <value>Last Page</value>
+  </data>
+  <data name="RadGrid_PagerStyle_NextPagesToolTip" xml:space="preserve">
+    <value>Next Pages</value>
+  </data>
+  <data name="RadGrid_PagerStyle_NextPageToolTip" xml:space="preserve">
+    <value>Next Pages</value>
+  </data>
+  <data name="RadGrid_PagerStyle_PagerTextFormat" xml:space="preserve">
+    <value>Page {4} &amp;nbsp;Page &lt;strong&gt;{0}&lt;/strong&gt; of &lt;strong&gt;{1}&lt;/strong&gt;, items &lt;strong&gt;{2}&lt;/strong&gt; to &lt;strong&gt;{3}&lt;/strong&gt; of &lt;strong&gt;{5}&lt;/strong&gt;.</value>
+  </data>
+  <data name="RadGrid_PagerStyle_PrevPagesToolTip" xml:space="preserve">
+    <value>Previous Pages</value>
+  </data>
+  <data name="RadGrid_PagerStyle_PrevPageToolTip" xml:space="preserve">
+    <value>Previous Page</value>
+  </data>
+  <data name="RadGrid_SortingSettings_SortedAscToolTip" xml:space="preserve">
+    <value>Sorted asc</value>
+  </data>
+  <data name="RadGrid_SortingSettings_SortedDescToolTip" xml:space="preserve">
+    <value>Sorted desc</value>
+  </data>
+  <data name="RadGrid_SortingSettings_SortToolTip" xml:space="preserve">
+    <value>Click here to sort</value>
+  </data>
+  <data name="RadGrid_StatusBarSettings_LoadingText" xml:space="preserve">
+    <value>Loading...</value>
+  </data>
+  <data name="RadGrid_StatusBarSettings_ReadyText" xml:space="preserve">
+    <value>Ready</value>
+  </data>
+  <data name="RadGrid_ToolTip" xml:space="preserve">
+    <value>RadGrid</value>
+  </data>
+  <data name="RadGrid_MasterTableView_CommandItemSettings_AddNewRecordText" xml:space="preserve">
+    <value>Add new record</value>
+  </data>
+  <data name="RadGrid_MasterTableView_CommandItemSettings_RefreshText" xml:space="preserve">
+    <value>Refresh</value>
+  </data>
+  <data name="RadGrid_MasterTableView_EditFormSettings_EditColumn_CancelText" xml:space="preserve">
+    <value>Cancel</value>
+  </data>
+  <data name="RadGrid_MasterTableView_EditFormSettings_EditColumn_EditText" xml:space="preserve">
+    <value>Edit</value>
+  </data>
+  <data name="RadGrid_MasterTableView_EditFormSettings_EditColumn_InsertText" xml:space="preserve">
+    <value>Add</value>
+  </data>
+  <data name="RadGrid_MasterTableView_EditFormSettings_EditColumn_UpdateText" xml:space="preserve">
+    <value>Update</value>
+  </data>
+  <data name="RadGrid_ClientSettings_ClientMessages_DragToResize" xml:space="preserve">
+    <value>Drag to resize</value>
+  </data>
+  <data name="RadGrid_ClientSettings_ClientMessages_DropHereToReorder" xml:space="preserve">
+    <value>Drop here to reorder</value>
+  </data>
+  <data name="RadGrid_ClientSettings_ClientMessages_DragToGroupOrReorder" xml:space="preserve">
+    <value>Drag to group or reorder</value>
+  </data>
+  <data name="RadGrid_ClientSettings_ClientMessages_PagerTooltipFormatString" xml:space="preserve">
+    <value>Page {0} of {1}</value>
+  </data>
+  <data name="RadGrid_MasterTableView_Caption" xml:space="preserve">
+    <value>Master table</value>
+  </data>
+  <data name="EditColumnText" xml:space="preserve">
+    <value>Edit</value>
+  </data>
+  <data name="RadGrid_GroupingSettings_UnGroupButtonTooltip" xml:space="preserve">
+    <value>Click here to cancel grouping</value>
+  </data>
+  <data name="RadGrid_PagerStyle_PageSizeLabelText" xml:space="preserve">
+    <value>Page size :</value>
+  </data>
+</root>

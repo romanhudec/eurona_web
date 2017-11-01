@@ -1,0 +1,15 @@
+﻿
+.table3content{width:100%;height:auto;padding-top:82px;}
+/*-------------------------------------------------------------------------------------------------------
+/*SIDE BAR CSS STYLES*/
+/*-------------------------------------------------------------------------------------------------------*/
+
+.sidebar-container-left{width: 340px;height:240px;padding:5px;}
+.sidebar-left{width:320px;height:250px;background-image: url(../images/roundPanelEx/3Content-bg-default1.png);padding:5px;background-repeat:no-repeat;}
+
+.sidebar-container-center{width:340px;height:240px;padding:5px;}
+.sidebar-center{width:320px;height:250px;background-image: url(../images/roundPanelEx/3Content-bg-default2.png);padding:5px;background-repeat:no-repeat;}
+
+.sidebar-container-right{width: 340px;height:240px;padding:5px;}
+.sidebar-right{width:320px;height:250px;background-image: url(../images/roundPanelEx/3Content-bg-default3.png);padding:5px;background-repeat:no-repeat;}
+

@@ -1,0 +1,93 @@
+﻿/*#######################################################
+Name : ASPX MULTIPLE FILE UPLOAD
+Autor: Ing. Roman Hudec
+#######################################################*/
+
+/*===================================
+ASPX MULTIPLE FILE UPLOAD FORMATING
+===================================#*/
+.aspxMfu{
+	display:block;
+}
+/*===================================
+INPUT FILE FORMATING
+===================================*/
+.aspxMfu .inpuFile
+{
+    width:250px;
+    margin-left:5px;
+    text-align:left;
+}
+/*===================================
+TABLE TEXTAREA FORMATING
+===================================#*/
+.aspxMfu .description{
+    width:100%;
+}
+
+/*===================================
+TABLE FILES FORMATING
+===================================#*/
+.aspxMfu .tableFiles{
+    width:100%;
+    border: solid 1px #959599;
+}
+
+.tableFiles .header{
+    background-color:#282828;
+    color:White;
+    text-align:left;
+    
+    border-bottom-style:solid;
+	border-width:1px;
+	border-bottom-color:#959599;
+	padding:2px 5px 2px 5px;
+}
+.tableFiles .header-disabled{
+    background-color:Gray;
+    color:White;
+    text-align:left;
+    
+    border-bottom-style:solid;
+	border-width:1px;
+	border-bottom-color:#959599;
+	padding:2px 5px 2px 5px;
+}
+.tableFiles .cellPosition{
+    border-bottom-style:solid;
+	border-width:1px;
+	border-bottom-color:#959599;
+	padding:3px 5px 3px 5px;
+	
+	white-space: nowrap;
+}
+.tableFiles .cellFile{
+    border-bottom-style:solid;
+	border-width:1px;
+	border-bottom-color:#959599;
+	padding:3px 5px 3px 5px;
+	
+	white-space: nowrap;
+}
+
+.tableFiles .cellDescription{
+    border-bottom-style:solid;
+	border-width:1px;
+	border-bottom-color:#959599;
+	padding:3px 5px 3px 5px;
+	width:100%;
+}
+
+.tableFiles .cellAction{
+    border-bottom-style:solid;
+	border-width:1px;
+	border-bottom-color:#959599;
+	padding:3px 5px 3px 0px;
+	
+	text-align:center;
+	white-space: nowrap;
+	display:table-cell;
+}
+
+.cellAction .deleteLink, .cellAction .editLink{}
+.deleteLink, .editLink{ padding-left:4px; padding-right:2px;}

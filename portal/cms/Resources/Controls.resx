@@ -1,0 +1,1137 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="AdminMenuControl_LabelName" xml:space="preserve">
+    <value>Name :</value>
+  </data>
+  <data name="AdminMenuControl_LabelOrder" xml:space="preserve">
+    <value>Order :</value>
+  </data>
+  <data name="AdminMenuControl_LabelAlias" xml:space="preserve">
+    <value>Page :</value>
+  </data>
+  <data name="AdminMenusControl_ColumnName" xml:space="preserve">
+    <value>Name</value>
+  </data>
+  <data name="AdminMenusControl_ColumnOrder" xml:space="preserve">
+    <value>Order</value>
+  </data>
+  <data name="AdminMenusControl_ColumnAlias" xml:space="preserve">
+    <value>Alias</value>
+  </data>
+  <data name="AdminMenusControl_NewMenuButton_Text" xml:space="preserve">
+    <value>New menu item</value>
+  </data>
+  <data name="AdminOptionControl_Name" xml:space="preserve">
+    <value>Name :</value>
+  </data>
+  <data name="AdminOptionControl_Order" xml:space="preserve">
+    <value>Order :</value>
+  </data>
+  <data name="AdminOptionsControl_ColumnName" xml:space="preserve">
+    <value>Name</value>
+  </data>
+  <data name="AdminOptionsControl_ColumnOrder" xml:space="preserve">
+    <value>Order</value>
+  </data>
+  <data name="AdminOptionsControl_NewOption" xml:space="preserve">
+    <value>New option</value>
+  </data>
+  <data name="AdminOptionsControl_Poll" xml:space="preserve">
+    <value>Poll :</value>
+  </data>
+  <data name="AdminOptionsControl_Title" xml:space="preserve">
+    <value>Poll options administration</value>
+  </data>
+  <data name="AdminPageControl_LabelName" xml:space="preserve">
+    <value>Name :</value>
+  </data>
+  <data name="AdminPageControl_LabelRole" xml:space="preserve">
+    <value>Role :</value>
+  </data>
+  <data name="AdminPageControl_LabelTitle" xml:space="preserve">
+    <value>Title :</value>
+  </data>
+  <data name="AdminPagesControl_ColumnName" xml:space="preserve">
+    <value>Name</value>
+  </data>
+  <data name="AdminPagesControl_ColumnRole" xml:space="preserve">
+    <value>Role</value>
+  </data>
+  <data name="AdminPagesControl_ColumnTitle" xml:space="preserve">
+    <value>Title</value>
+  </data>
+  <data name="AdminPagesControl_NewPageButton_Text" xml:space="preserve">
+    <value>New page</value>
+  </data>
+  <data name="AdminPollControl_DateFrom" xml:space="preserve">
+    <value>Date From :</value>
+  </data>
+  <data name="AdminPollControl_DateTo" xml:space="preserve">
+    <value>Date To :</value>
+  </data>
+  <data name="AdminPollControl_Question" xml:space="preserve">
+    <value>Question :</value>
+  </data>
+  <data name="AdminPollsControl_ColumnClosed" xml:space="preserve">
+    <value>Closed</value>
+  </data>
+  <data name="AdminPollsControl_ColumnClosePoll" xml:space="preserve">
+    <value>Close poll</value>
+  </data>
+  <data name="AdminPollsControl_ColumnDateFrom" xml:space="preserve">
+    <value>Date from</value>
+  </data>
+  <data name="AdminPollsControl_ColumnDateTo" xml:space="preserve">
+    <value>Date to</value>
+  </data>
+  <data name="AdminPollsControl_ColumnQuestion" xml:space="preserve">
+    <value>Question</value>
+  </data>
+  <data name="AdminPollsControl_NewPoll" xml:space="preserve">
+    <value>New poll</value>
+  </data>
+  <data name="AdminPollsControl_Title" xml:space="preserve">
+    <value>Polls administration</value>
+  </data>
+  <data name="ArchivedPollsControl_Title" xml:space="preserve">
+    <value>Archived Polls</value>
+  </data>
+  <data name="CancelButton_Text" xml:space="preserve">
+    <value>Cancel</value>
+  </data>
+  <data name="DeleteItemQuestion" xml:space="preserve">
+    <value>Do you really want to delete the selected item ?</value>
+  </data>
+  <data name="GridView_ToolTip_DeleteItem" xml:space="preserve">
+    <value>Delete item</value>
+  </data>
+  <data name="GridView_ToolTip_EditItem" xml:space="preserve">
+    <value>Edit item</value>
+  </data>
+  <data name="GridView_ToolTip_MoveDown" xml:space="preserve">
+    <value>Move Down</value>
+  </data>
+  <data name="GridView_ToolTip_MoveUp" xml:space="preserve">
+    <value>Move Up</value>
+  </data>
+  <data name="PollControl_VoteTotal" xml:space="preserve">
+    <value>Vote Total</value>
+  </data>
+  <data name="SaveButton_Text" xml:space="preserve">
+    <value>Save</value>
+  </data>
+  <data name="AdminPollsControl_ColumnPollOptions" xml:space="preserve">
+    <value>Poll options</value>
+  </data>
+  <data name="AddressControl_City" xml:space="preserve">
+    <value>City :</value>
+  </data>
+  <data name="AddressControl_Country" xml:space="preserve">
+    <value>Country :</value>
+  </data>
+  <data name="AddressControl_District" xml:space="preserve">
+    <value>District :</value>
+  </data>
+  <data name="AddressControl_Notes" xml:space="preserve">
+    <value>Notes :</value>
+  </data>
+  <data name="AddressControl_Region" xml:space="preserve">
+    <value>Region :</value>
+  </data>
+  <data name="AddressControl_State" xml:space="preserve">
+    <value>State :</value>
+  </data>
+  <data name="AddressControl_Street" xml:space="preserve">
+    <value>Street :</value>
+  </data>
+  <data name="AddressControl_Zip" xml:space="preserve">
+    <value>Zip :</value>
+  </data>
+  <data name="PersonControl_HomeAddress" xml:space="preserve">
+    <value>Home Address</value>
+  </data>
+  <data name="PersonControl_TempAddress" xml:space="preserve">
+    <value>Temp Address</value>
+  </data>
+  <data name="PersonControl_FirstName" xml:space="preserve">
+    <value>First Name :</value>
+  </data>
+  <data name="PersonControl_LastName" xml:space="preserve">
+    <value>Last Name :</value>
+  </data>
+  <data name="PersonControl_Mobile" xml:space="preserve">
+    <value>Mobile :</value>
+  </data>
+  <data name="PersonControl_Notes" xml:space="preserve">
+    <value>Notes :</value>
+  </data>
+  <data name="PersonControl_Phone" xml:space="preserve">
+    <value>Phone :</value>
+  </data>
+  <data name="PersonControl_Title" xml:space="preserve">
+    <value>Title :</value>
+  </data>
+  <data name="AdminNewsListControl_ColumnDate" xml:space="preserve">
+    <value>Date</value>
+  </data>
+  <data name="AdminNewsListControl_ColumnTitle" xml:space="preserve">
+    <value>Head</value>
+  </data>
+  <data name="AdminNewsListControl_NewNews" xml:space="preserve">
+    <value>New news</value>
+  </data>
+  <data name="AdminNewsControl_Content" xml:space="preserve">
+    <value>Content :</value>
+  </data>
+  <data name="AdminNewsControl_Date" xml:space="preserve">
+    <value>Date :</value>
+  </data>
+  <data name="AdminNewsControl_Title" xml:space="preserve">
+    <value>Title :</value>
+  </data>
+  <data name="AdminAccountControl_LabelEmail" xml:space="preserve">
+    <value>E-Mail :</value>
+  </data>
+  <data name="AdminAccountControl_LabelEnabled" xml:space="preserve">
+    <value>Enabled :</value>
+  </data>
+  <data name="AdminAccountControl_LabelLogin" xml:space="preserve">
+    <value>Login :</value>
+  </data>
+  <data name="AdminAccountControl_LabelRoles" xml:space="preserve">
+    <value>Roles :</value>
+  </data>
+  <data name="AdminAccountsControl_ColumnEmail" xml:space="preserve">
+    <value>Email</value>
+  </data>
+  <data name="AdminAccountsControl_ColumnLogin" xml:space="preserve">
+    <value>Login</value>
+  </data>
+  <data name="AdminAccountsControl_ColumnEnabled" xml:space="preserve">
+    <value>Enabled</value>
+  </data>
+  <data name="AdminAccountsControl_ColumnRoles" xml:space="preserve">
+    <value>Roles</value>
+  </data>
+  <data name="AdminNewsControl_Description" xml:space="preserve">
+    <value>Description :</value>
+  </data>
+  <data name="NewsControl_NewsArchivLink" xml:space="preserve">
+    <value>» News archiv</value>
+  </data>
+  <data name="AdminAccountsControl_NewAccountButton_Text" xml:space="preserve">
+    <value>New Account</value>
+  </data>
+  <data name="AdminMenuControl_LabelRole" xml:space="preserve">
+    <value>Role :</value>
+  </data>
+  <data name="AdminAccountsControl_ColumnRole" xml:space="preserve">
+    <value>Role</value>
+  </data>
+  <data name="AdminFAQControl_Answer" xml:space="preserve">
+    <value>Answer :</value>
+  </data>
+  <data name="AdminFAQControl_Order" xml:space="preserve">
+    <value>Order :</value>
+  </data>
+  <data name="AdminFAQControl_Question" xml:space="preserve">
+    <value>Question :</value>
+  </data>
+  <data name="AdminFAQsControl_ColumnAnswer" xml:space="preserve">
+    <value>Answer</value>
+  </data>
+  <data name="AdminFAQsControl_ColumnOrder" xml:space="preserve">
+    <value>Order</value>
+  </data>
+  <data name="AdminFAQsControl_ColumnQuestion" xml:space="preserve">
+    <value>Question</value>
+  </data>
+  <data name="AdminFAQsControl_NewFAQ" xml:space="preserve">
+    <value>New FAQ</value>
+  </data>
+  <data name="AdminPageControl_LabelMasterPage" xml:space="preserve">
+    <value>MasterPage :</value>
+  </data>
+  <data name="OrganizationControl_ContactPersonTitle" xml:space="preserve">
+    <value>Contact Person</value>
+  </data>
+  <data name="OrganizationControl_CorrespondenceAddressTitle" xml:space="preserve">
+    <value>Correspondence Address</value>
+  </data>
+  <data name="OrganizationControl_Id1" xml:space="preserve">
+    <value>Id1 :</value>
+  </data>
+  <data name="OrganizationControl_Id2" xml:space="preserve">
+    <value>Id2 :</value>
+  </data>
+  <data name="OrganizationControl_Id3" xml:space="preserve">
+    <value>Id3 :</value>
+  </data>
+  <data name="OrganizationControl_InvoicingAddressTitle" xml:space="preserve">
+    <value>Invoicing Address</value>
+  </data>
+  <data name="OrganizationControl_Name" xml:space="preserve">
+    <value>Name :</value>
+  </data>
+  <data name="OrganizationControl_Notes" xml:space="preserve">
+    <value>Notes :</value>
+  </data>
+  <data name="OrganizationControl_RegisteredAddressTitle" xml:space="preserve">
+    <value>Registered Address</value>
+  </data>
+  <data name="OrganizationControl_Web" xml:space="preserve">
+    <value>Web :</value>
+  </data>
+  <data name="AdminAccountControl_LabelVerified" xml:space="preserve">
+    <value>Verified :</value>
+  </data>
+  <data name="AdminAccountControl_LabelVerifyCode" xml:space="preserve">
+    <value>Verify Code :</value>
+  </data>
+  <data name="AdminAccountsControl_ColumnVerified" xml:space="preserve">
+    <value>Verified</value>
+  </data>
+  <data name="PersonControl_Email" xml:space="preserve">
+    <value>Email :</value>
+  </data>
+  <data name="PersonControl_EqualWithHomeAdress" xml:space="preserve">
+    <value>Equal with home addres</value>
+  </data>
+  <data name="OrganizationControl_EqualWithRegisteredAdress" xml:space="preserve">
+    <value>Equal with registered adress</value>
+  </data>
+  <data name="AdminPaidServiceControl_CreditCost" xml:space="preserve">
+    <value>Credit cost :</value>
+  </data>
+  <data name="AdminPaidServiceControl_Name" xml:space="preserve">
+    <value>Name :</value>
+  </data>
+  <data name="AdminPaidServicesControl_ColumnCreditCost" xml:space="preserve">
+    <value>Credit cost</value>
+  </data>
+  <data name="AdminPaidServicesControl_ColumnName" xml:space="preserve">
+    <value>Name</value>
+  </data>
+  <data name="AdminPaidServicesControl_ColumnNotes" xml:space="preserve">
+    <value>Notes</value>
+  </data>
+  <data name="AdminAddAccountCreditControl_CreditToAdd" xml:space="preserve">
+    <value>Credit to add :</value>
+  </data>
+  <data name="AdminAddAccountCreditControl_CurrentCredit" xml:space="preserve">
+    <value>Current credit :</value>
+  </data>
+  <data name="AdminAddAccountCreditControl_User" xml:space="preserve">
+    <value>User :</value>
+  </data>
+  <data name="AdminAccountsControl_ToolTip_AddCredit" xml:space="preserve">
+    <value>Add credit for account</value>
+  </data>
+  <data name="AdminAccountsControl_ColumnCredit" xml:space="preserve">
+    <value>Credit</value>
+  </data>
+  <data name="NavigationMenusControl_SubMenuToolTip" xml:space="preserve">
+    <value>Sub menu definition</value>
+  </data>
+  <data name="AdminNewsletterControl_Content" xml:space="preserve">
+    <value>Content :</value>
+  </data>
+  <data name="AdminNewsletterControl_Date" xml:space="preserve">
+    <value>Date :</value>
+  </data>
+  <data name="AdminNewsletterControl_Subject" xml:space="preserve">
+    <value>Subject :</value>
+  </data>
+  <data name="AdminNewsletterListControl_ColumnDate" xml:space="preserve">
+    <value>Date</value>
+  </data>
+  <data name="AdminNewsletterListControl_ColumnSendDate" xml:space="preserve">
+    <value>Send date</value>
+  </data>
+  <data name="AdminNewsletterListControl_ColumnSubject" xml:space="preserve">
+    <value>Subject</value>
+  </data>
+  <data name="AdminNewsletterListControl_NewNewsletter" xml:space="preserve">
+    <value>New newsletter</value>
+  </data>
+  <data name="GridView_ToolTip_SendEmail" xml:space="preserve">
+    <value>Send email</value>
+  </data>
+  <data name="BankContactControl_AccountNumber" xml:space="preserve">
+    <value>Account number :</value>
+  </data>
+  <data name="BankContactControl_BankCode" xml:space="preserve">
+    <value>Bank code :</value>
+  </data>
+  <data name="BankContactControl_BankName" xml:space="preserve">
+    <value>Bank name :</value>
+  </data>
+  <data name="BankContactControl_IBAN" xml:space="preserve">
+    <value>IBAN :</value>
+  </data>
+  <data name="BankContactControl_SWIFT" xml:space="preserve">
+    <value>SWIFT :</value>
+  </data>
+  <data name="OrganizationControl_BankContactTitle" xml:space="preserve">
+    <value>Bank contact</value>
+  </data>
+  <data name="SendButton_Text" xml:space="preserve">
+    <value>Send</value>
+  </data>
+  <data name="ContactFormControl_Email" xml:space="preserve">
+    <value>Email :</value>
+  </data>
+  <data name="ContactFormControl_Message" xml:space="preserve">
+    <value>Message :</value>
+  </data>
+  <data name="ContactFormControl_Name" xml:space="preserve">
+    <value>Name :</value>
+  </data>
+  <data name="ContactFormControl_Subject" xml:space="preserve">
+    <value>Subject :</value>
+  </data>
+  <data name="ContactFormControl_SendErrorMessage" xml:space="preserve">
+    <value>Error : Can not send this message! Please try again later.</value>
+  </data>
+  <data name="ContactFormControl_SendSuccessMessage" xml:space="preserve">
+    <value>Your message was successfuly send!</value>
+  </data>
+  <data name="AdminNewsletterControl_Roles" xml:space="preserve">
+    <value>Roles :</value>
+  </data>
+  <data name="AdminRoleControl_LabelName" xml:space="preserve">
+    <value>Name :</value>
+  </data>
+  <data name="AdminRoleControl_LabelNotes" xml:space="preserve">
+    <value>Notes :</value>
+  </data>
+  <data name="AdminRolesControl_ColumnName" xml:space="preserve">
+    <value>Name</value>
+  </data>
+  <data name="AdminRolesControl_ColumnNotes" xml:space="preserve">
+    <value>Notes</value>
+  </data>
+  <data name="AdminRolesControl_NewRoleButton_Text" xml:space="preserve">
+    <value>New role</value>
+  </data>
+  <data name="AdminRolesControl_CanNotDeleteUsedRole_Message" xml:space="preserve">
+    <value>Can not delete used role!</value>
+  </data>
+  <data name="AdminPollsControl_ColumnShowPollResult" xml:space="preserve">
+    <value>Show poll result</value>
+  </data>
+  <data name="ContactFormControl_Phone" xml:space="preserve">
+    <value>Phone :</value>
+  </data>
+  <data name="AdminTranslationsControl_ColumnTerm" xml:space="preserve">
+    <value>Term</value>
+  </data>
+  <data name="AdminVocabulariesControl_ColumnName" xml:space="preserve">
+    <value>Vocabulary</value>
+  </data>
+  <data name="AdminVocabulariesControl_ColumnTranslation" xml:space="preserve">
+    <value>Translation</value>
+  </data>
+  <data name="AdminTranslationsControl_ColumnNotes" xml:space="preserve">
+    <value>Notes</value>
+  </data>
+  <data name="AdminArticlesControl_ColumnReleaseDate" xml:space="preserve">
+    <value>Release date</value>
+  </data>
+  <data name="AdminArticlesControl_ColumnTitle" xml:space="preserve">
+    <value>Title</value>
+  </data>
+  <data name="AdminArticleControl_Approved" xml:space="preserve">
+    <value>Approved :</value>
+  </data>
+  <data name="AdminArticleControl_Category" xml:space="preserve">
+    <value>Category :</value>
+  </data>
+  <data name="AdminArticleControl_City" xml:space="preserve">
+    <value>City :</value>
+  </data>
+  <data name="AdminArticleControl_Content" xml:space="preserve">
+    <value>Content :</value>
+  </data>
+  <data name="AdminArticleControl_Country" xml:space="preserve">
+    <value>Country :</value>
+  </data>
+  <data name="AdminArticleControl_ExpireDate" xml:space="preserve">
+    <value>Expire date :</value>
+  </data>
+  <data name="AdminArticleControl_ReleaseDate" xml:space="preserve">
+    <value>Release date :</value>
+  </data>
+  <data name="AdminArticleControl_Role" xml:space="preserve">
+    <value>Role :</value>
+  </data>
+  <data name="AdminArticleControl_Teaser" xml:space="preserve">
+    <value>Teaser :</value>
+  </data>
+  <data name="AdminArticleControl_Title" xml:space="preserve">
+    <value>Title :</value>
+  </data>
+  <data name="AdminArticleControl_Visible" xml:space="preserve">
+    <value>Visible :</value>
+  </data>
+  <data name="AdminArticlesControl_NewArticle" xml:space="preserve">
+    <value>New article</value>
+  </data>
+  <data name="ArticleControl_ViewCount" xml:space="preserve">
+    <value>View count</value>
+  </data>
+  <data name="GridView_ToolTip_Approve" xml:space="preserve">
+    <value>Approve</value>
+  </data>
+  <data name="GridView_ToolTip_Hide" xml:space="preserve">
+    <value>Hide</value>
+  </data>
+  <data name="GridView_ToolTip_Show" xml:space="preserve">
+    <value>Show</value>
+  </data>
+  <data name="ArticleControl_ArticleArchivLink" xml:space="preserve">
+    <value>» All Articles</value>
+  </data>
+  <data name="ArchivedArticlesControl_Categories" xml:space="preserve">
+    <value>Categories</value>
+  </data>
+  <data name="AdminTagControl_LabelName" xml:space="preserve">
+    <value>Name :</value>
+  </data>
+  <data name="AdminTagsControl_ColumnName" xml:space="preserve">
+    <value>Name</value>
+  </data>
+  <data name="AdminTagsControl_NewTagButton_Text" xml:space="preserve">
+    <value>New tag</value>
+  </data>
+  <data name="AdminArticleControl_Tags" xml:space="preserve">
+    <value>Tags :</value>
+  </data>
+  <data name="ArticleControl_CommentsCount" xml:space="preserve">
+    <value>Comments</value>
+  </data>
+  <data name="AdminArticleControl_EnableComments" xml:space="preserve">
+    <value>Enable comments :</value>
+  </data>
+  <data name="CommentControl_Content" xml:space="preserve">
+    <value>Content</value>
+  </data>
+  <data name="CommentControl_SendCommentButton_Text" xml:space="preserve">
+    <value>Send comment</value>
+  </data>
+  <data name="CommentControl_Title" xml:space="preserve">
+    <value>Title</value>
+  </data>
+  <data name="CommentControl_NewComment" xml:space="preserve">
+    <value>New comment</value>
+  </data>
+  <data name="ArticleCommentsControl_Reply" xml:space="preserve">
+    <value>Reply</value>
+  </data>
+  <data name="RaitingControl_RatingLabel" xml:space="preserve">
+    <value>Rating</value>
+  </data>
+  <data name="AdminBlogControl_Approved" xml:space="preserve">
+    <value>Approved :</value>
+  </data>
+  <data name="AdminBlogControl_City" xml:space="preserve">
+    <value>City :</value>
+  </data>
+  <data name="AdminBlogControl_Content" xml:space="preserve">
+    <value>Content :</value>
+  </data>
+  <data name="AdminBlogControl_Country" xml:space="preserve">
+    <value>Country :</value>
+  </data>
+  <data name="AdminBlogControl_EnableComments" xml:space="preserve">
+    <value>Enable comments :</value>
+  </data>
+  <data name="AdminBlogControl_ExpireDate" xml:space="preserve">
+    <value>Expire date :</value>
+  </data>
+  <data name="AdminBlogControl_ReleaseDate" xml:space="preserve">
+    <value>Release date :</value>
+  </data>
+  <data name="AdminBlogControl_Role" xml:space="preserve">
+    <value>Role :</value>
+  </data>
+  <data name="AdminBlogControl_Tags" xml:space="preserve">
+    <value>Tags :</value>
+  </data>
+  <data name="AdminBlogControl_Teaser" xml:space="preserve">
+    <value>Teaser :</value>
+  </data>
+  <data name="AdminBlogControl_Title" xml:space="preserve">
+    <value>Title :</value>
+  </data>
+  <data name="AdminBlogControl_Visible" xml:space="preserve">
+    <value>Visible :</value>
+  </data>
+  <data name="AdminBlogsControl_ColumnReleaseDate" xml:space="preserve">
+    <value>Release date</value>
+  </data>
+  <data name="AdminBlogsControl_ColumnTitle" xml:space="preserve">
+    <value>Title</value>
+  </data>
+  <data name="AdminBlogsControl_NewBlog" xml:space="preserve">
+    <value>New blog</value>
+  </data>
+  <data name="BlogCommentsControl_Reply" xml:space="preserve">
+    <value>Reply</value>
+  </data>
+  <data name="BlogControl_BlogArchivLink" xml:space="preserve">
+    <value>» Blog archiv</value>
+  </data>
+  <data name="BlogControl_CommentsCount" xml:space="preserve">
+    <value>Comments</value>
+  </data>
+  <data name="BlogControl_ViewCount" xml:space="preserve">
+    <value>View count</value>
+  </data>
+  <data name="BlogControl_UserBlogs" xml:space="preserve">
+    <value>User blogs</value>
+  </data>
+  <data name="AdminImageGalleriesControl_ColumnDate" xml:space="preserve">
+    <value>Date</value>
+  </data>
+  <data name="AdminImageGalleriesControl_ColumnName" xml:space="preserve">
+    <value>Name</value>
+  </data>
+  <data name="AdminImageGalleriesControl_NewGallery" xml:space="preserve">
+    <value>New gallery</value>
+  </data>
+  <data name="AdminImageGalleryControl_EnableComments" xml:space="preserve">
+    <value>Enable comments :</value>
+  </data>
+  <data name="AdminImageGalleryControl_EnableVotes" xml:space="preserve">
+    <value>Enable votes :</value>
+  </data>
+  <data name="AdminImageGalleryControl_Name" xml:space="preserve">
+    <value>Name :</value>
+  </data>
+  <data name="AdminImageGalleryControl_Role" xml:space="preserve">
+    <value>Role :</value>
+  </data>
+  <data name="AdminImageGalleryControl_Tags" xml:space="preserve">
+    <value>Tags :</value>
+  </data>
+  <data name="AdminImageGalleryControl_Visible" xml:space="preserve">
+    <value>Visible :</value>
+  </data>
+  <data name="AdminImageGalleriesControl_GalleryItemsToolTip" xml:space="preserve">
+    <value>Gallery items</value>
+  </data>
+  <data name="ImageGalleriesControl_CommentsCount" xml:space="preserve">
+    <value>Comments</value>
+  </data>
+  <data name="ImageGalleriesControl_Date" xml:space="preserve">
+    <value>Date</value>
+  </data>
+  <data name="ImageGalleriesControl_PhotosCount" xml:space="preserve">
+    <value>Photos</value>
+  </data>
+  <data name="ImageGalleriesControl_ViewCount" xml:space="preserve">
+    <value>Views</value>
+  </data>
+  <data name="ImageGalleryCommentsControl_Reply" xml:space="preserve">
+    <value>Reply</value>
+  </data>
+  <data name="ImageGalleryItemCommentsControl_Reply" xml:space="preserve">
+    <value>Reply</value>
+  </data>
+  <data name="AdminUrlAliasControl_LabelAlias" xml:space="preserve">
+    <value>Alias :</value>
+  </data>
+  <data name="AdminUrlAliasControl_LabelName" xml:space="preserve">
+    <value>Name :</value>
+  </data>
+  <data name="AdminUrlAliasControl_LabelUrl" xml:space="preserve">
+    <value>Url :</value>
+  </data>
+  <data name="AdminUrlAliasesControl_CanNotDeleteUsedUrlAlias_Message" xml:space="preserve">
+    <value>Can not delete used URL Alias !</value>
+  </data>
+  <data name="AdminUrlAliasesControl_ColumnAlias" xml:space="preserve">
+    <value>Alias</value>
+  </data>
+  <data name="AdminUrlAliasesControl_ColumnName" xml:space="preserve">
+    <value>Name</value>
+  </data>
+  <data name="AdminUrlAliasesControl_ColumnUrl" xml:space="preserve">
+    <value>Url</value>
+  </data>
+  <data name="AdminUrlAliasesControl_NewUrlAliasButton_Text" xml:space="preserve">
+    <value>New URL Alias</value>
+  </data>
+  <data name="AdminImageGalleryControl_Date" xml:space="preserve">
+    <value>Date :</value>
+  </data>
+  <data name="AdminUrlAliasesControl_AliasType" xml:space="preserve">
+    <value>Alias type :</value>
+  </data>
+  <data name="AdminUrlAliasesControl_AliasType_All" xml:space="preserve">
+    <value>All</value>
+  </data>
+  <data name="AdminUrlAliasesControl_AliasType_Articles" xml:space="preserve">
+    <value>Articles</value>
+  </data>
+  <data name="AdminUrlAliasesControl_AliasType_Blogs" xml:space="preserve">
+    <value>Blogs</value>
+  </data>
+  <data name="AdminUrlAliasesControl_AliasType_Custom" xml:space="preserve">
+    <value>Custom</value>
+  </data>
+  <data name="AdminUrlAliasesControl_AliasType_ImageGalleries" xml:space="preserve">
+    <value>Image galleries</value>
+  </data>
+  <data name="AdminUrlAliasesControl_AliasType_News" xml:space="preserve">
+    <value>News</value>
+  </data>
+  <data name="AdminUrlAliasesControl_AliasType_Pages" xml:space="preserve">
+    <value>Pages</value>
+  </data>
+  <data name="AdminPageControl_LabelUrlAlias" xml:space="preserve">
+    <value>Url Alias :</value>
+  </data>
+  <data name="AdminArticleControl_UrlAlias" xml:space="preserve">
+    <value>Url Alias :</value>
+  </data>
+  <data name="AdminImageGalleryControl_UrlAlias" xml:space="preserve">
+    <value>Url Alias :</value>
+  </data>
+  <data name="AdminBlogControl_UrlAlias" xml:space="preserve">
+    <value>Url Alias :</value>
+  </data>
+  <data name="AdminNewsControl_UrlAlias" xml:space="preserve">
+    <value>Url Alias :</value>
+  </data>
+  <data name="AdminUrlAliasesControl_UrlAliasExist_Message" xml:space="preserve">
+    <value>Can not create Url Alias, this Url alias already exist! Please choice diferent alais.</value>
+  </data>
+  <data name="PageEditToolBar_EditButtonText" xml:space="preserve">
+    <value>Edit</value>
+  </data>
+  <data name="PageEditToolBar_ManageButtonText" xml:space="preserve">
+    <value>Manage</value>
+  </data>
+  <data name="PageEditToolBar_NewButtonText" xml:space="preserve">
+    <value>New</value>
+  </data>
+  <data name="GridView_ToolTip_EditContent" xml:space="preserve">
+    <value>Edit content</value>
+  </data>
+  <data name="SearchEngineResultControl_ResultFormatText" xml:space="preserve">
+    <value>Search keywords &lt;b&gt;'{1}'&lt;/b&gt;, result &lt;b&gt;{0}&lt;/b&gt;</value>
+  </data>
+  <data name="Comment_AliasText" xml:space="preserve">
+    <value>comment</value>
+  </data>
+  <data name="ChangePassword_Text" xml:space="preserve">
+    <value>Change password</value>
+  </data>
+  <data name="ChangePasswordControl_Change_ButtonText" xml:space="preserve">
+    <value>Change</value>
+  </data>
+  <data name="ChangePasswordControl_ConfirmNewPassword_Label" xml:space="preserve">
+    <value>Confirm new password :</value>
+  </data>
+  <data name="ChangePasswordControl_InvalidOldPasswordMessage" xml:space="preserve">
+    <value>Invalid old password!</value>
+  </data>
+  <data name="ChangePasswordControl_Login_Label" xml:space="preserve">
+    <value>Login :</value>
+  </data>
+  <data name="ChangePasswordControl_NewPassword_Label" xml:space="preserve">
+    <value>New password :</value>
+  </data>
+  <data name="ChangePasswordControl_OldPassword_Label" xml:space="preserve">
+    <value>Old password :</value>
+  </data>
+  <data name="ForgotPasswordControl_Capcha_ErrorMessage" xml:space="preserve">
+    <value>The code you entered is not valid!</value>
+  </data>
+  <data name="ForgotPasswordControl_LoginOrEmail_Label" xml:space="preserve">
+    <value>Login or email :</value>
+  </data>
+  <data name="ForgotPasswordControl_Send_ButtonText" xml:space="preserve">
+    <value>Send</value>
+  </data>
+  <data name="ForgotPasswordControl_Email_ForgotPassword_Message" xml:space="preserve">
+    <value>Dear customer,&lt;br /&gt;your login is :{0}&lt;br /&gt;your new password is: {1}&lt;br /&gt;{2}</value>
+  </data>
+  <data name="ForgotPasswordControl_Email_ForgotPassword_Subject" xml:space="preserve">
+    <value>Forgot pasword</value>
+  </data>
+  <data name="ForgotPasswordControl_LoginNotExists" xml:space="preserve">
+    <value>Account not exists!</value>
+  </data>
+  <data name="ForgotPasswordControl_Capcha_TextBoxLabel" xml:space="preserve">
+    <value>Type the code from the image</value>
+  </data>
+  <data name="ForgotPasswordControl_Capcha_LinkButtonText" xml:space="preserve">
+    <value>Generate New Image</value>
+  </data>
+  <data name="BackLink" xml:space="preserve">
+    <value>back</value>
+  </data>
+  <data name="AdminArticleControl_Icon" xml:space="preserve">
+    <value>Icon :</value>
+  </data>
+  <data name="AdminArticleControl__RemoveIcon" xml:space="preserve">
+    <value>Remove icon</value>
+  </data>
+  <data name="AdminNewsControl_Icon" xml:space="preserve">
+    <value>Icon :</value>
+  </data>
+  <data name="AdminNewsControl__RemoveIcon" xml:space="preserve">
+    <value>Remove icon</value>
+  </data>
+  <data name="AdminMenusControl_ColumnCode" xml:space="preserve">
+    <value>Code</value>
+  </data>
+  <data name="AdminMenuControl_LabelCode" xml:space="preserve">
+    <value>Code :</value>
+  </data>
+  <data name="AdminMenusControl_MenuGroup" xml:space="preserve">
+    <value>Menu group :</value>
+  </data>
+  <data name="AdminMenuControl_Icon" xml:space="preserve">
+    <value>Icon :</value>
+  </data>
+  <data name="AdminMenuControl_RemoveIcon" xml:space="preserve">
+    <value>Remove icon</value>
+  </data>
+  <data name="AdminMenusControl_ColumnIcon" xml:space="preserve">
+    <value>Icon</value>
+  </data>
+  <data name="AdminImageGalleryControl_Description" xml:space="preserve">
+    <value>Description :</value>
+  </data>
+  <data name="AdminForumThreadControl_Description" xml:space="preserve">
+    <value>Description :</value>
+  </data>
+  <data name="AdminForumThreadControl_EditableForRole" xml:space="preserve">
+    <value>Editable for role :</value>
+  </data>
+  <data name="AdminForumThreadControl_Icon" xml:space="preserve">
+    <value>Icon :</value>
+  </data>
+  <data name="AdminForumThreadControl_Locked" xml:space="preserve">
+    <value>Locked :</value>
+  </data>
+  <data name="AdminForumThreadControl_Name" xml:space="preserve">
+    <value>Name :</value>
+  </data>
+  <data name="AdminForumThreadControl_RemoveIcon" xml:space="preserve">
+    <value>Remove icon</value>
+  </data>
+  <data name="AdminForumThreadControl_UrlAlias" xml:space="preserve">
+    <value>Url Alias :</value>
+  </data>
+  <data name="AdminForumThreadControl_VisibleForRole" xml:space="preserve">
+    <value>Visible for role :</value>
+  </data>
+  <data name="AdminForumThreadsControl_ColumnEditableForRole" xml:space="preserve">
+    <value>Editable for</value>
+  </data>
+  <data name="AdminForumThreadsControl_ColumnForumPostCount" xml:space="preserve">
+    <value>Post count total</value>
+  </data>
+  <data name="AdminForumThreadsControl_ColumnForumsCount" xml:space="preserve">
+    <value>Forums count</value>
+  </data>
+  <data name="AdminForumThreadsControl_ColumnIcon" xml:space="preserve">
+    <value>Icon</value>
+  </data>
+  <data name="AdminForumThreadsControl_ColumnLocked" xml:space="preserve">
+    <value>Locked</value>
+  </data>
+  <data name="AdminForumThreadsControl_ColumnName" xml:space="preserve">
+    <value>Name</value>
+  </data>
+  <data name="AdminForumThreadsControl_ColumnVisibleForRole" xml:space="preserve">
+    <value>Visible for</value>
+  </data>
+  <data name="AdminForumThreadsControl_NewForumThread" xml:space="preserve">
+    <value>New forum thread</value>
+  </data>
+  <data name="AdminForumsControl_ColumnIcon" xml:space="preserve">
+    <value>Icon</value>
+  </data>
+  <data name="AdminForumsControl_ColumnLocked" xml:space="preserve">
+    <value>Locked</value>
+  </data>
+  <data name="AdminForumsControl_ColumnName" xml:space="preserve">
+    <value>Name</value>
+  </data>
+  <data name="AdminForumsControl_ColumnPinned" xml:space="preserve">
+    <value>Pinned</value>
+  </data>
+  <data name="AdminForumsControl_ColumnPostCount" xml:space="preserve">
+    <value>Posts count</value>
+  </data>
+  <data name="AdminForumsControl_ColumnViewCount" xml:space="preserve">
+    <value>View count</value>
+  </data>
+  <data name="AdminForumsControl_ForumThread" xml:space="preserve">
+    <value>Forum category :</value>
+  </data>
+  <data name="AdminForumsControl_NewForum" xml:space="preserve">
+    <value>New Forum</value>
+  </data>
+  <data name="AdminForumControl_Description" xml:space="preserve">
+    <value>Description :</value>
+  </data>
+  <data name="AdminForumControl_Icon" xml:space="preserve">
+    <value>Icon :</value>
+  </data>
+  <data name="AdminForumControl_Locked" xml:space="preserve">
+    <value>Locked :</value>
+  </data>
+  <data name="AdminForumControl_Name" xml:space="preserve">
+    <value>Name :</value>
+  </data>
+  <data name="AdminForumControl_Pinned" xml:space="preserve">
+    <value>Pinned :</value>
+  </data>
+  <data name="AdminForumControl_RemoveIcon" xml:space="preserve">
+    <value>Remove icon</value>
+  </data>
+  <data name="AdminForumControl_UrlAlias" xml:space="preserve">
+    <value>Url Alias :</value>
+  </data>
+  <data name="ForumThreadsControl_ColumnForumPostCount" xml:space="preserve">
+    <value>Posts</value>
+  </data>
+  <data name="ForumThreadsControl_ColumnForumsCount" xml:space="preserve">
+    <value>Themes</value>
+  </data>
+  <data name="ForumThreadsControl_ColumnName" xml:space="preserve">
+    <value>Name</value>
+  </data>
+  <data name="ForumThreadsControl_ColumnStatus" xml:space="preserve">
+    <value>Status</value>
+  </data>
+  <data name="ForumsControl_ColumnForumPostCount" xml:space="preserve">
+    <value>Posts </value>
+  </data>
+  <data name="ForumsControl_ColumnLastPostDate" xml:space="preserve">
+    <value>Last post</value>
+  </data>
+  <data name="ForumsControl_ColumnName" xml:space="preserve">
+    <value>Theme</value>
+  </data>
+  <data name="ForumsControl_ColumnStatus" xml:space="preserve">
+    <value>Status</value>
+  </data>
+  <data name="ForumsControl_ColumnViewCount" xml:space="preserve">
+    <value>Views</value>
+  </data>
+  <data name="ForumsControl_ColumnForumContent" xml:space="preserve">
+    <value>Forum Content</value>
+  </data>
+  <data name="ForumPostsControl_Reply" xml:space="preserve">
+    <value>Reply</value>
+  </data>
+  <data name="ForumPostFormControl_Content" xml:space="preserve">
+    <value>Content</value>
+  </data>
+  <data name="ForumPostFormControl_NewPost" xml:space="preserve">
+    <value>New post</value>
+  </data>
+  <data name="ForumPostFormControl_SendPostButton_Text" xml:space="preserve">
+    <value>Send Post</value>
+  </data>
+  <data name="ForumPostFormControl_Subject" xml:space="preserve">
+    <value>Subject</value>
+  </data>
+  <data name="AdminForumPostControl_Content" xml:space="preserve">
+    <value>Content :</value>
+  </data>
+  <data name="AdminForumPostControl_Title" xml:space="preserve">
+    <value>Title :</value>
+  </data>
+  <data name="AdminForumPostsControl_ColumnAccountName" xml:space="preserve">
+    <value>Account</value>
+  </data>
+  <data name="AdminForumPostsControl_ColumnDate" xml:space="preserve">
+    <value>Date</value>
+  </data>
+  <data name="AdminForumPostsControl_ColumnDescription" xml:space="preserve">
+    <value>Post</value>
+  </data>
+  <data name="AdminForumPostsControl_NewPost" xml:space="preserve">
+    <value>New Post</value>
+  </data>
+  <data name="ForumsControl_ViewAsList_Text" xml:space="preserve">
+    <value>View as List</value>
+  </data>
+  <data name="ForumsControl_ViewAsTree_Text" xml:space="preserve">
+    <value>View as Tree</value>
+  </data>
+  <data name="ForumPostFormControl_TrackingThisForum" xml:space="preserve">
+    <value>Tracking this Forum</value>
+  </data>
+  <data name="ForumPostFormControl_Attachments" xml:space="preserve">
+    <value>Attachments</value>
+  </data>
+  <data name="ForumPostFormControl_Settings" xml:space="preserve">
+    <value>Settings</value>
+  </data>
+  <data name="ForumPostsControl_Attachments" xml:space="preserve">
+    <value>Attachments :</value>
+  </data>
+  <data name="ForumPostsControl_Attachment_Description" xml:space="preserve">
+    <value>Description :</value>
+  </data>
+  <data name="ForumPostsControl_Attachment_Size" xml:space="preserve">
+    <value>Size :</value>
+  </data>
+  <data name="AdminForumPostControl_AddAttachments" xml:space="preserve">
+    <value>Add Attachments :</value>
+  </data>
+  <data name="AdminForumPostControl_Attachments" xml:space="preserve">
+    <value>Attachments :</value>
+  </data>
+  <data name="AdminForumPostControl_ColumnDescription" xml:space="preserve">
+    <value>Description</value>
+  </data>
+  <data name="AdminForumPostControl_ColumnName" xml:space="preserve">
+    <value>Name</value>
+  </data>
+  <data name="AdminForumPostControl_ColumnOrder" xml:space="preserve">
+    <value>Order</value>
+  </data>
+  <data name="AdminForumPostControl_ColumnSize" xml:space="preserve">
+    <value>Size</value>
+  </data>
+  <data name="ForumsControl_ColumnLock" xml:space="preserve">
+    <value>Lock</value>
+  </data>
+  <data name="ForumsControl_ColumnUnLock" xml:space="preserve">
+    <value>Unlock</value>
+  </data>
+  <data name="ForumsControl_ColumnLastPostAccountName" xml:space="preserve">
+    <value>User</value>
+  </data>
+  <data name="GridView_ToolTip_EditPosts" xml:space="preserve">
+    <value>Edit posts</value>
+  </data>
+</root>
