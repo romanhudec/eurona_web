@@ -340,7 +340,7 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Děkujeme, Vaše objednávka proběhla úspěšně!.
+        ///   Looks up a localized string similar to Děkujeme! Vaše objednávka byla úspěšně přijata..
         /// </summary>
         internal static string Anonymous_OrderFinish_Dekujeme {
             get {
@@ -349,7 +349,7 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to operátorka Distribuční centrum Červený Kostelec.
+        ///   Looks up a localized string similar to Sídlo společnosti, Lhota za Červeným Kostelcem 261, Červený Kostelec, 549 41, Česká republika.
         /// </summary>
         internal static string Anonymous_OrderFinish_OperatorkaCentrum {
             get {
@@ -367,7 +367,7 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to V nejbližších dnech Vás kontaktuje náš obchodní specialista, poradce Eurona, který Vám v případě Vašeho zájmu může poskytnout důležité informace, vysvětlí jak používat naše jedinečné výrobky, a pomůže Vám nastartovat kariéru pro Vaší finanční nezávislost..
+        ///   Looks up a localized string similar to V nejbližších dnech Vás kontaktuje poradce společnosti Eurona, který Vám v případě zájmu sdělí potřebné informace nejen o našich jedinečných produktech, ale také Vám poradí, jak získat finanční nezávislost a nastartovat kariéru s Euronou..
         /// </summary>
         internal static string Anonymous_OrderFinish_VNejblizsichDnechVasKontaktujeme {
             get {
@@ -376,7 +376,7 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to V případě dalších dotazů se můžete obrátit přímo na naše operátorky:.
+        ///   Looks up a localized string similar to V případě jakýchkoli dotazů se prosím obraťte na naše operátorky:.
         /// </summary>
         internal static string Anonymous_OrderFinish_VPripadeDalsichDotazu {
             get {
@@ -385,7 +385,7 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to zde.
+        ///   Looks up a localized string similar to ZDE..
         /// </summary>
         internal static string Anonymous_OrderFinish_Zde {
             get {

@@ -446,10 +446,10 @@ E: prodej@eurona.cz</value>
     <value>Nákupný košík</value>
   </data>
   <data name="Anonymous_OrderFinish_Dekujeme" xml:space="preserve">
-    <value> Vaše objednávka proběhla úspěšně!</value>
+    <value>Ďakujeme! Vaša objednávka bola úspešne prijatá.</value>
   </data>
   <data name="Anonymous_OrderFinish_Zde" xml:space="preserve">
-    <value>tu</value>
+    <value>TU.</value>
   </data>
   <data name="Anonymous_PokracovatVObjednavce" xml:space="preserve">
     <value>Pokračovať v objednávke</value>
@@ -699,5 +699,14 @@ E: prodej@eurona.cz</value>
   </data>
   <data name="AdminOrdersControl_AsociatePriceLimitMessage" xml:space="preserve">
     <value>Katalógová cena pridružené objednávky musí byť vyššia ako {0}euro</value>
+  </data>
+  <data name="Anonymous_OrderFinish_OperatorkaCentrum" xml:space="preserve">
+    <value>Sídlo spoločnosti: Lhota za Červeným Kostelcem 261, Červený Kostelec, 549 41, Česká republika</value>
+  </data>
+  <data name="Anonymous_OrderFinish_VNejblizsichDnechVasKontaktujeme" xml:space="preserve">
+    <value>V najbližších dňoch Vás bude kontaktovať poradca spoločnosti Eurona, ktorý Vám v prípade záujmu podá potrebné informácie nielen o našich jedinečných produktoch, ale tiež Vám poradí, ako získať finančnú nezávislosť a naštartovať kariéru s Euronou.</value>
+  </data>
+  <data name="Anonymous_OrderFinish_VPripadeDalsichDotazu" xml:space="preserve">
+    <value>V prípade akýchkoľvek otázok sa, prosím, obráťte na naše operátorky:</value>
   </data>
 </root>

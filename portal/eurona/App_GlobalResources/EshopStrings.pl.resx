@@ -446,7 +446,7 @@ E: prodej@eurona.cz</value>
     <value>Koszyk</value>
   </data>
   <data name="Anonymous_OrderFinish_Dekujeme" xml:space="preserve">
-    <value>Děkujeme</value>
+    <value>Dziękujemy! Twoje zamówienie zostało pomyślnie zaakceptowane.</value>
   </data>
   <data name="Anonymous_PokracovatVObjednavce" xml:space="preserve">
     <value>Kontynuuj  zamówienie</value>
@@ -609,5 +609,20 @@ E: prodej@eurona.cz</value>
   </data>
   <data name="AdminOrdersControl_AsociatePriceLimitMessage" xml:space="preserve">
     <value>Cena katalogowa zamówienia przyłączonego powinna przewyższać {0}zl</value>
+  </data>
+  <data name="Anonymous_OrderFinish_OperatorkaCentrum" xml:space="preserve">
+    <value>Sziedziba spółki, Lhota za Červeným Kostelcem 261, Červený Kostelec, 549 41, Republika Czeska</value>
+  </data>
+  <data name="Anonymous_OrderFinish_VasiObjednavkuSiMuzeteProhlednout" xml:space="preserve">
+    <value>Twoje zamówienie możesz zobaczyć</value>
+  </data>
+  <data name="Anonymous_OrderFinish_VNejblizsichDnechVasKontaktujeme" xml:space="preserve">
+    <value>W najbliższych dniach skontaktuje się z Tobą konsultant spółki Eurona, który w wypadku potrzeby poinformuje Cię o naszych unikalnych produktach oraz doradzi jak uzyskać niezależność finansową i odstartować karierę z Euroną.</value>
+  </data>
+  <data name="Anonymous_OrderFinish_VPripadeDalsichDotazu" xml:space="preserve">
+    <value>W wypadku jakichkolwiek pytań prosimy o kontakt z naszymi operatorami:</value>
+  </data>
+  <data name="Anonymous_OrderFinish_Zde" xml:space="preserve">
+    <value>TUTAJ.</value>
   </data>
 </root>

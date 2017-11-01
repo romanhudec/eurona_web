@@ -62,11 +62,22 @@
         <br />
         <span style="color:#e2008b;"><asp:Literal runat="server" Text="<%$ Resources:EShopStrings, Anonymous_OrderFinish_OperatorkaCentrum %>"></asp:Literal></span>
         <br />
+        <%if( locale == "sk" ) {%>
+        - PO-PIA 8:00 – 16:00 hod<br />
+        - e-mail: prodej@eurona.cz<br />
+        <br /><br />
+        - telefon CZ: +420 491 477 361<br />
+        <%} else if(locale == "pl" ){ %>
+        - PO- PIĄ 8:00 – 16:00 godzin<br />
+        - e-mail: prodej@eurona.cz<br />
+        <br /><br />
+        - telefon CZ: +420 491 477 361<br />
+        <%} else{ %>
         - PO-PÁ 8:00 - 16:00 hod<br />
         - e-mail: prodej@eurona.cz<br />
         <br /><br />
         - telefon CZ: +420 491 477 361<br />
-        - telefon SK: +421 692 022 727<br />
+        <%} %>
         <div style="margin-top:10px;">
             <cmsPage:PageControl ID="PageControl1" IsEditing="true" runat="server" CssEditorToolBar="contentEditorToolbar" CssEditorContent="contentEditorContent" NewUrl="" 
 	        ManageUrl="" NotFoundUrlFormat="~/notFound.aspx?page={0}" PageName="anonymous-order-finish-banner2-content" PopUpEditorUrlFormat="~/admin/contentEditor.aspx?id={0}" />

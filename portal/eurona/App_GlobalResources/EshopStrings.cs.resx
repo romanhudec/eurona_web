@@ -445,22 +445,22 @@ E: prodej@eurona.cz</value>
     <value>Nákupní košík</value>
   </data>
   <data name="Anonymous_OrderFinish_Dekujeme" xml:space="preserve">
-    <value>Děkujeme, Vaše objednávka proběhla úspěšně!</value>
+    <value>Děkujeme! Vaše objednávka byla úspěšně přijata.</value>
   </data>
   <data name="Anonymous_OrderFinish_OperatorkaCentrum" xml:space="preserve">
-    <value>operátorka Distribuční centrum Červený Kostelec</value>
+    <value>Sídlo společnosti, Lhota za Červeným Kostelcem 261, Červený Kostelec, 549 41, Česká republika</value>
   </data>
   <data name="Anonymous_OrderFinish_VasiObjednavkuSiMuzeteProhlednout" xml:space="preserve">
     <value>Vaši objednávku si můžete prohlédnout</value>
   </data>
   <data name="Anonymous_OrderFinish_VNejblizsichDnechVasKontaktujeme" xml:space="preserve">
-    <value>V nejbližších dnech Vás kontaktuje náš obchodní specialista, poradce Eurona, který Vám v případě Vašeho zájmu může poskytnout důležité informace, vysvětlí jak používat naše jedinečné výrobky, a pomůže Vám nastartovat kariéru pro Vaší finanční nezávislost.</value>
+    <value>V nejbližších dnech Vás kontaktuje poradce společnosti Eurona, který Vám v případě zájmu sdělí potřebné informace nejen o našich jedinečných produktech, ale také Vám poradí, jak získat finanční nezávislost a nastartovat kariéru s Euronou.</value>
   </data>
   <data name="Anonymous_OrderFinish_VPripadeDalsichDotazu" xml:space="preserve">
-    <value>V případě dalších dotazů se můžete obrátit přímo na naše operátorky:</value>
+    <value>V případě jakýchkoli dotazů se prosím obraťte na naše operátorky:</value>
   </data>
   <data name="Anonymous_OrderFinish_Zde" xml:space="preserve">
-    <value>zde</value>
+    <value>ZDE.</value>
   </data>
   <data name="Anonymous_PokracovatVObjednavce" xml:space="preserve">
     <value>Pokračovat v objednávce</value>
