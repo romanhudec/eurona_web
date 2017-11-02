@@ -16,6 +16,14 @@ namespace Eurona.Operator {
             this.adminOrdersControl.OnGridViewPageChanged += adminOrdersControl_OnGridViewPageChanged;
         }
 
+        protected void btnNajit_Click(object sender, EventArgs e) {
+            adminOrdersControl.FilterOwnerName = this.txtFilerOwnerName.Text;
+            adminOrdersControl.FilterOrderNumber = this.txtFilterOrderNumber.Text;
+            adminOrdersControl.FilterOrderStatusName = this.txtFilterOrderStatusName.Text;
+            adminOrdersControl.GridViewDataBind(true);
+        }
+
+
         void adminOrdersControl_OnGridViewPageChanged(object sender, Telerik.Web.UI.GridPageChangedEventArgs e) {
            this.cbSelecUnselectAll.Checked = false;
         }

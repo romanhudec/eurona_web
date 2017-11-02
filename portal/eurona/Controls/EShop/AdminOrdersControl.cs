@@ -27,11 +27,7 @@ namespace Eurona.Controls.Order {
         public string EditUrlFormat { get; set; }
         public string UserUrlFormat { get; set; }
 
-        //private CheckBox cbShowAll = null;
-        private TextBox txtFilterOrderNumber;
-        private DropDownList ddlFilterOrderStatus;
-        private TextBox txtFilerOwnerName;
-        private Button btnFilter;
+        private CheckBox cbShowAll = null;
 
         public SortDirection SortDirection {
             get { return GetSession<SortDirection>("AdminOrdersControl-SortDirection", SortDirection.Descending); }
@@ -46,9 +42,33 @@ namespace Eurona.Controls.Order {
         /// <summary>
         /// Filter na status objednavok
         /// </summary>
+        public bool ShowFastFilterView {
+            get { return GetState<bool>("ShowFastFilterView"); }
+            set { SetState<bool>("ShowFastFilterView", value); }
+        }
+
+        /// <summary>
+        /// Filter na status objednavok
+        /// </summary>
         public string OrderStatusCode {
             get { return GetState<string>("OrderStatusCode"); }
             set { SetState<string>("OrderStatusCode", value); }
+        }
+
+        /// <summary>
+        /// Filter na status objednavok
+        /// </summary>
+        public string FilterOrderStatusName {
+            get { return GetState<string>("FilterOrderStatusName"); }
+            set { SetState<string>("FilterOrderStatusName", value); }
+        }
+        public string FilterOrderNumber {
+            get { return GetState<string>("FilterOrderNumber"); }
+            set { SetState<string>("FilterOrderNumber", value); }
+        }
+        public string FilterOwnerName {
+            get { return GetState<string>("FilterOwnerName"); }
+            set { SetState<string>("FilterOwnerName", value); }
         }
         /// <summary>
         /// Filter na NOT status objednavok
@@ -89,99 +109,26 @@ namespace Eurona.Controls.Order {
 
             gridView = CreateGridView();
             this.Controls.Add(gridView);
-
-            //GridViewDataBind(!IsPostBack);
+            
+            GridViewDataBind(!IsPostBack);
         }
 
         private Table CreateFilterControl() {
             Table table = new Table();
             table.Width = Unit.Percentage(100);
 
-            TableRow row = new TableRow();
-            #region Row filter Labels
-            table.Rows.Add(row);
-            TableCell cell = new TableCell();
-            Label lblOrderNumber = new Label();
-            lblOrderNumber.ID = "lblOrderNumber";
-            lblOrderNumber.Text = "Číslo objednávky";
-            cell.Controls.Add(lblOrderNumber);
-            row.Cells.Add(cell);
+            if (this.ShowFastFilterView ==false) {
+                TableRow row = new TableRow();
+                if (Security.IsInRole(Role.ADMINISTRATOR) || Security.IsInRole(Role.OPERATOR)) {
+                    ////--Cislo objednavky
+                    TableCell cell = new TableCell();
+                    this.cbShowAll = new CheckBox();
+                    this.cbShowAll.Text = "Zobrazit všechny objednávky ( Standardne se zobrazují jen nevyřízené)";
+                    this.cbShowAll.AutoPostBack = true;
+                    cell.Controls.Add(this.cbShowAll);
+                    row.Cells.Add(cell);
 
-            cell = new TableCell();
-            Label lblOrderStatus = new Label();
-            lblOrderStatus.ID = "lblOrderStatus";
-            lblOrderStatus.Text = "Stav objednávky";
-            cell.Controls.Add(lblOrderStatus);
-            row.Cells.Add(cell);
-
-            cell = new TableCell();
-            Label lblPoradce = new Label();
-            lblPoradce.ID = "lblPoradce";
-            lblPoradce.Text = "Poradce";
-            cell.Controls.Add(lblPoradce);
-            row.Cells.Add(cell);
-
-            cell = new TableCell();
-            cell.Controls.Add(new Literal());
-            row.Cells.Add(cell);
-            #endregion
-
-            #region Row2
-            row = new TableRow();
-            table.Rows.Add(row);
-
-            cell = new TableCell();
-            this.txtFilterOrderNumber = new TextBox();
-            this.txtFilterOrderNumber.Width = Unit.Percentage(100);
-            this.txtFilterOrderNumber.ID = "txtFilterOrderNumber";
-            cell.Controls.Add(this.txtFilterOrderNumber);
-            row.Cells.Add(cell);
-
-            List<OrderStatus> statuses = Storage<OrderStatus>.Read();
-            OrderStatus status = new OrderStatus();
-            statuses.Insert(0, status);
-            status.Name = SHP.Resources.Controls.AdminOrdersControl_OptionAll;
-            status.Id = 0;
-            status.Code = string.Empty;
-            ddlFilterOrderStatus = new DropDownList();
-            this.ddlFilterOrderStatus.Width = Unit.Percentage(100);
-            ddlFilterOrderStatus.ID = "ddlFilterOrderStatus";
-            ddlFilterOrderStatus.DataSource = statuses;
-            ddlFilterOrderStatus.DataTextField = "Name";
-            ddlFilterOrderStatus.DataValueField = "Code";
-            cell = new TableCell();
-            cell.Controls.Add(this.ddlFilterOrderStatus);
-            row.Cells.Add(cell);
-            ddlFilterOrderStatus.DataBind();
-
-            cell = new TableCell();
-            this.txtFilerOwnerName = new TextBox();
-            this.txtFilerOwnerName.Width = Unit.Percentage(100);
-            this.txtFilerOwnerName.ID = "txtFilerOwnerName";
-            cell.Controls.Add(this.txtFilerOwnerName);
-            row.Cells.Add(cell);
-
-            cell = new TableCell();
-            this.btnFilter = new Button();
-            this.btnFilter.Width = Unit.Percentage(100);
-            this.btnFilter.Text = "Najít";
-            this.btnFilter.ID = "btnFilter";
-            cell.Controls.Add(this.btnFilter);
-            this.btnFilter.Click += btnFilter_Click;
-            row.Cells.Add(cell);
-            #endregion
-
-            /*
-            if (Security.IsInRole(Role.ADMINISTRATOR) || Security.IsInRole(Role.OPERATOR)) {
-                ////--Cislo objednavky
-                TableCell cell = new TableCell();
-                this.cbShowAll = new CheckBox();
-                this.cbShowAll.Text = "Zobrazit všechny objednávky ( Standardne se zobrazují jen nevyřízené)";
-                this.cbShowAll.AutoPostBack = true;
-                cell.Controls.Add(this.cbShowAll);
-                row.Cells.Add(cell);
-
-                //if (!IsPostBack) {
+                    //if (!IsPostBack) {
                     if (string.IsNullOrEmpty(this.NotOrderStatusCode))
                         this.NotOrderStatusCode = ((int)OrderEntity.OrderStatus.Proccessed).ToString();
 
@@ -189,17 +136,17 @@ namespace Eurona.Controls.Order {
                         this.OnlyLastMonths = 1;
 
                     this.cbShowAll.Text = string.Format("Zobrazit všechny objednávky ( Standardne se zobrazují jen nevyřízené a jen za poslední {0} měsíce )", this.OnlyLastMonths);
-                //}
+                    //}
 
-                if (!string.IsNullOrEmpty(this.NotOrderStatusCode)) {
-                    if (OrderEntity.GetOrderStatusFromCode(this.NotOrderStatusCode) == SHP.Entities.Order.OrderStatus.Proccessed)
-                        this.cbShowAll.Checked = false;
-                    else this.cbShowAll.Checked = true;
+                    if (!string.IsNullOrEmpty(this.NotOrderStatusCode)) {
+                        if (OrderEntity.GetOrderStatusFromCode(this.NotOrderStatusCode) == SHP.Entities.Order.OrderStatus.Proccessed)
+                            this.cbShowAll.Checked = false;
+                        else this.cbShowAll.Checked = true;
+                    }
+                    this.cbShowAll.CheckedChanged += OnShowAll_CheckedChanged;
+
                 }
-                this.cbShowAll.CheckedChanged += OnShowAll_CheckedChanged;
-
             }
-            */
             return table;
         }
 
@@ -207,42 +154,41 @@ namespace Eurona.Controls.Order {
             GridViewDataBind(true);
         }
 
-        //void OnShowAll_CheckedChanged(object sender, EventArgs e) {
-        //    if (this.cbShowAll.Checked) this.NotOrderStatusCode = null;
-        //    else this.NotOrderStatusCode = ((int)OrderEntity.OrderStatus.Proccessed).ToString();
-        //    GridViewDataBind(true);
-        //}
-        //private OrderFastViewEntity.ReadByFilter GetFilterValue() {
-        //    OrderFastViewEntity.ReadByFilter filter = new OrderFastViewEntity.ReadByFilter();
-
-        //    if (this.ParentId.HasValue) filter.ParentId = this.ParentId.Value;
-        //    if (this.CreatedByAccountId.HasValue) filter.CreatedByAccountId = this.CreatedByAccountId.Value;
-        //    if (!string.IsNullOrEmpty(this.OrderStatusCode)) filter.OrderStatusCode = this.OrderStatusCode;
-        //    if (!string.IsNullOrEmpty(this.NotOrderStatusCode)) filter.NotOrderStatusCode = this.NotOrderStatusCode;
-        //    if (this.OnlyLastMonths.HasValue) {
-        //        if (this.cbShowAll.Checked == false) filter.OnlyLastMonths = this.OnlyLastMonths;
-        //    }
-        //    return filter;
-        //}
-
+        void OnShowAll_CheckedChanged(object sender, EventArgs e) {
+            if (this.cbShowAll.Checked) this.NotOrderStatusCode = null;
+            else this.NotOrderStatusCode = ((int)OrderEntity.OrderStatus.Proccessed).ToString();
+            GridViewDataBind(true);
+        }
         private OrderFastViewEntity.ReadByFilter GetFilterValue() {
             OrderFastViewEntity.ReadByFilter filter = new OrderFastViewEntity.ReadByFilter();
 
-            if (!string.IsNullOrEmpty(this.txtFilerOwnerName.Text)) filter.OwnerName = this.txtFilerOwnerName.Text;
-            if (!string.IsNullOrEmpty(this.txtFilterOrderNumber.Text)) filter.OrderNumber = this.txtFilterOrderNumber.Text;
-            if (!string.IsNullOrEmpty(this.ddlFilterOrderStatus.SelectedValue)) filter.OrderStatusCode = this.ddlFilterOrderStatus.SelectedValue;
+            if (this.ShowFastFilterView == true) {
+                if (!string.IsNullOrEmpty(FilterOwnerName)) filter.OwnerName = FilterOwnerName;
+                if (!string.IsNullOrEmpty(FilterOrderNumber)) filter.OrderNumber = FilterOrderNumber;
+                if (!string.IsNullOrEmpty(FilterOrderStatusName)) filter.OrderStatusName = FilterOrderStatusName;
+                return filter;
+            }
+
+            if (this.ParentId.HasValue) filter.ParentId = this.ParentId.Value;
+            if (this.CreatedByAccountId.HasValue) filter.CreatedByAccountId = this.CreatedByAccountId.Value;
+            if (!string.IsNullOrEmpty(this.OrderStatusCode)) filter.OrderStatusCode = this.OrderStatusCode;
+            if (!string.IsNullOrEmpty(this.NotOrderStatusCode)) filter.NotOrderStatusCode = this.NotOrderStatusCode;
+            if (this.OnlyLastMonths.HasValue) {
+                if (this.cbShowAll.Checked == false) filter.OnlyLastMonths = this.OnlyLastMonths;
+            }
             return filter;
         }
-
+       
         public void GridViewDataBind(bool bind) {
             OrderFastViewEntity.ReadByFilter filter = GetFilterValue();
             if (!Security.IsInRole(Role.ADMINISTRATOR) && !Security.IsInRole(Role.OPERATOR))
                 filter.AccountId = Security.Account.Id;
 
-            List<OrderFastViewEntity> list = Storage<OrderFastViewEntity>.Read(filter);
-
-            var ordered = list.AsQueryable().OrderBy(SortExpression + " " + SortDirection);
-            gridView.DataSource = ordered.ToList();
+            if (!filter.IsEmpty()) {
+                List<OrderFastViewEntity> list = Storage<OrderFastViewEntity>.Read(filter);
+                var ordered = list.AsQueryable().OrderBy(SortExpression + " " + SortDirection);
+                gridView.DataSource = ordered.ToList();
+            }
             if (bind) {
                 gridView.DataBind();
                 if (OnGridViewDataBinded != null) OnGridViewDataBinded(this, null);

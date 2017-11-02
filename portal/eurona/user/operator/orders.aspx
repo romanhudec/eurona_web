@@ -20,6 +20,19 @@
              </td>
          </tr>
      </table>
-     <shpOrder:AdminOrdersControl runat="server" ID="adminOrdersControl" CssClass="dataGrid" NotOrderStatusCode="-3" OnlyLastMonths="2" EditUrlFormat="~/user/operator/order.aspx?id={0}"/>
+    <table width="100%">
+        <tr>
+            <td>Číslo objednávky</td>
+            <td>Stav objednávky</td>
+            <td>Poradce</td>
+        </tr>
+        <tr>
+            <td><asp:TextBox Width="100%" runat="server" ID="txtFilterOrderNumber"></asp:TextBox></td>
+            <td><asp:TextBox Width="100%" runat="server" ID="txtFilterOrderStatusName"></asp:TextBox></td>
+            <td><asp:TextBox Width="100%" runat="server" ID="txtFilerOwnerName"></asp:TextBox></td>
+            <td rowspan="2" align="right"><asp:Button runat="server" ID="btnNajit" Text="Najít" Width="100%" OnClick="btnNajit_Click" /></td>
+        </tr>
+    </table>
+     <shpOrder:AdminOrdersControl runat="server" ID="adminOrdersControl" CssClass="dataGrid" ShowFastFilterView="true" NotOrderStatusCode="-3" OnlyLastMonths="2" EditUrlFormat="~/user/operator/order.aspx?id={0}"/>
     <asp:Button runat="server" ID="btnDeleteSelectedOrders" Text="Smazat vybrané objednávky" OnClick="btnDeleteSelectedOrders_Click" OnClientClick="return confirm('Opravdu si přejete vymazat označené objednávky?');" />
 </asp:Content>

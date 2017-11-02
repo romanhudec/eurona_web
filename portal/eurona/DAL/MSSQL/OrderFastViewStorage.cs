@@ -86,6 +86,7 @@ namespace Eurona.DAL.MSSQL
 					(@OrderNumber IS NULL OR OrderNumber LIKE @OrderNumber + '%') AND
                     (@OwnerName IS NULL OR OwnerName LIKE @OwnerName + '%') AND
 					(@OrderStatusCode IS NULL OR OrderStatusCode = @OrderStatusCode) AND
+                    (@OrderStatusName IS NULL OR OrderStatusName LIKE @OrderStatusName + '%') AND
 					(@NotOrderStatusCode IS NULL OR OrderStatusCode != @NotOrderStatusCode) AND
 					(@ParentId IS NULL OR ParentId = @ParentId) AND
 					(@OnlyLastMonths IS NULL OR (OrderDate >= DATEADD(M, @OnlyLastMonths*-1, GETDATE()) ) )";
@@ -94,6 +95,7 @@ namespace Eurona.DAL.MSSQL
 						new SqlParameter("@AccountId", Null(by.AccountId)),
 						new SqlParameter("@OrderNumber", Null(string.IsNullOrEmpty(by.OrderNumber) ? null : (object)by.OrderNumber)),
 						new SqlParameter("@OrderStatusCode", Null(by.OrderStatusCode)),
+                        new SqlParameter("@OrderStatusName", Null(by.OrderStatusName)),
 						new SqlParameter("@NotOrderStatusCode", Null(by.NotOrderStatusCode)),
 						new SqlParameter("@ParentId", Null(by.ParentId)),
 						new SqlParameter("@CreatedByAccountId", Null(by.CreatedByAccountId)),

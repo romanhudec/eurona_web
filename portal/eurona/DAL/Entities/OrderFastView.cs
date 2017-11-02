@@ -57,11 +57,18 @@ namespace Eurona.DAL.Entities
 			public int? AccountId { get; set; }
 			public string OrderNumber { get; set; }
 			public string OrderStatusCode { get; set; }
+            public string OrderStatusName { get; set; }
 			public string NotOrderStatusCode { get; set; }
 			public int? ParentId { get; set; }
 			public int? OnlyLastMonths { get; set; }
 			public int? CreatedByAccountId { get; set; }
             public string OwnerName { get; set; }
+
+            public bool IsEmpty() {
+                return !AccountId.HasValue && string.IsNullOrEmpty(OrderNumber) && string.IsNullOrEmpty(OrderStatusName) &&
+                    string.IsNullOrEmpty(NotOrderStatusCode) && !ParentId.HasValue && !OnlyLastMonths.HasValue &&
+                    !CreatedByAccountId.HasValue && string.IsNullOrEmpty(OwnerName);
+            }
 		}
 
 

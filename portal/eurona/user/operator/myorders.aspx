@@ -60,7 +60,7 @@
         .associateButton{font-size:14px; background-color:transparent!important; border:0px none #fff!important; display:block; width:210px; height:75px!important; background-image:url(../../images/zelene-tlacitko.png);}
     </style>
      <asp:CheckBox ID="cbOnlyMyOrders" runat="server" Text="Jen mnou vytvořené objednávky" OnCheckedChanged="OnOnlyMyOrdersCheckedChanged" AutoPostBack="true" ForeColor="#eb0a5b" />
-     <shpOrder:AdminOrdersControl runat="server" ID="adminOrdersControl" CssClass="dataGrid" EditUrlFormat="~/user/operator/order.aspx?id={0}"/>
+     <shpOrder:AdminOrdersControl runat="server" ID="adminOrdersControl" CssClass="dataGrid" ShowFastFilterView="false" EditUrlFormat="~/user/operator/order.aspx?id={0}"/>
      <asp:CheckBox ID="cbSelecUnselectAll" runat="server" Text="Označit/Odznačit všechny" OnCheckedChanged="OnSelectUnselectAll" AutoPostBack="true" ForeColor="#eb0a5b" />
      <div runat="server" id="divOrderAssociation">
         <div class="plus" id="divPlus" onclick="showControl('tblOrdersAssociation')"></div>

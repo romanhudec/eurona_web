@@ -122,7 +122,7 @@ namespace Eurona.User.Operator {
             //-------------------------------------------------------------//
             //Kontrola katalogovych cien objednavok
             foreach (OrderEntity order in list) {
-                decimal katalogovaCena = order.CartEntity.KatalogovaCenaCelkem;//order.PriceWVAT;
+                decimal katalogovaCena = order.CartEntity.KatalogovaCenaCelkemByEurosap;//order.PriceWVAT;
 
                 //Ceny striktní > 500Kč/83zl/18,5euro.
                 decimal minAssociationPrice = Eurona.EShop.User.OrdersPage.GetMinAssociationPrice(Security.Account.Locale);

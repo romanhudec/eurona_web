@@ -67,6 +67,42 @@ namespace Eurona.Operator {
         protected global::System.Web.UI.WebControls.CheckBox cbSelecUnselectAll;
         
         /// <summary>
+        /// txtFilterOrderNumber control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtFilterOrderNumber;
+        
+        /// <summary>
+        /// txtFilterOrderStatusName control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtFilterOrderStatusName;
+        
+        /// <summary>
+        /// txtFilerOwnerName control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtFilerOwnerName;
+        
+        /// <summary>
+        /// btnNajit control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnNajit;
+        
+        /// <summary>
         /// adminOrdersControl control.
         /// </summary>
         /// <remarks>
