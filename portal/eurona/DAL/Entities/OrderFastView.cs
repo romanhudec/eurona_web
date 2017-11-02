@@ -61,6 +61,7 @@ namespace Eurona.DAL.Entities
 			public int? ParentId { get; set; }
 			public int? OnlyLastMonths { get; set; }
 			public int? CreatedByAccountId { get; set; }
+            public string OwnerName { get; set; }
 		}
 
 
