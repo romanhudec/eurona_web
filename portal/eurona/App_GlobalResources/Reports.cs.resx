@@ -345,4 +345,10 @@
   <data name="DenniPrehledObjednavek_Title" xml:space="preserve">
     <value>Denní přehled objednávek</value>
   </data>
+  <data name="PrehledObjednavek" xml:space="preserve">
+    <value>&gt; Přehled objednávek</value>
+  </data>
+  <data name="OsobniSkupiny" xml:space="preserve">
+    <value>Osobní skupiny</value>
+  </data>
 </root>

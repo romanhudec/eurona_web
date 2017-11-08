@@ -91,9 +91,10 @@
     {
     }
 
-
+#if __CUSTOM_ERROR
+		
     protected void Application_Error(object sender, EventArgs e) {
-        if (Context.IsCustomErrorEnabled)
+        if (Context.IsCustomErrorEnabled)            
             ShowCustomErrorPage(Server.GetLastError());
     }
 
@@ -106,7 +107,7 @@
         Response.Redirect(String.Format("~/error.aspx?code={0}", httpException.GetHttpCode()));
         Server.ClearError();
     }
-
+#endif
       
 </script>
 

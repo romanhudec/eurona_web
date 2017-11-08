@@ -40,15 +40,6 @@ namespace Eurona.User.Advisor {
         protected global::System.Web.UI.WebControls.Literal Literal2;
         
         /// <summary>
-        /// Hyperlink1 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.HyperLink Hyperlink1;
-        
-        /// <summary>
         /// trPrehledSkupinyATP control.
         /// </summary>
         /// <remarks>
@@ -92,6 +83,24 @@ namespace Eurona.User.Advisor {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.HyperLink Hyperlink4;
+        
+        /// <summary>
+        /// Hyperlink6 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HyperLink Hyperlink6;
+        
+        /// <summary>
+        /// Hyperlink7 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HyperLink Hyperlink7;
         
         /// <summary>
         /// Literal3 control.
@@ -148,33 +157,6 @@ namespace Eurona.User.Advisor {
         protected global::System.Web.UI.WebControls.Literal Literal5;
         
         /// <summary>
-        /// Hyperlink13 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.HyperLink Hyperlink13;
-        
-        /// <summary>
-        /// Hyperlink14 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.HyperLink Hyperlink14;
-        
-        /// <summary>
-        /// Hyperlink15 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.HyperLink Hyperlink15;
-        
-        /// <summary>
         /// Hyperlink5 control.
         /// </summary>
         /// <remarks>
@@ -184,13 +166,13 @@ namespace Eurona.User.Advisor {
         protected global::System.Web.UI.WebControls.HyperLink Hyperlink5;
         
         /// <summary>
-        /// Hyperlink6 control.
+        /// Hyperlink1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.HyperLink Hyperlink6;
+        protected global::System.Web.UI.WebControls.HyperLink Hyperlink1;
         
         /// <summary>
         /// Literal6 control.

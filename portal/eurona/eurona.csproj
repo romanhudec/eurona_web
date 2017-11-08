@@ -30,7 +30,7 @@
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
     <OutputPath>bin\</OutputPath>
-    <DefineConstants>TRACE;DEBUG;__CUSTOM_ERROR;N__DEBUG_VERSION;N__DEBUG_VERSION_WITHOUTTVD;N__LOCAL_BANK_PAY</DefineConstants>
+    <DefineConstants>TRACE;DEBUG;N__CUSTOM_ERROR;N__DEBUG_VERSION;N__DEBUG_VERSION_WITHOUTTVD;N__LOCAL_BANK_PAY</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
@@ -463,6 +463,7 @@
     <Content Include="user\advisor\charts\Default.aspx" />
     <Content Include="user\advisor\pay.aspx" />
     <Content Include="user\advisor\CountDownControl.ascx" />
+    <Content Include="user\advisor\reports\prehledObjednavek.aspx" />
     <Content Include="user\advisor\reports\denniPrehledObjednavek.aspx" />
     <Content Include="user\advisor\reports\zruseniPoradci.aspx" />
     <Content Include="user\advisor\reports\prehledProdukceSkupinyATP.aspx" />
@@ -1783,6 +1784,13 @@
     </Compile>
     <Compile Include="user\advisor\CountDownControl.ascx.designer.cs">
       <DependentUpon>CountDownControl.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="user\advisor\reports\prehledObjednavek.aspx.cs">
+      <DependentUpon>prehledObjednavek.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="user\advisor\reports\prehledObjednavek.aspx.designer.cs">
+      <DependentUpon>prehledObjednavek.aspx</DependentUpon>
     </Compile>
     <Compile Include="user\advisor\reports\denniPrehledObjednavek.aspx.cs">
       <DependentUpon>denniPrehledObjednavek.aspx</DependentUpon>

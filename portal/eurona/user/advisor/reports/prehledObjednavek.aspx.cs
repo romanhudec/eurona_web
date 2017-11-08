@@ -11,7 +11,7 @@ using OrganizationEntity = Eurona.Common.DAL.Entities.Organization;
 using Telerik.Web.UI;
 
 namespace Eurona.User.Advisor.Reports {
-    public partial class HistorieObjednavek : ReportPage {
+    public partial class PrehledObjednavek : ReportPage {
         protected void Page_Load(object sender, EventArgs e) {
             if (this.ForAdvisor == null) return;
             if (this.ForAdvisor.TVD_Id == null) return;
@@ -43,10 +43,10 @@ namespace Eurona.User.Advisor.Reports {
                     if (filter != null) obdobi = (int)filter;
 
                     OrganizationEntity forAdvisor = Storage<OrganizationEntity>.ReadFirst(new OrganizationEntity.ReadByCode { Code = this.txtAdvisorCode.Text });
-                    if (forAdvisor != null) Response.Redirect(Page.ResolveUrl(string.Format("~/user/advisor/reports/historieObjednavek.aspx?id={0}&obdobi={1}", forAdvisor.TVD_Id, obdobi)));
+                    if (forAdvisor != null) Response.Redirect(Page.ResolveUrl(string.Format("~/user/advisor/reports/prehledObjednavek.aspx?id={0}&obdobi={1}", forAdvisor.TVD_Id, obdobi)));
                     else {
                         forAdvisor = Storage<OrganizationEntity>.ReadFirst(new OrganizationEntity.ReadBy { Name = this.txtAdvisorCode.Text });
-                        if (forAdvisor != null) Response.Redirect(Page.ResolveUrl(string.Format("~/user/advisor/reports/historieObjednavek.aspx?id={0}&obdobi={1}", forAdvisor.TVD_Id, obdobi)));
+                        if (forAdvisor != null) Response.Redirect(Page.ResolveUrl(string.Format("~/user/advisor/reports/prehledObjednavek.aspx?id={0}&obdobi={1}", forAdvisor.TVD_Id, obdobi)));
                     }
                 }
             }
@@ -65,7 +65,7 @@ namespace Eurona.User.Advisor.Reports {
             CMS.Pump.MSSQLStorage tvdStorage = new CMS.Pump.MSSQLStorage(base.ConnectionString);
             using (SqlConnection connection = tvdStorage.Connect()) {
                 string sql = string.Empty;
-                sql = @"SELECT f.id_prepoctu, cislo_objednavky = f.cislo_objednavky_eurosap, f.datum_vystaveni, f.celkem_k_uhrade, celkem_bez_dph = f.zaklad_zs, f.dph_zs,
+                sql = @"SELECT f.id_prepoctu, ofr.id_web_objednavky, cislo_objednavky = f.cislo_objednavky_eurosap, f.datum_vystaveni, f.celkem_k_uhrade, celkem_bez_dph = f.zaklad_zs, f.dph_zs,
 									celkem_katalogova_cena = SUM( fr.cena_mj_katalogova * fr.mnozstvi),
 									celkem_body = SUM(fr.zapocet_mj_body * fr.mnozstvi),
 									celkem_objem_pro_marzi = SUM(fr.zapocet_mj_marze * fr.mnozstvi),
@@ -80,19 +80,23 @@ namespace Eurona.User.Advisor.Reports {
 										WHEN 99 THEN 'Uloženo'
 										ELSE ''
 										END,
-									p.dor_misto,
-									p.dor_psc,
-									Adresa = (p.dor_ulice + ', ' + p.dor_misto + ', ' + p.dor_psc + ', ' + p.dor_stat)
+									ofr.Dor_nazev_firmy,
+									ofr.dor_misto,
+									ofr.dor_psc									
 								FROM www_faktury f 
 									INNER JOIN www_faktury_radky fr ON fr.id_prepoctu = f.id_prepoctu
-								  LEFT JOIN objednavkyfaktury ofr ON ofr.Id_objednavky = f.cislo_objednavky_eurosap
-								  LEFT JOIN www_prepocty p ON p.id_prepoctu = f.id_prepoctu
+								    LEFT JOIN objednavkyfaktury ofr ON ofr.Id_objednavky = f.cislo_objednavky_eurosap
+								    --LEFT JOIN www_prepocty p ON p.id_prepoctu = f.id_prepoctu
+                                    INNER JOIN odberatele o  ON o.Id_odberatele = f.id_odberatele
 								WHERE 
-									(YEAR(f.datum_vystaveni)*100 +MONTH(f.datum_vystaveni)) = @RRRRMM AND
-									f.id_odberatele=@Id_odberatele AND
-									f.potvrzeno=1
-									GROUP BY f.id_prepoctu, f.cislo_objednavky_eurosap, f.datum_vystaveni, f.celkem_k_uhrade, f.zaklad_zs, f.dph_zs, ofr.StavK2,
-									p.dor_ulice , p.dor_misto ,p.dor_psc,p.dor_stat";
+									    (YEAR(f.datum_vystaveni)*100 +MONTH(f.datum_vystaveni)) = @RRRRMM AND
+									    f.id_odberatele=@Id_odberatele AND
+									    f.potvrzeno=1
+									GROUP BY f.id_prepoctu, ofr.id_web_objednavky, f.cislo_objednavky_eurosap, f.datum_vystaveni, f.celkem_k_uhrade, f.zaklad_zs, f.dph_zs, ofr.StavK2,
+									    ofr.Dor_nazev_firmy,
+									    ofr.dor_misto,
+									    ofr.dor_psc
+                                    ORDER BY f.datum_vystaveni DESC";
 
                 //Clear data
                 DataTable dt = tvdStorage.Query(connection, sql,

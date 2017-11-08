@@ -49,7 +49,7 @@
 <asp:Content ID="Content5" ContentPlaceHolderID="content_header" runat="server">
 </asp:Content>
 <asp:Content ID="Content4" ContentPlaceHolderID="content" runat="server">
-<cmsPage:PageControl ID="PageControl1" IsEditing="true" runat="server" CssEditorToolBar="contentEditorToolbar" CssEditorContent="contentEditorContent" NewUrl="" 
+    <cmsPage:PageControl ID="PageControl1" IsEditing="true" runat="server" CssEditorToolBar="contentEditorToolbar" CssEditorContent="contentEditorContent" NewUrl="" 
 	ManageUrl="" NotFoundUrlFormat="~/notFound.aspx?page={0}" PageName="advisor-banner-content" PopUpEditorUrlFormat="~/admin/contentEditor.aspx?id={0}" />
 <table style="width:100%;" class="advisor-desktop" cellpadding="5" cellspacing="5">
     <tr>
@@ -60,13 +60,12 @@
                 <tr>
                     <td class="item-content">
                         <table style="margin:auto;" cellpadding="3" cellspacing="0">
-                            <tr><td align="left"><asp:Hyperlink ID="Hyperlink1" CssClass="report_item" runat="server" NavigateUrl="~/user/advisor/reports/prehledProdukceSkupiny.aspx" Text="<%$ Resources:Reports, PrehledProdukceSkupiny %>"></asp:Hyperlink></td></tr>
 							<tr runat="server" id="trPrehledSkupinyATP" visible="false"><td align="left"><asp:Hyperlink ID="hlPrehledSkupinyATP" CssClass="report_item" runat="server" NavigateUrl="~/user/advisor/reports/prehledProdukceSkupinyATP.aspx" Text="<%$ Resources:Reports, PrehledProdukceSkupinyATP %>"></asp:Hyperlink></td></tr>
                             <tr><td align="left"><asp:Hyperlink ID="Hyperlink2" CssClass="report_item" runat="server" NavigateUrl="~/user/advisor/reports/osobniPrehledPoradce.aspx" Text="<%$ Resources:Reports, OsobniPrehledPoradce %>"></asp:Hyperlink></td></tr>
                             <tr><td align="left"><asp:Hyperlink ID="Hyperlink3" CssClass="report_item" runat="server" NavigateUrl="~/user/advisor/reports/noviPoradci.aspx" Text="<%$ Resources:Reports, NoviPoradci %>"></asp:Hyperlink></td></tr>
                             <tr><td align="left"><asp:Hyperlink ID="Hyperlink4" CssClass="report_item" runat="server" NavigateUrl="~/user/advisor/reports/aktivityReportPoradce.aspx" Text="<%$ Resources:Reports, AktivityReportPoradce %>"></asp:Hyperlink></td></tr>
-                            <%--<tr><td align="left"><asp:Hyperlink ID="Hyperlink6" CssClass="report_item" runat="server" NavigateUrl="~/user/advisor/reports/zauctovanaProdukce.aspx" Text="<%$ Resources:Reports, DnesZauctovanaProdukce %>"></asp:Hyperlink></td></tr>
-                            <tr><td align="left"><asp:Hyperlink ID="Hyperlink7" CssClass="report_item" runat="server" NavigateUrl="~/user/advisor/reports/historieObjednavek.aspx" Text="<%$ Resources:Reports, HistorieObjednavek %>"></asp:Hyperlink></td></tr>--%>
+                            <tr><td align="left"><asp:Hyperlink ID="Hyperlink6" CssClass="report_item" runat="server" NavigateUrl="~/user/advisor/reports/prehledObjednavek.aspx" Text="<%$ Resources:Reports, PrehledObjednavek %>"></asp:Hyperlink></td></tr>
+                            <tr><td align="left"><asp:Hyperlink ID="Hyperlink7" CssClass="report_item" runat="server" NavigateUrl="~/user/advisor/reports/historieObjednavek.aspx" Text="<%$ Resources:Reports, HistorieObjednavek %>"></asp:Hyperlink></td></tr>
                         </table>
                     </td>
                 </tr>
@@ -103,11 +102,8 @@
                 <tr>
                     <td class="item-content">
                         <table style="margin:auto;" cellpadding="3" cellspacing="0">
-                            <tr><td align="left"><asp:Hyperlink ID="Hyperlink13" CssClass="report_item" runat="server" NavigateUrl="~/user/advisor/reports/nezauctovanaProdukce.aspx" Text="<%$ Resources:Reports, NezauctovanaProdukcevReportech %>"></asp:Hyperlink></td></tr>
-                            <tr><td align="left"><asp:Hyperlink ID="Hyperlink14" CssClass="report_item" runat="server" NavigateUrl="~/user/advisor/reports/zauctovanaProdukce.aspx" Text="<%$ Resources:Reports, DnesZauctovanaProdukce %>"></asp:Hyperlink></td></tr>
-                            <tr><td align="left"><asp:Hyperlink ID="Hyperlink15" CssClass="report_item" runat="server" NavigateUrl="~/user/advisor/reports/historieObjednavek.aspx" Text="<%$ Resources:Reports, HistorieObjednavek %>"></asp:Hyperlink></td></tr>
-                            <tr><td align="left"><asp:Hyperlink ID="Hyperlink5" CssClass="report_item" runat="server" NavigateUrl="~/user/advisor/reports/zruseniPoradci.aspx" Text="<%$ Resources:Reports, ZruseniPoradci %>"></asp:Hyperlink></td></tr>
-                            <tr><td align="left"><asp:Hyperlink ID="Hyperlink6" CssClass="report_item" runat="server" NavigateUrl="~/user/advisor/reports/denniPrehledObjednavek.aspx" Text="<%$ Resources:Reports, DenniPrehledObjednavek %>"></asp:Hyperlink></td></tr>
+                            <tr><td align="left"><asp:Hyperlink ID="Hyperlink5" CssClass="report_item" runat="server" NavigateUrl="~/user/advisor/reports/prehledObjednavek.aspx" Text="<%$ Resources:Reports, PrehledObjednavek %>"></asp:Hyperlink></td></tr>
+                            <tr><td align="left"><asp:Hyperlink ID="Hyperlink1" CssClass="report_item" runat="server" NavigateUrl="~/user/advisor/reports/historieObjednavek.aspx" Text="<%$ Resources:Reports, HistorieObjednavek %>"></asp:Hyperlink></td></tr>
                         </table>
                     </td>
                 </tr>

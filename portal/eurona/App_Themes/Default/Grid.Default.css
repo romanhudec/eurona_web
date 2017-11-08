@@ -881,11 +881,11 @@ DIV.RadGrid_Default TH.rgSorted{}
 DIV.RadGrid_Default TH.rgSorted A{}
 DIV.RadGrid_Default .rgFilterRow{}
 DIV.RadGrid_Default .rgFilterRow TD{BACKGROUND-COLOR: #fff}
-DIV.RadGrid_Default .rgRow TD{BORDER-BOTTOM-COLOR: #bbbbbb; BACKGROUND-COLOR: #fefefe; BORDER-TOP-COLOR: #bbbbbb; BORDER-RIGHT-COLOR: #bbbbbb; BORDER-LEFT-COLOR: #bbbbbb}
+DIV.RadGrid_Default .rgRow TD{BORDER-BOTTOM-COLOR: #bbbbbb; BORDER-TOP-COLOR: #bbbbbb; BORDER-RIGHT-COLOR: #bbbbbb; BORDER-LEFT-COLOR: #bbbbbb}
 DIV.RadGrid_Default .rgSelectedRow TD{}
 DIV.RadGrid_Default .rgActiveRow TD{}
 DIV.RadGrid_Default .rgHoveredRow TD{}
-DIV.RadGrid_Default .rgRow{}
+DIV.RadGrid_Default .rgRow{BACKGROUND-COLOR: #fefefe;}
 DIV.RadGrid_Default TR.rgSelectedRow{}
 DIV.RadGrid_Default TABLE .rgActiveRow{}
 DIV.RadGrid_Default TABLE TR.rgHoveredRow{}

@@ -320,7 +320,7 @@
   </data>
   <data name="Bez21Skupin" xml:space="preserve">
     <value>Osobní skupina bez 21% podřízených skupin</value>
-  </data>  
+  </data>
   <data name="PrehledProdukceSkupinyATP" xml:space="preserve">
     <value>&gt; Prehľad produkcie skupiny ATP</value>
   </data>
@@ -347,5 +347,11 @@
   </data>
   <data name="DenniPrehledObjednavek_Title" xml:space="preserve">
     <value>Denný prehľad objednávok</value>
+  </data>
+  <data name="PrehledObjednavek" xml:space="preserve">
+    <value>&gt; Prehľad objednávok</value>
+  </data>
+  <data name="OsobniSkupiny" xml:space="preserve">
+    <value>Osobné skupiny</value>
   </data>
 </root>

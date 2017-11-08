@@ -13,6 +13,7 @@
     <tr>
         <td><asp:RadioButton runat="server" ID="rbPrvniLinie" Text="<%$ Resources:Reports, PrvniLinie %>" GroupName="group" /></td>
         <td><asp:RadioButton runat="server" ID="rbSkupina" Text="<%$ Resources:Reports, CeleSkupiny %>" GroupName="group" /></td>
+        <td><asp:CheckBox runat="server" ID="cbOsobniSkupiny" Text="<%$ Resources:Reports, OsobniSkupiny %>" /></td>
         <td align="right"><asp:Literal ID="Literal1" runat="server" Text="<%$ Resources:Reports, Advisor %>"></asp:Literal> <i>(reg. číslo nebo jméno)</i></td>
         <td><asp:TextBox runat="server" ID="txtAdvisorCode"></asp:TextBox></td>
     </tr>
@@ -49,17 +50,17 @@
 
                 <telerik:GridBoundColumn HeaderText="BO" DataField="Body_vlastni" UniqueName="Body_vlastni" HeaderStyle-Width="30px" ItemStyle-HorizontalAlign="Right"
                     SortExpression="Body_vlastni" AutoPostBackOnFilter="false" AllowFiltering="false" CurrentFilterFunction="Contains" ShowFilterIcon="false" DataFormatString="{0:F0}" />
-                <telerik:GridBoundColumn HeaderText="OO" DataField="Objem_vlastni" UniqueName="Objem_vlastni" HeaderStyle-Width="50px" ItemStyle-HorizontalAlign="Right"
-                    SortExpression="Objem_vlastni" AutoPostBackOnFilter="false" AllowFiltering="false" CurrentFilterFunction="Contains" ShowFilterIcon="false" DataFormatString="{0:F2}" />
+                <%--<telerik:GridBoundColumn HeaderText="OO" DataField="Objem_vlastni" UniqueName="Objem_vlastni" HeaderStyle-Width="50px" ItemStyle-HorizontalAlign="Right"
+                    SortExpression="Objem_vlastni" AutoPostBackOnFilter="false" AllowFiltering="false" CurrentFilterFunction="Contains" ShowFilterIcon="false" DataFormatString="{0:F2}" />--%>
                 <telerik:GridHyperLinkColumn HeaderText="BO sk." DataTextField="Body_os" UniqueName="Body_os" DataNavigateUrlFields="Id_odberatele,RRRRMM"  HeaderStyle-Width="40px" ItemStyle-HorizontalAlign="Right"
                     SortExpression="Body_os" AutoPostBackOnFilter="false" AllowFiltering="false" CurrentFilterFunction="Contains" ShowFilterIcon="false" DataTextFormatString="{0:F0}" DataNavigateUrlFormatString="~/user/advisor/reports/osobniPrehledPoradce.aspx?id={0}&obdobi={1}" />
-                <telerik:GridBoundColumn HeaderText="OO sk." DataField="Objem_os" UniqueName="Objem_os" HeaderStyle-Width="60px" ItemStyle-HorizontalAlign="Right"
-                    SortExpression="Objem_os" AutoPostBackOnFilter="false" AllowFiltering="false" CurrentFilterFunction="Contains" ShowFilterIcon="false" DataFormatString="{0:F2}" />
+               <%-- <telerik:GridBoundColumn HeaderText="OO sk." DataField="Objem_os" UniqueName="Objem_os" HeaderStyle-Width="60px" ItemStyle-HorizontalAlign="Right"
+                    SortExpression="Objem_os" AutoPostBackOnFilter="false" AllowFiltering="false" CurrentFilterFunction="Contains" ShowFilterIcon="false" DataFormatString="{0:F2}" />--%>
 
                 <telerik:GridBoundColumn HeaderText="M" DataField="Marze_platna" UniqueName="Marze_platna" HeaderStyle-Width="30px" ItemStyle-HorizontalAlign="Right"
                     SortExpression="Marze_platna" AutoPostBackOnFilter="false" AllowFiltering="false" CurrentFilterFunction="Contains" ShowFilterIcon="false" DataFormatString="{0:F2}" />
-                <telerik:GridBoundColumn HeaderText="M$$$" DataField="Marze_mena" UniqueName="Marze_mena" HeaderStyle-Width="60px" ItemStyle-HorizontalAlign="Right"
-                    SortExpression="Marze_mena" AutoPostBackOnFilter="false" AllowFiltering="false" CurrentFilterFunction="Contains" ShowFilterIcon="false" DataFormatString="{0:F2}" />
+             <%--   <telerik:GridBoundColumn HeaderText="M$$$" DataField="Marze_mena" UniqueName="Marze_mena" HeaderStyle-Width="60px" ItemStyle-HorizontalAlign="Right"
+                    SortExpression="Marze_mena" AutoPostBackOnFilter="false" AllowFiltering="false" CurrentFilterFunction="Contains" ShowFilterIcon="false" DataFormatString="{0:F2}" />--%>
                 <telerik:GridBoundColumn HeaderText="$$$" DataField="Marze_kod_meny" UniqueName="Marze_kod_meny" HeaderStyle-Width="30px"
                     SortExpression="Marze_kod_meny" AutoPostBackOnFilter="false" AllowFiltering="false" CurrentFilterFunction="Contains" ShowFilterIcon="false" />
                 <telerik:GridBoundColumn HeaderText="Mn" DataField="Marze_nasledujici" UniqueName="Marze_nasledujici" HeaderStyle-Width="30px" ItemStyle-HorizontalAlign="Right"
@@ -72,7 +73,9 @@
                     SortExpression="Pocet_novych_s_objednavkou" AutoPostBackOnFilter="false" AllowFiltering="false" CurrentFilterFunction="Contains" ShowFilterIcon="false" DataFormatString="{0:F0}" />
                 <telerik:GridBoundColumn HeaderText="Mě" DataField="Mesicu_bez_objednavky" UniqueName="Mesicu_bez_objednavky" HeaderStyle-Width="30px" ItemStyle-HorizontalAlign="Right"
                     SortExpression="Mesicu_bez_objednavky" AutoPostBackOnFilter="false" AllowFiltering="false" CurrentFilterFunction="Contains" ShowFilterIcon="false" DataFormatString="{0:F0}" />
-                <telerik:GridBoundColumn HeaderText="NR" DataField="Statut" UniqueName="Statut" HeaderStyle-Width="30px"
+                <telerik:GridBoundColumn HeaderText="Město" DataField="Misto" UniqueName="Misto" HeaderStyle-Width="30px"
+                    SortExpression="Statut" AutoPostBackOnFilter="false" AllowFiltering="false" CurrentFilterFunction="Contains" ShowFilterIcon="false" />
+                <telerik:GridBoundColumn HeaderText="PSČ" DataField="Psc" UniqueName="Psc" HeaderStyle-Width="30px"
                     SortExpression="Statut" AutoPostBackOnFilter="false" AllowFiltering="false" CurrentFilterFunction="Contains" ShowFilterIcon="false" />
             </Columns>
         </MasterTableView>
