@@ -1,13 +1,18 @@
 ﻿<%@ Page Title="<%$ Resources:Reports, PrehledObjednavek_Title %>" Language="C#" MasterPageFile="~/user/advisor/reports/report.master" AutoEventWireup="true" CodeBehind="prehledObjednavek.aspx.cs" Inherits="Eurona.User.Advisor.Reports.PrehledObjednavek" %>
 <%@ Register TagPrefix="telerik" Namespace="Telerik.Web.UI" Assembly="Telerik.Web.UI" %>
+<%@ Register Assembly="cms" Namespace="CMS.Controls" TagPrefix="cms" %>
 
 <asp:Content ID="Content2" ContentPlaceHolderID="filter_content" runat="server">
-<table width="350px">
+    <table style="width:100%;">
     <tr>
-        <td align="right"><asp:Literal ID="Literal1" runat="server" Text="<%$ Resources:Reports, Advisor %>"></asp:Literal><i>(reg. číslo nebo jméno)</i></td>
+        <td align="right" style="white-space:nowrap"><asp:Literal ID="Literal1" runat="server" Text="<%$ Resources:Reports, Advisor %>"></asp:Literal><i>(reg. číslo nebo jméno)</i></td>
         <td><asp:TextBox runat="server" ID="txtAdvisorCode"></asp:TextBox></td>
+        <td style="white-space:nowrap">Datum od:</td>
+        <td><telerik:RadDatePicker runat="server" ID="dtpDatumOd" Width="120px" /></td>
+        <td style="white-space:nowrap">Datum do:</td>
+        <td><telerik:RadDatePicker runat="server" ID="dtpDatumDo" Width="120px"/></td>
     </tr>
-</table>
+    </table>
 </asp:Content>
 <asp:Content ID="Content1" ContentPlaceHolderID="content" runat="server">
     <telerik:RadGrid AutoGenerateColumns="False" ID="gridView" AllowFilteringByColumn="True" AllowPaging="True" AllowSorting="True" runat="server">
@@ -16,6 +21,9 @@
         <GroupingSettings CaseSensitive="false" />
         <MasterTableView TableLayout="Fixed" AllowFilteringByColumn="false" PageSize = "50">
             <Columns>                
+                <telerik:GridHyperLinkColumn HeaderText="Kód" DataTextField="Kod_odberatele" DataType="System.String" UniqueName="Kod_odberatele" HeaderStyle-Width="100px"
+                    SortExpression="Kod_odberatele" AutoPostBackOnFilter="true" CurrentFilterFunction="Contains" ShowFilterIcon="false" />
+
                 <telerik:GridBoundColumn HeaderText="Jméno" DataField="Dor_nazev_firmy" UniqueName="Dor_nazev_firmy" HeaderStyle-Width="100px"
                     SortExpression="Dor_nazev_firmy" AutoPostBackOnFilter="false" AllowFiltering="false" CurrentFilterFunction="Contains" ShowFilterIcon="false" />
 
@@ -35,7 +43,7 @@
                     SortExpression="celkem_katalogova_cena" AutoPostBackOnFilter="true" CurrentFilterFunction="Contains" ShowFilterIcon="false" DataFormatString="{0:F2}" />
                 
                 <telerik:GridBoundColumn HeaderText="Cena s DPH" DataField="celkem_k_uhrade" UniqueName="celkem_k_uhrade" HeaderStyle-Width="80px" ItemStyle-HorizontalAlign="Right" HeaderStyle-HorizontalAlign="Right"
-                    SortExpression="celkem_k_uhrade" AutoPostBackOnFilter="false" AllowFiltering="false" CurrentFilterFunction="Contains" ShowFilterIcon="false" DataFormatString="{0:F2}" />--%>
+                    SortExpression="celkem_k_uhrade" AutoPostBackOnFilter="false" AllowFiltering="false" CurrentFilterFunction="Contains" ShowFilterIcon="false" DataFormatString="{0:F2}" />
 
                 <telerik:GridBoundColumn HeaderText="Objem obchodu" DataField="celkem_objem_obchodu" UniqueName="celkem_objem_obchodu" HeaderStyle-Width="80px" ItemStyle-HorizontalAlign="Right" HeaderStyle-HorizontalAlign="Right"
                     SortExpression="celkem_objem_obchodu" AutoPostBackOnFilter="false" AllowFiltering="false" CurrentFilterFunction="Contains" ShowFilterIcon="false" DataFormatString="{0:F2}" />

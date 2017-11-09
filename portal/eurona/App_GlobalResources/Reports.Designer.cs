@@ -547,6 +547,15 @@ namespace Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Přehled objednávek.
+        /// </summary>
+        internal static string PrehledObjednavek_Title {
+            get {
+                return ResourceManager.GetString("PrehledObjednavek_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to &gt; Přehled produkce skupiny.
         /// </summary>
         internal static string PrehledProdukceSkupiny {

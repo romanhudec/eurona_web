@@ -119,6 +119,9 @@
     <Content Include="admin\pollOptions.aspx" />
     <Content Include="admin\polls.aspx" />
     <Content Include="admin\user.aspx" />
+    <Content Include="App_Themes\Default\Calendar.Default.css" />
+    <Content Include="App_Themes\Default\Calendar\Default.gif" />
+    <Content Include="App_Themes\Default\Calendar\sprite.gif" />
     <Content Include="App_Themes\Default\ComboBox.Default.css" />
     <Content Include="App_Themes\Default\ComboBox\Default.gif" />
     <Content Include="App_Themes\Default\ComboBox\rcbSprite.png" />

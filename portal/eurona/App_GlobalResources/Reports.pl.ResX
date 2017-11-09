@@ -348,4 +348,7 @@
   <data name="OsobniSkupiny" xml:space="preserve">
     <value>Osobní skupiny</value>
   </data>
+  <data name="PrehledObjednavek_Title" xml:space="preserve">
+    <value>Přehled objednávek</value>
+  </data>
 </root>
