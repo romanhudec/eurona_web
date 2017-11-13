@@ -3,7 +3,14 @@
 <%@ Register Assembly="cms" Namespace="CMS.Controls" TagPrefix="cms" %>
 
 <asp:Content ID="Content2" ContentPlaceHolderID="filter_content" runat="server">
-    <table style="width:100%;">
+    <style>
+        .page-container {background-image:none!important;}
+	    .page-container-overlay{width:auto!important;}
+	    .page{width:auto!important;margin:0px 50px 0px 50px;}
+        .page-container{width:auto!important;}
+        .RadGrid .rgHeader{padding-left:5px!important;padding-right:0px!important;}
+    </style>
+    <table style="width:350px;">
     <tr>
         <td align="right" style="white-space:nowrap"><asp:Literal ID="Literal1" runat="server" Text="<%$ Resources:Reports, Advisor %>"></asp:Literal><i>(reg. číslo nebo jméno)</i></td>
         <td><asp:TextBox runat="server" ID="txtAdvisorCode"></asp:TextBox></td>
@@ -48,14 +55,17 @@
                 <telerik:GridBoundColumn HeaderText="Objem obchodu" DataField="celkem_objem_obchodu" UniqueName="celkem_objem_obchodu" HeaderStyle-Width="80px" ItemStyle-HorizontalAlign="Right" HeaderStyle-HorizontalAlign="Right"
                     SortExpression="celkem_objem_obchodu" AutoPostBackOnFilter="false" AllowFiltering="false" CurrentFilterFunction="Contains" ShowFilterIcon="false" DataFormatString="{0:F2}" />
 
-                <telerik:GridBoundColumn HeaderText="Stav objednávky" DataField="Stav_objednavky_nazev" UniqueName="Stav_objednavky_nazev" HeaderStyle-Width="110px"
+                <telerik:GridBoundColumn HeaderText="Stav objednávky" DataField="Stav_objednavky_nazev" UniqueName="Stav_objednavky_nazev" HeaderStyle-Width="100px"
                     SortExpression="Stav_objednavky_nazev" AutoPostBackOnFilter="false" AllowFiltering="false" CurrentFilterFunction="Contains" ShowFilterIcon="false" />
                                     
-                <telerik:GridBoundColumn HeaderText="Město" DataField="dor_misto" UniqueName="dor_misto" HeaderStyle-Width="100px"
+                <telerik:GridBoundColumn HeaderText="Město" DataField="dor_misto" UniqueName="dor_misto" HeaderStyle-Width="80px"
                     SortExpression="dor_misto" AutoPostBackOnFilter="false" AllowFiltering="false" CurrentFilterFunction="Contains" ShowFilterIcon="false" />
                
-                <telerik:GridBoundColumn HeaderText="PSČ" DataField="dor_psc" UniqueName="dor_psc" HeaderStyle-Width="80px"
+                <telerik:GridBoundColumn HeaderText="PSČ" DataField="dor_psc" UniqueName="dor_psc" HeaderStyle-Width="40px"
                     SortExpression="dor_psc" AutoPostBackOnFilter="false" AllowFiltering="false" CurrentFilterFunction="Contains" ShowFilterIcon="false" />
+                 
+                <telerik:GridBoundColumn HeaderText="Top manager" DataField="top_manager" UniqueName="top_manager" HeaderStyle-Width="80px"
+                    SortExpression="top_manager" AutoPostBackOnFilter="false" AllowFiltering="false" CurrentFilterFunction="Contains" ShowFilterIcon="false" />
 
              <%--   <telerik:GridBoundColumn HeaderText="Cena bez DPH" DataField="celkem_bez_dph" UniqueName="celkem_bez_dph" HeaderStyle-Width="90px" ItemStyle-HorizontalAlign="Right" HeaderStyle-HorizontalAlign="Right"
                     SortExpression="celkem_bez_dph" AutoPostBackOnFilter="true" CurrentFilterFunction="Contains" ShowFilterIcon="false" DataFormatString="{0:F2}" />

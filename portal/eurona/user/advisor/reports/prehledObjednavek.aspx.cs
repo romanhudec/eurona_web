@@ -98,12 +98,13 @@ namespace Eurona.User.Advisor.Reports {
 										END,
 									ofr.Dor_nazev_firmy,
 									ofr.dor_misto,
-									ofr.dor_psc									
+									ofr.dor_psc, top_manager=oTop.Nazev_firmy									
 								FROM www_faktury f 
 									INNER JOIN www_faktury_radky fr ON fr.id_prepoctu = f.id_prepoctu
 								    LEFT JOIN objednavkyfaktury ofr ON ofr.Id_objednavky = f.cislo_objednavky_eurosap
 								    --LEFT JOIN www_prepocty p ON p.id_prepoctu = f.id_prepoctu
                                     INNER JOIN odberatele o  ON o.Id_odberatele = f.id_odberatele
+                                    LEFT JOIN odberatele oTop  ON oTop.Id_odberatele = ofr.Id_topmanagera
 								WHERE 
 									    (f.datum_vystaveni >= @dateOd AND f.datum_vystaveni <= @dateDo) AND
 									    f.id_odberatele=@Id_odberatele AND
@@ -111,7 +112,7 @@ namespace Eurona.User.Advisor.Reports {
 									GROUP BY o.Kod_odberatele, f.id_prepoctu, ofr.id_web_objednavky, f.cislo_objednavky_eurosap, f.datum_vystaveni, f.celkem_k_uhrade, f.zaklad_zs, f.dph_zs, ofr.Stav_faktury,
 									    ofr.Dor_nazev_firmy,
 									    ofr.dor_misto,
-									    ofr.dor_psc
+									    ofr.dor_psc, oTop.Nazev_firmy
                                     ORDER BY f.datum_vystaveni DESC";
 
                 //Clear data
