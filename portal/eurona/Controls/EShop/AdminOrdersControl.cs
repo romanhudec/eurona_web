@@ -185,7 +185,7 @@ namespace Eurona.Controls.Order {
             if (!Security.IsInRole(Role.ADMINISTRATOR) && !Security.IsInRole(Role.OPERATOR))
                 filter.AccountId = Security.Account.Id;
 
-            if (!filter.IsEmpty()) {
+            if (!filter.IsEmptyExcludeLastMonths()) {
                 List<OrderFastViewEntity> list = Storage<OrderFastViewEntity>.Read(filter);
                 var ordered = list.AsQueryable().OrderBy(SortExpression + " " + SortDirection);
                 gridView.DataSource = ordered.ToList();

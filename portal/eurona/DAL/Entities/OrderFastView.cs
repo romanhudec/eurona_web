@@ -69,6 +69,12 @@ namespace Eurona.DAL.Entities
                     string.IsNullOrEmpty(NotOrderStatusCode) && !ParentId.HasValue && !OnlyLastMonths.HasValue &&
                     !CreatedByAccountId.HasValue && string.IsNullOrEmpty(OwnerName);
             }
+
+            public bool IsEmptyExcludeLastMonths() {
+                return !AccountId.HasValue && string.IsNullOrEmpty(OrderNumber) && string.IsNullOrEmpty(OrderStatusName) &&
+                    string.IsNullOrEmpty(NotOrderStatusCode) && !ParentId.HasValue &&
+                    !CreatedByAccountId.HasValue && string.IsNullOrEmpty(OwnerName);
+            }
 		}
 
 
