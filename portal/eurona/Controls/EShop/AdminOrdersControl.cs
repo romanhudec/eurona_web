@@ -166,6 +166,7 @@ namespace Eurona.Controls.Order {
                 if (!string.IsNullOrEmpty(FilterOwnerName)) filter.OwnerName = FilterOwnerName;
                 if (!string.IsNullOrEmpty(FilterOrderNumber)) filter.OrderNumber = FilterOrderNumber;
                 if (!string.IsNullOrEmpty(FilterOrderStatusName)) filter.OrderStatusName = FilterOrderStatusName;
+                if (this.OnlyLastMonths.HasValue) filter.OnlyLastMonths = this.OnlyLastMonths;
                 return filter;
             }
 
