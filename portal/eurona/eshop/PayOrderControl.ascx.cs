@@ -40,33 +40,39 @@ namespace Eurona.EShop {
             }
 
             //Zdruzene Objednavky
-             OrderEntity.ReadByFilter filter = new OrderEntity.ReadByFilter();
-             filter.ParentId = this.OrderEntity.Id;
-             List<OrderEntity> listZdruzene = Storage<OrderEntity>.Read(filter);
-             if (listZdruzene.Count != 0) {
-                 if (Settings.IsPlatbaKartou4ZdruzeneObjednavkyPovolena()) {
-                     this.lblPlatbaKarout4ZdruzeneObjednavkyMessage.Visible = false;
-                     this.lblCelkovaCenaPridruzeni.Visible = true;
-                     this.btnPay.Enabled = true;
-                     this.btnPay.CssClass = "button-uhrada-kartou";
+            OrderEntity.ReadByFilter filter = new OrderEntity.ReadByFilter();
+            filter.ParentId = this.OrderEntity.Id;
+            List<OrderEntity> listZdruzene = Storage<OrderEntity>.Read(filter);
+            if (listZdruzene.Count != 0) {
+                if (Settings.IsPlatbaKartou4ZdruzeneObjednavkyPovolena()) {
+                    this.lblPlatbaKarout4ZdruzeneObjednavkyMessage.Visible = false;
+                    this.lblCelkovaCenaPridruzeni.Visible = true;
+                    this.btnPay.Enabled = true;
+                    this.btnPay.CssClass = "button-uhrada-kartou";
 
-                     if (listZdruzene.Count != 0) {
-                         decimal celkovaSuma = 0.0m;
-                         foreach (OrderEntity order in listZdruzene) {
-                             celkovaSuma += order.PriceWVAT;
-                         }
-                         celkovaSuma = this.OrderEntity.PriceWVAT + celkovaSuma;
-                         this.lblCelkovaCenaPridruzeni.Text = string.Format(Resources.EShopStrings.OrderFinish_SdruzeneObjednavkyCenaCelkem_Format,
-                             ShpCultureUtilities.CurrencyInfo.ToString(celkovaSuma, this.Session));
-                     }
-                 } else {
-                     this.lblPlatbaKarout4ZdruzeneObjednavkyMessage.Visible = true;
-                     this.lblCelkovaCenaPridruzeni.Visible = false;
-                     this.btnPay.Enabled = false;
-                     this.btnPay.Text = "";
-                     this.btnPay.CssClass = "button-uhrada-kartou-disabled";
-                 }
-             }
+                    if (listZdruzene.Count != 0) {
+                        decimal celkovaSuma = 0.0m;
+                        foreach (OrderEntity order in listZdruzene) {
+                            celkovaSuma += order.PriceWVAT;
+                        }
+                        celkovaSuma = this.OrderEntity.PriceWVAT + celkovaSuma;
+                        this.lblCelkovaCenaPridruzeni.Text = string.Format(Resources.EShopStrings.OrderFinish_SdruzeneObjednavkyCenaCelkem_Format,
+                            ShpCultureUtilities.CurrencyInfo.ToString(celkovaSuma, this.Session));
+                    }
+                } else {
+                    this.lblPlatbaKarout4ZdruzeneObjednavkyMessage.Visible = true;
+                    this.lblCelkovaCenaPridruzeni.Visible = false;
+                    this.btnPay.Enabled = false;
+                    this.btnPay.Text = "";
+                    this.btnPay.CssClass = "button-uhrada-kartou-disabled";
+                }
+            }
+
+            if (Security.Account.Locale != "cs") {
+                this.btnPay.Enabled = false;
+                this.btnPay.Text = "";
+                this.btnPay.CssClass = "button-uhrada-kartou-disabled";
+            }
         }
 
         public Literal HeaderControl {
@@ -139,30 +145,30 @@ namespace Eurona.EShop {
                 this.Page.ClientScript.RegisterStartupScript(this.GetType(), "payTransactionResult", "alert('Pro danou objednávku se nenašla faktura!');", true);
                 return;
             }
-  #endif      
+#endif
 
             Eurona.PAY.GP.Transaction payTransaction = Eurona.PAY.GP.Transaction.CreateTransaction(order, this.Page);
             payTransaction.MakePayment(this.Page);
-/*#else
-                        this.OrderEntity.PriceWVAT = Convert.ToDecimal(dt.Rows[0]["celkem_k_uhrade"]);
-            this.OrderEntity.CurrencyCode = Convert.ToString(dt.Rows[0]["kod_meny"]);
+            /*#else
+                                    this.OrderEntity.PriceWVAT = Convert.ToDecimal(dt.Rows[0]["celkem_k_uhrade"]);
+                        this.OrderEntity.CurrencyCode = Convert.ToString(dt.Rows[0]["kod_meny"]);
 
-            Transaction tran = Transaction.CreateTransaction(this.OrderEntity, this.Page);
-            string result = tran.PostTransaction(this.Page);
+                        Transaction tran = Transaction.CreateTransaction(this.OrderEntity, this.Page);
+                        string result = tran.PostTransaction(this.Page);
              
-            this.payOrderInput.Visible = false;
-            this.payOrderResult.InnerHtml = result;
+                        this.payOrderInput.Visible = false;
+                        this.payOrderResult.InnerHtml = result;
 
-            string js = string.Empty;
-            if (string.IsNullOrEmpty(this.ReturnUrl)) {
-                //Alert s informaciou o pridani do nakupneho kosika
-                js = string.Format("alert('{0}');window.location.href=window.location.href+'{1}nocache='+(new Date()).getSeconds();", result, this.Request.RawUrl.Contains("?") ? "&" : "?");
-            } else {
-                //Alert s informaciou o pridani do nakupneho kosika
-                js = string.Format("alert('{0}');window.location.href='{1}';", result, this.ReturnUrl);
-            }
-            this.Page.ClientScript.RegisterStartupScript(this.GetType(), "payTransactionResult", js, true);     
-#endif*/
+                        string js = string.Empty;
+                        if (string.IsNullOrEmpty(this.ReturnUrl)) {
+                            //Alert s informaciou o pridani do nakupneho kosika
+                            js = string.Format("alert('{0}');window.location.href=window.location.href+'{1}nocache='+(new Date()).getSeconds();", result, this.Request.RawUrl.Contains("?") ? "&" : "?");
+                        } else {
+                            //Alert s informaciou o pridani do nakupneho kosika
+                            js = string.Format("alert('{0}');window.location.href='{1}';", result, this.ReturnUrl);
+                        }
+                        this.Page.ClientScript.RegisterStartupScript(this.GetType(), "payTransactionResult", js, true);     
+            #endif*/
         }
     }
 }
