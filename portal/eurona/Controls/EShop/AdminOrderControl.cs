@@ -779,6 +779,7 @@ namespace Eurona.Controls {
         /// Metoda prepocita objednavku + kosik danej objednavky
         /// </summary>
         private void RecalculateOrder() {
+            //Nastavenie postovneho podla celkovej ceny ...
             decimal sumaBezPostovneho = Common.DAL.Entities.OrderSettings.GetFreePostageSuma(Security.Account.Locale);
             if (this.OrderEntity.CartEntity.KatalogovaCenaCelkemByEurosap >= sumaBezPostovneho) {
                 order.NoPostage = true;
