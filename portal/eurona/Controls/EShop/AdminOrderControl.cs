@@ -641,19 +641,6 @@ namespace Eurona.Controls {
         }
 
         private void UpdateDopravneUIbyOrder() {
-            decimal sumaBezPostovneho = Common.DAL.Entities.OrderSettings.GetFreePostageSuma(Security.Account.Locale);
-            if (this.OrderEntity.CartEntity.KatalogovaCenaCelkemByEurosap >= sumaBezPostovneho) {
-                order.NoPostage = true;
-                this.OrderEntity.CartEntity.DopravneEurosap = 0m;
-                this.OrderEntity.CartEntity = Storage<CartEntity>.Update(this.OrderEntity.CartEntity);
-
-                this.cbNoPostage.Checked = true;
-                this.OrderEntity.NoPostage = this.cbNoPostage.Checked;
-            } else {
-                this.cbNoPostage.Checked = false;
-                this.OrderEntity.NoPostage = this.cbNoPostage.Checked;
-            }
-
             this.lcDopravne.Text = SHP.Utilities.CultureUtilities.CurrencyInfo.ToString(OrderEntity.CartEntity.DopravneEurosap, this.Session);
             this.lblFakturovanaCena.Text = Eurona.Common.Utilities.CultureUtilities.CurrencyInfo.ToString(this.OrderEntity.PriceWVAT, this.OrderEntity.CurrencySymbol);
         }
@@ -792,7 +779,20 @@ namespace Eurona.Controls {
         /// Metoda prepocita objednavku + kosik danej objednavky
         /// </summary>
         private void RecalculateOrder() {
-            UpdateDopravneUIbyOrder();
+            //Nastavenie postovneho podla celkovej ceny ...
+            decimal sumaBezPostovneho = Common.DAL.Entities.OrderSettings.GetFreePostageSuma(Security.Account.Locale);
+            if (this.OrderEntity.CartEntity.KatalogovaCenaCelkemByEurosap >= sumaBezPostovneho) {
+                order.NoPostage = true;
+                this.OrderEntity.CartEntity.DopravneEurosap = 0m;
+                this.OrderEntity.CartEntity = Storage<CartEntity>.Update(this.OrderEntity.CartEntity);
+
+                this.cbNoPostage.Checked = true;
+                this.OrderEntity.NoPostage = this.cbNoPostage.Checked;
+            } else {
+                this.cbNoPostage.Checked = false;
+                this.OrderEntity.NoPostage = this.cbNoPostage.Checked;
+            }
+
             //Update cart from DB
             this.OrderEntity.CartEntity = null;
 
