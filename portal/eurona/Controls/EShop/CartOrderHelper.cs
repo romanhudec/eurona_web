@@ -610,7 +610,7 @@ namespace Eurona.Controls {
                     int currencyId = product.CurrencyId.Value;
                     SHP.Entities.Classifiers.Currency currency = Storage<SHP.Entities.Classifiers.Currency>.ReadFirst(new SHP.Entities.Classifiers.Currency.ReadById { Id = currencyId });
                     decimal sumaBezPostovneho = Common.DAL.Entities.OrderSettings.GetFreePostageSuma(Security.Account.Locale);
-                    if (cart.KatalogovaCenaCelkem >= sumaBezPostovneho) {
+                    if (cart.KatalogovaCenaCelkemByEurosap >= sumaBezPostovneho) {
                         cart.DopravneEurosap = 0;
                     } else {
                         if (currency.Code.ToUpper() == "CZK" && cart.KatalogovaCenaCelkemByEurosap < 1500)

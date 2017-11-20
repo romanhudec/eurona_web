@@ -73,7 +73,7 @@
                     SortExpression="Pocet_novych_s_objednavkou" AutoPostBackOnFilter="false" AllowFiltering="false" CurrentFilterFunction="Contains" ShowFilterIcon="false" DataFormatString="{0:F0}" />
                 <telerik:GridBoundColumn HeaderText="Mě" DataField="Mesicu_bez_objednavky" UniqueName="Mesicu_bez_objednavky" HeaderStyle-Width="30px" ItemStyle-HorizontalAlign="Right"
                     SortExpression="Mesicu_bez_objednavky" AutoPostBackOnFilter="false" AllowFiltering="false" CurrentFilterFunction="Contains" ShowFilterIcon="false" DataFormatString="{0:F0}" />
-                <telerik:GridBoundColumn HeaderText="Město" DataField="Misto" UniqueName="Misto" HeaderStyle-Width="30px"
+                <telerik:GridBoundColumn HeaderText="Město" DataField="Misto" UniqueName="Misto" HeaderStyle-Width="100px"
                     SortExpression="Statut" AutoPostBackOnFilter="false" AllowFiltering="false" CurrentFilterFunction="Contains" ShowFilterIcon="false" />
                 <telerik:GridBoundColumn HeaderText="PSČ" DataField="Psc" UniqueName="Psc" HeaderStyle-Width="30px"
                     SortExpression="Statut" AutoPostBackOnFilter="false" AllowFiltering="false" CurrentFilterFunction="Contains" ShowFilterIcon="false" />

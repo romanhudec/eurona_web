@@ -584,8 +584,8 @@ namespace Eurona.Controls {
             Storage<OrderEntity>.Update(this.OrderEntity);
 
             this.RecalculateOrder();
-
             UpdateDopravneUIbyOrder();
+
             this.lcDopravne.Text = SHP.Utilities.CultureUtilities.CurrencyInfo.ToString(OrderEntity.CartEntity.DopravneEurosap, this.Session);
             this.lblFakturovanaCena.Text = Eurona.Common.Utilities.CultureUtilities.CurrencyInfo.ToString(this.OrderEntity.PriceWVAT, this.OrderEntity.CurrencySymbol);
         }
@@ -707,9 +707,8 @@ namespace Eurona.Controls {
                     EuronaCartHelper.UpdateCartProduct(this.Page, cartProduct.CartId, cartProduct.ProductId, quantity);
                     //Prepocitanie kosiku a objednavky
                     this.RecalculateOrder();
-
-
                     UpdateDopravneUIbyOrder();
+
                     this.lcBodyByEurosap.Text = OrderEntity.CartEntity.BodyEurosapTotal.ToString("F1");
                     this.lcKatalogovaCenaCelkemByEurosap.Text = SHP.Utilities.CultureUtilities.CurrencyInfo.ToString(OrderEntity.CartEntity.KatalogovaCenaCelkemByEurosap, this.Session);
                     this.lcDopravne.Text = SHP.Utilities.CultureUtilities.CurrencyInfo.ToString(OrderEntity.CartEntity.DopravneEurosap, this.Session);
@@ -791,6 +790,8 @@ namespace Eurona.Controls {
         /// Metoda prepocita objednavku + kosik danej objednavky
         /// </summary>
         private void RecalculateOrder() {
+            UpdateDopravneUIbyOrder();
+
             //Update cart from DB
             this.OrderEntity.CartEntity = null;
 
@@ -893,6 +894,7 @@ namespace Eurona.Controls {
 
             //Prepocitanie kosiku a objednavky
             this.RecalculateOrder();
+            UpdateDopravneUIbyOrder();
 
             GridViewDataBind(this.OrderEntity, true);
         }
