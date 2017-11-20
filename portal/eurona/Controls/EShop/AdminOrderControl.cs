@@ -600,7 +600,8 @@ namespace Eurona.Controls {
                 return;
 
             EuronaCartHelper.UpdateCartProduct(this.Page, this.OrderEntity.CartId, p.Id, quantity, false);
-            //Prepocitanie kosiku a objednavky
+            
+            //Prepocitanie kosiku a objednavky           
             this.RecalculateOrder();
             UpdateDopravneUIbyOrder();
 
@@ -705,6 +706,7 @@ namespace Eurona.Controls {
                     if (!EuronaCartHelper.ValidateProductBeforeAddingToChart(p.Code, p, quantity, false, this, isOperator))
                         return;
                     EuronaCartHelper.UpdateCartProduct(this.Page, cartProduct.CartId, cartProduct.ProductId, quantity);
+                    
                     //Prepocitanie kosiku a objednavky
                     this.RecalculateOrder();
                     UpdateDopravneUIbyOrder();
