@@ -91,8 +91,8 @@ namespace Eurona.User.Advisor.Reports {
 									(YEAR(f.datum_vystaveni)*100 +MONTH(f.datum_vystaveni)) = @RRRRMM AND
 									f.id_odberatele=@Id_odberatele AND
 									f.potvrzeno=1
-									GROUP BY f.id_prepoctu, f.cislo_objednavky_eurosap, f.datum_vystaveni, f.celkem_k_uhrade, f.zaklad_zs, f.dph_zs, ofr.StavK2,
-									p.dor_ulice , p.dor_misto ,p.dor_psc,p.dor_stat";
+									GROUP BY f.id_prepoctu, f.cislo_objednavky_eurosap, f.datum_vystaveni, f.celkem_k_uhrade, f.zaklad_zs, f.dph_zs,
+									p.dor_ulice , p.dor_misto ,p.dor_psc,p.dor_stat, ofr.Stav_faktury";
 
                 //Clear data
                 DataTable dt = tvdStorage.Query(connection, sql,

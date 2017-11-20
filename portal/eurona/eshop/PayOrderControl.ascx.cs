@@ -68,11 +68,11 @@ namespace Eurona.EShop {
                 }
             }
 
-            if (Security.Account.Locale != "cs") {
-                this.btnPay.Enabled = false;
-                this.btnPay.Text = "";
-                this.btnPay.CssClass = "button-uhrada-kartou-disabled";
-            }
+            //if (Security.Account.Locale != "cs") {
+            //    this.btnPay.Enabled = false;
+            //    this.btnPay.Text = "";
+            //    this.btnPay.CssClass = "button-uhrada-kartou-disabled";
+            //}
         }
 
         public Literal HeaderControl {
