@@ -20,16 +20,17 @@ namespace Eurona.User.Advisor.Reports {
             if (this.ForAdvisor == null) return;
             if (this.ForAdvisor.TVD_Id == null) return;
 
-            now = DateTime.Now;
-            minDate = new DateTime(now.Year, now.Month-1, 1);
-            this.dtpDatumOd.MinDate = minDate;
-            this.dtpDatumOd.MaxDate = now;
-            this.dtpDatumOd.SelectedDate = minDate;
+            if (!IsPostBack) {
+                now = DateTime.Now;
+                minDate = new DateTime(now.Year, now.Month - 1, 1);
+                this.dtpDatumOd.MinDate = minDate;
+                this.dtpDatumOd.MaxDate = now;
+                this.dtpDatumOd.SelectedDate = minDate;
 
-            this.dtpDatumDo.MinDate = minDate;
-            this.dtpDatumDo.MaxDate = now;
-            this.dtpDatumDo.SelectedDate = now;
-
+                this.dtpDatumDo.MinDate = minDate;
+                this.dtpDatumDo.MaxDate = now;
+                this.dtpDatumDo.SelectedDate = now;
+            }
             //Ak nie je vierihodny - len seba
             if (this.ForAdvisor.RestrictedAccess == 1)
                 this.txtAdvisorCode.Enabled = false;

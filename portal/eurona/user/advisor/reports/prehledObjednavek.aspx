@@ -9,15 +9,24 @@
 	    .page{width:auto!important;margin:0px 50px 0px 50px;}
         .page-container{width:auto!important;}
         .RadGrid .rgHeader{padding-left:5px!important;padding-right:0px!important;}
+        .pickerDateInputClass {width:100px!important;}
     </style>
     <table style="width:350px;">
     <tr>
         <td align="right" style="white-space:nowrap"><asp:Literal ID="Literal1" runat="server" Text="<%$ Resources:Reports, Advisor %>"></asp:Literal><i>(reg. číslo nebo jméno)</i></td>
         <td><asp:TextBox runat="server" ID="txtAdvisorCode"></asp:TextBox></td>
         <td style="white-space:nowrap">Datum od:</td>
-        <td><telerik:RadDatePicker runat="server" ID="dtpDatumOd" Width="120px" /></td>
+        <td>
+            <telerik:RadDatePicker runat="server" CssClass="rad-date-picker" ID="dtpDatumOd" >
+                <DateInput ID="DateInput1" runat="server" CssClass="pickerDateInputClass"/>
+            </telerik:RadDatePicker>
+        </td>
         <td style="white-space:nowrap">Datum do:</td>
-        <td><telerik:RadDatePicker runat="server" ID="dtpDatumDo" Width="120px"/></td>
+        <td>
+            <telerik:RadDatePicker runat="server" CssClass="rad-date-picker" ID="dtpDatumDo" >
+                <DateInput ID="DateInput2" runat="server" CssClass="pickerDateInputClass"/>
+            </telerik:RadDatePicker>
+        </td>
     </tr>
     </table>
 </asp:Content>
