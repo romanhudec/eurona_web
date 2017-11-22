@@ -57,6 +57,7 @@ namespace Eurona.Common
             if (typeof(T) == typeof(DAL.Entities.AnonymniRegistrace)) access = new DAL.MSSQL.AnonymniRegistraceStorage(instanceId, account, connectionString) as IStorage<T>;
             if (typeof(T) == typeof(DAL.Entities.Settings)) access = new DAL.MSSQL.SettingsStorage(instanceId, account, connectionString) as IStorage<T>;
             if (typeof(T) == typeof(DAL.Entities.OrderSettings)) access = new DAL.MSSQL.OrderSettingsStorage(instanceId, account, connectionString) as IStorage<T>;
+            if (typeof(T) == typeof(DAL.Entities.LastOrderAddress)) access = new DAL.MSSQL.LastOrderAddressStorage(instanceId, account, connectionString) as IStorage<T>;
             //Reference
 
             if (session != null && account != null) session[GetType().ToString()] = access;

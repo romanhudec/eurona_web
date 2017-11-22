@@ -8,6 +8,7 @@ using CartEntity = Eurona.Common.DAL.Entities.Cart;
 using CartProductEntity = Eurona.Common.DAL.Entities.CartProduct;
 using ProductEntity = Eurona.Common.DAL.Entities.Product;
 using OrderEntity = Eurona.DAL.Entities.Order;
+using LastOrderAddressEntity = Eurona.Common.DAL.Entities.LastOrderAddress;
 using OrderStatusEntity = SHP.Entities.Classifiers.OrderStatus;
 using PaymentEntity = SHP.Entities.Classifiers.Payment;
 using ShipmentEntity = SHP.Entities.Classifiers.Shipment;
@@ -387,32 +388,10 @@ namespace Eurona.Controls {
 
             #region Addresses
             bool isOperator = Security.IsLogged(false) && Security.Account.IsInRole(Role.OPERATOR);
-            //int? addressId = this.OrderEntity.DeliveryAddressId;
-            //bool isOperator = Security.IsLogged(false) && Security.Account.IsInRole(Role.OPERATOR);
-            //if (!isOperator) {
-            //    OrderEntity lastOrder = Storage<OrderEntity>.ReadFirst(new OrderEntity.ReadLastByAccount { AccountId = OrderEntity.AccountId, GreaterAtOrderNumber = this.OrderEntity.OrderNumber });
-            //    if (lastOrder != null) {
-            //        if (lastOrder.DeliveryAddress.City != this.OrderEntity.DeliveryAddress.City || lastOrder.DeliveryAddress.Zip != this.OrderEntity.DeliveryAddress.Zip) {
-            //            string result1 = PSCHelper.ValidatePSCByPSC(lastOrder.DeliveryAddress.Zip, lastOrder.DeliveryAddress.City, lastOrder.DeliveryAddress.State);
-            //            string result2 = PSCHelper.ValidatePSCByPSC(this.OrderEntity.DeliveryAddress.Zip, this.OrderEntity.DeliveryAddress.City, this.OrderEntity.DeliveryAddress.State);
-            //            if (result1 == string.Empty) addressId = lastOrder.DeliveryAddressId;
-            //            else if (result2 == string.Empty) addressId = this.OrderEntity.DeliveryAddressId;
-            //            else {
-            //                ShpAddressEntity address = Storage<ShpAddressEntity>.ReadFirst(new ShpAddressEntity.ReadById { AddressId = addressId.Value });
-            //                if (address != null) {
-            //                    address.City = string.Empty;
-            //                    address.Zip = string.Empty;
-            //                    Storage<ShpAddressEntity>.Update(address);
-            //                }
-            //            }
-            //        }
-            //    }
-            //}
             this.addressDeliveryControl = new AddressControl();
             this.addressDeliveryControl.Width = Unit.Percentage(100);
             this.addressDeliveryControl.IsEditing = this.IsEditing;
             this.addressDeliveryControl.AddressId = this.OrderEntity.DeliveryAddressId;
-            //if (addressId.HasValue) this.addressDeliveryControl.AddressId = addressId;
             rpAddress.Controls.Add(this.addressDeliveryControl);
             this.addressDeliveryControl.EnableFirstName(false);
             this.addressDeliveryControl.EnableLastName(false);
@@ -1014,16 +993,33 @@ namespace Eurona.Controls {
                     BonusovyKreditUzivateleHelper.ZaevidujKredit(order.AccountId, DAL.Entities.Classifiers.BonusovyKreditTyp.OdeslanaObjednavka, order.ProductsPriceWVAT, "", locale);
                 }
 
-                //Prepisanie main Addressy
+                //Ulozenie adresy na nasledovne predpisanie v objednavke
                 if (this.cbSaveDeliveryAddressAsMainAddress.Checked) {
-                    OrganizationEntity advisor = Storage<OrganizationEntity>.ReadFirst(new OrganizationEntity.ReadByAccountId { AccountId = Security.Account.Id });
-                    ShpAddressEntity address = Storage<ShpAddressEntity>.ReadFirst(new ShpAddressEntity.ReadById { AddressId = this.OrderEntity.DeliveryAddressId.Value });
-                    if (address != null) {
-                        advisor.CorrespondenceAddress.Street = address.Street;
-                        advisor.CorrespondenceAddress.City = address.City;
-                        advisor.CorrespondenceAddress.Zip = address.Zip;
-                        Storage<AddressEntity>.Update(advisor.CorrespondenceAddress);
+                    LastOrderAddressEntity lastOrderAddress = Storage<LastOrderAddressEntity>.ReadFirst(new LastOrderAddressEntity.ReadByAccountId { AccountId = order.AccountId });
+                    if (lastOrderAddress == null) {
+                        lastOrderAddress = new LastOrderAddressEntity();
+                        lastOrderAddress.AccountId = order.AccountId;
                     }
+                    lastOrderAddress.FirstName = order.DeliveryAddress.FirstName;
+                    lastOrderAddress.LastName = order.DeliveryAddress.LastName;
+                    lastOrderAddress.City = order.DeliveryAddress.City;
+                    lastOrderAddress.Email = order.DeliveryAddress.Email;
+                    lastOrderAddress.State = order.DeliveryAddress.State;
+                    lastOrderAddress.Street = order.DeliveryAddress.Street;
+                    lastOrderAddress.Zip = order.DeliveryAddress.Zip;
+                    lastOrderAddress.Phone = order.DeliveryAddress.Phone;
+                    lastOrderAddress.Organization = order.DeliveryAddress.Organization;
+                    if( lastOrderAddress.Id == 0 ) Storage<LastOrderAddressEntity>.Create(lastOrderAddress);
+                    else Storage<LastOrderAddressEntity>.Update(lastOrderAddress);
+
+                    //OrganizationEntity advisor = Storage<OrganizationEntity>.ReadFirst(new OrganizationEntity.ReadByAccountId { AccountId = Security.Account.Id });
+                    //ShpAddressEntity address = Storage<ShpAddressEntity>.ReadFirst(new ShpAddressEntity.ReadById { AddressId = this.OrderEntity.DeliveryAddressId.Value });
+                    //if (address != null) {
+                    //    advisor.CorrespondenceAddress.Street = address.Street;
+                    //    advisor.CorrespondenceAddress.City = address.City;
+                    //    advisor.CorrespondenceAddress.Zip = address.Zip;
+                    //    Storage<AddressEntity>.Update(advisor.CorrespondenceAddress);
+                    //}
                 }
             } else return;
 

@@ -12,6 +12,7 @@ using PaymentEntity = SHP.Entities.Classifiers.Payment;
 using AccountEntity = Eurona.DAL.Entities.Account;
 using ProductEntity = Eurona.Common.DAL.Entities.Product;
 using ShpAddressEntity = SHP.Entities.Address;
+using LastOrderAddressEntity = Eurona.Common.DAL.Entities.LastOrderAddress;
 using System.ComponentModel;
 using CMS.Utilities;
 using SHP.Controls;
@@ -324,23 +325,20 @@ namespace Eurona.Controls {
                     order.DeliveryAddress.LastName = name[0];
                 }
 
+                //Pouzitie poslednej ulozenej adresy
                 bool isOperator = Security.IsLogged(false) && Security.Account.IsInRole(Role.OPERATOR);
                 if (!isOperator) {
-                    OrderEntity lastOrder = Storage<OrderEntity>.ReadFirst(new OrderEntity.ReadLastByAccount { AccountId = order.AccountId, GreaterAtOrderNumber = order.OrderNumber });
-                    if (lastOrder != null) {
-                        if (lastOrder.DeliveryAddress.City != org.CorrespondenceAddress.City || lastOrder.DeliveryAddress.Zip != org.CorrespondenceAddress.Zip) {
-                            string result1 = PSCHelper.ValidatePSCByPSC(lastOrder.DeliveryAddress.Zip, lastOrder.DeliveryAddress.City, lastOrder.DeliveryAddress.State);
-                            if (result1 == string.Empty) {
-                                order.DeliveryAddress.City = lastOrder.DeliveryAddress.City;
-                                order.DeliveryAddress.Email = org.ContactEmail;
-                                order.DeliveryAddress.State = lastOrder.DeliveryAddress.State;
-                                order.DeliveryAddress.Street = lastOrder.DeliveryAddress.Street;
-                                order.DeliveryAddress.Zip = lastOrder.DeliveryAddress.Zip;
-                                order.DeliveryAddress.Phone = string.IsNullOrEmpty(org.ContactPhone) ? org.ContactMobile : org.ContactPhone;
-                                order.DeliveryAddress.Organization = org.Name;
-
-                            }
-                        }
+                    LastOrderAddressEntity lastOrderAddress = Storage<LastOrderAddressEntity>.ReadFirst(new LastOrderAddressEntity.ReadByAccountId { AccountId = order.AccountId });
+                    if (lastOrderAddress != null) {
+                        order.DeliveryAddress.FirstName = lastOrderAddress.FirstName;
+                        order.DeliveryAddress.LastName = lastOrderAddress.LastName;
+                        order.DeliveryAddress.City = lastOrderAddress.City;
+                        order.DeliveryAddress.Email = lastOrderAddress.Email;
+                        order.DeliveryAddress.State = lastOrderAddress.State;
+                        order.DeliveryAddress.Street = lastOrderAddress.Street;
+                        order.DeliveryAddress.Zip = lastOrderAddress.Zip;
+                        order.DeliveryAddress.Phone = lastOrderAddress.Phone;
+                        order.DeliveryAddress.Organization = lastOrderAddress.Organization;
                     }
                 }
                 Storage<SHP.Entities.Address>.Update(order.DeliveryAddress);
