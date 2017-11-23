@@ -65,17 +65,17 @@ namespace Eurona.User.Advisor.Reports {
             CMS.Pump.MSSQLStorage tvdStorage = new CMS.Pump.MSSQLStorage(base.ConnectionString);
             using (SqlConnection connection = tvdStorage.Connect()) {
                 string sql = string.Empty;
-                sql = @"SELECT f.id_prepoctu, cislo_objednavky = f.cislo_objednavky_eurosap, f.datum_vystaveni, f.celkem_k_uhrade, celkem_bez_dph = f.zaklad_zs, f.dph_zs,
+                sql = @"SELECT f.id_prepoctu, ofr.id_web_objednavky, cislo_objednavky = f.cislo_objednavky_eurosap, f.datum_vystaveni, f.celkem_k_uhrade, celkem_bez_dph = f.zaklad_zs, f.dph_zs,
 									celkem_katalogova_cena = SUM( fr.cena_mj_katalogova * fr.mnozstvi),
 									celkem_body = SUM(fr.zapocet_mj_body * fr.mnozstvi),
 									celkem_objem_pro_marzi = SUM(fr.zapocet_mj_marze * fr.mnozstvi),
 									celkem_objem_obchodu = SUM(fr.zapocet_mj_provize_czk * fr.mnozstvi),
 									Stav_objednavky = ISNULL(ofr.Stav_faktury,1),
 									Stav_objednavky_nazev = 
-										CASE ISNULL(ofr.Stav_faktury,1) 
+										CASE ISNULL(ofr.Stav_faktury,999) 
 										WHEN 0 THEN 'Storno'
 										WHEN 1 THEN 'Potvrzená objednávka'
-										WHEN 2 THEN 'Připravena k expedici' 
+										WHEN 3 THEN 'Připravena k expedici' 
 										WHEN 4 THEN 'Vyřízeno'
 										WHEN 99 THEN 'Uloženo'
 										ELSE ''
@@ -85,13 +85,13 @@ namespace Eurona.User.Advisor.Reports {
 									Adresa = (p.dor_ulice + ', ' + p.dor_misto + ', ' + p.dor_psc + ', ' + p.dor_stat)
 								FROM www_faktury f 
 									INNER JOIN www_faktury_radky fr ON fr.id_prepoctu = f.id_prepoctu
-								  LEFT JOIN objednavkyfaktury ofr ON ofr.Id_objednavky = f.cislo_objednavky_eurosap
-								  LEFT JOIN www_prepocty p ON p.id_prepoctu = f.id_prepoctu
+								    INNER JOIN objednavkyfaktury ofr ON ofr.Id_objednavky = f.cislo_objednavky_eurosap
+								    LEFT JOIN www_prepocty p ON p.id_prepoctu = f.id_prepoctu
 								WHERE 
 									(YEAR(f.datum_vystaveni)*100 +MONTH(f.datum_vystaveni)) = @RRRRMM AND
 									f.id_odberatele=@Id_odberatele AND
 									f.potvrzeno=1
-									GROUP BY f.id_prepoctu, f.cislo_objednavky_eurosap, f.datum_vystaveni, f.celkem_k_uhrade, f.zaklad_zs, f.dph_zs,
+									GROUP BY f.id_prepoctu, ofr.id_web_objednavky, f.cislo_objednavky_eurosap, f.datum_vystaveni, f.celkem_k_uhrade, f.zaklad_zs, f.dph_zs,
 									p.dor_ulice , p.dor_misto ,p.dor_psc,p.dor_stat, ofr.Stav_faktury";
 
                 //Clear data

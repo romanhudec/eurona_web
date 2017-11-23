@@ -89,10 +89,10 @@ namespace Eurona.User.Advisor.Reports {
 									celkem_objem_obchodu = SUM(fr.zapocet_mj_provize_czk * fr.mnozstvi),
 									Stav_objednavky = ISNULL(ofr.Stav_faktury,1),
 									Stav_objednavky_nazev = 
-										CASE ISNULL(ofr.Stav_faktury,1) 
+										CASE ISNULL(ofr.Stav_faktury,999) 
 										WHEN 0 THEN 'Storno'
 										WHEN 1 THEN 'Potvrzená objednávka'
-										WHEN 2 THEN 'Připravena k expedici' 
+										WHEN 3 THEN 'Připravena k expedici' 
 										WHEN 4 THEN 'Vyřízeno'
 										WHEN 99 THEN 'Uloženo'
 										ELSE ''
@@ -102,8 +102,7 @@ namespace Eurona.User.Advisor.Reports {
 									ofr.dor_psc, top_manager=oTop.Nazev_firmy									
 								FROM www_faktury f 
 									INNER JOIN www_faktury_radky fr ON fr.id_prepoctu = f.id_prepoctu
-								    LEFT JOIN objednavkyfaktury ofr ON ofr.Id_objednavky = f.cislo_objednavky_eurosap
-								    --LEFT JOIN www_prepocty p ON p.id_prepoctu = f.id_prepoctu
+								    INNER JOIN objednavkyfaktury ofr ON ofr.Id_objednavky = f.cislo_objednavky_eurosap
                                     INNER JOIN odberatele o  ON o.Id_odberatele = f.id_odberatele
                                     LEFT JOIN odberatele oTop  ON oTop.Id_odberatele = ofr.Id_topmanagera
 								WHERE 
