@@ -436,13 +436,6 @@
     <Content Include="images\_content_images\zakaznicky-servis.txt" />
     <Content Include="javascripts\countDown.js" />
     <Content Include="page1content.aspx" />
-    <Content Include="pay\cs\confirm.aspx" />
-    <Content Include="pay\cs\nok.aspx" />
-    <Content Include="pay\cs\ok.aspx" />
-    <Content Include="pay\cs\pwd.aspx" />
-    <Content Include="pay\cs\validate.aspx" />
-    <Content Include="pay\test-post\post.aspx" />
-    <Content Include="pay\test-post\transaction.aspx" />
     <Content Include="robots.txt" />
     <Content Include="page1content.master" />
     <Content Include="getCityByState.ashx" />
@@ -1523,56 +1516,6 @@
     </Compile>
     <Compile Include="getCityByState.ashx.cs">
       <DependentUpon>getCityByState.ashx</DependentUpon>
-    </Compile>
-    <Compile Include="pay\cs\confirm.aspx.cs">
-      <DependentUpon>confirm.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="pay\cs\confirm.aspx.designer.cs">
-      <DependentUpon>confirm.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="pay\cs\nok.aspx.cs">
-      <DependentUpon>nok.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="pay\cs\nok.aspx.designer.cs">
-      <DependentUpon>nok.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="pay\cs\ok.aspx.cs">
-      <DependentUpon>ok.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="pay\cs\ok.aspx.designer.cs">
-      <DependentUpon>ok.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="pay\cs\pwd.aspx.cs">
-      <DependentUpon>pwd.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="pay\cs\pwd.aspx.designer.cs">
-      <DependentUpon>pwd.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="pay\cs\Transaction.cs" />
-    <Compile Include="pay\cs\validate.aspx.cs">
-      <DependentUpon>validate.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="pay\cs\validate.aspx.designer.cs">
-      <DependentUpon>validate.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="pay\test-post\post.aspx.cs">
-      <DependentUpon>post.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="pay\test-post\post.aspx.designer.cs">
-      <DependentUpon>post.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="pay\test-post\transaction.aspx.cs">
-      <DependentUpon>transaction.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="pay\test-post\transaction.aspx.designer.cs">
-      <DependentUpon>transaction.aspx</DependentUpon>
     </Compile>
     <Compile Include="Security.cs" />
     <Compile Include="sendToFriend.aspx.cs">

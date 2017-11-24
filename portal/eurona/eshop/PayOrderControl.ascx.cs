@@ -1,5 +1,4 @@
 ﻿using System;
-using Eurona.PAY.CS;
 using OrderEntity = Eurona.DAL.Entities.Order;
 using ShpCultureUtilities = SHP.Utilities.CultureUtilities;
 using System.Data;
