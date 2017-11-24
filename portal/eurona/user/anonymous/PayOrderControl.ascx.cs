@@ -1,5 +1,4 @@
 ﻿using System;
-using Eurona.PAY.CS;
 using OrderEntity = Eurona.DAL.Entities.Order;
 using System.Data;
 using Eurona.Controls;
@@ -57,24 +56,26 @@ namespace Eurona.User.Anonymous
 
             this.OrderEntity.PriceWVAT = Convert.ToDecimal(dt.Rows[0]["celkem_k_uhrade"]);
             this.OrderEntity.CurrencyCode = Convert.ToString(dt.Rows[0]["kod_meny"]);
+            Eurona.PAY.GP.Transaction payTransaction = Eurona.PAY.GP.Transaction.CreateTransaction(this.OrderEntity, this.Page);
+            payTransaction.MakePayment(this.Page);
 
-            Transaction tran = Transaction.CreateTransaction(this.OrderEntity, this.Page);
-            string result = tran.PostTransaction(this.Page);
-            this.payOrderInput.Visible = false;
-            this.payOrderResult.InnerHtml = result;
+            //Transaction tran = Transaction.CreateTransaction(this.OrderEntity, this.Page);
+            //string result = tran.PostTransaction(this.Page);
+            //this.payOrderInput.Visible = false;
+            //this.payOrderResult.InnerHtml = result;
 
-            string js = string.Empty;
-            if (string.IsNullOrEmpty(this.ReturnUrl))
-            {
-                //Alert s informaciou o pridani do nakupneho kosika
-                js = string.Format("alert('{0}');window.location.href=window.location.href+'{1}nocache='+(new Date()).getSeconds();", result, this.Request.RawUrl.Contains("?") ? "&" : "?");
-            }
-            else
-            {
-                //Alert s informaciou o pridani do nakupneho kosika
-                js = string.Format("alert('{0}');window.location.href='{1}';", result, this.ReturnUrl);
-            }
-            this.Page.ClientScript.RegisterStartupScript(this.GetType(), "payTransactionResult", js, true);
+            //string js = string.Empty;
+            //if (string.IsNullOrEmpty(this.ReturnUrl))
+            //{
+            //    //Alert s informaciou o pridani do nakupneho kosika
+            //    js = string.Format("alert('{0}');window.location.href=window.location.href+'{1}nocache='+(new Date()).getSeconds();", result, this.Request.RawUrl.Contains("?") ? "&" : "?");
+            //}
+            //else
+            //{
+            //    //Alert s informaciou o pridani do nakupneho kosika
+            //    js = string.Format("alert('{0}');window.location.href='{1}';", result, this.ReturnUrl);
+            //}
+            //this.Page.ClientScript.RegisterStartupScript(this.GetType(), "payTransactionResult", js, true);
         }
     }
 }
