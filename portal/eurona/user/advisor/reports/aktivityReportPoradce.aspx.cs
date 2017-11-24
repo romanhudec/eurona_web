@@ -16,6 +16,7 @@ namespace Eurona.User.Advisor.Reports {
     public partial class AktivityReportPoradce : ReportPage {
         private DateTime uzavierkaFrom;
         private DateTime uzavierkaTo;
+        private int? obdobi;
 
         protected void Page_Load(object sender, EventArgs e) {
             if (this.ForAdvisor == null) return;
@@ -93,9 +94,9 @@ namespace Eurona.User.Advisor.Reports {
         private void GridViewDataBind(bool bind) {
             if (this.ForAdvisor == null) return;
 
-            int? obdobi = null;
+            this.obdobi = null;
             object filter = GetFilter();
-            if (filter != null) obdobi = (int)filter;
+            if (filter != null) this.obdobi = (int)filter;
 
             if (this.rbPrvniLinie.Checked) this.Title = this.Title + " - " + Resources.Reports.PrvniLinie.ToLower();
 
@@ -116,11 +117,11 @@ namespace Eurona.User.Advisor.Reports {
                     currentObdobiRRRRMM = year + date.Month;
                 }
             }
-            
+
             #endregion
 
-            if (obdobi == 0) {
-                obdobi = currentObdobiRRRRMM;
+            if (this.obdobi == 0) {
+                this.obdobi = currentObdobiRRRRMM;
             }
 
             CMS.Pump.MSSQLStorage tvdStorage = new CMS.Pump.MSSQLStorage(base.ConnectionString);
@@ -140,15 +141,15 @@ namespace Eurona.User.Advisor.Reports {
                                 INNER JOIN odberatele op  ON op.Id_odberatele = o.Cislo_nadrizeneho
                                 LEFT JOIN odberatele oTop  ON oTop.Id_odberatele = p.Id_topmanagera
                                 WHERE o.Stav_odberatele!='Z' AND p.RRRRMM=@RRRRMM AND ( p.Id_odberatele=@Id_odberatele OR p.Id_nadrizeneho=@Id_odberatele ) ";
-                                if( this.cbOsobniSkupiny.Checked ){
-                                sql += @"AND
+                    if (this.cbOsobniSkupiny.Checked) {
+                        sql += @"AND
                                     ( 
                                         p.Id_odberatele not in (select Id_odberatele from provize_finalni where RRRRMM=@RRRRMM-1 And Hladina >= 21) AND
 	                                    p.Id_nadrizeneho not in (select Id_odberatele from provize_finalni where RRRRMM=@RRRRMM-1 And Hladina >= 21) 
                                     )";
-                                }
+                    }
 
-                    if (obdobi < currentObdobiRRRRMM) {
+                    if (this.obdobi < currentObdobiRRRRMM) {
                         sql = @"SELECT p.RRRRMM,p.Id_odberatele,p.Id_nadrizeneho,p.Objem_vlastni,p.Objem_celkem,p.Objem_os,p.Body_vlastni,p.Body_os,p.Body_celkem,
 												p.Hladina,p.Vnoreni,p.Odpustit_hranici,p.Bonus1,p.Bonus2,p.Bonus3,p.Bonus4,p.Statut,p.Provize_vlastni,p.Provize_skupina,p.Provize_leader,p.Provize_celk_pred_kracenim,
 												p.Provize_celk_po_kraceni,p.Provize_celk_po_kraceni_mena,p.Provize_celk_po_kraceni_kod_meny,p.Provize_mimo ,p.Provize_mimo_mena ,p.Provize_mimo_kod_meny ,p.Provize_vyplata,
@@ -162,13 +163,13 @@ namespace Eurona.User.Advisor.Reports {
 												INNER JOIN odberatele op  ON op.Id_odberatele = o.Cislo_nadrizeneho
                                                 LEFT JOIN odberatele oTop  ON oTop.Id_odberatele = p.Id_topmanagera
 												WHERE o.Stav_odberatele!='Z' AND p.RRRRMM=@RRRRMM AND ( p.Id_odberatele=@Id_odberatele OR p.Id_nadrizeneho=@Id_odberatele ) ";
-                                                if (this.cbOsobniSkupiny.Checked) {
-                                                    sql += @"AND
+                        if (this.cbOsobniSkupiny.Checked) {
+                            sql += @"AND
                                                             ( 
                                                                 p.Id_odberatele not in (select Id_odberatele from provize_finalni where RRRRMM=@RRRRMM-1 And Hladina >= 21) AND
 	                                                            p.Id_nadrizeneho not in (select Id_odberatele from provize_finalni where RRRRMM=@RRRRMM-1 And Hladina >= 21) 
                                                             )";
-                                                }
+                        }
                     }
                 } else if (this.rbSkupina.Checked) {
                     sql = @"SELECT p.RRRRMM,p.Id_odberatele,p.Id_nadrizeneho,p.Objem_vlastni,p.Objem_celkem,p.Objem_os,p.Body_vlastni,p.Body_os,p.Body_celkem,
@@ -185,16 +186,16 @@ namespace Eurona.User.Advisor.Reports {
 										INNER JOIN odberatele op  ON op.Id_odberatele = o.Cislo_nadrizeneho
                                         LEFT JOIN odberatele oTop  ON oTop.Id_odberatele = p.Id_topmanagera
 										WHERE o.Stav_odberatele!='Z' AND p.RRRRMM=@RRRRMM ";
-                                        if (this.cbOsobniSkupiny.Checked) {
-                                            sql += @"AND
+                    if (this.cbOsobniSkupiny.Checked) {
+                        sql += @"AND
                                                     ( 
                                                         p.Id_odberatele not in (select Id_odberatele from provize_finalni where RRRRMM=@RRRRMM-1 And Hladina >= 21) AND
 	                                                    p.Id_nadrizeneho not in (select Id_odberatele from provize_finalni where RRRRMM=@RRRRMM-1 And Hladina >= 21) 
                                                     )";
-                                        }
-										sql += @"ORDER BY f.LineageId ASC";
+                    }
+                    sql += @"ORDER BY f.LineageId ASC";
 
-                    if (obdobi < currentObdobiRRRRMM) {
+                    if (this.obdobi < currentObdobiRRRRMM) {
                         sql = @"SELECT p.RRRRMM,p.Id_odberatele,p.Id_nadrizeneho,p.Objem_vlastni,p.Objem_celkem,p.Objem_os,p.Body_vlastni,p.Body_os,p.Body_celkem,
 												p.Hladina,p.Vnoreni,p.Odpustit_hranici,p.Bonus1,p.Bonus2,p.Bonus3,p.Bonus4,p.Statut,p.Provize_vlastni,p.Provize_skupina,p.Provize_leader,p.Provize_celk_pred_kracenim,
 												p.Provize_celk_po_kraceni,p.Provize_celk_po_kraceni_mena,p.Provize_celk_po_kraceni_kod_meny,p.Provize_mimo ,p.Provize_mimo_mena ,p.Provize_mimo_kod_meny ,p.Provize_vyplata,
@@ -209,14 +210,14 @@ namespace Eurona.User.Advisor.Reports {
 												INNER JOIN odberatele op  ON op.Id_odberatele = o.Cislo_nadrizeneho
                                                 LEFT JOIN odberatele oTop  ON oTop.Id_odberatele = p.Id_topmanagera
 												WHERE o.Stav_odberatele!='Z' AND p.RRRRMM=@RRRRMM ";
-                                                if (this.cbOsobniSkupiny.Checked) {
-                                                    sql += @"AND
+                        if (this.cbOsobniSkupiny.Checked) {
+                            sql += @"AND
                                                             ( 
                                                                 p.Id_odberatele not in (select Id_odberatele from provize_finalni where RRRRMM=@RRRRMM-1 And Hladina >= 21) AND
 	                                                            p.Id_nadrizeneho not in (select Id_odberatele from provize_finalni where RRRRMM=@RRRRMM-1 And Hladina >= 21) 
                                                             )";
-                                                }
-										        sql += @"ORDER BY f.LineageId ASC";
+                        }
+                        sql += @"ORDER BY f.LineageId ASC";
                     }
 
                 }
@@ -254,7 +255,7 @@ namespace Eurona.User.Advisor.Reports {
 
             //ii.	Zvýraznění nově registrovaných poradců ve vybraném období
             int yyymm = datumZahajeni.Year * 100 + datumZahajeni.Month;
-            if (CurrentObdobiRRRRMM == yyymm) {
+            if (this.obdobi.HasValue && yyymm == this.obdobi.Value) {
                 e.Item.BackColor = Color.Aquamarine;
             }
 
