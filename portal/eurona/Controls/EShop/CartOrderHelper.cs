@@ -218,7 +218,7 @@ namespace Eurona.Controls {
         /// <summary>
         /// Metóda prepočíta nákupný košík v TVD databazi
         /// </summary>
-        public static string RecalculateTVDCart(Page page, UpdatePanel up, CartEntity cart, out bool bSuccess) {
+        public static string RecalculateTVDCart(Page page, UpdatePanel up, string orderNumber,  CartEntity cart, out bool bSuccess) {
             int cartId = -1 * (cart.Id);
             //#if _LOCAL_ORDER
             //            return "OK";
@@ -256,10 +256,10 @@ namespace Eurona.Controls {
                     // NAPLNENIE TVD STRUKTUR
                     string sql = @"INSERT INTO www_prepocty (id_prepoctu ,id_odberatele ,datum ,potvrzeno ,
 										zpusob_dodani ,zpusob_platby ,poznamka , id_sdruzeneho_prepoctu, dor_telefon, dor_email,
-										dor_nazev_firmy ,dor_nazev_firmy_radek ,dor_ulice ,dor_misto ,dor_psc ,dor_stat, zadano_operatorem, bez_postovneho, procento_marze_intensa) 
+										dor_nazev_firmy ,dor_nazev_firmy_radek ,dor_ulice ,dor_misto ,dor_psc ,dor_stat, zadano_operatorem, bez_postovneho, procento_marze_intensa, id_web_objednavky) 
 										VALUES (@id_prepoctu ,@id_odberatele ,@datum ,@potvrzeno ,
 										@zpusob_dodani ,@zpusob_platby ,@poznamka , @id_sdruzeneho_prepoctu, @dor_telefon, @dor_email,
-										@dor_nazev_firmy ,@dor_nazev_firmy_radek ,@dor_ulice ,@dor_misto ,@dor_psc ,@dor_stat, @zadano_operatorem, @bez_postovneho, @procento_marze_intensa)";
+										@dor_nazev_firmy ,@dor_nazev_firmy_radek ,@dor_ulice ,@dor_misto ,@dor_psc ,@dor_stat, @zadano_operatorem, @bez_postovneho, @procento_marze_intensa, @id_web_objednavky)";
                     tvdStorage.Exec(connection, sql,
                             new SqlParameter("@id_prepoctu", cartId),
                             new SqlParameter("@id_odberatele", account.TVD_Id.Value),
@@ -279,7 +279,8 @@ namespace Eurona.Controls {
                             new SqlParameter("@dor_email", ""),
                             new SqlParameter("@zadano_operatorem", zadano_operatorem),
                             new SqlParameter("@bez_postovneho", false),
-                            new SqlParameter("@procento_marze_intensa", procento_marze_intensa.HasValue ? (object)procento_marze_intensa.Value : DBNull.Value)
+                            new SqlParameter("@procento_marze_intensa", procento_marze_intensa.HasValue ? (object)procento_marze_intensa.Value : DBNull.Value),
+                            new SqlParameter("@id_web_objednavky", ((orderNumber == null || orderNumber.Length == 0) ? DBNull.Value : (object)orderNumber))
                             );
 
                     //Naplnenie riadkov (produktov) pre prepocet

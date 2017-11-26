@@ -43,7 +43,7 @@
                 <telerik:GridBoundColumn HeaderText="Jméno" DataField="Dor_nazev_firmy" UniqueName="Dor_nazev_firmy" HeaderStyle-Width="100px"
                     SortExpression="Dor_nazev_firmy" AutoPostBackOnFilter="false" AllowFiltering="false" CurrentFilterFunction="Contains" ShowFilterIcon="false" />
 
-                <telerik:GridHyperLinkColumn HeaderText="Č. objednávky" DataTextField="id_web_objednavky" DataType="System.String" DataNavigateUrlFields="id_prepoctu" UniqueName="id_web_objednavky" HeaderStyle-Width="80px" DataNavigateUrlFormatString="~/user/advisor/reports/Objednavka.aspx?id={0}" Target="_blank"
+                <telerik:GridHyperLinkColumn HeaderText="Č. objednávky" DataTextField="id_web_objednavky" DataType="System.String" DataNavigateUrlFields="id_web_objednavky" UniqueName="id_web_objednavky" HeaderStyle-Width="80px" DataNavigateUrlFormatString="~/user/advisor/reports/Objednavka.aspx?cislo={0}" Target="_blank"
                     SortExpression="id_web_objednavky" AutoPostBackOnFilter="true" CurrentFilterFunction="Contains" ShowFilterIcon="false" />
                 
                 <telerik:GridBoundColumn HeaderText="Datum objednávky" DataField="datum_vystaveni" UniqueName="datum_vystaveni" HeaderStyle-Width="80px" ItemStyle-HorizontalAlign="Right" HeaderStyle-HorizontalAlign="Right" DataFormatString="{0:d}"

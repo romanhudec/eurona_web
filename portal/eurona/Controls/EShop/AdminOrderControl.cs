@@ -140,7 +140,7 @@ namespace Eurona.Controls {
             //Polozky objednavky
             RoundPanel rpOrderProducts = new RoundPanel();
             rpOrderProducts.CssClass = "_roundPanel";
-            if (this.OrderEntity.OrderStatusCode == ((int)OrderEntity.OrderStatus.WaitingForProccess).ToString()) {
+            if (this.OrderEntity.OrderStatusCode == ((int)OrderEntity.OrderStatus.WaitingForProccess).ToString() && this.IsEditing) {
                 Table tableAddProduct = new Table();
                 TableRow rowAddP = new TableRow(); tableAddProduct.Rows.Add(rowAddP);
                 TableCell cellP = new TableCell(); rowAddP.Cells.Add(cellP); cellP.Controls.Add(new LiteralControl(Resources.EShopStrings.CartControl_ProductCode));
@@ -781,7 +781,7 @@ namespace Eurona.Controls {
             //Vykonanie prepoctu v TVD
 #if !__DEBUG_VERSION_WITHOUTTVD
             bool bSuccess = false;
-            CartOrderHelper.RecalculateTVDCart(this.Page, /*this.updatePanel*/null, order.CartEntity, out bSuccess);
+            CartOrderHelper.RecalculateTVDCart(this.Page, /*this.updatePanel*/null, order.OrderNumber, order.CartEntity, out bSuccess);
 #endif
 
             //Nastavenie dopravneho
@@ -909,6 +909,9 @@ namespace Eurona.Controls {
             this.OrderEntity.NoPostage = this.cbNoPostage.Checked;
             if (this.ddlShipment != null) this.OrderEntity.ShipmentCode = this.ddlShipment.SelectedValue;
             Storage<OrderEntity>.Update(this.OrderEntity);
+
+            //Prepocitanie kosiku a objednavky
+            this.RecalculateOrder();
 
             Response.Redirect(this.ReturnUrl);
         }

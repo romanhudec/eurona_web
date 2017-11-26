@@ -14,11 +14,13 @@
     <link href="~/styles/ASPxMultipleFileUpload.css" rel="stylesheet" type="text/css" />
     <link href="~/styles/eshop.css" type="text/css" rel="Stylesheet" />
 </head>
-<body>
+<body style="margin:auto!important;width:auto!important;">
     <form id="form1" runat="server">
     <asp:ScriptManager id="ScriptManager" runat="server"/>
-    <div>
-        <shpOrder:AdminOrderControl runat="server" ID="adminOrderControl" IsEditing="true" CssClass="adminOrderControl" CssGridView="dataGrid" FinishUrlFormat="~/user/advisor/orderFinish.aspx?id={0}" />
+    <div style="margin:20px;width:100%;">
+        <div style="margin:auto;width:40%;">
+            <shpOrder:AdminOrderControl runat="server" ID="adminOrderControl" IsEditing="false" CssClass="adminOrderControl" CssGridView="dataGrid" FinishUrlFormat="~/user/advisor/orderFinish.aspx?id={0}" />
+        </div>
     </div>
     </form>
 </body>

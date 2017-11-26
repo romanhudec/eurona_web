@@ -6,21 +6,24 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using OrderEntity = Eurona.DAL.Entities.Order;
 
-namespace Eurona.User.Advisor.Reports
-{
-		public partial class Objednavka: WebPage
-		{
-				protected void Page_Load( object sender, EventArgs e )
-				{
-						if ( !string.IsNullOrEmpty( this.Request["id"] ) )
-						{
-								this.adminOrderControl.OrderId = Convert.ToInt32( this.Request["id"] );
-								if ( this.adminOrderControl.OrderEntity == null ) return;
+namespace Eurona.User.Advisor.Reports {
+    public partial class Objednavka : WebPage {
+        protected void Page_Load(object sender, EventArgs e) {
+            if (!string.IsNullOrEmpty(this.Request["id"])) {
+               
+                this.adminOrderControl.OrderId = Convert.ToInt32(this.Request["id"]);
+                if (this.adminOrderControl.OrderEntity == null) return;
+                this.adminOrderControl.IsEditing = false;
+            } else {
+                if (!string.IsNullOrEmpty(this.Request["cislo"])) {
+                    OrderEntity order = Storage<OrderEntity>.ReadFirst(new OrderEntity.ReadByFilter { OrderNumber = this.Request["cislo"] });
+                    if (order == null) return;
 
-								if ( OrderEntity.GetOrderStatusFromCode( this.adminOrderControl.OrderEntity.OrderStatusCode ) != OrderEntity.OrderStatus.WaitingForProccess &&
-								!Security.Account.IsInRole( CMS.Entities.Role.ADMINISTRATOR ) )
-										this.adminOrderControl.IsEditing = false;
-						}
-				}
-		}
+                    this.adminOrderControl.OrderId = order.Id;
+                    if (this.adminOrderControl.OrderEntity == null) return;
+                    this.adminOrderControl.IsEditing = false;
+                }
+            }
+        }
+    }
 }
