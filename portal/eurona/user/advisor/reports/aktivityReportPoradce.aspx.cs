@@ -250,7 +250,7 @@ namespace Eurona.User.Advisor.Reports {
 
             //i.	Zvýraznění poradců, kteří ve vybraném období historicky poprvé postoupili na vyšší provizní hladinu.
             if (zmenaHladinyPocet == 1) {
-                e.Item.BackColor = Color.AliceBlue;
+                e.Item.BackColor = Color.Yellow;
             }
 
             //ii.	Zvýraznění nově registrovaných poradců ve vybraném období

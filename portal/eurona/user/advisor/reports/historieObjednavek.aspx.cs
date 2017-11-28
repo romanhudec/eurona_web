@@ -84,7 +84,7 @@ namespace Eurona.User.Advisor.Reports {
 									p.dor_psc,
 									Adresa = (p.dor_ulice + ', ' + p.dor_misto + ', ' + p.dor_psc + ', ' + p.dor_stat)
 								FROM www_faktury f 
-									INNER JOIN www_faktury_radky fr ON fr.id_prepoctu = f.id_prepoctu
+									INNER JOIN www_faktury_radky fr ON fr.id_prepoctu = f.id_prepoctu  AND fr.idakce != 10
 								    INNER JOIN objednavkyfaktury ofr ON ofr.Id_objednavky = f.cislo_objednavky_eurosap
 								    LEFT JOIN www_prepocty p ON p.id_prepoctu = f.id_prepoctu
 								WHERE 

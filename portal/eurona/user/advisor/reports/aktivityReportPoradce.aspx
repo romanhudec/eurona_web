@@ -45,37 +45,33 @@
                 <telerik:GridBoundColumn HeaderText="<%$ Resources:Reports, DatumReg_Column %>" DataField="Datum_zahajeni" UniqueName="Datum_zahajeni" ItemStyle-HorizontalAlign="Right" HeaderStyle-Width="70px"
                     SortExpression="Datum_zahajeni" AutoPostBackOnFilter="false" CurrentFilterFunction="Contains" AllowFiltering="false" ShowFilterIcon="false" DataFormatString="{0:d}"  />
 
-                <telerik:GridBoundColumn HeaderText="Prov.hl." DataField="Hladina" UniqueName="Hladina" ItemStyle-HorizontalAlign="Right" HeaderStyle-Width="40px"
+                <telerik:GridBoundColumn HeaderText="Prov.hl." HeaderTooltip="Provizní hladina" DataField="Hladina" UniqueName="Hladina" ItemStyle-HorizontalAlign="Right" HeaderStyle-Width="40px"
                     SortExpression="Hladina" AutoPostBackOnFilter="false" CurrentFilterFunction="Contains" AllowFiltering="false" ShowFilterIcon="false" DataFormatString="{0:F0}" />
 
-                <telerik:GridBoundColumn HeaderText="BO" DataField="Body_vlastni" UniqueName="Body_vlastni" HeaderStyle-Width="30px" ItemStyle-HorizontalAlign="Right"
+                <telerik:GridBoundColumn HeaderText="BO" HeaderTooltip="Bodový obrat" DataField="Body_vlastni" UniqueName="Body_vlastni" HeaderStyle-Width="30px" ItemStyle-HorizontalAlign="Right"
                     SortExpression="Body_vlastni" AutoPostBackOnFilter="false" AllowFiltering="false" CurrentFilterFunction="Contains" ShowFilterIcon="false" DataFormatString="{0:F0}" />
                 <%--<telerik:GridBoundColumn HeaderText="OO" DataField="Objem_vlastni" UniqueName="Objem_vlastni" HeaderStyle-Width="50px" ItemStyle-HorizontalAlign="Right"
                     SortExpression="Objem_vlastni" AutoPostBackOnFilter="false" AllowFiltering="false" CurrentFilterFunction="Contains" ShowFilterIcon="false" DataFormatString="{0:F2}" />--%>
-                <telerik:GridHyperLinkColumn HeaderText="BO sk." DataTextField="Body_os" UniqueName="Body_os" DataNavigateUrlFields="Id_odberatele,RRRRMM"  HeaderStyle-Width="40px" ItemStyle-HorizontalAlign="Right"
+                <telerik:GridHyperLinkColumn HeaderText="BO sk." HeaderTooltip="Bodový obrat skupiny" DataTextField="Body_os" UniqueName="Body_os" DataNavigateUrlFields="Id_odberatele,RRRRMM"  HeaderStyle-Width="40px" ItemStyle-HorizontalAlign="Right"
                     SortExpression="Body_os" AutoPostBackOnFilter="false" AllowFiltering="false" CurrentFilterFunction="Contains" ShowFilterIcon="false" DataTextFormatString="{0:F0}" DataNavigateUrlFormatString="~/user/advisor/reports/osobniPrehledPoradce.aspx?id={0}&obdobi={1}" />
-               <%-- <telerik:GridBoundColumn HeaderText="OO sk." DataField="Objem_os" UniqueName="Objem_os" HeaderStyle-Width="60px" ItemStyle-HorizontalAlign="Right"
-                    SortExpression="Objem_os" AutoPostBackOnFilter="false" AllowFiltering="false" CurrentFilterFunction="Contains" ShowFilterIcon="false" DataFormatString="{0:F2}" />--%>
 
-                <telerik:GridBoundColumn HeaderText="M" DataField="Marze_platna" UniqueName="Marze_platna" HeaderStyle-Width="30px" ItemStyle-HorizontalAlign="Right"
+                <telerik:GridBoundColumn HeaderText="M" HeaderTooltip="Marže" DataField="Marze_platna" UniqueName="Marze_platna" HeaderStyle-Width="30px" ItemStyle-HorizontalAlign="Right"
                     SortExpression="Marze_platna" AutoPostBackOnFilter="false" AllowFiltering="false" CurrentFilterFunction="Contains" ShowFilterIcon="false" DataFormatString="{0:F2}" />
-             <%--   <telerik:GridBoundColumn HeaderText="M$$$" DataField="Marze_mena" UniqueName="Marze_mena" HeaderStyle-Width="60px" ItemStyle-HorizontalAlign="Right"
-                    SortExpression="Marze_mena" AutoPostBackOnFilter="false" AllowFiltering="false" CurrentFilterFunction="Contains" ShowFilterIcon="false" DataFormatString="{0:F2}" />--%>
-                <telerik:GridBoundColumn HeaderText="$$$" DataField="Marze_kod_meny" UniqueName="Marze_kod_meny" HeaderStyle-Width="30px"
+                <telerik:GridBoundColumn HeaderText="$$$" HeaderTooltip="Měna" DataField="Marze_kod_meny" UniqueName="Marze_kod_meny" HeaderStyle-Width="30px"
                     SortExpression="Marze_kod_meny" AutoPostBackOnFilter="false" AllowFiltering="false" CurrentFilterFunction="Contains" ShowFilterIcon="false" />
-                <telerik:GridBoundColumn HeaderText="Mn" DataField="Marze_nasledujici" UniqueName="Marze_nasledujici" HeaderStyle-Width="30px" ItemStyle-HorizontalAlign="Right"
+                <telerik:GridBoundColumn HeaderText="Mn" HeaderTooltip="Předpokládaná marže následující měsíc" DataField="Marze_nasledujici" UniqueName="Marze_nasledujici" HeaderStyle-Width="30px" ItemStyle-HorizontalAlign="Right"
                     SortExpression="Marze_nasledujici" AutoPostBackOnFilter="false" AllowFiltering="false" CurrentFilterFunction="Contains" ShowFilterIcon="false" DataFormatString="{0:F2}" />
-                <telerik:GridBoundColumn HeaderText="N" DataField="Novy" UniqueName="Novy" HeaderStyle-Width="30px"
+                <telerik:GridBoundColumn HeaderText="N" HeaderTooltip="zobrazuje 'A', pokud jde o nově reg. zákazníka" DataField="Novy" UniqueName="Novy" HeaderStyle-Width="30px"
                     SortExpression="Novy" AutoPostBackOnFilter="false" AllowFiltering="false" CurrentFilterFunction="Contains" ShowFilterIcon="false" />
-                <telerik:GridBoundColumn HeaderText="PN" DataField="Pocet_novych" UniqueName="Pocet_novych" HeaderStyle-Width="20px" ItemStyle-HorizontalAlign="Right"
+                <telerik:GridBoundColumn HeaderText="PN" HeaderTooltip="Počet nováčků" DataField="Pocet_novych" UniqueName="Pocet_novych" HeaderStyle-Width="20px" ItemStyle-HorizontalAlign="Right"
                     SortExpression="Pocet_novych" AutoPostBackOnFilter="false" AllowFiltering="false" CurrentFilterFunction="Contains" ShowFilterIcon="false" DataFormatString="{0:F0}" />
-                <telerik:GridBoundColumn HeaderText="PO" DataField="Pocet_novych_s_objednavkou" UniqueName="Pocet_novych_s_objednavkou" HeaderStyle-Width="20px" ItemStyle-HorizontalAlign="Right"
+                <telerik:GridBoundColumn HeaderText="PO" HeaderTooltip="Počet obj. nově registrovaných zákazníků" DataField="Pocet_novych_s_objednavkou" UniqueName="Pocet_novych_s_objednavkou" HeaderStyle-Width="20px" ItemStyle-HorizontalAlign="Right"
                     SortExpression="Pocet_novych_s_objednavkou" AutoPostBackOnFilter="false" AllowFiltering="false" CurrentFilterFunction="Contains" ShowFilterIcon="false" DataFormatString="{0:F0}" />
-                <telerik:GridBoundColumn HeaderText="Mě" DataField="Mesicu_bez_objednavky" UniqueName="Mesicu_bez_objednavky" HeaderStyle-Width="30px" ItemStyle-HorizontalAlign="Right"
+                <telerik:GridBoundColumn HeaderText="Mě" HeaderTooltip=" Počet měsíců bez objednání" DataField="Mesicu_bez_objednavky" UniqueName="Mesicu_bez_objednavky" HeaderStyle-Width="30px" ItemStyle-HorizontalAlign="Right"
                     SortExpression="Mesicu_bez_objednavky" AutoPostBackOnFilter="false" AllowFiltering="false" CurrentFilterFunction="Contains" ShowFilterIcon="false" DataFormatString="{0:F0}" />
                 <telerik:GridBoundColumn HeaderText="Město" DataField="Misto" UniqueName="Misto" HeaderStyle-Width="100px"
                     SortExpression="Statut" AutoPostBackOnFilter="false" AllowFiltering="false" CurrentFilterFunction="Contains" ShowFilterIcon="false" />
-                <telerik:GridBoundColumn HeaderText="PSČ" DataField="Psc" UniqueName="Psc" HeaderStyle-Width="30px"
+                <telerik:GridBoundColumn HeaderText="PSČ" DataField="Psc" UniqueName="Psc" HeaderStyle-Width="60px"
                     SortExpression="Statut" AutoPostBackOnFilter="false" AllowFiltering="false" CurrentFilterFunction="Contains" ShowFilterIcon="false" />
                     <telerik:GridBoundColumn HeaderText="Top manager" DataField="top_manager" UniqueName="top_manager" HeaderStyle-Width="80px"
                     SortExpression="top_manager" AutoPostBackOnFilter="false" AllowFiltering="false" CurrentFilterFunction="Contains" ShowFilterIcon="false" />

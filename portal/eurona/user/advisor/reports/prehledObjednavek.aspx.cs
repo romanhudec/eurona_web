@@ -105,7 +105,7 @@ namespace Eurona.User.Advisor.Reports {
 									top_manager=oTop.Nazev_firmy									
 								FROM www_faktury f 
 									INNER JOIN www_prepocty p ON p.id_prepoctu = f.id_prepoctu
-									INNER JOIN www_faktury_radky fr ON fr.id_prepoctu = f.id_prepoctu
+									INNER JOIN www_faktury_radky fr ON fr.id_prepoctu = f.id_prepoctu AND fr.idakce != 10
 								    LEFT JOIN objednavkyfaktury ofr ON ofr.Id_objednavky = f.cislo_objednavky_eurosap
                                     LEFT JOIN odberatele o  ON o.Id_odberatele = f.id_odberatele
                                     LEFT JOIN odberatele oTop  ON oTop.Id_odberatele = ofr.Id_topmanagera
