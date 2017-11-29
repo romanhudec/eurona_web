@@ -169,6 +169,7 @@
     <Content Include="error.aspx" />
     <Content Include="eshop\admin\nastaveniObjednavky.aspx" />
     <Content Include="eshop\admin\Reporty\OdeslaneDatoveListy.aspx" />
+    <Content Include="eshop\catalog_letak.aspx" />
     <Content Include="eshop\catalog_vanoce.aspx" />
     <Content Include="eshop\catalog_akce.aspx" />
     <Content Include="eshop\catalog_letak.aspx" />

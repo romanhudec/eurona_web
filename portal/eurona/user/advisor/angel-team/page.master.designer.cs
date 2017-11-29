@@ -166,15 +166,6 @@ namespace Eurona.User.Advisor.AngelTeam {
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl divLectorTeam;
         
         /// <summary>
-        /// divVIPMaminka control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl divVIPMaminka;
-        
-        /// <summary>
         /// content control.
         /// </summary>
         /// <remarks>
