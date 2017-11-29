@@ -155,7 +155,7 @@
                                 </td>
                             </tr>
 							</table>
-							<table width="100%" class="atmi-table">
+<%--							<table width="100%" class="atmi-table">
 							<tr>
 								<%if ( ( this.LogedAdvisor != null && ( this.LogedAdvisor.AngelTeamClen || this.LogedAdvisor.AngelTeamManager ) || (Eurona.Security.IsLogged(false) && Eurona.Security.IsInRole(Eurona.DAL.Entities.Role.ADMINISTRATOR)) ) ){ %>
                                 <td align="center" class="angel-menuitem" id="atmi_lectorTeam">
@@ -165,26 +165,15 @@
                                 </td>
 								<%} %>
 
-<%--								<%if ( ( this.LogedAdvisor != null && ( this.LogedAdvisor.AngelTeamClen || this.LogedAdvisor.AngelTeamManager ) || (Eurona.Security.IsLogged(false) && Eurona.Security.IsInRole(Eurona.DAL.Entities.Role.ADMINISTRATOR)) ) ){ %>
+    							<%if ( ( this.LogedAdvisor != null && ( this.LogedAdvisor.AngelTeamClen || this.LogedAdvisor.AngelTeamManager ) || (Eurona.Security.IsLogged(false) && Eurona.Security.IsInRole(Eurona.DAL.Entities.Role.ADMINISTRATOR)) ) ){ %>
                                 <td align="center" class="angel-menuitem" id="atmi_vipMaminka">
                                     <div runat="server" id="divVIPMaminka">
                                         <a href='<%=aliasUtilities.Resolve("~/user/advisor/angel-team/vipMaminka.aspx") %>'>V.I.P.maminka</a>
                                     </div>
                                 </td>
-								<%} %>--%>
-
-<%--                                <td align="center" class="angel-menuitem" id="atmi_lectorTeam">
-                                    <div runat="server" id="divLectorTeam">
-                                        <a href='<%=aliasUtilities.Resolve("~/user/advisor/angel-team/lectorTeam.aspx") %>'>ATP lector team</a>
-                                    </div>
-                                </td>
-                                <td align="center" class="angel-menuitem" id="atmi_vipMaminka">
-                                    <div runat="server" id="divVIPMaminka">
-                                        <a href='<%=aliasUtilities.Resolve("~/user/advisor/angel-team/vipMaminka.aspx") %>'>V.I.P.maminka</a>
-                                    </div>
-                                </td>--%>
+								<%} %>
 							</tr>
-                        </table>
+                            </table>--%>
                         <asp:ContentPlaceHolder ID="content" runat="server"></asp:ContentPlaceHolder>
                     </div>
                 </div>
