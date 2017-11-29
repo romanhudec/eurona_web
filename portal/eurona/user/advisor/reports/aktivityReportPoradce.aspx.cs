@@ -249,14 +249,16 @@ namespace Eurona.User.Advisor.Reports {
             DateTime datumZahajeni = Convert.ToDateTime(dtRow["Datum_zahajeni"]);
 
             //i.	Zvýraznění poradců, kteří ve vybraném období historicky poprvé postoupili na vyšší provizní hladinu.
-            if (zmenaHladinyPocet == 1) {
+            if (zmenaHladinyPocet == 1 ) {
                 e.Item.BackColor = Color.Yellow;
+                e.Item.CssClass = "rgRow";
             }
 
             //ii.	Zvýraznění nově registrovaných poradců ve vybraném období
             int yyymm = datumZahajeni.Year * 100 + datumZahajeni.Month;
             if (this.obdobi.HasValue && yyymm == this.obdobi.Value) {
                 e.Item.BackColor = Color.Aquamarine;
+                e.Item.CssClass = "rgRow";
             }
 
         }
