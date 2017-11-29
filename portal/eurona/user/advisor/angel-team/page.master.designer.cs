@@ -157,15 +157,6 @@ namespace Eurona.User.Advisor.AngelTeam {
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl divMojeCesta;
         
         /// <summary>
-        /// divLectorTeam control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl divLectorTeam;
-        
-        /// <summary>
         /// content control.
         /// </summary>
         /// <remarks>
