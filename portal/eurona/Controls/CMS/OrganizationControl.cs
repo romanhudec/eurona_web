@@ -134,6 +134,8 @@ namespace Eurona.Controls.UserManagement
 						int tvd_id = Convert.ToInt32(id_odberatele.Value);
 						string code = kod_odberatele.Value.ToString();
 
+                        /*Nastaveni spravneho locale podle registracniho cisla*/    
+                        account.Locale = Organization.GetLocaleByRegistrationCode(code);
 						account.TVD_Id = tvd_id;
 						Storage<Account>.Update(account);
 

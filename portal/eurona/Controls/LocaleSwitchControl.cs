@@ -24,26 +24,6 @@ namespace Eurona.Controls {
             div.Attributes.Add("class", this.CssClass);
 
             Table table = new Table();
-            //TableRow row = new TableRow();
-            //table.Rows.Add(row);
-            /*
-            if (Security.IsLogged(false) && Security.Account.IsInRole(Role.ADVISOR))
-            {
-                HyperLink hlCart = new HyperLink();
-                //Check na URL Alias
-                AliasUtilities aliasUtils = new AliasUtilities();
-                string url = aliasUtils.Resolve("~/user/advisor/cart.aspx", this.Page);
-                if (Security.Account.IsInRole(Role.ANONYMOUSADVISOR))
-                    url = aliasUtils.Resolve("~/user/anonymous/cart.aspx", this.Page);
-
-                hlCart.Text = Resources.EShopStrings.Navigation_MyCart;
-                hlCart.NavigateUrl = url;
-
-                TableCell cell = new TableCell();
-                cell.Controls.Add(hlCart);
-                row.Cells.Add(cell);
-            }
-            */
             foreach (SupportedLocaleEntity locale in list) {
                 TableRow row = new TableRow();
                 table.Rows.Add(row);
@@ -53,6 +33,11 @@ namespace Eurona.Controls {
                 btn.Text = locale.Notes.ToUpper();
                 btn.ID = "btnLocale" + locale.Code;
                 btn.CommandArgument = locale.Code;
+                //TODO: disable locale switch
+                btn.Enabled = true;
+                if (Security.IsLogged(false) && Security.Account.IsInRole(Role.ADVISOR)) {
+                    btn.Enabled = false;
+                }
                 btn.Click += OnSwitchLocale;
                 if (locale.Code == System.Threading.Thread.CurrentThread.CurrentUICulture.TwoLetterISOLanguageName.ToLower()) {
                     btn.Enabled = false;
@@ -80,7 +65,6 @@ namespace Eurona.Controls {
         protected void OnSwitchLocale(Object sender, EventArgs e) {
             LinkButton lb = sender as LinkButton;
             string locale = lb.CommandArgument;
-
             if (Security.IsLogged(false)) {
                 Account account = Security.Account;
                 account.Locale = locale;

@@ -119,7 +119,8 @@ public partial class DefaultMasterPage : System.Web.UI.MasterPage {
     protected void OnSwitchLocale(Object sender, EventArgs e) {
         ImageButton lb = sender as ImageButton;
         string locale = lb.CommandArgument;
-        if (Security.IsLogged(false)) {
+        //TODO: disable locale switch
+        if (Security.IsLogged(false) && (Security.Account.IsInRole(Role.OPERATOR) || Security.Account.IsInRole(Role.ADMINISTRATOR))) {
             Account account = Security.Account;
             account.Locale = locale;
             Storage<Account>.Update(account);

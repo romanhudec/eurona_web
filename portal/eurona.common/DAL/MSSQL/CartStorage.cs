@@ -11,7 +11,7 @@ namespace Eurona.Common.DAL.MSSQL
 {
     public sealed class CartStorage : MSSQLStorage<Cart>
     {
-        private const string entitySelect = @"SELECT CartId, InstanceId, AccountId, SessionId, Created, Closed, PriceTotal, PriceTotalWVAT, Discount,
+        private const string entitySelect = @"SELECT CartId, Locale, InstanceId, AccountId, SessionId, Created, Closed, PriceTotal, PriceTotalWVAT, Discount,
 								ShipmentCode ,ShipmentName ,ShipmentPrice ,PaymentCode, PaymentName, DeliveryAddressId, InvoiceAddressId, Notes, Status,
 								BodyEurosapTotal, KatalogovaCenaCelkemByEurosap, DopravneEurosap
 								FROM vShpCarts";
@@ -26,6 +26,7 @@ namespace Eurona.Common.DAL.MSSQL
             Cart cart = new Cart();
             cart.Id = Convert.ToInt32(record["CartId"]);
             cart.InstanceId = Convert.ToInt32(record["InstanceId"]);
+            cart.Locale = Convert.ToString(record["Locale"]);
             cart.AccountId = ConvertNullable.ToInt32(record["AccountId"]);
             cart.SessionId = ConvertNullable.ToInt32(record["SessionId"]);
             cart.ShipmentCode = Convert.ToString(record["ShipmentCode"]);

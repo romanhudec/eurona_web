@@ -29,6 +29,18 @@ namespace Eurona.Common.DAL.Entities
 	{
 		public const string EURONA_CODE = "420-5495234474";
 
+        public static string GetLocaleByRegistrationCode(string code) {
+            string locale = "cs";
+            if (code.StartsWith("420")) {
+                locale = "cs";
+            } else if (code.StartsWith("421")) {
+                locale = "sk";
+            } else {
+                locale = "pl";
+            }
+            return locale;
+        }
+
 		public DateTime Created { get; set; }
 		/// <summary>
 		/// TVD_Id accountu nadriadeneho

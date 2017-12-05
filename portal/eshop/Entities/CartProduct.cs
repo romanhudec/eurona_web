@@ -21,6 +21,7 @@ namespace SHP.Entities
 		public class ReadByCart
 		{
 			public int CartId { get; set; }
+            public string Locale { get; set; }
 		}
 
 		public class ReadByCartProduct

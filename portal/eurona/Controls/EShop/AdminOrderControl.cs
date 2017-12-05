@@ -248,7 +248,10 @@ namespace Eurona.Controls {
             priceInfoTable.Rows.Add(rowPrice);
 
             //Katalogova Cena
-            this.lcKatalogovaCenaCelkemByEurosap = new LiteralControl(SHP.Utilities.CultureUtilities.CurrencyInfo.ToString(OrderEntity.CartEntity.KatalogovaCenaCelkemByEurosap, this.Session));
+            //this.lcKatalogovaCenaCelkemByEurosap = new LiteralControl(SHP.Utilities.CultureUtilities.CurrencyInfo.ToString(OrderEntity.CartEntity.KatalogovaCenaCelkemByEurosap, this.Session));
+            //TODO:20171205
+            this.lcKatalogovaCenaCelkemByEurosap = new LiteralControl(Eurona.Common.Utilities.CultureUtilities.CurrencyInfo.ToString(OrderEntity.CartEntity.KatalogovaCenaCelkemByEurosap, OrderEntity.CurrencySymbol));
+
             rowPrice = new TableRow();
             cellPrice = new TableCell();
             cellPrice.Controls.Add(new LiteralControl(Resources.EShopStrings.AdminOrderControl_KatalogovaCeneCelkem));
@@ -262,7 +265,9 @@ namespace Eurona.Controls {
 
             //Dopravne
             if (OrderEntity.CartEntity.DopravneEurosap.HasValue) {
-                this.lcDopravne = new LiteralControl(SHP.Utilities.CultureUtilities.CurrencyInfo.ToString(OrderEntity.CartEntity.DopravneEurosap, this.Session));
+                //this.lcDopravne = new LiteralControl(SHP.Utilities.CultureUtilities.CurrencyInfo.ToString(OrderEntity.CartEntity.DopravneEurosap, this.Session));
+                //TODO:20171205
+                this.lcDopravne = new LiteralControl(Eurona.Common.Utilities.CultureUtilities.CurrencyInfo.ToString(OrderEntity.CartEntity.DopravneEurosap, OrderEntity.CurrencySymbol));
 
                 TableRow rowDopravne = new TableRow();
                 TableCell cellDopravne = new TableCell();
@@ -565,7 +570,9 @@ namespace Eurona.Controls {
             this.RecalculateOrder();
             UpdateDopravneUIbyOrder();
 
-            this.lcDopravne.Text = SHP.Utilities.CultureUtilities.CurrencyInfo.ToString(OrderEntity.CartEntity.DopravneEurosap, this.Session);
+            //this.lcDopravne.Text = SHP.Utilities.CultureUtilities.CurrencyInfo.ToString(OrderEntity.CartEntity.DopravneEurosap, this.Session);
+            //TODO:20171205
+            this.lcDopravne.Text = Eurona.Common.Utilities.CultureUtilities.CurrencyInfo.ToString(OrderEntity.CartEntity.DopravneEurosap, OrderEntity.CurrencySymbol);
             this.lblFakturovanaCena.Text = Eurona.Common.Utilities.CultureUtilities.CurrencyInfo.ToString(this.OrderEntity.PriceWVAT, this.OrderEntity.CurrencySymbol);
         }
 
@@ -620,12 +627,14 @@ namespace Eurona.Controls {
         }
 
         private void UpdateDopravneUIbyOrder() {
-            this.lcDopravne.Text = SHP.Utilities.CultureUtilities.CurrencyInfo.ToString(OrderEntity.CartEntity.DopravneEurosap, this.Session);
+            //this.lcDopravne.Text = SHP.Utilities.CultureUtilities.CurrencyInfo.ToString(OrderEntity.CartEntity.DopravneEurosap, this.Session);
+            //TODO:20171205
+            this.lcDopravne.Text = Eurona.Common.Utilities.CultureUtilities.CurrencyInfo.ToString(OrderEntity.CartEntity.DopravneEurosap, OrderEntity.CurrencySymbol);
             this.lblFakturovanaCena.Text = Eurona.Common.Utilities.CultureUtilities.CurrencyInfo.ToString(this.OrderEntity.PriceWVAT, this.OrderEntity.CurrencySymbol);
         }
 
         private void GridViewDataBind(OrderEntity order, bool bind) {
-            List<CartProductEntity> list = Storage<CartProductEntity>.Read(new CartProductEntity.ReadByCart { CartId = order.CartId });
+            List<CartProductEntity> list = Storage<CartProductEntity>.Read(new CartProductEntity.ReadByCart { CartId = order.CartId, Locale = order.GetLocaleByCurrencyCode() });
 
             this.dataGrid.PagerTemplate = null;
             dataGrid.DataSource = list;
@@ -678,8 +687,14 @@ namespace Eurona.Controls {
                     UpdateDopravneUIbyOrder();
 
                     this.lcBodyByEurosap.Text = OrderEntity.CartEntity.BodyEurosapTotal.ToString("F1");
-                    this.lcKatalogovaCenaCelkemByEurosap.Text = SHP.Utilities.CultureUtilities.CurrencyInfo.ToString(OrderEntity.CartEntity.KatalogovaCenaCelkemByEurosap, this.Session);
-                    this.lcDopravne.Text = SHP.Utilities.CultureUtilities.CurrencyInfo.ToString(OrderEntity.CartEntity.DopravneEurosap, this.Session);
+                    //this.lcKatalogovaCenaCelkemByEurosap.Text = SHP.Utilities.CultureUtilities.CurrencyInfo.ToString(OrderEntity.CartEntity.KatalogovaCenaCelkemByEurosap, this.Session);
+                    //TODO:20171205
+                    this.lcKatalogovaCenaCelkemByEurosap.Text = Eurona.Common.Utilities.CultureUtilities.CurrencyInfo.ToString(OrderEntity.CartEntity.KatalogovaCenaCelkemByEurosap, OrderEntity.CurrencySymbol);
+
+
+                    //this.lcDopravne.Text = SHP.Utilities.CultureUtilities.CurrencyInfo.ToString(OrderEntity.CartEntity.DopravneEurosap, this.Session);
+                    //TODO:20171205
+                    this.lcDopravne.Text = Eurona.Common.Utilities.CultureUtilities.CurrencyInfo.ToString(OrderEntity.CartEntity.DopravneEurosap, OrderEntity.CurrencySymbol);
                     this.lblFakturovanaCena.Text = Eurona.Common.Utilities.CultureUtilities.CurrencyInfo.ToString(this.OrderEntity.PriceWVAT, this.OrderEntity.CurrencySymbol);
 
                 }

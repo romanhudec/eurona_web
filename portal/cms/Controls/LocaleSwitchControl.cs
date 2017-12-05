@@ -15,75 +15,66 @@ using System.Configuration;
 using System.Web;
 using System.Web.UI.HtmlControls;
 
-namespace CMS.Controls
-{
-		public class LocaleSwitchControl: CmsControl
-		{
-				public LocaleSwitchControl()
-				{
-				}
+namespace CMS.Controls {
+    public class LocaleSwitchControl : CmsControl {
+        public LocaleSwitchControl() {
+        }
 
-				protected override void CreateChildControls()
-				{
-						base.CreateChildControls();
-						List<SupportedLocaleEntity> list = Storage<SupportedLocaleEntity>.Read();
+        protected override void CreateChildControls() {
+            base.CreateChildControls();
+            List<SupportedLocaleEntity> list = Storage<SupportedLocaleEntity>.Read();
 
-						HtmlGenericControl div = new HtmlGenericControl( "div" );
-						div.Attributes.Add( "class", this.CssClass );
+            HtmlGenericControl div = new HtmlGenericControl("div");
+            div.Attributes.Add("class", this.CssClass);
 
-						Table table = new Table();
-						TableRow row = new TableRow();
-						table.Rows.Add( row );
+            Table table = new Table();
+            TableRow row = new TableRow();
+            table.Rows.Add(row);
 
-						foreach ( SupportedLocaleEntity locale in list )
-						{
-								if ( string.IsNullOrEmpty( locale.Icon ) )
-										continue;
+            foreach (SupportedLocaleEntity locale in list) {
+                if (string.IsNullOrEmpty(locale.Icon))
+                    continue;
 
-								ImageButton btn = new ImageButton();
-								btn.CausesValidation = false;
-								btn.ID = "btnLocale" + locale.Code;
-								btn.ImageUrl = Page.ResolveUrl( locale.Icon );
-								btn.CommandArgument = locale.Code;
-								btn.Click += OnSwitchLocale;
-								if ( locale.Code == System.Threading.Thread.CurrentThread.CurrentUICulture.TwoLetterISOLanguageName.ToLower() )
-								{
-										btn.Enabled = false;
+                ImageButton btn = new ImageButton();
+                btn.CausesValidation = false;
+                btn.ID = "btnLocale" + locale.Code;
+                btn.ImageUrl = Page.ResolveUrl(locale.Icon);
+                btn.CommandArgument = locale.Code;
+                btn.Click += OnSwitchLocale;
+                if (locale.Code == System.Threading.Thread.CurrentThread.CurrentUICulture.TwoLetterISOLanguageName.ToLower()) {
+                    btn.Enabled = false;
 
-										btn.Style.Add( "filter", "alpha(opacity=20)" );
-										btn.Style.Add( "opacity", ".2" );
-										btn.Style.Add( "-moz-opacity", ".2" );
-								}
-								TableCell cell = new TableCell();
-								cell.Controls.Add( btn );
-								row.Cells.Add( cell );
-						}
+                    btn.Style.Add("filter", "alpha(opacity=20)");
+                    btn.Style.Add("opacity", ".2");
+                    btn.Style.Add("-moz-opacity", ".2");
+                }
+                TableCell cell = new TableCell();
+                cell.Controls.Add(btn);
+                row.Cells.Add(cell);
+            }
 
-						div.Controls.Add( table );
-						this.Controls.Add( div );
-				}
+            div.Controls.Add(table);
+            this.Controls.Add(div);
+        }
 
-				protected void OnSwitchLocale( Object sender, EventArgs e )
-				{
-						ImageButton lb = sender as ImageButton;
-						string locale = lb.CommandArgument;
-						if ( Security.IsLogged( false ) )
-						{
-								AccountEntity account = Security.Account;
-								account.Locale = locale;
-								CMS.Storage<AccountEntity>.Update( account );
-						}
+        protected void OnSwitchLocale(Object sender, EventArgs e) {
+            ImageButton lb = sender as ImageButton;
+            string locale = lb.CommandArgument;
+            if (Security.IsLogged(false)) {
+                AccountEntity account = Security.Account;
+                account.Locale = locale;
+                CMS.Storage<AccountEntity>.Update(account);
+            }
 
-						//Save to cooke
-						if ( ConfigurationManager.AppSettings["CookieLocaleName"] != null )
-						{
-								HttpCookie c = new HttpCookie( ConfigurationManager.AppSettings["CookieLocaleName"], locale );
-								c.Expires = DateTime.Now.AddYears( 1 );
-								Response.Cookies.Add( c );
-						}
+            //Save to cooke
+            if (ConfigurationManager.AppSettings["CookieLocaleName"] != null) {
+                HttpCookie c = new HttpCookie(ConfigurationManager.AppSettings["CookieLocaleName"], locale);
+                c.Expires = DateTime.Now.AddYears(1);
+                Response.Cookies.Add(c);
+            }
 
-						Response.Redirect( Page.ResolveUrl( "~/" ) );//Request.RawUrl );
-						Response.End();
-				}
-		}
+            Response.Redirect(Page.ResolveUrl("~/"));//Request.RawUrl );
+            Response.End();
+        }
+    }
 }

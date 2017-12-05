@@ -157,14 +157,21 @@ namespace Eurona.pay.gp {
             string connectionString = ConfigurationManager.ConnectionStrings["TVDConnectionString"].ConnectionString;
             CMS.Pump.MSSQLStorage tvdStorage = new CMS.Pump.MSSQLStorage(connectionString);
             using (SqlConnection connection = tvdStorage.Connect()) {
-                string sql = @"SELECT Suma = ([celkem_k_uhrade]-[castka_dobropis])
-								FROM www_faktury WHERE id_prepoctu=@id_prepoctu";
+//                string sql = @"SELECT Suma = ([celkem_k_uhrade]-[castka_dobropis])
+//								FROM www_faktury WHERE id_prepoctu=@id_prepoctu";
+
+                string sql = @"SELECT Suma = ([celkem_k_uhrade]-[castka_dobropis]), kod_meny
+                FROM www_faktury WHERE id_prepoctu=@id_prepoctu
+                GROUP BY celkem_k_uhrade, castka_dobropis, kod_meny";
+
                 DataTable dt = tvdStorage.Query(connection, sql, new SqlParameter("@id_prepoctu", order.Id));
 
                 decimal suma = order.PriceWVAT;
+                string kod_meny = order.CurrencyCode;
                 if (dt.Rows.Count != 0) {
                     suma = Convert.ToDecimal(dt.Rows[0]["Suma"]);
-                    string msg = string.Format("TVD Platba kartou -> Confirm(id_prepoctu:{0}, Suma:{1})", order.Id, suma);
+                    kod_meny = dt.Rows[0]["kod_meny"].ToString();
+                    string msg = string.Format("TVD Platba kartou -> Confirm(id_prepoctu:{0}, Suma:{1}, kod_meny:{2})", order.Id, suma, kod_meny);
                     CMS.EvenLog.WritoToEventLog(msg, EventLogEntryType.Information);
                 } else {
                     string msg = string.Format("TVD Platba kartou -> Confirm(id_prepoctu:{0}, Suma:NULL!)", order.Id);
@@ -173,7 +180,7 @@ namespace Eurona.pay.gp {
 
 
                 bool bSuccess = false;
-                TVDPlatbaKartou(tvdStorage, connection, order.Id, suma, order.CurrencyCode, out bSuccess);
+                TVDPlatbaKartou(tvdStorage, connection, order.Id, suma, kod_meny, out bSuccess);
                 return bSuccess;
             }
         }

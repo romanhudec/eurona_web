@@ -121,7 +121,7 @@ namespace Eurona.Common.DAL.MSSQL
 				DataTable table = Query<DataTable>(connection, sql,
 						new SqlParameter("@CartId", Null(by.CartId)),
 						new SqlParameter("@InstanceId", InstanceId == 1/*INTENSA*/ ? 0 : InstanceId),
-						new SqlParameter("@Locale", Locale));
+                        new SqlParameter("@Locale", string.IsNullOrEmpty(by.Locale) ? Locale : by.Locale));
 				foreach (DataRow dr in table.Rows)
 					cartList.Add(GetCartProduct(dr, InstanceId));
 			}

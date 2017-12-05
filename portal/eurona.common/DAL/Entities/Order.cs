@@ -11,6 +11,15 @@ namespace Eurona.Common.DAL.Entities
 		public int? CurrencyId { get; set; }
 		public string CurrencyCode { get; set; }
 		public string CurrencySymbol { get; set; }
+        public string GetLocaleByCurrencyCode(){
+            if( this.CurrencyCode.ToUpper() == "CZK" )
+                return "cs";
+            else if( this.CurrencyCode.ToUpper() == "EUR" )
+                return "sk";
+            else if (this.CurrencyCode.ToUpper() == "PLN")
+                return "pl";
+            return "cs";
+        }
 
 		public DateTime? ShipmentFrom { get; set; }
 		public DateTime? ShipmentTo { get; set; }
