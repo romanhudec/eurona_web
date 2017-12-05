@@ -6,114 +6,101 @@ using CMS.Entities;
 using CMS.MSSQL;
 using SHP.Entities.Classifiers;
 
-namespace Eurona.Common.DAL.MSSQL.Classifiers
-{
-		internal sealed class CurrencyStorage: MSSQLStorage<Currency>
-		{
-				public CurrencyStorage( int instanceId, Account account, string connectionString )
-						: base( instanceId, account, connectionString )
-				{
-				}
+namespace Eurona.Common.DAL.MSSQL.Classifiers {
+    internal sealed class CurrencyStorage : MSSQLStorage<Currency> {
+        public CurrencyStorage(int instanceId, Account account, string connectionString)
+            : base(instanceId, account, connectionString) {
+        }
 
-				private static Currency GetCurrency( DataRow record )
-				{
-						Currency currency = new Currency();
-						currency.Id = Convert.ToInt32( record["CurrencyId"] );
-						currency.InstanceId = Convert.ToInt32( record["InstanceId"] );
-						currency.Name = Convert.ToString( record["Name"] );
-						currency.Code = Convert.ToString( record["Code"] );
-						currency.Icon = Convert.ToString( record["Icon"] );
-						currency.Locale = Convert.ToString( record["Locale"] );
-						currency.Notes = Convert.ToString( record["Notes"] );
-						currency.Rate = ConvertNullable.ToDecimal( record["Rate"] );
-						currency.Symbol = Convert.ToString( record["Symbol"] );
+        private static Currency GetCurrency(DataRow record) {
+            Currency currency = new Currency();
+            currency.Id = Convert.ToInt32(record["CurrencyId"]);
+            currency.InstanceId = Convert.ToInt32(record["InstanceId"]);
+            currency.Name = Convert.ToString(record["Name"]);
+            currency.Code = Convert.ToString(record["Code"]);
+            currency.Icon = Convert.ToString(record["Icon"]);
+            currency.Locale = Convert.ToString(record["Locale"]);
+            currency.Notes = Convert.ToString(record["Notes"]);
+            currency.Rate = ConvertNullable.ToDecimal(record["Rate"]);
+            currency.Symbol = Convert.ToString(record["Symbol"]);
 
-						return currency;
-				}
+            return currency;
+        }
 
-				public override List<Currency> Read( object criteria )
-				{
-						string sql = @"SELECT [CurrencyId], InstanceId, [Name], [Code], [Icon], [Locale], [Notes], [Rate], [Symbol] FROM vShpCurrencies";
+        public override List<Currency> Read(object criteria) {
+            string sql = @"SELECT [CurrencyId], InstanceId, [Name], [Code], [Icon], [Locale], [Notes], [Rate], [Symbol] FROM vShpCurrencies";
 
-						List<Currency> list = new List<Currency>();
-						using ( SqlConnection connection = Connect() )
-						{
-								DataTable table;
-								if ( criteria is Currency.ReadById )
-								{
-										Currency.ReadById by = criteria as Currency.ReadById;
-										sql += " WHERE CurrencyId = @CurrencyId";
-										sql += " ORDER BY [Name] ASC";
-										table = Query<DataTable>( connection, sql, new SqlParameter( "@CurrencyId", by.Id ) );
-								}
-								else if ( criteria is Currency.ReadByRate )
-								{
-										Currency.ReadByRate by = criteria as Currency.ReadByRate;
-										sql += " WHERE Rate = @Rate";
-										sql += " ORDER BY [Name] ASC";
-										table = Query<DataTable>( connection, sql, new SqlParameter( "@Rate", by.Rate ) );
-								}
-								else
-								{
-										sql += " ORDER BY [Name] ASC";
-										table = Query<DataTable>( connection, sql );
-								}
+            List<Currency> list = new List<Currency>();
+            using (SqlConnection connection = Connect()) {
+                DataTable table;
+                if (criteria is Currency.ReadById) {
+                    Currency.ReadById by = criteria as Currency.ReadById;
+                    sql += " WHERE CurrencyId = @CurrencyId";
+                    sql += " ORDER BY [Name] ASC";
+                    table = Query<DataTable>(connection, sql, new SqlParameter("@CurrencyId", by.Id));
+                } else if (criteria is Currency.ReadByRate) {
+                    Currency.ReadByRate by = criteria as Currency.ReadByRate;
+                    sql += " WHERE Rate = @Rate";
+                    sql += " ORDER BY [Name] ASC";
+                    table = Query<DataTable>(connection, sql, new SqlParameter("@Rate", by.Rate));
+                } else if (criteria is Currency.ReadByCode) {
+                    Currency.ReadByCode by = criteria as Currency.ReadByCode;
+                    sql += " WHERE Code = @Code";
+                    sql += " ORDER BY [Name] ASC";
+                    table = Query<DataTable>(connection, sql, new SqlParameter("@Code", by.Code));
+                } else {
+                    sql += " ORDER BY [Name] ASC";
+                    table = Query<DataTable>(connection, sql);
+                }
 
-								foreach ( DataRow dr in table.Rows )
-										list.Add( GetCurrency( dr ) );
-						}
-						return list;
-				}
+                foreach (DataRow dr in table.Rows)
+                    list.Add(GetCurrency(dr));
+            }
+            return list;
+        }
 
-				public override int Count( object criteria )
-				{
-						throw new NotImplementedException();
-				}
+        public override int Count(object criteria) {
+            throw new NotImplementedException();
+        }
 
-				public override void Create( Currency currency )
-				{
-						using ( SqlConnection connection = Connect() )
-						{
-								ExecProc( connection, "pShpCurrencyCreate",
-										new SqlParameter( "@HistoryAccount", AccountId ),
-										new SqlParameter( "@InstanceId", InstanceId ),
-										new SqlParameter( "@Name", currency.Name ),
-										new SqlParameter( "@Code", currency.Code ),
-										new SqlParameter( "@Icon", currency.Icon ),
-										new SqlParameter( "@Notes", currency.Notes ),
-										new SqlParameter( "@Rate", currency.Rate ),
-										new SqlParameter( "@Symbol", currency.Symbol ),
-										new SqlParameter( "@Locale", String.IsNullOrEmpty( currency.Locale ) ? Locale : currency.Locale ) );
-						}
-				}
+        public override void Create(Currency currency) {
+            using (SqlConnection connection = Connect()) {
+                ExecProc(connection, "pShpCurrencyCreate",
+                        new SqlParameter("@HistoryAccount", AccountId),
+                        new SqlParameter("@InstanceId", InstanceId),
+                        new SqlParameter("@Name", currency.Name),
+                        new SqlParameter("@Code", currency.Code),
+                        new SqlParameter("@Icon", currency.Icon),
+                        new SqlParameter("@Notes", currency.Notes),
+                        new SqlParameter("@Rate", currency.Rate),
+                        new SqlParameter("@Symbol", currency.Symbol),
+                        new SqlParameter("@Locale", String.IsNullOrEmpty(currency.Locale) ? Locale : currency.Locale));
+            }
+        }
 
-				public override void Update( Currency currency )
-				{
-						using ( SqlConnection connection = Connect() )
-						{
-								ExecProc( connection, "pShpCurrencyModify",
-										new SqlParameter( "@HistoryAccount", AccountId ),
-										new SqlParameter( "@CurrencyId", currency.Id ),
-										new SqlParameter( "@Name", currency.Name ),
-										new SqlParameter( "@Code", currency.Code ),
-										new SqlParameter( "@Icon", currency.Icon ),
-										new SqlParameter( "@Notes", currency.Notes ),
-										new SqlParameter( "@Rate", currency.Rate ),
-										new SqlParameter( "@Symbol", currency.Symbol ),
-										new SqlParameter( "@Locale", currency.Locale ) );
-						}
-				}
+        public override void Update(Currency currency) {
+            using (SqlConnection connection = Connect()) {
+                ExecProc(connection, "pShpCurrencyModify",
+                        new SqlParameter("@HistoryAccount", AccountId),
+                        new SqlParameter("@CurrencyId", currency.Id),
+                        new SqlParameter("@Name", currency.Name),
+                        new SqlParameter("@Code", currency.Code),
+                        new SqlParameter("@Icon", currency.Icon),
+                        new SqlParameter("@Notes", currency.Notes),
+                        new SqlParameter("@Rate", currency.Rate),
+                        new SqlParameter("@Symbol", currency.Symbol),
+                        new SqlParameter("@Locale", currency.Locale));
+            }
+        }
 
-				public override void Delete( Currency currency )
-				{
-						using ( SqlConnection connection = Connect() )
-						{
-								SqlParameter historyAccount = new SqlParameter( "@HistoryAccount", AccountId );
-								SqlParameter addressId = new SqlParameter( "@CurrencyId", currency.Id );
-								SqlParameter result = new SqlParameter( "@Result", -1 );
-								result.Direction = ParameterDirection.Output;
-								ExecProc( connection, "pShpCurrencyDelete", result, historyAccount, addressId );
-						}
-				}
-		}
+        public override void Delete(Currency currency) {
+            using (SqlConnection connection = Connect()) {
+                SqlParameter historyAccount = new SqlParameter("@HistoryAccount", AccountId);
+                SqlParameter addressId = new SqlParameter("@CurrencyId", currency.Id);
+                SqlParameter result = new SqlParameter("@Result", -1);
+                result.Direction = ParameterDirection.Output;
+                ExecProc(connection, "pShpCurrencyDelete", result, historyAccount, addressId);
+            }
+        }
+    }
 }

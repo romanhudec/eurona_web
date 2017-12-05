@@ -195,7 +195,8 @@ namespace Eurona.Controls {
                 //Vykonanie prepoctu v TVD
                 bool bSuccess = false;
 #if !__DEBUG_VERSION_WITHOUTTVD
-                string message = CartOrderHelper.RecalculateTVDCart(this.Page, /*this.updatePanel*/null, null, this.CartEntity, out bSuccess);
+                int? currencyId = null;
+                string message = CartOrderHelper.RecalculateTVDCart(this.Page, /*this.updatePanel*/null, null, this.CartEntity, out currencyId, out bSuccess);
 #else
                 string message = "Přepočteno!";
 #endif
@@ -245,12 +246,16 @@ namespace Eurona.Controls {
             this.cartEntity = Storage<Cart>.ReadFirst(new Cart.ReadById { CartId = this.CartEntity.Id });
             //Nastavenie spravneho majitela
             this.cartEntity.AccountId = orderAccountId;
+            this.cartEntity = Storage<CartEntity>.Update(this.cartEntity);
+            //Reload Cart entity pre refresh account a locale
+            this.cartEntity = Storage<Cart>.ReadFirst(new Cart.ReadById { CartId = this.CartEntity.Id });
 
             //Vykonanie prepoctu v TVD
             //Ak sa z eurosapu vrati chyba -> objednavku nemozno vytvorit.
             bool bSuccess = false;
+            int? currencyId = null;
 #if !__DEBUG_VERSION_WITHOUTTVD
-            string message = CartOrderHelper.RecalculateTVDCart(this.Page, /*this.updatePanel*/null, null, this.CartEntity, out bSuccess);
+            string message = CartOrderHelper.RecalculateTVDCart(this.Page, /*this.updatePanel*/null, null, this.CartEntity, out currencyId, out bSuccess);
 #else
             bSuccess = true;
 #endif
@@ -302,6 +307,9 @@ namespace Eurona.Controls {
                 order.Price = this.cartEntity.PriceTotal.Value;
                 order.PriceWVAT = this.cartEntity.PriceTotalWVAT.Value + this.cartEntity.DopravneEurosap.Value;
                 order.CreatedByAccountId = Security.Account.Id;
+                if (currencyId.HasValue) {
+                    order.CurrencyId = currencyId.Value;
+                }
                 decimal sumaBezPostovneho = Common.DAL.Entities.OrderSettings.GetFreePostageSuma(Security.Account.Locale);
                 if (this.cartEntity.KatalogovaCenaCelkemByEurosap >= sumaBezPostovneho) {
                     order.NoPostage = true;

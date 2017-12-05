@@ -322,8 +322,9 @@ namespace Eurona.User.Anonymous
 			//Vykonanie prepoctu v TVD
 			//Ak sa z eurosapu vrati chyba -> objednavku nemozno vytvorit.
 			bool bSuccess = false;
+            int? currencyId = null;
 #if !__DEBUG_VERSION_WITHOUTTVD
-			string message = Eurona.Controls.CartOrderHelper.RecalculateTVDCart(this.Page, /*this.updatePanel*/null, null, this.CartEntity, out bSuccess);
+			string message = Eurona.Controls.CartOrderHelper.RecalculateTVDCart(this.Page, /*this.updatePanel*/null, null, this.CartEntity, out currencyId, out bSuccess);
 #else
 						bSuccess = true;
 #endif
@@ -386,6 +387,9 @@ namespace Eurona.User.Anonymous
 				order.Price = this.cartEntity.PriceTotal.Value;
 				order.PriceWVAT = this.cartEntity.PriceTotalWVAT.Value;
 				order.CreatedByAccountId = Security.Account.Id;
+                if (currencyId.HasValue)
+                    order.CurrencyId = currencyId.Value;
+
 				order = Storage<OrderEntity>.Create(order);
 
 				Organization org = Storage<Organization>.ReadFirst(new Organization.ReadByAccountId { AccountId = order.AccountId });

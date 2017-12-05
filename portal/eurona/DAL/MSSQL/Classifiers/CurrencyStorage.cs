@@ -48,6 +48,11 @@ namespace Eurona.DAL.MSSQL.Classifiers {
                     sql += " WHERE Locale = @Locale";
                     sql += " ORDER BY [Name] ASC";
                     table = Query<DataTable>(connection, sql, new SqlParameter("@Locale", by.Locale), new SqlParameter("@InstanceId", InstanceId));
+                } else if (criteria is Currency.ReadByCode) {
+                    Currency.ReadByCode by = criteria as Currency.ReadByCode;
+                    sql += " WHERE Code = @Code";
+                    sql += " ORDER BY [Name] ASC";
+                    table = Query<DataTable>(connection, sql, new SqlParameter("@Code", by.Code));
                 } else {
                     sql += " WHERE Locale = @Locale-- AND InstanceId=@InstanceId";
                     sql += " ORDER BY [Name] ASC";

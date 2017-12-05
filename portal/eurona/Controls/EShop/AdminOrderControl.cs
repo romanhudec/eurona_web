@@ -634,7 +634,8 @@ namespace Eurona.Controls {
         }
 
         private void GridViewDataBind(OrderEntity order, bool bind) {
-            List<CartProductEntity> list = Storage<CartProductEntity>.Read(new CartProductEntity.ReadByCart { CartId = order.CartId, Locale = order.GetLocaleByCurrencyCode() });
+            CMS.EvenLog.WritoToEventLog("AdminOrderControl->GridViewDataBind->order.CartEntity.Locale = " + order.CartEntity.Locale, EventLogEntryType.Information);
+            List<CartProductEntity> list = Storage<CartProductEntity>.Read(new CartProductEntity.ReadByCart { CartId = order.CartId, Locale = order.CartEntity.Locale });
 
             this.dataGrid.PagerTemplate = null;
             dataGrid.DataSource = list;
@@ -796,7 +797,8 @@ namespace Eurona.Controls {
             //Vykonanie prepoctu v TVD
 #if !__DEBUG_VERSION_WITHOUTTVD
             bool bSuccess = false;
-            CartOrderHelper.RecalculateTVDCart(this.Page, /*this.updatePanel*/null, order.OrderNumber, order.CartEntity, out bSuccess);
+            int? currencyId = order.CurrencyId;
+            CartOrderHelper.RecalculateTVDCart(this.Page, /*this.updatePanel*/null, order.OrderNumber, order.CartEntity, out currencyId, out bSuccess);
 #endif
 
             //Nastavenie dopravneho
@@ -806,6 +808,9 @@ namespace Eurona.Controls {
             decimal? shipmentPrice = order.NoPostage ? 0m : (this.OrderEntity.CartEntity.Shipment != null ? this.OrderEntity.CartEntity.Shipment.Price : 0m);
             decimal? shipmentPriceWVAT = this.OrderEntity.CartEntity.DopravneEurosap;
 
+            if (currencyId.HasValue) {
+                order.CurrencyId = currencyId.Value;
+            }
             order.Price = this.OrderEntity.CartEntity.PriceTotal.Value + (shipmentPrice.HasValue ? shipmentPrice.Value : 0m);
             order.PriceWVAT = this.OrderEntity.CartEntity.PriceTotalWVAT.Value + (shipmentPriceWVAT.HasValue ? shipmentPriceWVAT.Value : 0m);
             order = Storage<OrderEntity>.Update(order);

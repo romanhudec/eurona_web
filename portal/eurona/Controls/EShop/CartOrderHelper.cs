@@ -218,7 +218,8 @@ namespace Eurona.Controls {
         /// <summary>
         /// Metóda prepočíta nákupný košík v TVD databazi
         /// </summary>
-        public static string RecalculateTVDCart(Page page, UpdatePanel up, string orderNumber,  CartEntity cart, out bool bSuccess) {
+        public static string RecalculateTVDCart(Page page, UpdatePanel up, string orderNumber,  CartEntity cart, out int? currencyId, out bool bSuccess) {
+            currencyId = null;
             int cartId = -1 * (cart.Id);
             //#if _LOCAL_ORDER
             //            return "OK";
@@ -308,11 +309,17 @@ namespace Eurona.Controls {
                     if (row != null) {
                         message = row["sdeleni_pro_poradce_html"].ToString();
                         string kodMeny = row["kod_meny"].ToString();
-
+                        SHP.Entities.Classifiers.Currency currency = Storage<SHP.Entities.Classifiers.Currency>.ReadFirst(new SHP.Entities.Classifiers.Currency.ReadByCode { Code = kodMeny });
+                        if (currency != null) {
+                            currencyId = currency.Id;
+                        }
                         //Update Cart
                         cart.PriceTotalWVAT = Convert.ToDecimal(row["celkem_k_uhrade"]);
                         cart.PriceTotal = Convert.ToDecimal(row["zaklad_zs"]);
                         Storage<CartEntity>.Update(cart);
+                        CMS.EvenLog.WritoToEventLog(string.Format("RecalculateTVDCart->Id = {0}, celkem_k_uhrade = {1}, zaklad_zs={2}, kod_meny={3}, currencyId={4}", 
+                            cart.Id, cart.PriceTotalWVAT, cart.PriceTotal, kodMeny, currencyId),
+                            EventLogEntryType.Information);
                     }
 
                     row = GetRecalcResultRadkySumar(tvdStorage, connection, cartId);
@@ -418,14 +425,17 @@ namespace Eurona.Controls {
                     string message = row["sdeleni_pro_poradce_html"].ToString();
                     string kodMeny = row["kod_meny"].ToString();
                     SHP.Entities.Classifiers.Currency currency = Storage<SHP.Entities.Classifiers.Currency>.ReadFirst(new SHP.Entities.Classifiers.Currency.ReadByCode { Code = kodMeny });
-                    if (currency != null)
+                    if (currency != null) {
                         order.CurrencyId = currency.Id;
+                    }
 
                     //Update Order
                     order.PriceWVAT = Convert.ToDecimal(row["celkem_k_uhrade"]);
                     order.Price = Convert.ToDecimal(row["zaklad_zs"]);
                     order.Notes = message;
                     Storage<OrderEntity>.Update(order);
+                    CMS.EvenLog.WritoToEventLog(string.Format("RecalculateTVDOrder->Id = {0}, celkem_k_uhrade = {1}, zaklad_zs={2}, kod_meny={3}, currencyId={4}",
+                        order.Id, order.PriceWVAT, order.Price, kodMeny, order.CurrencyId), EventLogEntryType.Information);
                 }
 
                 CartEntity cart = Storage<CartEntity>.ReadFirst(new CartEntity.ReadById { CartId = order.CartId });
@@ -538,11 +548,16 @@ namespace Eurona.Controls {
                     if (row != null) {
                         message = row["sdeleni_pro_poradce_html"].ToString();
                         string kodMeny = row["kod_meny"].ToString();
-
+                        SHP.Entities.Classifiers.Currency currency = Storage<SHP.Entities.Classifiers.Currency>.ReadFirst(new SHP.Entities.Classifiers.Currency.ReadByCode { Code = kodMeny });
+                        if (currency != null) {
+                            order.CurrencyId = currency.Id;
+                        }
                         //Update Order
                         order.PriceWVAT = Convert.ToDecimal(row["celkem_k_uhrade"]);
                         order.Price = Convert.ToDecimal(row["zaklad_zs"]);
                         Storage<OrderEntity>.Update(order);
+                        CMS.EvenLog.WritoToEventLog(string.Format("SyncTVDOrder->Id = {0}, celkem_k_uhrade = {1}, zaklad_zs={2}, kod_meny={3}, CurrencyId={4}",
+                            order.Id, order.PriceWVAT, order.Price, kodMeny, order.CurrencyId), EventLogEntryType.Information);                     
                     }
 
                     if (cart != null) {
@@ -607,9 +622,13 @@ namespace Eurona.Controls {
             if (cart.CartProducts.Count != 0) {
                 //if (shipmentCode.ToUpper() == "2"/*DPD*/ || shipmentCode.ToUpper() == "3"/*GLS*/) {
                 if (shipmentCode.ToUpper() != "1"/*Osobni odber*/) {
+                    /* //TODO:20171205
                     CartProductEntity product = cart.CartProducts[0];
                     int currencyId = product.CurrencyId.Value;
                     SHP.Entities.Classifiers.Currency currency = Storage<SHP.Entities.Classifiers.Currency>.ReadFirst(new SHP.Entities.Classifiers.Currency.ReadById { Id = currencyId });
+                     * */
+                    SHP.Entities.Classifiers.Currency currency = Storage<SHP.Entities.Classifiers.Currency>.ReadFirst(new SHP.Entities.Classifiers.Currency.ReadByLocale { Locale= cart.Locale});
+
                     decimal sumaBezPostovneho = Common.DAL.Entities.OrderSettings.GetFreePostageSuma(Security.Account.Locale);
                     if (cart.KatalogovaCenaCelkemByEurosap >= sumaBezPostovneho) {
                         cart.DopravneEurosap = 0;

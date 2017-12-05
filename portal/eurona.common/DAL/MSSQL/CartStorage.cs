@@ -142,7 +142,6 @@ namespace Eurona.Common.DAL.MSSQL
                         new SqlParameter("@PaymentCode", Null(cart.PaymentCode)),
                         new SqlParameter("@Closed", cart.Closed),
                         new SqlParameter("@Notes", Null(cart.Notes)),
-
                         new SqlParameter("@Price", Null(cart.PriceTotal)),
                         new SqlParameter("@PriceWVAT", Null(cart.PriceTotalWVAT)),
                         new SqlParameter("@Discount", Null(cart.Discount)),
