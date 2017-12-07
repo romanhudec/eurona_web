@@ -23,10 +23,22 @@ namespace Eurona.User.Operator {
             /* DOCASNE ZAKOMENTOVANE ESTE AJ V 'Eurona.User.Operator.MyOrdersPage' a 'Eurona.User.Advisor.OrdersPage'*/
             /*Povolene od 01.11.2017*/
             //-------------------------------------------------------------//
-            decimal minAssociationPrice = Eurona.EShop.User.OrdersPage.GetMinAssociationPrice(Security.Account.Locale);
-            String message = Resources.EShopStrings.AdminOrdersControl_AsociatePriceLimitMessage;
-            message = string.Format(message, minAssociationPrice);
-            this.lblMessage.Text = message;
+            decimal minAssociationPriceCS = Eurona.EShop.User.OrdersPage.GetMinAssociationPrice("cs");
+            decimal minAssociationPriceSK = Eurona.EShop.User.OrdersPage.GetMinAssociationPrice("sk");
+            decimal minAssociationPricePL = Eurona.EShop.User.OrdersPage.GetMinAssociationPrice("pl");
+
+            string operatorLocale = Security.Account.Locale;
+            string operatorCurrency = "Kč";
+            if (operatorLocale == "sk") operatorCurrency = "Eur";
+            if (operatorLocale == "pl") operatorCurrency = "Zl";
+
+            String messageCs = Resources.EShopStrings.AdminOrdersControl_AsociatePriceLimitMessage.Replace(operatorCurrency, "Kč");
+            String messageSk = Resources.EShopStrings.AdminOrdersControl_AsociatePriceLimitMessage.Replace(operatorCurrency, "Eur");
+            String messagePl = Resources.EShopStrings.AdminOrdersControl_AsociatePriceLimitMessage.Replace(operatorCurrency, "Zl");
+            messageCs = string.Format(messageCs, minAssociationPriceCS);
+            messageSk = string.Format(messageSk, minAssociationPriceSK);
+            messagePl = string.Format(messagePl, minAssociationPricePL);
+            this.lblMessage.Text = messageCs + "<br/>" + messageSk + "<br/>" + messagePl;
             //-------------------------------------------------------------//
 
             if (!IsPostBack) {
@@ -125,7 +137,7 @@ namespace Eurona.User.Operator {
                 decimal katalogovaCena = order.CartEntity.KatalogovaCenaCelkemByEurosap;//order.PriceWVAT;
 
                 //Ceny striktní > 500Kč/83zl/18,5euro.
-                decimal minAssociationPrice = Eurona.EShop.User.OrdersPage.GetMinAssociationPrice(Security.Account.Locale);
+                decimal minAssociationPrice = Eurona.EShop.User.OrdersPage.GetMinAssociationPrice(order.CartEntity.Locale);
                 String message = Resources.EShopStrings.AdminOrdersControl_AsociatePriceLimitMessage;
                 message = string.Format(message, minAssociationPrice);
 

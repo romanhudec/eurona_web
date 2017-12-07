@@ -67,10 +67,10 @@
                 <telerik:GridBoundColumn HeaderText="Stav objednávky" DataField="Stav_objednavky_nazev" UniqueName="Stav_objednavky_nazev" HeaderStyle-Width="100px"
                     SortExpression="Stav_objednavky_nazev" AutoPostBackOnFilter="false" AllowFiltering="false" CurrentFilterFunction="Contains" ShowFilterIcon="false" />
                                     
-                <telerik:GridBoundColumn HeaderText="Město" DataField="dor_misto" UniqueName="dor_misto" HeaderStyle-Width="120px"
+                <telerik:GridBoundColumn HeaderText="Město" DataField="dor_misto" UniqueName="dor_misto" HeaderStyle-Width="120px" AllowSorting="true"
                     SortExpression="dor_misto" AutoPostBackOnFilter="false" AllowFiltering="false" CurrentFilterFunction="Contains" ShowFilterIcon="false" />
                
-                <telerik:GridBoundColumn HeaderText="PSČ" DataField="dor_psc" UniqueName="dor_psc" HeaderStyle-Width="40px"
+                <telerik:GridBoundColumn HeaderText="PSČ" DataField="dor_psc" UniqueName="dor_psc" HeaderStyle-Width="40px" AllowSorting="true"
                     SortExpression="dor_psc" AutoPostBackOnFilter="false" AllowFiltering="false" CurrentFilterFunction="Contains" ShowFilterIcon="false" />
                  
                 <telerik:GridBoundColumn HeaderText="Top manager" DataField="top_manager" UniqueName="top_manager" HeaderStyle-Width="80px"

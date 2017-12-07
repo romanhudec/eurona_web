@@ -103,15 +103,16 @@ namespace Eurona.User.Advisor.Reports {
 									p.dor_misto,
 									p.dor_psc, 
 									top_manager=oTop.Nazev_firmy									
-								FROM www_faktury f 
+								FROM fGetOdberateleStrom(@Id_odberatele) os 
+                                    INNER JOIN www_faktury f ON os.Id_Odberatele = f.Id_Odberatele
 									INNER JOIN www_prepocty p ON p.id_prepoctu = f.id_prepoctu
 									INNER JOIN www_faktury_radky fr ON fr.id_prepoctu = f.id_prepoctu AND fr.idakce != 10
 								    LEFT JOIN objednavkyfaktury ofr ON ofr.Id_objednavky = f.cislo_objednavky_eurosap
                                     LEFT JOIN odberatele o  ON o.Id_odberatele = f.id_odberatele
                                     LEFT JOIN odberatele oTop  ON oTop.Id_odberatele = ofr.Id_topmanagera
 								WHERE 
-									    (f.datum_vystaveni >= @dateOd AND f.datum_vystaveni <= @dateDo) AND
-									    f.id_odberatele=@Id_odberatele /*AND f.potvrzeno=1*/
+									    (f.datum_vystaveni >= @dateOd AND f.datum_vystaveni <= @dateDo)
+									    --AND f.id_odberatele=@Id_odberatele /*AND f.potvrzeno=1*/
 										AND ((f.id_prepoctu > 0 AND ofr.id_web_objednavky IS NOT NULL ) OR (f.id_prepoctu < 0 AND p.id_web_objednavky IS NOT NULL ))
 									GROUP BY o.Kod_odberatele, f.id_prepoctu, p.id_web_objednavky, f.cislo_objednavky_eurosap, f.datum_vystaveni, f.celkem_k_uhrade, f.zaklad_zs, f.dph_zs, ofr.Stav_faktury,
 										oTop.Nazev_firmy,
@@ -119,14 +120,15 @@ namespace Eurona.User.Advisor.Reports {
 									p.dor_misto,
 									p.dor_psc
                                     ORDER BY f.datum_vystaveni DESC";
-//                sql = @"SELECT o.Kod_odberatele, f.id_prepoctu, ofr.id_web_objednavky, cislo_objednavky = f.cislo_objednavky_eurosap, f.datum_vystaveni, f.celkem_k_uhrade, celkem_bez_dph = f.zaklad_zs, f.dph_zs,
+
+//                sql = @"SELECT o.Kod_odberatele, f.id_prepoctu, p.id_web_objednavky, cislo_objednavky = f.cislo_objednavky_eurosap, f.datum_vystaveni, f.celkem_k_uhrade, celkem_bez_dph = f.zaklad_zs, f.dph_zs,
 //									celkem_katalogova_cena = SUM( fr.cena_mj_katalogova * fr.mnozstvi),
 //									celkem_body = SUM(fr.zapocet_mj_body * fr.mnozstvi),
 //									celkem_objem_pro_marzi = SUM(fr.zapocet_mj_marze * fr.mnozstvi),
 //									celkem_objem_obchodu = SUM(fr.zapocet_mj_provize_czk * fr.mnozstvi),
-//									Stav_objednavky = ISNULL(ofr.Stav_faktury,100),
+//									Stav_objednavky = ISNULL(ofr.Stav_faktury,99),
 //									Stav_objednavky_nazev = 
-//										CASE ISNULL(ofr.Stav_faktury,100) 
+//										CASE ISNULL(ofr.Stav_faktury,99) 
 //										WHEN 0 THEN 'Storno'
 //										WHEN 1 THEN 'Potvrzená objednávka'
 //										WHEN 3 THEN 'Připravena k expedici' 
@@ -134,22 +136,26 @@ namespace Eurona.User.Advisor.Reports {
 //										WHEN 99 THEN 'Uloženo'
 //										ELSE ''
 //										END,
-//									ofr.Dor_nazev_firmy,
-//									ofr.dor_misto,
-//									ofr.dor_psc, top_manager=oTop.Nazev_firmy									
+//									p.Dor_nazev_firmy,
+//									p.dor_misto,
+//									p.dor_psc, 
+//									top_manager=oTop.Nazev_firmy									
 //								FROM www_faktury f 
-//									INNER JOIN www_faktury_radky fr ON fr.id_prepoctu = f.id_prepoctu
-//								    INNER JOIN objednavkyfaktury ofr ON ofr.Id_objednavky = f.cislo_objednavky_eurosap
-//                                    INNER JOIN odberatele o  ON o.Id_odberatele = f.id_odberatele
+//									INNER JOIN www_prepocty p ON p.id_prepoctu = f.id_prepoctu
+//									INNER JOIN www_faktury_radky fr ON fr.id_prepoctu = f.id_prepoctu AND fr.idakce != 10
+//								    LEFT JOIN objednavkyfaktury ofr ON ofr.Id_objednavky = f.cislo_objednavky_eurosap
+//                                    LEFT JOIN odberatele o  ON o.Id_odberatele = f.id_odberatele
 //                                    LEFT JOIN odberatele oTop  ON oTop.Id_odberatele = ofr.Id_topmanagera
 //								WHERE 
 //									    (f.datum_vystaveni >= @dateOd AND f.datum_vystaveni <= @dateDo) AND
-//									    f.id_odberatele=@Id_odberatele AND
-//									    f.potvrzeno=1
-//									GROUP BY o.Kod_odberatele, f.id_prepoctu, ofr.id_web_objednavky, f.cislo_objednavky_eurosap, f.datum_vystaveni, f.celkem_k_uhrade, f.zaklad_zs, f.dph_zs, ofr.Stav_faktury,
-//									    ofr.Dor_nazev_firmy,
-//									    ofr.dor_misto,
-//									    ofr.dor_psc, oTop.Nazev_firmy
+//                                        --( p.Id_odberatele=@Id_odberatele OR p.Id_nadrizeneho=@Id_odberatele )
+//									    f.id_odberatele=@Id_odberatele /*AND f.potvrzeno=1*/
+//										AND ((f.id_prepoctu > 0 AND ofr.id_web_objednavky IS NOT NULL ) OR (f.id_prepoctu < 0 AND p.id_web_objednavky IS NOT NULL ))
+//									GROUP BY o.Kod_odberatele, f.id_prepoctu, p.id_web_objednavky, f.cislo_objednavky_eurosap, f.datum_vystaveni, f.celkem_k_uhrade, f.zaklad_zs, f.dph_zs, ofr.Stav_faktury,
+//										oTop.Nazev_firmy,
+//							p.Dor_nazev_firmy,
+//									p.dor_misto,
+//									p.dor_psc
 //                                    ORDER BY f.datum_vystaveni DESC";
 
                 //Clear data

@@ -775,7 +775,7 @@ namespace Eurona.Controls {
         /// </summary>
         private void RecalculateOrder() {
             //Nastavenie postovneho podla celkovej ceny ...
-            decimal sumaBezPostovneho = Common.DAL.Entities.OrderSettings.GetFreePostageSuma(Security.Account.Locale);
+            decimal sumaBezPostovneho = Common.DAL.Entities.OrderSettings.GetFreePostageSuma(this.OrderEntity.CartEntity.Locale);
             if (this.OrderEntity.CartEntity.KatalogovaCenaCelkemByEurosap >= sumaBezPostovneho) {
                 order.NoPostage = true;
                 this.OrderEntity.CartEntity.DopravneEurosap = 0m;
@@ -949,7 +949,7 @@ namespace Eurona.Controls {
                 return;
             }
 
-            string locale = Security.Account.Locale;// System.Threading.Thread.CurrentThread.CurrentCulture.TwoLetterISOLanguageName
+            string locale = this.OrderEntity.CartEntity.Locale;//Security.Account.Locale;
 
             if (this.dtpShipmentFrom != null) this.OrderEntity.ShipmentFrom = this.dtpShipmentFrom.Value != null ? Convert.ToDateTime(this.dtpShipmentFrom.Value) : (DateTime?)null;
             if (this.dtpShipmentTo != null) this.OrderEntity.ShipmentTo = this.dtpShipmentTo.Value != null ? Convert.ToDateTime(this.dtpShipmentTo.Value) : (DateTime?)null;

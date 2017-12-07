@@ -16,9 +16,9 @@ namespace Eurona.EShop.User {
 
         public static decimal GetMinAssociationPrice(string locale) {
             decimal minAssociationPrice = MIN_ASSOCIATION_PRICE_CZK;
-            if (Security.Account.Locale == "cs") minAssociationPrice = MIN_ASSOCIATION_PRICE_CZK;
-            if (Security.Account.Locale == "sk") minAssociationPrice = MIN_ASSOCIATION_PRICE_EUR;
-            if (Security.Account.Locale == "pl") minAssociationPrice = MIN_ASSOCIATION_PRICE_PLN;
+            if (locale == "cs") minAssociationPrice = MIN_ASSOCIATION_PRICE_CZK;
+            if (locale == "sk") minAssociationPrice = MIN_ASSOCIATION_PRICE_EUR;
+            if (locale == "pl") minAssociationPrice = MIN_ASSOCIATION_PRICE_PLN;
             return minAssociationPrice;
         }
 
@@ -125,7 +125,7 @@ namespace Eurona.EShop.User {
                 decimal katalogovaCena = order.CartEntity.KatalogovaCenaCelkemByEurosap;//order.PriceWVAT;
 
                 //Ceny striktní > 500Kč/83zl/18,5euro.
-                decimal minAssociationPrice = GetMinAssociationPrice(Security.Account.Locale);
+                decimal minAssociationPrice = GetMinAssociationPrice(order.CartEntity.Locale);
                 String message = Resources.EShopStrings.AdminOrdersControl_AsociatePriceLimitMessage;
                 message = string.Format(message, minAssociationPrice);
 

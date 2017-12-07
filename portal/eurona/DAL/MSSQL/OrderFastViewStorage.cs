@@ -12,10 +12,15 @@ namespace Eurona.DAL.MSSQL
 {
 	public sealed class OrderFastViewStorage : MSSQLStorage<OrderFastView>
 	{
-		private const string entitySelect = @"SELECT OrderId, InstanceId, ParentId, OrderDate, OrderNumber ,CartId ,AccountId, AccountName, OrderStatusCode ,OrderStatusName, OrderStatusIcon ,
-		ShipmentCode ,ShipmentName, ShipmentIcon ,ShipmentPrice, ShipmentPriceWVAT ,Price, PriceWVAT,
+//        private const string entitySelect = @"SELECT OrderId, InstanceId, ParentId, OrderDate, OrderNumber ,CartId ,AccountId, AccountName, OrderStatusCode ,OrderStatusName, OrderStatusIcon ,
+//		ShipmentCode ,ShipmentName, ShipmentIcon ,ShipmentPrice, ShipmentPriceWVAT ,Price, PriceWVAT,
+//		ParentId, AssociationRequestStatus, AssociationAccountId, CreatedByAccountId,
+//		OwnerName, TVD_Id
+//		FROM vShpOrdersFast o";
+        private const string entitySelect = @"SELECT OrderId, InstanceId, ParentId, OrderDate, OrderNumber ,CartId ,AccountId, OrderStatusCode ,OrderStatusName ,
+		Price, PriceWVAT,
 		ParentId, AssociationRequestStatus, AssociationAccountId, CreatedByAccountId,
-		OwnerName, TVD_Id
+		OwnerName
 		FROM vShpOrdersFast o";
 		public OrderFastViewStorage(int instanceId, Eurona.DAL.Entities.Account account, string connectionString)
 			: base(instanceId, account, connectionString)
@@ -31,7 +36,7 @@ namespace Eurona.DAL.MSSQL
 			order.OrderNumber = Convert.ToString(record["OrderNumber"]);
 			order.OrderStatusCode = Convert.ToString(record["OrderStatusCode"]);
 			order.CartId = Convert.ToInt32(record["CartId"]);
-			order.ShipmentCode = Convert.ToString(record["ShipmentCode"]);
+			//order.ShipmentCode = Convert.ToString(record["ShipmentCode"]);
 			order.Price = Convert.ToDecimal(record["Price"]);
 			order.PriceWVAT = Convert.ToDecimal(record["PriceWVAT"]);
 			order.ParentId = ConvertNullable.ToInt32(record["ParentId"]);
@@ -41,15 +46,16 @@ namespace Eurona.DAL.MSSQL
 
 			//Joined properties
 			order.AccountId = Convert.ToInt32(record["AccountId"]);
-			order.TVD_Id = ConvertNullable.ToInt32(record["TVD_Id"]);
-			order.AccountName = Convert.ToString(record["AccountName"]);
+			//order.TVD_Id = ConvertNullable.ToInt32(record["TVD_Id"]);
+			//order.AccountName = Convert.ToString(record["AccountName"]);
 			order.OrderStatusName = Convert.ToString(record["OrderStatusName"]);
+            /*
 			order.OrderStatusIcon = Convert.ToString(record["OrderStatusIcon"]);
 			order.ShipmentName = Convert.ToString(record["ShipmentName"]);
 			order.ShipmentIcon = Convert.ToString(record["ShipmentIcon"]);
 			order.ShipmentPrice = ConvertNullable.ToDecimal(record["ShipmentPrice"]);
 			order.ShipmentPriceWVAT = ConvertNullable.ToDecimal(record["ShipmentPriceWVAT"]);
-
+            */
 			order.OwnerName = Convert.ToString(record["OwnerName"]);
 			return order;
 		}

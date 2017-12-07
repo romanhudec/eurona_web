@@ -8,11 +8,11 @@ namespace Eurona.User.Anonymous {
         private OrderEntity order = null;
         protected void Page_Load(object sender, EventArgs e) {
             btnPay.Attributes["onclick"] = "this.disabled=true;this.value='Please wait...';" + Page.ClientScript.GetPostBackEventReference(btnPay, null).ToString();
-            if (Security.Account.Locale != "cs") {
-                this.btnPay.Enabled = false;
-                this.btnPay.Text = "";
-                this.btnPay.CssClass = "button-uhrada-kartou-disabled";
-            }
+            //if (Security.Account.Locale != "cs") {
+            //    this.btnPay.Enabled = false;
+            //    this.btnPay.Text = "";
+            //    this.btnPay.CssClass = "button-uhrada-kartou-disabled";
+            //}
         }
         public int OrderId {
             get {

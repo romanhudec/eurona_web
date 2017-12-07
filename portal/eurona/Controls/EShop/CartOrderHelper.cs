@@ -629,7 +629,7 @@ namespace Eurona.Controls {
                      * */
                     SHP.Entities.Classifiers.Currency currency = Storage<SHP.Entities.Classifiers.Currency>.ReadFirst(new SHP.Entities.Classifiers.Currency.ReadByLocale { Locale= cart.Locale});
 
-                    decimal sumaBezPostovneho = Common.DAL.Entities.OrderSettings.GetFreePostageSuma(Security.Account.Locale);
+                    decimal sumaBezPostovneho = Common.DAL.Entities.OrderSettings.GetFreePostageSuma(cart.Locale);
                     if (cart.KatalogovaCenaCelkemByEurosap >= sumaBezPostovneho) {
                         cart.DopravneEurosap = 0;
                     } else {

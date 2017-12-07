@@ -1,4 +1,5 @@
-﻿using System;
+﻿using CMS;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -31,6 +32,11 @@ namespace Eurona.Common.DAL.Entities
 
         public static string GetLocaleByRegistrationCode(string code) {
             string locale = "cs";
+            if (string.IsNullOrEmpty(code)) {
+                if (Security.IsLogged(false)) return Security.Account.Locale;
+                else return locale;
+            }
+
             if (code.StartsWith("420")) {
                 locale = "cs";
             } else if (code.StartsWith("421")) {

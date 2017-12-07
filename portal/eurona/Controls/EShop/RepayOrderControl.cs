@@ -645,7 +645,8 @@ namespace Eurona.Controls {
 
 
             //Prepocitanie objednavky v TVD databazi
-            if (CartOrderHelper.RecalculateTVDOrder(this.Page, this.updatePanel, this.OrderEntity, true)) {
+            bool confirm = false; // Pri repay musy byt confirm nastavene na False
+            if (CartOrderHelper.RecalculateTVDOrder(this.Page, this.updatePanel, this.OrderEntity, confirm)) {
                 //Bonusove kredity sa pripocitavaju iba ak operaciu vykonal poradca
                 if (Security.Account.IsInRole(Role.ADVISOR)) {
                     //Zaevidovanie bonusovych kreditov
