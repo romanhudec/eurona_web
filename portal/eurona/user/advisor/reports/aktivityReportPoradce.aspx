@@ -19,6 +19,11 @@
     </tr>
 </table>
 </asp:Content>
+<asp:Content ID="Content3" ContentPlaceHolderID="filter_footer_content" runat="server">
+    <div style="padding:0px;text-align:right;cursor:pointer">
+        <asp:CheckBox ID="cbFilterPrvniHladinovePostupy" runat="server" Text="filtrovat historicky první hladinové postupy v daném období" AutoPostBack="true" OnCheckedChanged="cbFilterPrvniHladinovePostupy_CheckedChanged"></asp:CheckBox>
+    </div> 
+</asp:Content>
 <asp:Content ID="Content1" ContentPlaceHolderID="content" runat="server">
     <telerik:RadGrid AutoGenerateColumns="False" ID="gridView" AllowFilteringByColumn="True" AllowPaging="True" AllowSorting="True" runat="server" OnItemDataBound="OnRowDataBound" >
         <PagerStyle Mode="NextPrevAndNumeric" />

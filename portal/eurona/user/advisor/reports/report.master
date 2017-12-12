@@ -27,8 +27,21 @@
         </td>
     </tr>
     <tr>
-        <td><span style="width:100%;font-weight:bold;"><asp:Literal ID="Literal1" runat="server" Text="<%$ Resources:Reports, Advisor %>"></asp:Literal></span><asp:Label style="color:#eb0a5b !important;" runat="server" ID="lblAdvisorInfo"></asp:Label>
-        <span style="float:right;font-weight:bold;"><asp:LinkButton runat="server" CssClass="exporttoexcel" ForeColor="#eb0a5b" Text="Export" OnClick="OnExport"></asp:LinkButton>&nbsp; <%--<a class="print" style="color:#eb0a5b;" disabled="disabled" href="" target="_blank">Tisk</a> --%></span></td>
+        <td>
+            <table  border="0" width="100%" style="table-layout:auto;">
+                <tr>
+                    <td>
+                        <span style="width:100%;font-weight:bold;"><asp:Literal ID="Literal1" runat="server" Text="<%$ Resources:Reports, Advisor %>"></asp:Literal></span><asp:Label style="color:#eb0a5b !important;" runat="server" ID="lblAdvisorInfo"></asp:Label>
+                    </td>
+                    <td>
+                        <span><asp:ContentPlaceHolder ID="filter_footer_content" runat="server"></asp:ContentPlaceHolder></span>
+                    </td>
+                    <td>
+                        <span style="float:right;font-weight:bold;"><asp:LinkButton ID="LinkButton1" runat="server" CssClass="exporttoexcel" ForeColor="#eb0a5b" Text="Export" OnClick="OnExport"></asp:LinkButton>&nbsp; <%--<a class="print" style="color:#eb0a5b;" disabled="disabled" href="" target="_blank">Tisk</a> --%></span>
+                    </td>
+                </tr>
+            </table>
+        </td>
     </tr>
     <tr style="height:100%;">
         <td colspan="3">
