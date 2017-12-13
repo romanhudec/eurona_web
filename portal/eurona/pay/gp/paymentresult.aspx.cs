@@ -28,7 +28,23 @@ namespace Eurona.pay.gp {
             string digest = Request.QueryString["DIGEST"];
             string digest1 = Request.QueryString["DIGEST1"];
 
-            order = Storage<OrderEntity>.ReadFirst(new OrderEntity.ReadByFilter { OrderNumber = orderNumber });
+            try {
+                order = Storage<OrderEntity>.ReadFirst(new OrderEntity.ReadByFilter { OrderNumber = orderNumber });
+            } catch (Exception ex) {
+                CMS.EvenLog.WritoToEventLog(ex);
+            }
+
+            if (order == null) {
+                CMS.EvenLog.WritoToEventLog("PaymentResult Next Atempt to get order", EventLogEntryType.Information);
+                try {
+                    order = Storage<OrderEntity>.ReadFirst(new OrderEntity.ReadByFilter { OrderNumber = orderNumber });
+                    CMS.EvenLog.WritoToEventLog("PaymentResult Next Atempt to get order - success", EventLogEntryType.Information);
+                }catch(Exception ex){
+                    CMS.EvenLog.WritoToEventLog("PaymentResult Next Atempt to get order - failed", EventLogEntryType.Error);
+                }
+            }
+
+
             if (order != null) {
                 imSuccessCZ.HotSpots[0].NavigateUrl = "~/user/advisor/default.aspx";
                 imSuccessSK.HotSpots[0].NavigateUrl = "~/user/advisor/default.aspx";
@@ -64,7 +80,6 @@ namespace Eurona.pay.gp {
                 if (prCode != "0" || srCode != "0") {
                     OnPaymentNotSuccess(resultText, prCode, srCode);
                 } else {
-
                     OnPaymentSuccess();
                 }
             }
