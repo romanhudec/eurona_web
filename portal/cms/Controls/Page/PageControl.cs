@@ -208,6 +208,10 @@ namespace CMS.Controls.Page {
             if (IsPostBack && (IsPostBackControl("save") || IsPostBackControl("cancel")) && this.Mode == PageMode.Edit)
                 this.Mode = PageMode.Tool;
 
+            if (!CanManageControl()) {
+                this.Mode = PageMode.Display;
+            }
+
             if (this.Mode == PageMode.Edit) {
                 //do editora sa priradi aktualne ulozeny content
                 this.editor.Content = PageEntity.Content;

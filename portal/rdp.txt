@@ -16,3 +16,10 @@ Interní IP adresa vašeho serveru: 192.168.89.40
 RDP uživatel pro Vás: cvl_admin / tbwUC4TKLDN
 ==RDP==
 
+
+Pøístup k SQL
+Pøipojení na VPN shodné jako pøi pøihlášení k IIS – to pøedpokládám máte – rdp-vpn.web4u.cz…
+IP adresa: 192.168.89.41
+Login: Hudec-R
+Pwd: xuFd5kP2
+
