@@ -234,6 +234,10 @@ namespace CMS.Controls.Page {
                 return;
             }
 
+            if (!base.CanManageControl()) {
+                this.Mode = PageMode.Display;
+            }
+
             if (this.Mode == PageMode.Display) {
                 //Get content data
                 string content = PageEntity.Content;
