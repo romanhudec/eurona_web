@@ -140,11 +140,13 @@ namespace Eurona.User.Advisor.Reports {
                                 p.Mesicu_bez_objednavky ,p.Poradi ,p.Eurokredit_vlastni ,p.Eurokredit_registrace ,p.Eurokredit_vyber ,p.Narok_sleva_nrz ,p.Narok_eurokredit,
                                 o.Kod_odberatele, o.Datum_zahajeni, o.Nazev_firmy, Telefon = (CASE WHEN LEN(o.Telefon)=0 THEN o.Mobil ELSE o.Telefon END), o.E_mail, Kod_odberatele_sponzor = op.Kod_odberatele, Nazev_firmy_sponzor = op.Nazev_firmy, op.Telefon, op.E_mail,
                                 o.Misto, o.Psc, top_manager=oTop.Nazev_firmy,	                         
-                                ZmenaHladiny = CASE WHEN (select MAX(Hladina)from provize_finalni where RRRRMM <= @RRRRMM-1 and Id_odberatele=o.Id_odberatele) < p.Hladina THEN 1 ELSE 0 END
+                                ZmenaHladiny = CASE WHEN (select MAX(Hladina)from provize_finalni where RRRRMM <= @RRRRMM-1 and Id_odberatele=o.Id_odberatele) < p.Hladina THEN 1 ELSE 0 END,
+                                UspesnyStart = us.Poradovy_mesic
                                 FROM provize_aktualni p
                                 INNER JOIN odberatele o  ON o.Id_odberatele = p.Id_odberatele
                                 INNER JOIN odberatele op  ON op.Id_odberatele = o.Cislo_nadrizeneho
                                 LEFT JOIN odberatele oTop  ON oTop.Id_odberatele = p.Id_topmanagera
+                                LEFT JOIN uspesny_start us ON us.Id_odberatele = p.Id_odberatele
                                 WHERE o.Stav_odberatele!='Z' AND p.RRRRMM=@RRRRMM AND ( p.Id_odberatele=@Id_odberatele OR p.Id_nadrizeneho=@Id_odberatele ) ";
                     if (this.cbOsobniSkupiny.Checked) {
                         sql += @"AND
@@ -162,11 +164,13 @@ namespace Eurona.User.Advisor.Reports {
 												p.Mesicu_bez_objednavky ,p.Poradi ,p.Eurokredit_vlastni ,p.Eurokredit_registrace ,p.Eurokredit_vyber,
 												o.Kod_odberatele, o.Datum_zahajeni, o.Nazev_firmy, Telefon = (CASE WHEN LEN(o.Telefon)=0 THEN o.Mobil ELSE o.Telefon END), o.E_mail, Kod_odberatele_sponzor = op.Kod_odberatele, Nazev_firmy_sponzor = op.Nazev_firmy, op.Telefon, op.E_mail,
                                                 o.Misto, o.Psc, top_manager=oTop.Nazev_firmy,	
-                                                ZmenaHladiny = CASE WHEN (select MAX(Hladina)from provize_finalni where RRRRMM <= @RRRRMM-1 and Id_odberatele=o.Id_odberatele) < p.Hladina THEN 1 ELSE 0 END
+                                                ZmenaHladiny = CASE WHEN (select MAX(Hladina)from provize_finalni where RRRRMM <= @RRRRMM-1 and Id_odberatele=o.Id_odberatele) < p.Hladina THEN 1 ELSE 0 END,
+                                                UspesnyStart = us.Poradovy_mesic
 												FROM provize_finalni p
 												INNER JOIN odberatele o  ON o.Id_odberatele = p.Id_odberatele
 												INNER JOIN odberatele op  ON op.Id_odberatele = o.Cislo_nadrizeneho
                                                 LEFT JOIN odberatele oTop  ON oTop.Id_odberatele = p.Id_topmanagera
+                                                LEFT JOIN uspesny_start us ON us.Id_odberatele = p.Id_odberatele
 												WHERE o.Stav_odberatele!='Z' AND p.RRRRMM=@RRRRMM AND ( p.Id_odberatele=@Id_odberatele OR p.Id_nadrizeneho=@Id_odberatele ) ";
                         if (this.cbOsobniSkupiny.Checked) {
                             sql += @"AND
@@ -184,12 +188,14 @@ namespace Eurona.User.Advisor.Reports {
 										p.Mesicu_bez_objednavky ,p.Poradi ,p.Eurokredit_vlastni ,p.Eurokredit_registrace ,p.Eurokredit_vyber ,p.Narok_sleva_nrz ,p.Narok_eurokredit,
 										o.Kod_odberatele, o.Datum_zahajeni, o.Nazev_firmy, Telefon = (CASE WHEN LEN(o.Telefon)=0 THEN o.Mobil ELSE o.Telefon END), o.E_mail, Kod_odberatele_sponzor = op.Kod_odberatele, Nazev_firmy_sponzor = op.Nazev_firmy, op.Telefon, op.E_mail,
                                         o.Misto, o.Psc, top_manager=oTop.Nazev_firmy,	
-                                        ZmenaHladiny = CASE WHEN (select MAX(Hladina)from provize_finalni where RRRRMM <= @RRRRMM-1 and Id_odberatele=o.Id_odberatele) < p.Hladina THEN 1 ELSE 0 END
+                                        ZmenaHladiny = CASE WHEN (select MAX(Hladina)from provize_finalni where RRRRMM <= @RRRRMM-1 and Id_odberatele=o.Id_odberatele) < p.Hladina THEN 1 ELSE 0 END,
+                                        UspesnyStart = us.Poradovy_mesic
 										FROM fGetOdberateleStrom(@Id_odberatele) f
 										INNER JOIN provize_aktualni p ON p.Id_odberatele = f.Id_Odberatele
 										INNER JOIN odberatele o  ON o.Id_odberatele = p.Id_odberatele
 										INNER JOIN odberatele op  ON op.Id_odberatele = o.Cislo_nadrizeneho
                                         LEFT JOIN odberatele oTop  ON oTop.Id_odberatele = p.Id_topmanagera
+                                        LEFT JOIN uspesny_start us ON us.Id_odberatele = p.Id_odberatele
 										WHERE o.Stav_odberatele!='Z' AND p.RRRRMM=@RRRRMM ";
                     if (this.cbOsobniSkupiny.Checked) {
                         sql += @"AND
@@ -208,12 +214,14 @@ namespace Eurona.User.Advisor.Reports {
 												p.Mesicu_bez_objednavky ,p.Poradi ,p.Eurokredit_vlastni ,p.Eurokredit_registrace ,p.Eurokredit_vyber,
 												o.Kod_odberatele, o.Datum_zahajeni, o.Nazev_firmy, Telefon = (CASE WHEN LEN(o.Telefon)=0 THEN o.Mobil ELSE o.Telefon END), o.E_mail, Kod_odberatele_sponzor = op.Kod_odberatele, Nazev_firmy_sponzor = op.Nazev_firmy, op.Telefon, op.E_mail,
                                                 o.Misto, o.Psc, top_manager=oTop.Nazev_firmy,	
-                                                ZmenaHladiny = CASE WHEN (select MAX(Hladina)from provize_finalni where RRRRMM <= @RRRRMM-1 and Id_odberatele=o.Id_odberatele) < p.Hladina THEN 1 ELSE 0 END
+                                                ZmenaHladiny = CASE WHEN (select MAX(Hladina)from provize_finalni where RRRRMM <= @RRRRMM-1 and Id_odberatele=o.Id_odberatele) < p.Hladina THEN 1 ELSE 0 END,
+                                                UspesnyStart = us.Poradovy_mesic
 												FROM fGetOdberateleStrom(@Id_odberatele) f
 												INNER JOIN provize_finalni p ON p.Id_odberatele = f.Id_Odberatele
 												INNER JOIN odberatele o  ON o.Id_odberatele = p.Id_odberatele
 												INNER JOIN odberatele op  ON op.Id_odberatele = o.Cislo_nadrizeneho
                                                 LEFT JOIN odberatele oTop  ON oTop.Id_odberatele = p.Id_topmanagera
+                                                LEFT JOIN uspesny_start us ON us.Id_odberatele = p.Id_odberatele
 												WHERE o.Stav_odberatele!='Z' AND p.RRRRMM=@RRRRMM ";
                         if (this.cbOsobniSkupiny.Checked) {
                             sql += @"AND

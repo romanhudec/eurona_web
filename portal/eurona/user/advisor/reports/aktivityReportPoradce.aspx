@@ -77,9 +77,11 @@
                 <telerik:GridBoundColumn HeaderText="Město" DataField="Misto" UniqueName="Misto" HeaderStyle-Width="100px" AllowSorting="true"
                     SortExpression="Misto" AutoPostBackOnFilter="false" AllowFiltering="false" CurrentFilterFunction="Contains" ShowFilterIcon="false" />
                 <telerik:GridBoundColumn HeaderText="PSČ" DataField="Psc" UniqueName="Psc" HeaderStyle-Width="60px" AllowSorting="true"
-                    SortExpression="Psc" AutoPostBackOnFilter="false" AllowFiltering="false" CurrentFilterFunction="Contains" ShowFilterIcon="false" />
-                <telerik:GridBoundColumn HeaderText="Top manager" DataField="top_manager" UniqueName="top_manager" HeaderStyle-Width="80px"
-                SortExpression="top_manager" AutoPostBackOnFilter="false" AllowFiltering="false" CurrentFilterFunction="Contains" ShowFilterIcon="false" />
+                    SortExpression="Psc" AutoPostBackOnFilter="false" AllowFiltering="false" CurrentFilterFunction="Contains" ShowFilterIcon="false" /> 
+                 <telerik:GridBoundColumn HeaderText="US" DataField="UspesnyStart" UniqueName="UspesnyStart" HeaderStyle-Width="30px"
+                    SortExpression="UspesnyStart" HeaderTooltip="Úspěšný start" AutoPostBackOnFilter="false" AllowFiltering="false" CurrentFilterFunction="Contains" ShowFilterIcon="false" />
+                 <telerik:GridBoundColumn HeaderText="Top manager" DataField="top_manager" UniqueName="top_manager" HeaderStyle-Width="80px"
+                    SortExpression="top_manager" AutoPostBackOnFilter="false" AllowFiltering="false" CurrentFilterFunction="Contains" ShowFilterIcon="false" />
             </Columns>
         </MasterTableView>
     </telerik:RadGrid>
