@@ -134,7 +134,7 @@ namespace Eurona.Controls {
                 cartAccount = Storage<AccountEntity>.ReadFirst(new AccountEntity.ReadById { AccountId = this.CartEntity.AccountId.Value });
 
                 //Objednat moze iba overeny pouzivatel alebo neovreny ale ten moze vytvorit len jednu objednvku.
-                List<OrderEntity> list = Storage<OrderEntity>.Read(new OrderEntity.ReadByFilter { AccountId = cartAccount.Id });
+                List<OrderEntity> list = Storage<OrderEntity>.Read(new OrderEntity.ReadByAccount { AccountId = cartAccount.Id });
                 accountOrdersCount = list.Count;
                 if (cartAccount.Verified || (!cartAccount.Verified && accountOrdersCount == 0)) {
                     Organization org = Storage<Organization>.ReadFirst(new Organization.ReadByAccountId { AccountId = Security.Account.Id });

@@ -992,7 +992,7 @@ namespace Eurona.Controls {
                         OrganizationEntity parentAdvisor = Storage<OrganizationEntity>.ReadFirst(new OrganizationEntity.ReadByTVDId { TVD_Id = advisor.ParentId.Value });
                         if (parentAdvisor.AccountId.HasValue) {
                             //Iba za prvu objednavku
-                            List<OrderEntity> userOrders = Storage<OrderEntity>.Read(new OrderEntity.ReadByFilter { AccountId = Security.Account.Id });
+                            List<OrderEntity> userOrders = Storage<OrderEntity>.Read(new OrderEntity.ReadByAccount { AccountId = Security.Account.Id });
                             if (userOrders.Count == 1)
                                 BonusovyKreditUzivateleHelper.ZaevidujKredit(parentAdvisor.AccountId.Value, DAL.Entities.Classifiers.BonusovyKreditTyp.RegistracePodrizenehoPrvniObjednavka, this.OrderEntity.ProductsPriceWVAT, "", locale);
                         }

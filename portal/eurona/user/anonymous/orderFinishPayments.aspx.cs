@@ -19,12 +19,12 @@ namespace Eurona.User.Anonymous {
         public OrderEntity order = null;
         private const string virtualUrl = "~/user/advisor/orders.aspx?type=ar";
         protected void Page_Load(object sender, EventArgs e) {
+            Security.Account.RemoveFromRole(Eurona.Common.DAL.Entities.Role.ANONYMOUSADVISOR.ToString());
+            Storage<AccountEntity>.Update(Security.Account);
+
             this.order = Storage<OrderEntity>.ReadFirst(new OrderEntity.ReadById { OrderId = Convert.ToInt32(Request["id"]) });
             this.payOrderControl.OrderId = this.order.Id;
             this.payOrderControl.Visible = this.order.PaydDate.HasValue == false;
-
-            Security.Account.RemoveFromRole(Eurona.Common.DAL.Entities.Role.ANONYMOUSADVISOR.ToString());
-            Storage<AccountEntity>.Update(Security.Account);
 
             if (!IsPostBack) SendEmail(this.order);
         }
