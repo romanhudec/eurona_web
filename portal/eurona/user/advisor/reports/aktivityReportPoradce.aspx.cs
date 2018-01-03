@@ -146,7 +146,7 @@ namespace Eurona.User.Advisor.Reports {
                                 INNER JOIN odberatele o  ON o.Id_odberatele = p.Id_odberatele
                                 INNER JOIN odberatele op  ON op.Id_odberatele = o.Cislo_nadrizeneho
                                 LEFT JOIN odberatele oTop  ON oTop.Id_odberatele = p.Id_topmanagera
-                                LEFT JOIN uspesny_start us ON us.Id_odberatele = p.Id_odberatele
+                                LEFT JOIN uspesny_start us ON us.Id_odberatele = p.Id_odberatele AND us.RRRRMM = p.RRRRMM
                                 WHERE o.Stav_odberatele!='Z' AND p.RRRRMM=@RRRRMM AND ( p.Id_odberatele=@Id_odberatele OR p.Id_nadrizeneho=@Id_odberatele ) ";
                     if (this.cbOsobniSkupiny.Checked) {
                         sql += @"AND
@@ -170,7 +170,7 @@ namespace Eurona.User.Advisor.Reports {
 												INNER JOIN odberatele o  ON o.Id_odberatele = p.Id_odberatele
 												INNER JOIN odberatele op  ON op.Id_odberatele = o.Cislo_nadrizeneho
                                                 LEFT JOIN odberatele oTop  ON oTop.Id_odberatele = p.Id_topmanagera
-                                                LEFT JOIN uspesny_start us ON us.Id_odberatele = p.Id_odberatele
+                                                LEFT JOIN uspesny_start us ON us.Id_odberatele = p.Id_odberatele AND us.RRRRMM = p.RRRRMM
 												WHERE o.Stav_odberatele!='Z' AND p.RRRRMM=@RRRRMM AND ( p.Id_odberatele=@Id_odberatele OR p.Id_nadrizeneho=@Id_odberatele ) ";
                         if (this.cbOsobniSkupiny.Checked) {
                             sql += @"AND
@@ -195,7 +195,7 @@ namespace Eurona.User.Advisor.Reports {
 										INNER JOIN odberatele o  ON o.Id_odberatele = p.Id_odberatele
 										INNER JOIN odberatele op  ON op.Id_odberatele = o.Cislo_nadrizeneho
                                         LEFT JOIN odberatele oTop  ON oTop.Id_odberatele = p.Id_topmanagera
-                                        LEFT JOIN uspesny_start us ON us.Id_odberatele = p.Id_odberatele
+                                        LEFT JOIN uspesny_start us ON us.Id_odberatele = p.Id_odberatele AND us.RRRRMM = p.RRRRMM
 										WHERE o.Stav_odberatele!='Z' AND p.RRRRMM=@RRRRMM ";
                     if (this.cbOsobniSkupiny.Checked) {
                         sql += @"AND
@@ -221,7 +221,7 @@ namespace Eurona.User.Advisor.Reports {
 												INNER JOIN odberatele o  ON o.Id_odberatele = p.Id_odberatele
 												INNER JOIN odberatele op  ON op.Id_odberatele = o.Cislo_nadrizeneho
                                                 LEFT JOIN odberatele oTop  ON oTop.Id_odberatele = p.Id_topmanagera
-                                                LEFT JOIN uspesny_start us ON us.Id_odberatele = p.Id_odberatele
+                                                LEFT JOIN uspesny_start us ON us.Id_odberatele = p.Id_odberatele AND us.RRRRMM = p.RRRRMM
 												WHERE o.Stav_odberatele!='Z' AND p.RRRRMM=@RRRRMM ";
                         if (this.cbOsobniSkupiny.Checked) {
                             sql += @"AND
