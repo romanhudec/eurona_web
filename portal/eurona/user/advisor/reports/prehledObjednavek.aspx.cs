@@ -22,7 +22,8 @@ namespace Eurona.User.Advisor.Reports {
 
             if (!IsPostBack) {
                 now = DateTime.Now;
-                minDate = new DateTime(now.Year, now.Month - 1, 1);
+                DateTime beforeMonth = DateTime.Now.AddMonths(-1);
+                minDate = new DateTime(beforeMonth.Year, beforeMonth.Month, 1);
                 this.dtpDatumOd.MinDate = minDate;
                 this.dtpDatumOd.MaxDate = now;
                 this.dtpDatumOd.SelectedDate = minDate;
