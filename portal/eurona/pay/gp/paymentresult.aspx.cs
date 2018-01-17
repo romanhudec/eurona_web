@@ -28,7 +28,7 @@ namespace Eurona.pay.gp {
             string digest = Request.QueryString["DIGEST"];
             string digest1 = Request.QueryString["DIGEST1"];
 
-            CMS.EvenLog.WritoToEventLog(string.Format("PaymentResult Page orderId:{0}", transactionId), EventLogEntryType.Information);
+            CMS.EvenLog.WritoToEventLog(string.Format("PaymentResult Page, Order Number:{0}", orderNumber), EventLogEntryType.Information);
 
             try {
                 order = Storage<OrderEntity>.ReadFirst(new OrderEntity.ReadByFilter { OrderNumber = orderNumber });
@@ -37,7 +37,7 @@ namespace Eurona.pay.gp {
             }
 
             if (order == null) {
-                CMS.EvenLog.WritoToEventLog("PaymentResult Next Atempt to get order", EventLogEntryType.Information);
+                CMS.EvenLog.WritoToEventLog(string.Format("PaymentResult Next Atempt to get order, Order Number:{0}", orderNumber), EventLogEntryType.Information);
                 try {
                     order = Storage<OrderEntity>.ReadFirst(new OrderEntity.ReadByFilter { OrderNumber = orderNumber });
                     CMS.EvenLog.WritoToEventLog("PaymentResult Next Atempt to get order - success", EventLogEntryType.Information);
@@ -74,17 +74,17 @@ namespace Eurona.pay.gp {
             string messsage2Verify = getMessageToVerify(operation, transactionId, orderNumber, prCode, srCode, resultText) + "|" + merchantNumber;
             bool signValid = Eurona.pay.gp.Digest.ValidateDigest(digest1, messsage2Verify, cert);
             if (!signValid) {
-                CMS.EvenLog.WritoToEventLog(string.Format("PaymentResult Page  orderId:{0}, Signature not verified!!", transactionId), EventLogEntryType.Error);
+                CMS.EvenLog.WritoToEventLog(string.Format("PaymentResult Page, Order Number:{0}, Signature not verified!!", orderNumber), EventLogEntryType.Error);
                 HttpContext.Current.Response.Clear();
                 HttpContext.Current.Response.Write("Signature not verified!!");
                 HttpContext.Current.Response.Flush();
                 HttpContext.Current.Response.End();
             } else {
                 if (prCode != "0" || srCode != "0") {
-                    CMS.EvenLog.WritoToEventLog(string.Format("PaymentResult Page orderId:{0}, OnPaymentNotSuccess, prCode:{1}, srCode:{1}", transactionId, prCode, srCode), EventLogEntryType.Information);
+                    CMS.EvenLog.WritoToEventLog(string.Format("PaymentResult Page, Order Number:{0}, OnPaymentNotSuccess, prCode:{1}, srCode:{2}", orderNumber, prCode, srCode), EventLogEntryType.Information);
                     OnPaymentNotSuccess(resultText, prCode, srCode);
                 } else {
-                    CMS.EvenLog.WritoToEventLog(string.Format("PaymentResult Page orderId:{0}, OnPaymentSuccess", transactionId), EventLogEntryType.Information);
+                    CMS.EvenLog.WritoToEventLog(string.Format("PaymentResult Page, Order Number:{0}, OnPaymentSuccess", orderNumber), EventLogEntryType.Information);
                     OnPaymentSuccess();
                 }
             }
