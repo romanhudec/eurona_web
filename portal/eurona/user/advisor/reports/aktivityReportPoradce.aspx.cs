@@ -151,8 +151,8 @@ namespace Eurona.User.Advisor.Reports {
                     if (this.cbOsobniSkupiny.Checked) {
                         sql += @"AND
                                     ( 
-                                        p.Id_odberatele not in (select Id_odberatele from provize_finalni where RRRRMM=@RRRRMM-1 And Hladina >= 21) AND
-	                                    p.Id_nadrizeneho not in (select Id_odberatele from provize_finalni where RRRRMM=@RRRRMM-1 And Hladina >= 21) 
+                                        p.Id_odberatele not in (select Id_odberatele from provize_finalni where RRRRMM=@RRRRMM And Hladina >= 21 AND Id_odberatele != @Id_odberatele ) AND
+	                                    p.Id_nadrizeneho not in (select Id_odberatele from provize_finalni where RRRRMM=@RRRRMM And Hladina >= 21 AND Id_odberatele != @Id_odberatele ) 
                                     )";
                     }
 
@@ -175,8 +175,8 @@ namespace Eurona.User.Advisor.Reports {
                         if (this.cbOsobniSkupiny.Checked) {
                             sql += @"AND
                                                             ( 
-                                                                p.Id_odberatele not in (select Id_odberatele from provize_finalni where RRRRMM=@RRRRMM-1 And Hladina >= 21) AND
-	                                                            p.Id_nadrizeneho not in (select Id_odberatele from provize_finalni where RRRRMM=@RRRRMM-1 And Hladina >= 21) 
+                                                                p.Id_odberatele not in (select Id_odberatele from provize_finalni where RRRRMM=@RRRRMM And Hladina >= 21 AND Id_odberatele != @Id_odberatele ) AND
+	                                                            p.Id_nadrizeneho not in (select Id_odberatele from provize_finalni where RRRRMM=@RRRRMM And Hladina >= 21 AND Id_odberatele != @Id_odberatele ) 
                                                             )";
                         }
                     }
@@ -200,8 +200,8 @@ namespace Eurona.User.Advisor.Reports {
                     if (this.cbOsobniSkupiny.Checked) {
                         sql += @"AND
                                                     ( 
-                                                        p.Id_odberatele not in (select Id_odberatele from provize_finalni where RRRRMM=@RRRRMM-1 And Hladina >= 21) AND
-	                                                    p.Id_nadrizeneho not in (select Id_odberatele from provize_finalni where RRRRMM=@RRRRMM-1 And Hladina >= 21) 
+                                                        p.Id_odberatele not in (select Id_odberatele from provize_finalni where RRRRMM=@RRRRMM And Hladina >= 21 AND Id_odberatele != @Id_odberatele ) AND
+	                                                    p.Id_nadrizeneho not in (select Id_odberatele from provize_finalni where RRRRMM=@RRRRMM And Hladina >= 21 AND Id_odberatele != @Id_odberatele ) 
                                                     )";
                     }
                     sql += @"ORDER BY f.LineageId ASC";
@@ -226,8 +226,8 @@ namespace Eurona.User.Advisor.Reports {
                         if (this.cbOsobniSkupiny.Checked) {
                             sql += @"AND
                                                             ( 
-                                                                p.Id_odberatele not in (select Id_odberatele from provize_finalni where RRRRMM=@RRRRMM-1 And Hladina >= 21) AND
-	                                                            p.Id_nadrizeneho not in (select Id_odberatele from provize_finalni where RRRRMM=@RRRRMM-1 And Hladina >= 21) 
+                                                                p.Id_odberatele not in (select Id_odberatele from provize_finalni where RRRRMM=@RRRRMM And Hladina >= 21 AND Id_odberatele != @Id_odberatele ) AND
+	                                                            p.Id_nadrizeneho not in (select Id_odberatele from provize_finalni where RRRRMM=@RRRRMM And Hladina >= 21 AND Id_odberatele != @Id_odberatele ) 
                                                             )";
                         }
                         sql += @"ORDER BY f.LineageId ASC";

@@ -86,7 +86,7 @@ namespace Eurona.Controls {
                 CMS.EvenLog.WritoToEventLog(ex);
                 bSuccess = false;
                 if (zprava.Value != null) return zprava.Value.ToString();
-                return "Eurosap odmítl objednávku spracovat!";
+                return "Eurosap odmítl objednávku zpracovat!";
             }
 
             //===============================================================================
@@ -199,7 +199,7 @@ namespace Eurona.Controls {
                 CMS.EvenLog.WritoToEventLog(ex);
                 bSuccess = false;
                 if (zprava.Value != null) return zprava.Value.ToString();
-                return "Eurosap odmítl platbu dobírkou spracovat!";
+                return "Eurosap odmítl platbu dobírkou zpracovat!";
             }
 
             //===============================================================================
