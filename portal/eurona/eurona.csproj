@@ -1307,7 +1307,9 @@
     <Compile Include="Controls\LocaleSwitchControl.cs">
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Controls\AdvisorPageControl.cs" />
+    <Compile Include="Controls\AdvisorPageControl.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
     <Compile Include="Controls\UzavierkaControl.ascx.cs">
       <DependentUpon>UzavierkaControl.ascx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
