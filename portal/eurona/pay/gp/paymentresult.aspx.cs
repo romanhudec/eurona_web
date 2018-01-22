@@ -117,6 +117,8 @@ namespace Eurona.pay.gp {
         }
 
         private string TVDPlatbaKartou(CMS.Pump.MSSQLStorage tvdStorage, SqlConnection connection, int orderId, decimal suma, string kodMeny, out bool bSuccess) {
+            string msg = "";
+
 #if __DEBUG_VERSION_WITHOUTTVD
             bSuccess = true;
             return string.Empty;
@@ -167,7 +169,10 @@ namespace Eurona.pay.gp {
             //id_prepoctu	int	prim. klíč		
             bSuccess = Convert.ToBoolean(probehlo.Value);
             if (zprava != null && zprava.Value != null) {
-                string msg = string.Format("TVD Platba kartou -> esp_www_platbakartou(Cislo_objednavky:{0}) = {1}", orderId, zprava.Value.ToString());
+                msg = string.Format("TVD Platba kartou -> esp_www_platbakartou(Cislo_objednavky:{0}, Suma:{1}, Kod meny:{2}) = {3}", orderId, suma, kodMeny, zprava.Value.ToString());
+                CMS.EvenLog.WritoToEventLog(msg, EventLogEntryType.Information);
+            } else {
+                msg = string.Format("TVD Platba kartou -> esp_www_platbakartou(Cislo_objednavky:{0}, Suma:{1}, Kod meny:{2}) = SUCCESS!", orderId, suma, kodMeny);
                 CMS.EvenLog.WritoToEventLog(msg, EventLogEntryType.Information);
             }
             return zprava.Value.ToString();
