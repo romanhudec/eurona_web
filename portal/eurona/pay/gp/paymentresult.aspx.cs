@@ -157,7 +157,7 @@ namespace Eurona.pay.gp {
                 CMS.EvenLog.WritoToEventLog(ex);
                 bSuccess = false;
                 if (zprava.Value != null) return zprava.Value.ToString();
-                return "Eurosap odmítl platbu spracovat!";
+                return "Eurosap odmítl platbu zpracovat!";
             }
 
 
