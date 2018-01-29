@@ -328,12 +328,8 @@ namespace Cron.Eurona.Import
                 string sql = @"SELECT orderId = fa.id_prepoctu, fa.cislo_objednavky_eurosap, fa.potvrzeno, obfa.StavK2, obfa.Kod_meny, fa.sdeleni_pro_poradce_html
 								FROM objednavkyfaktury obfa
 								INNER JOIN www_faktury fa ON fa.cislo_objednavky_eurosap=obfa.Id_objednavky
-								WHERE fa.potvrzeno=1 AND obfa.Datum_zmeny > DATEADD(MONTH ,-2, GETDATE()) AND ( obfa.StavK2 IS NOT NULL AND obfa.StavK2 != 0 )";
-//                string sql = @"SELECT orderId = fa.id_prepoctu, fa.cislo_objednavky_eurosap, fa.potvrzeno, obfa.StavK2, obfa.Kod_meny, fa.sdeleni_pro_poradce_html
-//								FROM objednavkyfaktury obfa
-//								INNER JOIN www_faktury fa ON fa.cislo_objednavky_eurosap=obfa.Id_objednavky
-//								WHERE fa.potvrzeno=1 AND ( obfa.StavK2 IS NOT NULL AND obfa.StavK2 != 0 )";
-				DataTable dt = mssqStorageSrc.Query(connection, sql, new SqlParameter("@InstanceId", instanceId));
+								WHERE fa.potvrzeno=1 AND obfa.Datum_zmeny > DATEADD(DAY ,-2, GETDATE()) AND ( obfa.StavK2 IS NOT NULL AND obfa.StavK2 != 0 )";
+				DataTable dt = mssqStorageSrc.Query(connection, sql/*, new SqlParameter("@InstanceId", instanceId)*/);
 				return dt;
 			}
 		}
@@ -343,11 +339,8 @@ namespace Cron.Eurona.Import
 			{
                 string sql = @"SELECT orderId = fa.id_prepoctu, fa.cislo_objednavky_eurosap, fa.potvrzeno, fa.Kod_meny, fa.sdeleni_pro_poradce_html
 								FROM www_faktury fa
-								WHERE fa.datum_splatnosti > DATEADD(MONTH ,-2, GETDATE()) AND fa.potvrzeno=1";
-//                string sql = @"SELECT orderId = fa.id_prepoctu, fa.cislo_objednavky_eurosap, fa.potvrzeno, fa.Kod_meny, fa.sdeleni_pro_poradce_html
-//								FROM www_faktury fa
-//								WHERE fa.potvrzeno=1";
-				DataTable dt = mssqStorageSrc.Query(connection, sql, new SqlParameter("@InstanceId", instanceId));
+								WHERE fa.datum_splatnosti > DATEADD(DAY ,-2, GETDATE()) AND fa.potvrzeno=1";
+				DataTable dt = mssqStorageSrc.Query(connection, sql/*, new SqlParameter("@InstanceId", instanceId)*/);
 				return dt;
 			}
 		}
