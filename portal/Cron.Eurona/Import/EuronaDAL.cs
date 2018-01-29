@@ -622,7 +622,7 @@ if (dtAlias.Rows.Count != 0)
 
                 int currencyId = GetCurrencyId(mssqStorageDst, currencyCode);
                 string sql = @"
-				UPDATE tShpOrder WITH (ROWLOCK) SET OrderStatusCode=@OrderStatusCode, CurrencyId=@CurrencyId, Notes=@Notes
+				UPDATE tShpOrder SET OrderStatusCode=@OrderStatusCode, CurrencyId=@CurrencyId, Notes=@Notes
 				WHERE OrderId=@OrderId";
                 mssqStorageDst.Exec(mssqStorageDst.Connection, sql,
                         new SqlParameter("@OrderId", orderId),
@@ -633,7 +633,7 @@ if (dtAlias.Rows.Count != 0)
             public static void SyncEuronaFakturyOrder(CMS.Pump.MSSQLStorage mssqStorageDst, int orderId, string currencyCode, string notes) {
                 int currencyId = GetCurrencyId(mssqStorageDst, currencyCode);
                 string sql = @"
-				UPDATE tShpOrder WITH (ROWLOCK) SET CurrencyId=@CurrencyId, Notes=@Notes --, OrderStatusCode=CASE WHEN OrderStatusCode=-1 THEN -2 ELSE OrderStatusCode END
+				UPDATE tShpOrder SET CurrencyId=@CurrencyId, Notes=@Notes
 				WHERE OrderId=@OrderId";
                 mssqStorageDst.Exec(mssqStorageDst.Connection, sql,
                         new SqlParameter("@OrderId", orderId),
@@ -642,7 +642,7 @@ if (dtAlias.Rows.Count != 0)
             }
             public static void SyncOrder(CMS.Pump.MSSQLStorage mssqStorageDst, int orderId, string orderNumber, string orderStatusCode, DateTime? paydDate, string notes, decimal? price, decimal? priceWVAT) {
                 string sql = @"
-				UPDATE tShpOrder WITH (ROWLOCK) SET OrderNumber=@OrderNumber, OrderStatusCode=@OrderStatusCode, PaydDate=@PaydDate, Notes=@Notes, Price=@Price, PriceWVAT=@PriceWVAT
+				UPDATE tShpOrder SET OrderNumber=@OrderNumber, OrderStatusCode=@OrderStatusCode, PaydDate=@PaydDate, Notes=@Notes, Price=@Price, PriceWVAT=@PriceWVAT
 				WHERE OrderId=@OrderId";
                 mssqStorageDst.Exec(mssqStorageDst.Connection, sql,
                         new SqlParameter("@OrderId", orderId),
@@ -653,6 +653,7 @@ if (dtAlias.Rows.Count != 0)
                         new SqlParameter("@Price", Null(price)),
                         new SqlParameter("@PriceWVAT", Null(priceWVAT)));
             }
+            /*
             public static DataTable GetOrders(CMS.Pump.MSSQLStorage mssqStorageDst, int instanceId) {
                 string sql = @"SELECT OrderId ,InstanceId ,OrderNumber ,OrderDate ,CartId ,OrderStatusCode ,PaydDate ,ShipmentCode ,PaymentCode ,Notes ,Price ,PriceWVAT ,CurrencyId, AssociatedOrderId, CreatedByAccountId
 				FROM tShpOrder WITH (NOLOCK) WHERE HistoryId IS NULL AND InstanceId=@InstanceId AND OrderStatusCode=@OrderStatusCode";
@@ -675,7 +676,7 @@ if (dtAlias.Rows.Count != 0)
                 DataTable dt = mssqStorageDst.Query(mssqStorageDst.Connection, sql, new SqlParameter("@CartId", cartId));
                 return dt;
             }
-
+            */
 
         }
 
