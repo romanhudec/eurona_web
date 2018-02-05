@@ -195,7 +195,8 @@ namespace Eurona.Controls {
                 //Vykonanie prepoctu v TVD
                 bool bSuccess = false;
 #if !__DEBUG_VERSION_WITHOUTTVD
-                string message = CartOrderHelper.RecalculateTVDCart(this.Page, /*this.updatePanel*/null, this.CartEntity, out bSuccess);
+                int? currencyId = null;
+                string message = CartOrderHelper.RecalculateTVDCart(this.Page, /*this.updatePanel*/null, this.CartEntity, out currencyId, out bSuccess);
 #else
                 string message = "Přepočteno!";
 #endif
@@ -249,22 +250,16 @@ namespace Eurona.Controls {
             //Vykonanie prepoctu v TVD
             //Ak sa z eurosapu vrati chyba -> objednavku nemozno vytvorit.
             bool bSuccess = false;
+            int? currencyId = null;
 #if !__DEBUG_VERSION_WITHOUTTVD
-            string message = CartOrderHelper.RecalculateTVDCart(this.Page, /*this.updatePanel*/null, this.CartEntity, out bSuccess);
+            //string message = CartOrderHelper.RecalculateTVDCart(this.Page, /*this.updatePanel*/null, this.CartEntity, out bSuccess);
+            string message = CartOrderHelper.RecalculateTVDCart(this.Page, /*this.updatePanel*/null, this.CartEntity, out currencyId, out bSuccess);
+
 #else
             bSuccess = true;
 #endif
 
             if (!bSuccess) return;
-
-            AccountEntity orderAccount = Storage<AccountEntity>.ReadFirst(new AccountEntity.ReadById { AccountId = orderAccountId });
-            String orderAccountLocale = Security.Account.Locale;
-            if (orderAccount != null) {
-                orderAccountLocale = orderAccount.Locale;
-            }
-            CurrencyEntity orderCurrency = Storage<CurrencyEntity>.ReadFirst(new CurrencyEntity.ReadByLocale { Locale = orderAccountLocale });
-
-
             OrderEntity order = Storage<OrderEntity>.ReadFirst(new OrderEntity.ReadByCart { CartId = this.CartEntity.Id });
             if (order != null) {
                 if (string.IsNullOrEmpty(this.FinishUrlFormat))
@@ -311,7 +306,10 @@ namespace Eurona.Controls {
                 order.PriceWVAT = this.cartEntity.PriceTotalWVAT.Value + this.cartEntity.DopravneEurosap.Value;
                 order.CreatedByAccountId = Security.Account.Id;
 
-                if (orderCurrency != null) order.CurrencyId = orderCurrency.Id;
+                if (currencyId.HasValue) {
+                    order.CurrencyId = currencyId.Value;
+                }
+
                 decimal sumaBezPostovneho = Common.DAL.Entities.OrderSettings.GetFreePostageSuma(Security.Account.Locale);
                 if (this.cartEntity.KatalogovaCenaCelkemByEurosap >= sumaBezPostovneho) {
                     order.NoPostage = true;

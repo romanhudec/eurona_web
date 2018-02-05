@@ -802,7 +802,8 @@ namespace Eurona.Controls {
             //Vykonanie prepoctu v TVD
 #if !__DEBUG_VERSION_WITHOUTTVD
             bool bSuccess = false;
-            CartOrderHelper.RecalculateTVDCart(this.Page, /*this.updatePanel*/null, order.CartEntity, out bSuccess);
+            int? currencyId;
+            CartOrderHelper.RecalculateTVDCart(this.Page, /*this.updatePanel*/null, order.CartEntity, out currencyId, out bSuccess);
 #endif
 
             //Nastavenie dopravneho

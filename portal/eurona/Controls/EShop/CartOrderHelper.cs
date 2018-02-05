@@ -218,7 +218,8 @@ namespace Eurona.Controls {
         /// <summary>
         /// Metóda prepočíta nákupný košík v TVD databazi
         /// </summary>
-        public static string RecalculateTVDCart(Page page, UpdatePanel up, CartEntity cart, out bool bSuccess) {
+        public static string RecalculateTVDCart(Page page, UpdatePanel up, CartEntity cart, out int? currencyId, out bool bSuccess) {
+            currencyId = null;
             int cartId = -1 * (cart.Id);
             //#if _LOCAL_ORDER
             //            return "OK";
@@ -308,10 +309,21 @@ namespace Eurona.Controls {
                         message = row["sdeleni_pro_poradce_html"].ToString();
                         string kodMeny = row["kod_meny"].ToString();
 
+                        SHP.Entities.Classifiers.Currency currency = Storage<SHP.Entities.Classifiers.Currency>.ReadFirst(new SHP.Entities.Classifiers.Currency.ReadByCode { Code = kodMeny });
+                        if (currency != null) {
+                            currencyId = currency.Id;
+                        }
+
+
                         //Update Cart
                         cart.PriceTotalWVAT = Convert.ToDecimal(row["celkem_k_uhrade"]);
                         cart.PriceTotal = Convert.ToDecimal(row["zaklad_zs"]);
                         Storage<CartEntity>.Update(cart);
+
+                        CMS.EvenLog.WritoToEventLog(string.Format("RecalculateTVDCart->Id = {0}, celkem_k_uhrade = {1}, zaklad_zs={2}, kod_meny={3}, currencyId={4}",
+                        cart.Id, cart.PriceTotalWVAT, cart.PriceTotal, kodMeny, currencyId),
+                        EventLogEntryType.Information);
+
                     }
 
                     row = GetRecalcResultRadkySumar(tvdStorage, connection, cartId);
@@ -425,6 +437,10 @@ namespace Eurona.Controls {
                     order.Price = Convert.ToDecimal(row["zaklad_zs"]);
                     order.Notes = message;
                     Storage<OrderEntity>.Update(order);
+
+                    CMS.EvenLog.WritoToEventLog(string.Format("RecalculateTVDOrder->Id = {0}, celkem_k_uhrade = {1}, zaklad_zs={2}, kod_meny={3}, currencyId={4}",
+                        order.Id, order.PriceWVAT, order.Price, kodMeny, order.CurrencyId), EventLogEntryType.Information);
+
                 }
 
                 CartEntity cart = Storage<CartEntity>.ReadFirst(new CartEntity.ReadById { CartId = order.CartId });

@@ -323,7 +323,8 @@ namespace Eurona.User.Anonymous
 			//Ak sa z eurosapu vrati chyba -> objednavku nemozno vytvorit.
 			bool bSuccess = false;
 #if !__DEBUG_VERSION_WITHOUTTVD
-			string message = Eurona.Controls.CartOrderHelper.RecalculateTVDCart(this.Page, /*this.updatePanel*/null, this.CartEntity, out bSuccess);
+            int? currencyId;
+			string message = Eurona.Controls.CartOrderHelper.RecalculateTVDCart(this.Page, /*this.updatePanel*/null, this.CartEntity, out currencyId, out bSuccess);
 #else
 						bSuccess = true;
 #endif
