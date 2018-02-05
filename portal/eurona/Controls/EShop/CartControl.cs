@@ -4,6 +4,7 @@ using CMS.Controls;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using CMS;
+using CurrencyEntity = SHP.Entities.Classifiers.Currency;
 using CartEntity = Eurona.Common.DAL.Entities.Cart;
 using CartProductEntity = Eurona.Common.DAL.Entities.CartProduct;
 using OrderEntity = Eurona.DAL.Entities.Order;
@@ -261,6 +262,14 @@ namespace Eurona.Controls {
 #endif
 
             if (!bSuccess) return;
+            /*
+            AccountEntity orderAccount = Storage<AccountEntity>.ReadFirst(new AccountEntity.ReadById { AccountId = orderAccountId });
+            String orderAccountLocale = Security.Account.Locale;
+            if (orderAccount != null) {
+                orderAccountLocale = orderAccount.Locale;
+            }
+            CurrencyEntity orderCurrency = Storage<CurrencyEntity>.ReadFirst(new CurrencyEntity.ReadByLocale { Locale = orderAccountLocale });
+            */
 
             OrderEntity order = Storage<OrderEntity>.ReadFirst(new OrderEntity.ReadByCart { CartId = this.CartEntity.Id });
             if (order != null) {
@@ -307,9 +316,11 @@ namespace Eurona.Controls {
                 order.Price = this.cartEntity.PriceTotal.Value;
                 order.PriceWVAT = this.cartEntity.PriceTotalWVAT.Value + this.cartEntity.DopravneEurosap.Value;
                 order.CreatedByAccountId = Security.Account.Id;
+                
                 if (currencyId.HasValue) {
                     order.CurrencyId = currencyId.Value;
                 }
+
                 decimal sumaBezPostovneho = Common.DAL.Entities.OrderSettings.GetFreePostageSuma(Security.Account.Locale);
                 if (this.cartEntity.KatalogovaCenaCelkemByEurosap >= sumaBezPostovneho) {
                     order.NoPostage = true;
