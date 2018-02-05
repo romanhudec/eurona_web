@@ -326,7 +326,7 @@ namespace Eurona.User.Anonymous
 #if !__DEBUG_VERSION_WITHOUTTVD
 			string message = Eurona.Controls.CartOrderHelper.RecalculateTVDCart(this.Page, /*this.updatePanel*/null, null, this.CartEntity, out currencyId, out bSuccess);
 #else
-						bSuccess = true;
+			bSuccess = true;
 #endif
 			if (!bSuccess) return;
 			OrderEntity order = Storage<OrderEntity>.ReadFirst(new OrderEntity.ReadByCart { CartId = this.CartEntity.Id });

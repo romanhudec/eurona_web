@@ -262,15 +262,6 @@ namespace Eurona.Controls {
 #endif
 
             if (!bSuccess) return;
-            /*
-            AccountEntity orderAccount = Storage<AccountEntity>.ReadFirst(new AccountEntity.ReadById { AccountId = orderAccountId });
-            String orderAccountLocale = Security.Account.Locale;
-            if (orderAccount != null) {
-                orderAccountLocale = orderAccount.Locale;
-            }
-            CurrencyEntity orderCurrency = Storage<CurrencyEntity>.ReadFirst(new CurrencyEntity.ReadByLocale { Locale = orderAccountLocale });
-            */
-
             OrderEntity order = Storage<OrderEntity>.ReadFirst(new OrderEntity.ReadByCart { CartId = this.CartEntity.Id });
             if (order != null) {
                 if (string.IsNullOrEmpty(this.FinishUrlFormat))

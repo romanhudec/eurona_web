@@ -313,13 +313,15 @@ namespace Eurona.Controls {
                         if (currency != null) {
                             currencyId = currency.Id;
                         }
+
                         //Update Cart
                         cart.PriceTotalWVAT = Convert.ToDecimal(row["celkem_k_uhrade"]);
                         cart.PriceTotal = Convert.ToDecimal(row["zaklad_zs"]);
                         Storage<CartEntity>.Update(cart);
-                        CMS.EvenLog.WritoToEventLog(string.Format("RecalculateTVDCart->Id = {0}, celkem_k_uhrade = {1}, zaklad_zs={2}, kod_meny={3}, currencyId={4}", 
-                            cart.Id, cart.PriceTotalWVAT, cart.PriceTotal, kodMeny, currencyId),
-                            EventLogEntryType.Information);
+
+                        CMS.EvenLog.WritoToEventLog(string.Format("RecalculateTVDCart->Id = {0}, celkem_k_uhrade = {1}, zaklad_zs={2}, kod_meny={3}, currencyId={4}",
+                        cart.Id, cart.PriceTotalWVAT, cart.PriceTotal, kodMeny, currencyId),
+                        EventLogEntryType.Information);
                     }
 
                     row = GetRecalcResultRadkySumar(tvdStorage, connection, cartId);
@@ -434,6 +436,7 @@ namespace Eurona.Controls {
                     order.Price = Convert.ToDecimal(row["zaklad_zs"]);
                     order.Notes = message;
                     Storage<OrderEntity>.Update(order);
+            
                     CMS.EvenLog.WritoToEventLog(string.Format("RecalculateTVDOrder->Id = {0}, celkem_k_uhrade = {1}, zaklad_zs={2}, kod_meny={3}, currencyId={4}",
                         order.Id, order.PriceWVAT, order.Price, kodMeny, order.CurrencyId), EventLogEntryType.Information);
                 }
