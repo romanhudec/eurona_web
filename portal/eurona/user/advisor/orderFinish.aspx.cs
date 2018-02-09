@@ -47,9 +47,7 @@ namespace Eurona.User.Advisor
 		private void SendEmail(OrderEntity order)
 		{
 
-#if N__DEBUG_VERSION
-			return;
-#else
+/*
 			AccountEntity account = Security.Account;
 
 			string root = CMS.Utilities.ServerUtilities.Root(this.Request);
@@ -85,7 +83,7 @@ namespace Eurona.User.Advisor
 			email.Subject = string.Format(Resources.EShopStrings.UserOrderFinishPage_Email2Central_Subject, order.OrderNumber);
 			email.Message = String.Format(Resources.EShopStrings.UserOrderFinishPage_Email2Central_Message, urlCentral).Replace("\\n", Environment.NewLine);
 			email.Notify(true);
-#endif
+*/
 
 		}
 	}

@@ -1,0 +1,2 @@
+select * from tUrlAlias WHERE Url like '~/eshop/category.aspx?id=%' AND UrlAliasId not in (select UrlAliasId from tShpCategoryLocalization )
+--delete * from tUrlAlias WHERE Url like '~/eshop/category.aspx?id=%' AND UrlAliasId not in (select UrlAliasId from tShpCategoryLocalization )
