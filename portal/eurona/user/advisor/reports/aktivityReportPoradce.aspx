@@ -2,22 +2,28 @@
 <%@ Register TagPrefix="telerik" Namespace="Telerik.Web.UI" Assembly="Telerik.Web.UI" %>
 
 <asp:Content ID="Content2" ContentPlaceHolderID="filter_content" runat="server">
-<style>
-    .page-container {background-image:none!important;}
-	.page-container-overlay{width:auto!important;}
-	.page{width:auto!important;margin:0px 50px 0px 50px;}
-    .page-container{width:auto!important;}
-    .RadGrid .rgHeader{padding-left:5px!important;padding-right:0px!important;}
-</style>
-<table border="0" width="550px">
-    <tr>
-        <td><asp:RadioButton runat="server" ID="rbPrvniLinie" Text="<%$ Resources:Reports, PrvniLinie %>" GroupName="group" /></td>
-        <td><asp:RadioButton runat="server" ID="rbSkupina" Text="<%$ Resources:Reports, CeleSkupiny %>" GroupName="group" /></td>
-        <td><asp:CheckBox runat="server" ID="cbOsobniSkupiny" Text="<%$ Resources:Reports, OsobniSkupiny %>" /></td>
-        <td align="right"><asp:Literal ID="Literal1" runat="server" Text="<%$ Resources:Reports, Advisor %>"></asp:Literal> <i>(reg. číslo nebo jméno)</i></td>
-        <td><asp:TextBox runat="server" ID="txtAdvisorCode"></asp:TextBox></td>
-    </tr>
-</table>
+    <style>
+        .page-container {background-image:none!important;}
+	    .page-container-overlay{width:auto!important;}
+	    .page{width:auto!important;margin:0px 50px 0px 50px;}
+        .page-container{width:auto!important;}
+        .RadGrid .rgHeader{padding-left:5px!important;padding-right:0px!important;}
+    </style>
+    <table border="0" width="550px">
+        <tr>
+            <td><asp:RadioButton runat="server" ID="rbPrvniLinie" Text="<%$ Resources:Reports, PrvniLinie %>" GroupName="group" /></td>
+            <td><asp:RadioButton runat="server" ID="rbSkupina" Text="<%$ Resources:Reports, CeleSkupiny %>" GroupName="group" /></td>
+            <td><asp:CheckBox runat="server" ID="cbOsobniSkupiny" Text="<%$ Resources:Reports, OsobniSkupiny %>" /></td>
+            <td align="right"><asp:Literal ID="Literal1" runat="server" Text="<%$ Resources:Reports, Advisor %>"></asp:Literal> <i>(reg. číslo nebo jméno)</i></td>
+            <td><asp:TextBox runat="server" ID="txtAdvisorCode"></asp:TextBox></td>
+        </tr>
+    </table>
+</asp:Content>
+<asp:Content ID="Content4" ContentPlaceHolderID="filter_buttons_content" runat="server">       
+    <div style="margin-left:20px;">
+        <div style="padding:3px; background-image:url('../../../images/activity_report_color_green.png');background-repeat:no-repeat;" runat="server"><span>Nově registrovaný zákazník/poradce v daném období</span></div>
+        <div style="padding:3px; background-image:url('../../../images/activity_report_color_yellow.png');background-repeat:no-repeat;" runat="server"><span>Historicky první postup na vyšši provizní hladinu</span></div>
+    </div>
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="filter_footer_content" runat="server">
     <div style="padding:0px;text-align:right;cursor:pointer">

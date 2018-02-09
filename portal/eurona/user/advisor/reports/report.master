@@ -21,7 +21,14 @@
             <tr>
                 <td  style="white-space:nowrap;"><asp:Literal runat="server" ID="lblObdobi" Text="<%$ Resources:Reports, Obdobi %>"></asp:Literal><asp:TextBox runat="server" ID="txtObdobi" Width="60px"></asp:TextBox></td>
                 <td><asp:ContentPlaceHolder ID="filter_content" runat="server"></asp:ContentPlaceHolder></td>    
-                <td style="width:100%;"><asp:Button runat="server" ID="btnGenerateReport" Text="<%$ Resources:Reports, Generovat %>" OnClick="OnGenearte"></asp:Button></td>
+                <td style="width:100%;">
+                    <table>
+                        <tr>
+                            <td><asp:Button runat="server" ID="btnGenerateReport" Text="<%$ Resources:Reports, Generovat %>" OnClick="OnGenearte"></asp:Button></td>
+                            <td><asp:ContentPlaceHolder ID="filter_buttons_content" runat="server"></asp:ContentPlaceHolder></td>
+                        </tr>
+                    </table>
+                </td>
             </tr>
         </table>
         </td>

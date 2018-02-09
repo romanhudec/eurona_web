@@ -67,6 +67,15 @@ namespace Eurona.User.Advisor.Reports {
         protected global::System.Web.UI.WebControls.Button btnGenerateReport;
         
         /// <summary>
+        /// filter_buttons_content control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.ContentPlaceHolder filter_buttons_content;
+        
+        /// <summary>
         /// Literal1 control.
         /// </summary>
         /// <remarks>
