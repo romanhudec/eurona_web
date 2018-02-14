@@ -15,7 +15,7 @@
             <td><asp:RadioButton runat="server" ID="rbSkupina" Text="<%$ Resources:Reports, CeleSkupiny %>" GroupName="group" /></td>
             <td>
                 <asp:CheckBox runat="server" ID="cbOsobniSkupiny" Text="<%$ Resources:Reports, OsobniSkupiny %>" />
-                <div style="position:absolute;width:100%;margin-top:5px;align-content:flex-start;"><span style="font-size:10px!important;font-style:italic;">Přehled sítě bez poradců a jejich vlastní sítě,<br/>kteří minulý produkční měsíc dosáhli provizní hladiny 21%</span></div>
+                <div style="position:absolute;width:300px;margin-top:5px;align-content:flex-start;"><span style="font-size:10px!important;font-style:italic;">Přehled sítě bez poradců a jejich vlastní sítě,<br/>kteří minulý produkční měsíc dosáhli provizní hladiny 21%</span></div>
             </td>
             <td align="right"><asp:Literal ID="Literal1" runat="server" Text="<%$ Resources:Reports, Advisor %>"></asp:Literal> <i>(reg. číslo nebo jméno)</i></td>
             <td><asp:TextBox runat="server" ID="txtAdvisorCode"></asp:TextBox></td>
@@ -25,12 +25,12 @@
 <asp:Content ID="Content4" ContentPlaceHolderID="filter_buttons_content" runat="server">       
     <div style="margin-left:20px;">
         <div style="padding:3px; background-image:url('../../../images/activity_report_color_green.png');background-repeat:no-repeat;" runat="server"><span>Nově registrovaný zákazník/poradce v daném období</span></div>
-        <div style="padding:3px; background-image:url('../../../images/activity_report_color_yellow.png');background-repeat:no-repeat;" runat="server"><span>Historicky první postup na vyšši provizní hladinu</span></div>
+        <%--<div style="padding:3px; background-image:url('../../../images/activity_report_color_yellow.png');background-repeat:no-repeat;" runat="server"><span>Historicky první postup na vyšši provizní hladinu</span></div>--%>
     </div>
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="filter_footer_content" runat="server">
     <div style="padding:0px;text-align:right;cursor:pointer">
-        <asp:CheckBox ID="cbFilterPrvniHladinovePostupy" runat="server" Text="filtrovat historicky první hladinové postupy v daném období" AutoPostBack="true" OnCheckedChanged="cbFilterPrvniHladinovePostupy_CheckedChanged"></asp:CheckBox>
+        <asp:CheckBox Visible="false" ID="cbFilterPrvniHladinovePostupy" runat="server" Text="filtrovat historicky první hladinové postupy v daném období" AutoPostBack="true" OnCheckedChanged="cbFilterPrvniHladinovePostupy_CheckedChanged"></asp:CheckBox>
     </div> 
 </asp:Content>
 <asp:Content ID="Content1" ContentPlaceHolderID="content" runat="server">

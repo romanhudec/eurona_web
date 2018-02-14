@@ -14,7 +14,7 @@ namespace Eurona.DAL.Entities
 		public string OrderNumber { get; set; }
 		public int CartId { get; set; }
 		public string OrderStatusCode { get; set; }
-		//public string ShipmentCode { get; set; }
+		public string ShipmentCode { get; set; }
 		public decimal Price { get; set; }
 		public decimal PriceWVAT { get; set; }
 
@@ -25,11 +25,11 @@ namespace Eurona.DAL.Entities
 		public int AccountId { get; set; }
 		public string AccountName { get; set; }
 		public string OrderStatusName { get; set; }
-		//public string OrderStatusIcon { get; set; }
-		//public string ShipmentName { get; set; }
-		//public string ShipmentIcon { get; set; }
-		//public decimal? ShipmentPrice { get; set; }
-		//public decimal? ShipmentPriceWVAT { get; set; }
+		public string OrderStatusIcon { get; set; }
+		public string ShipmentName { get; set; }
+		public string ShipmentIcon { get; set; }
+		public decimal? ShipmentPrice { get; set; }
+		public decimal? ShipmentPriceWVAT { get; set; }
 
 		public string OwnerName { get; set; }
 		//public int? TVD_Id { get; set; }

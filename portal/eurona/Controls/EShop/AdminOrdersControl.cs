@@ -310,17 +310,17 @@ namespace Eurona.Controls.Order {
                 AutoPostBackOnFilter = true,
                 CurrentFilterFunction = GridKnownFunction.Contains
             });
-            /*
-            grid.Columns.Add(new GridIconColumn {
-                ImageWidth = Unit.Pixel(16),
-                ImageHeight = Unit.Pixel(16),
-                DataImageUrlFields = new string[] { "OrderStatusIcon" },
-                DataAlternateTextField = "OrderStatusName",
-                HeaderText = SHP.Resources.Controls.AdminOrdersControl_ColumnOrderStatus,
-                SortExpression = "OrderStatusName",
-                AutoPostBackOnFilter = true,
-                CurrentFilterFunction = GridKnownFunction.Contains
-            });
+            
+            //grid.Columns.Add(new GridIconColumn {
+            //    ImageWidth = Unit.Pixel(16),
+            //    ImageHeight = Unit.Pixel(16),
+            //    DataImageUrlFields = new string[] { "OrderStatusIcon" },
+            //    DataAlternateTextField = "OrderStatusName",
+            //    HeaderText = SHP.Resources.Controls.AdminOrdersControl_ColumnOrderStatus,
+            //    SortExpression = "OrderStatusName",
+            //    AutoPostBackOnFilter = true,
+            //    CurrentFilterFunction = GridKnownFunction.Contains
+            //});
             grid.Columns.Add(new GridIconColumn {
                 ImageWidth = Unit.Pixel(16),
                 ImageHeight = Unit.Pixel(16),
@@ -330,7 +330,7 @@ namespace Eurona.Controls.Order {
                 SortExpression = "ShipmentName",
                 AutoPostBackOnFilter = true,
                 CurrentFilterFunction = GridKnownFunction.Contains
-            });*/
+            });
 
             grid.Columns.Add(new Eurona.Common.Controls.GridPriceColumn {
                 DataField = "PriceWVAT",

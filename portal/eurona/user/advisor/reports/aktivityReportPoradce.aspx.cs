@@ -140,7 +140,7 @@ namespace Eurona.User.Advisor.Reports {
                                 p.Mesicu_bez_objednavky ,p.Poradi ,p.Eurokredit_vlastni ,p.Eurokredit_registrace ,p.Eurokredit_vyber ,p.Narok_sleva_nrz ,p.Narok_eurokredit,
                                 o.Kod_odberatele, o.Datum_zahajeni, o.Nazev_firmy, Telefon = (CASE WHEN LEN(o.Telefon)=0 THEN o.Mobil ELSE o.Telefon END), o.E_mail, Kod_odberatele_sponzor = op.Kod_odberatele, Nazev_firmy_sponzor = op.Nazev_firmy, op.Telefon, op.E_mail,
                                 o.Misto, o.Psc, top_manager=oTop.Nazev_firmy,	                         
-                                ZmenaHladiny = CASE WHEN (select MAX(Hladina)from provize_finalni where RRRRMM <= @RRRRMM-1 and Id_odberatele=o.Id_odberatele) < p.Hladina THEN 1 ELSE 0 END,
+                                ZmenaHladiny = 0,--CASE WHEN (select MAX(Hladina)from provize_finalni where RRRRMM <= @RRRRMM-1 and Id_odberatele=o.Id_odberatele) < p.Hladina THEN 1 ELSE 0 END,
                                 UspesnyStart = us.Poradovy_mesic
                                 FROM provize_aktualni p
                                 INNER JOIN odberatele o  ON o.Id_odberatele = p.Id_odberatele
@@ -151,8 +151,9 @@ namespace Eurona.User.Advisor.Reports {
                     if (this.cbOsobniSkupiny.Checked) {
                         sql += @"AND
                                     ( 
-                                        p.Id_odberatele not in (select Id_odberatele from provize_finalni where RRRRMM=@RRRRMM And Hladina >= 21 AND Id_odberatele != @Id_odberatele ) AND
-	                                    p.Id_nadrizeneho not in (select Id_odberatele from provize_finalni where RRRRMM=@RRRRMM And Hladina >= 21 AND Id_odberatele != @Id_odberatele ) 
+                                        oTop.Id_odberatele = @Id_odberatele
+                                        --p.Id_odberatele not in (select Id_odberatele from provize_aktualni where RRRRMM=@RRRRMM And Hladina >= 21 AND Id_odberatele != @Id_odberatele ) AND
+	                                    --p.Id_nadrizeneho not in (select Id_odberatele from provize_aktualni where RRRRMM=@RRRRMM And Hladina >= 21 AND Id_odberatele != @Id_odberatele ) 
                                     )";
                     }
 
@@ -164,7 +165,7 @@ namespace Eurona.User.Advisor.Reports {
 												p.Mesicu_bez_objednavky ,p.Poradi ,p.Eurokredit_vlastni ,p.Eurokredit_registrace ,p.Eurokredit_vyber,
 												o.Kod_odberatele, o.Datum_zahajeni, o.Nazev_firmy, Telefon = (CASE WHEN LEN(o.Telefon)=0 THEN o.Mobil ELSE o.Telefon END), o.E_mail, Kod_odberatele_sponzor = op.Kod_odberatele, Nazev_firmy_sponzor = op.Nazev_firmy, op.Telefon, op.E_mail,
                                                 o.Misto, o.Psc, top_manager=oTop.Nazev_firmy,	
-                                                ZmenaHladiny = CASE WHEN (select MAX(Hladina)from provize_finalni where RRRRMM <= @RRRRMM-1 and Id_odberatele=o.Id_odberatele) < p.Hladina THEN 1 ELSE 0 END,
+                                                ZmenaHladiny = 0,--CASE WHEN (select MAX(Hladina)from provize_finalni where RRRRMM <= @RRRRMM-1 and Id_odberatele=o.Id_odberatele) < p.Hladina THEN 1 ELSE 0 END,
                                                 UspesnyStart = us.Poradovy_mesic
 												FROM provize_finalni p
 												INNER JOIN odberatele o  ON o.Id_odberatele = p.Id_odberatele
@@ -175,8 +176,9 @@ namespace Eurona.User.Advisor.Reports {
                         if (this.cbOsobniSkupiny.Checked) {
                             sql += @"AND
                                                             ( 
-                                                                p.Id_odberatele not in (select Id_odberatele from provize_finalni where RRRRMM=@RRRRMM And Hladina >= 21 AND Id_odberatele != @Id_odberatele ) AND
-	                                                            p.Id_nadrizeneho not in (select Id_odberatele from provize_finalni where RRRRMM=@RRRRMM And Hladina >= 21 AND Id_odberatele != @Id_odberatele ) 
+                                                                oTop.Id_odberatele = @Id_odberatele
+                                                                --p.Id_odberatele not in (select Id_odberatele from provize_finalni where RRRRMM=@RRRRMM And Hladina >= 21 AND Id_odberatele != @Id_odberatele ) AND
+	                                                            --p.Id_nadrizeneho not in (select Id_odberatele from provize_finalni where RRRRMM=@RRRRMM And Hladina >= 21 AND Id_odberatele != @Id_odberatele ) 
                                                             )";
                         }
                     }
@@ -188,7 +190,7 @@ namespace Eurona.User.Advisor.Reports {
 										p.Mesicu_bez_objednavky ,p.Poradi ,p.Eurokredit_vlastni ,p.Eurokredit_registrace ,p.Eurokredit_vyber ,p.Narok_sleva_nrz ,p.Narok_eurokredit,
 										o.Kod_odberatele, o.Datum_zahajeni, o.Nazev_firmy, Telefon = (CASE WHEN LEN(o.Telefon)=0 THEN o.Mobil ELSE o.Telefon END), o.E_mail, Kod_odberatele_sponzor = op.Kod_odberatele, Nazev_firmy_sponzor = op.Nazev_firmy, op.Telefon, op.E_mail,
                                         o.Misto, o.Psc, top_manager=oTop.Nazev_firmy,	
-                                        ZmenaHladiny = CASE WHEN (select MAX(Hladina)from provize_finalni where RRRRMM <= @RRRRMM-1 and Id_odberatele=o.Id_odberatele) < p.Hladina THEN 1 ELSE 0 END,
+                                        ZmenaHladiny = 0,--CASE WHEN (select MAX(Hladina)from provize_finalni where RRRRMM <= @RRRRMM-1 and Id_odberatele=o.Id_odberatele) < p.Hladina THEN 1 ELSE 0 END,
                                         UspesnyStart = us.Poradovy_mesic
 										FROM fGetOdberateleStrom(@Id_odberatele) f
 										INNER JOIN provize_aktualni p ON p.Id_odberatele = f.Id_Odberatele
@@ -200,8 +202,9 @@ namespace Eurona.User.Advisor.Reports {
                     if (this.cbOsobniSkupiny.Checked) {
                         sql += @"AND
                                                     ( 
-                                                        p.Id_odberatele not in (select Id_odberatele from provize_finalni where RRRRMM=@RRRRMM And Hladina >= 21 AND Id_odberatele != @Id_odberatele ) AND
-	                                                    p.Id_nadrizeneho not in (select Id_odberatele from provize_finalni where RRRRMM=@RRRRMM And Hladina >= 21 AND Id_odberatele != @Id_odberatele ) 
+                                                        oTop.Id_odberatele = @Id_odberatele
+                                                        --p.Id_odberatele not in (select Id_odberatele from provize_aktualni where RRRRMM=@RRRRMM And Hladina >= 21 AND Id_odberatele != @Id_odberatele ) AND
+	                                                    --p.Id_nadrizeneho not in (select Id_odberatele from provize_aktualni where RRRRMM=@RRRRMM And Hladina >= 21 AND Id_odberatele != @Id_odberatele ) 
                                                     )";
                     }
                     sql += @"ORDER BY f.LineageId ASC";
@@ -214,7 +217,7 @@ namespace Eurona.User.Advisor.Reports {
 												p.Mesicu_bez_objednavky ,p.Poradi ,p.Eurokredit_vlastni ,p.Eurokredit_registrace ,p.Eurokredit_vyber,
 												o.Kod_odberatele, o.Datum_zahajeni, o.Nazev_firmy, Telefon = (CASE WHEN LEN(o.Telefon)=0 THEN o.Mobil ELSE o.Telefon END), o.E_mail, Kod_odberatele_sponzor = op.Kod_odberatele, Nazev_firmy_sponzor = op.Nazev_firmy, op.Telefon, op.E_mail,
                                                 o.Misto, o.Psc, top_manager=oTop.Nazev_firmy,	
-                                                ZmenaHladiny = CASE WHEN (select MAX(Hladina)from provize_finalni where RRRRMM <= @RRRRMM-1 and Id_odberatele=o.Id_odberatele) < p.Hladina THEN 1 ELSE 0 END,
+                                                ZmenaHladiny = 0,--CASE WHEN (select MAX(Hladina)from provize_finalni where RRRRMM <= @RRRRMM-1 and Id_odberatele=o.Id_odberatele) < p.Hladina THEN 1 ELSE 0 END,
                                                 UspesnyStart = us.Poradovy_mesic
 												FROM fGetOdberateleStrom(@Id_odberatele) f
 												INNER JOIN provize_finalni p ON p.Id_odberatele = f.Id_Odberatele
@@ -225,10 +228,11 @@ namespace Eurona.User.Advisor.Reports {
 												WHERE o.Stav_odberatele!='Z' AND p.RRRRMM=@RRRRMM ";
                         if (this.cbOsobniSkupiny.Checked) {
                             sql += @"AND
-                                                            ( 
-                                                                p.Id_odberatele not in (select Id_odberatele from provize_finalni where RRRRMM=@RRRRMM And Hladina >= 21 AND Id_odberatele != @Id_odberatele ) AND
-	                                                            p.Id_nadrizeneho not in (select Id_odberatele from provize_finalni where RRRRMM=@RRRRMM And Hladina >= 21 AND Id_odberatele != @Id_odberatele ) 
-                                                            )";
+                                                ( 
+                                                    oTop.Id_odberatele = @Id_odberatele
+                                                    --p.Id_odberatele not in (select Id_odberatele from provize_finalni where RRRRMM=@RRRRMM And Hladina >= 21 AND Id_odberatele != @Id_odberatele ) AND
+	                                                --p.Id_nadrizeneho not in (select Id_odberatele from provize_finalni where RRRRMM=@RRRRMM And Hladina >= 21 AND Id_odberatele != @Id_odberatele ) 
+                                                )";
                         }
                         sql += @"ORDER BY f.LineageId ASC";
                     }
