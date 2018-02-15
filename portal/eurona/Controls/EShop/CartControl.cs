@@ -336,8 +336,8 @@ namespace Eurona.Controls {
 
                 string[] name = org.Name.Split(' ');
                 if (name.Length >= 2) {
-                    order.DeliveryAddress.FirstName = name[1];
-                    order.DeliveryAddress.LastName = name[0];
+                    order.DeliveryAddress.FirstName = name[0];
+                    order.DeliveryAddress.LastName = name[1];
                 }
 
                 //Pouzitie poslednej ulozenej adresy

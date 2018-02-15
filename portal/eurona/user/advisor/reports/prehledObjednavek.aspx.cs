@@ -26,7 +26,7 @@ namespace Eurona.User.Advisor.Reports {
                 minDate = new DateTime(beforeMonth.Year, beforeMonth.Month, 1);
                 this.dtpDatumOd.MinDate = minDate;
                 this.dtpDatumOd.MaxDate = now;
-                this.dtpDatumOd.SelectedDate = minDate;
+                this.dtpDatumOd.SelectedDate = now;//minDate;
 
                 this.dtpDatumDo.MinDate = minDate;
                 this.dtpDatumDo.MaxDate = now;
@@ -106,9 +106,13 @@ namespace Eurona.User.Advisor.Reports {
 									top_manager=oTop.Nazev_firmy									
 								FROM fGetOdberateleStrom(@Id_odberatele) os 
                                     INNER JOIN www_faktury f ON os.Id_Odberatele = f.Id_Odberatele
-									INNER JOIN www_prepocty p ON p.id_prepoctu = f.id_prepoctu
+									INNER JOIN www_prepocty p ON p.id_prepoctu = f.id_prepoctu AND 
+                                        p.id_prepoctu = (select MAX(pp.id_prepoctu) from www_faktury ff
+                                        INNER JOIN www_prepocty pp ON pp.id_prepoctu = ff.id_prepoctu
+                                        where pp.id_web_objednavky=p.id_web_objednavky
+                                        GROUP BY pp.id_web_objednavky)
 									INNER JOIN www_faktury_radky fr ON fr.id_prepoctu = f.id_prepoctu AND fr.idakce != 10
-								    INNER JOIN objednavkyfaktury ofr ON ofr.Id_objednavky = f.cislo_objednavky_eurosap
+								    LEFT JOIN objednavkyfaktury ofr ON ofr.Id_objednavky = f.cislo_objednavky_eurosap
                                     LEFT JOIN odberatele o  ON o.Id_odberatele = f.id_odberatele
                                     LEFT JOIN odberatele oTop  ON oTop.Id_odberatele = ofr.Id_topmanagera
 								WHERE 
