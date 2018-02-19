@@ -90,9 +90,9 @@ namespace Eurona.User.Advisor.Reports {
 									celkem_body = SUM(fr.zapocet_mj_body * fr.mnozstvi),
 									celkem_objem_pro_marzi = SUM(fr.zapocet_mj_marze * fr.mnozstvi),
 									celkem_objem_obchodu = SUM(fr.zapocet_mj_provize_czk * fr.mnozstvi),
-									Stav_objednavky = ISNULL(ofr.Stav_faktury,1),
+									Stav_objednavky = ISNULL(ofr.Stav_faktury, (case when f.id_prepoctu<0 then 99 else 1 end)) ,
 									Stav_objednavky_nazev = 
-										CASE ISNULL(ofr.Stav_faktury,1) 
+										CASE ISNULL(ofr.Stav_faktury, (case when f.id_prepoctu<0 then 99 else 1 end)) 
 										WHEN 0 THEN 'Storno'
 										WHEN 1 THEN 'Potvrzená objednávka'
 										WHEN 3 THEN 'Připravena k expedici' 
