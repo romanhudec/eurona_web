@@ -90,9 +90,9 @@ namespace Eurona.User.Advisor.Reports {
 									celkem_body = SUM(fr.zapocet_mj_body * fr.mnozstvi),
 									celkem_objem_pro_marzi = SUM(fr.zapocet_mj_marze * fr.mnozstvi),
 									celkem_objem_obchodu = SUM(fr.zapocet_mj_provize_czk * fr.mnozstvi),
-									Stav_objednavky = ISNULL(ofr.Stav_faktury,99),
+									Stav_objednavky = ISNULL(ofr.Stav_faktury,1),
 									Stav_objednavky_nazev = 
-										CASE ISNULL(ofr.Stav_faktury,99) 
+										CASE ISNULL(ofr.Stav_faktury,1) 
 										WHEN 0 THEN 'Storno'
 										WHEN 1 THEN 'Potvrzená objednávka'
 										WHEN 3 THEN 'Připravena k expedici' 
@@ -109,7 +109,7 @@ namespace Eurona.User.Advisor.Reports {
 									INNER JOIN www_prepocty p ON p.id_prepoctu = f.id_prepoctu AND 
                                         p.id_prepoctu = (select MAX(pp.id_prepoctu) from www_faktury ff
                                         INNER JOIN www_prepocty pp ON pp.id_prepoctu = ff.id_prepoctu
-                                        where pp.id_web_objednavky=p.id_web_objednavky
+                                        where pp.id_web_objednavky=p.id_web_objednavky and pp.id_odberatele=p.id_odberatele
                                         GROUP BY pp.id_web_objednavky)
 									INNER JOIN www_faktury_radky fr ON fr.id_prepoctu = f.id_prepoctu AND fr.idakce != 10
 								    LEFT JOIN objednavkyfaktury ofr ON ofr.Id_objednavky = f.cislo_objednavky_eurosap
@@ -118,7 +118,7 @@ namespace Eurona.User.Advisor.Reports {
 								WHERE 
 									    (f.datum_vystaveni >= @dateOd AND f.datum_vystaveni <= @dateDo)
 									    --AND f.id_odberatele=@Id_odberatele /*AND f.potvrzeno=1*/
-										AND ((f.id_prepoctu > 0 AND ofr.id_web_objednavky IS NOT NULL ) OR (f.id_prepoctu < 0 AND p.id_web_objednavky IS NOT NULL ))
+										AND ((f.id_prepoctu > 0 /*AND ofr.id_web_objednavky IS NOT NULL*/ ) OR (f.id_prepoctu < 0 AND p.id_web_objednavky IS NOT NULL ))
 									GROUP BY o.Kod_odberatele, f.id_prepoctu, p.id_web_objednavky, f.cislo_objednavky_eurosap, f.datum_vystaveni, f.celkem_k_uhrade, f.zaklad_zs, f.dph_zs, ofr.Stav_faktury,
 										oTop.Nazev_firmy,
 							p.Dor_nazev_firmy,
