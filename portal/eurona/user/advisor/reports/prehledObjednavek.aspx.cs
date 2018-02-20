@@ -85,55 +85,59 @@ namespace Eurona.User.Advisor.Reports {
             CMS.Pump.MSSQLStorage tvdStorage = new CMS.Pump.MSSQLStorage(base.ConnectionString);
             using (SqlConnection connection = tvdStorage.Connect()) {
                 string sql = string.Empty;
-                sql = @"SELECT o.Kod_odberatele, f.id_prepoctu, p.id_web_objednavky, cislo_objednavky = f.cislo_objednavky_eurosap, f.datum_vystaveni, f.celkem_k_uhrade, celkem_bez_dph = f.zaklad_zs, f.dph_zs,
-									celkem_katalogova_cena = SUM( fr.cena_mj_katalogova * fr.mnozstvi),
-									celkem_body = SUM(fr.zapocet_mj_body * fr.mnozstvi),
-									celkem_objem_pro_marzi = SUM(fr.zapocet_mj_marze * fr.mnozstvi),
-									celkem_objem_obchodu = SUM(fr.zapocet_mj_provize_czk * fr.mnozstvi),
-									Stav_objednavky = ISNULL(ofr.Stav_faktury, (case when f.id_prepoctu<0 then 99 else 1 end)) ,
-									Stav_objednavky_nazev = 
-										CASE ISNULL(ofr.Stav_faktury, (case when f.id_prepoctu<0 then 99 else 1 end)) 
-										WHEN 0 THEN 'Storno'
-										WHEN 1 THEN 'Potvrzená objednávka'
-										WHEN 3 THEN 'Připravena k expedici' 
-										WHEN 4 THEN 'Vyřízeno'
-										WHEN 99 THEN 'Uloženo'
-										ELSE ''
-										END,
-									p.Dor_nazev_firmy,
-									p.dor_misto,
-									p.dor_psc, 
-									top_manager=oTop.Nazev_firmy									
-								FROM fGetOdberateleStrom(@Id_odberatele) os 
-                                    INNER JOIN www_faktury f ON os.Id_Odberatele = f.Id_Odberatele
-									INNER JOIN www_prepocty p ON p.id_prepoctu = f.id_prepoctu AND 
-                                        p.id_prepoctu = (select MAX(pp.id_prepoctu) from www_faktury ff
-                                        INNER JOIN www_prepocty pp ON pp.id_prepoctu = ff.id_prepoctu
-                                        where pp.id_web_objednavky=p.id_web_objednavky and pp.id_odberatele=p.id_odberatele
-                                        GROUP BY pp.id_web_objednavky)
-									INNER JOIN www_faktury_radky fr ON fr.id_prepoctu = f.id_prepoctu AND fr.idakce != 10
-								    LEFT JOIN objednavkyfaktury ofr ON ofr.Id_objednavky = f.cislo_objednavky_eurosap
-                                    LEFT JOIN odberatele o  ON o.Id_odberatele = f.id_odberatele
-                                    LEFT JOIN odberatele oTop  ON oTop.Id_odberatele = ofr.Id_topmanagera
-								WHERE 
-									    (f.datum_vystaveni >= @dateOd AND f.datum_vystaveni <= @dateDo)
-									    --AND f.id_odberatele=@Id_odberatele /*AND f.potvrzeno=1*/
-										AND ((f.id_prepoctu > 0 /*AND ofr.id_web_objednavky IS NOT NULL*/ ) OR (f.id_prepoctu < 0 AND p.id_web_objednavky IS NOT NULL ))
-									GROUP BY o.Kod_odberatele, f.id_prepoctu, p.id_web_objednavky, f.cislo_objednavky_eurosap, f.datum_vystaveni, f.celkem_k_uhrade, f.zaklad_zs, f.dph_zs, ofr.Stav_faktury,
-										oTop.Nazev_firmy,
-							p.Dor_nazev_firmy,
-									p.dor_misto,
-									p.dor_psc
-                                    ORDER BY f.datum_vystaveni DESC";
+                sql = @";WITH report AS (
+	                        SELECT id_prepoctu= MAX(f.id_prepoctu), o.id_odberatele, o.Kod_odberatele, p.id_web_objednavky	
+	                        FROM fGetOdberateleStrom(@Id_odberatele) os 
+                                INNER JOIN www_faktury f WITH (NOLOCK) ON os.Id_Odberatele = f.Id_Odberatele
+		                        INNER JOIN www_prepocty p WITH (NOLOCK) ON p.id_prepoctu = f.id_prepoctu 
+                                LEFT JOIN odberatele o  WITH (NOLOCK) ON o.Id_odberatele = f.id_odberatele
+	                        WHERE 
+		                        (f.datum_vystaveni >= @dateOd AND f.datum_vystaveni <= @dateDo)
+		                        AND ((f.id_prepoctu > 0 /*AND ofr.id_web_objednavky IS NOT NULL*/ ) OR (f.id_prepoctu < 0 AND p.id_web_objednavky IS NOT NULL ))
+	                        GROUP BY o.id_odberatele, o.Kod_odberatele, p.id_web_objednavky
+                        )
+                        SELECT r.id_prepoctu, r.Kod_odberatele, r.id_web_objednavky, cislo_objednavky = f.cislo_objednavky_eurosap, f.datum_vystaveni, f.celkem_k_uhrade, celkem_bez_dph = f.zaklad_zs, f.dph_zs,
+                        celkem_katalogova_cena = SUM( fr.cena_mj_katalogova * fr.mnozstvi),
+                        celkem_body = SUM(fr.zapocet_mj_body * fr.mnozstvi),
+                        celkem_objem_pro_marzi = SUM(fr.zapocet_mj_marze * fr.mnozstvi),
+                        celkem_objem_obchodu = SUM(fr.zapocet_mj_provize_czk * fr.mnozstvi),
+                        Stav_objednavky = ISNULL(ofr.Stav_faktury, (case when r.id_prepoctu<0 then 99 else 1 end)),
+                        Stav_objednavky_nazev = 
+	                        CASE ISNULL(ofr.Stav_faktury, (case when r.id_prepoctu<0 then 99 else 1 end)) 
+	                        WHEN 0 THEN 'Storno'
+	                        WHEN 1 THEN 'Potvrzená objednávka'
+	                        WHEN 3 THEN 'Připravena k expedici' 
+	                        WHEN 4 THEN 'Vyřízeno'
+	                        WHEN 99 THEN 'Uloženo'
+	                        ELSE ''
+	                        END,
+                        p.Dor_nazev_firmy,
+                        p.dor_misto,
+                        p.dor_psc, 
+                        top_manager=oTop.Nazev_firmy				
+                        FROM report r
+                        INNER JOIN www_faktury f WITH (NOLOCK) ON r.Id_Odberatele = f.Id_Odberatele and f.id_prepoctu=r.id_prepoctu
+                        INNER JOIN www_prepocty p WITH (NOLOCK) ON p.id_prepoctu = f.id_prepoctu
+                        INNER JOIN www_faktury_radky fr WITH (NOLOCK) ON fr.id_prepoctu = f.id_prepoctu AND fr.idakce != 10
+                        LEFT JOIN objednavkyfaktury ofr WITH (NOLOCK)  ON ofr.Id_objednavky = f.cislo_objednavky_eurosap
+                        LEFT JOIN odberatele oTop  WITH (NOLOCK) ON oTop.Id_odberatele = ofr.Id_topmanagera
+                        WHERE 
+	                        (f.datum_vystaveni >= @dateOd AND f.datum_vystaveni <= @dateDo)
+	                        --AND f.id_odberatele=@Id_odberatele /*AND f.potvrzeno=1*/
+	                        AND ((f.id_prepoctu > 0 /*AND ofr.id_web_objednavky IS NOT NULL*/ ) OR (f.id_prepoctu < 0 AND p.id_web_objednavky IS NOT NULL ))
+                        GROUP BY r.Kod_odberatele, r.id_prepoctu, r.id_web_objednavky, f.cislo_objednavky_eurosap, f.datum_vystaveni, f.celkem_k_uhrade, f.zaklad_zs, f.dph_zs, ofr.Stav_faktury,
+                        oTop.Nazev_firmy, p.Dor_nazev_firmy, p.dor_misto, p.dor_psc
+                        ORDER BY f.datum_vystaveni DESC
+                        ";
 
 //                sql = @"SELECT o.Kod_odberatele, f.id_prepoctu, p.id_web_objednavky, cislo_objednavky = f.cislo_objednavky_eurosap, f.datum_vystaveni, f.celkem_k_uhrade, celkem_bez_dph = f.zaklad_zs, f.dph_zs,
 //									celkem_katalogova_cena = SUM( fr.cena_mj_katalogova * fr.mnozstvi),
 //									celkem_body = SUM(fr.zapocet_mj_body * fr.mnozstvi),
 //									celkem_objem_pro_marzi = SUM(fr.zapocet_mj_marze * fr.mnozstvi),
 //									celkem_objem_obchodu = SUM(fr.zapocet_mj_provize_czk * fr.mnozstvi),
-//									Stav_objednavky = ISNULL(ofr.Stav_faktury,99),
+//									Stav_objednavky = ISNULL(ofr.Stav_faktury, (case when f.id_prepoctu<0 then 99 else 1 end)) ,
 //									Stav_objednavky_nazev = 
-//										CASE ISNULL(ofr.Stav_faktury,99) 
+//										CASE ISNULL(ofr.Stav_faktury, (case when f.id_prepoctu<0 then 99 else 1 end)) 
 //										WHEN 0 THEN 'Storno'
 //										WHEN 1 THEN 'Potvrzená objednávka'
 //										WHEN 3 THEN 'Připravena k expedici' 
@@ -145,23 +149,29 @@ namespace Eurona.User.Advisor.Reports {
 //									p.dor_misto,
 //									p.dor_psc, 
 //									top_manager=oTop.Nazev_firmy									
-//								FROM www_faktury f 
-//									INNER JOIN www_prepocty p ON p.id_prepoctu = f.id_prepoctu
-//									INNER JOIN www_faktury_radky fr ON fr.id_prepoctu = f.id_prepoctu AND fr.idakce != 10
-//								    LEFT JOIN objednavkyfaktury ofr ON ofr.Id_objednavky = f.cislo_objednavky_eurosap
-//                                    LEFT JOIN odberatele o  ON o.Id_odberatele = f.id_odberatele
-//                                    LEFT JOIN odberatele oTop  ON oTop.Id_odberatele = ofr.Id_topmanagera
+//								FROM fGetOdberateleStrom(@Id_odberatele) os 
+//                                    INNER JOIN www_faktury f WITH (NOLOCK) ON os.Id_Odberatele = f.Id_Odberatele
+//									INNER JOIN www_prepocty p WITH (NOLOCK) ON p.id_prepoctu = f.id_prepoctu /*AND 
+//                                        p.id_prepoctu = (select MAX(pp.id_prepoctu) from www_faktury ff WITH (NOLOCK) 
+//                                        INNER JOIN www_prepocty pp WITH (NOLOCK) ON pp.id_prepoctu = ff.id_prepoctu
+//                                        where pp.id_web_objednavky=p.id_web_objednavky and pp.id_odberatele=p.id_odberatele
+//                                        GROUP BY pp.id_web_objednavky)*/
+//									INNER JOIN www_faktury_radky fr WITH (NOLOCK) ON fr.id_prepoctu = f.id_prepoctu AND fr.idakce != 10
+//								    LEFT JOIN objednavkyfaktury ofr WITH (NOLOCK) ON ofr.Id_objednavky = f.cislo_objednavky_eurosap
+//                                    LEFT JOIN odberatele o  WITH (NOLOCK) ON o.Id_odberatele = f.id_odberatele
+//                                    LEFT JOIN odberatele oTop WITH (NOLOCK) ON oTop.Id_odberatele = ofr.Id_topmanagera
 //								WHERE 
-//									    (f.datum_vystaveni >= @dateOd AND f.datum_vystaveni <= @dateDo) AND
-//                                        --( p.Id_odberatele=@Id_odberatele OR p.Id_nadrizeneho=@Id_odberatele )
-//									    f.id_odberatele=@Id_odberatele /*AND f.potvrzeno=1*/
-//										AND ((f.id_prepoctu > 0 AND ofr.id_web_objednavky IS NOT NULL ) OR (f.id_prepoctu < 0 AND p.id_web_objednavky IS NOT NULL ))
+//									    (f.datum_vystaveni >= @dateOd AND f.datum_vystaveni <= @dateDo)
+//									    --AND f.id_odberatele=@Id_odberatele /*AND f.potvrzeno=1*/
+//										AND ((f.id_prepoctu > 0 /*AND ofr.id_web_objednavky IS NOT NULL*/ ) OR (f.id_prepoctu < 0 AND p.id_web_objednavky IS NOT NULL ))
 //									GROUP BY o.Kod_odberatele, f.id_prepoctu, p.id_web_objednavky, f.cislo_objednavky_eurosap, f.datum_vystaveni, f.celkem_k_uhrade, f.zaklad_zs, f.dph_zs, ofr.Stav_faktury,
 //										oTop.Nazev_firmy,
 //							p.Dor_nazev_firmy,
 //									p.dor_misto,
 //									p.dor_psc
 //                                    ORDER BY f.datum_vystaveni DESC";
+
+
 
                 //Clear data
                 DataTable dt = tvdStorage.Query(connection, sql,

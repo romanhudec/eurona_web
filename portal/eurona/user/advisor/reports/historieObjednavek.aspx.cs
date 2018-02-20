@@ -83,10 +83,10 @@ namespace Eurona.User.Advisor.Reports {
 									p.dor_misto,
 									p.dor_psc,
 									Adresa = (p.dor_ulice + ', ' + p.dor_misto + ', ' + p.dor_psc + ', ' + p.dor_stat)
-								FROM www_faktury f 
-									INNER JOIN www_faktury_radky fr ON fr.id_prepoctu = f.id_prepoctu  AND fr.idakce != 10
-								    INNER JOIN objednavkyfaktury ofr ON ofr.Id_objednavky = f.cislo_objednavky_eurosap
-								    LEFT JOIN www_prepocty p ON p.id_prepoctu = f.id_prepoctu
+								FROM www_faktury f WITH (NOLOCK) 
+									INNER JOIN www_faktury_radky fr WITH (NOLOCK) ON fr.id_prepoctu = f.id_prepoctu  AND fr.idakce != 10
+								    INNER JOIN objednavkyfaktury ofr WITH (NOLOCK) ON ofr.Id_objednavky = f.cislo_objednavky_eurosap
+								    LEFT JOIN www_prepocty p WITH (NOLOCK) ON p.id_prepoctu = f.id_prepoctu
 								WHERE 
 									(YEAR(f.datum_vystaveni_objednavky)*100 +MONTH(f.datum_vystaveni_objednavky)) = @RRRRMM AND
 									f.id_odberatele=@Id_odberatele AND
