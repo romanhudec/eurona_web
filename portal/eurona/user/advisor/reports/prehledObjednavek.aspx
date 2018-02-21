@@ -30,13 +30,13 @@
     </tr>
     </table>
 </asp:Content>
-<%--<asp:Content ID="Content4" ContentPlaceHolderID="filter_buttons_content" runat="server">       
+<asp:Content ID="Content4" ContentPlaceHolderID="filter_buttons_content" runat="server">       
     <div style="margin-left:20px;">
-        <div id="Div1" style="padding:3px;" runat="server"><span>Z – zaúčtovaná produkce uvidíte „A“-zaúčtováno v AR. „N“-nezaúčtováno</span></div>
+        <div id="Div1" style="padding:3px; background-image:url('../../../images/activity_report_color_magenta.png');background-repeat:no-repeat;" runat="server"><span>N – nezaúčtovaná produkce</span></div>
     </div>
-</asp:Content>--%>
+</asp:Content>
 <asp:Content ID="Content1" ContentPlaceHolderID="content" runat="server">
-    <telerik:RadGrid AutoGenerateColumns="False" ID="gridView" AllowFilteringByColumn="True" AllowPaging="True" AllowSorting="True" runat="server">
+    <telerik:RadGrid AutoGenerateColumns="False" ID="gridView" AllowFilteringByColumn="True" AllowPaging="True" AllowSorting="True" runat="server" OnItemDataBound="OnRowDataBound">
         <PagerStyle Mode="NextPrevAndNumeric" />
         <FilterItemStyle  />
         <GroupingSettings CaseSensitive="false" />
@@ -78,8 +78,8 @@
                 <telerik:GridBoundColumn HeaderText="PSČ" DataField="dor_psc" UniqueName="dor_psc" HeaderStyle-Width="40px" AllowSorting="true"
                     SortExpression="dor_psc" AutoPostBackOnFilter="true" AllowFiltering="true" CurrentFilterFunction="Contains" ShowFilterIcon="false" />
                  
-<%--                  <telerik:GridBoundColumn HeaderText="Z" DataField="Zauctovana" UniqueName="Zauctovana" HeaderStyle-Width="40px" HeaderTooltip="Příznak zaúčtované produkce. Pokud 'N' – nezaúčtovaná"
-                    SortExpression="Zauctovana" AutoPostBackOnFilter="true" AllowFiltering="true" CurrentFilterFunction="Contains" ShowFilterIcon="false" />--%>
+                <telerik:GridBoundColumn HeaderText="N" DataField="Zauctovana" UniqueName="Zauctovana" HeaderStyle-Width="40px" HeaderTooltip="N – nezaúčtovaná produkce"
+                SortExpression="Zauctovana" AutoPostBackOnFilter="true" AllowFiltering="true" CurrentFilterFunction="Contains" ShowFilterIcon="false" />
 
                 <telerik:GridBoundColumn HeaderText="Top manager" DataField="top_manager" UniqueName="top_manager" HeaderStyle-Width="80px"
                     SortExpression="top_manager" AutoPostBackOnFilter="true" AllowFiltering="true" CurrentFilterFunction="Contains" ShowFilterIcon="false" />

@@ -9,6 +9,7 @@ using System.Configuration;
 using System.Data.SqlClient;
 using OrganizationEntity = Eurona.Common.DAL.Entities.Organization;
 using Telerik.Web.UI;
+using System.Drawing;
 
 namespace Eurona.User.Advisor.Reports {
     public partial class PrehledObjednavek : ReportPage {
@@ -115,7 +116,7 @@ namespace Eurona.User.Advisor.Reports {
                         p.dor_misto,
                         p.dor_psc, 
                         top_manager=oTop.Nazev_firmy,
-                        Zauctovana = (select DISTINCT CASE WHEN Count(Cislo_objednavky)=0 THEN 'N' ELSE 'A' END from provize_aktualni_objednavky where Cislo_objednavky = f.cislo_objednavky_eurosap ) -- objednavka nesmie byt zauctovana			
+                        Zauctovana = (select DISTINCT CASE WHEN Count(Cislo_objednavky)=0 THEN 'N' ELSE '' END from provize_aktualni_objednavky where Cislo_objednavky = f.cislo_objednavky_eurosap ) -- objednavka nesmie byt zauctovana			
                         FROM report r
                         INNER JOIN www_faktury f WITH (NOLOCK) ON r.Id_Odberatele = f.Id_Odberatele and f.id_prepoctu=r.id_prepoctu
                         INNER JOIN www_prepocty p WITH (NOLOCK) ON p.id_prepoctu = f.id_prepoctu
@@ -184,6 +185,29 @@ namespace Eurona.User.Advisor.Reports {
             }
 
             if (bind) gridView.DataBind();
+        }
+
+        protected void OnRowDataBound(object sender, GridItemEventArgs e) {
+            if (e.Item.ItemType != GridItemType.Item && e.Item.ItemType != GridItemType.AlternatingItem)
+                return;
+
+            //Obmedzenie pristupu
+            if (this.ForAdvisor.RestrictedAccess == 1) {
+                HyperLink hl = (e.Item.Cells[3].Controls[0] as HyperLink);
+                hl.NavigateUrl = string.Empty; //Registracne cislo
+                hl = (e.Item.Cells[11].Controls[0] as HyperLink);
+                hl.NavigateUrl = string.Empty;//BO os
+            }
+
+            DataRowView dtRow = e.Item.DataItem as DataRowView;
+            string zauctovana = Convert.ToString(dtRow["Zauctovana"]);
+
+            //i.	Zvýraznění poradců, kteří ve vybraném období historicky poprvé postoupili na vyšší provizní hladinu.
+            if (zauctovana != null && zauctovana.ToUpper() == "N") {
+                e.Item.BackColor = Color.FromArgb(245, 200, 2);
+                e.Item.CssClass = "rgRow";
+            }
+
         }
     }
 }
