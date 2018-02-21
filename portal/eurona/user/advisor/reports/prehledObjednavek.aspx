@@ -30,11 +30,11 @@
     </tr>
     </table>
 </asp:Content>
-<asp:Content ID="Content4" ContentPlaceHolderID="filter_buttons_content" runat="server">       
+<%--<asp:Content ID="Content4" ContentPlaceHolderID="filter_buttons_content" runat="server">       
     <div style="margin-left:20px;">
         <div id="Div1" style="padding:3px;" runat="server"><span>Z – zaúčtovaná produkce uvidíte „A“-zaúčtováno v AR. „N“-nezaúčtováno</span></div>
     </div>
-</asp:Content>
+</asp:Content>--%>
 <asp:Content ID="Content1" ContentPlaceHolderID="content" runat="server">
     <telerik:RadGrid AutoGenerateColumns="False" ID="gridView" AllowFilteringByColumn="True" AllowPaging="True" AllowSorting="True" runat="server">
         <PagerStyle Mode="NextPrevAndNumeric" />
@@ -78,21 +78,12 @@
                 <telerik:GridBoundColumn HeaderText="PSČ" DataField="dor_psc" UniqueName="dor_psc" HeaderStyle-Width="40px" AllowSorting="true"
                     SortExpression="dor_psc" AutoPostBackOnFilter="true" AllowFiltering="true" CurrentFilterFunction="Contains" ShowFilterIcon="false" />
                  
-                  <telerik:GridBoundColumn HeaderText="Z" DataField="Zauctovana" UniqueName="Zauctovana" HeaderStyle-Width="40px" HeaderTooltip="Příznak zaúčtované produkce. Pokud 'N' – nezaúčtovaná"
-                    SortExpression="Zauctovana" AutoPostBackOnFilter="true" AllowFiltering="true" CurrentFilterFunction="Contains" ShowFilterIcon="false" />
+<%--                  <telerik:GridBoundColumn HeaderText="Z" DataField="Zauctovana" UniqueName="Zauctovana" HeaderStyle-Width="40px" HeaderTooltip="Příznak zaúčtované produkce. Pokud 'N' – nezaúčtovaná"
+                    SortExpression="Zauctovana" AutoPostBackOnFilter="true" AllowFiltering="true" CurrentFilterFunction="Contains" ShowFilterIcon="false" />--%>
 
                 <telerik:GridBoundColumn HeaderText="Top manager" DataField="top_manager" UniqueName="top_manager" HeaderStyle-Width="80px"
                     SortExpression="top_manager" AutoPostBackOnFilter="true" AllowFiltering="true" CurrentFilterFunction="Contains" ShowFilterIcon="false" />
-
-             <%--   <telerik:GridBoundColumn HeaderText="Cena bez DPH" DataField="celkem_bez_dph" UniqueName="celkem_bez_dph" HeaderStyle-Width="90px" ItemStyle-HorizontalAlign="Right" HeaderStyle-HorizontalAlign="Right"
-                    SortExpression="celkem_bez_dph" AutoPostBackOnFilter="true" CurrentFilterFunction="Contains" ShowFilterIcon="false" DataFormatString="{0:F2}" />
-                --%>
-             <%--   <telerik:GridBoundColumn HeaderText="DPH" DataField="dph_zs" UniqueName="dph_zs" HeaderStyle-Width="50px" ItemStyle-HorizontalAlign="Right" HeaderStyle-HorizontalAlign="Right"
-                    SortExpression="dph_zs" AutoPostBackOnFilter="false" CurrentFilterFunction="Contains" AllowFiltering="false" ShowFilterIcon="false" DataFormatString="{0:F2}" />
-
-                <telerik:GridBoundColumn HeaderText="Cena s DPH" DataField="celkem_k_uhrade" UniqueName="celkem_k_uhrade" HeaderStyle-Width="80px" ItemStyle-HorizontalAlign="Right" HeaderStyle-HorizontalAlign="Right"
-                    SortExpression="celkem_k_uhrade" AutoPostBackOnFilter="false" AllowFiltering="false" CurrentFilterFunction="Contains" ShowFilterIcon="false" DataFormatString="{0:F2}" />--%>
-
+   
             </Columns>
         </MasterTableView>
     </telerik:RadGrid>
