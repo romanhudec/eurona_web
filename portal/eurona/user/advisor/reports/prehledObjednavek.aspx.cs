@@ -114,7 +114,8 @@ namespace Eurona.User.Advisor.Reports {
                         p.Dor_nazev_firmy,
                         p.dor_misto,
                         p.dor_psc, 
-                        top_manager=oTop.Nazev_firmy				
+                        top_manager=oTop.Nazev_firmy,
+                        Zauctovana = (select DISTINCT CASE WHEN Count(Cislo_objednavky)=0 THEN 'N' ELSE 'A' END from provize_aktualni_objednavky where Cislo_objednavky = f.cislo_objednavky_eurosap ) -- objednavka nesmie byt zauctovana			
                         FROM report r
                         INNER JOIN www_faktury f WITH (NOLOCK) ON r.Id_Odberatele = f.Id_Odberatele and f.id_prepoctu=r.id_prepoctu
                         INNER JOIN www_prepocty p WITH (NOLOCK) ON p.id_prepoctu = f.id_prepoctu

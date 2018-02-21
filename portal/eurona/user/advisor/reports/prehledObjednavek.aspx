@@ -30,33 +30,38 @@
     </tr>
     </table>
 </asp:Content>
+<asp:Content ID="Content4" ContentPlaceHolderID="filter_buttons_content" runat="server">       
+    <div style="margin-left:20px;">
+        <div id="Div1" style="padding:3px;" runat="server"><span>Z – zaúčtovaná produkce uvidíte „A“-zaúčtováno v AR. „N“-nezaúčtováno</span></div>
+    </div>
+</asp:Content>
 <asp:Content ID="Content1" ContentPlaceHolderID="content" runat="server">
     <telerik:RadGrid AutoGenerateColumns="False" ID="gridView" AllowFilteringByColumn="True" AllowPaging="True" AllowSorting="True" runat="server">
         <PagerStyle Mode="NextPrevAndNumeric" />
         <FilterItemStyle  />
         <GroupingSettings CaseSensitive="false" />
-        <MasterTableView TableLayout="Fixed" AllowFilteringByColumn="false" PageSize = "50">
+        <MasterTableView TableLayout="Fixed" AllowFilteringByColumn="true" PageSize = "50">
             <Columns>                
                 <telerik:GridHyperLinkColumn HeaderText="Kód" DataTextField="Kod_odberatele" DataType="System.String" UniqueName="Kod_odberatele" HeaderStyle-Width="100px"
-                    SortExpression="Kod_odberatele" AutoPostBackOnFilter="true" CurrentFilterFunction="Contains" ShowFilterIcon="false" />
+                    SortExpression="Kod_odberatele" AutoPostBackOnFilter="true" CurrentFilterFunction="Contains" ShowFilterIcon="false" AllowFiltering="true" />
 
                 <telerik:GridBoundColumn HeaderText="Jméno" DataField="Dor_nazev_firmy" UniqueName="Dor_nazev_firmy" HeaderStyle-Width="100px"
-                    SortExpression="Dor_nazev_firmy" AutoPostBackOnFilter="false" AllowFiltering="false" CurrentFilterFunction="Contains" ShowFilterIcon="false" />
+                    SortExpression="Dor_nazev_firmy" AutoPostBackOnFilter="true" AllowFiltering="true" CurrentFilterFunction="Contains" ShowFilterIcon="false" />
 
                 <telerik:GridHyperLinkColumn HeaderText="Č. objednávky" DataTextField="id_web_objednavky" DataType="System.String" DataNavigateUrlFields="id_web_objednavky" UniqueName="id_web_objednavky" HeaderStyle-Width="80px" DataNavigateUrlFormatString="~/user/advisor/reports/Objednavka.aspx?cislo={0}" Target="_blank"
-                    SortExpression="id_web_objednavky" AutoPostBackOnFilter="true" CurrentFilterFunction="Contains" ShowFilterIcon="false" />
+                    SortExpression="id_web_objednavky" AutoPostBackOnFilter="true" CurrentFilterFunction="Contains" ShowFilterIcon="false" AllowFiltering="true"/>
                 
                 <telerik:GridBoundColumn HeaderText="Datum objednávky" DataField="datum_vystaveni" UniqueName="datum_vystaveni" HeaderStyle-Width="80px" ItemStyle-HorizontalAlign="Right" HeaderStyle-HorizontalAlign="Right" DataFormatString="{0:d}"
                     SortExpression="datum_vystaveni" AutoPostBackOnFilter="false" AllowFiltering="false" CurrentFilterFunction="Contains" ShowFilterIcon="false" />
                 
                 <telerik:GridBoundColumn HeaderText="Body" DataField="celkem_body" UniqueName="celkem_body" HeaderStyle-Width="40px"
-                    SortExpression="celkem_body" AutoPostBackOnFilter="true" CurrentFilterFunction="Contains" ShowFilterIcon="false" DataFormatString="{0:F0}" />
+                    SortExpression="celkem_body" AutoPostBackOnFilter="true" AllowFiltering="false" CurrentFilterFunction="Contains" ShowFilterIcon="false" DataFormatString="{0:F0}" />
                 
                 <telerik:GridBoundColumn HeaderText="Objem pro marži" DataField="celkem_objem_pro_marzi" UniqueName="celkem_objem_pro_marzi" HeaderStyle-Width="80px" ItemStyle-HorizontalAlign="Right" HeaderStyle-HorizontalAlign="Right"
                     SortExpression="celkem_objem_pro_marzi" AutoPostBackOnFilter="false" AllowFiltering="false" CurrentFilterFunction="Contains" ShowFilterIcon="false" DataFormatString="{0:F2}" />
                 
                 <telerik:GridBoundColumn HeaderText="Katalogová cena" DataField="celkem_katalogova_cena" UniqueName="celkem_katalogova_cena" HeaderStyle-Width="80px" ItemStyle-HorizontalAlign="Right" HeaderStyle-HorizontalAlign="Right"
-                    SortExpression="celkem_katalogova_cena" AutoPostBackOnFilter="true" CurrentFilterFunction="Contains" ShowFilterIcon="false" DataFormatString="{0:F2}" />
+                    SortExpression="celkem_katalogova_cena" AutoPostBackOnFilter="true" AllowFiltering="false" CurrentFilterFunction="Contains" ShowFilterIcon="false" DataFormatString="{0:F2}" />
                 
                 <telerik:GridBoundColumn HeaderText="Cena s DPH" DataField="celkem_k_uhrade" UniqueName="celkem_k_uhrade" HeaderStyle-Width="80px" ItemStyle-HorizontalAlign="Right" HeaderStyle-HorizontalAlign="Right"
                     SortExpression="celkem_k_uhrade" AutoPostBackOnFilter="false" AllowFiltering="false" CurrentFilterFunction="Contains" ShowFilterIcon="false" DataFormatString="{0:F2}" />
@@ -65,16 +70,19 @@
                     SortExpression="celkem_objem_obchodu" AutoPostBackOnFilter="false" AllowFiltering="false" CurrentFilterFunction="Contains" ShowFilterIcon="false" DataFormatString="{0:F2}" />
 
                 <telerik:GridBoundColumn HeaderText="Stav objednávky" DataField="Stav_objednavky_nazev" UniqueName="Stav_objednavky_nazev" HeaderStyle-Width="100px"
-                    SortExpression="Stav_objednavky_nazev" AutoPostBackOnFilter="false" AllowFiltering="false" CurrentFilterFunction="Contains" ShowFilterIcon="false" />
+                    SortExpression="Stav_objednavky_nazev" AutoPostBackOnFilter="true" AllowFiltering="true" CurrentFilterFunction="Contains" ShowFilterIcon="false" />
                                     
                 <telerik:GridBoundColumn HeaderText="Město" DataField="dor_misto" UniqueName="dor_misto" HeaderStyle-Width="120px" AllowSorting="true"
-                    SortExpression="dor_misto" AutoPostBackOnFilter="false" AllowFiltering="false" CurrentFilterFunction="Contains" ShowFilterIcon="false" />
+                    SortExpression="dor_misto" AutoPostBackOnFilter="true" AllowFiltering="true" CurrentFilterFunction="Contains" ShowFilterIcon="false" />
                
                 <telerik:GridBoundColumn HeaderText="PSČ" DataField="dor_psc" UniqueName="dor_psc" HeaderStyle-Width="40px" AllowSorting="true"
-                    SortExpression="dor_psc" AutoPostBackOnFilter="false" AllowFiltering="false" CurrentFilterFunction="Contains" ShowFilterIcon="false" />
+                    SortExpression="dor_psc" AutoPostBackOnFilter="true" AllowFiltering="true" CurrentFilterFunction="Contains" ShowFilterIcon="false" />
                  
+                  <telerik:GridBoundColumn HeaderText="Z" DataField="Zauctovana" UniqueName="Zauctovana" HeaderStyle-Width="40px" HeaderTooltip="Příznak zaúčtované produkce. Pokud 'N' – nezaúčtovaná"
+                    SortExpression="Zauctovana" AutoPostBackOnFilter="true" AllowFiltering="true" CurrentFilterFunction="Contains" ShowFilterIcon="false" />
+
                 <telerik:GridBoundColumn HeaderText="Top manager" DataField="top_manager" UniqueName="top_manager" HeaderStyle-Width="80px"
-                    SortExpression="top_manager" AutoPostBackOnFilter="false" AllowFiltering="false" CurrentFilterFunction="Contains" ShowFilterIcon="false" />
+                    SortExpression="top_manager" AutoPostBackOnFilter="true" AllowFiltering="true" CurrentFilterFunction="Contains" ShowFilterIcon="false" />
 
              <%--   <telerik:GridBoundColumn HeaderText="Cena bez DPH" DataField="celkem_bez_dph" UniqueName="celkem_bez_dph" HeaderStyle-Width="90px" ItemStyle-HorizontalAlign="Right" HeaderStyle-HorizontalAlign="Right"
                     SortExpression="celkem_bez_dph" AutoPostBackOnFilter="true" CurrentFilterFunction="Contains" ShowFilterIcon="false" DataFormatString="{0:F2}" />
