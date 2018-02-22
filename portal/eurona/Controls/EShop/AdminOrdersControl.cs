@@ -462,6 +462,7 @@ namespace Eurona.Controls.Order {
             }
             // vymazanie danej objednavky
             Storage<OrderEntity>.Delete(order);
+            CartOrderHelper.DeleteTVDOrderWithCart(order);
 
 
             GridViewDataBind(true);

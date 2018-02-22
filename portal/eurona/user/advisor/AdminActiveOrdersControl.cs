@@ -9,6 +9,7 @@ using CMS;
 using System.Web.UI;
 using Telerik.Web.UI;
 using SHP.Controls;
+using Eurona.Controls;
 
 namespace Eurona.User.Advisor
 {
@@ -333,7 +334,10 @@ namespace Eurona.User.Advisor
             GridDataItem dataItem = (GridDataItem)e.Item;
             int orderId = Convert.ToInt32(dataItem.OwnerTableView.DataKeyValues[dataItem.ItemIndex]["Id"]);
             OrderEntity entity = Storage<OrderEntity>.ReadFirst(new OrderEntity.ReadById { OrderId = orderId });
-            if (entity != null) Storage<OrderEntity>.Delete(entity);
+            if (entity != null) {
+                Storage<OrderEntity>.Delete(entity);
+                CartOrderHelper.DeleteTVDOrderWithCart(entity);
+            }
             GridViewDataBind(true);
         }
 

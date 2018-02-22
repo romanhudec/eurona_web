@@ -381,6 +381,7 @@ namespace Eurona.Controls {
                     if (!OnProccessOrderAfterSave(order.Id, out invoiceUrl, out result)) {
                         //Unodo close cart !!
                         Storage<OrderEntity>.Delete(order);
+                        CartOrderHelper.DeleteTVDOrderWithCart(order);
                         this.cartEntity.Closed = null;
                         Storage<CartEntity>.Update(this.cartEntity);
 

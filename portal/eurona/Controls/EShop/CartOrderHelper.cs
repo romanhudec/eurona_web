@@ -613,6 +613,101 @@ namespace Eurona.Controls {
             return true;
         }
 
+        public static string DeleteTVDOrderWithCart(OrderEntity order) {
+            String zprava = DeleteTVDCart(order);
+            zprava += DeleteTVDOrder(order);
+            return zprava;
+        }
+        private static string DeleteTVDOrder(OrderEntity order) {
+            /*
+            Pro vložení aktuálního datumu smazání je k dispozici procedura:
+            [esp_www_smazat_prepocet]
+            ( 
+                @out_Probehlo bit OUTPUT,
+                @out_Zprava nvarchar(255) OUTPUT,    
+                @Id_prepoctu int
+            )
+            */
+            string connectionString = ConfigurationManager.ConnectionStrings["TVDConnectionString"].ConnectionString;
+            CMS.Pump.MSSQLStorage tvdStorage = new CMS.Pump.MSSQLStorage(connectionString);
+
+            SqlParameter probehlo = new SqlParameter("@out_Probehlo", false);
+            probehlo.Direction = ParameterDirection.Output;
+
+            SqlParameter zprava = new SqlParameter("@out_Zprava", string.Empty);
+            zprava.Direction = ParameterDirection.Output;
+            zprava.SqlDbType = SqlDbType.VarChar;
+            zprava.Size = 255;
+            bool bSuccess = false;
+            try {
+                using (SqlConnection connection = tvdStorage.Connect()) {
+                    tvdStorage.ExecProc(connection, "esp_www_smazat_prepocet", new SqlParameter("Id_prepoctu", order.Id), probehlo, zprava);
+                }
+            } catch (Exception ex) {
+                CMS.EvenLog.WritoToEventLog(ex);
+                bSuccess = false;
+                if (zprava.Value != null) return zprava.Value.ToString();
+                return "Eurosap odmítl objednavku smazat!";
+            }
+
+            //===============================================================================
+            //Vystupne parametra
+            //===============================================================================
+            //Probehlo	bit	1=úspěch, 0=chyba		
+            //Zprava	varchar(255)	text chyby		
+            //id_prepoctu	int	prim. klíč		
+            bSuccess = Convert.ToBoolean(probehlo.Value);
+            if (zprava != null && zprava.Value != null) {
+                string msg = string.Format("TVD Delete Order -> esp_www_smazat_prepocet(Id_prepoctu:{0}) = {1}", order.Id, zprava.Value.ToString());
+                CMS.EvenLog.WritoToEventLog(msg, EventLogEntryType.Information);
+            }
+            return zprava.Value.ToString();
+        }
+        private static string DeleteTVDCart(OrderEntity order) {
+            /*
+            Pro vložení aktuálního datumu smazání je k dispozici procedura:
+            [esp_www_smazat_prepocet]
+            ( 
+                @out_Probehlo bit OUTPUT,
+                @out_Zprava nvarchar(255) OUTPUT,    
+                @Id_prepoctu int
+            )
+            */
+            string connectionString = ConfigurationManager.ConnectionStrings["TVDConnectionString"].ConnectionString;
+            CMS.Pump.MSSQLStorage tvdStorage = new CMS.Pump.MSSQLStorage(connectionString);
+
+            SqlParameter probehlo = new SqlParameter("@out_Probehlo", false);
+            probehlo.Direction = ParameterDirection.Output;
+
+            SqlParameter zprava = new SqlParameter("@out_Zprava", string.Empty);
+            zprava.Direction = ParameterDirection.Output;
+            zprava.SqlDbType = SqlDbType.VarChar;
+            zprava.Size = 255;
+            bool bSuccess = false;
+            try {
+                using (SqlConnection connection = tvdStorage.Connect()) {
+                    tvdStorage.ExecProc(connection, "esp_www_smazat_prepocet", new SqlParameter("Id_prepoctu", order.CartId*-1), probehlo, zprava);
+                }
+            } catch (Exception ex) {
+                CMS.EvenLog.WritoToEventLog(ex);
+                bSuccess = false;
+                if (zprava.Value != null) return zprava.Value.ToString();
+                return "Eurosap odmítl objednavku smazat!";
+            }
+
+            //===============================================================================
+            //Vystupne parametra
+            //===============================================================================
+            //Probehlo	bit	1=úspěch, 0=chyba		
+            //Zprava	varchar(255)	text chyby		
+            //id_prepoctu	int	prim. klíč		
+            bSuccess = Convert.ToBoolean(probehlo.Value);
+            if (zprava != null && zprava.Value != null) {
+                string msg = string.Format("TVD Delete Order -> esp_www_smazat_prepocet(Id_prepoctu:{0}) = {1}", order.Id, zprava.Value.ToString());
+                CMS.EvenLog.WritoToEventLog(msg, EventLogEntryType.Information);
+            }
+            return zprava.Value.ToString();
+        }
         private static string GetString(string value, int maxLength) {
             if (string.IsNullOrEmpty(value)) return value;
             if (value.Length <= maxLength) return value;

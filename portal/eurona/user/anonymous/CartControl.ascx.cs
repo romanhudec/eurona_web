@@ -436,6 +436,7 @@ namespace Eurona.User.Anonymous
 					{
 						//Unodo close cart !!
 						Storage<OrderEntity>.Delete(order);
+                        CartOrderHelper.DeleteTVDOrderWithCart(order);
 						this.cartEntity.Closed = null;
 						Storage<CartEntity>.Update(this.cartEntity);
 

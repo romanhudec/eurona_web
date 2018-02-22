@@ -90,7 +90,7 @@ namespace Eurona.User.Advisor.Reports {
 	                        SELECT id_prepoctu= MAX(f.id_prepoctu), o.id_odberatele, o.Kod_odberatele, p.id_web_objednavky	
 	                        FROM fGetOdberateleStrom(@Id_odberatele) os 
                                 INNER JOIN www_faktury f WITH (NOLOCK) ON os.Id_Odberatele = f.Id_Odberatele
-		                        INNER JOIN www_prepocty p WITH (NOLOCK) ON p.id_prepoctu = f.id_prepoctu 
+		                        INNER JOIN www_prepocty p WITH (NOLOCK) ON p.id_prepoctu = f.id_prepoctu AND p.datum_smazani IS NULL
                                 LEFT JOIN odberatele o  WITH (NOLOCK) ON o.Id_odberatele = f.id_odberatele
 	                        WHERE 
 		                        (f.datum_vystaveni >= @dateOd AND f.datum_vystaveni <= @dateDo)
@@ -119,7 +119,7 @@ namespace Eurona.User.Advisor.Reports {
                         Zauctovana = (select DISTINCT CASE WHEN Count(Cislo_objednavky)=0 THEN 'N' ELSE '' END from provize_aktualni_objednavky where Cislo_objednavky = f.cislo_objednavky_eurosap ) -- objednavka nesmie byt zauctovana			
                         FROM report r
                         INNER JOIN www_faktury f WITH (NOLOCK) ON r.Id_Odberatele = f.Id_Odberatele and f.id_prepoctu=r.id_prepoctu
-                        INNER JOIN www_prepocty p WITH (NOLOCK) ON p.id_prepoctu = f.id_prepoctu
+                        INNER JOIN www_prepocty p WITH (NOLOCK) ON p.id_prepoctu = f.id_prepoctu AND p.datum_smazani IS NULL
                         INNER JOIN www_faktury_radky fr WITH (NOLOCK) ON fr.id_prepoctu = f.id_prepoctu AND fr.idakce != 10
                         LEFT JOIN objednavkyfaktury ofr WITH (NOLOCK)  ON ofr.Id_objednavky = f.cislo_objednavky_eurosap
                         LEFT JOIN odberatele oTop  WITH (NOLOCK) ON oTop.Id_odberatele = ofr.Id_topmanagera

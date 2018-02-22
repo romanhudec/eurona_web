@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Eurona.Controls;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -58,6 +59,7 @@ namespace Eurona.Operator {
                 }
                 // vymazanie danej objednavky
                 Storage<OrderEntity>.Delete(order);
+                CartOrderHelper.DeleteTVDOrderWithCart(order);
             }
 
             this.adminOrdersControl.GridViewDataBind(true);
