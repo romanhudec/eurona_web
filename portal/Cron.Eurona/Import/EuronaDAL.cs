@@ -41,7 +41,7 @@ namespace Cron.Eurona.Import {
         /// Zmeni instanciu produktu.
         /// </summary>
         public static void UpdateProductInstance(CMS.Pump.MSSQLStorage mssqStorageDst, int productId, int instanceId) {
-            string sql = "UPDATE tShpProduct WITH (ROWLOCK) SET InstanceId=@InstanceId WHERE ProductId=@ProductId";
+            string sql = "UPDATE tShpProduct SET InstanceId=@InstanceId WHERE ProductId=@ProductId";
             DataTable dt = mssqStorageDst.Query(mssqStorageDst.Connection, sql,
                     new SqlParameter("@ProductId", productId),
                     new SqlParameter("@InstanceId", instanceId));
@@ -62,7 +62,7 @@ namespace Cron.Eurona.Import {
             return highlightId;
         }
         public static void RemoveProductHighlights(CMS.Pump.MSSQLStorage mssqStorageDst, int instanceId, int productId) {
-            string sql = @"DELETE FROM tShpProductHighlights WITH (ROWLOCK) WHERE InstanceId=@InstanceId AND ProductId=@ProductId";
+            string sql = @"DELETE FROM tShpProductHighlights WHERE InstanceId=@InstanceId AND ProductId=@ProductId";
             DataTable dt = mssqStorageDst.Query(mssqStorageDst.Connection, sql,
                     new SqlParameter("@InstanceId", instanceId),
                     new SqlParameter("@ProductId", productId));
@@ -71,7 +71,7 @@ namespace Cron.Eurona.Import {
             int? highLightId = GetHighlightId(mssqStorageDst, highlightCode, instanceId, locale);
             if (!highLightId.HasValue) return;
 
-            string sql = @"INSERT INTO tShpProductHighlights WITH (ROWLOCK) (InstanceId, ProductId, HighlightId )
+            string sql = @"INSERT INTO tShpProductHighlights (InstanceId, ProductId, HighlightId )
 										VALUES( @InstanceId, @ProductId, @HighlightId )";
             DataTable dt = mssqStorageDst.Query(mssqStorageDst.Connection, sql,
                     new SqlParameter("@InstanceId", instanceId),
@@ -88,7 +88,7 @@ namespace Cron.Eurona.Import {
             return dt.Rows.Count != 0;
         }
         public static void RemoveProductCategories(CMS.Pump.MSSQLStorage mssqStorageDst, int instanceId, int productId) {
-            string sql = @"DELETE FROM tShpProductCategories WITH (ROWLOCK) WHERE InstanceId=@InstanceId AND ProductId=@ProductId";
+            string sql = @"DELETE FROM tShpProductCategories WHERE InstanceId=@InstanceId AND ProductId=@ProductId";
             DataTable dt = mssqStorageDst.Query(mssqStorageDst.Connection, sql,
                     new SqlParameter("@InstanceId", instanceId),
                     new SqlParameter("@ProductId", productId));
@@ -100,7 +100,7 @@ namespace Cron.Eurona.Import {
             if (instanceId == 3) { categoryId = 3000 + categoryId; }
             if (!ExistCategory(mssqStorageDst, categoryId)) return;
 
-            string sql = @"INSERT INTO tShpProductCategories WITH (ROWLOCK) (InstanceId, ProductId, CategoryId )
+            string sql = @"INSERT INTO tShpProductCategories (InstanceId, ProductId, CategoryId )
 										VALUES( @InstanceId, @ProductId, @CategoryId )";
             DataTable dt = mssqStorageDst.Query(mssqStorageDst.Connection, sql,
                     new SqlParameter("@InstanceId", instanceId),
@@ -127,7 +127,7 @@ namespace Cron.Eurona.Import {
                 if (dt.Rows.Count == 0) {
                     sql = @"
 												SET IDENTITY_INSERT tShpCategory ON
-												INSERT INTO tShpCategory WITH (ROWLOCK) ( InstanceId, CategoryId, ParentId, HistoryType, HistoryStamp, HistoryAccount ) VALUES
+												INSERT INTO tShpCategory ( InstanceId, CategoryId, ParentId, HistoryType, HistoryStamp, HistoryAccount ) VALUES
 												(@InstanceId, @CategoryId, @ParentId, 'C', GETDATE(), 1)
 												SET IDENTITY_INSERT tShpCategory OFF";
                     mssqStorageDst.Exec(mssqStorageDst.Connection, sql,
@@ -136,7 +136,7 @@ namespace Cron.Eurona.Import {
                             new SqlParameter("@ParentId", Null(parentId)));
                 } else {
                     sql = @"
-												UPDATE tShpCategory WITH (ROWLOCK) SET ParentId=@ParentId, InstanceId=@InstanceId WHERE CategoryId=@CategoryId";
+												UPDATE tShpCategory SET ParentId=@ParentId, InstanceId=@InstanceId WHERE CategoryId=@CategoryId";
                     mssqStorageDst.Exec(mssqStorageDst.Connection, sql,
                             new SqlParameter("@CategoryId", categoryId),
                             new SqlParameter("@InstanceId", instanceId),
@@ -180,7 +180,7 @@ namespace Cron.Eurona.Import {
                     new SqlParameter("@Alias", "~/eshop/" + parent + GetAliasName(name)),
                     result);
 
-                    sql = @"INSERT INTO tShpCategoryLocalization WITH (ROWLOCK) ( CategoryId, [Name], Locale, UrlAliasId ) VALUES
+                    sql = @"INSERT INTO tShpCategoryLocalization ( CategoryId, [Name], Locale, UrlAliasId ) VALUES
 					( @CategoryId, @Name, @Locale, @UrlAliasId)";
                     mssqStorageDst.Exec(mssqStorageDst.Connection, sql,
                             new SqlParameter("@CategoryId", categoryId),
@@ -227,7 +227,7 @@ namespace Cron.Eurona.Import {
                         //}
                         #endregion
 
-                        sql = @"UPDATE tShpCategoryLocalization WITH (ROWLOCK) SET Name=@Name
+                        sql = @"UPDATE tShpCategoryLocalization SET Name=@Name
 						WHERE CategoryId=@CategoryId AND Locale=@Locale";
                         mssqStorageDst.Exec(mssqStorageDst.Connection, sql,
                                 new SqlParameter("@CategoryId", categoryId),
@@ -246,7 +246,7 @@ namespace Cron.Eurona.Import {
                 if (!EuronaDAL.ExistProduct(mssqStorageDst, productId)) {
                     sql = @"
 					SET IDENTITY_INSERT tShpProduct ON
-					INSERT INTO tShpProduct WITH (ROWLOCK) ([InstanceId], [ProductId], [StorageCount], [Code], [VAT], [Body], [Parfumacia], [Discount], [Top], [Novinka], [Inovace], [Doprodej], [Vyprodano], [ProdejUkoncen],
+					INSERT INTO tShpProduct ([InstanceId], [ProductId], [StorageCount], [Code], [VAT], [Body], [Parfumacia], [Discount], [Top], [Novinka], [Inovace], [Doprodej], [Vyprodano], [ProdejUkoncen],
 							[Megasleva], [Supercena], [CLHit], [Action], [Vyprodej], [OnWeb], [ZadniEtiketa], [ZobrazovatZadniEtiketu],
 							[HistoryType], [HistoryStamp], [HistoryAccount])
 					VALUES( @InstanceId, @ProductId, @StorageCount, @Code, @VAT, @Body, @Parfumacia, 0, @Top, @Novinka, @Inovace, @Doprodej, @Vyprodano, @ProdejUkoncen, 
@@ -278,7 +278,7 @@ namespace Cron.Eurona.Import {
                             );
                 } else {
                     sql = @"
-					UPDATE tShpProduct WITH (ROWLOCK) SET InstanceId=@InstanceId, StorageCount=@StorageCount, Code=@Code, VAT=@VAT, Body=@Body, Parfumacia=@Parfumacia, [Top]=@Top, Novinka=@Novinka, Inovace=@Inovace, Doprodej=@Doprodej, Vyprodano=@Vyprodano, ProdejUkoncen=@ProdejUkoncen,
+					UPDATE tShpProduct SET InstanceId=@InstanceId, StorageCount=@StorageCount, Code=@Code, VAT=@VAT, Body=@Body, Parfumacia=@Parfumacia, [Top]=@Top, Novinka=@Novinka, Inovace=@Inovace, Doprodej=@Doprodej, Vyprodano=@Vyprodano, ProdejUkoncen=@ProdejUkoncen,
 					[Megasleva]=@Megasleva, [Supercena]=@Supercena, [CLHit]=@CLHit, [Action]=@Action, [Vyprodej]=@Vyprodej, [OnWeb]=@OnWeb, [ZadniEtiketa]=@ZadniEtiketa, [ZobrazovatZadniEtiketu]=@ZobrazovatZadniEtiketu
 					WHERE ProductId=@ProductId";
                     mssqStorageDst.Exec(mssqStorageDst.Connection, sql,
@@ -309,7 +309,7 @@ namespace Cron.Eurona.Import {
 
             public static void SyncProductStock(CMS.Pump.MSSQLStorage mssqStorageDst, int productId, int instanceId, int storageCount) {
                 string sql = @"
-				UPDATE tShpProduct WITH (ROWLOCK) SET StorageCount=@StorageCount WHERE ProductId=@ProductId";
+				UPDATE tShpProduct SET StorageCount=@StorageCount WHERE ProductId=@ProductId";
                 mssqStorageDst.Exec(mssqStorageDst.Connection, sql,
                         new SqlParameter("@InstanceId", instanceId),
                         new SqlParameter("@ProductId", productId),
@@ -369,7 +369,7 @@ if (dtAlias.Rows.Count != 0)
                     #endregion
 
                     sql = @"
-					INSERT INTO tShpProductLocalization  WITH (ROWLOCK) ([ProductId], [Locale], [Name], [Description], [DescriptionLong], [InstructionsForUse], [AdditionalInformation], [UrlAliasId] )
+					INSERT INTO tShpProductLocalization  ([ProductId], [Locale], [Name], [Description], [DescriptionLong], [InstructionsForUse], [AdditionalInformation], [UrlAliasId] )
 					VALUES( @ProductId, @Locale, @Name, @Description, @DescriptionLong, @InstructionsForUse, @AdditionalInformation, @UrlAliasId )";
                     mssqStorageDst.Exec(mssqStorageDst.Connection, sql,
                     new SqlParameter("@ProductId", productId),
@@ -416,7 +416,7 @@ if (dtAlias.Rows.Count != 0)
                         #endregion
 
                         sql = @"
-						UPDATE tShpProductLocalization WITH (ROWLOCK) SET [Name]=@Name, [Description]=@Description, [DescriptionLong]=@DescriptionLong, [InstructionsForUse]=@InstructionsForUse, [AdditionalInformation]=@AdditionalInformation
+						UPDATE tShpProductLocalization SET [Name]=@Name, [Description]=@Description, [DescriptionLong]=@DescriptionLong, [InstructionsForUse]=@InstructionsForUse, [AdditionalInformation]=@AdditionalInformation
 						WHERE ProductId=@ProductId AND Locale=@Locale";
                         mssqStorageDst.Exec(mssqStorageDst.Connection, sql,
                         new SqlParameter("@ProductId", productId),
@@ -428,7 +428,7 @@ if (dtAlias.Rows.Count != 0)
                                 new SqlParameter("@AdditionalInformation", Null(additionalInformation)));
 
                         sql = @"
-						UPDATE tUrlAlias WITH (ROWLOCK) SET InstanceId=@InstanceId
+						UPDATE tUrlAlias SET InstanceId=@InstanceId
 						WHERE UrlAliasId=@UrlAliasId";
                         mssqStorageDst.Exec(mssqStorageDst.Connection, sql,
                         new SqlParameter("@UrlAliasId", Convert.ToInt32(row["UrlAliasId"])),
@@ -445,7 +445,7 @@ if (dtAlias.Rows.Count != 0)
                 //INSERT
                 if (dt.Rows.Count == 0) {
                     sql = @"
-					INSERT INTO tShpCenyProduktu WITH (ROWLOCK) ([ProductId], [Locale], [CurrencyId], [Body], [Cena], [BeznaCena], [MarzePovolena], [MarzePovolenaMinimalni], [CenaBK])
+					INSERT INTO tShpCenyProduktu ([ProductId], [Locale], [CurrencyId], [Body], [Cena], [BeznaCena], [MarzePovolena], [MarzePovolenaMinimalni], [CenaBK])
 					VALUES( @ProductId, @Locale, @CurrencyId, @Body, @Cena, @Bezna_cena, @MarzePovolena, @MarzePovolenaMinimalni, @CenaBK  )";
                     mssqStorageDst.Exec(mssqStorageDst.Connection, sql,
                             new SqlParameter("@ProductId", productId),
@@ -459,7 +459,7 @@ if (dtAlias.Rows.Count != 0)
                             new SqlParameter("@CenaBK", Null(cenaBk)));
                 } else {
                     sql = @"
-					UPDATE tShpCenyProduktu WITH (ROWLOCK) SET Body=@Body, Cena=@Cena, BeznaCena=@Bezna_cena, MarzePovolena=@MarzePovolena, MarzePovolenaMinimalni=@MarzePovolenaMinimalni, CenaBK=@CenaBK WHERE ProductId=@ProductId AND Locale=@Locale";
+					UPDATE tShpCenyProduktu SET Body=@Body, Cena=@Cena, BeznaCena=@Bezna_cena, MarzePovolena=@MarzePovolena, MarzePovolenaMinimalni=@MarzePovolenaMinimalni, CenaBK=@CenaBK WHERE ProductId=@ProductId AND Locale=@Locale";
                     mssqStorageDst.Exec(mssqStorageDst.Connection, sql,
                             new SqlParameter("@ProductId", productId),
                             new SqlParameter("@Locale", locale),
@@ -479,7 +479,7 @@ if (dtAlias.Rows.Count != 0)
                 //INSERT
                 if (dt.Rows.Count == 0) {
                     sql = @"
-					INSERT INTO tShpCenyProduktu WITH (ROWLOCK) ([ProductId], [Locale], [CurrencyId], [Body], [Cena], [BeznaCena], [DynamickaSleva], [StatickaSleva], [CenaBK])
+					INSERT INTO tShpCenyProduktu ([ProductId], [Locale], [CurrencyId], [Body], [Cena], [BeznaCena], [DynamickaSleva], [StatickaSleva], [CenaBK])
 					VALUES( @ProductId, @Locale, @CurrencyId, @Body, @Cena, @Bezna_cena, @DynamickaSleva, @StatickaSleva, @CenaBK  )";
                     mssqStorageDst.Exec(mssqStorageDst.Connection, sql,
                             new SqlParameter("@ProductId", productId),
@@ -493,7 +493,7 @@ if (dtAlias.Rows.Count != 0)
                             new SqlParameter("@CenaBK", Null(cenaBk)));
                 } else {
                     sql = @"
-					UPDATE tShpCenyProduktu WITH (ROWLOCK) SET Body=@Body, Cena=@Cena, BeznaCena=@Bezna_cena, StatickaSleva=@StatickaSleva, DynamickaSleva=@DynamickaSleva, CenaBK=@CenaBK WHERE ProductId=@ProductId AND Locale=@Locale";
+					UPDATE tShpCenyProduktu SET Body=@Body, Cena=@Cena, BeznaCena=@Bezna_cena, StatickaSleva=@StatickaSleva, DynamickaSleva=@DynamickaSleva, CenaBK=@CenaBK WHERE ProductId=@ProductId AND Locale=@Locale";
                     mssqStorageDst.Exec(mssqStorageDst.Connection, sql,
                             new SqlParameter("@ProductId", productId),
                             new SqlParameter("@Locale", locale),
@@ -506,14 +506,14 @@ if (dtAlias.Rows.Count != 0)
                 }
             }
             public static void RemoveVlastnostiProduktu(CMS.Pump.MSSQLStorage mssqStorageDst, int productId, string locale) {
-                string sql = @"DELETE FROM tShpVlastnostiProduktu WITH (ROWLOCK) WHERE ProductId=@ProductId AND Locale=@Locale";
+                string sql = @"DELETE FROM tShpVlastnostiProduktu WHERE ProductId=@ProductId AND Locale=@Locale";
                 mssqStorageDst.Exec(mssqStorageDst.Connection, sql,
                 new SqlParameter("@ProductId", productId),
                 new SqlParameter("@Locale", locale));
             }
             public static void SyncProductVlastnosti(CMS.Pump.MSSQLStorage mssqStorageDst, int productId, string locale, string name, string imageUrl) {
                 string sql = @"
-				INSERT INTO tShpVlastnostiProduktu WITH (ROWLOCK) ([ProductId], [Locale], [Name], [ImageUrl] )
+				INSERT INTO tShpVlastnostiProduktu ([ProductId], [Locale], [Name], [ImageUrl] )
 				VALUES( @ProductId, @Locale, @Name, @ImageUrl )";
                 mssqStorageDst.Exec(mssqStorageDst.Connection, sql,
                         new SqlParameter("@ProductId", productId),
@@ -523,14 +523,14 @@ if (dtAlias.Rows.Count != 0)
             }
 
             public static void RemovePiktogramyProduktu(CMS.Pump.MSSQLStorage mssqStorageDst, int productId, string locale) {
-                string sql = @"DELETE FROM tShpPiktogramyProduktu WITH (ROWLOCK) WHERE ProductId=@ProductId AND Locale=@Locale";
+                string sql = @"DELETE FROM tShpPiktogramyProduktu WHERE ProductId=@ProductId AND Locale=@Locale";
                 mssqStorageDst.Exec(mssqStorageDst.Connection, sql,
                 new SqlParameter("@ProductId", productId),
                 new SqlParameter("@Locale", locale));
             }
             public static void SyncProductPiktogramy(CMS.Pump.MSSQLStorage mssqStorageDst, int productId, string locale, string name, string imageUrl) {
                 string sql = @"
-				INSERT INTO tShpPiktogramyProduktu WITH (ROWLOCK) ([ProductId], [Locale], [Name], [ImageUrl] )
+				INSERT INTO tShpPiktogramyProduktu ([ProductId], [Locale], [Name], [ImageUrl] )
 				VALUES( @ProductId, @Locale, @Name, @ImageUrl )";
                 mssqStorageDst.Exec(mssqStorageDst.Connection, sql,
                 new SqlParameter("@ProductId", productId),
@@ -540,14 +540,14 @@ if (dtAlias.Rows.Count != 0)
             }
 
             public static void RemoveUcinkyProduktu(CMS.Pump.MSSQLStorage mssqStorageDst, int productId, string locale) {
-                string sql = @"DELETE FROM tShpUcinkyProduktu WITH (ROWLOCK) WHERE ProductId=@ProductId AND Locale=@Locale";
+                string sql = @"DELETE FROM tShpUcinkyProduktu WHERE ProductId=@ProductId AND Locale=@Locale";
                 mssqStorageDst.Exec(mssqStorageDst.Connection, sql,
                 new SqlParameter("@ProductId", productId),
                 new SqlParameter("@Locale", locale));
             }
             public static void SyncProductUcinky(CMS.Pump.MSSQLStorage mssqStorageDst, int productId, string locale, string name, string imageUrl) {
                 string sql = @"
-				INSERT INTO tShpUcinkyProduktu WITH (ROWLOCK) ([ProductId], [Locale], [Name], [ImageUrl] )
+				INSERT INTO tShpUcinkyProduktu ([ProductId], [Locale], [Name], [ImageUrl] )
 				VALUES( @ProductId, @Locale, @Name, @ImageUrl )";
                 mssqStorageDst.Exec(mssqStorageDst.Connection, sql,
                         new SqlParameter("@ProductId", productId),
@@ -557,7 +557,7 @@ if (dtAlias.Rows.Count != 0)
             }
 
             public static void RemoveProductRelations(CMS.Pump.MSSQLStorage mssqStorageDst, int instanceId, int productId) {
-                string sql = @"DELETE FROM tShpProductRelation WITH (ROWLOCK) WHERE ParentProductId=@ParentProductId AND InstanceId=@InstanceId";
+                string sql = @"DELETE FROM tShpProductRelation WHERE ParentProductId=@ParentProductId AND InstanceId=@InstanceId";
                 mssqStorageDst.Exec(mssqStorageDst.Connection, sql,
                 new SqlParameter("@ParentProductId", productId),
                 new SqlParameter("@InstanceId", instanceId));
@@ -583,7 +583,7 @@ if (dtAlias.Rows.Count != 0)
                     //Alternate = 2, /*Alternativne produkty*/ 
 
                     sql = @"
-					INSERT INTO tShpProductRelation WITH (ROWLOCK) (ParentProductId, ProductId, InstanceId, RelationType )
+					INSERT INTO tShpProductRelation (ParentProductId, ProductId, InstanceId, RelationType )
 					VALUES( @ParentProductId, @ProductId, @InstanceId, @RelationType )";
                     mssqStorageDst.Exec(mssqStorageDst.Connection, sql,
                             new SqlParameter("@ParentProductId", parentId),
@@ -734,7 +734,7 @@ if (dtAlias.Rows.Count != 0)
 
 
                     int accountId = Convert.ToInt32(result.Value);
-                    sql = @"UPDATE tAccount WITH (ROWLOCK) SET TVD_Id=@TVD_Id, CanAccessIntensa=@CanAccessIntensa, HistoryStamp=ISNULL(@registerDate, HistoryStamp) WHERE AccountId=@AccountId";
+                    sql = @"UPDATE tAccount SET TVD_Id=@TVD_Id, CanAccessIntensa=@CanAccessIntensa, HistoryStamp=ISNULL(@registerDate, HistoryStamp) WHERE AccountId=@AccountId";
                     mssqStorageDst.Exec(mssqStorageDst.Connection, sql,
                             new SqlParameter("@AccountId", accountId),
                             new SqlParameter("@TVD_Id", accountTVDId),
@@ -744,7 +744,7 @@ if (dtAlias.Rows.Count != 0)
                     return accountId;
                 } else {
                     int accountId = Convert.ToInt32(dt.Rows[0][0]);
-                    sql = @"UPDATE tAccount WITH (ROWLOCK) SET Enabled=@Enabled, Email=@Email, CanAccessIntensa=@CanAccessIntensa/*, Password=@Password*/ WHERE AccountId=@AccountId";
+                    sql = @"UPDATE tAccount SET Enabled=@Enabled, Email=@Email, CanAccessIntensa=@CanAccessIntensa/*, Password=@Password*/ WHERE AccountId=@AccountId";
                     mssqStorageDst.Exec(mssqStorageDst.Connection, sql,
                             new SqlParameter("@Enabled", enabled),
                             new SqlParameter("@AccountId", accountId),
@@ -807,7 +807,7 @@ if (dtAlias.Rows.Count != 0)
                     return orgId;
                 } else {
                     int orgId = Convert.ToInt32(dt.Rows[0][0]);
-                    sql = @"UPDATE tOrganization WITH (ROWLOCK) SET Code=@Code, Id1=@Id1, Id2=@Id2, Name=@Name, ContactEmail=@ContactEmail, ContactPhone=@ContactPhone, ContactMobile=@ContactMobile , ParentId=@ParentId, VATPayment=@VATPayment, 
+                    sql = @"UPDATE tOrganization SET Code=@Code, Id1=@Id1, Id2=@Id2, Name=@Name, ContactEmail=@ContactEmail, ContactPhone=@ContactPhone, ContactMobile=@ContactMobile , ParentId=@ParentId, VATPayment=@VATPayment, 
 					TopManager=@TopManager, UserMargin=@UserMargin, RestrictedAccess=@RestrictedAccess, Statut=@Statut, RegionCode=@RegionCode,
 					Angel_team_clen=@Angel_team_clen, Angel_team_manager=@Angel_team_manager, Angel_team_manager_typ=@Angel_team_manager_typ
 					WHERE OrganizationId=@OrganizationId";
@@ -846,7 +846,7 @@ if (dtAlias.Rows.Count != 0)
                 int addressHomeId = Convert.ToInt32(dt.Rows[0]["RegisteredAddress"]);
                 int addressTempId = Convert.ToInt32(dt.Rows[0]["CorrespondenceAddress"]);
 
-                sql = @"UPDATE tAddress WITH (ROWLOCK) SET City=@City, Street=@Street, Zip=@Zip, State=@State
+                sql = @"UPDATE tAddress SET City=@City, Street=@Street, Zip=@Zip, State=@State
 				WHERE AddressId=@AddressId";
                 mssqStorageDst.Exec(mssqStorageDst.Connection, sql,
                         new SqlParameter("@City", city),
@@ -862,7 +862,7 @@ if (dtAlias.Rows.Count != 0)
 
                 int bankContact = Convert.ToInt32(dt.Rows[0]["BankContact"]);
 
-                sql = @"UPDATE tBankContact WITH (ROWLOCK) SET BankCode=@BankCode, AccountNumber=@AccountNumber
+                sql = @"UPDATE tBankContact SET BankCode=@BankCode, AccountNumber=@AccountNumber
 				WHERE BankContactId=@BankContactId";
                 mssqStorageDst.Exec(mssqStorageDst.Connection, sql,
                         new SqlParameter("@BankCode", kod),
@@ -897,7 +897,7 @@ if (dtAlias.Rows.Count != 0)
             public static void InsertBonusovyKredityUzivatele(CMS.Pump.MSSQLStorage mssqStorageSrc, int bonusovyKreditId, int accountId, DateTime platnostOd, DateTime platnostDo, int narok) {
                 string sql = @"
 				IF EXISTS(SELECT AccountId, BonusovyKreditId  FROM tBonusovyKreditUzivatele WHERE [AccountId]=@accountId AND [BonusovyKreditId]=@bonusovyKreditId AND [PlatnostOd]=@platnostOd AND [PLatnostDo]=@platnostDo ) BEGIN
-					UPDATE tBonusovyKreditUzivatele WITH (ROWLOCK) SET Hodnota=@narok WHERE [AccountId]=@accountId AND [BonusovyKreditId]=@bonusovyKreditId AND [PlatnostOd]=@platnostOd AND [PLatnostDo]=@platnostDo
+					UPDATE tBonusovyKreditUzivatele SET Hodnota=@narok WHERE [AccountId]=@accountId AND [BonusovyKreditId]=@bonusovyKreditId AND [PlatnostOd]=@platnostOd AND [PLatnostDo]=@platnostDo
 				END
 				ELSE
 				BEGIN
