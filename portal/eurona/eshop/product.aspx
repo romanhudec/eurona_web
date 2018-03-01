@@ -244,7 +244,7 @@
                                 <td style="vertical-align:top;">
                                     <table border="0">
                                     <tr>
-                                        <td style="vertical-align:top;padding-bottom:5px;text-align:justify;">
+                                        <td style="vertical-align:top;padding-bottom:5px;text-align:left;">
                                             <asp:Literal ID="Literal2" runat="server" Text='<%#Eval("ProductName") %>'></asp:Literal>
                                         </td>
                                     </tr>          
