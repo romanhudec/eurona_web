@@ -122,7 +122,7 @@ namespace Eurona.User.Advisor.Reports {
                         INNER JOIN www_prepocty p WITH (NOLOCK) ON p.id_prepoctu = f.id_prepoctu AND p.datum_smazani IS NULL
                         INNER JOIN www_faktury_radky fr WITH (NOLOCK) ON fr.id_prepoctu = f.id_prepoctu AND fr.idakce != 10
                         LEFT JOIN objednavkyfaktury ofr WITH (NOLOCK)  ON ofr.Id_objednavky = f.cislo_objednavky_eurosap
-                        LEFT JOIN odberatele oTop  WITH (NOLOCK) ON oTop.Id_odberatele = ofr.Id_topmanagera
+                        LEFT JOIN odberatele oTop  WITH (NOLOCK) ON oTop.Id_odberatele = f.Id_topmanagera
                         WHERE 
 	                        (f.datum_vystaveni >= @dateOd AND f.datum_vystaveni <= @dateDo)
 	                        --AND f.id_odberatele=@Id_odberatele /*AND f.potvrzeno=1*/
