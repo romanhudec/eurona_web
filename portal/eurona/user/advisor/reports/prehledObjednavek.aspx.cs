@@ -30,7 +30,7 @@ namespace Eurona.User.Advisor.Reports {
                 this.dtpDatumOd.SelectedDate = now;//minDate;
 
                 this.dtpDatumDo.MinDate = minDate;
-                this.dtpDatumDo.MaxDate = now.AddDays(1);
+                this.dtpDatumDo.MaxDate = now.AddDays(7);
                 this.dtpDatumDo.SelectedDate = now;
             }
             //Ak nie je vierihodny - len seba
