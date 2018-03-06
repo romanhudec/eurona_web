@@ -15,7 +15,7 @@
             <td><asp:RadioButton runat="server" ID="rbSkupina" Text="<%$ Resources:Reports, CeleSkupiny %>" GroupName="group" /></td>
             <td>
                 <asp:CheckBox runat="server" ID="cbOsobniSkupiny" Text="<%$ Resources:Reports, OsobniSkupiny %>" />
-                <div style="position:absolute;width:300px;margin-top:5px;align-content:flex-start;"><span style="font-size:10px!important;font-style:italic;">Přehled sítě bez poradců a jejich vlastní sítě,<br/>kteří minulý produkční měsíc dosáhli provizní hladiny 21%</span></div>
+                <div style="position:absolute;width:300px;margin-top:5px;align-content:flex-start;"><span style="font-size:10px!important;font-style:italic;">Přehled sítě bez poradců a jejich vlastní sítě,<br/>kteří minulý produkční měsíc obhájili pozici TOP manažera</span></div>
             </td>
             <td align="right"><asp:Literal ID="Literal1" runat="server" Text="<%$ Resources:Reports, Advisor %>"></asp:Literal> <i>(reg. číslo nebo jméno)</i></td>
             <td><asp:TextBox runat="server" ID="txtAdvisorCode"></asp:TextBox></td>
