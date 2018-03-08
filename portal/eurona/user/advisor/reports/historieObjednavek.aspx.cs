@@ -9,6 +9,9 @@ using System.Configuration;
 using System.Data.SqlClient;
 using OrganizationEntity = Eurona.Common.DAL.Entities.Organization;
 using Telerik.Web.UI;
+using System.Text;
+using System.IO;
+using System.Net;
 
 namespace Eurona.User.Advisor.Reports {
     public partial class HistorieObjednavek : ReportPage {
@@ -54,6 +57,16 @@ namespace Eurona.User.Advisor.Reports {
             GridViewDataBind(true);
 
         }
+
+        protected void onOrderDetailClick(object sender, EventArgs e) {
+            LinkButton btnlnk = sender as LinkButton;
+            string id = btnlnk.Attributes["value"];
+            if (string.IsNullOrEmpty(id)) return;
+            int idObjednavky = Convert.ToInt32(id);
+
+            string url = Page.ResolveUrl("~/user/advisor/reports/Objednavka.aspx");
+            Utilities.RedirectWithPost(Page, url, new System.Collections.Specialized.NameValueCollection { { "id", idObjednavky.ToString() } });
+        } 
 
         private void GridViewDataBind(bool bind) {
             if (this.ForAdvisor == null) return;

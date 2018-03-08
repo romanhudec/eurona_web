@@ -798,9 +798,9 @@ namespace Eurona.Controls {
             EuronaCartHelper.RecalculateCart(this.Page, this.OrderEntity.CartId);
 
             //Vykonanie prepoctu v TVD
+            int? currencyId = order.CurrencyId;
 #if !__DEBUG_VERSION_WITHOUTTVD
             bool bSuccess = false;
-            int? currencyId = order.CurrencyId;
             CartOrderHelper.RecalculateTVDCart(this.Page, /*this.updatePanel*/null, order.OrderNumber, order.CartEntity, out currencyId, out bSuccess);
 #endif
 

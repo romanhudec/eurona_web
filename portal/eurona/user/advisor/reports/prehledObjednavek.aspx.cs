@@ -72,6 +72,16 @@ namespace Eurona.User.Advisor.Reports {
 
         }
 
+        protected void onOrderDetailClick(object sender, EventArgs e) {
+            LinkButton btnlnk = sender as LinkButton;
+            string id = btnlnk.Attributes["value"];
+            if (string.IsNullOrEmpty(id)) return;
+            int idObjednavky = Convert.ToInt32(id);
+
+            string url = Page.ResolveUrl("~/user/advisor/reports/Objednavka.aspx");
+            Utilities.RedirectWithPost(Page, url, new System.Collections.Specialized.NameValueCollection { { "id", idObjednavky.ToString() } });
+        } 
+
         private void GridViewDataBind(bool bind) {
             if (this.ForAdvisor == null) return;
 
