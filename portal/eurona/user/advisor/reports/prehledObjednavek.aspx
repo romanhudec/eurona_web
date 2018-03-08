@@ -50,9 +50,9 @@
 
 <%--                <telerik:GridHyperLinkColumn HeaderText="Č. objednávky" DataTextField="id_web_objednavky" DataType="System.String" DataNavigateUrlFields="id_web_objednavky" UniqueName="id_web_objednavky" HeaderStyle-Width="80px" DataNavigateUrlFormatString="~/user/advisor/reports/Objednavka.aspx?cislo={0}" Target="_blank"
                     SortExpression="id_web_objednavky" AutoPostBackOnFilter="true" CurrentFilterFunction="Contains" ShowFilterIcon="false" AllowFiltering="true"/>--%>
-                <telerik:GridTemplateColumn HeaderText="Č. objednávky"> 
+                <telerik:GridTemplateColumn HeaderText="Č. objednávky" HeaderStyle-Width="80px"> 
                     <ItemTemplate>
-                        <asp:LinkButton ID="btnlnk" runat="server" Text='<%# Eval("id_web_objednavky") %>' Value='<%# Eval("id_prepoctu") %>' OnClick="onOrderDetailClick"></asp:LinkButton>
+                        <asp:LinkButton ID="btnlnk" runat="server" Text='<%# Eval("id_web_objednavky") %>' Value='<%# Eval("id_web_objednavky") %>' OnClick="onOrderDetailClick"></asp:LinkButton>
                     </ItemTemplate>
                 </telerik:GridTemplateColumn>
 
