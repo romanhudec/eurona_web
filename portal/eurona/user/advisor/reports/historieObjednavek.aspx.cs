@@ -28,9 +28,9 @@ namespace Eurona.User.Advisor.Reports {
 
             GridViewDataBind(!IsPostBack);
 
-            //Funkcia volana v grid showOrder(xxx)
-            string url = Page.ResolveUrl("~/user/advisor/reports/Objednavka.aspx");
-            Utilities.RegisterShowOrderPOSTFunction(this.Page, url);
+            ////Funkcia volana v grid showOrder(xxx)
+            //string url = Page.ResolveUrl("~/user/advisor/reports/Objednavka.aspx");
+            //Utilities.RegisterShowOrderPOSTFunction(this.Page, url);
         }
 
         public override RadGrid GetGridView() {
@@ -62,6 +62,11 @@ namespace Eurona.User.Advisor.Reports {
 
         }
 
+
+        public string GetObjednavkaUrl(object value) {
+            string url = Page.ResolveUrl("~/user/advisor/reports/Objednavka.aspx");
+            return url + "?" + CMS.Utilities.Cryptographer.Encrypt(value.ToString());
+        }
         //protected void onOrderDetailClick(object sender, EventArgs e) {
         //    LinkButton btnlnk = sender as LinkButton;
         //    string orderNumber = btnlnk.Attributes["value"];

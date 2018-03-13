@@ -78,6 +78,7 @@ namespace Eurona {
             if (url.StartsWith("/")) url = url.Remove(0, 1);
             url = Utilities.Root(page.Request) + url;
 
+            //form.setAttribute(""target"", """ + formName + @""");";
             string formName = Guid.NewGuid().ToString();
             string js = @"
             function showOrder(orderNumber){
@@ -86,6 +87,7 @@ namespace Eurona {
             form.setAttribute(""action"", """ + url + @""");
 
             // setting form target to a window named 'formresult'
+            
             form.setAttribute(""target"", """ + formName + @""");";
             js += @"var hiddenField = document.createElement(""input"");";
             js += @"hiddenField.setAttribute(""name"", ""orderNumber"");";

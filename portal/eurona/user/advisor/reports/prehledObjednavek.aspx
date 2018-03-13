@@ -52,7 +52,8 @@
                     SortExpression="id_web_objednavky" AutoPostBackOnFilter="true" CurrentFilterFunction="Contains" ShowFilterIcon="false" AllowFiltering="true"/>--%>
                 <telerik:GridTemplateColumn HeaderText="Č. objednávky" HeaderStyle-Width="80px"> 
                     <ItemTemplate>
-                        <asp:LinkButton ID="btnlnk" runat="server" Text='<%# Eval("id_web_objednavky") %>' Value='<%# Eval("id_web_objednavky") %>' OnClientClick='<%# "showOrder(" + Eval("id_web_objednavky") + ");" %>'></asp:LinkButton>
+                        <%--<asp:LinkButton ID="btnlnk" runat="server" Text='<%# Eval("id_web_objednavky") %>' Value='<%# Eval("id_web_objednavky") %>' OnClientClick='<%# "showOrder(" + Eval("id_web_objednavky") + ");" %>'></asp:LinkButton>--%>
+                        <a ID="btnlnk" runat="server" href='<%# GetObjednavkaUrl(Eval("id_web_objednavky"))%>' target="_blank"><%# Eval("id_web_objednavky") %></a>
                     </ItemTemplate>
                 </telerik:GridTemplateColumn>
 

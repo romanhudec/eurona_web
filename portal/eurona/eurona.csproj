@@ -279,6 +279,7 @@
     <Content Include="styles\paymentResult.css" />
     <Content Include="styles\homeflashrotatorcontrol.css" />
     <Content Include="styles\html5.css" />
+    <Content Include="Test.aspx" />
     <Content Include="user\advisor\AdvisorCookieLinkControl.ascx" />
     <Content Include="user\advisor\newOrder.aspx" />
     <Content Include="user\advisor\reklamniZasilky.aspx" />
@@ -1419,6 +1420,13 @@
       <DependentUpon>testPay.aspx</DependentUpon>
     </Compile>
     <Compile Include="pay\gp\Transaction.cs" />
+    <Compile Include="Test.aspx.cs">
+      <DependentUpon>Test.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Test.aspx.designer.cs">
+      <DependentUpon>Test.aspx</DependentUpon>
+    </Compile>
     <Compile Include="user\advisor\AdvisorCookieLinkControl.ascx.cs">
       <DependentUpon>AdvisorCookieLinkControl.ascx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
