@@ -15,10 +15,10 @@
     <link href="~/styles/eshop.css" type="text/css" rel="Stylesheet" />
 </head>
 <body style="margin:auto!important;width:auto!important;">
-    <form id="form1" runat="server">
+    <form id="form1" runat="server" target="_self">
     <asp:ScriptManager id="ScriptManager" runat="server"/>
-    <div style="margin:20px;width:100%;">
-        <div style="margin:auto;width:40%;">
+    <div style="margin:5px;width:100%;">
+        <div style="margin:auto;width:95%;">
             <shpOrder:AdminOrderControl runat="server" ID="adminOrderControl" IsEditing="false" CssClass="adminOrderControl" CssGridView="dataGrid" FinishUrlFormat="~/user/advisor/orderFinish.aspx?id={0}" />
         </div>
     </div>

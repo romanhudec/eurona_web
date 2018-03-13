@@ -41,6 +41,11 @@ namespace Eurona.User.Advisor.Reports {
                 this.txtAdvisorCode.Text = this.ForAdvisor.Code;
 
             GridViewDataBind(!IsPostBack);
+
+
+            //Funkcia volana v grid showOrder(xxx)
+            string url = Page.ResolveUrl("~/user/advisor/reports/Objednavka.aspx");
+            Utilities.RegisterShowOrderPOSTFunction(this.Page, url);
         }
 
         public override RadGrid GetGridView() {
@@ -72,12 +77,12 @@ namespace Eurona.User.Advisor.Reports {
 
         }
 
-        protected void onOrderDetailClick(object sender, EventArgs e) {
-            LinkButton btnlnk = sender as LinkButton;
-            string orderNumber = btnlnk.Attributes["value"];
-            string url = Page.ResolveUrl("~/user/advisor/reports/Objednavka.aspx");
-            Utilities.RedirectWithPost(Page, url, new System.Collections.Specialized.NameValueCollection { { "orderNumber", orderNumber.Trim() } });
-        } 
+        //protected void onOrderDetailClick(object sender, EventArgs e) {
+        //    LinkButton btnlnk = sender as LinkButton;
+        //    string orderNumber = btnlnk.Attributes["value"];
+        //    string url = Page.ResolveUrl("~/user/advisor/reports/Objednavka.aspx");
+        //    Utilities.RedirectWithPost(Page, url, new System.Collections.Specialized.NameValueCollection { { "orderNumber", orderNumber.Trim() } }, true);
+        //} 
 
         private void GridViewDataBind(bool bind) {
             if (this.ForAdvisor == null) return;
