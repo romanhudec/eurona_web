@@ -470,7 +470,7 @@ namespace Eurona.Controls {
                 GridViewDataBind(true);
             };
 
-            SlevyDetailTemplate slevyTemplate = new SlevyDetailTemplate(this.CssClass, this.CartEntity.Id);
+            SlevyDetailTemplate slevyTemplate = new SlevyDetailTemplate(this.CssClass, -1 * this.CartEntity.Id);
             grid.Columns.Add(new TemplateField {
                 ItemTemplate = slevyTemplate,
                 HeaderText = "",
@@ -718,7 +718,7 @@ namespace Eurona.Controls {
             return;
 #endif
             CartProduct cp = (CartProduct)dataItem;
-            DataTable list = CartOrderHelper.GetRecalcResultSlevy(-1 * this.idePrepoctu, cp.ProductId);
+            DataTable list = CartOrderHelper.GetRecalcResultSlevy(this.idePrepoctu, cp.ProductId);
             gridView.DataSource = list;
         }
 

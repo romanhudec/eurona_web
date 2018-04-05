@@ -61,6 +61,11 @@ namespace Eurona.User.Advisor.Reports {
             GridViewDataBind(!IsPostBack, this.dateFrom, this.dateTo);
         }
 
+        public string GetObjednavkaUrl(object value) {
+            string url = Page.ResolveUrl("~/user/advisor/reports/Objednavka.aspx");
+            return url + "?" + CMS.Utilities.Cryptographer.Encrypt(value.ToString());
+        }
+
         private DateTime GetLastDayOfMonth(int year, int month) {
             return new DateTime(year, month, DateTime.DaysInMonth(year, month));
         }

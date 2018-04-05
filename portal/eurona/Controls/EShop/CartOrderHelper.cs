@@ -51,6 +51,16 @@ namespace Eurona.Controls {
         }
 
         /// <summary>
+        /// Metóda vrati true ak ak uz prebehol potvrdeny prepocet
+        /// </summary>
+        private static bool IsOrderRecalculated(CMS.Pump.MSSQLStorage tvdStorage, SqlConnection connection, OrderEntity order) {
+            string sql = @"SELECT id_prepoctu FROM www_faktury WHERE id_prepoctu=@id_prepoctu AND potvrzeno=1";
+            DataTable dt = tvdStorage.Query(connection, sql, new SqlParameter("@id_prepoctu", order.Id));
+            if (dt.Rows.Count == 0) return false;
+            return true;
+        }
+
+        /// <summary>
         /// Metóda vykoná samotný prepočet. 
         /// </summary>
         private static string CalRecalculate(CMS.Pump.MSSQLStorage tvdStorage, SqlConnection connection, int recalcId, out bool bSuccess) {
@@ -412,6 +422,13 @@ namespace Eurona.Controls {
             string connectionString = ConfigurationManager.ConnectionStrings["TVDConnectionString"].ConnectionString;
             CMS.Pump.MSSQLStorage tvdStorage = new CMS.Pump.MSSQLStorage(connectionString);
             using (SqlConnection connection = tvdStorage.Connect()) {
+
+                //Ak uz raz bol volany prepocet objednavky s Potvrzeno 1, tak sa uz druhykrat nevola!!!
+                bool isRecelculated = IsOrderRecalculated(tvdStorage, connection, order);
+                if (isRecelculated) {
+                    return true;
+                }
+
                 //Prepocitanie Nakupneho kosika/Objednavky/Zdruzenej objednavky
                 bool bSuccess = false;
                 string errorMessage = CalRecalculate(tvdStorage, connection, order.Id, out bSuccess);

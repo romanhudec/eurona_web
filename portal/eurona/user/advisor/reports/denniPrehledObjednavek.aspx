@@ -32,9 +32,15 @@
                 <telerik:GridBoundColumn HeaderText="Jméno" DataField="Nazev_firmy" UniqueName="Nazev_firmy" HeaderStyle-Width="80px"
                     SortExpression="Nazev_firmy" AutoPostBackOnFilter="false" CurrentFilterFunction="Contains" ShowFilterIcon="false" />
 
-                <telerik:GridHyperLinkColumn HeaderText="Č. objednávky" DataTextField="cislo_objednavky" DataType="System.String" DataNavigateUrlFields="id_prepoctu" UniqueName="cislo_objednavky" HeaderStyle-Width="80px" DataNavigateUrlFormatString="~/user/advisor/reports/Objednavka.aspx?id={0}" Target="_blank"
-                    SortExpression="cislo_objednavky" AutoPostBackOnFilter="true" CurrentFilterFunction="Contains" ShowFilterIcon="false" />
-                
+<%--                <telerik:GridHyperLinkColumn HeaderText="Č. objednávky" DataTextField="cislo_objednavky" DataType="System.String" DataNavigateUrlFields="id_prepoctu" UniqueName="cislo_objednavky" HeaderStyle-Width="80px" DataNavigateUrlFormatString="~/user/advisor/reports/Objednavka.aspx?id={0}" Target="_blank"
+                    SortExpression="cislo_objednavky" AutoPostBackOnFilter="true" CurrentFilterFunction="Contains" ShowFilterIcon="false" />--%>
+
+                <telerik:GridTemplateColumn HeaderText="Č. objednávky" HeaderStyle-Width="80px"> 
+                    <ItemTemplate>
+                        <a ID="btnlnk" runat="server" href='<%# GetObjednavkaUrl(Eval("cislo_objednavky"))%>' target="_blank"><%# Eval("cislo_objednavky") %></a>
+                    </ItemTemplate>
+                </telerik:GridTemplateColumn>
+                                
                 <telerik:GridBoundColumn HeaderText="Body" DataField="celkem_body" UniqueName="celkem_body" HeaderStyle-Width="40px"
                     SortExpression="celkem_body" AutoPostBackOnFilter="true" CurrentFilterFunction="Contains" ShowFilterIcon="false" DataFormatString="{0:F0}" />
 
