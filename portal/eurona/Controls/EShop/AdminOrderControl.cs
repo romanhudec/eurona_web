@@ -508,6 +508,10 @@ namespace Eurona.Controls {
 
             string function_script = @"function fnOnUpdateValidators()
                 {
+                   var btnOrder = document.getElementById('" + this.btnOrder.ClientID + @"');
+                   btnOrder.disabled = true;
+                   btnOrder.className = 'button-order-disabled';
+
                    var isAllValid = true;
                    for (var i = 0; i < Page_Validators.length; i++)
                    {
@@ -523,14 +527,13 @@ namespace Eurona.Controls {
                             ctrl.style.backgroundColor = '';
                       }
                    }
-                   /*
+                   
                    if( !isAllValid ){
-                        document.getElementById('" + this.cbApproval.ClientID + @"').checked = false;
                         var btnOrder = document.getElementById('" + this.btnOrder.ClientID + @"');
-                        btnOrder.disabled = true;
-                        btnOrder.className = 'button-order-disabled';
+                        btnOrder.disabled = false;
+                        btnOrder.className = 'button-order';
                    }
-                   */
+                   
                 }";
 
             Page.ClientScript.RegisterClientScriptBlock(this.GetType(), "update_function_validator", function_script, true);
@@ -555,10 +558,6 @@ namespace Eurona.Controls {
                 string js = "alert('" + Resources.EShopStrings.AdminOrderControl_approval_error + "');return false;";
                 this.btnOrder.Attributes.Add("onclick", js);
             }
-            /*
-            this.btnOrder.CssClass = cbApproval.Checked ? "button-order":"button-order-disabled";
-            this.btnOrder.Enabled = cbApproval.Checked;
-             * */
         }
 
 
