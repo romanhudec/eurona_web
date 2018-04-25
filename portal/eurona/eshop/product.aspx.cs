@@ -26,8 +26,13 @@ namespace Eurona.EShop {
     public partial class Product : WebPage {
         protected void Page_Load(object sender, EventArgs e) {
             if (string.IsNullOrEmpty(Request["id"])) return;
+            string id = Request["id"];
+            string[] ids = id.Split(',');
+            if (ids.Length > 1) {
+                id = ids[0];
+            }
 
-            this.productControl.ProductId = Convert.ToInt32(Request["id"]);
+            this.productControl.ProductId = Convert.ToInt32(id);
             if (this.productControl.Product == null) return;
             this.Title = this.productControl.Name;
 

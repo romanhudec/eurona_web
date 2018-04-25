@@ -174,7 +174,7 @@ namespace Eurona.User.Anonymous {
             priceInfoTable.Rows.Add(rowPrice);
 
             //Fakturovana Cena
-            Label lblFakturovanaCena = new Label();
+            lblFakturovanaCena = new Label();
             lblFakturovanaCena.Text = Eurona.Common.Utilities.CultureUtilities.CurrencyInfo.ToString(this.OrderEntity.PriceWVAT, this.OrderEntity.CurrencySymbol);
             lblFakturovanaCena.ForeColor = System.Drawing.Color.FromArgb(235, 10, 91);
             lblFakturovanaCena.Font.Bold = true;
@@ -332,6 +332,15 @@ namespace Eurona.User.Anonymous {
             return row;
         }
 
+        private void UpdateDopravneUIbyOrder() {
+            //this.lcDopravne.Text = SHP.Utilities.CultureUtilities.CurrencyInfo.ToString(OrderEntity.CartEntity.DopravneEurosap, this.Session);
+            //TODO:20171205
+            this.lcDopravne.Text = Eurona.Common.Utilities.CultureUtilities.CurrencyInfo.ToString(OrderEntity.CartEntity.DopravneEurosap, OrderEntity.CurrencySymbol);
+            if (this.lblFakturovanaCena != null) {
+                this.lblFakturovanaCena.Text = Eurona.Common.Utilities.CultureUtilities.CurrencyInfo.ToString(this.OrderEntity.PriceWVAT, this.OrderEntity.CurrencySymbol);
+            }
+        }
+
         private void GridViewDataBind(OrderEntity order, bool bind) {
             List<CartProductEntity> list = Storage<CartProductEntity>.Read(new CartProductEntity.ReadByCart { CartId = order.CartId });
 
@@ -375,6 +384,7 @@ namespace Eurona.User.Anonymous {
                     EuronaCartHelper.UpdateCartProduct(this.Page, cartProduct.CartId, cartProduct.ProductId, quantity);
                     //Prepocitanie kosiku a objednavky
                     this.RecalculateOrder();
+                    UpdateDopravneUIbyOrder();
 
                     this.lcBodyByEurosap.Text = OrderEntity.CartEntity.BodyEurosapTotal.ToString("F1");
                     this.lcKatalogovaCenaCelkemByEurosap.Text = SHP.Utilities.CultureUtilities.CurrencyInfo.ToString(OrderEntity.CartEntity.KatalogovaCenaCelkemByEurosap, this.Session);
@@ -481,6 +491,7 @@ namespace Eurona.User.Anonymous {
 
             //Prepocitanie kosiku a objednavky
             this.RecalculateOrder();
+            UpdateDopravneUIbyOrder();
 
             GridViewDataBind(this.OrderEntity, true);
         }
@@ -491,6 +502,17 @@ namespace Eurona.User.Anonymous {
         public void RecalculateOrder() {
             //Update cart from DB
             this.OrderEntity.CartEntity = null;
+
+            //Nastavenie postovneho podla celkovej ceny ...
+            decimal sumaBezPostovneho = Common.DAL.Entities.OrderSettings.GetFreePostageSuma(this.OrderEntity.CartEntity.Locale);
+            if (this.OrderEntity.CartEntity.KatalogovaCenaCelkemByEurosap >= sumaBezPostovneho) {
+                order.NoPostage = true;
+                this.OrderEntity.CartEntity.DopravneEurosap = 0m;
+                this.OrderEntity.CartEntity = Storage<CartEntity>.Update(this.OrderEntity.CartEntity);
+                this.OrderEntity.NoPostage = true;
+            } else {
+                this.OrderEntity.NoPostage = false;
+            }
 
             //Recalculate Cart
             EuronaCartHelper.RecalculateCart(this.Page, this.OrderEntity.CartId);
@@ -514,8 +536,10 @@ namespace Eurona.User.Anonymous {
             if (!Security.IsLogged(true)) return;
             if (this.OrderEntity == null) return;
 
+            if (this.addressDeliveryControl != null) {
+                this.addressDeliveryControl.UpdateAddress(this.OrderEntity.DeliveryAddress);
+            }
 
-            this.addressDeliveryControl.UpdateAddress(this.OrderEntity.DeliveryAddress);
             this.OrderEntity.AssociationAccountId = null;
             this.OrderEntity.AssociationRequestStatus = (int)OrderEntity.AssociationStatus.None;
             this.OrderEntity.ParentId = null;

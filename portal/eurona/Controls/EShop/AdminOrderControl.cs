@@ -526,14 +526,21 @@ namespace Eurona.Controls {
                          else
                             ctrl.style.backgroundColor = '';
                       }
-                   }
-                   
+                   }                   
+
+/*
                    if( !isAllValid ){
                         var btnOrder = document.getElementById('" + this.btnOrder.ClientID + @"');
                         btnOrder.disabled = false;
                         btnOrder.className = 'button-order';
+                        return;
+                   }                  
+                   if( isAllValid ){
+                    var btnOrder = document.getElementById('" + this.btnOrder.ClientID + @"');
+                    btnOrder.disabled = true;
+                    btnOrder.className = 'button-order-disabled';
                    }
-                   
+ */
                 }";
 
             Page.ClientScript.RegisterClientScriptBlock(this.GetType(), "update_function_validator", function_script, true);
@@ -545,6 +552,11 @@ namespace Eurona.Controls {
             if (!Page.IsPostBack && !this.cbApproval.Checked) {
                 string js = "alert('" + Resources.EShopStrings.AdminOrderControl_approval_error + "');return false;";
                 this.btnOrder.Attributes.Add("onclick", js);
+            } 
+            if( this.cbApproval.Checked ){
+                ////Didable double click
+                string clickHandler = "document.body.style.cursor='wait'; this.value='Probíhá objednávka...'; this.disabled=true; this.className='button-order-disabled';" + Page.ClientScript.GetPostBackEventReference(this.btnOrder, string.Empty) + ";return false;";
+                this.btnOrder.Attributes.Add("onclick", clickHandler);
             }
 
             //Binding
@@ -557,7 +569,17 @@ namespace Eurona.Controls {
             if (!this.cbApproval.Checked) {
                 string js = "alert('" + Resources.EShopStrings.AdminOrderControl_approval_error + "');return false;";
                 this.btnOrder.Attributes.Add("onclick", js);
+                return;
             }
+            ////Didable double click
+            string clickHandler = "document.body.style.cursor='wait'; this.value='Probíhá objednávka...'; this.disabled=true; this.className='button-order-disabled';" + Page.ClientScript.GetPostBackEventReference(this.btnOrder, string.Empty) + ";return false;";
+            this.btnOrder.Attributes.Add("onclick", clickHandler);
+
+            ////Didable double click
+            //string clickHandler = string.Format(
+            //"document.body.style.cursor = 'wait'; this.value='Probíhá objednávka...'; this.disabled = true; this.className = 'button-order-disabled';{0};",
+            //Page.ClientScript.GetPostBackEventReference(this.btnOrder, string.Empty));
+            //this.btnOrder.Attributes.Add("onclick", clickHandler);
         }
 
 
