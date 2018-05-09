@@ -65,6 +65,7 @@ namespace Eurona.Controls {
         #region Protected overrides
         protected override void CreateChildControls() {
             base.CreateChildControls();
+            if (this.CartEntity == null) return;
 
             if (!Security.IsLogged(false)) {
                 this.dataGrid = CreateGridControl();
@@ -84,8 +85,6 @@ namespace Eurona.Controls {
 
             if (string.IsNullOrEmpty(Request["step"])) this.Step = 1;
             else this.Step = Convert.ToInt32(Request["step"]);
-
-            if (this.CartEntity == null) return;
 
             //Buttons Spat, Pokracovat
             btnRecalculate = new Button();

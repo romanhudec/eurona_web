@@ -298,7 +298,7 @@ namespace Eurona.User.Anonymous {
                 Message = String.Format(Resources.Strings.UserRegistrationPage_Email2User_Message, customerAccount.Login, this.txtPassword.Text).Replace("\\n", Environment.NewLine) + "<br/><br/>"// + htmlResponse.ToString()
             };
             if (parentOrg != null) {
-                string contact = string.Format("{0}, {1}, {2}, {3}", org.Name, org.RegisteredAddressString, org.ContactMobile, org.Account.Email);
+                string contact = string.Format("{0}, {1}, {2}, {3}, reg. číslo: {4}", org.Name, org.RegisteredAddressString, org.ContactMobile, org.Account.Email, org.Code);
                 EmailNotification email2Parent = new EmailNotification {
                     To = parentOrg.Account.Email,
                     Subject = Resources.Strings.UserRegistrationPage_Email2Central_Subject,

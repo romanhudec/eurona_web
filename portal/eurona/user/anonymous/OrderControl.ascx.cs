@@ -536,7 +536,7 @@ namespace Eurona.User.Anonymous {
             if (!Security.IsLogged(true)) return;
             if (this.OrderEntity == null) return;
 
-            if (this.addressDeliveryControl != null) {
+            if (this.addressDeliveryControl != null && this.OrderEntity.DeliveryAddress != null) {
                 this.addressDeliveryControl.UpdateAddress(this.OrderEntity.DeliveryAddress);
             }
 

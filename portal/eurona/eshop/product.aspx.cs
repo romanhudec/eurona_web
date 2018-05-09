@@ -106,7 +106,9 @@ namespace Eurona.EShop {
             }
         }
         protected ShpProductEntity ProductEntity {
-            get { return this.productControl.Product; }
+            get { 
+                return this.productControl.Product; 
+            }
         }
         public string GetShpResourceString(string key) {
             return ShpResources.ResourceManager.GetString(key);
@@ -120,7 +122,10 @@ namespace Eurona.EShop {
             ProductControl.TOP_IMAGE_WIDTH = 533;
             ProductControl.TOP_IMAGE_HEIGHT = 400;
 
-            if (this.ProductEntity == null) return;
+            if (this.ProductEntity == null) {
+                Response.Redirect("~");
+                return;
+            }
 
             base.CreateChildControls();
 
@@ -259,7 +264,7 @@ namespace Eurona.EShop {
             if (fileInfos.Length == 0)
                 return null;
 
-            string urlThumbnail = storagePath + "_t/" + fileInfos[fileInfos.Length-1].Name;
+            string urlThumbnail = storagePath + "_t/" + fileInfos[fileInfos.Length - 1].Name;
             string img = string.Format("<img src='{0}' style='border:0px none #fff;'>", this.ResolveUrl(urlThumbnail));
 
             return img;

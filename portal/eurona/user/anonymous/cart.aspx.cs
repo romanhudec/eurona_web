@@ -36,8 +36,9 @@ namespace Eurona.User.Anonymous {
                 this.rblPreprava.DataBind();
             }
 
-            if (string.IsNullOrEmpty(this.rblPreprava.SelectedValue))
+            if (string.IsNullOrEmpty(this.rblPreprava.SelectedValue) && this.rblPreprava.Items != null && this.rblPreprava.Items.Count != 0) {
                 this.rblPreprava.Items[0].Selected = true;
+            }
 
             this.cartControl.OnCartItemsChanged += new EventHandler(cartControl_OnCartItemsChanged);
 

@@ -223,7 +223,7 @@ namespace Eurona.User.Advisor.AngelTeam
             string urlParentUser = root + "advisor/newAdvisors.aspx";
             if (parentOrg != null)
             {
-                string contact = string.Format("{0}, {1}, {2}, {3}", org.Name, org.RegisteredAddressString, org.ContactMobile, org.Account.Email);
+                string contact = string.Format("{0}, {1}, {2}, {3}, reg. číslo: {4}", org.Name, org.RegisteredAddressString, org.ContactMobile, org.Account.Email, org.Code);
                 EmailNotification email2Parent = new EmailNotification
                 {
                     To = parentOrg.Account.Email,

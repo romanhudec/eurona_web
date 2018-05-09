@@ -173,6 +173,7 @@
     <Content Include="eshop\catalog_vanoce.aspx" />
     <Content Include="eshop\catalog_akce.aspx" />
     <Content Include="eshop\catalog_letak.aspx" />
+    <Content Include="eshop\catalog_seabar.aspx" />
     <Content Include="favicon.ico" />
     <Content Include="images\activity_report_color_green.png" />
     <Content Include="images\activity_report_color_yellow.png" />
@@ -1357,6 +1358,13 @@
     </Compile>
     <Compile Include="eshop\catalog_letak.aspx.designer.cs">
       <DependentUpon>catalog_letak.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="eshop\catalog_seabar.aspx.cs">
+      <DependentUpon>catalog_seabar.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="eshop\catalog_seabar.aspx.designer.cs">
+      <DependentUpon>catalog_seabar.aspx</DependentUpon>
     </Compile>
     <Compile Include="getPPCFeed.ashx.cs">
       <DependentUpon>getPPCFeed.ashx</DependentUpon>

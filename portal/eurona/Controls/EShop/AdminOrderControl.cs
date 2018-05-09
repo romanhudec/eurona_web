@@ -655,7 +655,7 @@ namespace Eurona.Controls {
         }
 
         private void GridViewDataBind(OrderEntity order, bool bind) {
-            CMS.EvenLog.WritoToEventLog("AdminOrderControl->GridViewDataBind->order.CartEntity.Locale = " + order.CartEntity.Locale, EventLogEntryType.Information);
+            //CMS.EvenLog.WritoToEventLog("AdminOrderControl->GridViewDataBind->order.CartEntity.Locale = " + order.CartEntity.Locale, EventLogEntryType.Information);
             List<CartProductEntity> list = Storage<CartProductEntity>.Read(new CartProductEntity.ReadByCart { CartId = order.CartId, Locale = order.CartEntity.Locale });
 
             this.dataGrid.PagerTemplate = null;
