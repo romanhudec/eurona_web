@@ -156,6 +156,7 @@ namespace Eurona.User.Anonymous {
             account.Login = txtLogin.Text;
             account.Email = txtEmail.Text;
             account.Password = Cryptographer.MD5Hash(txtPassword.Text);
+            account.SingleUserCookieLinkEnabled = true;
             account.Enabled = false;
             account = Storage<Account>.Create(account);
 

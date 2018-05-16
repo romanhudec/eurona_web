@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="sendToFriend.aspx.cs" Inherits="Eurona.sendToFriend" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="sendToFriend.aspx.cs" Inherits="Eurona.sendToFriend" EnableViewStateMac="false" %>
 <%@ Register Assembly="cms" Namespace="CMS.Controls" TagPrefix="cms" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 

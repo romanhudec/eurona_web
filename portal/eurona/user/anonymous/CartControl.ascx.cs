@@ -307,6 +307,7 @@ namespace Eurona.User.Anonymous
 		public void CreateOrder(int orderAccountId, bool redirect, string finishUrlFormat)
 		{
 			this.cartEntity = null;
+            if (this.CartEntity == null) return;
 
 			//Prepocitanie kosika a nastavenie spravnej marze na kosiku.
 			EuronaCartHelper.RecalculateCart(this.Page, this.CartEntity.Id);

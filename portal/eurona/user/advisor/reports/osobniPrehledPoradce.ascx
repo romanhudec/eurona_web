@@ -99,7 +99,7 @@
 				<td align="right"><%# Eval( "Objem_celkem", "{0:0.00}" )%></td>
 			</tr>
 			<tr>
-				<td><asp:Literal ID="Literal2" runat="server" Text="<%$ Resources:Reports, VyplacenaProvizeVMene %>"></asp:Literal>(v <%# Eurona.User.Advisor.Reports.ReportHelper.PriceCurrency( Eval( "Provize_vyplata_kod_meny" ) )%>)</td>
+				<td><asp:Literal ID="Literal2" runat="server" Text="<%$ Resources:Reports, VyplacenaProvizeVMene %>"></asp:Literal>(v Kč<%--<%# Eurona.User.Advisor.Reports.ReportHelper.PriceCurrency( Eval( "Provize_vyplata_kod_meny" ) )%>--%>)</td>
 				<td align="right"><%# Eval( "Provize_vyplata", "{0:0.00}" )%></td>
 			</tr>
 			<tr>

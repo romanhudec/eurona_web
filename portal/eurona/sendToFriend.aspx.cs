@@ -8,13 +8,10 @@ using ProductEntity = Eurona.Common.DAL.Entities.Product;
 using System.Text;
 using Eurona.Controls;
 
-namespace Eurona
-{
-    public partial class sendToFriend : WebPage
-    {
+namespace Eurona {
+    public partial class sendToFriend : WebPage {
         private int productId;
-        protected void Page_Load(object sender, EventArgs e)
-        {
+        protected void Page_Load(object sender, EventArgs e) {
             if (string.IsNullOrEmpty(Request["productId"]))
                 return;
 
@@ -36,32 +33,27 @@ namespace Eurona
 
             this.txtEmailFrom.Text = Security.Account.Email;
             Eurona.Common.DAL.Entities.Organization org = Storage<Eurona.Common.DAL.Entities.Organization>.ReadFirst(new Eurona.Common.DAL.Entities.Organization.ReadByAccountId { AccountId = Security.Account.Id });
-            if (org != null)
-            {
+            if (org != null) {
                 this.txtFrom.Text = org.Name;
             }
         }
 
         private ProductEntity product = null;
-        public ProductEntity Product
-        {
-            get
-            {
+        public ProductEntity Product {
+            get {
                 if (this.product == null)
                     this.product = Storage<ProductEntity>.ReadFirst(new ProductEntity.ReadById { ProductId = this.productId });
                 return this.product;
             }
         }
 
-        protected void OnSendEmail(object sender, EventArgs e)
-        {
+        protected void OnSendEmail(object sender, EventArgs e) {
             if (string.IsNullOrEmpty(this.txtEmailFrom.Text)) return;
             if (string.IsNullOrEmpty(this.txtFrom.Text)) return;
             if (string.IsNullOrEmpty(this.txtEmailTo.Text)) return;
 
             //Zaevidovanie bonusovych kreditov
-            if (Security.IsLogged(false))
-            {
+            if (Security.IsLogged(false)) {
                 string kod = string.Format("{0};{1}", this.Product.Id, this.txtEmailTo.Text);
                 BonusovyKreditUzivateleHelper.ZaevidujKredit(Security.Account.Id, DAL.Entities.Classifiers.BonusovyKreditTyp.ProduktEmailPoslatPriteli, null, kod);
             }
