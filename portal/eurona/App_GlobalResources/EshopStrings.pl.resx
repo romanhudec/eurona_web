@@ -553,9 +553,6 @@ E: prodej@eurona.cz</value>
   <data name="AddressControl_notest_description" xml:space="preserve">
     <value>(nie służy do zadawania adresu i kontaktów).</value>
   </data>
-  <data name="AdminOrderControl_approval_text" xml:space="preserve">
-    <value>&lt;span&gt;Zgadzam się z &lt;a href='{0}' target='_blank'&gt;regulaminem handlowym&lt;/a&gt;.&lt;span&gt;</value>
-  </data>
   <data name="AdminOrderControl_order_text" xml:space="preserve">
     <value>Dla ostatecznego wysłania zamówienia</value>
   </data>
@@ -598,9 +595,6 @@ E: prodej@eurona.cz</value>
   <data name="AdminOrderControl_save_delivery_addres_as_main" xml:space="preserve">
     <value>Zapisz dane do następnego zamówienia.</value>
   </data>
-  <data name="AdminOrderControl_approval_error" xml:space="preserve">
-    <value>Musisz wyrazić zgodę z regulaminem handlowym</value>
-  </data>
   <data name="Navigation_MenuItem_Vyprodej" xml:space="preserve">
     <value>WYPRZEDAŻ</value>
   </data>
@@ -624,5 +618,11 @@ E: prodej@eurona.cz</value>
   </data>
   <data name="Anonymous_OrderFinish_Zde" xml:space="preserve">
     <value>TUTAJ.</value>
+  </data>
+  <data name="Anonymous_Register_ReklamniZasilky_Header" xml:space="preserve">
+    <value>Chcete pravidelně odebírat nové a aktuální informace o Euroně? Zde si můžete zvolit typ zasílaných propagačních materiálů:</value>
+  </data>
+  <data name="Anonymous_Register_AcceptTerms_Error" xml:space="preserve">
+    <value>Konieczne jest uzgodnienie z zasadami Euron MLM i warunkami współpracy biznesowej</value>
   </data>
 </root>

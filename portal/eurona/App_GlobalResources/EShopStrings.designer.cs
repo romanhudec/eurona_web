@@ -151,24 +151,6 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Musíte souhlasit s obchodními podmínkami.
-        /// </summary>
-        internal static string AdminOrderControl_approval_error {
-            get {
-                return ResourceManager.GetString("AdminOrderControl_approval_error", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to &lt;span&gt;Souhlasím s &lt;a href=&apos;{0}&apos; target=&apos;_blank&apos;&gt;obchodními podmínkami&lt;/a&gt;.&lt;span&gt;.
-        /// </summary>
-        internal static string AdminOrderControl_approval_text {
-            get {
-                return ResourceManager.GetString("AdminOrderControl_approval_text", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to Body celkem :.
         /// </summary>
         internal static string AdminOrderControl_BodyCelkem {
@@ -421,6 +403,15 @@ namespace Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Je třeba souhlasit se zásadami MLM systému Eurona a Podmínkami obchodní spolupráce.
+        /// </summary>
+        internal static string Anonymous_Register_AcceptTerms_Error {
+            get {
+                return ResourceManager.GetString("Anonymous_Register_AcceptTerms_Error", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Bankovní účet :.
         /// </summary>
         internal static string Anonymous_Register_BankovniUcet {
@@ -574,7 +565,7 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Obchodními podmínkami.
+        ///   Looks up a localized string similar to Podmínkami obchodní spolupráce se společností Eurona s.r.o.
         /// </summary>
         internal static string Anonymous_Register_ObchodnimiPodminkami {
             get {
@@ -628,7 +619,16 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Smluvními podmínkami.
+        ///   Looks up a localized string similar to Chcete pravidelně odebírat nové a aktuální informace o Euroně? Zde si můžete zvolit typ zasílaných propagačních materiálů:.
+        /// </summary>
+        internal static string Anonymous_Register_ReklamniZasilky_Header {
+            get {
+                return ResourceManager.GetString("Anonymous_Register_ReklamniZasilky_Header", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Zásadami MLM systému Eurona.
         /// </summary>
         internal static string Anonymous_Register_SmluvnimiPodminkami {
             get {

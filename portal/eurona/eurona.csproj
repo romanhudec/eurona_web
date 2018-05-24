@@ -270,6 +270,7 @@
     <Content Include="Scripts\dbUpgrade_20160919.sql" />
     <Content Include="Scripts\dbUpgrade_20160620.sql" />
     <Content Include="Scripts\dbUpgrade_20160418.sql" />
+    <Content Include="Scripts\dbUpgrade_2018_05.sql" />
     <Content Include="Scripts\dbUpgrade_pwd_policy.sql" />
     <Content Include="Scripts\dbUpgrade_2015_08.sql" />
     <Content Include="Scripts\dbUpgrade_2015_03_sestavy.sql" />

@@ -19,6 +19,7 @@
         .validator span{color:#fff;}
     </style>
     <script language="javascript" type="text/javascript">
+
     	function AcceptTermsAndConditions(checkbox) {
     		var btnAccept = document.getElementById("<%=btnContinue.ClientID%>");
     		if (btnAccept == null) return;
@@ -332,13 +333,13 @@
 								<tr>
 									<td><asp:Literal runat="server" Text="<%$ Resources:EShopStrings, Anonymous_Register_ICO %>"></asp:Literal></td>
 									<td>
-										<asp:TextBox runat="server" ID="txtICO" Width="200px"></asp:TextBox>
+										<asp:TextBox runat="server" ID="txtICO" Width="185px"></asp:TextBox>
 									</td>
 								</tr>
 								<tr>
 									<td><asp:Literal runat="server" Text="<%$ Resources:EShopStrings, Anonymous_Register_DIC %>"></asp:Literal></td>
 									<td>
-										<asp:TextBox runat="server" ID="txtDIC" Width="200px"></asp:TextBox>
+										<asp:TextBox runat="server" ID="txtDIC" Width="185px"></asp:TextBox>
 									</td>
 								</tr>
 								<tr>
@@ -350,7 +351,7 @@
 								<tr>
 									<td><asp:Literal runat="server" Text="<%$ Resources:EShopStrings, Anonymous_Register_BankovniUcet %>"></asp:Literal></td>
 									<td>
-										<asp:TextBox runat="server" ID="txtBankovniUcet" Width="200px"></asp:TextBox>
+										<asp:TextBox runat="server" ID="txtBankovniUcet" Width="185px"></asp:TextBox>
 									</td>
 								</tr>
 							</table>
@@ -604,13 +605,41 @@
 		</tr>
         <tr>
             <td colspan="2">
+                <div style="padding:10px;">
+                    <asp:Literal ID="Literal9" runat="server" Text="<%$ Resources:EShopStrings, Anonymous_Register_ReklamniZasilky_Header %>"></asp:Literal>
+                </div>
+                <div>
+                    <asp:Repeater runat="server" ID="rpReklamniZasilky" OnItemDataBound="ReklamniZasilkyOnItemDataBound">
+                        <HeaderTemplate>
+			                <table border="0" cellpadding="0" cellspacing="0" class="dataGrid" style="width:auto!important;">
+			                <tr>
+				                <td class="dataGrid_headerStyle">Reklamní zásilka</td>
+				                <td class="dataGrid_headerStyle">Souhlas</td>
+			                </tr>
+		                </HeaderTemplate>
+                        <ItemTemplate>
+                            <tr>
+				                <td><span><%#Eval("Popis")%></span></td>
+				                <td><asp:CheckBox Enabled="true" runat="server" ID="cbReklamniZasilkySouhlas" Text="" CommandArgument='<%#Eval("Id") %>' /></td>
+                            </tr>
+                        </ItemTemplate>
+                        <FooterTemplate></table></FooterTemplate>
+                    </asp:Repeater> 
+                    <cmsPage:PageControl ID="genericPage" IsEditing="false" runat="server" CssEditorToolBar="contentEditorToolbar" CssEditorContent="contentEditorContent" NewUrl="~/admin/page.aspx"
+                    ManageUrl="~/admin/pages.aspx" NotFoundUrlFormat="~/notFound.aspx?page={0}" PageName="anonymous-registration-content" PopUpEditorUrlFormat="~/admin/contentEditor.aspx?id={0}" />
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="2">
                 <span class="required">*</span> <asp:Literal runat="server" Text="<%$ Resources:EShopStrings, Anonymous_Register_PovinneUdaje %>"></asp:Literal>
                 <div>
-                    <asp:CheckBox ID="cbAcceptTerms" runat="server" Text="Souhlas se " onclick="AcceptTermsAndConditions(this)" />&nbsp;
-                    <asp:HyperLink ID="hlSmluvniPodminky" runat="server" NavigateUrl="" Text="<%$ Resources:EShopStrings, Anonymous_Register_SmluvnimiPodminkami %>" Target="_blank" ></asp:HyperLink> a 
+                    <%--<asp:CheckBox ID="cbAcceptTerms" runat="server" Text="Souhlas se " onclick="AcceptTermsAndConditions(this)" />&nbsp;--%>
+                    <asp:CheckBox ID="cbAcceptTerms" runat="server" />&nbsp; <span class="required">*</span>Souhlas se&nbsp; 
+                    <asp:HyperLink ID="hlSmluvniPodminky" runat="server" NavigateUrl="" Text="<%$ Resources:EShopStrings, Anonymous_Register_SmluvnimiPodminkami %>" Target="_blank" ></asp:HyperLink>&nbsp;a&nbsp;
                     <asp:HyperLink ID="hlObchodniPodminky" runat="server" NavigateUrl="" Text="<%$ Resources:EShopStrings, Anonymous_Register_ObchodnimiPodminkami %>" Target="_blank" ></asp:HyperLink>
                 </div>
-                <asp:Button runat="server" ID="btnContinue"  Enabled="false" CssClass="button" Text="<%$ Resources:Strings, RegisterControl_ContinueButton %>" OnClick="OnContinueClick" />
+                <asp:Button runat="server" ID="btnContinue"  Enabled="true" CssClass="button" Text="<%$ Resources:Strings, RegisterControl_ContinueButton %>" OnClick="OnContinueClick" />
             </td>
         </tr>
     </table>

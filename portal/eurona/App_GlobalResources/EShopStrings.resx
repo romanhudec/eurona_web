@@ -506,7 +506,7 @@ Your order is currently in progress. Statu your order can see on : {0}</value>
     <value>Město :</value>
   </data>
   <data name="Anonymous_Register_ObchodnimiPodminkami" xml:space="preserve">
-    <value>Obchodními podmínkami</value>
+    <value>Podmínkami obchodní spolupráce se společností Eurona s.r.o</value>
   </data>
   <data name="Anonymous_Register_PlatceDPH" xml:space="preserve">
     <value>Plátce DPH :</value>
@@ -524,7 +524,7 @@ Your order is currently in progress. Statu your order can see on : {0}</value>
     <value>PSČ :</value>
   </data>
   <data name="Anonymous_Register_SmluvnimiPodminkami" xml:space="preserve">
-    <value>Smluvními podmínkami</value>
+    <value>Zásadami MLM systému Eurona</value>
   </data>
   <data name="Anonymous_Register_StejnaJakoFakturacni" xml:space="preserve">
     <value>Stejná jako fakturační</value>
@@ -655,9 +655,6 @@ Your order is currently in progress. Statu your order can see on : {0}</value>
   <data name="AddressControl_notest_description" xml:space="preserve">
     <value>(neslouží pro zadávání adresy a kontaktů.)</value>
   </data>
-  <data name="AdminOrderControl_approval_text" xml:space="preserve">
-    <value>&lt;span&gt;Souhlasím s &lt;a href='{0}' target='_blank'&gt;obchodními podmínkami&lt;/a&gt;.&lt;span&gt;</value>
-  </data>
   <data name="AdminOrderControl_order_text" xml:space="preserve">
     <value>Pro konečné odeslání objednávky</value>
   </data>
@@ -700,9 +697,6 @@ Your order is currently in progress. Statu your order can see on : {0}</value>
   <data name="AdminOrderControl_save_delivery_addres_as_main" xml:space="preserve">
     <value>Uložit údaje pro příští objednávku.</value>
   </data>
-  <data name="AdminOrderControl_approval_error" xml:space="preserve">
-    <value>Musíte souhlasit s obchodními podmínkami</value>
-  </data>
   <data name="Navigation_MenuItem_Vyprodej" xml:space="preserve">
     <value>Výprodej</value>
   </data>
@@ -711,5 +705,11 @@ Your order is currently in progress. Statu your order can see on : {0}</value>
   </data>
   <data name="AdminOrdersControl_AsociatePriceLimitMessage" xml:space="preserve">
     <value>Katalogová cena přidružené objednávky musí být vyšší než {0}Kč</value>
+  </data>
+  <data name="Anonymous_Register_ReklamniZasilky_Header" xml:space="preserve">
+    <value>Chcete pravidelně odebírat nové a aktuální informace o Euroně? Zde si můžete zvolit typ zasílaných propagačních materiálů:</value>
+  </data>
+  <data name="Anonymous_Register_AcceptTerms_Error" xml:space="preserve">
+    <value>Je třeba souhlasit se zásadami MLM systému Eurona a Podmínkami obchodní spolupráce</value>
   </data>
 </root>

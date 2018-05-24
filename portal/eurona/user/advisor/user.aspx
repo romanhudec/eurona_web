@@ -2,6 +2,7 @@
 <%@ Register Assembly="cms" Namespace="CMS.Controls" TagPrefix="cms" %>
 <%@ Register Assembly="cms" Namespace="CMS.Controls.UserManagement" TagPrefix="cmsUm" %>
 <%@ Register Assembly="eurona" Namespace="Eurona.Controls.UserManagement" TagPrefix="cmsOrg" %>
+<%@ Register Assembly="cms" Namespace="CMS.Controls.Page" TagPrefix="cmsPage" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="Server">
 </asp:Content>
@@ -20,6 +21,8 @@
     </div>
 </asp:Content>
 <asp:Content ID="Content4" ContentPlaceHolderID="content" runat="Server">
+    <cmsPage:PageControl ID="genericPage" IsEditing="false" runat="server" CssEditorToolBar="contentEditorToolbar" CssEditorContent="contentEditorContent" NewUrl="~/admin/page.aspx"
+    ManageUrl="~/admin/pages.aspx" NotFoundUrlFormat="~/notFound.aspx?page={0}" PageName="advisor-detail-top-info-content" PopUpEditorUrlFormat="~/admin/contentEditor.aspx?id={0}" />
 	<cms:RoundPanel ID="rpPerson" runat="server" CssClass="roundPanel">
 		<cmsUm:PersonControl ID="personControl" runat="server" Required="true" CssRoundPanel="roundPanelNoBg" IsEditing="true" Width="100%" />
 	</cms:RoundPanel>

@@ -51,13 +51,12 @@ namespace Eurona.User.Anonymous {
 
             this.linkVasePrilezitosti.HRef = aliasUtilities.Resolve("~/eshop/kariera.aspx");
 
-            this.hlObchodniPodminky.NavigateUrl = "~/userfiles/OBCHODNÍ PODMÍNKY CZ.pdf";
-            this.hlSmluvniPodminky.NavigateUrl = "~/userfiles/SMLUVNÍ PODMÍNKY CZ.pdf";
-            string locale = System.Threading.Thread.CurrentThread.CurrentUICulture.TwoLetterISOLanguageName.ToLower();
-            if (locale == "pl") this.hlObchodniPodminky.NavigateUrl = "~/userfiles/WARUNKI UMOWY PL.pdf";
 
-            //if (locale.ToLower() == "sk") mailAttachment = "~/userfiles/Registračný formulár.pdf";
-            //if (locale.ToLower() == "pl") mailAttachment = "~/userfiles/Formularz rejestracyjny.pdf";
+            string locale = System.Threading.Thread.CurrentThread.CurrentUICulture.TwoLetterISOLanguageName.ToLower();
+            if (locale == "cs") locale = "CZ";
+            this.hlSmluvniPodminky.NavigateUrl = string.Format("~/userfiles/Zasady_MLM_{0}.pdf", locale.ToUpper());
+            this.hlObchodniPodminky.NavigateUrl = string.Format("/userfiles/podminky_obchodni_spoluprace_{0}.pdf", locale.ToUpper());            
+            //if (locale == "pl") this.hlObchodniPodminky.NavigateUrl = "~/userfiles/WARUNKI UMOWY PL.pdf";
 
             #region Disable Send button and js validation
             StringBuilder sb = new StringBuilder();
@@ -69,7 +68,7 @@ namespace Eurona.User.Anonymous {
 
             //change button text and disable it
             sb.AppendFormat("this.value = '{0}...';", this.btnContinue.Text);
-            sb.Append("this.disabled = true; if( !onSave() ){document.getElementById('" + this.cbAcceptTerms.ClientID + "').checked=false; return false;}");
+            sb.Append("this.disabled = true; if( !onSave() ){document.getElementById('" + this.cbAcceptTerms.ClientID + "').checked=false; this.disabled = false;this.value='" + this.btnContinue.Text + "';return false; }");
             sb.Append(Page.ClientScript.GetPostBackEventReference(this.btnContinue, null) + ";");
             sb.Append("return true;");
             string submit_button_onclick_js = sb.ToString();
@@ -94,6 +93,29 @@ namespace Eurona.User.Anonymous {
                 this.ddlPF.Items.Add(new ListItem { Value = "F", Text = Eurona.Common.Resources.Controls.OrganizationControl_PF_F });
                 this.ddlPF.Items.Add(new ListItem { Value = "P", Text = Eurona.Common.Resources.Controls.OrganizationControl_PF_P });
             }
+
+            ReklamniZasilkyLoadData(!IsPostBack);
+        }
+
+        private void ReklamniZasilkyLoadData(bool bind) {
+            List<DAL.Entities.ReklamniZasilky> reklamniZasilky = Storage<DAL.Entities.ReklamniZasilky>.Read();
+            this.rpReklamniZasilky.DataSource = reklamniZasilky;
+            if (bind) this.rpReklamniZasilky.DataBind();
+        }
+
+        protected void ReklamniZasilkyOnItemDataBound(object Sender, RepeaterItemEventArgs e) {
+            /*
+            if (e.Item.ItemType == ListItemType.Item || e.Item.ItemType == ListItemType.AlternatingItem) {
+                CheckBox cbx = (CheckBox)e.Item.FindControl("cbReklamniZasilkySouhlas");
+                if (cbx != null) {
+                    if (string.IsNullOrEmpty(cbx.Attributes["CommandArgument"])) return;
+
+                    int idZasilky = Convert.ToInt32(cbx.Attributes["CommandArgument"]);
+                    DAL.Entities.ReklamniZasilky dataItem = (DAL.Entities.ReklamniZasilky)e.Item.DataItem;
+                    cbx.Checked = dataItem.Default_souhlas;
+                }
+            }
+             * */
         }
 
         void ddlStat_SelectedIndexChanged(object sender, EventArgs e) {
@@ -113,6 +135,12 @@ namespace Eurona.User.Anonymous {
 
         protected void OnContinueClick(object sender, EventArgs e) {
             ViewState[this.txtPsc.ClientID] = this.txtPsc.Text;
+
+            if (this.cbAcceptTerms.Checked == false) {
+                string js = string.Format("alert('{0}');", Resources.EShopStrings.Anonymous_Register_AcceptTerms_Error);
+                this.btnContinue.Page.ClientScript.RegisterStartupScript(this.btnContinue.Page.GetType(), "addValidateTerms", js, true);
+                return;
+            }
 
             if (AccountExists(txtLogin.Text, txtEmail.Text)) {
                 string js = string.Format("alert('{0}');", "Je nám líto, ale v našem systému Vámi zadané údaje již máme. Pro pokračování v objednávce použijte Vaše přihlašovací jméno a heslo, které jsme Vám již v minulosti zaslali na Váš e-mail. nebo kontaktujte naše operátorky Eurona (kontakty).");
@@ -254,6 +282,27 @@ namespace Eurona.User.Anonymous {
             account.Verified = true;
             account.AddToRoles(Eurona.Common.DAL.Entities.Role.REGISTEREDUSER, Eurona.Common.DAL.Entities.Role.ADVISOR, Eurona.Common.DAL.Entities.Role.ANONYMOUSADVISOR);
             Storage<Account>.Update(account);
+
+            #region Reklamni zasilky
+            //reload account
+            account = Storage<Account>.ReadFirst(new Account.ReadById { AccountId = account.Id });
+            List<DAL.Entities.ReklamniZasilky> reklamniZasilky = Storage<DAL.Entities.ReklamniZasilky>.Read();
+            for (int i = 0; i < rpReklamniZasilky.Items.Count; i++) {
+                CheckBox cbx = (CheckBox)rpReklamniZasilky.Items[i].FindControl("cbReklamniZasilkySouhlas");
+                DAL.Entities.ReklamniZasilky reklamniZasilka = reklamniZasilky[i];
+                DAL.Entities.ReklamniZasilkySouhlas reklamniZasilkaSouhlas = Storage<DAL.Entities.ReklamniZasilkySouhlas>.ReadFirst(new DAL.Entities.ReklamniZasilkySouhlas.ReadByOdberatel { Id_zasilky = reklamniZasilka.Id, Id_odberatele = account.TVD_Id.Value });
+                if (reklamniZasilkaSouhlas == null) {
+                    reklamniZasilkaSouhlas = new DAL.Entities.ReklamniZasilkySouhlas();
+                    reklamniZasilkaSouhlas.Id_odberatele = account.TVD_Id.Value;
+                    reklamniZasilkaSouhlas.Id_zasilky = reklamniZasilka.Id;
+                    reklamniZasilkaSouhlas.Souhlas = cbx.Checked;
+                    Storage<DAL.Entities.ReklamniZasilkySouhlas>.Create(reklamniZasilkaSouhlas);
+                } else {
+                    reklamniZasilkaSouhlas.Souhlas = cbx.Checked;
+                    Storage<DAL.Entities.ReklamniZasilkySouhlas>.Update(reklamniZasilkaSouhlas);
+                }
+            }
+            #endregion
 
             SendRegistrationEmail(account);
 

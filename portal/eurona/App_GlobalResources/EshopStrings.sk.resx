@@ -494,7 +494,7 @@ E: prodej@eurona.cz</value>
     <value>Mesto:</value>
   </data>
   <data name="Anonymous_Register_ObchodnimiPodminkami" xml:space="preserve">
-    <value>Obchodnými podmienkami</value>
+    <value>Podmienkami obchodnej spolupráce zo spoločnosťou Eurona s.r.o</value>
   </data>
   <data name="Anonymous_Register_PlatceDPH" xml:space="preserve">
     <value>Plátca DPH:</value>
@@ -512,7 +512,7 @@ E: prodej@eurona.cz</value>
     <value>PSČ:</value>
   </data>
   <data name="Anonymous_Register_SmluvnimiPodminkami" xml:space="preserve">
-    <value>Zmluvnými  podmienkami</value>
+    <value>Zásadami MLM systému Eurona</value>
   </data>
   <data name="Anonymous_Register_StejnaJakoFakturacni" xml:space="preserve">
     <value>Rovnaká ako fakturačná</value>
@@ -643,9 +643,6 @@ E: prodej@eurona.cz</value>
   <data name="AddressControl_notest_description" xml:space="preserve">
     <value>(neslúží na zadávanie adresy a kontaktov.)</value>
   </data>
-  <data name="AdminOrderControl_approval_text" xml:space="preserve">
-    <value>&lt;span&gt;Súhlasím s &lt;a href='{0}' target='_blank'&gt;obchodnými podmienkami&lt;/a&gt;.&lt;span&gt;</value>
-  </data>
   <data name="AdminOrderControl_order_text" xml:space="preserve">
     <value>Pre konečné odoslanie objednávky</value>
   </data>
@@ -688,9 +685,6 @@ E: prodej@eurona.cz</value>
   <data name="AdminOrderControl_save_delivery_addres_as_main" xml:space="preserve">
     <value>Uložiť údaje pre budúci objednávku.</value>
   </data>
-  <data name="AdminOrderControl_approval_error" xml:space="preserve">
-    <value>Musíte súhlasiť s obchodnými podmienkami</value>
-  </data>
   <data name="Navigation_MenuItem_Vyprodej" xml:space="preserve">
     <value>Výpredaj</value>
   </data>
@@ -708,5 +702,11 @@ E: prodej@eurona.cz</value>
   </data>
   <data name="Anonymous_OrderFinish_VPripadeDalsichDotazu" xml:space="preserve">
     <value>V prípade akýchkoľvek otázok sa, prosím, obráťte na naše operátorky:</value>
+  </data>
+  <data name="Anonymous_Register_ReklamniZasilky_Header" xml:space="preserve">
+    <value>Chcete pravidelne odoberať nové a aktuálne informácie o Eurone? Tu si môžete zvoliť typ zasielaných propagačných materiálov:</value>
+  </data>
+  <data name="Anonymous_Register_AcceptTerms_Error" xml:space="preserve">
+    <value>Je potrebné súhlasiť zo zásadami MLM systému Eurona a Podmienkami obchodnej spolupráce</value>
   </data>
 </root>

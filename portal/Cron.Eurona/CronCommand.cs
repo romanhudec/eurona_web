@@ -208,15 +208,29 @@ namespace Cron.Eurona {
                         mssqStorageEurona.Exec(mssqStorageEurona.Connection, sql,
                             new SqlParameter("@Id_zasilky", row["Id_zasilky"]), new SqlParameter("@Popis", row["Popis"]), new SqlParameter("@Default_souhlas", row["Default_souhlas"]));
 
-                        //int rowsAfected = mssqStorageEurona.Exec(mssqStorageEurona.Connection,
-                        //"UPDATE tReklamniZasilky SET Popis=@Popis, Default_souhlas=@Default_souhlas WHERE Id_zasilky=@Id_zasilky",
-                        //new SqlParameter("@Id_zasilky", row["Id_zasilky"]), new SqlParameter("@Popis", row["Popis"]), new SqlParameter("@Default_souhlas", row["Default_souhlas"]));
-                        //if (rowsAfected == 0)
-                        //    mssqStorageEurona.Exec(mssqStorageEurona.Connection,
-                        //    "INSERT INTO tReklamniZasilky (Id_zasilky, Popis, Default_souhlas) VALUES (@Id_zasilky, @Popis, @Default_souhlas)",
-                        //    new SqlParameter("@Id_zasilky", row["Id_zasilky"]), new SqlParameter("@Popis", row["Popis"]), new SqlParameter("@Default_souhlas", row["Default_souhlas"]));
                     }
+                    /*
+                    //Sync Reklamni zasilky souhlas TVD->Eurona
+                    DataTable tvdReklamniZasilkySouhlas = mssqStorageTVD.Query(mssqStorageTVD.Connection, "SELECT * FROM reklamni_zasilky_souhlas");
+                    foreach (DataRow row in tvdReklamniZasilkySouhlas.Rows) {
 
+                        string sql = @"IF EXISTS (SELECT 1 FROM tReklamniZasilkySouhlas WHERE Id_zasilky=@Id_zasilky AND Id_odberatele=@Id_odberatele)
+                        BEGIN
+                          UPDATE tReklamniZasilkySouhlas SET Souhlas=@Souhlas, Datum_zmeny=@Datum_zmeny WHERE Id_zasilky=@Id_zasilky AND Id_odberatele=@Id_odberatele
+                        END
+                        ELSE
+                        BEGIN
+                          INSERT INTO tReklamniZasilkySouhlas (Id_zasilky, Id_odberatele, Souhlas, Datum_zmeny) VALUES (@Id_zasilky, @Id_odberatele, @Souhlas, @Datum_zmeny)
+                        END
+                        ";
+                        mssqStorageEurona.Exec(mssqStorageEurona.Connection, sql,
+                            new SqlParameter("@Id_zasilky", row["Id_zasilky"]),
+                            new SqlParameter("@Id_odberatele", row["Id_odberatele"]),
+                            new SqlParameter("@Souhlas", row["Souhlas"]),
+                            new SqlParameter("@Datum_zmeny", row["Datum_zmeny"]));
+
+                    }
+                    */
                     //Sync Reklamni zasilky souhlas Eurona->TVD
                     DataTable tvdReklamniZasilkySouhlas = mssqStorageEurona.Query(mssqStorageEurona.Connection, "SELECT * FROM tReklamniZasilkySouhlas");
                     foreach (DataRow row in tvdReklamniZasilkySouhlas.Rows) {
@@ -234,21 +248,6 @@ namespace Cron.Eurona {
                             new SqlParameter("@Id_odberatele", row["Id_odberatele"]),
                             new SqlParameter("@Souhlas", row["Souhlas"]),
                             new SqlParameter("@Datum_zmeny", row["Datum_zmeny"]));
-
-                        //int rowsAfected = mssqStorageTVD.Exec(mssqStorageTVD.Connection,
-                        //"UPDATE reklamni_zasilky_souhlas SET Souhlas=@Souhlas, Datum_zmeny=@Datum_zmeny WHERE Id_zasilky=@Id_zasilky AND Id_odberatele=@Id_odberatele",
-                        //new SqlParameter("@Id_zasilky", row["Id_zasilky"]),
-                        //new SqlParameter("@Id_odberatele", row["Id_odberatele"]),
-                        //new SqlParameter("@Souhlas", row["Souhlas"]),
-                        //new SqlParameter("@Datum_zmeny", row["Datum_zmeny"]));
-
-                        //if (rowsAfected == 0)
-                        //    mssqStorageTVD.Exec(mssqStorageTVD.Connection,
-                        //    "INSERT INTO reklamni_zasilky_souhlas (Id_zasilky, Id_odberatele, Souhlas, Datum_zmeny) VALUES (@Id_zasilky, @Id_odberatele, @Souhlas, @Datum_zmeny)",
-                        //    new SqlParameter("@Id_zasilky", row["Id_zasilky"]),
-                        //    new SqlParameter("@Id_odberatele", row["Id_odberatele"]),
-                        //    new SqlParameter("@Souhlas", row["Souhlas"]),
-                        //    new SqlParameter("@Datum_zmeny", row["Datum_zmeny"]));
                     }
                 }
             }

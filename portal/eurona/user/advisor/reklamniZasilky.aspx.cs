@@ -36,7 +36,7 @@ namespace Eurona.User.Advisor
 
                     int idZasilky = Convert.ToInt32(cbx.Attributes["CommandArgument"]);
                     int? idOdberatele = Security.Account.TVD_Id;
-                    cbx.Checked = true;
+                    cbx.Checked = false;
                     DAL.Entities.ReklamniZasilkySouhlas reklamniZasilkaSouhlas = Storage<DAL.Entities.ReklamniZasilkySouhlas>.ReadFirst(new DAL.Entities.ReklamniZasilkySouhlas.ReadByOdberatel { Id_zasilky = idZasilky, Id_odberatele = idOdberatele .Value});
                     if (reklamniZasilkaSouhlas != null)
                         cbx.Checked = reklamniZasilkaSouhlas.Souhlas;

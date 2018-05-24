@@ -49,6 +49,15 @@ namespace Eurona.User.Advisor {
         protected global::System.Web.UI.WebControls.Label lblTitle;
         
         /// <summary>
+        /// genericPage control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::CMS.Controls.Page.PageControl genericPage;
+        
+        /// <summary>
         /// rpPerson control.
         /// </summary>
         /// <remarks>

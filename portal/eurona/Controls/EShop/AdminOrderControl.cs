@@ -26,6 +26,7 @@ using System.Text;
 using SHP.Controls;
 using Eurona.Common;
 using System.Data;
+using CMS.Controls.Page;
 
 namespace Eurona.Controls {
     public class AdminOrderControl : CmsControl {
@@ -48,10 +49,9 @@ namespace Eurona.Controls {
 
         private Button btnSave = null;
         private Image imgSaveHelp = null;
-        //private Button btnCancel = null;
         private Button btnOrder = null;
-        private CheckBox cbApproval = null;
         private CheckBox cbSaveDeliveryAddressAsMainAddress = null;
+        private PageControl orderBottomInfoContent;
 
         private OrderEntity order = null;
         private UpdatePanel updatePanel = null;
@@ -357,10 +357,19 @@ namespace Eurona.Controls {
             this.cbSaveDeliveryAddressAsMainAddress.ID = "cbSaveDeliveryAddressAsMainAddress";
             this.cbSaveDeliveryAddressAsMainAddress.AutoPostBack = false;
 
-            this.cbApproval = new CheckBox();
-            this.cbApproval.ID = "cbApproval";
-            this.cbApproval.CheckedChanged += new EventHandler(cbApproval_CheckedChanged);
-            this.cbApproval.AutoPostBack = true;
+            this.orderBottomInfoContent = new PageControl();
+            this.orderBottomInfoContent.ID = "genericPage";
+            this.orderBottomInfoContent.NewUrl = "~/admin/page.aspx";
+            this.orderBottomInfoContent.ManageUrl = "~/admin/pages.aspx";
+            this.orderBottomInfoContent.NotFoundUrlFormat = "~/notFound.aspx?page={0}";
+            this.orderBottomInfoContent.PageName = "order-bottom-info-content";
+            this.orderBottomInfoContent.PopUpEditorUrlFormat = "~/admin/contentEditor.aspx?id={0}";
+            this.orderBottomInfoContent.CssEditorToolBar = "contentEditorToolbar";
+            this.orderBottomInfoContent.CssEditorContent = "contentEditorContent";
+            /*
+              <cmsPage:PageControl ID="genericPage" IsEditing="false" runat="server" CssEditorToolBar="contentEditorToolbar" CssEditorContent="contentEditorContent" NewUrl="~/admin/page.aspx"
+                    ManageUrl="~/admin/pages.aspx" NotFoundUrlFormat="~/notFound.aspx?page={0}" PageName="anonymous-registration-content" PopUpEditorUrlFormat="~/admin/contentEditor.aspx?id={0}" />
+            */
 
             this.btnSave = new Button();
             this.btnSave.CssClass = "button-save";
@@ -414,24 +423,24 @@ namespace Eurona.Controls {
             this.cbSaveDeliveryAddressAsMainAddress.CssClass = "checkbox";
             cell = new TableCell(); cell.ColumnSpan = 2; row.Cells.Add(cell); cell.Controls.Add(this.cbSaveDeliveryAddressAsMainAddress);
 
-            //Approval
+            //Add custom content page
             row = new TableRow(); buttonsTable.Rows.Add(row);
-            this.cbApproval.CssClass = "order-buttons-checkbox";
-            cell = new TableCell(); row.Cells.Add(cell); cell.Controls.Add(cbApproval);
-            cell.ColumnSpan = 2;
-            cell.CssClass = "order-buttons-checkbox";
-            /*
-            <span>Souhlasím s <a href='{0}'>obchodními podmínkami</a> a <a href='{1}'>podmínkami spolupráce s Euronou</a>.<span>
-             <span>Súhlasím s <a href='{0}'>obchodnými podmienkami</a> a <a href='{1}'> podmienkami spolupráce s Eurona</a>.<span>
-             * */
+            cell = new TableCell(); cell.ColumnSpan = 2; row.Cells.Add(cell); cell.Controls.Add(this.orderBottomInfoContent);
 
-            string obchodniPodminkyLink = "~/userfiles/OBCHODNÍ PODMÍNKY CZ.pdf";
-            //string locale = System.Threading.Thread.CurrentThread.CurrentUICulture.TwoLetterISOLanguageName.ToLower();
-            //if (locale == "pl") obchodniPodminkyLink = "~/userfiles/WARUNKI UMOWY PL.pdf";
-            //string htmlElement = string.Format(Resources.EShopStrings.AdminOrderControl_approval_text, Page.ResolveUrl(obchodniPodminkyLink), Page.ResolveUrl("~/userfiles/SMLUVNÍ PODMÍNKY CZ.pdf"));
-            string htmlElement = string.Format(Resources.EShopStrings.AdminOrderControl_approval_text, Page.ResolveUrl(obchodniPodminkyLink));
-            LiteralControl hlObchodniPodminky = new LiteralControl(htmlElement);
-            cell.Controls.Add(hlObchodniPodminky);
+            //Approval
+            //row = new TableRow(); buttonsTable.Rows.Add(row);
+            //this.cbApproval.CssClass = "order-buttons-checkbox";
+            //cell = new TableCell(); row.Cells.Add(cell); cell.Controls.Add(cbApproval);
+            //cell.ColumnSpan = 2;
+            //cell.CssClass = "order-buttons-checkbox";
+
+            //string obchodniPodminkyLink = "~/userfiles/OBCHODNÍ PODMÍNKY CZ.pdf";
+            ////string locale = System.Threading.Thread.CurrentThread.CurrentUICulture.TwoLetterISOLanguageName.ToLower();
+            ////if (locale == "pl") obchodniPodminkyLink = "~/userfiles/WARUNKI UMOWY PL.pdf";
+            ////string htmlElement = string.Format(Resources.EShopStrings.AdminOrderControl_approval_text, Page.ResolveUrl(obchodniPodminkyLink), Page.ResolveUrl("~/userfiles/SMLUVNÍ PODMÍNKY CZ.pdf"));
+            //string htmlElement = string.Format(Resources.EShopStrings.AdminOrderControl_approval_text, Page.ResolveUrl(obchodniPodminkyLink));
+            //LiteralControl hlObchodniPodminky = new LiteralControl(htmlElement);
+            //cell.Controls.Add(hlObchodniPodminky);
 
             HtmlGenericControl divBtnSave = new HtmlGenericControl();
             divBtnSave.Controls.Add(btnSave);
@@ -442,7 +451,7 @@ namespace Eurona.Controls {
             divBtnSave.Controls.Add(imgSaveHelp);
 
             row = new TableRow(); buttonsTable.Rows.Add(row);
-            cell = new TableCell();row.Cells.Add(cell); cell.HorizontalAlign = HorizontalAlign.Left; cell.Controls.Add(divBtnSave);
+            cell = new TableCell(); row.Cells.Add(cell); cell.HorizontalAlign = HorizontalAlign.Left; cell.Controls.Add(divBtnSave);
             //Check na uzavierku
             if (Security.Account.IsInRole(Role.ADVISOR) && Eurona.Common.Application.EuronaUzavierka.IsUzavierka4Advisor()) {
                 cell = new TableCell(); row.Cells.Add(cell);
@@ -511,7 +520,6 @@ namespace Eurona.Controls {
                    var btnOrder = document.getElementById('" + this.btnOrder.ClientID + @"');
                    btnOrder.disabled = true;
                    btnOrder.className = 'button-order-disabled';
-
                    var isAllValid = true;
                    for (var i = 0; i < Page_Validators.length; i++)
                    {
@@ -527,61 +535,29 @@ namespace Eurona.Controls {
                             ctrl.style.backgroundColor = '';
                       }
                    }                   
-
-/*
                    if( !isAllValid ){
-                        var btnOrder = document.getElementById('" + this.btnOrder.ClientID + @"');
                         btnOrder.disabled = false;
                         btnOrder.className = 'button-order';
-                        return;
-                   }                  
-                   if( isAllValid ){
-                    var btnOrder = document.getElementById('" + this.btnOrder.ClientID + @"');
-                    btnOrder.disabled = true;
-                    btnOrder.className = 'button-order-disabled';
-                   }
- */
+                        return false;
+                   }  
+                   return true;                 
                 }";
 
             Page.ClientScript.RegisterClientScriptBlock(this.GetType(), "update_function_validator", function_script, true);
-            Page.ClientScript.RegisterOnSubmitStatement(this.GetType(), "on_update_function_validator", "fnOnUpdateValidators();");
+            //Page.ClientScript.RegisterOnSubmitStatement(this.GetType(), "on_update_function_validator", "fnOnUpdateValidators();");
 
             //29.04.2014
             this.btnOrder.CssClass = "button-order";
             this.btnOrder.Enabled = true;
-            if (!Page.IsPostBack && !this.cbApproval.Checked) {
-                string js = "alert('" + Resources.EShopStrings.AdminOrderControl_approval_error + "');return false;";
-                this.btnOrder.Attributes.Add("onclick", js);
-            } 
-            if( this.cbApproval.Checked ){
-                ////Didable double click
-                string clickHandler = "document.body.style.cursor='wait'; this.value='Probíhá objednávka...'; this.disabled=true; this.className='button-order-disabled';" + Page.ClientScript.GetPostBackEventReference(this.btnOrder, string.Empty) + ";return false;";
-                this.btnOrder.Attributes.Add("onclick", clickHandler);
-            }
+
+            ////Didable double click
+            string clickHandler = "if(fnOnUpdateValidators()){document.body.style.cursor='wait'; this.value='Probíhá objednávka...'; this.disabled=true; this.className='button-order-disabled';" + Page.ClientScript.GetPostBackEventReference(this.btnOrder, string.Empty) + ";return false;}else{return false;}";
+            this.btnOrder.Attributes.Add("onclick", clickHandler);
+            //this.btnOrder.Attributes.Clear();
 
             //Binding
             GridViewDataBind(this.OrderEntity, !IsPostBack);
         }
-
-
-        void cbApproval_CheckedChanged(object sender, EventArgs e) {
-            this.btnOrder.Attributes.Remove("onclick");
-            if (!this.cbApproval.Checked) {
-                string js = "alert('" + Resources.EShopStrings.AdminOrderControl_approval_error + "');return false;";
-                this.btnOrder.Attributes.Add("onclick", js);
-                return;
-            }
-            ////Didable double click
-            string clickHandler = "document.body.style.cursor='wait'; this.value='Probíhá objednávka...'; this.disabled=true; this.className='button-order-disabled';" + Page.ClientScript.GetPostBackEventReference(this.btnOrder, string.Empty) + ";return false;";
-            this.btnOrder.Attributes.Add("onclick", clickHandler);
-
-            ////Didable double click
-            //string clickHandler = string.Format(
-            //"document.body.style.cursor = 'wait'; this.value='Probíhá objednávka...'; this.disabled = true; this.className = 'button-order-disabled';{0};",
-            //Page.ClientScript.GetPostBackEventReference(this.btnOrder, string.Empty));
-            //this.btnOrder.Attributes.Add("onclick", clickHandler);
-        }
-
 
         void ddlShipment_SelectedIndexChanged(object sender, EventArgs e) {
             this.OrderEntity.NoPostage = this.cbNoPostage.Checked;
@@ -607,7 +583,7 @@ namespace Eurona.Controls {
                 return;
 
             EuronaCartHelper.UpdateCartProduct(this.Page, this.OrderEntity.CartId, p.Id, quantity, false);
-            
+
             //Prepocitanie kosiku a objednavky           
             this.RecalculateOrder();
             UpdateDopravneUIbyOrder();
@@ -703,7 +679,7 @@ namespace Eurona.Controls {
                     if (!EuronaCartHelper.ValidateProductBeforeAddingToChart(p.Code, p, quantity, false, this, isOperator))
                         return;
                     EuronaCartHelper.UpdateCartProduct(this.Page, cartProduct.CartId, cartProduct.ProductId, quantity);
-                    
+
                     //Prepocitanie kosiku a objednavky
                     this.RecalculateOrder();
                     UpdateDopravneUIbyOrder();
@@ -978,13 +954,7 @@ namespace Eurona.Controls {
         void OnOrder(object sender, EventArgs e) {
 
             this.btnOrder.Enabled = true;
-            if (!this.cbApproval.Checked) {
-                string js = "alert('" + Resources.EShopStrings.AdminOrderControl_approval_error + "');return false;";
-                ScriptManager.RegisterStartupScript(this.updatePanel, this.updatePanel.GetType(), "addValidateApproval", js, true);
-                return;
-            }
-
-            string locale = this.OrderEntity.CartEntity.Locale;//Security.Account.Locale;
+            string locale = this.OrderEntity.CartEntity.Locale;
 
             if (this.dtpShipmentFrom != null) this.OrderEntity.ShipmentFrom = this.dtpShipmentFrom.Value != null ? Convert.ToDateTime(this.dtpShipmentFrom.Value) : (DateTime?)null;
             if (this.dtpShipmentTo != null) this.OrderEntity.ShipmentTo = this.dtpShipmentTo.Value != null ? Convert.ToDateTime(this.dtpShipmentTo.Value) : (DateTime?)null;
@@ -1067,7 +1037,7 @@ namespace Eurona.Controls {
                     lastOrderAddress.Zip = order.DeliveryAddress.Zip;
                     lastOrderAddress.Phone = order.DeliveryAddress.Phone;
                     lastOrderAddress.Organization = order.DeliveryAddress.Organization;
-                    if( lastOrderAddress.Id == 0 ) Storage<LastOrderAddressEntity>.Create(lastOrderAddress);
+                    if (lastOrderAddress.Id == 0) Storage<LastOrderAddressEntity>.Create(lastOrderAddress);
                     else Storage<LastOrderAddressEntity>.Update(lastOrderAddress);
 
                     //OrganizationEntity advisor = Storage<OrganizationEntity>.ReadFirst(new OrganizationEntity.ReadByAccountId { AccountId = Security.Account.Id });

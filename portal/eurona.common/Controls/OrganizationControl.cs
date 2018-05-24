@@ -35,12 +35,12 @@ namespace Eurona.Common.Controls.UserManagement
         public TextBox txtContactPhone = null;
         public TextBox txtContactMobil = null;
 
-        public TextBox txtFAX = null;
-        public TextBox txtSkype = null;
-        public TextBox txtICQ = null;
+        //public TextBox txtFAX = null;
+        //public TextBox txtSkype = null;
+        //public TextBox txtICQ = null;
         public ASPxDatePicker dtpContactBirthDay = null;
-        public TextBox txtContactCardId = null;
-        public TextBox txtContactWorkPhone = null;
+        //public TextBox txtContactCardId = null;
+        //public TextBox txtContactWorkPhone = null;
         public DropDownList ddlRegion = null;
         public DropDownList ddlPF = null;
         public DropDownList ddlStatut = null;
@@ -242,12 +242,12 @@ namespace Eurona.Common.Controls.UserManagement
 				this.txtContactMobil.Text = this.organization.ContactMobile;
 				this.txtContactPhone.Text = this.organization.ContactPhone;
 
-				this.txtFAX.Text = this.organization.FAX;
-				this.txtSkype.Text = this.organization.Skype;
-				this.txtICQ.Text = this.organization.ICQ;
+                //this.txtFAX.Text = this.organization.FAX;
+                //this.txtSkype.Text = this.organization.Skype;
+                //this.txtICQ.Text = this.organization.ICQ;
 				this.dtpContactBirthDay.Value = this.organization.ContactBirthDay;
-				this.txtContactCardId.Text = this.organization.ContactCardId;
-				this.txtContactWorkPhone.Text = this.organization.ContactWorkPhone;
+                //this.txtContactCardId.Text = this.organization.ContactCardId;
+                //this.txtContactWorkPhone.Text = this.organization.ContactWorkPhone;
 				this.txtPredmetCinnosti.Text = this.organization.PredmetCinnosti;
 
 				if (this.ddlRegion.Items.FindByValue(this.organization.RegionCode) != null)
@@ -358,29 +358,29 @@ namespace Eurona.Common.Controls.UserManagement
 			this.txtContactMobil.ID = "txtContactMobil";
 			this.txtContactMobil.Width = Unit.Percentage(100);
 
-			this.txtFAX = new TextBox();
-			this.txtFAX.ID = "txtFAX";
-			this.txtFAX.Width = Unit.Percentage(100);
+            //this.txtFAX = new TextBox();
+            //this.txtFAX.ID = "txtFAX";
+            //this.txtFAX.Width = Unit.Percentage(100);
 
-			this.txtSkype = new TextBox();
-			this.txtSkype.ID = "txtSkype";
-			this.txtSkype.Width = Unit.Percentage(100);
+            //this.txtSkype = new TextBox();
+            //this.txtSkype.ID = "txtSkype";
+            //this.txtSkype.Width = Unit.Percentage(100);
 
-			this.txtICQ = new TextBox();
-			this.txtICQ.ID = "txtICQ";
-			this.txtICQ.Width = Unit.Percentage(100);
+            //this.txtICQ = new TextBox();
+            //this.txtICQ.ID = "txtICQ";
+            //this.txtICQ.Width = Unit.Percentage(100);
 
 			this.dtpContactBirthDay = new ASPxDatePicker();
 			this.dtpContactBirthDay.ID = "dtpContactBirthDay";
 			this.dtpContactBirthDay.Width = Unit.Percentage(100);
 
-			this.txtContactCardId = new TextBox();
-			this.txtContactCardId.ID = "txtContactCardId";
-			this.txtContactCardId.Width = Unit.Percentage(100);
+            //this.txtContactCardId = new TextBox();
+            //this.txtContactCardId.ID = "txtContactCardId";
+            //this.txtContactCardId.Width = Unit.Percentage(100);
 
-			this.txtContactWorkPhone = new TextBox();
-			this.txtContactWorkPhone.ID = "txtContactWorkPhone";
-			this.txtContactWorkPhone.Width = Unit.Percentage(100);
+            //this.txtContactWorkPhone = new TextBox();
+            //this.txtContactWorkPhone.ID = "txtContactWorkPhone";
+            //this.txtContactWorkPhone.Width = Unit.Percentage(100);
 
 			this.ddlRegion = new DropDownList();
 			this.ddlRegion.ID = "ddlRegion";
@@ -509,7 +509,7 @@ namespace Eurona.Common.Controls.UserManagement
 				AddControlToRow(row, CMS.Resources.Controls.OrganizationControl_Name, this.txtName, 0, this.Settings.Require.Name);
 				table.Rows.Add(row);
 			}
-
+            /*
 			//Web
 			if (this.Settings.Visibility.Web)
 			{
@@ -546,6 +546,7 @@ namespace Eurona.Common.Controls.UserManagement
 				AddControlToRow(row, Resources.Controls.PersonControl_CardId, this.txtContactCardId, 0, this.Settings.Require.ContactCardId);
 				table.Rows.Add(row);
 			}
+            */
 			//ContactBirthDay
 			if (this.Settings.Visibility.ContactBirthDay)
 			{
@@ -580,13 +581,13 @@ namespace Eurona.Common.Controls.UserManagement
 				row.Cells[row.Cells.Count - 1].Controls.Add(rev);
 			}
 
-			//ContactWorkPhone
-			if (this.Settings.Visibility.ContactWorkPhone)
-			{
-				row = new TableRow();
-				AddControlToRow(row, Resources.Controls.PersonControl_WorkPhone, this.txtContactWorkPhone, 0, this.Settings.Require.ContactWorkPhone);
-				table.Rows.Add(row);
-			}
+            ////ContactWorkPhone
+            //if (this.Settings.Visibility.ContactWorkPhone)
+            //{
+            //    row = new TableRow();
+            //    AddControlToRow(row, Resources.Controls.PersonControl_WorkPhone, this.txtContactWorkPhone, 0, this.Settings.Require.ContactWorkPhone);
+            //    table.Rows.Add(row);
+            //}
 
 			//PF
 			if (this.Settings.Visibility.PF)
@@ -666,7 +667,7 @@ namespace Eurona.Common.Controls.UserManagement
 				row.Cells.Add(cell);
 				mainTable.Rows.Add(row);
 
-                cell.Controls.Add(new LiteralControl("<div style='vertical-align:bottom; margin: 330px 5px 20px 40px;'><span style='font-weight:bold;color:#eb0a5b;'>V případě změny ŽL, adresy sídla, IČO, DIČ, názvu v ŽL, kontaktujte obchodní oddělení.</span></div>"));
+                //cell.Controls.Add(new LiteralControl("<div style='vertical-align:bottom; margin: 330px 5px 20px 40px;'><span style='font-weight:bold;color:#eb0a5b;'>V případě změny ŽL, adresy sídla, IČO, DIČ, názvu v ŽL, kontaktujte obchodní oddělení.</span></div>"));
 			}
 
 			#endregion
@@ -850,12 +851,12 @@ namespace Eurona.Common.Controls.UserManagement
 			organization.ContactPhone = this.txtContactPhone.Text;
 			organization.ContactMobile = this.txtContactMobil.Text;
 
-			organization.FAX = this.txtFAX.Text;
-			organization.Skype = this.txtSkype.Text;
-			organization.ICQ = this.txtICQ.Text;
+            //organization.FAX = this.txtFAX.Text;
+            //organization.Skype = this.txtSkype.Text;
+            //organization.ICQ = this.txtICQ.Text;
 			organization.ContactBirthDay = (DateTime?)this.dtpContactBirthDay.Value;
-			organization.ContactCardId = this.txtContactCardId.Text;
-			organization.ContactWorkPhone = this.txtContactWorkPhone.Text;
+            //organization.ContactCardId = this.txtContactCardId.Text;
+            //organization.ContactWorkPhone = this.txtContactWorkPhone.Text;
 			organization.RegionCode = this.ddlRegion.Text;
 			organization.PF = this.ddlPF.Text;
 
