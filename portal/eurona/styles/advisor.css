@@ -158,7 +158,7 @@
 /*ADVISOR DESKTOP*/
 /*-------------------------------------------------------------------------------------------------------*/
 .advisor-desktop{}
-.advisor-desktop .item{border: 1px solid #1FE8FF;background-image: url(../../images/roundPanelEx/bg-1px.png); width:200px; height:120px;}
+.advisor-desktop .item{border: 1px solid #1FE8FF;background-image: url(../../images/roundPanelEx/bg-1px.png); width:200px; height:140px;}
 .advisor-desktop .item-navigation-container{border:0px none #fff;text-decoration:none;}
 .advisor-desktop img{border:0px none #fff;}
 

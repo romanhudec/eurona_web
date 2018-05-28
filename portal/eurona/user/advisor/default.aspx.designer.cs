@@ -94,6 +94,15 @@ namespace Eurona.User.Advisor {
         protected global::System.Web.UI.WebControls.Literal Literal3;
         
         /// <summary>
+        /// A2 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlAnchor A2;
+        
+        /// <summary>
         /// lblStavBK control.
         /// </summary>
         /// <remarks>
@@ -103,13 +112,13 @@ namespace Eurona.User.Advisor {
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl lblStavBK;
         
         /// <summary>
-        /// A2 control.
+        /// A3 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlAnchor A2;
+        protected global::System.Web.UI.HtmlControls.HtmlAnchor A3;
         
         /// <summary>
         /// lblOrdersToAssociate control.
@@ -164,6 +173,15 @@ namespace Eurona.User.Advisor {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Literal Literal6;
+        
+        /// <summary>
+        /// HyperLink6 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HyperLink HyperLink6;
         
         /// <summary>
         /// tableMimoradnaNabidka control.

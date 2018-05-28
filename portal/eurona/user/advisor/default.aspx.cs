@@ -58,6 +58,7 @@ namespace Eurona.User.Advisor {
                 this.ClientScript.RegisterStartupScript(this.Page.GetType(), "jsBlink", "blink('tdOrdersToAssociate','divOrdersToAssociate');", true);
 
             //Mimoradna nabidka
+            /*
             this.tableMimoradnaNabidka.Visible = false;
             MimoradnaNabidka mn = Storage<MimoradnaNabidka>.ReadFirst();
             if (mn != null) {
@@ -66,6 +67,7 @@ namespace Eurona.User.Advisor {
                 this.tableMimoradnaNabidka.Visible = true;
                 this.btnMimoradnaNabidka.CommandArgument = mn.Alias;
             }
+             * */
         }
 
         public OrganizationEntity LogedAdvisor {
@@ -99,10 +101,10 @@ namespace Eurona.User.Advisor {
             return this.ResolveUrl(urlThumbnail);
         }
 
-        protected void OnMimoradnaNabidkaClick(object sender, EventArgs e) {
-            if (string.IsNullOrEmpty(this.btnMimoradnaNabidka.CommandArgument)) return;
-            Response.Redirect(Page.ResolveUrl(this.btnMimoradnaNabidka.CommandArgument));
-        }
+        //protected void OnMimoradnaNabidkaClick(object sender, EventArgs e) {
+        //    if (string.IsNullOrEmpty(this.btnMimoradnaNabidka.CommandArgument)) return;
+        //    Response.Redirect(Page.ResolveUrl(this.btnMimoradnaNabidka.CommandArgument));
+        //}
         protected void OnOrdersToAssociate(object sender, EventArgs e) {
             Page.Response.Redirect(Page.ResolveUrl("~/user/advisor/orderstoassociate.aspx"));
         }
