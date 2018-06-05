@@ -182,6 +182,7 @@ namespace Eurona.Controls {
             //Preprava
             this.ddlShipment = new DropDownList();
             this.ddlShipment.ID = "ddlShipment";
+            this.ddlShipment.CssClass = "order_shipment";
             this.ddlShipment.AutoPostBack = true;
             this.ddlShipment.DataSource = Storage<ShipmentEntity>.Read();
             this.ddlShipment.DataTextField = "Name";

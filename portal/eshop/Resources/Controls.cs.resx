@@ -532,7 +532,7 @@ S pozdravem&lt;br/&gt;
     <value>K úhrade s DPH :</value>
   </data>
   <data name="OrderControl_Shipment" xml:space="preserve">
-    <value>Přeprava :</value>
+    <value>Zvolte dopravce :</value>
   </data>
   <data name="ProductCommentsControl_InappropriatePost" xml:space="preserve">
     <value>Nevhodný příspěvek</value>

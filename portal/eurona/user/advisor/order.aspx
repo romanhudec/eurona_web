@@ -1,4 +1,4 @@
-﻿<%@ Page Title="<%$ Resources:EShopStrings, Navigation_Order %>" Language="C#" MasterPageFile="~/user/advisor/page.Master" AutoEventWireup="true" CodeBehind="order.aspx.cs" Inherits="Eurona.EShop.User.OrderPage" %>
+﻿<%@ Page Title="<%$ Resources:EShopStrings, Navigation_Order %>" EnableEventValidation="false" Language="C#" MasterPageFile="~/user/advisor/page.Master" AutoEventWireup="true" CodeBehind="order.aspx.cs" Inherits="Eurona.EShop.User.OrderPage" %>
 
 <%@ Register Assembly="eurona" Namespace="Eurona.Controls" TagPrefix="shpOrder" %>
 

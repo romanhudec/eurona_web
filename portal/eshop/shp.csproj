@@ -251,6 +251,7 @@
     <EmbeddedResource Include="Resources\Controls.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>Controls.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="Resources\Controls.ru.resx" />
     <EmbeddedResource Include="Resources\Controls.sk.resx" />
