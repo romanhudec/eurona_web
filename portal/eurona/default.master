@@ -73,6 +73,7 @@
     <script src="<%=Root%>javascripts/mothiva.js" type="text/javascript"></script>
     <script src="<%=Root%>javascripts/mothiva.ajax.js" type="text/javascript"></script>
     <script src="<%=Root%>javascripts/mothiva.dom.js" type="text/javascript"></script>
+    <script src="<%=Root%>javascripts/jquery.blockUI.js" type="text/javascript"></script>
     <script type="text/javascript" src="https://yandex.st/dojo/1.6.0/dojo/dojo.xd.js" djConfig="parseOnLoad: true"></script>
 
     <% if ( Eurona.Security.IsLogged( false ) && ( Eurona.Security.Account.IsInRole( Eurona.DAL.Entities.Role.ADMINISTRATOR ) || Eurona.Security.Account.IsInRole( Eurona.DAL.Entities.Role.OPERATOR ) ) )

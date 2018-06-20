@@ -82,7 +82,6 @@ namespace Eurona.Controls {
         #region Protected overrides
         protected override void CreateChildControls() {
             base.CreateChildControls();
-
             //Base kontroly
             if (!Security.IsLogged(true)) return;
             if (this.OrderEntity == null) return;
@@ -94,6 +93,7 @@ namespace Eurona.Controls {
             }
 
             HtmlGenericControl div = new HtmlGenericControl("div");
+            div.ID = "divOrderNumber";
             div.Attributes.Add("class", this.CssClass + "_orderNumber");
             div.Controls.Add(new LiteralControl(string.Format(SHP.Resources.Controls.OrderControl_OrderNumberFormatText, this.OrderEntity.OrderNumber)));
             this.Controls.Add(div);
@@ -120,17 +120,6 @@ namespace Eurona.Controls {
             mainRow.Cells.Add(leftCell); mainRow.Cells.Add(rightCell);
             mainTable.Rows.Add(mainRow);
 
-            /*Na ziadost p.Janciak 2.3.2015 zakomentovane
-            if (this.IsEditing && (!this.OrderEntity.ParentId.HasValue && this.OrderEntity.OrderStatusCode == ((int)OrderEntity.OrderStatus.WaitingForProccess).ToString()))
-            {
-                this.dtpShipmentFrom = new ASPxDatePicker();
-                this.dtpShipmentFrom.ID = "dtpShipmentFrom";
-
-                this.dtpShipmentTo = new ASPxDatePicker();
-                this.dtpShipmentTo.ID = "dtpShipmentTo";
-            }
-            */
-
             this.cbNoPostage = new CheckBox();
             this.cbNoPostage.ID = "cbNoPostage";
             this.cbNoPostage.Enabled = false;
@@ -139,6 +128,7 @@ namespace Eurona.Controls {
 
             //Polozky objednavky
             RoundPanel rpOrderProducts = new RoundPanel();
+            rpOrderProducts.ID = "rpOrderProducts";
             rpOrderProducts.CssClass = "_roundPanel";
             if (this.OrderEntity.OrderStatusCode == ((int)OrderEntity.OrderStatus.WaitingForProccess).ToString() && this.IsEditing) {
                 Table tableAddProduct = new Table();
@@ -182,6 +172,7 @@ namespace Eurona.Controls {
             //Preprava
             this.ddlShipment = new DropDownList();
             this.ddlShipment.ID = "ddlShipment";
+            this.ddlShipment.Attributes.Add("name", "ddlShipment");
             this.ddlShipment.CssClass = "order_shipment";
             this.ddlShipment.AutoPostBack = true;
             this.ddlShipment.DataSource = Storage<ShipmentEntity>.Read();
@@ -212,10 +203,6 @@ namespace Eurona.Controls {
                 }
                 tableUserInfo.Rows.Add(CreateTableRow(SHP.Resources.Controls.OrderControl_Shipment, this.ddlShipment, true));
             } else {
-                /*Na ziadost p.Janciak 2.3.2015 zakomentovane
-				tableUserInfo.Rows.Add(CreateTableRow(Resources.Strings.OrderControl_ShipmentFrom, new LiteralControl(this.OrderEntity.ShipmentFrom.ToString()), false));
-				tableUserInfo.Rows.Add(CreateTableRow(Resources.Strings.OrderControl_ShipmentTo, new LiteralControl(this.OrderEntity.ShipmentTo.ToString()), false));
-                */
                 tableUserInfo.Rows.Add(CreateTableRow(SHP.Resources.Controls.OrderControl_Shipment, new LiteralControl(this.OrderEntity.ShipmentName), false));
             }
 
@@ -237,6 +224,7 @@ namespace Eurona.Controls {
 
             //Body
             this.lcBodyByEurosap = new LiteralControl(OrderEntity.CartEntity.BodyEurosapTotal.ToString("F1"));
+            this.lcBodyByEurosap.ID = "lcBodyByEurosap";
             rowPrice = new TableRow();
             TableCell cellPrice = new TableCell();
             cellPrice.Controls.Add(new LiteralControl(Resources.EShopStrings.AdminOrderControl_BodyCelkem));
@@ -249,9 +237,8 @@ namespace Eurona.Controls {
             priceInfoTable.Rows.Add(rowPrice);
 
             //Katalogova Cena
-            //this.lcKatalogovaCenaCelkemByEurosap = new LiteralControl(SHP.Utilities.CultureUtilities.CurrencyInfo.ToString(OrderEntity.CartEntity.KatalogovaCenaCelkemByEurosap, this.Session));
-            //TODO:20171205
             this.lcKatalogovaCenaCelkemByEurosap = new LiteralControl(Eurona.Common.Utilities.CultureUtilities.CurrencyInfo.ToString(OrderEntity.CartEntity.KatalogovaCenaCelkemByEurosap, OrderEntity.CurrencySymbol));
+            this.lcKatalogovaCenaCelkemByEurosap.ID = "lcKatalogovaCenaCelkemByEurosap";
 
             rowPrice = new TableRow();
             cellPrice = new TableCell();
@@ -266,10 +253,8 @@ namespace Eurona.Controls {
 
             //Dopravne
             if (OrderEntity.CartEntity.DopravneEurosap.HasValue) {
-                //this.lcDopravne = new LiteralControl(SHP.Utilities.CultureUtilities.CurrencyInfo.ToString(OrderEntity.CartEntity.DopravneEurosap, this.Session));
-                //TODO:20171205
                 this.lcDopravne = new LiteralControl(Eurona.Common.Utilities.CultureUtilities.CurrencyInfo.ToString(OrderEntity.CartEntity.DopravneEurosap, OrderEntity.CurrencySymbol));
-
+                this.lcDopravne.ID = "lcDopravne";
                 TableRow rowDopravne = new TableRow();
                 TableCell cellDopravne = new TableCell();
                 cellDopravne.Controls.Add(new LiteralControl(Resources.EShopStrings.AdminOrderControl_Dopravne));
@@ -284,6 +269,7 @@ namespace Eurona.Controls {
 
             //Fakturovana Cena
             this.lblFakturovanaCena = new Label();
+            this.lblFakturovanaCena.ID = "lblFakturovanaCena";
             lblFakturovanaCena.Text = Eurona.Common.Utilities.CultureUtilities.CurrencyInfo.ToString(this.OrderEntity.PriceWVAT, this.OrderEntity.CurrencySymbol);
             lblFakturovanaCena.ForeColor = System.Drawing.Color.FromArgb(235, 10, 91);
             lblFakturovanaCena.Font.Bold = true;
@@ -367,12 +353,10 @@ namespace Eurona.Controls {
             this.orderBottomInfoContent.PopUpEditorUrlFormat = "~/admin/contentEditor.aspx?id={0}";
             this.orderBottomInfoContent.CssEditorToolBar = "contentEditorToolbar";
             this.orderBottomInfoContent.CssEditorContent = "contentEditorContent";
-            /*
-              <cmsPage:PageControl ID="genericPage" IsEditing="false" runat="server" CssEditorToolBar="contentEditorToolbar" CssEditorContent="contentEditorContent" NewUrl="~/admin/page.aspx"
-                    ManageUrl="~/admin/pages.aspx" NotFoundUrlFormat="~/notFound.aspx?page={0}" PageName="anonymous-registration-content" PopUpEditorUrlFormat="~/admin/contentEditor.aspx?id={0}" />
-            */
 
             this.btnSave = new Button();
+            this.btnSave.ID = "btnSave";
+            this.btnSave.Attributes.Add("name", "btnSave");
             this.btnSave.CssClass = "button-save";
             this.btnSave.CausesValidation = true;
             this.btnSave.Text = SHP.Resources.Controls.SaveButton_Text.ToUpper();
@@ -380,6 +364,8 @@ namespace Eurona.Controls {
             this.btnSave.Visible = this.IsEditing;
 
             this.btnOrder = new Button();
+            this.btnOrder.ID = "btnOrder";
+            this.btnOrder.Attributes.Add("name", "btnOrder");
             this.btnOrder.CssClass = "button-order-disabled";
             this.btnOrder.CausesValidation = true;
             this.btnOrder.Text = Resources.EShopStrings.CartControl_OrderAndPayButton_Text.ToUpper();
@@ -388,6 +374,7 @@ namespace Eurona.Controls {
             this.btnOrder.Enabled = false;
             #region Address
             RoundPanel rpAddress = new RoundPanel();
+            rpAddress.ID = "rpAddress";
             rpAddress.CssClass = "roundPanel";
             rpOrderProducts.Controls.Add(rpAddress);
 
@@ -404,6 +391,7 @@ namespace Eurona.Controls {
             #region Addresses
             bool isOperator = Security.IsLogged(false) && Security.Account.IsInRole(Role.OPERATOR);
             this.addressDeliveryControl = new AddressControl();
+            this.addressDeliveryControl.ID = "addressDeliveryControl";
             this.addressDeliveryControl.Width = Unit.Percentage(100);
             this.addressDeliveryControl.IsEditing = this.IsEditing;
             this.addressDeliveryControl.AddressId = this.OrderEntity.DeliveryAddressId;
@@ -416,7 +404,6 @@ namespace Eurona.Controls {
             //Tlacidla
             Table buttonsTable = new Table();
             buttonsTable.CssClass = "order-buttons-table";
-            //buttonsTable.Attributes.Add("border", "1px");
             buttonsTable.Width = Unit.Percentage(100);
 
             row = new TableRow(); buttonsTable.Rows.Add(row);
@@ -427,21 +414,6 @@ namespace Eurona.Controls {
             //Add custom content page
             row = new TableRow(); buttonsTable.Rows.Add(row);
             cell = new TableCell(); cell.ColumnSpan = 2; row.Cells.Add(cell); cell.Controls.Add(this.orderBottomInfoContent);
-
-            //Approval
-            //row = new TableRow(); buttonsTable.Rows.Add(row);
-            //this.cbApproval.CssClass = "order-buttons-checkbox";
-            //cell = new TableCell(); row.Cells.Add(cell); cell.Controls.Add(cbApproval);
-            //cell.ColumnSpan = 2;
-            //cell.CssClass = "order-buttons-checkbox";
-
-            //string obchodniPodminkyLink = "~/userfiles/OBCHODNÍ PODMÍNKY CZ.pdf";
-            ////string locale = System.Threading.Thread.CurrentThread.CurrentUICulture.TwoLetterISOLanguageName.ToLower();
-            ////if (locale == "pl") obchodniPodminkyLink = "~/userfiles/WARUNKI UMOWY PL.pdf";
-            ////string htmlElement = string.Format(Resources.EShopStrings.AdminOrderControl_approval_text, Page.ResolveUrl(obchodniPodminkyLink), Page.ResolveUrl("~/userfiles/SMLUVNÍ PODMÍNKY CZ.pdf"));
-            //string htmlElement = string.Format(Resources.EShopStrings.AdminOrderControl_approval_text, Page.ResolveUrl(obchodniPodminkyLink));
-            //LiteralControl hlObchodniPodminky = new LiteralControl(htmlElement);
-            //cell.Controls.Add(hlObchodniPodminky);
 
             HtmlGenericControl divBtnSave = new HtmlGenericControl();
             divBtnSave.Controls.Add(btnSave);
@@ -469,6 +441,7 @@ namespace Eurona.Controls {
 
             RoundPanel rpButtons = new RoundPanel();
             rpButtons.CssClass = "roundPanel";
+            rpButtons.ID = "rpButtons";
             rpOrderProducts.Controls.Add(rpButtons);
 
             //Update Panel AJAX
@@ -476,22 +449,12 @@ namespace Eurona.Controls {
             this.updatePanel.ID = "updatePanelCart";
             this.updatePanel.ContentTemplateContainer.Controls.Add(buttonsTable);
             UpdateProgressControl upp = new UpdateProgressControl();
+            upp.ID = "upp";
             upp.AssociatedUpdatePanelID = this.updatePanel.ID;
             upp.CssClass = "cart-update-progress";
             rpButtons.Controls.Add(updatePanel);
             rpButtons.Controls.Add(upp);
             rpButtons.Visible = this.IsEditing;
-            /*
-			//Update Panel AJAX
-			this.updatePanel = new UpdatePanel();
-			this.updatePanel.ID = "updatePanelCart";
-			this.updatePanel.ContentTemplateContainer.Controls.Add(buttonsTable);
-			UpdateProgressControl upp = new UpdateProgressControl();
-			upp.AssociatedUpdatePanelID = this.updatePanel.ID;
-			upp.CssClass = "cart-update-progress";
-			rpOrderProducts.Controls.Add(upp);
-			rpOrderProducts.Controls.Add(updatePanel);
-            */
             #endregion
 
             this.Controls.Add(rpOrderProducts);
@@ -543,22 +506,49 @@ namespace Eurona.Controls {
                    }  
                    return true;                 
                 }";
+            string submit_function_script = @"function fnOnOrderSubmit()
+                {
+                   var btnOrder = document.getElementById('" + this.btnOrder.ClientID + @"');
+                   btnOrder.disabled = true;
+                   btnOrder.className = 'button-order-disabled';    
+                    
+                    $.blockUI({ 
+                        message: '<h3>" + Resources.Strings.Please_Wait + @"</h3>',
+                        overlayCSS: { backgroundColor: '#333' },
+                        css: { 
+                        border: 'none', 
+                        padding: '15px', 
+                        backgroundColor: '#fff', 
+                        '-webkit-border-radius': '10px', 
+                        '-moz-border-radius': '10px', 
+                        opacity: 1, 
+                        color: '#EA008A'
+                    } }); 
+                }";
 
             Page.ClientScript.RegisterClientScriptBlock(this.GetType(), "update_function_validator", function_script, true);
-            //Page.ClientScript.RegisterOnSubmitStatement(this.GetType(), "on_update_function_validator", "fnOnUpdateValidators();");
+            Page.ClientScript.RegisterClientScriptBlock(this.GetType(), "function_onOrderSubmit", submit_function_script, true);
+            Page.ClientScript.RegisterOnSubmitStatement(this.GetType(), "on_order_submit_script", "fnOnOrderSubmit();");
 
             //29.04.2014
             this.btnOrder.CssClass = "button-order";
             this.btnOrder.Enabled = true;
 
             ////Didable double click
-            string clickHandler = "if(fnOnUpdateValidators()){document.body.style.cursor='wait'; this.value='Probíhá objednávka...'; this.disabled=true; this.className='button-order-disabled';" + Page.ClientScript.GetPostBackEventReference(this.btnOrder, string.Empty) + ";return false;}else{return false;}";
+            string clickHandler = @"if(fnOnUpdateValidators()){
+                document.body.style.cursor='wait'; 
+                this.value='Probíhá objednávka...'; 
+                this.disabled=true; 
+                this.className='button-order-disabled';" + 
+                Page.ClientScript.GetPostBackEventReference(this.btnOrder, string.Empty) + 
+                @";return false;}else{return false;}";
             this.btnOrder.Attributes.Add("onclick", clickHandler);
-            //this.btnOrder.Attributes.Clear();
 
             //Binding
             GridViewDataBind(this.OrderEntity, !IsPostBack);
         }
+
+        
 
         void ddlShipment_SelectedIndexChanged(object sender, EventArgs e) {
             this.OrderEntity.NoPostage = this.cbNoPostage.Checked;
@@ -568,8 +558,6 @@ namespace Eurona.Controls {
             this.RecalculateOrder();
             UpdateDopravneUIbyOrder();
 
-            //this.lcDopravne.Text = SHP.Utilities.CultureUtilities.CurrencyInfo.ToString(OrderEntity.CartEntity.DopravneEurosap, this.Session);
-            //TODO:20171205
             this.lcDopravne.Text = Eurona.Common.Utilities.CultureUtilities.CurrencyInfo.ToString(OrderEntity.CartEntity.DopravneEurosap, OrderEntity.CurrencySymbol);
             this.lblFakturovanaCena.Text = Eurona.Common.Utilities.CultureUtilities.CurrencyInfo.ToString(this.OrderEntity.PriceWVAT, this.OrderEntity.CurrencySymbol);
         }
@@ -625,14 +613,11 @@ namespace Eurona.Controls {
         }
 
         private void UpdateDopravneUIbyOrder() {
-            //this.lcDopravne.Text = SHP.Utilities.CultureUtilities.CurrencyInfo.ToString(OrderEntity.CartEntity.DopravneEurosap, this.Session);
-            //TODO:20171205
             this.lcDopravne.Text = Eurona.Common.Utilities.CultureUtilities.CurrencyInfo.ToString(OrderEntity.CartEntity.DopravneEurosap, OrderEntity.CurrencySymbol);
             this.lblFakturovanaCena.Text = Eurona.Common.Utilities.CultureUtilities.CurrencyInfo.ToString(this.OrderEntity.PriceWVAT, this.OrderEntity.CurrencySymbol);
         }
 
         private void GridViewDataBind(OrderEntity order, bool bind) {
-            //CMS.EvenLog.WritoToEventLog("AdminOrderControl->GridViewDataBind->order.CartEntity.Locale = " + order.CartEntity.Locale, EventLogEntryType.Information);
             List<CartProductEntity> list = Storage<CartProductEntity>.Read(new CartProductEntity.ReadByCart { CartId = order.CartId, Locale = order.CartEntity.Locale });
 
             this.dataGrid.PagerTemplate = null;
@@ -645,6 +630,8 @@ namespace Eurona.Controls {
 
         private GridView CreateGridControl() {
             GridView grid = new GridView();
+            grid.ID = "dgProducts";
+            grid.Attributes.Add("name", "dgProducts");
             grid.EnableViewState = true;
             grid.GridLines = GridLines.None;
             grid.Style.Add("margin-top", "5px");
@@ -686,19 +673,15 @@ namespace Eurona.Controls {
                     UpdateDopravneUIbyOrder();
 
                     this.lcBodyByEurosap.Text = OrderEntity.CartEntity.BodyEurosapTotal.ToString("F1");
-                    //this.lcKatalogovaCenaCelkemByEurosap.Text = SHP.Utilities.CultureUtilities.CurrencyInfo.ToString(OrderEntity.CartEntity.KatalogovaCenaCelkemByEurosap, this.Session);
-                    //TODO:20171205
                     this.lcKatalogovaCenaCelkemByEurosap.Text = Eurona.Common.Utilities.CultureUtilities.CurrencyInfo.ToString(OrderEntity.CartEntity.KatalogovaCenaCelkemByEurosap, OrderEntity.CurrencySymbol);
 
-
-                    //this.lcDopravne.Text = SHP.Utilities.CultureUtilities.CurrencyInfo.ToString(OrderEntity.CartEntity.DopravneEurosap, this.Session);
-                    //TODO:20171205
                     this.lcDopravne.Text = Eurona.Common.Utilities.CultureUtilities.CurrencyInfo.ToString(OrderEntity.CartEntity.DopravneEurosap, OrderEntity.CurrencySymbol);
                     this.lblFakturovanaCena.Text = Eurona.Common.Utilities.CultureUtilities.CurrencyInfo.ToString(this.OrderEntity.PriceWVAT, this.OrderEntity.CurrencySymbol);
 
                 }
 
-                GridViewDataBind(this.OrderEntity, true);
+                GridViewDataBind(this.OrderEntity, false);
+                Response.Redirect(this.Request.RawUrl);
             };
 
             SlevyDetailTemplate slevyTemplate = new SlevyDetailTemplate(this.CssClass, this.OrderEntity.Id);
@@ -741,13 +724,7 @@ namespace Eurona.Controls {
                 HeaderText = "Body",
                 SortExpression = "BodyCelkem"
             });
-            //grid.Columns.Add( new Eurona.Common.Controls.PriceField
-            //{
-            //    DataField = "KatalogPriceWVATTotal",
-            //    CurrencySymbolDataField = "CurrencySymbol",
-            //    HeaderText = "Katalogová cena celkem",
-            //    SortExpression = "KatalogPriceWVATTotal",
-            //} );
+
             grid.Columns.Add(new Eurona.Common.Controls.PriceField {
                 DataField = "KatalogPriceWVATTotal",
                 CurrencySymbolDataField = "CurrencySymbol",
@@ -822,25 +799,6 @@ namespace Eurona.Controls {
 
         void grid_RowDataBound(object sender, GridViewRowEventArgs e) {
             if (e.Row.RowType == DataControlRowType.Footer) {
-                //CartEntity cart = this.OrderEntity.CartEntity;
-
-                ////Cena celkom/Cena celkom s DPH
-                //string price = string.Empty;
-                //price = string.Format( "Body celkem : {0}&nbsp;&nbsp;&nbsp;&nbsp;Cena celkem : {1}", cart.BodyCelkem,
-                //SHP.Utilities.CultureUtilities.CurrencyInfo.ToString( this.OrderEntity.PriceWVAT, this.Session ) );
-
-                //if ( !IsPostBack )
-                //{
-                //    e.Row.Cells[0].Text = SHP.Resources.Controls.CartControl_ColumnPriceTotal;
-                //    e.Row.Cells.RemoveAt( e.Row.Cells.Count - 1 );
-                //    e.Row.Cells.RemoveAt( e.Row.Cells.Count - 1 );
-                //    e.Row.Cells.RemoveAt( e.Row.Cells.Count - 1 );
-                //    int lastCellIndex = e.Row.Cells.Count - 1;
-                //    e.Row.Cells[lastCellIndex].Text = price;
-                //    e.Row.Cells[lastCellIndex].ColumnSpan = 4;
-                //    e.Row.Cells[lastCellIndex].HorizontalAlign = HorizontalAlign.Right;
-                //    e.Row.Font.Bold = true;
-                //}
             } else if (e.Row.RowType == DataControlRowType.DataRow) {
                 #region Slevy
                 Image collpaseExpand = (Image)e.Row.FindControl("CollpaseExpand");
@@ -860,6 +818,7 @@ namespace Eurona.Controls {
                     hlBK.NavigateUrl = Page.ResolveUrl("~/user/advisor/bonusoveKredity.aspx");
                     hlBK.ToolTip = "Čerpání bonusových kreditů";
                     Image img = new Image();
+                    img.ID = "imgCerpatBK";
                     img.ImageUrl = Page.ResolveUrl("~/images/gift.png");
                     hlBK.Controls.Add(img);
                 }
@@ -898,13 +857,8 @@ namespace Eurona.Controls {
             UpdateDopravneUIbyOrder();
 
             this.lcBodyByEurosap.Text = OrderEntity.CartEntity.BodyEurosapTotal.ToString("F1");
-            //this.lcKatalogovaCenaCelkemByEurosap.Text = SHP.Utilities.CultureUtilities.CurrencyInfo.ToString(OrderEntity.CartEntity.KatalogovaCenaCelkemByEurosap, this.Session);
-            //TODO:20171205
             this.lcKatalogovaCenaCelkemByEurosap.Text = Eurona.Common.Utilities.CultureUtilities.CurrencyInfo.ToString(OrderEntity.CartEntity.KatalogovaCenaCelkemByEurosap, OrderEntity.CurrencySymbol);
 
-
-            //this.lcDopravne.Text = SHP.Utilities.CultureUtilities.CurrencyInfo.ToString(OrderEntity.CartEntity.DopravneEurosap, this.Session);
-            //TODO:20171205
             this.lcDopravne.Text = Eurona.Common.Utilities.CultureUtilities.CurrencyInfo.ToString(OrderEntity.CartEntity.DopravneEurosap, OrderEntity.CurrencySymbol);
             this.lblFakturovanaCena.Text = Eurona.Common.Utilities.CultureUtilities.CurrencyInfo.ToString(this.OrderEntity.PriceWVAT, this.OrderEntity.CurrencySymbol);
 
@@ -912,12 +866,12 @@ namespace Eurona.Controls {
         }
 
         void OnSave(object sender, EventArgs e) {
+            if (this.OrderEntity.DeliveryAddress == null) return;
             this.addressDeliveryControl.UpdateAddress(this.OrderEntity.DeliveryAddress);
             if (this.dtpShipmentFrom != null) this.OrderEntity.ShipmentFrom = this.dtpShipmentFrom.Value != null ? Convert.ToDateTime(this.dtpShipmentFrom.Value) : (DateTime?)null;
             if (this.dtpShipmentTo != null) this.OrderEntity.ShipmentTo = this.dtpShipmentTo.Value != null ? Convert.ToDateTime(this.dtpShipmentTo.Value) : (DateTime?)null;
 
             //Validate PSČ
-
             AccountEntity account = Storage<AccountEntity>.ReadFirst(new AccountEntity.ReadById { AccountId = this.OrderEntity.AccountId });
             string message = Eurona.Common.PSCHelper.ValidatePSCByPSC(this.OrderEntity.DeliveryAddress.Zip, this.OrderEntity.DeliveryAddress.City, this.OrderEntity.DeliveryAddress.State);
             if (message != string.Empty) {
@@ -1041,14 +995,6 @@ namespace Eurona.Controls {
                     if (lastOrderAddress.Id == 0) Storage<LastOrderAddressEntity>.Create(lastOrderAddress);
                     else Storage<LastOrderAddressEntity>.Update(lastOrderAddress);
 
-                    //OrganizationEntity advisor = Storage<OrganizationEntity>.ReadFirst(new OrganizationEntity.ReadByAccountId { AccountId = Security.Account.Id });
-                    //ShpAddressEntity address = Storage<ShpAddressEntity>.ReadFirst(new ShpAddressEntity.ReadById { AddressId = this.OrderEntity.DeliveryAddressId.Value });
-                    //if (address != null) {
-                    //    advisor.CorrespondenceAddress.Street = address.Street;
-                    //    advisor.CorrespondenceAddress.City = address.City;
-                    //    advisor.CorrespondenceAddress.Zip = address.Zip;
-                    //    Storage<AddressEntity>.Update(advisor.CorrespondenceAddress);
-                    //}
                 }
             } else return;
 

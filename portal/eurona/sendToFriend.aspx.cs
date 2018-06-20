@@ -12,6 +12,7 @@ namespace Eurona {
     public partial class sendToFriend : WebPage {
         private int productId;
         protected void Page_Load(object sender, EventArgs e) {
+            return;
             if (string.IsNullOrEmpty(Request["productId"]))
                 return;
 
@@ -48,6 +49,7 @@ namespace Eurona {
         }
 
         protected void OnSendEmail(object sender, EventArgs e) {
+            return;
             if (string.IsNullOrEmpty(this.txtEmailFrom.Text)) return;
             if (string.IsNullOrEmpty(this.txtFrom.Text)) return;
             if (string.IsNullOrEmpty(this.txtEmailTo.Text)) return;

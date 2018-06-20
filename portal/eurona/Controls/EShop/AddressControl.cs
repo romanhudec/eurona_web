@@ -503,6 +503,7 @@ namespace Eurona.Controls {
             this.lNameEnabled = true;//enabled;
         }
         public ShpAddress UpdateEntityFromUI(ShpAddress address) {
+            if (address == null) return address;
             address.FirstName = this.txtFirstName.Text;
             address.LastName = this.txtLastName.Text;
             address.Organization = this.txtOrganization.Text;
@@ -550,6 +551,7 @@ namespace Eurona.Controls {
         }
 
         public ShpAddress UpdateAddress(ShpAddress address) {
+            if (address == null) return null;
             address = UpdateEntityFromUI(address);
             Storage<ShpAddress>.Update(address);
             return address;

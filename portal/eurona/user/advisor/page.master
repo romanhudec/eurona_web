@@ -66,6 +66,7 @@
     <script src="<%=Root%>javascripts/mothiva.ajax.js" type="text/javascript"></script>
     <script src="<%=Root%>javascripts/mothiva.dom.js" type="text/javascript"></script>
     <script src="<%=Root%>javascripts/countDown.js" type="text/javascript"></script>
+    <script src="<%=Root%>javascripts/jquery.blockUI.js" type="text/javascript"></script>
                
     <div class="page">
         <!--[if gte IE 8]>
