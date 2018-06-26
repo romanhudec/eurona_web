@@ -16,16 +16,16 @@ namespace Eurona.EShop.User {
             {
                 Response.Cache.SetNoStore(); // No client side cashing for non IE browsers
             }
-            //if (!IsPostBack) {
-            //    Response.Buffer = true;
-            //    Response.CacheControl = "no-cache";
-            //    Response.AddHeader("Pragma", "no-cache");
-            //    Response.AppendHeader("Cache-Control", "no-store");
-            //    Response.Expires = -1441;
-            //    Response.Cache.SetCacheability(HttpCacheability.NoCache);
-            //    Response.Cache.SetExpires(DateTime.Now.AddSeconds(-1));
-            //    Response.Cache.SetNoStore();
-            //}
+            if (!IsPostBack) {
+                Response.Buffer = true;
+                Response.CacheControl = "no-cache";
+                Response.AddHeader("Pragma", "no-cache");
+                Response.AppendHeader("Cache-Control", "no-store");
+                Response.Expires = -1441;
+                Response.Cache.SetCacheability(HttpCacheability.NoCache);
+                Response.Cache.SetExpires(DateTime.Now.AddSeconds(-1));
+                Response.Cache.SetNoStore();
+            }
 
             if (!string.IsNullOrEmpty(this.Request["id"])) {
                 this.order = Storage<OrderEntity>.ReadFirst(new OrderEntity.ReadById { OrderId = Convert.ToInt32(Request["id"]) });

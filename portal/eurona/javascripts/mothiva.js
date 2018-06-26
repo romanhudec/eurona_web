@@ -236,4 +236,36 @@ function ExpandCollapseGridViewDetail(image, index, colspan)
             row.className = "dataGrid_alternatingRowStyle";
         }
     }
- }
+}
+
+function blockUIProcessing(message) {
+    $.blockUI({
+        message: "<h3>" + message + "</h3><p>",
+        overlayCSS: { backgroundColor: '#333' },
+        css: {
+            border: 'none',
+            padding: '15px',
+            backgroundColor: '#fff',
+            '-webkit-border-radius': '10px',
+            '-moz-border-radius': '10px',
+            opacity: 1,
+            color: '#EA008A'
+        }
+    });
+}
+function blockUIAlert(title, message) {
+    document.body.style.cursor = 'default';
+    $.blockUI({
+        message: "<h2 style='color:black;'>" + title + "</h2><h3>" + message + "</h3><p> <input  onclick='$.unblockUI();' type='button' value='OK' class='button' id='block-ui-dialog-btn' style='padding:5px;width:80px;height:30px;'></p>",
+        overlayCSS: { backgroundColor: '#333' },
+        css: {
+            border: 'none',
+            padding: '15px',
+            backgroundColor: '#fff',
+            '-webkit-border-radius': '10px',
+            '-moz-border-radius': '10px',
+            opacity: 1,
+            color: '#EA008A'
+        }
+    });
+}

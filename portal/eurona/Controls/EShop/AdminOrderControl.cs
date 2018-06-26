@@ -492,7 +492,7 @@ namespace Eurona.Controls {
                       if (ctrl != null && ctrl.style != null)
                       {
                          if (!val.isvalid){
-                            ctrl.style.background = '#EFB6E6';//'#FFAAAA';
+                            ctrl.style.background = '#EFB6E6';
                             isAllValid = false;
                          }
                          else
@@ -502,53 +502,45 @@ namespace Eurona.Controls {
                    if( !isAllValid ){
                         btnOrder.disabled = false;
                         btnOrder.className = 'button-order';
+                        $.unblockUI();
                         return false;
                    }  
                    return true;                 
                 }";
-            string submit_function_script = @"function fnOnOrderSubmit()
+            string submit_function_script = @"function fnOnPageSubmit()
                 {
                    var btnOrder = document.getElementById('" + this.btnOrder.ClientID + @"');
                    btnOrder.disabled = true;
                    btnOrder.className = 'button-order-disabled';    
                     
-                    $.blockUI({ 
-                        message: '<h3>" + Resources.Strings.Please_Wait + @"</h3>',
-                        overlayCSS: { backgroundColor: '#333' },
-                        css: { 
-                        border: 'none', 
-                        padding: '15px', 
-                        backgroundColor: '#fff', 
-                        '-webkit-border-radius': '10px', 
-                        '-moz-border-radius': '10px', 
-                        opacity: 1, 
-                        color: '#EA008A'
-                    } }); 
+                   blockUIProcessing('" + Resources.Strings.Please_Wait + @"');                   
                 }";
 
             Page.ClientScript.RegisterClientScriptBlock(this.GetType(), "update_function_validator", function_script, true);
-            Page.ClientScript.RegisterClientScriptBlock(this.GetType(), "function_onOrderSubmit", submit_function_script, true);
-            Page.ClientScript.RegisterOnSubmitStatement(this.GetType(), "on_order_submit_script", "fnOnOrderSubmit();");
+            Page.ClientScript.RegisterClientScriptBlock(this.GetType(), "function_onPageSubmit", submit_function_script, true);
+            Page.ClientScript.RegisterOnSubmitStatement(this.GetType(), "on_order_submit_script", "fnOnPageSubmit();");
 
             //29.04.2014
             this.btnOrder.CssClass = "button-order";
             this.btnOrder.Enabled = true;
 
-            ////Didable double click
-            string clickHandler = @"if(fnOnUpdateValidators()){
-                document.body.style.cursor='wait'; 
+            string orderClickHandler = @"if(fnOnUpdateValidators()){
                 this.value='Probíhá objednávka...'; 
                 this.disabled=true; 
                 this.className='button-order-disabled';" + 
                 Page.ClientScript.GetPostBackEventReference(this.btnOrder, string.Empty) + 
                 @";return false;}else{return false;}";
-            this.btnOrder.Attributes.Add("onclick", clickHandler);
+            this.btnOrder.Attributes.Add("onclick", orderClickHandler);
+
+            string saveClickHandler = @"if(fnOnUpdateValidators()){" +
+            Page.ClientScript.GetPostBackEventReference(this.btnSave, string.Empty) +
+            @";return false;}else{return false;}";
+            this.btnSave.Attributes.Add("onclick", saveClickHandler);
 
             //Binding
             GridViewDataBind(this.OrderEntity, !IsPostBack);
         }
-
-        
+                
 
         void ddlShipment_SelectedIndexChanged(object sender, EventArgs e) {
             this.OrderEntity.NoPostage = this.cbNoPostage.Checked;
@@ -871,15 +863,15 @@ namespace Eurona.Controls {
             if (this.dtpShipmentFrom != null) this.OrderEntity.ShipmentFrom = this.dtpShipmentFrom.Value != null ? Convert.ToDateTime(this.dtpShipmentFrom.Value) : (DateTime?)null;
             if (this.dtpShipmentTo != null) this.OrderEntity.ShipmentTo = this.dtpShipmentTo.Value != null ? Convert.ToDateTime(this.dtpShipmentTo.Value) : (DateTime?)null;
 
-            //Validate PSČ
+            //Validate PSČ                  
             AccountEntity account = Storage<AccountEntity>.ReadFirst(new AccountEntity.ReadById { AccountId = this.OrderEntity.AccountId });
             string message = Eurona.Common.PSCHelper.ValidatePSCByPSC(this.OrderEntity.DeliveryAddress.Zip, this.OrderEntity.DeliveryAddress.City, this.OrderEntity.DeliveryAddress.State);
             if (message != string.Empty) {
-                string js = string.Format(@"alert('{0}');" +
+                string js = string.Format("blockUIAlert('Chyba', '{0}');" +
                 @"document.getElementById('" + this.addressDeliveryControl.GetCityClientID() + @"').value ='';" +
                 @"document.getElementById('" + this.addressDeliveryControl.GetCityClientID() + @"').style.backgroundColor='#EFB6E6';" +
                 @"document.getElementById('" + this.addressDeliveryControl.GetZipClientID() + @"').style.backgroundColor='#EFB6E6';" +
-                @"document.getElementById('" + this.addressDeliveryControl.GetZipClientID() + @"').value = '';", message);
+                @"document.getElementById('" + this.addressDeliveryControl.GetZipClientID() + @"').value = '';", message);             
                 ScriptManager.RegisterStartupScript(this.updatePanel, this.updatePanel.GetType(), "addValidatePSC", js, true);
                 return;
             }
@@ -887,7 +879,7 @@ namespace Eurona.Controls {
             //Validate STATE
             message = Eurona.Common.PSCHelper.ValidateState(this.OrderEntity.DeliveryAddress.State);
             if (message != string.Empty) {
-                string js = string.Format("alert('{0}');", message);
+                string js = string.Format("blockUIAlert('Chyba', '{0}');", message);
                 ScriptManager.RegisterStartupScript(this.updatePanel, this.updatePanel.GetType(), "addValidateState", js, true);
                 return;
             }
@@ -925,7 +917,7 @@ namespace Eurona.Controls {
             //Validate STATE
             string message = Eurona.Common.PSCHelper.ValidateState(this.OrderEntity.DeliveryAddress.State);
             if (message != string.Empty) {
-                string js = string.Format("alert('{0}');", message);
+                string js = string.Format("blockUIAlert('Chyba', '{0}');", message);
                 ScriptManager.RegisterStartupScript(this.updatePanel, this.updatePanel.GetType(), "addValidateState", js, true);
                 return;
             }
@@ -934,7 +926,7 @@ namespace Eurona.Controls {
             AccountEntity account = Storage<AccountEntity>.ReadFirst(new AccountEntity.ReadById { AccountId = this.OrderEntity.AccountId });
             message = Eurona.Common.PSCHelper.ValidatePSCByPSC(this.OrderEntity.DeliveryAddress.Zip, this.OrderEntity.DeliveryAddress.City, this.OrderEntity.DeliveryAddress.State);
             if (message != string.Empty) {
-                string js = string.Format(@"alert('{0}');" +
+                string js = string.Format("blockUIAlert('Chyba', '{0}');" +
                 @"document.getElementById('" + this.addressDeliveryControl.GetCityClientID() + @"').value ='';" +
                 @"document.getElementById('" + this.addressDeliveryControl.GetCityClientID() + @"').style.backgroundColor='#EFB6E6';" +
                 @"document.getElementById('" + this.addressDeliveryControl.GetZipClientID() + @"').style.backgroundColor='#EFB6E6';" +

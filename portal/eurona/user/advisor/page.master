@@ -62,7 +62,7 @@
     <%//-- Definicia ScripManagera AJAX, TELERIK %>
     <asp:ScriptManager id="ScriptManager" runat="server"/> 
         
-    <script src="<%=Root%>javascripts/mothiva.js" type="text/javascript"></script>
+    <script src="<%=Root%>javascripts/mothiva.js?20180626" type="text/javascript"></script>
     <script src="<%=Root%>javascripts/mothiva.ajax.js" type="text/javascript"></script>
     <script src="<%=Root%>javascripts/mothiva.dom.js" type="text/javascript"></script>
     <script src="<%=Root%>javascripts/countDown.js" type="text/javascript"></script>
