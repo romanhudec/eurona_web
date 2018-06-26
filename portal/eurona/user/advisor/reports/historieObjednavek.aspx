@@ -16,12 +16,8 @@
         <GroupingSettings CaseSensitive="false" />
         <MasterTableView TableLayout="Fixed" AllowFilteringByColumn="false" PageSize = "50">
             <Columns>                
-           <%--     <telerik:GridHyperLinkColumn HeaderText="Č. objednávky" DataTextField="id_web_objednavky" DataType="System.String" DataNavigateUrlFields="id_prepoctu" UniqueName="id_web_objednavky" HeaderStyle-Width="80px" DataNavigateUrlFormatString="~/user/advisor/reports/Objednavka.aspx?id={0}" Target="_blank"
-                    SortExpression="id_web_objednavky" AutoPostBackOnFilter="true" CurrentFilterFunction="Contains" ShowFilterIcon="false" />--%>
                 <telerik:GridTemplateColumn HeaderText="Č. objednávky" HeaderStyle-Width="80px"> 
                     <ItemTemplate>
-                        <%--<asp:LinkButton ID="btnlnk" runat="server" Text='<%# Eval("id_web_objednavky") %>' Value='<%# Eval("id_web_objednavky") %>' OnClick="onOrderDetailClick"></asp:LinkButton>--%>
-                        <%--<asp:LinkButton ID="btnlnk" runat="server" Text='<%# Eval("id_web_objednavky") %>' Value='<%# Eval("id_web_objednavky") %>' OnClientClick='<%# "showOrder(" + Eval("id_web_objednavky") + ");" %>'></asp:LinkButton>--%>
                         <a ID="btnlnk" runat="server" href='<%# GetObjednavkaUrl(Eval("id_web_objednavky"))%>' target="_blank"><%# Eval("id_web_objednavky") %></a>
                     </ItemTemplate>
                 </telerik:GridTemplateColumn>
@@ -32,13 +28,6 @@
                 <telerik:GridBoundColumn HeaderText="Katalogová cena" DataField="celkem_katalogova_cena" UniqueName="celkem_katalogova_cena" HeaderStyle-Width="80px" ItemStyle-HorizontalAlign="Right" HeaderStyle-HorizontalAlign="Right"
                     SortExpression="celkem_katalogova_cena" AutoPostBackOnFilter="true" CurrentFilterFunction="Contains" ShowFilterIcon="false" DataFormatString="{0:F2}" />
 
-                <%--   
-                <telerik:GridBoundColumn HeaderText="Cena bez DPH" DataField="celkem_bez_dph" UniqueName="celkem_bez_dph" HeaderStyle-Width="90px" ItemStyle-HorizontalAlign="Right" HeaderStyle-HorizontalAlign="Right"
-                    SortExpression="celkem_bez_dph" AutoPostBackOnFilter="true" CurrentFilterFunction="Contains" ShowFilterIcon="false" DataFormatString="{0:F2}" />
-                
-                <telerik:GridBoundColumn HeaderText="DPH" DataField="dph_zs" UniqueName="dph_zs" HeaderStyle-Width="50px" ItemStyle-HorizontalAlign="Right" HeaderStyle-HorizontalAlign="Right"
-                    SortExpression="dph_zs" AutoPostBackOnFilter="false" CurrentFilterFunction="Contains" AllowFiltering="false" ShowFilterIcon="false" DataFormatString="{0:F2}" />
-            --%>
                 <telerik:GridBoundColumn HeaderText="Cena s DPH" DataField="celkem_k_uhrade" UniqueName="celkem_k_uhrade" HeaderStyle-Width="80px" ItemStyle-HorizontalAlign="Right" HeaderStyle-HorizontalAlign="Right"
                     SortExpression="celkem_k_uhrade" AutoPostBackOnFilter="false" AllowFiltering="false" CurrentFilterFunction="Contains" ShowFilterIcon="false" DataFormatString="{0:F2}" />
 

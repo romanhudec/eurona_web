@@ -301,7 +301,7 @@
     <value>Create order</value>
   </data>
   <data name="OrderControl_Shipment" xml:space="preserve">
-    <value>Shipment :</value>
+    <value>Zvolte dopravce :</value>
   </data>
   <data name="CartControl_ColumnId" xml:space="preserve">
     <value>Order number</value>

@@ -32,7 +32,7 @@ namespace Eurona.User.Anonymous {
 
             if (org.ParentId.HasValue) {
                 Organization parentOrg = Storage<Organization>.ReadFirst(new Organization.ReadByTVDId { TVD_Id = org.ParentId.Value });
-                if (parentOrg != null && parentOrg.Code != Organization.EURONA_CODE) {
+                if (parentOrg != null && parentOrg.Account != null && parentOrg.Code != Organization.EURONA_CODE) {
                     this.divPoradce.Visible = true;
                     this.lblEmail.Text = parentOrg.Account.Email;
                     this.lblMobil.Text = parentOrg.ContactMobile;

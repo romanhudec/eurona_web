@@ -48,11 +48,8 @@
                 <telerik:GridBoundColumn HeaderText="Jméno" DataField="Dor_nazev_firmy" UniqueName="Dor_nazev_firmy" HeaderStyle-Width="100px"
                     SortExpression="Dor_nazev_firmy" AutoPostBackOnFilter="true" AllowFiltering="true" CurrentFilterFunction="Contains" ShowFilterIcon="false" />
 
-<%--                <telerik:GridHyperLinkColumn HeaderText="Č. objednávky" DataTextField="id_web_objednavky" DataType="System.String" DataNavigateUrlFields="id_web_objednavky" UniqueName="id_web_objednavky" HeaderStyle-Width="80px" DataNavigateUrlFormatString="~/user/advisor/reports/Objednavka.aspx?cislo={0}" Target="_blank"
-                    SortExpression="id_web_objednavky" AutoPostBackOnFilter="true" CurrentFilterFunction="Contains" ShowFilterIcon="false" AllowFiltering="true"/>--%>
                 <telerik:GridTemplateColumn HeaderText="Č. objednávky" HeaderStyle-Width="80px"> 
                     <ItemTemplate>
-                        <%--<asp:LinkButton ID="btnlnk" runat="server" Text='<%# Eval("id_web_objednavky") %>' Value='<%# Eval("id_web_objednavky") %>' OnClientClick='<%# "showOrder(" + Eval("id_web_objednavky") + ");" %>'></asp:LinkButton>--%>
                         <a ID="btnlnk" runat="server" href='<%# GetObjednavkaUrl(Eval("id_web_objednavky"))%>' target="_blank"><%# Eval("id_web_objednavky") %></a>
                     </ItemTemplate>
                 </telerik:GridTemplateColumn>

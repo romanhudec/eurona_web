@@ -2033,6 +2033,15 @@ namespace Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Prosím čekejte ....
+        /// </summary>
+        internal static string Please_Wait {
+            get {
+                return ResourceManager.GetString("Please_Wait", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Accept terms and conditions.
         /// </summary>
         internal static string RegisterControl_AcceptTermsAndConditions {

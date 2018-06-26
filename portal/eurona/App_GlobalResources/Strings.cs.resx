@@ -1112,4 +1112,7 @@ www.euronabycerny.com</value>
   <data name="Navigation_GLS_SledovaniZasilky" xml:space="preserve">
     <value>Sledování zásilek</value>
   </data>
+  <data name="Please_Wait" xml:space="preserve">
+    <value>Prosím čekejte ...</value>
+  </data>
 </root>

@@ -56,6 +56,7 @@ namespace Eurona.Common.Controls {
 
             if (id == 0) return;
             CartProductEntity cartProduct = Storage<CartProductEntity>.ReadFirst(new CartProductEntity.ReadById { CartProductId = id });
+            if (cartProduct == null) return;
             if (cartProduct.MaximalniPocetVBaleni.HasValue) {
                 ProductEntity product = Storage<ProductEntity>.ReadFirst(new ProductEntity.ReadById { ProductId = cartProduct.ProductId });
 

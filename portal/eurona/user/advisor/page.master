@@ -62,10 +62,11 @@
     <%//-- Definicia ScripManagera AJAX, TELERIK %>
     <asp:ScriptManager id="ScriptManager" runat="server"/> 
         
-    <script src="<%=Root%>javascripts/mothiva.js" type="text/javascript"></script>
+    <script src="<%=Root%>javascripts/mothiva.js?20180626" type="text/javascript"></script>
     <script src="<%=Root%>javascripts/mothiva.ajax.js" type="text/javascript"></script>
     <script src="<%=Root%>javascripts/mothiva.dom.js" type="text/javascript"></script>
     <script src="<%=Root%>javascripts/countDown.js" type="text/javascript"></script>
+    <script src="<%=Root%>javascripts/jquery.blockUI.js" type="text/javascript"></script>
                
     <div class="page">
         <!--[if gte IE 8]>
@@ -218,18 +219,17 @@
                                     <a id="poolsLink" runat="server" href="~/user/advisor/polls.aspx"><asp:Literal ID="Literal4" runat="server" Text="<%$ Resources:Strings, Navigation_Polls %>"></asp:Literal></a>  
                                     <a id="articlesLink" runat="server" href="~/user/advisor/articleArchiv.aspx"><asp:Literal ID="Literal5" runat="server" Text="<%$ Resources:Strings, Navigation_ArchivedArticles %>"></asp:Literal></a>    
                                     <cmsMenu:VerticalMenuControl id="menu" Code="advisor-menu" runat="server" />
-                                    <br />
-                                   <%-- <a id="elmDPD" class="advisor-pagemenuparent" style="cursor:pointer;" onclick="showHideControl('elmDPDContainer')"><asp:Literal ID="Literal22" runat="server" Text="DPD"></asp:Literal></a>
-                                    <div id="elmDPDContainer" style="display:none;">
-                                    <a class="advisor-pagesubmenu" id="A2" runat="server" href="~/user/advisor/dpdpackage.aspx?typ=0"><asp:Literal ID="Literal2" runat="server" Text="<%$ Resources:Strings, Navigation_DPD_SledovaniZasilky %>"></asp:Literal></a> 
-                                    <a class="advisor-pagesubmenu" id="A1" runat="server" href="~/user/advisor/dpdpackage.aspx?typ=1"><asp:Literal ID="Literal1" runat="server" Text="<%$ Resources:Strings, Navigation_DPD_OnlineCasDoruceni %>"></asp:Literal></a> 
-                                    <a class="advisor-pagesubmenu" id="A18" runat="server" href="http://www.chcisvujbalik.cz/iuv/start.jsf;jsessionid=D855371727F85CC26BD127EE85A6F1E7" target="_blank"><asp:Literal ID="Literal21" runat="server" Text="<%$ Resources:Strings, Navigation_DPD_NedorucenaZasilka %>"></asp:Literal></a> 
-                                    <a class="advisor-pagesubmenu" id="A16" runat="server" href="http://dorucujemeradost.dpd.cz/dpd-kuryr" target="_blank"><asp:Literal ID="Literal16" runat="server" Text="<%$ Resources:Strings, Navigation_DPD_InformaceOMoznostiDoruceni %>"></asp:Literal></a> --%>
+                                    <br />                      
                                     <a id="elmGLS" class="advisor-pagemenuparent" style="cursor:pointer;" onclick="showHideControl('elmGLSContainer')"><asp:Literal ID="Literal22" runat="server" Text="GLS"></asp:Literal></a>
                                     <div id="elmGLSContainer" style="display:none;">
-                                    <a class="advisor-pagesubmenu" id="A2" runat="server" href="https://gls-group.eu/CZ/cs/sledovani-zasilek" target="_blank"><asp:Literal ID="Literal2" runat="server" Text="<%$ Resources:Strings, Navigation_GLS_SledovaniZasilky %>"></asp:Literal></a> 
-                                    <a class="advisor-pagesubmenu" id="A1" runat="server" href="http://mujbalik.eu/" target="_blank"><asp:Literal ID="Literal1" runat="server" Text="<%$ Resources:Strings, Navigation_GLS_MujBalik %>"></asp:Literal></a> 
+                                        <a class="advisor-pagesubmenu" id="A2" runat="server" href="https://gls-group.eu/CZ/cs/sledovani-zasilek" target="_blank"><asp:Literal ID="Literal2" runat="server" Text="<%$ Resources:Strings, Navigation_GLS_SledovaniZasilky %>"></asp:Literal></a> 
+                                        <a class="advisor-pagesubmenu" id="A1" runat="server" href="http://mujbalik.eu/" target="_blank"><asp:Literal ID="Literal1" runat="server" Text="<%$ Resources:Strings, Navigation_GLS_MujBalik %>"></asp:Literal></a> 
                                     </div>
+                                    <a id="elmDPD" class="advisor-pagemenuparent" style="cursor:pointer;" onclick="showHideControl('elmDPDContainer')"><asp:Literal runat="server" Text="DPD"></asp:Literal></a>
+                                    <div id="elmDPDContainer" style="display:none;">
+                                        <a class="advisor-pagesubmenu" runat="server" href="https://www.dpdkuryr.cz/home/parcel" target="_blank"><asp:Literal runat="server" Text="<%$ Resources:Strings, Navigation_DPD_SledovaniZasilky %>"></asp:Literal></a> 
+                                    </div>
+
                                     <a id="elmPodporaProdeje" class="advisor-pagemenuparent" style="cursor:pointer;" onclick="showHideControl('elmPodporaProdejeContainer')"><asp:Literal ID="Literal7" runat="server" Text="<%$ Resources:Strings, Navigation_Podpora_PodporaProdeje %>"></asp:Literal></a>
                                     <div id="elmPodporaProdejeContainer" style="display:none;">
                                     <a class="advisor-pagesubmenu" id="hlUspesnyStart" runat="server"><asp:Literal ID="Literal8" runat="server" Text="<%$ Resources:Strings, Navigation_Podpora_UspesnyStart  %>"></asp:Literal></a> 

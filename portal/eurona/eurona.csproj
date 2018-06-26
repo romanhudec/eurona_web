@@ -39,7 +39,7 @@
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
     <OutputPath>bin\</OutputPath>
-    <DefineConstants>TRACE;N__CUSTOM_ERROR;__DEBUG_VERSION;N__DEBUG_VERSION_WITHOUTTVD;N__LOCAL_BANK_PAY</DefineConstants>
+    <DefineConstants>TRACE;N__CUSTOM_ERROR;N__DEBUG_VERSION;N__DEBUG_VERSION_WITHOUTTVD;N__LOCAL_BANK_PAY</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
@@ -260,6 +260,7 @@
     <Content Include="images\uhrada-kartou-disabled-bg.png" />
     <Content Include="images\ui-anim_basic_16x16.gif" />
     <Content Include="javascripts\homeflashcontrol.js" />
+    <Content Include="javascripts\jquery.blockUI.js" />
     <Content Include="pay\gp\paymentresult.aspx" />
     <Content Include="pay\gp\testPay.aspx" />
     <Content Include="Scripts\dbUpgrade_201711.sql" />

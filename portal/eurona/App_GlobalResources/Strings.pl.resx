@@ -1059,4 +1059,7 @@ www.euronabycerny.com</value>
   <data name="Navigation_GLS_SledovaniZasilky" xml:space="preserve">
     <value>Śledzenie przesyłek</value>
   </data>
+  <data name="Please_Wait" xml:space="preserve">
+    <value>Proszę czekać ...</value>
+  </data>
 </root>

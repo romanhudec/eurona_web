@@ -1,4 +1,4 @@
-﻿<%@ Page Title="<%$ Resources:EShopStrings, Navigation_Order %>" Language="C#" MasterPageFile="~/user/advisor/page.Master" AutoEventWireup="true" CodeBehind="order.aspx.cs" Inherits="Eurona.EShop.User.OrderPage" %>
+﻿<%@ Page Title="<%$ Resources:EShopStrings, Navigation_Order %>" EnableEventValidation="false" Language="C#" MasterPageFile="~/user/advisor/page.Master" AutoEventWireup="true" CodeBehind="order.aspx.cs" Inherits="Eurona.EShop.User.OrderPage" %>
 
 <%@ Register Assembly="eurona" Namespace="Eurona.Controls" TagPrefix="shpOrder" %>
 
@@ -15,7 +15,7 @@
     <div class="content-header-container">
         <asp:Label CssClass="title" ID="Literal1" runat="server" Text="<%$ Resources:EShopStrings, Navigation_Order %>" />
     </div>
- <script type="text/javascript">
+ <%--<script type="text/javascript">
      setTimeout("setFocusToCartCodeEdit()", 2000);
      function setFocusToCartCodeEdit() {
          if (document.getElementById)
@@ -24,11 +24,6 @@
                 document.all("ctl00_content_adminOrderControl_txtKod").focus();
           return false;
       }
-    </script>
-    <%--<script type="text/javascript">
-        $(function () {
-            $('.has-tooltip').tooltip();
-        });
     </script>--%>
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="content" runat="server">

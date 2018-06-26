@@ -27,7 +27,7 @@ namespace Eurona.Common.Controls.UserManagement
         public TextBox txtWeb = null;
         public TextBox txtNotes = null;
         public CheckBox cbVATPayment = null;
-        public CheckBox cbTopManager = null;
+        //public CheckBox cbTopManager = null;
 		//private DropDownList ddlParent = null;
         public TextBox txtParent = null;
 
@@ -211,7 +211,7 @@ namespace Eurona.Common.Controls.UserManagement
 			//this.ddlParent.DataTextField = "Name";
 			//this.ddlParent.DataValueField = "TVD_Id";
 
-			this.cbTopManager.Checked = Convert.ToBoolean(this.organization.TopManager);
+			//this.cbTopManager.Checked = Convert.ToBoolean(this.organization.TopManager);
 
 			if (!IsPostBack)
 			{
@@ -335,9 +335,9 @@ namespace Eurona.Common.Controls.UserManagement
 			this.cbVATPayment.Text = Resources.Controls.OrganizationControl_VATPayment_Description;
 			this.cbVATPayment.TextAlign = TextAlign.Right;
 
-			this.cbTopManager = new CheckBox();
-			this.cbTopManager.ID = "cbTopManager";
-			this.cbTopManager.Width = Unit.Percentage(100);
+			//this.cbTopManager = new CheckBox();
+			//this.cbTopManager.ID = "cbTopManager";
+			//this.cbTopManager.Width = Unit.Percentage(100);
 
 			//this.ddlParent = new DropDownList();
 			//this.ddlParent.ID = "ddlParent";
@@ -636,7 +636,8 @@ namespace Eurona.Common.Controls.UserManagement
 					this.cbVATPayment.Enabled = true;
 			}
 
-			//TopManager
+            /*
+			//TopManager           
 			row = new TableRow();
 			AddControlToRow(row, Eurona.Common.Resources.Controls.OrganizationControl_TopManager, this.cbTopManager, 0, false);
 			this.cbTopManager.Enabled = false;
@@ -646,6 +647,7 @@ namespace Eurona.Common.Controls.UserManagement
 					this.cbTopManager.Enabled = true;
 			}
 			table.Rows.Add(row);
+            */
 
 			//ParentId
 			row = new TableRow();
@@ -841,7 +843,7 @@ namespace Eurona.Common.Controls.UserManagement
 			organization.Notes = this.txtNotes.Text;
 
 			organization.VATPayment = this.cbVATPayment.Checked;
-			organization.TopManager = this.cbTopManager.Checked ? 1 : 0;
+			//organization.TopManager = this.cbTopManager.Checked ? 1 : 0;
 
 			Organization parentOrg = Storage<Organization>.ReadFirst(new Organization.ReadByCode { Code = this.txtParent.Text });
 			if (parentOrg != null) organization.ParentId = parentOrg.TVD_Id;

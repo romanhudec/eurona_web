@@ -532,7 +532,7 @@ Pozdrawiam&lt;br/&gt;
     <value>Do zapłaty z VAT</value>
   </data>
   <data name="OrderControl_Shipment" xml:space="preserve">
-    <value>Transport</value>
+    <value>Zvolte dopravce :</value>
   </data>
   <data name="ProductCommentsControl_InappropriatePost" xml:space="preserve">
     <value>Niewłaściwy wkład </value>
