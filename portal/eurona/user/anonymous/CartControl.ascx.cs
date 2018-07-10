@@ -429,27 +429,47 @@ namespace Eurona.User.Anonymous
 				this.cartEntity = Storage<CartEntity>.Update(this.cartEntity);
 
 				#region After Proccesing Event
-				if (OnProccessOrderAfterSave != null)
-				{
-					string result = string.Empty;
-					string invoiceUrl = string.Empty;
-					if (!OnProccessOrderAfterSave(order.Id, out invoiceUrl, out result))
-					{
-						//Unodo close cart !!
-						Storage<OrderEntity>.Delete(order);
+                if (OnProccessOrderAfterSave != null) {
+                    string result = string.Empty;
+                    string invoiceUrl = string.Empty;
+                    if (!OnProccessOrderAfterSave(order.Id, out invoiceUrl, out result)) {
+                        //Unodo close cart !!
+                        Storage<OrderEntity>.Delete(order);
                         CartOrderHelper.DeleteTVDOrderWithCart(order);
-						this.cartEntity.Closed = null;
-						Storage<CartEntity>.Update(this.cartEntity);
+                        this.cartEntity.Closed = null;
+                        Storage<CartEntity>.Update(this.cartEntity);
 
-						this.Controls.Add(new LiteralControl(result));
-						return;
-					}
-					else if (!string.IsNullOrEmpty(invoiceUrl))
-					{
-						order.InvoiceUrl = invoiceUrl;
-						order = Storage<OrderEntity>.Update(order);
-					}
-				}
+                        this.Controls.Add(new LiteralControl(result));
+                        return;
+                    } else if (!string.IsNullOrEmpty(invoiceUrl)) {
+                        order.InvoiceUrl = invoiceUrl;
+                        order = Storage<OrderEntity>.Update(order);
+                    }
+
+                    //TODO: doplnene 27.06.2018
+                    //Vykonanie prepoctu v TVD aj s cislom objednavky, bez cisla objednavky sa dana objednavka nezobrazi v reportoch ako ulozena!!!
+#if !__DEBUG_VERSION_WITHOUTTVD
+                    CartOrderHelper.RecalculateTVDCart(this.Page, /*this.updatePanel*/null, order.OrderNumber, order.CartEntity, out currencyId, out bSuccess);
+                    if (!bSuccess) {
+                        //Return back cart ownwer (operator/user ...)
+                        this.cartEntity.AccountId = Security.Account.Id;
+                        this.cartEntity = Storage<CartEntity>.Update(this.cartEntity);
+                        return;
+                    }
+#endif
+                } else {
+                    //TODO: doplnene 27.06.2018
+                    //Vykonanie prepoctu v TVD aj s cislom objednavky, bez cisla objednavky sa dana objednavka nezobrazi v reportoch ako ulozena!!!
+#if !__DEBUG_VERSION_WITHOUTTVD
+                    CartOrderHelper.RecalculateTVDCart(this.Page, /*this.updatePanel*/null, order.OrderNumber, order.CartEntity, out currencyId, out bSuccess);
+                    if (!bSuccess) {
+                        //Return back cart ownwer (operator/user ...)
+                        this.cartEntity.AccountId = Security.Account.Id;
+                        this.cartEntity = Storage<CartEntity>.Update(this.cartEntity);
+                        return;
+                    }
+#endif
+                }
 				#endregion
 
 				if (string.IsNullOrEmpty(finishUrlFormat))

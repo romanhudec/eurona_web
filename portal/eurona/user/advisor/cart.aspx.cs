@@ -16,6 +16,20 @@ using System.Configuration;
 namespace Eurona.User.Advisor {
     public partial class CartPage : WebPage {
         protected void Page_Load(object sender, EventArgs e) {
+            if (Request.Browser.MSDomVersion.Major == 0) // Non IE Browser?
+            {
+                Response.Cache.SetNoStore(); // No client side cashing for non IE browsers
+            }
+            if (!IsPostBack) {
+                Response.Buffer = true;
+                Response.CacheControl = "no-cache";
+                Response.AddHeader("Pragma", "no-cache");
+                Response.AppendHeader("Cache-Control", "no-store");
+                Response.Expires = -1441;
+                Response.Cache.SetCacheability(HttpCacheability.NoCache);
+                Response.Cache.SetExpires(DateTime.Now.AddSeconds(-1));
+                Response.Cache.SetNoStore();
+            }
             this.cartControl.OnCartItemsChanged += new EventHandler(cartControl_OnCartItemsChanged);
             /*
             this.divOrderForUser.Visible = false;

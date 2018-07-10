@@ -25,8 +25,10 @@ namespace Eurona.Controls {
             using (SqlConnection connection = tvdStorage.Connect()) {
                 //Clear data
                 tvdStorage.Exec(connection, "DELETE FROM www_prepocty_radky WHERE id_prepoctu=@id_prepoctu", new SqlParameter("@id_prepoctu", recalcId));
-                tvdStorage.Exec(connection, "DELETE FROM www_faktury_radky  WHERE id_prepoctu=@id_prepoctu", new SqlParameter("@id_prepoctu", recalcId));
-                tvdStorage.Exec(connection, "DELETE FROM www_faktury WHERE id_prepoctu=@id_prepoctu", new SqlParameter("@id_prepoctu", recalcId));
+                //TODO:Commented 27.06.2018 - ak prepocet zlyhal ostaly tabulky prazdne a objednavka zmizla z reportu ulozenych objednavok
+                //procdura na prepoce nerobi duplicity, takze sa zaznami pre dany prepocet z tabuliek www_faktury_radky a www_faktury mazat nemusia. Procedura si to riesi sama.
+                //tvdStorage.Exec(connection, "DELETE FROM www_faktury_radky  WHERE id_prepoctu=@id_prepoctu", new SqlParameter("@id_prepoctu", recalcId));
+                //tvdStorage.Exec(connection, "DELETE FROM www_faktury WHERE id_prepoctu=@id_prepoctu", new SqlParameter("@id_prepoctu", recalcId));
                 tvdStorage.Exec(connection, "DELETE FROM www_prepocty WHERE id_prepoctu=@id_prepoctu", new SqlParameter("@id_prepoctu", recalcId));
             }
         }
@@ -308,10 +310,12 @@ namespace Eurona.Controls {
                     //Prepocitanie Nakupneho kosika/Objednavky/Zdruzenej objednavky
                     string errorMessage = CalRecalculate(tvdStorage, connection, cartId, out bSuccess);
                     if (!bSuccess) {
-                        string js = string.Format("alert('Synchronizace se vzdáleným servrem (SAP) byla neúspěšná! Chyba: " + errorMessage + "');window.location.href=window.location.href+'{0}nocache='+(new Date()).getSeconds();", page.Request.RawUrl.Contains("?") ? "&" : "?");
+                        string js1 = string.Format("alert('Synchronizace se vzdáleným servrem (SAP) byla neúspěšná! Chyba: " + errorMessage + "');window.location.href=window.location.href+'{0}nocache='+(new Date()).getSeconds();", page.Request.RawUrl.Contains("?") ? "&" : "?");
+                        //string js = string.Format("blockUIAlert(Synchronizace se vzdáleným servrem (SAP) byla neúspěšná! Chyba: " + errorMessage + "');window.location.href=window.location.href+'{0}nocache='+(new Date()).getSeconds();", page.Request.RawUrl.Contains("?") ? "&" : "?");
+                        string js2 = string.Format("blockUIAlert( 'Chyba','Synchronizace se vzdáleným servrem (SAP) byla neúspěšná! Chyba: " + errorMessage + "');");
                         //;window.location.href=window.location.href+'{1}nocache='+(new Date()).getSeconds();
-                        if (up == null) page.ClientScript.RegisterStartupScript(page.GetType(), "TVDSyncCart", js, true);
-                        else ScriptManager.RegisterStartupScript(up, up.GetType(), "TVDSyncCart", js, true);
+                        if (up == null) page.ClientScript.RegisterStartupScript(page.GetType(), "TVDSyncCart", js1, true);
+                        else ScriptManager.RegisterStartupScript(up, up.GetType(), "TVDSyncCart", js2, true);
                         return null;
                     }
 
@@ -377,23 +381,26 @@ namespace Eurona.Controls {
 
                     RollBackTVDTransaction();
 
-                    string js = string.Format("alert('Synchronizace se vzdáleným servrem (SAP) byla neúspěšná! Chyba: Servere neodpovídá!');window.location.href=window.location.href+'{0}nocache='+(new Date()).getSeconds();", page.Request.RawUrl.Contains("?") ? "&" : "?");
-                    if (up == null) page.ClientScript.RegisterStartupScript(page.GetType(), "TVDSyncCart", js, true);
-                    else ScriptManager.RegisterStartupScript(up, up.GetType(), "TVDSyncCart", js, true);
+                    string js1 = string.Format("alert('Synchronizace se vzdáleným servrem (SAP) byla neúspěšná! Chyba: Servere neodpovídá!');window.location.href=window.location.href+'{0}nocache='+(new Date()).getSeconds();", page.Request.RawUrl.Contains("?") ? "&" : "?");
+                    string js2 = string.Format("blockUIAlert('Chyba', 'Synchronizace se vzdáleným servrem (SAP) byla neúspěšná! Chyba: Servere neodpovídá!');");
+                    if (up == null) page.ClientScript.RegisterStartupScript(page.GetType(), "TVDSyncCart", js1, true);
+                    else ScriptManager.RegisterStartupScript(up, up.GetType(), "TVDSyncCart", js2, true);
                     return null;
                 } else {
-                    string js = string.Format("alert('Synchronizace se vzdáleným servrem (SAP) byla neúspěšná!');window.location.href=window.location.href+'{0}nocache='+(new Date()).getSeconds();", page.Request.RawUrl.Contains("?") ? "&" : "?");
-                    if (up == null) page.ClientScript.RegisterStartupScript(page.GetType(), "TVDSyncCart", js, true);
-                    else ScriptManager.RegisterStartupScript(up, up.GetType(), "TVDSyncCart", js, true);
+                    string js1 = string.Format("alert('Synchronizace se vzdáleným servrem (SAP) byla neúspěšná!');window.location.href=window.location.href+'{0}nocache='+(new Date()).getSeconds();", page.Request.RawUrl.Contains("?") ? "&" : "?");
+                    string js2 = string.Format("blockUIAlert('Chyba', 'Synchronizace se vzdáleným servrem (SAP) byla neúspěšná!');");
+                    if (up == null) page.ClientScript.RegisterStartupScript(page.GetType(), "TVDSyncCart", js1, true);
+                    else ScriptManager.RegisterStartupScript(up, up.GetType(), "TVDSyncCart", js2, true);
                     return null;
                 }
             } catch (Exception exx) {
                 bSuccess = false;
                 CMS.EvenLog.WritoToEventLog(exx);
 
-                string js = string.Format("alert('Synchronizace se vzdáleným servrem (SAP) byla neúspěšná!');window.location.href=window.location.href+'{0}nocache='+(new Date()).getSeconds();", page.Request.RawUrl.Contains("?") ? "&" : "?");
-                if (up == null) page.ClientScript.RegisterStartupScript(page.GetType(), "TVDSyncCart", js, true);
-                else ScriptManager.RegisterStartupScript(up, up.GetType(), "TVDSyncCart", js, true);
+                string js1 = string.Format("alert('Synchronizace se vzdáleným servrem (SAP) byla neúspěšná!');window.location.href=window.location.href+'{0}nocache='+(new Date()).getSeconds();", page.Request.RawUrl.Contains("?") ? "&" : "?");
+                string js2 = string.Format("blockUIAlert('Chyba', 'Synchronizace se vzdáleným servrem (SAP) byla neúspěšná!');");
+                if (up == null) ScriptManager.RegisterStartupScript(page, page.GetType(), "TVDSyncCart", js1, true);
+                else ScriptManager.RegisterStartupScript(up, up.GetType(), "TVDSyncCart", js2, true);
                 return null;
             }
 
@@ -433,9 +440,10 @@ namespace Eurona.Controls {
                 bool bSuccess = false;
                 string errorMessage = CalRecalculate(tvdStorage, connection, order.Id, out bSuccess);
                 if (!bSuccess) {
-                    string js = string.Format("alert('Synchronizace se vzdáleným servrem (SAP) byla neúspěšná! Chyba: " + errorMessage + "');");
-                    if (up == null) page.ClientScript.RegisterStartupScript(page.GetType(), "TVDSyncOrder", js, true);
-                    else ScriptManager.RegisterStartupScript(up, up.GetType(), "TVDSyncOrder", js, true);
+                    string js1 = string.Format("alert('Synchronizace se vzdáleným servrem (SAP) byla neúspěšná! Chyba: " + errorMessage + "');");
+                    string js2 = string.Format("blockUIAlert('Chyba', 'Synchronizace se vzdáleným servrem (SAP) byla neúspěšná! Chyba: " + errorMessage + "');");
+                    if (up == null) page.ClientScript.RegisterStartupScript(page.GetType(), "TVDSyncOrder", js1, true);
+                    else ScriptManager.RegisterStartupScript(up, up.GetType(), "TVDSyncOrder", js2, true);
                     return false;
                 }
 
@@ -492,9 +500,10 @@ namespace Eurona.Controls {
             OrganizationEntity organization = Storage<OrganizationEntity>.ReadFirst(new OrganizationEntity.ReadByAccountId { AccountId = account.Id });
             if (!account.TVD_Id.HasValue) {
                 message = "Uživatel není platným uživatelem Eurosap!";
-                string js = string.Format("alert('{0}');", message);
-                if (up == null) page.ClientScript.RegisterStartupScript(page.GetType(), "SyncTVDOrder", js, true);
-                else ScriptManager.RegisterStartupScript(up, up.GetType(), "SyncTVDOrder", js, true);
+                string js1 = string.Format("alert('{0}');", message);
+                string js2 = string.Format("blockUIAlert('Chyba', '{0}');", message);
+                if (up == null) page.ClientScript.RegisterStartupScript(page.GetType(), "SyncTVDOrder", js1, true);
+                else ScriptManager.RegisterStartupScript(up, up.GetType(), "SyncTVDOrder", js2, true);
                 return false;
             }
             try {
@@ -608,22 +617,25 @@ namespace Eurona.Controls {
                 if (ex.Number == -2) {
                     RollBackTVDTransaction();
 
-                    string js = string.Format("alert('Synchronizace se vzdáleným servrem (SAP) byla neúspěšná! Chyba: Servere neodpovídá!');");
-                    if (up == null) page.ClientScript.RegisterStartupScript(page.GetType(), "TVDSyncOrder", js, true);
-                    else ScriptManager.RegisterStartupScript(up, up.GetType(), "TVDSyncOrder", js, true);
+                    string js1 = string.Format("alert('Synchronizace se vzdáleným servrem (SAP) byla neúspěšná! Chyba: Servere neodpovídá!');");
+                    string js2 = string.Format("blockUIAlert('Chyba', 'Synchronizace se vzdáleným servrem (SAP) byla neúspěšná! Chyba: Servere neodpovídá!');");
+                    if (up == null) page.ClientScript.RegisterStartupScript(page.GetType(), "TVDSyncOrder", js1, true);
+                    else ScriptManager.RegisterStartupScript(up, up.GetType(), "TVDSyncOrder", js2, true);
                     return false;
                 } else {
-                    string js = string.Format("alert('Synchronizace se vzdáleným servrem (SAP) byla neúspěšná!');");
-                    if (up == null) page.ClientScript.RegisterStartupScript(page.GetType(), "TVDSyncOrder", js, true);
-                    else ScriptManager.RegisterStartupScript(up, up.GetType(), "TVDSyncOrder", js, true);
+                    string js1 = string.Format("alert('Synchronizace se vzdáleným servrem (SAP) byla neúspěšná!');");
+                    string js2 = string.Format("blockUIAlert('Chyba', 'Synchronizace se vzdáleným servrem (SAP) byla neúspěšná!');");
+                    if (up == null) page.ClientScript.RegisterStartupScript(page.GetType(), "TVDSyncOrder", js1, true);
+                    else ScriptManager.RegisterStartupScript(up, up.GetType(), "TVDSyncOrder", js2, true);
                     return false;
                 }
             } catch (Exception exx) {
                 CMS.EvenLog.WritoToEventLog(exx);
 
-                string js = string.Format("alert('Synchronizace se vzdáleným servrem (SAP) byla neúspěšná!');");
-                if (up == null) page.ClientScript.RegisterStartupScript(page.GetType(), "TVDSyncOrder", js, true);
-                else ScriptManager.RegisterStartupScript(up, up.GetType(), "TVDSyncOrder", js, true);
+                string js1 = string.Format("alert('Synchronizace se vzdáleným servrem (SAP) byla neúspěšná!');");
+                string js2 = string.Format("blockUIAlert('Chyba', 'Synchronizace se vzdáleným servrem (SAP) byla neúspěšná!');");
+                if (up == null) page.ClientScript.RegisterStartupScript(page.GetType(), "TVDSyncOrder", js1, true);
+                else ScriptManager.RegisterStartupScript(up, up.GetType(), "TVDSyncOrder", js2, true);
                 return false;
             }
 

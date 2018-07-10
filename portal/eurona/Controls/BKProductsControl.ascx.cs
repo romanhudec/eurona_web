@@ -20,8 +20,11 @@ namespace Eurona.Controls {
                 this.rpBKProducts.DataBind();
 
             DateTime date = DateTime.Now.AddMonths(-1);
-            decimal narokKreditCelkem = BonusovyKreditUzivateleHelper.GetPlatnyKreditCelkem(Security.Account, date.Year, date.Month);
-            if (narokKreditCelkem == 0 ) {
+            //decimal narokKreditCelkem = BonusovyKreditUzivateleHelper.GetPlatnyKreditCelkem(Security.Account, date.Year, date.Month);
+            decimal platnychNaTentoMesic = BonusovyKreditUzivateleHelper.GetPlatnyKreditCelkem(Security.Account, date.Year, date.Month);
+            decimal cerpanoTentoMesic = BonusovyKreditUzivateleHelper.GetCerpaniKredituCelkem(Security.Account, date.Year, date.Month);
+            decimal narokKreditCelkem = platnychNaTentoMesic - cerpanoTentoMesic;
+            if (narokKreditCelkem <= 0 ) {
                 this.addToCart.Visible = false;
             }
         }
@@ -83,7 +86,10 @@ namespace Eurona.Controls {
             }
 
             DateTime date = DateTime.Now.AddMonths(-1);
-            decimal kreditNarok = BonusovyKreditUzivateleHelper.GetPlatnyKreditCelkem(Security.Account, date.Year, date.Month);//BonusovyKreditUzivateleHelper.GetKreditNarokCelkem(Security.Account, DateTime.Now.Year, DateTime.Now.Month);
+            //decimal kreditNarok = BonusovyKreditUzivateleHelper.GetPlatnyKreditCelkem(Security.Account, date.Year, date.Month);//BonusovyKreditUzivateleHelper.GetKreditNarokCelkem(Security.Account, DateTime.Now.Year, DateTime.Now.Month);
+            decimal platnychNaTentoMesic = BonusovyKreditUzivateleHelper.GetPlatnyKreditCelkem(Security.Account, date.Year, date.Month);
+            decimal cerpanoTentoMesic = BonusovyKreditUzivateleHelper.GetCerpaniKredituCelkem(Security.Account, date.Year, date.Month);
+            decimal kreditNarok = platnychNaTentoMesic - cerpanoTentoMesic;
             if (kreditNarok < (productKreditTotal + bkKreditInCart)) {
                 //Alert s informaciou o pridani do nakupneho kosika
                 string js = string.Format("alert('{0}');", "Na nákup takového množství nemáte dostatečný kredit!");

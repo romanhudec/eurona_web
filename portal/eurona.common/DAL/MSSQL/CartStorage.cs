@@ -12,7 +12,7 @@ namespace Eurona.Common.DAL.MSSQL
     public sealed class CartStorage : MSSQLStorage<Cart>
     {
         private const string entitySelect = @"SELECT CartId, Locale, InstanceId, AccountId, SessionId, Created, Closed, PriceTotal, PriceTotalWVAT, Discount,
-								ShipmentCode ,ShipmentName ,ShipmentPrice ,PaymentCode, PaymentName, DeliveryAddressId, InvoiceAddressId, Notes, Status,
+								ShipmentCode ,ShipmentName ,PaymentCode, PaymentName, DeliveryAddressId, InvoiceAddressId, Notes, Status,
 								BodyEurosapTotal, KatalogovaCenaCelkemByEurosap, DopravneEurosap
 								FROM vShpCarts";
 

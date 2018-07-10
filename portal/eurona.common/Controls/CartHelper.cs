@@ -9,6 +9,9 @@ using ProductEntity = Eurona.Common.DAL.Entities.Product;
 using CurrencyEntity = SHP.Entities.Classifiers.Currency;
 using CMS;
 using Eurona.Common.DAL.Entities;
+using System.Configuration;
+using System.Data.SqlClient;
+using System.Data;
 
 namespace Eurona.Common.Controls.Cart {
     public static class EuronaCartHelper {
@@ -327,7 +330,26 @@ namespace Eurona.Common.Controls.Cart {
                 }
             } else {
                 //Anonymny nakupny kosik.
-                cart = Storage<CartEntity>.ReadFirst(new CartEntity.ReadBySessionId { SessionId = sessionId });
+                int cartId = 0;
+                int instanceId = 0;
+                Int32.TryParse(ConfigurationManager.AppSettings["InstanceId"], out instanceId);
+                string connectionString = ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString;
+                CMS.Pump.MSSQLStorage euronaStorage = new CMS.Pump.MSSQLStorage(connectionString);
+                using (SqlConnection connection = euronaStorage.Connect()) {
+                    string sql = @"SELECT c.CartId FROM tShpCart c WITH (NOLOCK)WHERE c.InstanceId = @InstanceId AND c.SessionId = @SessionId";                 
+                    DataTable dt = euronaStorage.Query(connection, sql, 
+                        new SqlParameter("@InstanceId", instanceId),
+                        new SqlParameter("@SessionId", sessionId));
+
+                    if (dt.Rows.Count != 0) {
+                        cartId = Convert.ToInt32(dt.Rows[0]["CartId"]);
+                    }
+                }
+                if (cartId != 0) {
+                    cart = Storage<CartEntity>.ReadFirst(new CartEntity.ReadById { CartId = cartId});
+                }
+                //TODO: zakomentovane 29.06.2018 - najprv rychly select na ID a az potom select na cely kosik!!!!
+                //cart = Storage<CartEntity>.ReadFirst(new CartEntity.ReadBySessionId { SessionId = sessionId });
             }
             return cart;
         }

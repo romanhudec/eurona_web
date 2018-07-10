@@ -93,9 +93,6 @@
     <Compile Include="Controls\Cart\CartInfoControl.cs">
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Controls\Cart\CartControl.cs">
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
     <Compile Include="Controls\Category\AdminCategoriesControl.cs">
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
