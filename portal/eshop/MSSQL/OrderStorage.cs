@@ -43,7 +43,7 @@ namespace SHP.MSSQL
 
 						//Joined properties
 						order.AccountId = Convert.ToInt32( record["AccountId"] );
-						order.AccountName = Convert.ToString( record["AccountName"] );
+						//order.AccountName = Convert.ToString( record["AccountName"] );
 						order.OrderStatusName = Convert.ToString( record["OrderStatusName"] );
 						order.OrderStatusIcon = Convert.ToString( record["OrderStatusIcon"] );
 						order.ShipmentName = Convert.ToString( record["ShipmentName"] );

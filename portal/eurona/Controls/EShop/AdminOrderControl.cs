@@ -740,7 +740,7 @@ namespace Eurona.Controls {
         /// <summary>
         /// Metoda prepocita objednavku + kosik danej objednavky
         /// </summary>
-        private void RecalculateOrder() {
+        private bool RecalculateOrder() {
             //Update cart from DB
             this.OrderEntity.CartEntity = null;
 
@@ -765,10 +765,10 @@ namespace Eurona.Controls {
             EuronaCartHelper.RecalculateCart(this.Page, this.OrderEntity.CartId);
 
             //Vykonanie prepoctu v TVD
+            bool bSuccess = false;
             int? currencyId = order.CurrencyId;
 #if !__DEBUG_VERSION_WITHOUTTVD
-            bool bSuccess = false;
-            CartOrderHelper.RecalculateTVDCart(this.Page, /*this.updatePanel*/null, order.OrderNumber, order.CartEntity, out currencyId, out bSuccess);
+            CartOrderHelper.RecalculateTVDCart(this.Page, this.updatePanel, order.OrderNumber, order.CartEntity, out currencyId, out bSuccess);
 #endif
 
             //Nastavenie dopravneho
@@ -787,6 +787,7 @@ namespace Eurona.Controls {
 
             order.CartEntity = null;
             this.order = null;
+            return bSuccess;
         }
 
         void grid_RowDataBound(object sender, GridViewRowEventArgs e) {
@@ -889,7 +890,9 @@ namespace Eurona.Controls {
             Storage<OrderEntity>.Update(this.OrderEntity);
 
             //Prepocitanie kosiku a objednavky
-            this.RecalculateOrder();
+            if (!this.RecalculateOrder()) {
+                return;
+            }
 
             Response.Redirect(this.ReturnUrl);
         }

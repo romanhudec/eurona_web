@@ -12,8 +12,11 @@ namespace SHP.MSSQL
 {
 		public sealed class CartStorage: MSSQLStorage<Cart>
 		{
-				private const string entitySelect = @"SELECT CartId, InstanceId, AccountId, SessionId, Created, Closed, PriceTotal, PriceTotalWVAT,
-								ShipmentCode ,ShipmentName ,ShipmentPrice ,PaymentCode, PaymentName, DeliveryAddressId, InvoiceAddressId, Notes
+//                private const string entitySelect = @"SELECT CartId, InstanceId, AccountId, SessionId, Created, Closed, PriceTotal, PriceTotalWVAT,
+//								ShipmentCode ,ShipmentName ,ShipmentPrice ,PaymentCode, PaymentName, DeliveryAddressId, InvoiceAddressId, Notes
+//								FROM vShpCarts";
+            private const string entitySelect = @"SELECT CartId, InstanceId, AccountId, SessionId, Created, Closed, PriceTotal, PriceTotalWVAT,
+								ShipmentCode ,PaymentCode, DeliveryAddressId, InvoiceAddressId, Notes
 								FROM vShpCarts";
 
 				public CartStorage( int instanceId, Account account, string connectionString )
