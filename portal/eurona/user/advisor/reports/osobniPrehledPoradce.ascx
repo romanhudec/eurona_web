@@ -329,7 +329,8 @@
 				<td align="right">
 					<asp:Repeater ID="Repeater1" runat="server" DataSourceID="sqlRestMarginPrice" >
 						<ItemTemplate>
-							<%# Eurona.User.Advisor.Reports.ReportHelper.RestMarginPrice( 24, Eval( "objem_pro_marzi" ), Eval( "Kod_meny" ) )%>
+							<%--<%# Eurona.User.Advisor.Reports.ReportHelper.RestMarginPrice( 24, Eval( "objem_pro_marzi" ), Eval( "Kod_meny" ) )%>--%>
+                            <%# Eurona.User.Advisor.Reports.ReportHelper.RestMarginBody( 100, Eval( "objem_pro_marzi" ))%>
 							<%# Eurona.User.Advisor.Reports.ReportHelper.PriceCurrency( Eval( "Kod_meny" ) )%>						
 						</ItemTemplate>
 						<SeparatorTemplate><br /></SeparatorTemplate>
@@ -341,7 +342,8 @@
 				<td align="right">
 					<asp:Repeater ID="Repeater2" runat="server" DataSourceID="sqlRestMarginPrice" >
 						<ItemTemplate>
-							<%# Eurona.User.Advisor.Reports.ReportHelper.RestMarginPrice( 29, Eval( "objem_pro_marzi" ), Eval( "Kod_meny" ) )%>
+							<%--<%# Eurona.User.Advisor.Reports.ReportHelper.RestMarginPrice( 29, Eval( "objem_pro_marzi" ), Eval( "Kod_meny" ) )%>--%>
+                            <%# Eurona.User.Advisor.Reports.ReportHelper.RestMarginBody( 200, Eval( "objem_pro_marzi" ))%>
 							<%# Eurona.User.Advisor.Reports.ReportHelper.PriceCurrency( Eval( "Kod_meny" ) )%>						
 						</ItemTemplate>
 						<SeparatorTemplate><br /></SeparatorTemplate>
@@ -426,7 +428,7 @@
 	</SelectParameters>
 </asp:SqlDataSource>
 <asp:SqlDataSource ID="sqlRestMarginPrice" runat="server"
-	SelectCommand="SELECT objem_pro_marzi = SUM( fr.zapocet_mj_marze*fr.mnozstvi), cena_mj_katalogova=SUM(fr.cena_mj_katalogova*fr.mnozstvi), f.kod_meny from www_faktury f
+	SelectCommand="SELECT objem_pro_marzi = SUM( fr.zapocet_mj_body_marze*fr.mnozstvi), cena_mj_katalogova=SUM(fr.cena_mj_katalogova*fr.mnozstvi), f.kod_meny from www_faktury f
         INNER JOIN www_faktury_radky fr ON fr.id_prepoctu = f.id_prepoctu
         WHERE f.cislo_objednavky_eurosap IS NOT NULL 
         AND f.cislo_objednavky_eurosap IN (select Cislo_objednavky from provize_aktualni_objednavky )
@@ -440,3 +442,18 @@
         <asp:Parameter Name="mesic" Type="Int32" />
 	</SelectParameters>
 </asp:SqlDataSource>
+<%--<asp:SqlDataSource ID="sqlRestMarginPrice" runat="server"
+	SelectCommand="SELECT objem_pro_marzi = SUM( fr.zapocet_mj_marze*fr.mnozstvi), cena_mj_katalogova=SUM(fr.cena_mj_katalogova*fr.mnozstvi), f.kod_meny from www_faktury f
+        INNER JOIN www_faktury_radky fr ON fr.id_prepoctu = f.id_prepoctu
+        WHERE f.cislo_objednavky_eurosap IS NOT NULL 
+        AND f.cislo_objednavky_eurosap IN (select Cislo_objednavky from provize_aktualni_objednavky )
+        AND f.cislo_objednavky_eurosap NOT IN (select id_objednavky from objednavkyfaktury where StavK2=0 ) -- objednavka nesmie byt stornovana
+        AND YEAR(f.datum_vystaveni)=@rok AND MONTH(f.datum_vystaveni)=@mesic
+        AND id_odberatele = @Id_odberatele
+        GROUP BY f.kod_meny " SelectCommandType="Text">
+	<SelectParameters>
+		<asp:Parameter Name="Id_odberatele" Type="Int32" />
+        <asp:Parameter Name="rok" Type="Int32" />
+        <asp:Parameter Name="mesic" Type="Int32" />
+	</SelectParameters>
+</asp:SqlDataSource>--%>

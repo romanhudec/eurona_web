@@ -87,7 +87,8 @@ namespace Eurona.User.Advisor.Reports {
                 sql = @"SELECT f.id_prepoctu, ofr.id_web_objednavky, cislo_objednavky = f.cislo_objednavky_eurosap, f.datum_vystaveni_objednavky, f.celkem_k_uhrade, celkem_bez_dph = f.zaklad_zs, f.dph_zs,
 									celkem_katalogova_cena = SUM( fr.cena_mj_katalogova * fr.mnozstvi),
 									celkem_body = SUM(fr.zapocet_mj_body * fr.mnozstvi),
-									celkem_objem_pro_marzi = SUM(fr.zapocet_mj_marze * fr.mnozstvi),
+									--celkem_objem_pro_marzi = SUM(fr.zapocet_mj_marze * fr.mnozstvi),
+                                    celkem_bo_pro_marzi = SUM(fr.zapocet_mj_body_marze * fr.mnozstvi),
 									celkem_objem_obchodu = SUM(fr.zapocet_mj_provize_czk * fr.mnozstvi),
 									Stav_objednavky = ISNULL(ofr.Stav_faktury,1),
 									Stav_objednavky_nazev = 

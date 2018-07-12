@@ -50,41 +50,13 @@ namespace Eurona.User.Advisor.Reports {
             }
             return 0;
         }
-        /*
-        public static int? RestMarginLevel(object dbmargin) {
-            if (dbmargin == DBNull.Value) return null;
-            Decimal margin = (Decimal)dbmargin;
-            if (margin < 20) return 20;
-            if (margin < 25) return 25;
-            if (margin < 30) return 30;
-            return 30;
+
+        public static decimal? RestMarginBody(int body, object dbmarginBody) {
+            if (dbmarginBody == DBNull.Value) return null;
+            Decimal marginBody = (Decimal)dbmarginBody;
+            if (marginBody > body) return 0;
+            return body - marginBody;
         }
-
-        public static decimal? RestMarginPrice(int marginlevel, object dbmarginprice, object dbcurrencycode) {
-            if (dbmarginprice == DBNull.Value) return null;
-            if (dbcurrencycode == DBNull.Value) return null;
-
-            string currencycode = dbcurrencycode.ToString();
-            Decimal marginprice = (Decimal)dbmarginprice;
-
-            if (currencycode == "CZK") {
-                if (marginlevel == 25) return (marginprice < 2500) ? 2500 - marginprice : 0;
-                else if (marginlevel == 30) return (marginprice < 5000) ? 5000 - marginprice : 0;
-                else return 0;
-            }
-            if (currencycode == "PLN") {
-                if (marginlevel == 25) return (marginprice < 350) ? 350 - marginprice : 0;
-                else if (marginlevel == 30) return (marginprice < 700) ? 700 - marginprice : 0;
-                else return 0;
-            }
-            if (currencycode == "SKK") {
-                if (marginlevel == 25) return (marginprice < 3000) ? 3000 - marginprice : 0;
-                if (marginlevel == 30) return (marginprice < 6000) ? 6000 - marginprice : 0;
-                return 0;
-            }
-            return 0;
-        }
-         * */
 
         public static int? RestPoints(object dbgrouppoints) {
             if (dbgrouppoints == DBNull.Value) return null;

@@ -253,10 +253,10 @@
     <value>percentuálna hladina %</value>
   </data>
   <data name="ProDosazeni25MarzeZbyvaObjednat" xml:space="preserve">
-    <value>Pre dosianutie 25% marže Vám zostáva objednať výrobky v kat. cene</value>
+    <value>Pre dosianutie 25% marže Vám zostáva objednať výrobky za BO</value>
   </data>
   <data name="ProDosazeni30MarzeZbyvaObjednat" xml:space="preserve">
-    <value>Pre dosiahnutie 30% marže Vám zostáva objednať výrobky v kat. cene</value>
+    <value>Pre dosiahnutie 30% marže Vám zostáva objednať výrobky za BO</value>
   </data>
   <data name="ProvizeVAktualnimMesiciZeSkupiny" xml:space="preserve">
     <value>provízie v aktuálom mesiaci zo skupiny</value>

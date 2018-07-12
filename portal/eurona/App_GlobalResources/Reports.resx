@@ -244,7 +244,7 @@
     <value>procentuální hladina %</value>
   </data>
   <data name="ProDosazeni25MarzeZbyvaObjednat" xml:space="preserve">
-    <value>Pro dosažení 25% marže Vám zbývá objednat výrobky v kat. ceně</value>
+    <value>Pro dosažení 25% marže Vám zbývá objednat výrobky za BO</value>
   </data>
   <data name="ProvizeVAktualnimMesiciZeSkupiny" xml:space="preserve">
     <value>provize v aktuálním měsíci ze skupiny</value>
@@ -298,7 +298,7 @@
     <value>mobilní telefon</value>
   </data>
   <data name="ProDosazeni30MarzeZbyvaObjednat" xml:space="preserve">
-    <value>Pro dosažení 30% marže Vám zbývá objednat výrobky v kat. ceně</value>
+    <value>Pro dosažení 30% marže Vám zbývá objednat výrobky za BO</value>
   </data>
   <data name="TelefonDomu" xml:space="preserve">
     <value>telefon domů</value>

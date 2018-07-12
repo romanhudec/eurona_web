@@ -601,7 +601,7 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Pro dosažení 25% marže Vám zbývá objednat výrobky v kat. ceně.
+        ///   Looks up a localized string similar to Pro dosažení 25% marže Vám zbývá objednat výrobky za BO.
         /// </summary>
         internal static string ProDosazeni25MarzeZbyvaObjednat {
             get {
@@ -610,7 +610,7 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Pro dosažení 30% marže Vám zbývá objednat výrobky v kat. ceně.
+        ///   Looks up a localized string similar to Pro dosažení 30% marže Vám zbývá objednat výrobky za BO.
         /// </summary>
         internal static string ProDosazeni30MarzeZbyvaObjednat {
             get {

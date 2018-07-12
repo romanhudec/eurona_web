@@ -34,8 +34,13 @@
                 <telerik:GridBoundColumn HeaderText="Objem obchodu" DataField="celkem_objem_obchodu" UniqueName="celkem_objem_obchodu" HeaderStyle-Width="80px" ItemStyle-HorizontalAlign="Right" HeaderStyle-HorizontalAlign="Right"
                     SortExpression="celkem_objem_obchodu" AutoPostBackOnFilter="false" AllowFiltering="false" CurrentFilterFunction="Contains" ShowFilterIcon="false" DataFormatString="{0:F2}" />
 
+<%--                
                 <telerik:GridBoundColumn HeaderText="Objem pro marži" DataField="celkem_objem_pro_marzi" UniqueName="celkem_objem_pro_marzi" HeaderStyle-Width="80px" ItemStyle-HorizontalAlign="Right" HeaderStyle-HorizontalAlign="Right"
                     SortExpression="celkem_objem_pro_marzi" AutoPostBackOnFilter="false" AllowFiltering="false" CurrentFilterFunction="Contains" ShowFilterIcon="false" DataFormatString="{0:F2}" />
+--%>
+
+                <telerik:GridBoundColumn HeaderText="BO pro marži" DataField="celkem_bo_pro_marzi" UniqueName="celkem_bo_pro_marzi" HeaderStyle-Width="80px" ItemStyle-HorizontalAlign="Right" HeaderStyle-HorizontalAlign="Right"
+                    SortExpression="celkem_bo_pro_marzi" AutoPostBackOnFilter="false" AllowFiltering="false" CurrentFilterFunction="Contains" ShowFilterIcon="false" DataFormatString="{0:F2}" />
                 
                 <telerik:GridBoundColumn HeaderText="Datum" DataField="datum_vystaveni_objednavky" UniqueName="datum_vystaveni_objednavky" HeaderStyle-Width="80px" ItemStyle-HorizontalAlign="Right" HeaderStyle-HorizontalAlign="Right" DataFormatString="{0:d}"
                     SortExpression="datum_vystaveni_objednavky" AutoPostBackOnFilter="false" AllowFiltering="false" CurrentFilterFunction="Contains" ShowFilterIcon="false" />

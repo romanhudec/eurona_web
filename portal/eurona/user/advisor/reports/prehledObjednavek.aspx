@@ -60,9 +60,12 @@
                 <telerik:GridBoundColumn HeaderText="Body" DataField="celkem_body" UniqueName="celkem_body" HeaderStyle-Width="40px"
                     SortExpression="celkem_body" AutoPostBackOnFilter="true" AllowFiltering="false" CurrentFilterFunction="Contains" ShowFilterIcon="false" DataFormatString="{0:F0}" />
                 
-                <telerik:GridBoundColumn HeaderText="Objem pro marži" DataField="celkem_objem_pro_marzi" UniqueName="celkem_objem_pro_marzi" HeaderStyle-Width="80px" ItemStyle-HorizontalAlign="Right" HeaderStyle-HorizontalAlign="Right"
+             <%--   <telerik:GridBoundColumn HeaderText="Objem pro marži" DataField="celkem_objem_pro_marzi" UniqueName="celkem_objem_pro_marzi" HeaderStyle-Width="80px" ItemStyle-HorizontalAlign="Right" HeaderStyle-HorizontalAlign="Right"
                     SortExpression="celkem_objem_pro_marzi" AutoPostBackOnFilter="false" AllowFiltering="false" CurrentFilterFunction="Contains" ShowFilterIcon="false" DataFormatString="{0:F2}" />
-                
+                --%>
+                <telerik:GridBoundColumn HeaderText="BO pro marži" DataField="celkem_bo_pro_marzi" UniqueName="celkem_bo_pro_marzi" HeaderStyle-Width="80px" ItemStyle-HorizontalAlign="Right" HeaderStyle-HorizontalAlign="Right"
+                    SortExpression="celkem_bo_pro_marzi" AutoPostBackOnFilter="false" AllowFiltering="false" CurrentFilterFunction="Contains" ShowFilterIcon="false" DataFormatString="{0:F2}" />
+
                 <telerik:GridBoundColumn HeaderText="Katalogová cena" DataField="celkem_katalogova_cena" UniqueName="celkem_katalogova_cena" HeaderStyle-Width="80px" ItemStyle-HorizontalAlign="Right" HeaderStyle-HorizontalAlign="Right"
                     SortExpression="celkem_katalogova_cena" AutoPostBackOnFilter="true" AllowFiltering="false" CurrentFilterFunction="Contains" ShowFilterIcon="false" DataFormatString="{0:F2}" />
                 
