@@ -50,7 +50,9 @@ namespace Eurona.User.Advisor {
             waitingOrdersToAccept = listOrders.Count;
 
             DateTime date = DateTime.Now.AddMonths(-1);
-            this.lblStavBK.InnerText = BonusovyKreditUzivateleHelper.GetPlatnyKreditCelkem(Security.Account, date.Year, date.Month).ToString("F0");//BonusovyKreditUzivateleHelper.GetKreditNarokCelkem(Security.Account, DateTime.Now.Year, DateTime.Now.Month).ToString("F0");
+            decimal platnychNaTentoMesic = BonusovyKreditUzivateleHelper.GetPlatnyKreditCelkem(Security.Account, date.Year, date.Month);
+            decimal cerpanoTentoMesic = BonusovyKreditUzivateleHelper.GetCerpaniKredituCelkem(Security.Account, date.Year, date.Month);
+            this.lblStavBK.InnerText = (platnychNaTentoMesic - cerpanoTentoMesic).ToString("F0");
 
 
             //Rozblikanie headeru pri nevybavenych ziadostiach o pridruzenie
