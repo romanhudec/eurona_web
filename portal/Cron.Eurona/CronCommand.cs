@@ -196,7 +196,8 @@ namespace Cron.Eurona {
                     DataTable tvdReklamniZasilky = mssqStorageTVD.Query(mssqStorageTVD.Connection, "SELECT * FROM reklamni_zasilky");
                     foreach (DataRow row in tvdReklamniZasilky.Rows) {
 
-                        string sql = @"IF EXISTS (SELECT 1 FROM tReklamniZasilky WHERE Id_zasilky=@Id_zasilky)
+                        string sql = @"
+                        IF EXISTS (SELECT 1 FROM tReklamniZasilky WHERE Id_zasilky=@Id_zasilky)
                         BEGIN
                           UPDATE tReklamniZasilky SET Popis=@Popis, Default_souhlas=@Default_souhlas WHERE Id_zasilky=@Id_zasilky
                         END
@@ -232,8 +233,17 @@ namespace Cron.Eurona {
                     }
                     */
                     //Sync Reklamni zasilky souhlas Eurona->TVD
-                    DataTable tvdReklamniZasilkySouhlas = mssqStorageEurona.Query(mssqStorageEurona.Connection, "SELECT * FROM tReklamniZasilkySouhlas");
+                    DataTable tvdReklamniZasilkySouhlas = mssqStorageEurona.Query(mssqStorageEurona.Connection, @"
+                    SELECT DISTINCT Id_odberatele = a.TVD_Id, rz.Id_zasilky, rz.Souhlas, rz.Datum_zmeny FROM tReklamniZasilkySouhlas rz 
+                    INNER JOIN tAccount a ON a.TVD_Id=rz.Id_odberatele
+                    ORDER BY a.TVD_Id, rz.Id_zasilky");
+                    int success = 0;
+                    int failed = 0;
                     foreach (DataRow row in tvdReklamniZasilkySouhlas.Rows) {
+                        int Id_zasilky = Convert.ToInt32(row["Id_zasilky"]);
+                        int Id_odberatele = Convert.ToInt32(row["Id_odberatele"]);
+                        //if (TraceGeneral.TraceInfo)
+                        //    base.WriteLogLine(string.Format("Id_zasilky:{0}, Id_odberatele:{1}", Id_zasilky, Id_odberatele), TraceCategory.Information);
 
                         string sql = @"IF EXISTS (SELECT 1 FROM reklamni_zasilky_souhlas WHERE Id_zasilky=@Id_zasilky AND Id_odberatele=@Id_odberatele)
                         BEGIN
@@ -244,11 +254,19 @@ namespace Cron.Eurona {
                           INSERT INTO reklamni_zasilky_souhlas (Id_zasilky, Id_odberatele, Souhlas, Datum_zmeny) VALUES (@Id_zasilky, @Id_odberatele, @Souhlas, @Datum_zmeny)
                         END
                         ";
-                        mssqStorageTVD.Exec(mssqStorageTVD.Connection, sql,    new SqlParameter("@Id_zasilky", row["Id_zasilky"]),
-                            new SqlParameter("@Id_odberatele", row["Id_odberatele"]),
-                            new SqlParameter("@Souhlas", row["Souhlas"]),
-                            new SqlParameter("@Datum_zmeny", row["Datum_zmeny"]));
+                        try {
+                            mssqStorageTVD.Exec(mssqStorageTVD.Connection, sql,
+                                new SqlParameter("@Id_zasilky", Id_zasilky),
+                                new SqlParameter("@Id_odberatele", Id_odberatele),
+                                new SqlParameter("@Souhlas", row["Souhlas"]),
+                                new SqlParameter("@Datum_zmeny", row["Datum_zmeny"]));
+                            success++;
+                        } catch (Exception ex) {
+                            base.WriteLogLine(string.Format("Id_zasilky:{0}, Id_odberatele:{1}, Exception:{2}", Id_zasilky, Id_odberatele, ex.Message), TraceCategory.Error);
+                            failed++;
+                        }
                     }
+                    base.WriteLogLine(string.Format("Success:{0}, Failed:{1}", success, failed), TraceCategory.Information);
                 }
             }
         }

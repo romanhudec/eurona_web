@@ -55,7 +55,7 @@ namespace Eurona.User.Advisor.Reports {
 										FROM provize_aktualni p
 										INNER JOIN odberatele o  ON o.Id_odberatele = p.Id_odberatele
 										INNER JOIN odberatele op  ON op.Id_odberatele = o.Cislo_nadrizeneho
-										WHERE o.Stav_odberatele!='Z' AND p.RRRRMM=@RRRRMM AND ( p.Id_odberatele IN (SELECT Id_Odberatele FROM fGetOdberateleStrom(@Id_odberatele)) )  AND
+										WHERE o.Stav_odberatele!='Z' AND p.RRRRMM=@RRRRMM AND ( p.Id_odberatele IN (SELECT Id_Odberatele FROM fGetOdberateleStrom(@Id_odberatele, @RRRRMM)) )  AND
 										DATEDIFF(""month"", o.Datum_zahajeni, getdate()) < 3";
                 if (obdobi < this.CurrentObdobiRRRRMM) {
                     sql = @"SELECT p.RRRRMM,p.Id_odberatele,p.Id_nadrizeneho,o.E_mail,p.Objem_os,p.Body_os,
@@ -67,7 +67,7 @@ namespace Eurona.User.Advisor.Reports {
 										FROM provize_finalni p
 										INNER JOIN odberatele o  ON o.Id_odberatele = p.Id_odberatele
 										INNER JOIN odberatele op  ON op.Id_odberatele = o.Cislo_nadrizeneho
-										WHERE o.Stav_odberatele!='Z' AND p.RRRRMM=@RRRRMM AND ( p.Id_odberatele IN (SELECT Id_Odberatele FROM fGetOdberateleStrom(@Id_odberatele)) )  AND
+										WHERE o.Stav_odberatele!='Z' AND p.RRRRMM=@RRRRMM AND ( p.Id_odberatele IN (SELECT Id_Odberatele FROM fGetOdberateleStrom(@Id_odberatele, @RRRRMM)) )  AND
 										DATEDIFF(""month"", o.Datum_zahajeni, getdate()) < 3";
                 }
                 //Clear data

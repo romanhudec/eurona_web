@@ -52,8 +52,8 @@ namespace Eurona.User.Advisor.Reports {
         }
 
         public static decimal? RestMarginBody(int body, object dbmarginBody) {
-            if (dbmarginBody == DBNull.Value) return null;
-            Decimal marginBody = (Decimal)dbmarginBody;
+            if (dbmarginBody == DBNull.Value) return body;
+            int marginBody = (int)dbmarginBody;
             if (marginBody > body) return 0;
             return body - marginBody;
         }

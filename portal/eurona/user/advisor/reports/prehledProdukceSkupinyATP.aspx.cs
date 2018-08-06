@@ -135,7 +135,7 @@ namespace Eurona.User.Advisor.Reports
 										o.Kod_odberatele, o.Nazev_firmy, Telefon = (CASE WHEN LEN(o.Telefon)=0 THEN o.Mobil ELSE o.Telefon END), Adresa = (o.Ulice + ', ' + o.Misto + ', ' + o.Psc + ', ' + o.Stat), o.Psc,  o.E_mail,
 										Hladina_rozdil = (SELECT Hladina FROM provize_aktualni WHERE Id_odberatele=@Id_odberatele AND RRRRMM=@RRRRMM ) - p.Hladina,
 										PocetEuronaStars = ( SELECT ISNULL(SUM(Hvezdy_celkem),0) FROM provize_aktualni_angelteam WHERE Id_odberatele=o.Id_odberatele )
-										FROM fGetOdberateleStrom(@Id_odberatele) f
+										FROM fGetOdberateleStrom(@Id_odberatele, @RRRRMM) f
 										INNER JOIN provize_aktualni p ON p.Id_odberatele = f.Id_Odberatele
 										INNER JOIN odberatele o  ON o.Id_odberatele = p.Id_odberatele
                                         LEFT JOIN odberatele op  ON op.Id_odberatele = o.cislo_nadrizeneho
@@ -152,7 +152,7 @@ namespace Eurona.User.Advisor.Reports
 												o.Kod_odberatele, o.Nazev_firmy, Telefon = (CASE WHEN LEN(o.Telefon)=0 THEN o.Mobil ELSE o.Telefon END), Adresa = (o.Ulice + ', ' + o.Misto + ', ' + o.Psc + ', ' + o.Stat), o.Psc,  o.E_mail,
 												Hladina_rozdil = (SELECT Hladina FROM provize_aktualni WHERE Id_odberatele=@Id_odberatele AND RRRRMM=@RRRRMM ) - p.Hladina,
 												PocetEuronaStars = ( SELECT ISNULL(SUM(Hvezdy_celkem),0) FROM provize_aktualni_angelteam WHERE Id_odberatele=o.Id_odberatele )
-												FROM fGetOdberateleStrom(@Id_odberatele) f
+												FROM fGetOdberateleStrom(@Id_odberatele, @RRRRMM) f
 												INNER JOIN provize_finalni p ON p.Id_odberatele = f.Id_Odberatele
 												INNER JOIN odberatele o  ON o.Id_odberatele = p.Id_odberatele
                                                 LEFT JOIN odberatele op  ON op.Id_odberatele = o.cislo_nadrizeneho

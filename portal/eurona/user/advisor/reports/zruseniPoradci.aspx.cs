@@ -64,7 +64,7 @@ namespace Eurona.User.Advisor.Reports
 					o.Datum_zahajeni, o.Kod_odberatele, o.Nazev_firmy, Telefon = (CASE WHEN LEN(o.Telefon)=0 THEN o.Mobil ELSE o.Telefon END),
 					Kod_odberatele_sponzor = op.Kod_odberatele, Nazev_firmy_sponzor = op.Nazev_firmy, Telefon_sponzor = (CASE WHEN LEN(op.Telefon)=0 THEN op.Mobil ELSE op.Telefon END),
                     ov.Datum_vymazu
-                    FROM fGetOdberateleStromZ(@Id_odberatele) f
+                    FROM fGetOdberateleStromZ(@Id_odberatele, @obdobi) f
 					INNER JOIN odberatele o ON o.Id_odberatele = f.Id_odberatele
 					INNER JOIN odberatele op ON op.Id_odberatele = o.Cislo_nadrizeneho
                     INNER JOIN odberatele_vymaz ov ON ov.Id_odberatele = o.Id_odberatele

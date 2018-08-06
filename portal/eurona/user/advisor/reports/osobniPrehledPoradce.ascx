@@ -330,9 +330,12 @@
 					<asp:Repeater ID="Repeater1" runat="server" DataSourceID="sqlRestMarginPrice" >
 						<ItemTemplate>
 							<%--<%# Eurona.User.Advisor.Reports.ReportHelper.RestMarginPrice( 24, Eval( "objem_pro_marzi" ), Eval( "Kod_meny" ) )%>--%>
-                            <%# Eurona.User.Advisor.Reports.ReportHelper.RestMarginBody( 100, Eval( "objem_pro_marzi" ))%>
-							<%# Eurona.User.Advisor.Reports.ReportHelper.PriceCurrency( Eval( "Kod_meny" ) )%>						
+                            <%--<%# Eurona.User.Advisor.Reports.ReportHelper.PriceCurrency( Eval( "Kod_meny" ) )%>	--%>
+                            <%# Eurona.User.Advisor.Reports.ReportHelper.RestMarginBody( 100, Eval( "objem_pro_marzi" ))%>					
 						</ItemTemplate>
+                        <FooterTemplate>
+                            <asp:Label ID="lblEmptyData" runat="server" Visible='<%# ((Repeater)Container.NamingContainer).Items.Count == 0 %>' Text="100"  ForeColor="Black"/>
+                        </FooterTemplate>
 						<SeparatorTemplate><br /></SeparatorTemplate>
 					</asp:Repeater>
 				</td>
@@ -343,9 +346,12 @@
 					<asp:Repeater ID="Repeater2" runat="server" DataSourceID="sqlRestMarginPrice" >
 						<ItemTemplate>
 							<%--<%# Eurona.User.Advisor.Reports.ReportHelper.RestMarginPrice( 29, Eval( "objem_pro_marzi" ), Eval( "Kod_meny" ) )%>--%>
-                            <%# Eurona.User.Advisor.Reports.ReportHelper.RestMarginBody( 200, Eval( "objem_pro_marzi" ))%>
-							<%# Eurona.User.Advisor.Reports.ReportHelper.PriceCurrency( Eval( "Kod_meny" ) )%>						
+                            <%--<%# Eurona.User.Advisor.Reports.ReportHelper.PriceCurrency( Eval( "Kod_meny" ) )%>				--%>
+                            <%# Eurona.User.Advisor.Reports.ReportHelper.RestMarginBody( 200, Eval( "objem_pro_marzi" ))%>		
 						</ItemTemplate>
+                        <FooterTemplate>
+                            <asp:Label ID="lblEmptyData" runat="server" Visible='<%# ((Repeater)Container.NamingContainer).Items.Count == 0 %>' Text="200" ForeColor="Black" />
+                        </FooterTemplate>
 						<SeparatorTemplate><br /></SeparatorTemplate>
 					</asp:Repeater>
 				</td>
@@ -415,14 +421,14 @@
 </asp:SqlDataSource>
 <asp:SqlDataSource ID="sqlBonusGroup" runat="server"
 	SelectCommand="SELECT usercount = COUNT(*) FROM provize_aktualni
-    WHERE Hladina < 21 AND Id_odberatele IN (SELECT Id_Odberatele FROM fGetOdberateleStrom(@Id_odberatele))" SelectCommandType="Text">
+    WHERE Hladina < 21 AND Id_odberatele IN (SELECT Id_Odberatele FROM fGetOdberateleStrom(@Id_odberatele, DATEPART(YEAR, GETDATE())*100 +  DATEPART(MONTH, GETDATE())))" SelectCommandType="Text">
 	<SelectParameters>
 		<asp:Parameter Name="Id_odberatele" Type="Int32" />
 	</SelectParameters>
 </asp:SqlDataSource>
 <asp:SqlDataSource ID="sqlTotalGroup" runat="server" 
 	SelectCommand="SELECT usercount = COUNT(*) FROM provize_aktualni
-    WHERE Id_odberatele IN (SELECT Id_Odberatele FROM fGetOdberateleStrom(@Id_odberatele))" SelectCommandType="Text">
+    WHERE Id_odberatele IN (SELECT Id_Odberatele FROM fGetOdberateleStrom(@Id_odberatele, DATEPART(YEAR, GETDATE())*100 +  DATEPART(MONTH, GETDATE())))" SelectCommandType="Text">
 	<SelectParameters>
 		<asp:Parameter Name="Id_odberatele" Type="Int32" />
 	</SelectParameters>

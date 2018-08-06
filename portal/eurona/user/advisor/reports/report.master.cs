@@ -63,7 +63,7 @@ namespace Eurona.User.Advisor.Reports
                     CMS.Pump.MSSQLStorage tvdStorage = new CMS.Pump.MSSQLStorage(connectionString);
                     using (SqlConnection connection = tvdStorage.Connect())
                     {
-                        string sql = @"SELECT Id_Odberatele FROM fGetOdberateleStrom(@Id_odberatele) WHERE Id_Odberatele=@childId";
+                        string sql = @"SELECT Id_Odberatele FROM fGetOdberateleStrom(@Id_odberatele, DATEPART(YEAR, GETDATE())*100 +  DATEPART(MONTH, GETDATE())) WHERE Id_Odberatele=@childId";
                         DataTable dt = tvdStorage.Query(connection, sql, new SqlParameter("@Id_odberatele", this.LogedAdvisor.TVD_Id), new SqlParameter("@childId", byAdvisor.TVD_Id));
                         if (dt.Rows.Count == 0) return null;
                         else return byAdvisor;

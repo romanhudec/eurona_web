@@ -105,7 +105,7 @@ namespace Eurona.User.Advisor.Reports {
                 string sql = string.Empty;
                 sql = @";WITH report AS (
 	                        SELECT id_prepoctu= MAX(f.id_prepoctu), o.id_odberatele, o.Kod_odberatele, p.id_web_objednavky	
-	                        FROM fGetOdberateleStrom(@Id_odberatele) os 
+	                        FROM fGetOdberateleStrom(@Id_odberatele, DATEPART(YEAR, GETDATE())*100 +  DATEPART(MONTH, GETDATE())) os 
                                 INNER JOIN www_faktury f WITH (NOLOCK) ON os.Id_Odberatele = f.Id_Odberatele
 		                        INNER JOIN www_prepocty p WITH (NOLOCK) ON p.id_prepoctu = f.id_prepoctu AND p.datum_smazani IS NULL
                                 LEFT JOIN odberatele o  WITH (NOLOCK) ON o.Id_odberatele = f.id_odberatele

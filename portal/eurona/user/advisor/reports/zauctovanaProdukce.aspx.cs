@@ -72,7 +72,7 @@ namespace Eurona.User.Advisor.Reports
 										Objem_vlastni=SUM( fr.zapocet_mj_provize_czk*fr.mnozstvi),
 										Body_vlastni=SUM(fr.zapocet_mj_body*fr.mnozstvi), 
 										p.Vnoreni, o.Kod_odberatele, o.Nazev_firmy, Stav='Zpracováva se' 
-								FROM fGetOdberateleStrom(@Id_odberatele) fo
+								FROM fGetOdberateleStrom(@Id_odberatele, (@rok*100+@mesic)) fo
 								INNER JOIN www_faktury f ON f.Id_odberatele = fo.Id_odberatele
 								INNER JOIN odberatele o  ON o.Id_odberatele = f.Id_odberatele
 								INNER JOIN provize_aktualni p ON p.Id_odberatele = o.Id_odberatele
