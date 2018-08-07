@@ -266,6 +266,7 @@ namespace Eurona.User.Anonymous {
             this.addressDeliveryControl.Width = Unit.Percentage(100);
             this.addressDeliveryControl.IsEditing = this.IsEditing;
             this.addressDeliveryControl.AddressId = this.OrderEntity.DeliveryAddressId;
+            this.addressDeliveryControl.EnableState(false);
 
             //Delivery Address
             RoundPanel rpDlvAddress = new RoundPanel();

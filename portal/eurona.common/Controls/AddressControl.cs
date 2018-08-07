@@ -136,7 +136,7 @@ namespace Eurona.Common.Controls.UserManagement
 		/// <summary>
 		/// Vytvori Control Adresy
 		/// </summary>
-		private Control CreateDetailControl()
+		public Control CreateDetailControl()
 		{
 			this.txtStreet = new TextBox();
 			this.txtStreet.ID = "txtStreet";

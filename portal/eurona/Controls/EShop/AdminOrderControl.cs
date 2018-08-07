@@ -398,6 +398,7 @@ namespace Eurona.Controls {
             rpAddress.Controls.Add(this.addressDeliveryControl);
             this.addressDeliveryControl.EnableFirstName(false);
             this.addressDeliveryControl.EnableLastName(false);
+            this.addressDeliveryControl.EnableState(false);
             #endregion
             #endregion
             #region Buttons

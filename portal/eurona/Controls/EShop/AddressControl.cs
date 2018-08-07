@@ -35,6 +35,7 @@ namespace Eurona.Controls {
 
         private bool fNameEnabled = true;
         private bool lNameEnabled = true;
+        private bool stateEnabled = true;
 
         private BaseValidator baseValidatorZip;
         #endregion
@@ -502,6 +503,9 @@ namespace Eurona.Controls {
         public void EnableLastName(bool enabled) {
             this.lNameEnabled = true;//enabled;
         }
+        public void EnableState(bool enabled) {
+            this.stateEnabled = enabled;
+        }
         public ShpAddress UpdateEntityFromUI(ShpAddress address) {
             if (address == null) return address;
             address.FirstName = this.txtFirstName.Text;
@@ -529,6 +533,7 @@ namespace Eurona.Controls {
 
             this.txtFirstName.Text = address.FirstName;
             this.txtFirstName.Enabled = fNameEnabled;
+            this.txtState.Enabled = stateEnabled;
             this.txtLastName.Text = address.LastName;
             this.txtLastName.Enabled = lNameEnabled;
             this.txtOrganization.Text = address.Organization;
