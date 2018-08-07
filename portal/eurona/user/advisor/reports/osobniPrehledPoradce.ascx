@@ -413,14 +413,14 @@
 </asp:SqlDataSource>
 <asp:SqlDataSource ID="sqlBonusGroup" runat="server"
 	SelectCommand="SELECT usercount = COUNT(*) FROM provize_aktualni
-    WHERE Hladina < 21 AND Id_odberatele IN (SELECT Id_Odberatele FROM fGetOdberateleStrom(@Id_odberatele))" SelectCommandType="Text">
+    WHERE Hladina < 21 AND Id_odberatele IN (SELECT Id_Odberatele FROM fGetOdberateleStrom(@Id_odberatele, DATEPART(YEAR, GETDATE())*100 +  DATEPART(MONTH, GETDATE())))" SelectCommandType="Text">
 	<SelectParameters>
 		<asp:Parameter Name="Id_odberatele" Type="Int32" />
 	</SelectParameters>
 </asp:SqlDataSource>
 <asp:SqlDataSource ID="sqlTotalGroup" runat="server" 
 	SelectCommand="SELECT usercount = COUNT(*) FROM provize_aktualni
-    WHERE Id_odberatele IN (SELECT Id_Odberatele FROM fGetOdberateleStrom(@Id_odberatele))" SelectCommandType="Text">
+    WHERE Id_odberatele IN (SELECT Id_Odberatele FROM fGetOdberateleStrom(@Id_odberatele, DATEPART(YEAR, GETDATE())*100 +  DATEPART(MONTH, GETDATE())))" SelectCommandType="Text">
 	<SelectParameters>
 		<asp:Parameter Name="Id_odberatele" Type="Int32" />
 	</SelectParameters>

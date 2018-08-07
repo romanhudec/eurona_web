@@ -83,7 +83,8 @@ namespace Eurona.User.Advisor.Reports
 								AND f.cislo_objednavky_eurosap NOT IN (select Cislo_objednavky from provize_aktualni_objednavky ) -- objednavka nesmie byt zauctovana
 								AND f.cislo_objednavky_eurosap NOT IN (select id_objednavky from objednavkyfaktury where StavK2=0 ) -- objednavka nesmie byt stornovana
 								AND YEAR(f.datum_vystaveni_objednavky)=@rok AND MONTH(f.datum_vystaveni_objednavky)=@mesic AND p.RRRRMM = (@rok*100+@mesic)
-								AND f.id_odberatele IN (SELECT Id_Odberatele FROM fGetOdberateleStrom(@Id_odberatele)) 
+								--AND f.id_odberatele IN (SELECT Id_Odberatele FROM fGetOdberateleStrom(@Id_odberatele)) 
+                                AND f.id_odberatele IN (SELECT Id_Odberatele FROM fGetOdberateleStrom(@Id_odberatele,(@rok*100+@mesic) )) 
 								GROUP BY f.kod_meny,p.RRRRMM,p.Id_odberatele,p.Id_nadrizeneho,p.Objem_vlastni,p.Body_vlastni, p.Vnoreni, o.Kod_odberatele, o.Nazev_firmy 
 								ORDER BY p.Vnoreni";
 				//Clear data
@@ -104,7 +105,8 @@ namespace Eurona.User.Advisor.Reports
 								INNER JOIN provize_aktualni p ON p.Id_odberatele = o.Id_odberatele
 								INNER JOIN www_faktury_radky fr ON fr.id_prepoctu = f.id_prepoctu
 								WHERE f.id_prepoctu < 0 AND YEAR(f.datum_vystaveni_objednavky)=@rok AND MONTH(f.datum_vystaveni_objednavky)=@mesic AND p.RRRRMM = (@rok*100+@mesic)
-								AND f.id_odberatele IN (SELECT Id_Odberatele FROM fGetOdberateleStrom(@Id_odberatele)) 
+								--AND f.id_odberatele IN (SELECT Id_Odberatele FROM fGetOdberateleStrom(@Id_odberatele)) 
+                                AND f.id_odberatele IN (SELECT Id_Odberatele FROM fGetOdberateleStrom(@Id_odberatele, (@rok*100+@mesic))) 
 								GROUP BY f.id_prepoctu, f.kod_meny,p.RRRRMM, p.Id_odberatele, p.Id_nadrizeneho,p.Objem_vlastni,p.Body_vlastni, p.Vnoreni, o.Kod_odberatele, o.Nazev_firmy 
 								ORDER BY p.Vnoreni";
 				//Clear data
