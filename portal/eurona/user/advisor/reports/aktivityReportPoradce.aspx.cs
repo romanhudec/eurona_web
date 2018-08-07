@@ -194,7 +194,8 @@ namespace Eurona.User.Advisor.Reports {
                                         --ZmenaHladiny = 0,--CASE WHEN (select MAX(Hladina)from provize_finalni where RRRRMM <= @RRRRMM-1 and Id_odberatele=o.Id_odberatele) < p.Hladina THEN 1 ELSE 0 END,
                                         ZmenaHladiny = CASE WHEN p.Max_predchozi_hladina< p.Hladina THEN 1 ELSE 0 END,
                                         UspesnyStart = us.Poradovy_mesic
-										FROM fGetOdberateleStrom(@Id_odberatele, @RRRRMM) f
+										--FROM fGetOdberateleStrom(@Id_odberatele) f
+                                        FROM fGetOdberateleStrom(@Id_odberatele, @RRRRMM) f
 										INNER JOIN provize_aktualni p ON p.Id_odberatele = f.Id_Odberatele
 										INNER JOIN odberatele o  ON o.Id_odberatele = p.Id_odberatele
 										INNER JOIN odberatele op  ON op.Id_odberatele = o.Cislo_nadrizeneho
@@ -221,7 +222,8 @@ namespace Eurona.User.Advisor.Reports {
                                                 o.Misto, o.Psc, top_manager=oTop.Nazev_firmy,	
                                                 ZmenaHladiny = CASE WHEN p.Max_predchozi_hladina< p.Hladina THEN 1 ELSE 0 END,
                                                 UspesnyStart = us.Poradovy_mesic
-												FROM fGetOdberateleStrom(@Id_odberatele, @RRRRMM) f
+												--FROM fGetOdberateleStrom(@Id_odberatele) f
+                                                FROM fGetOdberateleStrom(@Id_odberatele, @RRRRMM) f
 												INNER JOIN provize_finalni p ON p.Id_odberatele = f.Id_Odberatele
 												INNER JOIN odberatele o  ON o.Id_odberatele = p.Id_odberatele
 												INNER JOIN odberatele op  ON op.Id_odberatele = o.Cislo_nadrizeneho

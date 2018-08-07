@@ -172,7 +172,7 @@ namespace Eurona.User.Advisor.Reports {
 										p.Mesicu_bez_objednavky ,p.Poradi ,p.Eurokredit_vlastni ,p.Eurokredit_registrace ,p.Eurokredit_vyber ,
 										o.Kod_odberatele, o.Nazev_firmy, Telefon = (CASE WHEN LEN(o.Telefon)=0 THEN o.Mobil ELSE o.Telefon END), Adresa = (o.Ulice + ', ' + o.Misto + ', ' + o.Psc + ', ' + o.Stat), o.Psc,  o.E_mail,
 										Hladina_rozdil = (SELECT Hladina FROM provize_aktualni WHERE Id_odberatele=@Id_odberatele AND RRRRMM=@RRRRMM ) - p.Hladina
-										FROM fGetOdberateleStrom(@Id_odberatele, @RRRRMM) f
+            							FROM fGetOdberateleStrom(@Id_odberatele, @RRRRMM) f
 										INNER JOIN provize_aktualni p ON p.Id_odberatele = f.Id_Odberatele
 										INNER JOIN odberatele o  ON o.Id_odberatele = p.Id_odberatele
 										WHERE o.Stav_odberatele!='Z' AND p.RRRRMM=@RRRRMM 
@@ -185,7 +185,8 @@ namespace Eurona.User.Advisor.Reports {
 												p.Mesicu_bez_objednavky ,p.Poradi ,p.Eurokredit_vlastni ,p.Eurokredit_registrace ,p.Eurokredit_vyber ,
 												o.Kod_odberatele, o.Nazev_firmy, Telefon = (CASE WHEN LEN(o.Telefon)=0 THEN o.Mobil ELSE o.Telefon END), Adresa = (o.Ulice + ', ' + o.Misto + ', ' + o.Psc + ', ' + o.Stat), o.Psc,  o.E_mail,
 												Hladina_rozdil = (SELECT Hladina FROM provize_aktualni WHERE Id_odberatele=@Id_odberatele AND RRRRMM=@RRRRMM ) - p.Hladina
-												FROM fGetOdberateleStrom(@Id_odberatele, @RRRRMM) f
+												--FROM fGetOdberateleStrom(@Id_odberatele) f
+                                                FROM fGetOdberateleStrom(@Id_odberatele, @RRRRMM) f
 												INNER JOIN provize_finalni p ON p.Id_odberatele = f.Id_Odberatele
 												INNER JOIN odberatele o  ON o.Id_odberatele = p.Id_odberatele
 												WHERE o.Stav_odberatele!='Z' AND p.RRRRMM=@RRRRMM
@@ -209,7 +210,8 @@ namespace Eurona.User.Advisor.Reports {
                                             INNER JOIN provize_aktualni pp ON pp.Id_odberatele = ff.Id_Odberatele
                                             WHERE pp.Hladina=21 AND
                                             LEN(ff.LineageId) = (
-	                                            SELECT MIN(LEN(fff.LineageId)) FROM fGetOdberateleStrom(@Id_odberatele, @RRRRMM) fff 
+	                                            --SELECT MIN(LEN(fff.LineageId)) FROM fGetOdberateleStrom(@Id_odberatele) fff 
+                                                SELECT MIN(LEN(fff.LineageId)) FROM fGetOdberateleStrom(@Id_odberatele, @RRRRMM) fff 
 	                                            INNER JOIN provize_aktualni ppp ON ppp.Id_odberatele = fff.Id_Odberatele
 	                                            WHERE ppp.Hladina=21
                                             )
@@ -222,7 +224,8 @@ namespace Eurona.User.Advisor.Reports {
 												p.Mesicu_bez_objednavky ,p.Poradi ,p.Eurokredit_vlastni ,p.Eurokredit_registrace ,p.Eurokredit_vyber ,
 												o.Kod_odberatele, o.Nazev_firmy, Telefon = (CASE WHEN LEN(o.Telefon)=0 THEN o.Mobil ELSE o.Telefon END), Adresa = (o.Ulice + ', ' + o.Misto + ', ' + o.Psc + ', ' + o.Stat), o.Psc,  o.E_mail,
 												Hladina_rozdil = (SELECT Hladina FROM provize_aktualni WHERE Id_odberatele=@Id_odberatele AND RRRRMM=@RRRRMM ) - p.Hladina
-												FROM fGetOdberateleStrom(@Id_odberatele, @RRRRMM) f
+												--FROM fGetOdberateleStrom(@Id_odberatele) f
+                                                FROM fGetOdberateleStrom(@Id_odberatele, @RRRRMM) f
 												INNER JOIN provize_finalni p ON p.Id_odberatele = f.Id_Odberatele
 												INNER JOIN odberatele o  ON o.Id_odberatele = p.Id_odberatele
 												WHERE o.Stav_odberatele!='Z' AND p.RRRRMM=@RRRRMM
@@ -232,7 +235,8 @@ namespace Eurona.User.Advisor.Reports {
                                                     INNER JOIN provize_aktualni pp ON pp.Id_odberatele = ff.Id_Odberatele
                                                     WHERE pp.Hladina=21 AND
                                                     LEN(ff.LineageId) = (
-	                                                    SELECT MIN(LEN(fff.LineageId)) FROM fGetOdberateleStrom(@Id_odberatele, @RRRRMM) fff 
+	                                                    --SELECT MIN(LEN(fff.LineageId)) FROM fGetOdberateleStrom(@Id_odberatele) fff 
+                                                        SELECT MIN(LEN(fff.LineageId)) FROM fGetOdberateleStrom(@Id_odberatele, @RRRRMM) fff 
 	                                                    INNER JOIN provize_aktualni ppp ON ppp.Id_odberatele = fff.Id_Odberatele
 	                                                    WHERE ppp.Hladina=21
                                                     )

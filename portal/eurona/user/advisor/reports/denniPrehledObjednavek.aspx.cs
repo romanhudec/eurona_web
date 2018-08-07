@@ -144,7 +144,8 @@ namespace Eurona.User.Advisor.Reports {
 						            ELSE ''
 						            END,
 						    Adresa = (p.dor_ulice + ', ' + p.dor_misto + ', ' + p.dor_psc + ', ' + p.dor_stat)
-                        FROM fGetOdberateleStrom(@Id_odberatele, DATEPART(YEAR, GETDATE())*100 +  DATEPART(MONTH, GETDATE())) os
+                        --FROM fGetOdberateleStrom(@Id_odberatele) os
+                          FROM fGetOdberateleStrom(@Id_odberatele, DATEPART(YEAR, GETDATE())*100 +  DATEPART(MONTH, GETDATE())) os
 						    INNER JOIN www_faktury f ON f.Id_Odberatele = os.Id_Odberatele
 						    INNER JOIN www_faktury_radky fr ON fr.id_prepoctu = f.id_prepoctu
                             INNER JOIN odberatele o  ON o.Id_odberatele = f.Id_odberatele
