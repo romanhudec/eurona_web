@@ -6,18 +6,14 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using CMS.Entities;
 
-namespace Eurona.User.Advisor
-{
-    public partial class UserPage : WebPage
-    {
-        protected void Page_Load(object sender, EventArgs e)
-        {
+namespace Eurona.User.Advisor {
+    public partial class UserPage : WebPage {
+        protected void Page_Load(object sender, EventArgs e) {
             this.personControl.Visible = false;
             this.organizationControl.Visible = false;
 
             Person person = Storage<Person>.ReadFirst(new Person.ReadByAccountId { AccountId = Security.Account.Id });
-            if (person != null)
-            {
+            if (person != null) {
                 this.Title = Resources.Strings.UserPage_PersonDetail;
                 this.personControl.Visible = true;
                 this.personControl.PersonId = person.Id;
@@ -45,13 +41,12 @@ namespace Eurona.User.Advisor
             }
 
             Organization organization = Storage<Organization>.ReadFirst(new Organization.ReadByAccountId { AccountId = Security.Account.Id });
-            if (organization != null)
-            {
+            if (organization != null) {
                 this.Title = Resources.Strings.UserPage_OrganizationDetail;
 
                 this.organizationControl.Visible = true;
                 this.organizationControl.OrganizationId = organization.Id;
-                
+
                 #region Organization Settings
                 //Address settings
                 this.organizationControl.Settings = new Eurona.Common.Controls.UserManagement.OrganizationControl.ControlSettings();
@@ -89,20 +84,23 @@ namespace Eurona.User.Advisor
                 #endregion
 
                 this.organizationControl.OnChildControlsCreated += OnOrganizationChildControlsCreated;
+                if (IsPostBack) {
+                    OnOrganizationChildControlsCreated(this, null);
+                }
             }
 
             this.rpPerson.Visible = this.personControl.Visible;
             this.rpOrganization.Visible = this.organizationControl.Visible;
-        }
 
-        void OnOrganizationChildControlsCreated(object sender, EventArgs e)
-        {
+        }
+       
+        void OnOrganizationChildControlsCreated(object sender, EventArgs e) {
             //Doplnene 16.04.2013
             this.organizationControl.txtId1.Enabled = false;
             this.organizationControl.txtId2.Enabled = false;
             this.organizationControl.txtName.Enabled = false;
             this.organizationControl.ddlPF.Enabled = false;
-            this.organizationControl.ddlPF.BackColor = System.Drawing.Color.FromArgb(240,240,240);
+            this.organizationControl.ddlPF.BackColor = System.Drawing.Color.FromArgb(240, 240, 240);
             this.organizationControl.ddlStatut.Enabled = false;
             this.organizationControl.ddlStatut.BackColor = System.Drawing.Color.FromArgb(240, 240, 240);
             this.organizationControl.ddlRegion.Enabled = false;
@@ -110,7 +108,7 @@ namespace Eurona.User.Advisor
             this.organizationControl.txtPredmetCinnosti.Enabled = false;
             this.organizationControl.txtParent.Enabled = false;
             this.organizationControl.bankContact.IsEditing = false;
-            this.organizationControl.registeredAddress.IsEditing = false; 
+            this.organizationControl.registeredAddress.IsEditing = false;
         }
     }
 }
