@@ -112,6 +112,7 @@ namespace Eurona.User.Advisor {
 
             bool isOperator = Security.IsLogged(false) && Security.Account.IsInRole(Eurona.DAL.Entities.Role.OPERATOR);
             bool isAdmin = Security.IsLogged(false) && Security.Account.IsInRole(Role.ADMINISTRATOR);
+            this.organizationControl.registeredAddress.EnableState(isOperator || isAdmin);
             this.organizationControl.correspondenceAddress.EnableState(isOperator || isAdmin);
         }
     }
