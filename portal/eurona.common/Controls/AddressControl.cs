@@ -78,16 +78,16 @@ namespace Eurona.Common.Controls.UserManagement {
                 this.DataBind();
             }
 
-            if (this.Settings.Enabling.State == false) {
-                this.ddlState.Enabled = false;
-            }
-
             if (!string.IsNullOrEmpty(this.AutocompleteCityUrl)) {
+                string statClientId = this.ddlState.ClientID;
+                if (this.Settings.Enabling.State == false) {
+                    statClientId = this.txtState.ClientID;
+                }
                 string js = @"$(function () {
 					$('#" + this.txtCity.ClientID + @"').autocomplete({
 						source: function (request, response) {
 							$.ajax({
-								url: """ + Page.ResolveUrl(this.AutocompleteCityUrl) + @"?mesto="" + request.term + ""&stat=""+document.getElementById('" + this.ddlState.ClientID + @"').value,
+								url: """ + Page.ResolveUrl(this.AutocompleteCityUrl) + @"?mesto="" + request.term + ""&stat=""+document.getElementById('" + statClientId + @"').value,
 								data: request.term,
 								dataType: ""json"",
 								type: ""POST"",
