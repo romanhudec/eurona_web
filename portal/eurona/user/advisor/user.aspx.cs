@@ -42,6 +42,8 @@ namespace Eurona.User.Advisor {
 
             Organization organization = Storage<Organization>.ReadFirst(new Organization.ReadByAccountId { AccountId = Security.Account.Id });
             if (organization != null) {
+                bool isOperator = Security.IsLogged(false) && Security.Account.IsInRole(Eurona.DAL.Entities.Role.OPERATOR);
+                bool isAdmin = Security.IsLogged(false) && Security.Account.IsInRole(Role.ADMINISTRATOR);
                 this.Title = Resources.Strings.UserPage_OrganizationDetail;
 
                 this.organizationControl.Visible = true;
@@ -55,10 +57,21 @@ namespace Eurona.User.Advisor {
                 this.organizationControl.Settings.Visibility.ContactMobil = true;
                 this.organizationControl.Settings.Visibility.ContactPhone = true;
 
+
                 this.organizationControl.Settings.Require.ContactEmail = true;
                 this.organizationControl.Settings.Require.ContactMobil = true;
                 this.organizationControl.Settings.Require.PF = true;
                 this.organizationControl.Settings.Require.RegionCode = true;
+
+                this.organizationControl.Settings.RegisteredAddressSettings.Visibility.Country = false;
+                this.organizationControl.Settings.RegisteredAddressSettings.Enabling.Country = false;
+                this.organizationControl.Settings.RegisteredAddressSettings.Enabling.Region = false;
+                this.organizationControl.Settings.RegisteredAddressSettings.Enabling.District = false;
+                this.organizationControl.Settings.RegisteredAddressSettings.Enabling.Notes = true;
+                this.organizationControl.Settings.RegisteredAddressSettings.Enabling.City = false;
+                this.organizationControl.Settings.RegisteredAddressSettings.Enabling.Street = false;
+                this.organizationControl.Settings.RegisteredAddressSettings.Enabling.Zip = false;
+                this.organizationControl.Settings.RegisteredAddressSettings.Enabling.State = isOperator || isAdmin;
 
                 this.organizationControl.Settings.CorrespondenceAddressSettings.Visibility.Country = false;
                 this.organizationControl.Settings.CorrespondenceAddressSettings.Visibility.State = true;
@@ -66,8 +79,9 @@ namespace Eurona.User.Advisor {
                 this.organizationControl.Settings.CorrespondenceAddressSettings.Require.Street = true;
                 this.organizationControl.Settings.CorrespondenceAddressSettings.Require.Zip = true;
                 this.organizationControl.Settings.CorrespondenceAddressSettings.Require.State = true;
+                this.organizationControl.Settings.CorrespondenceAddressSettings.Enabling.State = isOperator || isAdmin;
                 this.organizationControl.Settings.Visibility.InvoicingAddress = false;
-                this.organizationControl.Settings.RegisteredAddressSettings = this.organizationControl.Settings.CorrespondenceAddressSettings;
+
 
                 //Bank contact
                 this.organizationControl.Settings.BankContactSettings.Require.BankCode = false;
@@ -82,11 +96,11 @@ namespace Eurona.User.Advisor {
                 this.organizationControl.Settings.ContactPersonSettings.Visibility.HomeAddress = false;
                 this.organizationControl.Settings.ContactPersonSettings.Visibility.TempAddress = false;
                 #endregion
-
+                
                 this.organizationControl.OnChildControlsCreated += OnOrganizationChildControlsCreated;
                 if (IsPostBack) {
                     OnOrganizationChildControlsCreated(this, null);
-                }
+                }               
             }
 
             this.rpPerson.Visible = this.personControl.Visible;
@@ -107,13 +121,7 @@ namespace Eurona.User.Advisor {
             this.organizationControl.ddlRegion.BackColor = System.Drawing.Color.FromArgb(240, 240, 240);
             this.organizationControl.txtPredmetCinnosti.Enabled = false;
             this.organizationControl.txtParent.Enabled = false;
-            this.organizationControl.bankContact.IsEditing = false;
-            this.organizationControl.registeredAddress.IsEditing = false;
-
-            bool isOperator = Security.IsLogged(false) && Security.Account.IsInRole(Eurona.DAL.Entities.Role.OPERATOR);
-            bool isAdmin = Security.IsLogged(false) && Security.Account.IsInRole(Role.ADMINISTRATOR);
-            this.organizationControl.registeredAddress.EnableState(isOperator || isAdmin);
-            this.organizationControl.correspondenceAddress.EnableState(isOperator || isAdmin);
+            this.organizationControl.bankContact.IsEditing = false;           
         }
     }
 }
