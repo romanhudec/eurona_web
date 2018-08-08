@@ -109,6 +109,10 @@ namespace Eurona.User.Advisor {
             this.organizationControl.txtParent.Enabled = false;
             this.organizationControl.bankContact.IsEditing = false;
             this.organizationControl.registeredAddress.IsEditing = false;
+
+            bool isOperator = Security.IsLogged(false) && Security.Account.IsInRole(Eurona.DAL.Entities.Role.OPERATOR);
+            bool isAdmin = Security.IsLogged(false) && Security.Account.IsInRole(Role.ADMINISTRATOR);
+            this.organizationControl.correspondenceAddress.EnableState(isOperator || isAdmin);
         }
     }
 }
