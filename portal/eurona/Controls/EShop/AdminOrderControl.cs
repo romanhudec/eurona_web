@@ -390,6 +390,7 @@ namespace Eurona.Controls {
 
             #region Addresses
             bool isOperator = Security.IsLogged(false) && Security.Account.IsInRole(Role.OPERATOR);
+            bool isAdmin = Security.IsLogged(false) && Security.Account.IsInRole(Role.ADMINISTRATOR);
             this.addressDeliveryControl = new AddressControl();
             this.addressDeliveryControl.ID = "addressDeliveryControl";
             this.addressDeliveryControl.Width = Unit.Percentage(100);
@@ -398,7 +399,7 @@ namespace Eurona.Controls {
             rpAddress.Controls.Add(this.addressDeliveryControl);
             this.addressDeliveryControl.EnableFirstName(false);
             this.addressDeliveryControl.EnableLastName(false);
-            this.addressDeliveryControl.EnableState(false);
+            this.addressDeliveryControl.EnableState(isOperator || isAdmin);
             #endregion
             #endregion
             #region Buttons

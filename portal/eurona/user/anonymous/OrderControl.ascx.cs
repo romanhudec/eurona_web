@@ -262,11 +262,13 @@ namespace Eurona.User.Anonymous {
 
             #region Footer
             #region Addresses
+            bool isOperator = Security.IsLogged(false) && Security.Account.IsInRole(Role.OPERATOR);
+            bool isAdmin = Security.IsLogged(false) && Security.Account.IsInRole(Role.ADMINISTRATOR);
             this.addressDeliveryControl = new Eurona.Controls.AddressControl();
             this.addressDeliveryControl.Width = Unit.Percentage(100);
             this.addressDeliveryControl.IsEditing = this.IsEditing;
             this.addressDeliveryControl.AddressId = this.OrderEntity.DeliveryAddressId;
-            this.addressDeliveryControl.EnableState(false);
+            this.addressDeliveryControl.EnableState(isOperator || isAdmin);
 
             //Delivery Address
             RoundPanel rpDlvAddress = new RoundPanel();

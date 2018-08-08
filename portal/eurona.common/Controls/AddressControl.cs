@@ -26,6 +26,8 @@ namespace Eurona.Common.Controls.UserManagement
 
 		private Address address = null;
 		private bool isNew = false;
+
+        private bool stateEnabled = true;
 		#endregion
 
 		public AddressControl()
@@ -280,6 +282,10 @@ namespace Eurona.Common.Controls.UserManagement
 
 		#region Public methods
 
+        public void EnableState(bool enabled) {
+            this.stateEnabled = enabled;
+        }
+
 		public Address UpdateEntityFromUI(Address address)
 		{
             if (this.txtCity == null) {
@@ -299,6 +305,7 @@ namespace Eurona.Common.Controls.UserManagement
 
 		public void UpdateUIFromEntity(Address address)
 		{
+            this.ddlState.Enabled = stateEnabled;
 			this.txtCity.Text = address.City;
 			this.txtCountry.Text = address.Country;
 			this.txtDistrict.Text = address.District;
