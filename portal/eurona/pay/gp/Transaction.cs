@@ -11,6 +11,7 @@ using System.IO;
 using Eurona.pay.gp;
 using System.Security.Cryptography.X509Certificates;
 using System.Security.Cryptography;
+using System.Diagnostics;
 
 namespace Eurona.PAY.GP {
     public class Transaction {
@@ -55,6 +56,7 @@ namespace Eurona.PAY.GP {
 
 
         public string MakePayment(System.Web.UI.Page page) {
+            CMS.EvenLog.WritoToEventLog(string.Format("MakePayment, Order Number:{0}", this.MerorderNum), EventLogEntryType.Information);
 
             string paymentGatewayUrl = CMS.Utilities.ConfigUtilities.ConfigValue("SHP:PAY:PaymentGatewayUrl", page);
             string paymentResultUrl = CMS.Utilities.ConfigUtilities.ConfigValue("SHP:PAY:PaymentResultUrl", page);
@@ -124,6 +126,7 @@ namespace Eurona.PAY.GP {
         /// Vytorenie objektu Pay transakcie.
         /// </summary>
         public static Transaction CreateTransaction(OrderEntity order, System.Web.UI.Page page) {
+            CMS.EvenLog.WritoToEventLog(string.Format("CreatePaymentTransaction, ID:{0}, Order Number:{1}", order.Id, order.OrderNumber), EventLogEntryType.Information);
             AccountEntity account = Storage<AccountEntity>.ReadFirst(new AccountEntity.ReadById { AccountId = order.AccountId });
             decimal priceTotalWithWAT = order.PriceWVAT;
 
