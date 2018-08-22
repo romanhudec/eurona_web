@@ -51,7 +51,8 @@ namespace Eurona.User.Advisor.Reports {
 										Kod_odberatele_sponzor = op.Kod_odberatele, Nazev_firmy_sponzor = op.Nazev_firmy, Telefon_sponzor = (CASE WHEN LEN(op.Telefon)=0 THEN op.Mobil ELSE op.Telefon END),
 										Body_1 = (select Body_vlastni from provize_aktualni where Id_odberatele=p.Id_odberatele and RRRRMM=@RRRRMM),
 										Body_2 = (select Body_vlastni from provize_aktualni where Id_odberatele=p.Id_odberatele and RRRRMM=@RRRRMM1),
-										Body_3 = (select Body_vlastni from provize_aktualni where Id_odberatele=p.Id_odberatele and RRRRMM=@RRRRMM2)
+										Body_3 = (select Body_vlastni from provize_aktualni where Id_odberatele=p.Id_odberatele and RRRRMM=@RRRRMM2),
+                                        Registrace_atp = (CASE WHEN o.Registrace_atp=1 THEN 'A' ELSE 'N' END)
 										FROM provize_aktualni p
 										INNER JOIN odberatele o  ON o.Id_odberatele = p.Id_odberatele
 										INNER JOIN odberatele op  ON op.Id_odberatele = o.Cislo_nadrizeneho
@@ -64,7 +65,8 @@ namespace Eurona.User.Advisor.Reports {
 										Kod_odberatele_sponzor = op.Kod_odberatele, Nazev_firmy_sponzor = op.Nazev_firmy, Telefon_sponzor = (CASE WHEN LEN(op.Telefon)=0 THEN op.Mobil ELSE op.Telefon END),
 										Body_1 = (select Body_vlastni from provize_aktualni where Id_odberatele=p.Id_odberatele and RRRRMM=@RRRRMM),
 										Body_2 = (select Body_vlastni from provize_aktualni where Id_odberatele=p.Id_odberatele and RRRRMM=@RRRRMM1),
-										Body_3 = (select Body_vlastni from provize_aktualni where Id_odberatele=p.Id_odberatele and RRRRMM=@RRRRMM2)
+										Body_3 = (select Body_vlastni from provize_aktualni where Id_odberatele=p.Id_odberatele and RRRRMM=@RRRRMM2),
+                                        Registrace_atp = (CASE WHEN o.Registrace_atp=1 THEN 'A' ELSE 'N' END)
 										FROM provize_finalni p
 										INNER JOIN odberatele o  ON o.Id_odberatele = p.Id_odberatele
 										INNER JOIN odberatele op  ON op.Id_odberatele = o.Cislo_nadrizeneho

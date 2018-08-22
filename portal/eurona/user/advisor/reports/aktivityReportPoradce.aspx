@@ -91,6 +91,8 @@
                     SortExpression="UspesnyStart" HeaderTooltip="Úspěšný start" AutoPostBackOnFilter="false" AllowFiltering="false" CurrentFilterFunction="Contains" ShowFilterIcon="false" />
                  <telerik:GridBoundColumn HeaderText="Top manager" DataField="top_manager" UniqueName="top_manager" HeaderStyle-Width="80px"
                     SortExpression="top_manager" AutoPostBackOnFilter="false" AllowFiltering="false" CurrentFilterFunction="Contains" ShowFilterIcon="false" />
+                <telerik:GridBoundColumn HeaderText="ATP" DataField="Registrace_atp" UniqueName="Registrace_atp" AllowFiltering="false"
+                    SortExpression="Registrace_atp" HeaderTooltip="Registrován přes ATP" AutoPostBackOnFilter="false" CurrentFilterFunction="Contains" ShowFilterIcon="false" />
             </Columns>
         </MasterTableView>
     </telerik:RadGrid>
