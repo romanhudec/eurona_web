@@ -69,11 +69,11 @@
                 <telerik:GridHyperLinkColumn HeaderText="BO sk." HeaderTooltip="Bodový obrat skupiny" DataTextField="Body_os" UniqueName="Body_os" DataNavigateUrlFields="Id_odberatele,RRRRMM"  HeaderStyle-Width="40px" ItemStyle-HorizontalAlign="Right"
                     SortExpression="Body_os" AutoPostBackOnFilter="false" AllowFiltering="false" CurrentFilterFunction="Contains" ShowFilterIcon="false" DataTextFormatString="{0:F0}" DataNavigateUrlFormatString="~/user/advisor/reports/osobniPrehledPoradce.aspx?id={0}&obdobi={1}" />
 
-                <telerik:GridBoundColumn HeaderText="M" HeaderTooltip="Marže" DataField="Marze_platna" UniqueName="Marze_platna" HeaderStyle-Width="30px" ItemStyle-HorizontalAlign="Right"
+                <telerik:GridBoundColumn HeaderText="M" HeaderTooltip="Marže" DataField="Marze_platna" UniqueName="Marze_platna" HeaderStyle-Width="60px" ItemStyle-HorizontalAlign="Right"
                     SortExpression="Marze_platna" AutoPostBackOnFilter="false" AllowFiltering="false" CurrentFilterFunction="Contains" ShowFilterIcon="false" DataFormatString="{0:F2}" />
                 <telerik:GridBoundColumn HeaderText="$$$" HeaderTooltip="Měna" DataField="Marze_kod_meny" UniqueName="Marze_kod_meny" HeaderStyle-Width="30px"
                     SortExpression="Marze_kod_meny" AutoPostBackOnFilter="false" AllowFiltering="false" CurrentFilterFunction="Contains" ShowFilterIcon="false" />
-                <telerik:GridBoundColumn HeaderText="Mn" HeaderTooltip="Předpokládaná marže následující měsíc" DataField="Marze_nasledujici" UniqueName="Marze_nasledujici" HeaderStyle-Width="30px" ItemStyle-HorizontalAlign="Right"
+                <telerik:GridBoundColumn HeaderText="Mn" HeaderTooltip="Předpokládaná marže následující měsíc" DataField="Marze_nasledujici" UniqueName="Marze_nasledujici" HeaderStyle-Width="60px" ItemStyle-HorizontalAlign="Right"
                     SortExpression="Marze_nasledujici" AutoPostBackOnFilter="false" AllowFiltering="false" CurrentFilterFunction="Contains" ShowFilterIcon="false" DataFormatString="{0:F2}" />
                 <telerik:GridBoundColumn HeaderText="N" HeaderTooltip="zobrazuje 'A', pokud jde o nově reg. zákazníka" DataField="Novy" UniqueName="Novy" HeaderStyle-Width="30px"
                     SortExpression="Novy" AutoPostBackOnFilter="false" AllowFiltering="false" CurrentFilterFunction="Contains" ShowFilterIcon="false" />
@@ -87,12 +87,12 @@
                     SortExpression="Misto" AutoPostBackOnFilter="false" AllowFiltering="false" CurrentFilterFunction="Contains" ShowFilterIcon="false" />
                 <telerik:GridBoundColumn HeaderText="PSČ" DataField="Psc" UniqueName="Psc" HeaderStyle-Width="60px" AllowSorting="true"
                     SortExpression="Psc" AutoPostBackOnFilter="false" AllowFiltering="false" CurrentFilterFunction="Contains" ShowFilterIcon="false" /> 
-                 <telerik:GridBoundColumn HeaderText="US" DataField="UspesnyStart" UniqueName="UspesnyStart" HeaderStyle-Width="20px"
-                    SortExpression="UspesnyStart" HeaderTooltip="Úspěšný start" AutoPostBackOnFilter="false" AllowFiltering="false" CurrentFilterFunction="Contains" ShowFilterIcon="false" />
-                 <telerik:GridBoundColumn HeaderText="Top manager" DataField="top_manager" UniqueName="top_manager" HeaderStyle-Width="80px"
-                    SortExpression="top_manager" AutoPostBackOnFilter="false" AllowFiltering="false" CurrentFilterFunction="Contains" ShowFilterIcon="false" />
                 <telerik:GridBoundColumn HeaderText="ATP" DataField="Registrace_atp" UniqueName="Registrace_atp" AllowFiltering="false"
                     SortExpression="Registrace_atp" HeaderTooltip="Registrován přes ATP" AutoPostBackOnFilter="false" CurrentFilterFunction="Contains" ShowFilterIcon="false" />
+                 <telerik:GridBoundColumn HeaderText="US" DataField="UspesnyStart" UniqueName="UspesnyStart" HeaderStyle-Width="20px"
+                    SortExpression="UspesnyStart" HeaderTooltip="Úspěšný start" AutoPostBackOnFilter="false" AllowFiltering="false" CurrentFilterFunction="Contains" ShowFilterIcon="false" />
+                 <telerik:GridBoundColumn HeaderText="Top manager" DataField="top_manager" UniqueName="top_manager" HeaderStyle-Width="100px"
+                    SortExpression="top_manager" AutoPostBackOnFilter="false" AllowFiltering="false" CurrentFilterFunction="Contains" ShowFilterIcon="false" />
             </Columns>
         </MasterTableView>
     </telerik:RadGrid>
