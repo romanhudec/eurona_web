@@ -87,7 +87,7 @@
                     SortExpression="Misto" AutoPostBackOnFilter="false" AllowFiltering="false" CurrentFilterFunction="Contains" ShowFilterIcon="false" />
                 <telerik:GridBoundColumn HeaderText="PSČ" DataField="Psc" UniqueName="Psc" HeaderStyle-Width="60px" AllowSorting="true"
                     SortExpression="Psc" AutoPostBackOnFilter="false" AllowFiltering="false" CurrentFilterFunction="Contains" ShowFilterIcon="false" /> 
-                <telerik:GridBoundColumn HeaderText="ATP" DataField="Registrace_atp" UniqueName="Registrace_atp" AllowFiltering="false"
+                <telerik:GridBoundColumn HeaderText="ATP" DataField="Registrace_atp" UniqueName="Registrace_atp" AllowFiltering="false" HeaderStyle-Width="40px"
                     SortExpression="Registrace_atp" HeaderTooltip="Registrován přes ATP" AutoPostBackOnFilter="false" CurrentFilterFunction="Contains" ShowFilterIcon="false" />
                  <telerik:GridBoundColumn HeaderText="US" DataField="UspesnyStart" UniqueName="UspesnyStart" HeaderStyle-Width="20px"
                     SortExpression="UspesnyStart" HeaderTooltip="Úspěšný start" AutoPostBackOnFilter="false" AllowFiltering="false" CurrentFilterFunction="Contains" ShowFilterIcon="false" />
