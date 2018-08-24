@@ -33,8 +33,8 @@
                 </div>
             </div>
         <%}%>
-            <div style="color:#868686" ><asp:Literal Visible="true" ID="lblPlatbaKarout4ZdruzeneObjednavkyMessage" runat="server" Text="<%$ Resources:EShopStrings, OrderFinish_NelzeVyuzitProSdruzeneObjednavky %>"></asp:Literal></div>
-            <div style="color:#868686" ><asp:Literal Visible="false" ID="lblCelkovaCenaPridruzeni" runat="server"></asp:Literal></div>
+       <%--     <div style="color:#868686" ><asp:Literal Visible="true" ID="lblPlatbaKarout4ZdruzeneObjednavkyMessage" runat="server" Text="<%$ Resources:EShopStrings, OrderFinish_NelzeVyuzitProSdruzeneObjednavky %>"></asp:Literal></div>
+            <div style="color:#868686" ><asp:Literal Visible="false" ID="lblCelkovaCenaPridruzeni" runat="server"></asp:Literal></div>--%>
 		</td>
     </tr>
 </table>
