@@ -38,49 +38,44 @@ namespace Eurona.EShop {
                 }
             }
 
-            //Zdruzene Objednavky
-            OrderEntity.ReadByFilter filter = new OrderEntity.ReadByFilter();
-            filter.ParentId = this.OrderEntity.Id;
-            List<OrderEntity> listZdruzene = Storage<OrderEntity>.Read(filter);
-            if (listZdruzene.Count != 0) {
-                if (Settings.IsPlatbaKartou4ZdruzeneObjednavkyPovolena()) {
-                    this.lblPlatbaKarout4ZdruzeneObjednavkyMessage.Visible = false;
-                    this.lblCelkovaCenaPridruzeni.Visible = true;
-                    this.btnPay.Enabled = true;
-                    this.btnPay.CssClass = "button-uhrada-kartou";
+            ////Zdruzene Objednavky
+            //OrderEntity.ReadByFilter filter = new OrderEntity.ReadByFilter();
+            //filter.ParentId = this.OrderEntity.Id;
+            //List<OrderEntity> listZdruzene = Storage<OrderEntity>.Read(filter);
+            //if (listZdruzene.Count != 0) {
+            //    if (Settings.IsPlatbaKartou4ZdruzeneObjednavkyPovolena()) {
+            //        this.lblPlatbaKarout4ZdruzeneObjednavkyMessage.Visible = false;
+            //        this.lblCelkovaCenaPridruzeni.Visible = true;
+            //        this.btnPay.Enabled = true;
+            //        this.btnPay.CssClass = "button-uhrada-kartou";
 
-                    if (listZdruzene.Count != 0) {
-                        decimal celkovaSuma = 0.0m;
-                        foreach (OrderEntity order in listZdruzene) {
-                            celkovaSuma += order.PriceWVAT;
-                        }
-                        celkovaSuma = this.OrderEntity.PriceWVAT + celkovaSuma;
-                        this.lblCelkovaCenaPridruzeni.Text = string.Format(Resources.EShopStrings.OrderFinish_SdruzeneObjednavkyCenaCelkem_Format,
-                            ShpCultureUtilities.CurrencyInfo.ToString(celkovaSuma, this.Session));
-                    }
-                } else {
-                    this.lblPlatbaKarout4ZdruzeneObjednavkyMessage.Visible = true;
-                    this.lblCelkovaCenaPridruzeni.Visible = false;
-                    this.btnPay.Enabled = false;
-                    this.btnPay.Text = "";
-                    this.btnPay.CssClass = "button-uhrada-kartou-disabled";
-                }
-            }
-
-            //if (Security.Account.Locale != "cs") {
-            //    this.btnPay.Enabled = false;
-            //    this.btnPay.Text = "";
-            //    this.btnPay.CssClass = "button-uhrada-kartou-disabled";
+            //        if (listZdruzene.Count != 0) {
+            //            decimal celkovaSuma = 0.0m;
+            //            foreach (OrderEntity order in listZdruzene) {
+            //                celkovaSuma += order.PriceWVAT;
+            //            }
+            //            celkovaSuma = this.OrderEntity.PriceWVAT + celkovaSuma;
+            //            this.lblCelkovaCenaPridruzeni.Text = string.Format(Resources.EShopStrings.OrderFinish_SdruzeneObjednavkyCenaCelkem_Format,
+            //                ShpCultureUtilities.CurrencyInfo.ToString(celkovaSuma, this.Session));
+            //        }
+            //    } else {
+            //        this.lblPlatbaKarout4ZdruzeneObjednavkyMessage.Visible = true;
+            //        this.lblCelkovaCenaPridruzeni.Visible = false;
+            //        this.btnPay.Enabled = false;
+            //        this.btnPay.Text = "";
+            //        this.btnPay.CssClass = "button-uhrada-kartou-disabled";
+            //    }
             //}
+
         }
 
         public Literal HeaderControl {
             get { return this.lblHeader; }
         }
 
-        public Literal PlatbaKarout4ZdruzeneObjednavkyMessageControl {
-            get { return this.lblPlatbaKarout4ZdruzeneObjednavkyMessage; }
-        }
+        //public Literal PlatbaKarout4ZdruzeneObjednavkyMessageControl {
+        //    get { return this.lblPlatbaKarout4ZdruzeneObjednavkyMessage; }
+        //}
 
         private void RegisterStartupCountDownScript(string containerId, int seconds) {
             ClientScriptManager cs = this.Page.ClientScript;

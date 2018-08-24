@@ -382,19 +382,19 @@
 				<td>email</td>
 				<td><a href='<%# "mailto:" + Eval("E_mail")%>'><%# Eval( "E_mail" )%></a></td>
 			</tr>
-			<tr>
+<%--			<tr>
 				<td><asp:Literal ID="Literal27" runat="server" Text="<%$ Resources:Reports, TelefonDomu %>"></asp:Literal></td>
 				<td><%# Eval( "Telefon" )%></td>
 			</tr>
 			<tr>
 				<td><asp:Literal ID="Literal28" runat="server" Text="<%$ Resources:Reports, TelefonDoPrace %>"></asp:Literal></td>
 				<td><%# Eval( "Telefon_prace" )%></td>
-			</tr>
+			</tr>--%>
 			<tr>
 				<td><asp:Literal ID="Literal29" runat="server" Text="<%$ Resources:Reports, MobilniTelefon %>"></asp:Literal></td>
 				<td><%# Eval( "Mobil" )%></td>
 			</tr>
-			<tr>
+<%--			<tr>
 				<td>fax</td>
 				<td><%# Eval("fax")%></td>
 			</tr>
@@ -405,7 +405,7 @@
 			<tr>
 				<td>icq</td>
 				<td><%# Eval("icq")%></td>
-			</tr>
+			</tr>--%>
 			</table>
 		</td>
 		</tr>

@@ -2,6 +2,13 @@
 <%@ Register TagPrefix="telerik" Namespace="Telerik.Web.UI" Assembly="Telerik.Web.UI" %>
 
 <asp:Content ID="Content2" ContentPlaceHolderID="filter_content" runat="server">
+    <style>
+        .page-container {background-image:none!important;}
+	    .page-container-overlay{width:auto!important;}
+	    .page{width:auto!important;margin:0px 50px 0px 50px;}
+        .page-container{width:auto!important;}
+        .RadGrid .rgHeader{padding-left:5px!important;padding-right:0px!important;}
+    </style>
 </asp:Content>
 <asp:Content ID="Content1" ContentPlaceHolderID="content" runat="server">
     <telerik:RadGrid AutoGenerateColumns="False" ID="gridView" AllowFilteringByColumn="False" AllowPaging="True" AllowSorting="True" runat="server">
@@ -29,17 +36,19 @@
                 <telerik:GridBoundColumn HeaderText="<%$ Resources:Reports, Datum1Obj_Column %>" DataField="Datum_zahajeni" UniqueName="Datum_zahajeni"  HeaderStyle-Width="90px" ItemStyle-HorizontalAlign="Right"
                     SortExpression="Datum_zahajeni" AutoPostBackOnFilter="false" CurrentFilterFunction="Contains" ShowFilterIcon="false" DataFormatString="{0:d}" />
 
-                <telerik:GridBoundColumn HeaderText="BO sk." DataField="Body_os" UniqueName="Body_os" ItemStyle-HorizontalAlign="Right" HeaderStyle-Width="30px"
+                <telerik:GridBoundColumn HeaderText="BO sk." DataField="Body_os" UniqueName="Body_os" ItemStyle-HorizontalAlign="Right" HeaderStyle-Width="50px"
                     SortExpression="Body_os" AutoPostBackOnFilter="false" CurrentFilterFunction="Contains" ShowFilterIcon="false" DataFormatString="{0:F0}" />
                 <telerik:GridBoundColumn HeaderText="OO sk." DataField="Objem_os" UniqueName="Objem_os" ItemStyle-HorizontalAlign="Right"  HeaderStyle-Width="60px"
-                    SortExpression="Objem_os" AutoPostBackOnFilter="false" CurrentFilterFunction="Contains" ShowFilterIcon="false" DataFormatString="{0:F2}" />
+                    SortExpression="Objem_os" AutoPostBackOnFilter="false" CurrentFilterFunction="Contains" ShowFilterIcon="false" DataFormatString="{0:F2}"/>
 
                 <telerik:GridBoundColumn HeaderText="BO 1" DataField="Body_1" UniqueName="Body_1" ItemStyle-HorizontalAlign="Right"
-                    SortExpression="Body_1" AutoPostBackOnFilter="false" CurrentFilterFunction="Contains" ShowFilterIcon="false" />
+                    SortExpression="Body_1" AutoPostBackOnFilter="false" CurrentFilterFunction="Contains" ShowFilterIcon="false" HeaderStyle-Width="60px"/>
                 <telerik:GridBoundColumn HeaderText="BO 2" DataField="Body_2" UniqueName="Body_2" ItemStyle-HorizontalAlign="Right"
-                    SortExpression="Body_2" AutoPostBackOnFilter="false" CurrentFilterFunction="Contains" ShowFilterIcon="false" />
+                    SortExpression="Body_2" AutoPostBackOnFilter="false" CurrentFilterFunction="Contains" ShowFilterIcon="false" HeaderStyle-Width="60px"/>
                 <telerik:GridBoundColumn HeaderText="BO 3" DataField="Body_3" UniqueName="Body_3" ItemStyle-HorizontalAlign="Right"
-                    SortExpression="Body_3" AutoPostBackOnFilter="false" CurrentFilterFunction="Contains" ShowFilterIcon="false" />
+                    SortExpression="Body_3" AutoPostBackOnFilter="false" CurrentFilterFunction="Contains" ShowFilterIcon="false" HeaderStyle-Width="60px" />
+                <telerik:GridBoundColumn HeaderText="ATP" DataField="Registrace_atp" UniqueName="Registrace_atp" AllowFiltering="false"
+                    SortExpression="Registrace_atp" HeaderTooltip="Registrován přes ATP" AutoPostBackOnFilter="false" CurrentFilterFunction="Contains" ShowFilterIcon="false" HeaderStyle-Width="60px" />
             </Columns>
         </MasterTableView>
     </telerik:RadGrid>

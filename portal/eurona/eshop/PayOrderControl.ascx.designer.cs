@@ -76,24 +76,6 @@ namespace Eurona.EShop {
         protected global::System.Web.UI.WebControls.Literal Literal3;
         
         /// <summary>
-        /// lblPlatbaKarout4ZdruzeneObjednavkyMessage control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Literal lblPlatbaKarout4ZdruzeneObjednavkyMessage;
-        
-        /// <summary>
-        /// lblCelkovaCenaPridruzeni control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Literal lblCelkovaCenaPridruzeni;
-        
-        /// <summary>
         /// payOrderResult control.
         /// </summary>
         /// <remarks>

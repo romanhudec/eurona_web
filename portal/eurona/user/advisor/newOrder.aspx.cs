@@ -18,7 +18,7 @@ namespace Eurona.EShop.User {
                 this.payOrderControl.OrderId = this.order.Id;
                 this.payOrderControl.Visible = this.order.PaydDate.HasValue == false;
                 this.payOrderControl.HeaderControl.Visible = false;
-                this.payOrderControl.PlatbaKarout4ZdruzeneObjednavkyMessageControl.Visible = false;
+                //this.payOrderControl.PlatbaKarout4ZdruzeneObjednavkyMessageControl.Visible = false;
             }
 
         }
