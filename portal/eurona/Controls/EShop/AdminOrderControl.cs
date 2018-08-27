@@ -539,6 +539,11 @@ namespace Eurona.Controls {
             @";return false;}else{return false;}";
             this.btnSave.Attributes.Add("onclick", saveClickHandler);
 
+            string addProductClickHandler = @"if(fnOnUpdateValidators()){" +
+            Page.ClientScript.GetPostBackEventReference(this.btnAddProduct, string.Empty) +
+            @";return false;}else{return false;}";
+            this.btnAddProduct.Attributes.Add("onclick", addProductClickHandler);
+
             //Binding
             GridViewDataBind(this.OrderEntity, !IsPostBack);
         }
