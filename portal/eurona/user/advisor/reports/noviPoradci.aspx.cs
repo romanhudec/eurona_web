@@ -109,8 +109,8 @@ namespace Eurona.User.Advisor.Reports {
 										INNER JOIN odberatele op  ON op.Id_odberatele = o.Cislo_nadrizeneho
 										--WHERE o.Stav_odberatele!='Z' AND p.RRRRMM=@RRRRMM AND ( p.Id_odberatele IN (SELECT Id_Odberatele FROM fGetOdberateleStrom(@Id_odberatele)) )  AND
                                         WHERE o.Stav_odberatele!='Z' AND p.RRRRMM=@RRRRMM AND ( p.Id_odberatele IN (SELECT Id_Odberatele FROM fGetOdberateleStrom(@Id_odberatele, @RRRRMM)) )  AND       
-										DATEDIFF(""month"", o.Datum_zahajeni, getdate()) < 3";
-                if (obdobi < this.CurrentObdobiRRRRMM) {
+										DATEDIFF(month, o.Datum_zahajeni, getdate()) < 3";
+                if (obdobi < currentObdobiRRRRMM) {
                     sql = @"SELECT p.RRRRMM,p.Id_odberatele,p.Id_nadrizeneho,o.E_mail,p.Objem_os,p.Body_os,
 										o.Datum_zahajeni, o.Kod_odberatele, o.Nazev_firmy, Telefon = (CASE WHEN LEN(o.Telefon)=0 THEN o.Mobil ELSE o.Telefon END),
 										Kod_odberatele_sponzor = op.Kod_odberatele, Nazev_firmy_sponzor = op.Nazev_firmy, Telefon_sponzor = (CASE WHEN LEN(op.Telefon)=0 THEN op.Mobil ELSE op.Telefon END),
@@ -123,7 +123,7 @@ namespace Eurona.User.Advisor.Reports {
 										INNER JOIN odberatele op  ON op.Id_odberatele = o.Cislo_nadrizeneho
 										--WHERE o.Stav_odberatele!='Z' AND p.RRRRMM=@RRRRMM AND ( p.Id_odberatele IN (SELECT Id_Odberatele FROM fGetOdberateleStrom(@Id_odberatele)) )  AND
                                         WHERE o.Stav_odberatele!='Z' AND p.RRRRMM=@RRRRMM AND ( p.Id_odberatele IN (SELECT Id_Odberatele FROM fGetOdberateleStrom(@Id_odberatele, @RRRRMM)) )  AND
-										DATEDIFF(""month"", o.Datum_zahajeni, getdate()) < 3";
+										DATEDIFF(month, o.Datum_zahajeni, getdate()) < 3";
                 }
                 //Clear data
                 DataTable dt = tvdStorage.Query(connection, sql,
