@@ -107,20 +107,18 @@ namespace Eurona.User.Advisor.Reports {
 
             #region Uzavierka
             int currentObdobiRRRRMM = this.CurrentObdobiRRRRMM;
-            if (/*obdobi == currentObdobiRRRRMM*/true) {
-                if (uzavierkaTo <= DateTime.Now) {
-                    int year = uzavierkaTo.Year * 100;
-                    currentObdobiRRRRMM = year + uzavierkaTo.Month;
-                    if (this.CurrentObdobiRRRRMM == currentObdobiRRRRMM) {
-                        DateTime date = uzavierkaTo.AddMonths(-1);
-                        year = date.Year * 100;
-                        currentObdobiRRRRMM = year + date.Month;
-                    }
-                } else if (uzavierkaFrom <= DateTime.Now && uzavierkaTo >= DateTime.Now && uzavierkaFrom.Month != uzavierkaTo.Month) {
+            if (uzavierkaTo <= DateTime.Now) {
+                int year = uzavierkaTo.Year * 100;
+                currentObdobiRRRRMM = year + uzavierkaTo.Month;
+                if (this.CurrentObdobiRRRRMM == currentObdobiRRRRMM) {
                     DateTime date = uzavierkaTo.AddMonths(-1);
-                    int year = date.Year * 100;
+                    year = date.Year * 100;
                     currentObdobiRRRRMM = year + date.Month;
                 }
+            } else if (uzavierkaFrom <= DateTime.Now && uzavierkaTo >= DateTime.Now && uzavierkaFrom.Month != uzavierkaTo.Month) {
+                DateTime date = uzavierkaTo.AddMonths(-1);
+                int year = date.Year * 100;
+                currentObdobiRRRRMM = year + date.Month;
             }
 
             #endregion

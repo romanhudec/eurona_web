@@ -3299,7 +3299,7 @@
         <WebProjectProperties>
           <UseIIS>False</UseIIS>
           <AutoAssignPort>True</AutoAssignPort>
-          <DevelopmentServerPort>50900</DevelopmentServerPort>
+          <DevelopmentServerPort>58854</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
           <IISUrl>http://localhost:83/</IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
