@@ -394,7 +394,6 @@ namespace Eurona.User.Anonymous {
 
                     this.lcDopravne.Text = SHP.Utilities.CultureUtilities.CurrencyInfo.ToString(OrderEntity.CartEntity.DopravneEurosap, this.Session);
                     this.lblFakturovanaCena.Text = Eurona.Common.Utilities.CultureUtilities.CurrencyInfo.ToString(this.OrderEntity.PriceWVAT, this.OrderEntity.CurrencySymbol);
-
                 }
 
                 GridViewDataBind(this.OrderEntity, true);
