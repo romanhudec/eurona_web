@@ -1,3 +1,0 @@
-test private key: 
-gpwebpay-pvk.key
-pwd EuronaTest123
