@@ -391,6 +391,7 @@ namespace Eurona.User.Anonymous {
 
                     this.lcBodyByEurosap.Text = OrderEntity.CartEntity.BodyEurosapTotal.ToString("F1");
                     this.lcKatalogovaCenaCelkemByEurosap.Text = SHP.Utilities.CultureUtilities.CurrencyInfo.ToString(OrderEntity.CartEntity.KatalogovaCenaCelkemByEurosap, this.Session);
+
                     this.lcDopravne.Text = SHP.Utilities.CultureUtilities.CurrencyInfo.ToString(OrderEntity.CartEntity.DopravneEurosap, this.Session);
                     this.lblFakturovanaCena.Text = Eurona.Common.Utilities.CultureUtilities.CurrencyInfo.ToString(this.OrderEntity.PriceWVAT, this.OrderEntity.CurrencySymbol);
 
@@ -496,6 +497,11 @@ namespace Eurona.User.Anonymous {
             this.RecalculateOrder();
             UpdateDopravneUIbyOrder();
 
+            this.lcBodyByEurosap.Text = OrderEntity.CartEntity.BodyEurosapTotal.ToString("F1");
+            this.lcKatalogovaCenaCelkemByEurosap.Text = SHP.Utilities.CultureUtilities.CurrencyInfo.ToString(OrderEntity.CartEntity.KatalogovaCenaCelkemByEurosap, this.Session);
+
+            this.lcDopravne.Text = SHP.Utilities.CultureUtilities.CurrencyInfo.ToString(OrderEntity.CartEntity.DopravneEurosap, this.Session);
+            this.lblFakturovanaCena.Text = Eurona.Common.Utilities.CultureUtilities.CurrencyInfo.ToString(this.OrderEntity.PriceWVAT, this.OrderEntity.CurrencySymbol);
             GridViewDataBind(this.OrderEntity, true);
         }
 
@@ -512,16 +518,31 @@ namespace Eurona.User.Anonymous {
                 order.NoPostage = true;
                 this.OrderEntity.CartEntity.DopravneEurosap = 0m;
                 this.OrderEntity.CartEntity = Storage<CartEntity>.Update(this.OrderEntity.CartEntity);
+
                 this.OrderEntity.NoPostage = true;
             } else {
                 this.OrderEntity.NoPostage = false;
             }
 
+            //Update cart from DB
+            this.OrderEntity.CartEntity = null;
+
             //Recalculate Cart
             EuronaCartHelper.RecalculateCart(this.Page, this.OrderEntity.CartId);
 
+            //Vykonanie prepoctu v TVD
+            bool bSuccess = false;
+            int? currencyId = order.CurrencyId;
+#if !__DEBUG_VERSION_WITHOUTTVD
+            CartOrderHelper.RecalculateTVDCart(this.Page, null, order.OrderNumber, order.CartEntity, out currencyId, out bSuccess);
+#endif
+
             //Nastavenie dopravneho
             CartOrderHelper.RecalculateDopravne(this.OrderEntity.CartEntity, this.OrderEntity.ShipmentCode);
+
+            if (currencyId.HasValue) {
+                order.CurrencyId = currencyId.Value;
+            }
 
             //Update Order
             decimal? shipmentPrice = order.NoPostage ? 0m : (this.OrderEntity.CartEntity.Shipment != null ? this.OrderEntity.CartEntity.Shipment.Price : 0m);
