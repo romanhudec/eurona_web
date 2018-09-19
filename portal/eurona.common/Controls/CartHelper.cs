@@ -220,8 +220,9 @@ namespace Eurona.Common.Controls.Cart {
             return AddProductToCart(page, productId, quantity, false, owner, false);
         }
 
-        public static Eurona.Common.EuronaUserMarzeInfo UpdateCartProduct(Page page, int cartId, int productId, int quantity, bool updateOnly = true) {
+        public static Eurona.Common.EuronaUserMarzeInfo UpdateCartProduct(Page page, int cartId, int productId, int quantity, out bool result, bool updateOnly = true) {
             Eurona.Common.EuronaUserMarzeInfo umi = null;
+            result = false;
 
             //Vytvorenie/Update produktu v nakupnom kosiku.
             ProductEntity product = Storage<ProductEntity>.ReadFirst(new ProductEntity.ReadById { ProductId = productId });
@@ -248,6 +249,12 @@ namespace Eurona.Common.Controls.Cart {
             } else {
                 if( updateOnly )cProduct.Quantity = quantity;
                 else cProduct.Quantity += quantity;
+
+                //Kontrola na dodrzanie celkoveho mnozstva v kosiku
+                if (!ValidateProductBeforeAddingToChart(cProduct.ProductCode, product, cProduct.Quantity, page)) {
+                    result = false;
+                    return umi;
+                }
 
                 cProduct.Price = product.Price;
                 cProduct.PriceWVAT = product.PriceWVAT;
@@ -288,6 +295,7 @@ namespace Eurona.Common.Controls.Cart {
             cart.PriceTotalWVAT = priceWVAT;
             Storage<CartEntity>.Update(cart);
 
+            result = true;
             return umi;
         }
 
@@ -642,6 +650,7 @@ namespace Eurona.Common.Controls.Cart {
             return true;
         }
 
+        /*
         public static Eurona.Common.CernyForLifeUserMarzeInfo UpdateCartProduct(Page page, int cartId, int productId, int quantity) {
             Eurona.Common.CernyForLifeUserMarzeInfo umi = null;
 
@@ -721,7 +730,7 @@ namespace Eurona.Common.Controls.Cart {
 
             return umi;
         }
-
+        */
         public static bool RemoveProductFromCart(int cartProductId) {
             CartProductEntity cartProduct = Storage<CartProductEntity>.ReadFirst(new CartProductEntity.ReadById { CartProductId = cartProductId });
             if (cartProduct != null) {

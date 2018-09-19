@@ -152,7 +152,8 @@ namespace Eurona.Controls {
                     ProductEntity p = Storage<ProductEntity>.ReadFirst(new ProductEntity.ReadById { ProductId = cartProduct.ProductId });
                     if (!EuronaCartHelper.ValidateProductBeforeAddingToChart(p.Code, p, quantity, this))
                         return;
-                    EuronaCartHelper.UpdateCartProduct(this.Page, cartProduct.CartId, cartProduct.ProductId, quantity);
+                    bool updateResult = false;
+                    EuronaCartHelper.UpdateCartProduct(this.Page, cartProduct.CartId, cartProduct.ProductId, quantity, out updateResult);
                     this.cartEntity = null;
                     if (OnCartItemsChanged != null) OnCartItemsChanged(this, null);
                 }

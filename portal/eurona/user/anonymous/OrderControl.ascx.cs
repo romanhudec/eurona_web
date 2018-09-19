@@ -384,7 +384,9 @@ namespace Eurona.User.Anonymous {
                     bool isOperator = Security.IsLogged(false) && Security.Account.IsInRole(Role.OPERATOR);
                     if (!EuronaCartHelper.ValidateProductBeforeAddingToChart(p.Code, p, quantity, false, this, isOperator))
                         return;
-                    EuronaCartHelper.UpdateCartProduct(this.Page, cartProduct.CartId, cartProduct.ProductId, quantity);
+
+                    bool updateResult = false;
+                    EuronaCartHelper.UpdateCartProduct(this.Page, cartProduct.CartId, cartProduct.ProductId, quantity, out updateResult);
                     //Prepocitanie kosiku a objednavky
                     this.RecalculateOrder();
                     UpdateDopravneUIbyOrder();

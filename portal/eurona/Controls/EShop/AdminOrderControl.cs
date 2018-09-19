@@ -570,7 +570,10 @@ namespace Eurona.Controls {
             if (!EuronaCartHelper.ValidateProductBeforeAddingToChart(this.txtKod.Text, p, quantity, false, this, isOperator))
                 return;
 
-            EuronaCartHelper.UpdateCartProduct(this.Page, this.OrderEntity.CartId, p.Id, quantity, false);
+            bool updateResult = false;
+            EuronaCartHelper.UpdateCartProduct(this.Page, this.OrderEntity.CartId, p.Id, quantity, out updateResult, false);
+            if(updateResult == false )
+                return;
 
             //Prepocitanie kosiku a objednavky           
             this.RecalculateOrder();
@@ -665,7 +668,8 @@ namespace Eurona.Controls {
                     bool isOperator = Security.IsLogged(false) && Security.Account.IsInRole(Role.OPERATOR);
                     if (!EuronaCartHelper.ValidateProductBeforeAddingToChart(p.Code, p, quantity, false, this, isOperator))
                         return;
-                    EuronaCartHelper.UpdateCartProduct(this.Page, cartProduct.CartId, cartProduct.ProductId, quantity);
+                    bool updateResult = false;
+                    EuronaCartHelper.UpdateCartProduct(this.Page, cartProduct.CartId, cartProduct.ProductId, quantity, out updateResult);
 
                     //Prepocitanie kosiku a objednavky
                     this.RecalculateOrder();

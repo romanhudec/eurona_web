@@ -2885,6 +2885,7 @@
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="WebStorage.cs" />
+    <Compile Include="ZipCompressor.cs" />
     <Compile Include="_info.aspx.cs">
       <DependentUpon>_info.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>

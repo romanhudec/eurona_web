@@ -493,7 +493,8 @@ namespace Eurona.Controls {
                     bool isOperator = Security.IsLogged(false) && Security.Account.IsInRole(Role.OPERATOR);
                     if (!EuronaCartHelper.ValidateProductBeforeAddingToChart(p.Code, p, quantity, false, this, isOperator))
                         return;
-                    Eurona.Common.EuronaUserMarzeInfo umi = EuronaCartHelper.UpdateCartProduct(this.Page, cartProduct.CartId, cartProduct.ProductId, quantity);
+                    bool updateResult = false;
+                    Eurona.Common.EuronaUserMarzeInfo umi = EuronaCartHelper.UpdateCartProduct(this.Page, cartProduct.CartId, cartProduct.ProductId, quantity, out updateResult);
                     this.cartEntity = null;
                     UpdateUntensaMarzeInfo(umi);
                     if (OnCartItemsChanged != null) OnCartItemsChanged(this, null);
