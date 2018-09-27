@@ -14,10 +14,10 @@ namespace Eurona {
         protected override void OnLoad(EventArgs e) {
             base.OnLoad(e);
 
-            if (Response != null && Response.Filter != null) {
-                Response.Filter = new GZipStream(Response.Filter, CompressionMode.Compress);
-                Response.AddHeader("Content-Encoding", "gzip");
-            }
+            //if (Response != null && Response.Filter != null) {
+            //    Response.Filter = new GZipStream(Response.Filter, CompressionMode.Compress);
+            //    Response.AddHeader("Content-Encoding", "gzip");
+            //}
         }
 
         protected override void OnError(EventArgs e) {
