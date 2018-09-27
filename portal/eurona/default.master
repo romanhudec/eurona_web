@@ -43,6 +43,7 @@
     
     <script type="text/javascript"  src="https://code.jquery.com/jquery-1.12.4.js"></script>
     <script type="text/javascript"  src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
+
 	<!--Start of Zopim Live Chat Script-->
 	<script type="text/javascript">
 	window.$zopim || (function (d, s) {
@@ -87,7 +88,8 @@
 	    var currentAnimateIndex = 0;
 	    var animationType = 1; /*1-rozvyjanie, 2-zvyjanie*/
 	    window.onload = startLotosAnimation
-    </script>               
+    </script>    
+  
     <div class="page">
         <div class="page-container">
             <div class="page-container-overlay">
@@ -207,4 +209,72 @@
         })(window, document, 'https://static.hotjar.com/c/hotjar-', '.js?sv=');
     </script>
 </body>
+
+
+    <!-- SNOW 2 BEGIN -->
+    <%--<div id="snowflakeContainer">
+        <img class="snowflake" src='<%=ResolveUrl("~/images/flake.png")%>'/>
+        <!--<p class="snowflake">*</p>-->
+    </div>
+
+    <script src='<%=ResolveUrl("~/javascripts/fallingsnow/fallingsnow_v6.js")%>'></script>
+    <style>
+        #snowflakeContainer {
+            position: absolute;
+            left: 0px;
+            top: 0px;
+        }
+        .snowflake {
+            padding-left: 15px;
+            font-family: Cambria, Georgia, serif;
+            font-size: 14px;
+            line-height: 24px;
+            position: fixed;
+            color: #FFFFFF;
+            user-select: none;
+            z-index: 1000;
+        }
+        .snowflake:hover {
+            cursor: default;
+        }
+    </style>--%>
+    <!-- SNOW 2 END -->
+
+
+    <!-- SNOW 3 BEGIN-->
+    <script src='<%=ResolveUrl("~/javascripts/snowfall.jquery.min.js")%>'></script>
+    <script type='text/javascript'>
+        $(document).ready(function () {
+            //Start the snow default options you can also make it snow in certain elements, etc.
+            $(document).snowfall('clear');
+            $(document).snowfall({
+                shadow: false,
+                round: false,
+                minSize: 10, maxSize:32,
+                flakeCount: 10,
+                flakeColor: '#ffffff',
+                image: '<%=ResolveUrl("~/images/flake.png")%>',
+                flakeIndex: 999999,
+                minSpeed: 0.5,
+                maxSpeed: 1.5
+
+            });
+
+            $(document).snowfall({
+                shadow: false,
+                round: false,
+                minSize: 10, maxSize: 32,
+                flakeCount: 10,
+                flakeColor: '#ffffff',
+                image: '<%=ResolveUrl("~/images/flake1.png")%>',
+                flakeIndex: 999999,
+                minSpeed: 0.5,
+                maxSpeed: 1.5
+
+             }); // add rounded
+         
+        });
+		</script> 
+    <!-- SNOW 3 END -->
+
 </html>
