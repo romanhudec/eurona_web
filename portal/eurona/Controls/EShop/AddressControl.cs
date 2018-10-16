@@ -162,8 +162,11 @@ namespace Eurona.Controls {
                         $('.ui-autocomplete').css('z-index', 1000);
                     },
 					select: function (event, ui) {
+                        document.getElementById('" + this.txtZip.ClientID + @"').style.backgroundColor='#F0F0F0';
+                        document.getElementById('" + this.txtZip.ClientID + @"').disabled=false;
 						document.getElementById('" + this.txtCity.ClientID + @"').value = ui.item.value.trim();
 						document.getElementById('" + this.txtZip.ClientID + @"').value = ui.item.psc.trim();
+                        document.getElementById('" + this.txtZip.ClientID + @"').readOnly = true;
 					},
 					minLength: 2
 				});
