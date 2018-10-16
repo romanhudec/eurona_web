@@ -14,7 +14,8 @@ namespace SHP.Entities
 						NameASC = 1,
 						PriceASC = 2,
 						PriceDESC = 3,
-						DarkovySet = 4
+						DarkovySet = 4,
+                        IdDESC = 5
 				}
 
 				public enum DiscountType: int

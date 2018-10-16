@@ -43,7 +43,7 @@ namespace Eurona.EShop
 					break;
 				case "news":
 					this.Title = Resources.EShopStrings.Navigation_MenuItem_NewProducts;
-					this.productsControl.Filter = new Eurona.Common.DAL.Entities.Product.ReadByFilter { Novinka = true };
+					this.productsControl.Filter = new Eurona.Common.DAL.Entities.Product.ReadByFilter { Novinka = true, SortBy = SHP.Entities.Product.SortBy.IdDESC };
 					break;
                 case "vyprodej":
                     this.Title = Resources.EShopStrings.Navigation_MenuItem_Vyprodej;

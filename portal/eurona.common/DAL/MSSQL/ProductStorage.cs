@@ -360,6 +360,9 @@ namespace Eurona.Common.DAL.MSSQL {
                         case Product.SortBy.DarkovySet:
                             sql += " ORDER BY p.[DarkovySet] ASC";
                             break;
+                        case Product.SortBy.IdDESC:
+                            sql += " ORDER BY p.ProductId DESC";
+                            break;
                     }
                 }
 

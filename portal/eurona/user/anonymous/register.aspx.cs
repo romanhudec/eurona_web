@@ -142,8 +142,14 @@ namespace Eurona.User.Anonymous {
                 return;
             }
 
-            if (AccountExists(txtLogin.Text, txtEmail.Text)) {
-                string js = string.Format("alert('{0}');", "Je nám líto, ale v našem systému Vámi zadané údaje již máme. Pro pokračování v objednávce použijte Vaše přihlašovací jméno a heslo, které jsme Vám již v minulosti zaslali na Váš e-mail. nebo kontaktujte naše operátorky Eurona (kontakty).");
+            if (AccountEmailExists(txtEmail.Text)) {
+                string js = string.Format("alert('{0}');", Resources.EShopStrings.Anonymous_Register_EmailExists);
+                this.btnContinue.Page.ClientScript.RegisterStartupScript(this.btnContinue.Page.GetType(), "addValidateOrganization", js, true);
+                this.cbAcceptTerms.Checked = false;
+                return;
+            }
+            if (AccountLoginExists(txtLogin.Text)) {
+                string js = string.Format("alert('{0}');", Resources.EShopStrings.Anonymous_Register_LoginExists);
                 this.btnContinue.Page.ClientScript.RegisterStartupScript(this.btnContinue.Page.GetType(), "addValidateOrganization", js, true);
                 this.cbAcceptTerms.Checked = false;
                 return;
@@ -315,11 +321,13 @@ namespace Eurona.User.Anonymous {
             Response.Redirect(aliasUtilities.Resolve("~/user/anonymous/cart.aspx"));
         }
 
-        private bool AccountExists(string login, string email) {
+        private bool AccountLoginExists(string login) {
             List<Account> exists = Storage<Account>.Read(new Account.ReadByLogin { Login = login });
-            if (exists != null && exists.Count == 0)
-                exists = Storage<Account>.Read(new Account.ReadByEmail { Email = email });
+            return exists != null && exists.Count > 0;
+        }
 
+        private bool AccountEmailExists(string email) {
+            List<Account> exists = Storage<Account>.Read(new Account.ReadByEmail { Email = email });
             return exists != null && exists.Count > 0;
         }
 

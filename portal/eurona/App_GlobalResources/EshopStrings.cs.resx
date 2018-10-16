@@ -726,4 +726,10 @@ E: prodej@eurona.cz</value>
   <data name="Anonymous_Register_AcceptTerms_Error" xml:space="preserve">
     <value>Je třeba souhlasit se zásadami MLM systému Eurona a Podmínkami obchodní spolupráce</value>
   </data>
+  <data name="Anonymous_Register_EmailExists" xml:space="preserve">
+    <value>Vámi zadaný email už je použit u jiné registrace, zvolte prosím jiný.</value>
+  </data>
+  <data name="Anonymous_Register_LoginExists" xml:space="preserve">
+    <value>Vámi zvolené přihlašovací jméno je již jednou použito, zvolte prosím jiné.</value>
+  </data>
 </root>
