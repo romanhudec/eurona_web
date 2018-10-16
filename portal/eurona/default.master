@@ -210,71 +210,44 @@
     </script>
 </body>
 
-
-    <!-- SNOW 2 BEGIN -->
-    <%--<div id="snowflakeContainer">
-        <img class="snowflake" src='<%=ResolveUrl("~/images/flake.png")%>'/>
-        <!--<p class="snowflake">*</p>-->
-    </div>
-
-    <script src='<%=ResolveUrl("~/javascripts/fallingsnow/fallingsnow_v6.js")%>'></script>
-    <style>
-        #snowflakeContainer {
-            position: absolute;
-            left: 0px;
-            top: 0px;
-        }
-        .snowflake {
-            padding-left: 15px;
-            font-family: Cambria, Georgia, serif;
-            font-size: 14px;
-            line-height: 24px;
-            position: fixed;
-            color: #FFFFFF;
-            user-select: none;
-            z-index: 1000;
-        }
-        .snowflake:hover {
-            cursor: default;
-        }
-    </style>--%>
-    <!-- SNOW 2 END -->
-
-
     <!-- SNOW 3 BEGIN-->
-    <script src='<%=ResolveUrl("~/javascripts/snowfall.jquery.min.js")%>'></script>
+    <script src='<%=ResolveUrl("~/javascripts/snowfall.jquery.min.js")%>'></script>   
     <script type='text/javascript'>
+
         $(document).ready(function () {
+
             //Start the snow default options you can also make it snow in certain elements, etc.
+
             $(document).snowfall('clear');
+
             $(document).snowfall({
                 shadow: false,
+
                 round: false,
-                minSize: 10, maxSize:32,
-                flakeCount: 10,
+                minSize: 10, maxSize: 32,
+                flakeCount: 15,
                 flakeColor: '#ffffff',
                 image: '<%=ResolveUrl("~/images/flake.png")%>',
                 flakeIndex: 999999,
-                minSpeed: 0.5,
-                maxSpeed: 1.5
+                minSpeed: 1,
+                maxSpeed: 2
+	    });
 
-            });
+           $(document).snowfall({
+               shadow: false,
 
-            $(document).snowfall({
-                shadow: false,
-                round: false,
-                minSize: 10, maxSize: 32,
-                flakeCount: 10,
-                flakeColor: '#ffffff',
-                image: '<%=ResolveUrl("~/images/flake1.png")%>',
+               round: false,
+               minSize: 10, maxSize: 32,
+               flakeCount: 15,
+               flakeColor: '#ffffff',
+               image: '<%=ResolveUrl("~/images/flake1.png")%>',
                 flakeIndex: 999999,
-                minSpeed: 0.5,
-                maxSpeed: 1.5
+                minSpeed: 1,
+                maxSpeed: 2
+	    });
+       });
 
-             }); // add rounded
-         
-        });
-		</script> 
+    </script> 
     <!-- SNOW 3 END -->
 
 </html>
