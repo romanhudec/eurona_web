@@ -448,6 +448,15 @@ namespace Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Vámi zadaný email už je použit u jiné registrace, zvolte prosím jiný..
+        /// </summary>
+        internal static string Anonymous_Register_EmailExists {
+            get {
+                return ResourceManager.GetString("Anonymous_Register_EmailExists", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Fakturační adresa:.
         /// </summary>
         internal static string Anonymous_Register_FakturacniAdresa {
@@ -552,6 +561,15 @@ namespace Resources {
         internal static string Anonymous_Register_Litujeme {
             get {
                 return ResourceManager.GetString("Anonymous_Register_Litujeme", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Vámi zvolené přihlašovací jméno je již jednou použito, zvolte prosím jiné..
+        /// </summary>
+        internal static string Anonymous_Register_LoginExists {
+            get {
+                return ResourceManager.GetString("Anonymous_Register_LoginExists", resourceCulture);
             }
         }
         
