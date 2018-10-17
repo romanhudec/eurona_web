@@ -73,7 +73,7 @@
                         <td align="center"><span  style="font-weight:bold; font-size:14px;"><asp:Literal ID="Literal4" runat="server" Text="<%$ Resources:EShopStrings, OrderFinish_Volejte %> " /></span></td>
                     </tr>
                     <tr>
-                        <td align="center"><span style="color:#00b8ec;font-size:16px;">+420 491 451 516</span></td>
+                        <td align="center"><span style="color:#00b8ec;font-size:16px;">+420 491 477 361</span></td>
                     </tr>
                     <tr><td>&nbsp;</td></tr>
                     <tr>
