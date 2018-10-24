@@ -130,7 +130,7 @@ namespace Eurona.User.Anonymous {
 
         protected void OnRadioButtonHesloProHostaChecked(object sender, EventArgs e) {
             this.spanHesloProHosta.Visible = this.rbHesloProHostaANO.Checked;
-            this.cbAcceptTerms.Checked = false;
+            //this.cbAcceptTerms.Checked = false;
         }
 
         protected void OnContinueClick(object sender, EventArgs e) {
