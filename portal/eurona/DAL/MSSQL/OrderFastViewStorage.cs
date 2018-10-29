@@ -86,16 +86,27 @@ namespace Eurona.DAL.MSSQL
 			using (SqlConnection connection = Connect())
 			{
 				string sql = entitySelect;
-				sql += @" WHERE InstanceId = @InstanceId AND 
-					(@AccountId IS NULL OR (AccountId = @AccountId OR CreatedByAccountId=@AccountId)) AND
-					(@CreatedByAccountId IS NULL OR CreatedByAccountId = @CreatedByAccountId) AND
-					(@OrderNumber IS NULL OR OrderNumber LIKE @OrderNumber + '%') AND
-                    (@OwnerName IS NULL OR OwnerName LIKE @OwnerName + '%') AND
-					(@OrderStatusCode IS NULL OR OrderStatusCode = @OrderStatusCode) AND
-                    (@OrderStatusName IS NULL OR OrderStatusName LIKE @OrderStatusName + '%') AND
-					(@NotOrderStatusCode IS NULL OR OrderStatusCode != @NotOrderStatusCode) AND
-					(@ParentId IS NULL OR ParentId = @ParentId) AND
-					(@OnlyLastMonths IS NULL OR (OrderDate >= DATEADD(M, @OnlyLastMonths*-1, GETDATE()) ) )";
+//                sql += @" WHERE InstanceId = @InstanceId AND 
+//					(@AccountId IS NULL OR (AccountId = @AccountId OR CreatedByAccountId=@AccountId)) AND
+//					(@CreatedByAccountId IS NULL OR CreatedByAccountId = @CreatedByAccountId) AND
+//					(@OrderNumber IS NULL OR OrderNumber LIKE @OrderNumber + '%') AND
+//                    (@OwnerName IS NULL OR OwnerName LIKE @OwnerName + '%') AND
+//					(@OrderStatusCode IS NULL OR OrderStatusCode = @OrderStatusCode) AND
+//                    (@OrderStatusName IS NULL OR OrderStatusName LIKE @OrderStatusName + '%') AND
+//					(@NotOrderStatusCode IS NULL OR OrderStatusCode != @NotOrderStatusCode) AND
+//					(@ParentId IS NULL OR ParentId = @ParentId) AND
+//					(@OnlyLastMonths IS NULL OR (OrderDate >= DATEADD(M, @OnlyLastMonths*-1, GETDATE()) ) )";
+
+                sql += @" WHERE InstanceId = @InstanceId";
+                sql += by.AccountId.HasValue ? " AND (AccountId = @AccountId OR CreatedByAccountId=@AccountId)" : "";
+                sql += by.CreatedByAccountId.HasValue ? " AND (CreatedByAccountId = @CreatedByAccountId)" : "";
+                sql += !string.IsNullOrEmpty(by.OrderNumber) ? " AND (OrderNumber LIKE @OrderNumber + '%')" : "";
+                sql += !string.IsNullOrEmpty(by.OwnerName) ? " AND (OwnerName LIKE @OwnerName + '%')" : "";
+                sql += !string.IsNullOrEmpty(by.OrderStatusCode) ? " AND (OrderStatusCode LIKE @OrderStatusCode)" : "";
+                sql += !string.IsNullOrEmpty(by.OrderStatusName) ? " AND (OrderStatusName LIKE @OrderStatusName)" : "";
+                sql += !string.IsNullOrEmpty(by.NotOrderStatusCode) ? " AND (NotOrderStatusCode NOT LIKE @NotOrderStatusCode)" : "";
+                sql += by.ParentId.HasValue ? " AND (ParentId = @ParentId)" : "";
+                sql += by.OnlyLastMonths.HasValue ? " AND (OrderDate >= DATEADD(M, @OnlyLastMonths*-1, GETDATE()))" : "";
 				DataTable table = Query<DataTable>(connection, sql,
 						new SqlParameter("@InstanceId", InstanceId),
 						new SqlParameter("@AccountId", Null(by.AccountId)),
