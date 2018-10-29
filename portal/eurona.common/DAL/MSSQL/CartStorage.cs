@@ -52,7 +52,7 @@ namespace Eurona.Common.DAL.MSSQL
         {
             if (criteria is Cart.ReadById) return LoadById(criteria as Cart.ReadById);
             if (criteria is Cart.ReadByAccount) return LoadByAccountId(criteria as Cart.ReadByAccount);
-            //if (criteria is Cart.ReadOpenByAccount) return LoadOpenByAccountId(criteria as Cart.ReadOpenByAccount);
+            if (criteria is Cart.ReadOpenByAccount) return LoadOpenByAccountId(criteria as Cart.ReadOpenByAccount);
             if (criteria is Cart.ReadBySessionId) return LoadBySessionId(criteria as Cart.ReadBySessionId);
             List<Cart> cartList = new List<Cart>();
             using (SqlConnection connection = Connect())
@@ -81,21 +81,19 @@ namespace Eurona.Common.DAL.MSSQL
             return cartList;
         }
 
-        //private List<Cart> LoadOpenByAccountId(Cart.ReadOpenByAccount by)
-        //{
-        //    List<Cart> cartList = new List<Cart>();
-        //    using (SqlConnection connection = Connect())
-        //    {
-        //        DataTable table = QueryProc<DataTable>(connection, "pShpCarts",
-        //                new SqlParameter("@Closed", 1),
-        //                new SqlParameter("@AccountId", by.AccountId),
-        //                new SqlParameter("@InstanceId", Account.InstanceId == 1/*EURONA*/ ? Null(null) : (object)InstanceId),
-        //                new SqlParameter("@Locale", Locale));
-        //        foreach (DataRow dr in table.Rows)
-        //            cartList.Add(GetCart(dr));
-        //    }
-        //    return cartList;
-        //}
+        private List<Cart> LoadOpenByAccountId(Cart.ReadOpenByAccount by) {
+            List<Cart> cartList = new List<Cart>();
+            using (SqlConnection connection = Connect()) {
+                DataTable table = QueryProc<DataTable>(connection, "pShpCarts",
+                        new SqlParameter("@Closed", 1),
+                        new SqlParameter("@AccountId", by.AccountId),
+                        new SqlParameter("@InstanceId", Account.InstanceId == 1/*EURONA*/ ? Null(null) : (object)InstanceId),
+                        new SqlParameter("@Locale", Locale));
+                foreach (DataRow dr in table.Rows)
+                    cartList.Add(GetCart(dr));
+            }
+            return cartList;
+        }
 
         private List<Cart> LoadByAccountId(Cart.ReadByAccount by)
         {
