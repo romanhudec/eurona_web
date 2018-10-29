@@ -274,7 +274,7 @@ namespace Eurona.DAL.MSSQL
                 sql += by.AssociationRequestStatus.HasValue ? " AND (AssociationRequestStatus = @AssociationRequestStatus)" : "";
                 sql += by.CreatedByAccountId.HasValue ? " AND (CreatedByAccountId = @CreatedByAccountId)" : "";
                 sql += by.HasChilds.HasValue ? " AND (( @HasChilds = 1 AND ChildsCount != 0) OR ( @HasChilds = 0 AND ChildsCount=0))" : "";
-                sql += by.OnlyLastMonths.HasValue ? " AND (OrderDate >= DATEADD(M, @OnlyLastMonths*-1, GETDATE())" : "";
+                sql += by.OnlyLastMonths.HasValue ? " AND (OrderDate >= DATEADD(M, @OnlyLastMonths*-1, GETDATE()))" : "";
 				DataTable table = Query<DataTable>(connection, sql,
 						new SqlParameter("@InstanceId", InstanceId),
 						new SqlParameter("@AccountId", Null(by.AccountId)),
