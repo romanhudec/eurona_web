@@ -12,9 +12,9 @@ namespace Eurona.Common.DAL.MSSQL
     public sealed class CartStorage : MSSQLStorage<Cart>
     {
         private const string entitySelect = @"SELECT CartId, Locale, InstanceId, AccountId, SessionId, Created, Closed, PriceTotal, PriceTotalWVAT, Discount,
-								ShipmentCode ,ShipmentName ,PaymentCode, PaymentName, DeliveryAddressId, InvoiceAddressId, Notes, Status,
-								BodyEurosapTotal, KatalogovaCenaCelkemByEurosap, DopravneEurosap
-								FROM vShpCarts";
+		ShipmentCode ,ShipmentName ,PaymentCode, PaymentName, DeliveryAddressId, InvoiceAddressId, Notes, Status,
+		BodyEurosapTotal, KatalogovaCenaCelkemByEurosap, DopravneEurosap
+		FROM vShpCarts";
 
         public CartStorage(int instanceId, CMS.Entities.Account account, string connectionString)
             : base(instanceId, account, connectionString)
@@ -118,9 +118,9 @@ namespace Eurona.Common.DAL.MSSQL
             using (SqlConnection connection = Connect())
             {
                 DataTable table = QueryProc<DataTable>(connection, "pShpCarts",
-                        new SqlParameter("@SessionId", by.SessionId),
-                        new SqlParameter("@Locale", Locale),
-                        new SqlParameter("@InstanceId", InstanceId));
+                new SqlParameter("@SessionId", by.SessionId),
+                new SqlParameter("@Locale", Locale),
+                new SqlParameter("@InstanceId", InstanceId));
                 foreach (DataRow dr in table.Rows)
                     cartList.Add(GetCart(dr));
             }

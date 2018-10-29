@@ -8,17 +8,13 @@ using System.Data;
 using CMS.Entities;
 using CMS.MSSQL;
 
-namespace Eurona.Common.DAL.MSSQL
-{
-    public sealed class CategoryStorage : MSSQLStorage<Category>
-    {
+namespace Eurona.Common.DAL.MSSQL {
+    public sealed class CategoryStorage : MSSQLStorage<Category> {
         public CategoryStorage(int instanceId, Account account, string connectionString)
-            : base(instanceId, account, connectionString)
-        {
+            : base(instanceId, account, connectionString) {
         }
 
-        private static Category GetCategory(DataRow record)
-        {
+        private static Category GetCategory(DataRow record) {
             Category category = new Category();
             category.Id = Convert.ToInt32(record["CategoryId"]);
             category.Order = ConvertNullable.ToInt32(record["Order"]);
@@ -33,21 +29,18 @@ namespace Eurona.Common.DAL.MSSQL
             return category;
         }
 
-        private static bool NullableDBToBool(object dbValue)
-        {
+        private static bool NullableDBToBool(object dbValue) {
             if (dbValue == DBNull.Value) return false;
             return Convert.ToInt32(dbValue) == 1;
         }
 
-        public override List<Category> Read(object criteria)
-        {
+        public override List<Category> Read(object criteria) {
             if (criteria is Category.ReadByInstance) return LoadByInstance(criteria as Category.ReadByInstance);
             if (criteria is Category.ReadById) return LoadById(criteria as Category.ReadById);
             if (criteria is Category.ReadByParentId) return LoadByParentId(criteria as Category.ReadByParentId);
             if (criteria is Category.ReadByProductId) return LoadByProductId(criteria as Category.ReadByProductId);
             List<Category> list = new List<Category>();
-            using (SqlConnection connection = Connect())
-            {
+            using (SqlConnection connection = Connect()) {
                 string sql = @"
 					SELECT CategoryId, [Order], InstanceId, ParentId, [Name], Locale, Icon, UrlAliasId, Alias
 					FROM vShpCategories
@@ -62,16 +55,13 @@ namespace Eurona.Common.DAL.MSSQL
             return list;
         }
 
-        public override int Count(object criteria)
-        {
+        public override int Count(object criteria) {
             throw new NotImplementedException();
         }
 
-        private List<Category> LoadByInstance(Category.ReadByInstance by)
-        {
+        private List<Category> LoadByInstance(Category.ReadByInstance by) {
             List<Category> list = new List<Category>();
-            using (SqlConnection connection = Connect())
-            {
+            using (SqlConnection connection = Connect()) {
                 string sql = @"
 				SELECT CategoryId, [Order], InstanceId, ParentId, [Name], Locale, Icon, UrlAliasId, Alias
 				FROM vShpCategories
@@ -86,11 +76,9 @@ namespace Eurona.Common.DAL.MSSQL
             return list;
         }
 
-        private List<Category> LoadById(Category.ReadById byCategoryId)
-        {
+        private List<Category> LoadById(Category.ReadById byCategoryId) {
             List<Category> list = new List<Category>();
-            using (SqlConnection connection = Connect())
-            {
+            using (SqlConnection connection = Connect()) {
                 string sql = @"
 				SELECT CategoryId, [Order], InstanceId, ParentId, [Name], Locale, Icon, UrlAliasId, Alias
 				FROM vShpCategories
@@ -105,11 +93,9 @@ namespace Eurona.Common.DAL.MSSQL
             return list;
         }
 
-        private List<Category> LoadByParentId(Category.ReadByParentId byParentId)
-        {
+        private List<Category> LoadByParentId(Category.ReadByParentId byParentId) {
             List<Category> list = new List<Category>();
-            using (SqlConnection connection = Connect())
-            {
+            using (SqlConnection connection = Connect()) {
                 string sql = @"
 				SELECT CategoryId, [Order], InstanceId, ParentId, [Name], Locale, Icon, UrlAliasId, Alias
 				FROM vShpCategories
@@ -125,11 +111,9 @@ namespace Eurona.Common.DAL.MSSQL
             return list;
         }
 
-        private List<Category> LoadByProductId(Category.ReadByProductId by)
-        {
+        private List<Category> LoadByProductId(Category.ReadByProductId by) {
             List<Category> list = new List<Category>();
-            using (SqlConnection connection = Connect())
-            {
+            using (SqlConnection connection = Connect()) {
                 string sql = @"
 				SELECT c.CategoryId, c.[Order], c.InstanceId, c.ParentId, c.[Name], c.Locale, c.Icon, c.UrlAliasId, c.Alias
 				FROM vShpCategories c 
@@ -146,24 +130,20 @@ namespace Eurona.Common.DAL.MSSQL
             return list;
         }
 
-        public override void Create(Category category)
-        {
+        public override void Create(Category category) {
             throw new NotImplementedException();
         }
 
-        public override void Update(Category category)
-        {
+        public override void Update(Category category) {
             //throw new NotImplementedException();
-            using (SqlConnection connection = Connect())
-            {
+            using (SqlConnection connection = Connect()) {
                 Exec(connection, "UPDATE tShpCategory SET [Order]=@Order WHERE CategoryId=@CategoryId",
                 new SqlParameter("@CategoryId", category.Id),
                 new SqlParameter("@Order", Null(category.Order)));
             }
         }
 
-        public override void Delete(Category category)
-        {
+        public override void Delete(Category category) {
             throw new NotImplementedException();
         }
     }
