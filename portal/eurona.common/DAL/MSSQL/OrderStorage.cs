@@ -145,13 +145,21 @@ namespace Eurona.Common.DAL.MSSQL {
             List<Order> list = new List<Order>();
             using (SqlConnection connection = Connect()) {
                 string sql = entitySelect;
-                sql += @" WHERE InstanceId = @InstanceId AND 
-										(@AccountId IS NULL OR (AccountId = @AccountId OR CreatedByAccountId=@AccountId)) AND
-										(@OrderNumber IS NULL OR OrderNumber LIKE @OrderNumber + '%') AND
-										(@OrderStatusCode IS NULL OR OrderStatusCode = @OrderStatusCode) AND
-										(@ShipmentCode IS NULL OR ShipmentCode = @ShipmentCode) AND
-										(@Notified IS NULL OR Notified = @Notified) AND
-										(@Exported IS NULL OR Exported = @Exported)";
+//                sql += @" WHERE InstanceId = @InstanceId AND 
+//						(@AccountId IS NULL OR (AccountId = @AccountId OR CreatedByAccountId=@AccountId)) AND
+//						(@OrderNumber IS NULL OR OrderNumber LIKE @OrderNumber + '%') AND
+//						(@OrderStatusCode IS NULL OR OrderStatusCode = @OrderStatusCode) AND
+//						(@ShipmentCode IS NULL OR ShipmentCode = @ShipmentCode) AND
+//						(@Notified IS NULL OR Notified = @Notified) AND
+//						(@Exported IS NULL OR Exported = @Exported)";
+
+                sql += @" WHERE InstanceId = @InstanceId";
+				sql += by.AccountId.HasValue ? " AND ((AccountId = @AccountId OR CreatedByAccountId=@AccountId))" : "";
+                sql += !string.IsNullOrEmpty(by.OrderNumber) ? " AND (OrderNumber LIKE @OrderNumber + '%')" : "";
+                sql += !string.IsNullOrEmpty(by.OrderStatusCode) ? " AND (OrderStatusCode LIKE @OrderStatusCode)" : "";
+                sql += !string.IsNullOrEmpty(by.ShipmentCode) ? " AND (ShipmentCode LIKE @ShipmentCode)" : "";
+                sql += by.Notified.HasValue ? " AND (Notified = @Notified)" : "";
+                sql += by.Exported.HasValue ? " AND (Exported = @Exported)" : "";
                 DataTable table = Query<DataTable>(connection, sql,
                             new SqlParameter("@InstanceId", InstanceId),
                         new SqlParameter("@AccountId", Null(by.AccountId)),
