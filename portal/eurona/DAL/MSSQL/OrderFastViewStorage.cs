@@ -106,7 +106,7 @@ namespace Eurona.DAL.MSSQL
                 sql += !string.IsNullOrEmpty(by.OrderStatusName) ? " AND (OrderStatusName LIKE @OrderStatusName)" : "";
                 sql += !string.IsNullOrEmpty(by.NotOrderStatusCode) ? " AND (NotOrderStatusCode NOT LIKE @NotOrderStatusCode)" : "";
                 sql += by.ParentId.HasValue ? " AND (ParentId = @ParentId)" : "";
-                sql += by.OnlyLastMonths.HasValue ? " AND (OrderDate >= DATEADD(M, @OnlyLastMonths*-1, GETDATE())" : "";
+                sql += by.OnlyLastMonths.HasValue ? " AND (OrderDate >= DATEADD(M, @OnlyLastMonths*-1, GETDATE()))" : "";
 				DataTable table = Query<DataTable>(connection, sql,
 						new SqlParameter("@InstanceId", InstanceId),
 						new SqlParameter("@AccountId", Null(by.AccountId)),

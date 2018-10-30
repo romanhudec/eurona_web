@@ -81,11 +81,9 @@ namespace Eurona.Common.DAL.MSSQL
             return cartList;
         }
 
-        private List<Cart> LoadOpenByAccountId(Cart.ReadOpenByAccount by)
-        {
+        private List<Cart> LoadOpenByAccountId(Cart.ReadOpenByAccount by) {
             List<Cart> cartList = new List<Cart>();
-            using (SqlConnection connection = Connect())
-            {
+            using (SqlConnection connection = Connect()) {
                 DataTable table = QueryProc<DataTable>(connection, "pShpCarts",
                         new SqlParameter("@Closed", 1),
                         new SqlParameter("@AccountId", by.AccountId),
