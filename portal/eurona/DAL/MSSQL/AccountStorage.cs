@@ -60,7 +60,9 @@ namespace Eurona.DAL.MSSQL {
             throw new NotImplementedException();
         }
 
+        
         private List<Account> LoadByLogin(string login) {
+            login = NormalizeSQLParameterValue(login);
             List<Account> accounts = new List<Account>();
             using (SqlConnection connection = Connect()) {
                 string sql = @"
@@ -75,6 +77,7 @@ namespace Eurona.DAL.MSSQL {
         }
 
         private List<Account> LoadByEmail(string email) {
+            email = NormalizeSQLParameterValue(email);
             List<Account> accounts = new List<Account>();
             using (SqlConnection connection = Connect()) {
                 string sql = @"
@@ -102,6 +105,7 @@ namespace Eurona.DAL.MSSQL {
             return accounts;
         }
         private List<Account> LoadByLoginAndInstance(string login, int instanceId) {
+            login = NormalizeSQLParameterValue(login);
             List<Account> accounts = new List<Account>();
             using (SqlConnection connection = Connect()) {
                 string sql = @"

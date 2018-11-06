@@ -41,6 +41,11 @@ namespace CMS.MSSQL {
             get { return connectionString; }
         }
 
+        public string NormalizeSQLParameterValue(string value) {
+            value = value.Replace('%', ' ').Replace('<', ' ').Replace('>', ' ').Replace('=', ' ').Replace('\'', ' ');
+            return value.Trim();
+        }
+
         protected SqlConnection Connect() {
             SqlConnection connection = new SqlConnection(connectionString);
             connection.Open();

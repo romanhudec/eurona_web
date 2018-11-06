@@ -103,7 +103,7 @@ namespace Eurona.DAL.MSSQL
                 sql += !string.IsNullOrEmpty(by.OrderNumber) ? " AND (OrderNumber LIKE @OrderNumber + '%')" : "";
                 sql += !string.IsNullOrEmpty(by.OwnerName) ? " AND (OwnerName LIKE @OwnerName + '%')" : "";
                 sql += !string.IsNullOrEmpty(by.OrderStatusCode) ? " AND (OrderStatusCode LIKE @OrderStatusCode)" : "";
-                sql += !string.IsNullOrEmpty(by.OrderStatusName) ? " AND (OrderStatusName LIKE @OrderStatusName)" : "";
+                sql += !string.IsNullOrEmpty(by.OrderStatusName) ? " AND (OrderStatusName LIKE @OrderStatusName + '%')" : "";
                 sql += !string.IsNullOrEmpty(by.NotOrderStatusCode) ? " AND (OrderStatusCode NOT LIKE @NotOrderStatusCode)" : "";
                 sql += by.ParentId.HasValue ? " AND (ParentId = @ParentId)" : "";
                 sql += by.OnlyLastMonths.HasValue ? " AND (OrderDate >= DATEADD(M, @OnlyLastMonths*-1, GETDATE()))" : "";

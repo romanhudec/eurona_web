@@ -129,6 +129,7 @@ namespace Eurona.DAL.MSSQL
                 //sql += !string.IsNullOrEmpty(by.GreaterAtOrderNumber) ? " AND (OrderNumber LIKE @OrderNumber + '%')" : "";
                 //sql += @"ORDER BY OrderNumber DESC";
 
+                /*
                 string sql = @"WITH orders (OrderId) AS
                 (                
 	                SELECT  o.OrderId FROM tShpOrder o WITH (NOLOCK)
@@ -147,7 +148,23 @@ namespace Eurona.DAL.MSSQL
                 FROM orders ors
                 INNER JOIN vShpOrders o ON o.OrderId=ors.OrderId
                 ORDER BY OrderNumber DESC";
-
+                 * */
+                string sql = @";WITH orders (OrderId) AS
+                    (                
+	                    SELECT  o.OrderId FROM tShpOrder o WITH (NOLOCK)
+                        INNER JOIN tShpCart c WITH (NOLOCK) ON c.CartId = o.CartId
+	                    WHERE o.HistoryId IS NULL AND o.InstanceId = @InstanceId
+                        AND (c.AccountId = @AccountId )"+
+                        (!string.IsNullOrEmpty(by.GreaterAtOrderNumber) ?" AND (OrderNumber LIKE @OrderNumber + '%')" : "") +
+                        @"union all
+	                    SELECT  o.OrderId FROM tShpOrder o WITH (NOLOCK)
+                        INNER JOIN tShpCart c WITH (NOLOCK) ON c.CartId = o.CartId
+	                    WHERE o.HistoryId IS NULL AND o.InstanceId = @InstanceId 
+                        AND (CreatedByAccountId=@AccountId)"+
+                        (!string.IsNullOrEmpty(by.GreaterAtOrderNumber) ?" AND (OrderNumber LIKE @OrderNumber + '%')" : "") +
+                    @")
+                    SELECT ors.OrderId, o.InstanceId, o.OrderDate, o.OrderNumber ,o.CartId, o.PaydDate ,o.AccountId, o.AccountName, o.OrderStatusCode ,o.OrderStatusName, o.OrderStatusIcon , o.ShipmentCode ,o.ShipmentName, o.ShipmentIcon ,o.ShipmentPrice, o.ShipmentPriceWVAT ,o.Price, o.PriceWVAT, o.PaymentCode, o.PaymentName, o.PaymentIcon, o.DeliveryAddressId, o.InvoiceAddressId, o.InvoiceUrl, o.Notes, o.Notified, o.Exported,  o.CurrencyId, o.CurrencyCode, o.CurrencySymbol, o.ParentId, o.AssociationAccountId, o.AssociationRequestStatus, o.CreatedByAccountId, o.OwnerName, o.CreatedByName, o.ShipmentFrom, o.ShipmentTo, o.TVD_Id, o.NoPostage, o.ChildsCount
+                    FROM ( select * FROM orders group by OrderId )  as ors INNER JOIN vShpOrders o ON o.OrderId=ors.OrderId";
                 DataTable table = Query<DataTable>(connection, sql,
                         new SqlParameter("@AccountId", by.AccountId),
                         new SqlParameter("@OrderNumber", Null(by.GreaterAtOrderNumber)),
@@ -166,7 +183,7 @@ namespace Eurona.DAL.MSSQL
 			{
                 //string sql = entitySelect;
                 //sql += " WHERE (AccountId = @AccountId OR CreatedByAccountId=@AccountId) AND InstanceId = @InstanceId";
-
+                /*
                 string sql = @"WITH orders (OrderId) AS
                 (                
 	                SELECT  o.OrderId FROM tShpOrder o WITH (NOLOCK)
@@ -183,7 +200,22 @@ namespace Eurona.DAL.MSSQL
                 o.CreatedByAccountId, o.OwnerName, o.CreatedByName, o.ShipmentFrom, o.ShipmentTo, o.TVD_Id, o.NoPostage, o.ChildsCount
                 FROM orders ors
                 INNER JOIN vShpOrders o ON o.OrderId=ors.OrderId";
+                */
 
+                string sql = @";WITH orders (OrderId) AS
+                (                
+	                SELECT  o.OrderId FROM tShpOrder o WITH (NOLOCK)
+                    INNER JOIN tShpCart c WITH (NOLOCK) ON c.CartId = o.CartId
+	                WHERE o.HistoryId IS NULL AND o.InstanceId = @InstanceId
+                    AND (c.AccountId = @AccountId )
+                    union all
+	                SELECT  o.OrderId FROM tShpOrder o WITH (NOLOCK)
+                    INNER JOIN tShpCart c WITH (NOLOCK) ON c.CartId = o.CartId
+	                WHERE o.HistoryId IS NULL AND o.InstanceId = @InstanceId 
+                    AND (CreatedByAccountId=@AccountId)
+                )
+                SELECT ors.OrderId, o.InstanceId, o.OrderDate, o.OrderNumber ,o.CartId, o.PaydDate ,o.AccountId, o.AccountName, o.OrderStatusCode ,o.OrderStatusName, o.OrderStatusIcon , o.ShipmentCode ,o.ShipmentName, o.ShipmentIcon ,o.ShipmentPrice, o.ShipmentPriceWVAT ,o.Price, o.PriceWVAT, o.PaymentCode, o.PaymentName, o.PaymentIcon, o.DeliveryAddressId, o.InvoiceAddressId, o.InvoiceUrl, o.Notes, o.Notified, o.Exported,  o.CurrencyId, o.CurrencyCode, o.CurrencySymbol, o.ParentId, o.AssociationAccountId, o.AssociationRequestStatus, o.CreatedByAccountId, o.OwnerName, o.CreatedByName, o.ShipmentFrom, o.ShipmentTo, o.TVD_Id, o.NoPostage, o.ChildsCount
+                FROM ( select * FROM orders group by OrderId )  as ors INNER JOIN vShpOrders o ON o.OrderId=ors.OrderId";
 				DataTable table = Query<DataTable>(connection, sql,
 						new SqlParameter("@AccountId", by.AccountId),
 						new SqlParameter("@InstanceId", InstanceId));
@@ -200,6 +232,7 @@ namespace Eurona.DAL.MSSQL
 			{
                 //string sql = entitySelect;
                 //sql += " WHERE CartId = @CartId AND InstanceId = @InstanceId";
+                /*
                 string sql = @"WITH orders (OrderId) AS
                 (                
 	                SELECT  o.OrderId FROM tShpOrder o WITH (NOLOCK)
@@ -215,6 +248,17 @@ namespace Eurona.DAL.MSSQL
                 o.CreatedByAccountId, o.OwnerName, o.CreatedByName, o.ShipmentFrom, o.ShipmentTo, o.TVD_Id, o.NoPostage, o.ChildsCount
                 FROM orders ors
                 INNER JOIN vShpOrders o ON o.OrderId=ors.OrderId";
+                 * */
+                string sql = @";WITH orders (OrderId) AS
+                (                
+	                SELECT  o.OrderId FROM tShpOrder o WITH (NOLOCK)
+                    INNER JOIN tShpCart c WITH (NOLOCK) ON c.CartId = o.CartId
+	                WHERE o.CartId=@CartId AND o.HistoryId IS NULL AND o.InstanceId = @InstanceId
+                )
+                SELECT ors.OrderId, o.InstanceId, o.OrderDate, o.OrderNumber ,o.CartId, o.PaydDate ,o.AccountId, o.AccountName, o.OrderStatusCode ,o.OrderStatusName, o.OrderStatusIcon , 
+                o.ShipmentCode ,o.ShipmentName, o.ShipmentIcon ,o.ShipmentPrice, o.ShipmentPriceWVAT ,o.Price, o.PriceWVAT, o.PaymentCode, o.PaymentName, o.PaymentIcon, o.DeliveryAddressId, o.InvoiceAddressId, o.InvoiceUrl, o.Notes, o.Notified, o.Exported,  
+                o.CurrencyId, o.CurrencyCode, o.CurrencySymbol, o.ParentId, o.AssociationAccountId, o.AssociationRequestStatus, o.CreatedByAccountId, o.OwnerName, o.CreatedByName, o.ShipmentFrom, o.ShipmentTo, o.TVD_Id, o.NoPostage, o.ChildsCount
+                FROM ( select * FROM orders group by OrderId )  as ors INNER JOIN vShpOrders o ON o.OrderId=ors.OrderId";
 				DataTable table = Query<DataTable>(connection, sql,
 						new SqlParameter("@CartId", by.CartId),
 						new SqlParameter("@InstanceId", InstanceId));
@@ -265,7 +309,7 @@ namespace Eurona.DAL.MSSQL
                 sql += by.AccountId.HasValue ? " AND (AccountId = @AccountId OR CreatedByAccountId=@AccountId)" : "";
                 sql += !string.IsNullOrEmpty(by.OrderNumber) ? " AND (OrderNumber LIKE @OrderNumber + '%')" : "";
                 sql += !string.IsNullOrEmpty(by.OrderStatusCode) ? " AND (OrderStatusCode LIKE @OrderStatusCode)" : "";
-                sql += !string.IsNullOrEmpty(by.NotOrderStatusCode) ? " AND (NotOrderStatusCode NOT LIKE @NotOrderStatusCode)" : "";
+                sql += !string.IsNullOrEmpty(by.NotOrderStatusCode) ? " AND (OrderStatusCode NOT LIKE @NotOrderStatusCode)" : "";
                 sql += !string.IsNullOrEmpty(by.ShipmentCode) ? " AND (ShipmentCode LIKE @ShipmentCode)" : "";
                 sql += by.Notified.HasValue ? " AND (Notified = @Notified)" : "";
                 sql += by.Exported.HasValue ? " AND (Exported = @Exported)" : "";

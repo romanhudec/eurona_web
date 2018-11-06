@@ -897,7 +897,7 @@ if (dtAlias.Rows.Count != 0)
             public static void InsertBonusovyKredityUzivatele(CMS.Pump.MSSQLStorage mssqStorageSrc, int bonusovyKreditId, int accountId, DateTime platnostOd, DateTime platnostDo, int narok) {
                 string sql = @"
 				IF EXISTS(SELECT AccountId, BonusovyKreditId  FROM tBonusovyKreditUzivatele WHERE [AccountId]=@accountId AND [BonusovyKreditId]=@bonusovyKreditId AND [PlatnostOd]=@platnostOd AND [PLatnostDo]=@platnostDo ) BEGIN
-					UPDATE tBonusovyKreditUzivatele SET Hodnota=@narok WHERE [AccountId]=@accountId AND [BonusovyKreditId]=@bonusovyKreditId AND [PlatnostOd]=@platnostOd AND [PLatnostDo]=@platnostDo
+					UPDATE tBonusovyKreditUzivatele SET Hodnota=@narok WHERE [AccountId]=@accountId AND [BonusovyKreditId]=@bonusovyKreditId AND [PlatnostOd]=@platnostOd AND [PLatnostDo]=@platnostDo AND [Hodnota] <> @narok
 				END
 				ELSE
 				BEGIN
