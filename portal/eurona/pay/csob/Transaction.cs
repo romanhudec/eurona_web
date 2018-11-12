@@ -44,7 +44,7 @@ namespace Eurona.PAY.CSOB {
             string apiUrl = CMS.Utilities.ConfigUtilities.ConfigValue("SHP:PAY:CSOB:PaymentGatewayUrl", page);
             string method = "/payment/init";
             string paymentInitUrl = apiUrl + method;
-            
+
             var serializer = new JavaScriptSerializer();
             serializer.RegisterConverters(new JavaScriptConverter[] { new JsonConverter() });
             var json = serializer.Serialize(paymentInit);
@@ -91,10 +91,10 @@ namespace Eurona.PAY.CSOB {
             }
             return responseData;
         }
-        
+
         private static string signPaymentInitData(PaymentInitRequest paymentInit, System.Web.UI.Page page) {
-            string data2Sign = paymentInit.getData2Sign();        
-            string signedData = Digest.Sign(data2Sign, CMS.Utilities.ConfigUtilities.ConfigValue("SHP:PAY:CSOB:PrivateKeyPath", page));            
+            string data2Sign = paymentInit.getData2Sign();
+            string signedData = Digest.Sign(data2Sign, CMS.Utilities.ConfigUtilities.ConfigValue("SHP:PAY:CSOB:PrivateKeyPath", page));
             bool verification = Digest.Verify(CMS.Utilities.ConfigUtilities.ConfigValue("SHP:PAY:CSOB:PublicKeyPath", page), data2Sign, signedData);
             if (verification == false) {
                 throw new InvalidOperationException("Signature verification failed!");
@@ -121,10 +121,10 @@ namespace Eurona.PAY.CSOB {
             }
 
             string currencyCode = order.CurrencyCode;
-            if( string.IsNullOrEmpty(currencyCode)){
+            if (string.IsNullOrEmpty(currencyCode)) {
                 currencyCode = "CZK";
             }
-            
+
             PaymentInitRequest paymentInit = new PaymentInitRequest();
             paymentInit.merchantId = CMS.Utilities.ConfigUtilities.ConfigValue("SHP:PAY:CSOB:MerchantID", page);
             paymentInit.orderNo = order.Id.ToString();//Referenční číslo objednávky využívané pro párování plateb, které bude uvedeno také na výpisu z banky. Numerická hodnota, maximální délka 10 číslic.
@@ -140,9 +140,12 @@ namespace Eurona.PAY.CSOB {
             //POZOR: Od verze v1 musí být v košíku nejméně jedna (například "dobití kreditu"), nejvýše dvě položky, například "nákup na mujobchod" a "poštovné"). 
             //Omezení je dáno grafickou úpravou platební brány a v další verzi bude limit položek výrazně posunut.
             paymentInit.cart = new List<PaymentCart>();
-            paymentInit.cart.Add(new PaymentCart(setStringValue("Nákup: euronabycerny.com", 20), 1, (int)(order.CartEntity.KatalogovaCenaCelkem * 100), setStringValue("", 40)));
-            paymentInit.cart.Add(new PaymentCart(setStringValue("Poštovné", 20), 1, (int)(order.CartEntity.DopravneEurosap*100), setStringValue(order.ShipmentName,40)));
-            //paymentInit.cart.Add(new PaymentCart(setStringValue("Nákup: euronabycerny.com", 20), 1, (int)(priceTotalWithWAT * 100), setStringValue("", 40)));
+            if ((int)(order.CartEntity.KatalogovaCenaCelkem * 100) + (int)(order.CartEntity.DopravneEurosap * 100) == (int)(priceTotalWithWAT * 100)) {
+                paymentInit.cart.Add(new PaymentCart(setStringValue("Nákup: euronabycerny.com", 20), 1, (int)(order.CartEntity.KatalogovaCenaCelkem * 100), setStringValue("", 40)));
+                paymentInit.cart.Add(new PaymentCart(setStringValue("Poštovné", 20), 1, (int)(order.CartEntity.DopravneEurosap * 100), setStringValue(order.ShipmentName, 40)));
+            } else {
+                paymentInit.cart.Add(new PaymentCart(setStringValue("Nákup: euronabycerny.com", 20), 1, (int)(priceTotalWithWAT * 100), setStringValue("", 40)));
+            }
 
             paymentInit.description = setStringValue("Nákup na euronabycerny.com", 255);
             paymentInit.merchantData = Digest.EncodeToBase64String(order.Id.ToString());//Libovolná pomocná data, která budou vrácena ve zpětném redirectu z platební brány na stránku obchodníka. Mohou sloužit např pro udržení kontinuity procesu na e-shopu, musí být kódována v BASE64. Maximální délka po zakódování 255 znaků.
