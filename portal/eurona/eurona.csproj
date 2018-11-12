@@ -30,7 +30,7 @@
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
     <OutputPath>bin\</OutputPath>
-    <DefineConstants>TRACE;DEBUG;N__CUSTOM_ERROR;N__DEBUG_VERSION;N__DEBUG_VERSION_WITHOUTTVD;N__LOCAL_BANK_PAY</DefineConstants>
+    <DefineConstants>TRACE;DEBUG;N__CUSTOM_ERROR;__DEBUG_VERSION;N__DEBUG_VERSION_WITHOUTTVD;N__LOCAL_BANK_PAY</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
@@ -269,6 +269,7 @@
     <Content Include="javascripts\homeflashcontrol.js" />
     <Content Include="javascripts\jquery.blockUI.js" />
     <Content Include="javascripts\snowfall.jquery.min.js" />
+    <Content Include="pay\csob\testPay.aspx" />
     <Content Include="pay\gp\paymentresult.aspx" />
     <Content Include="pay\gp\testPay.aspx" />
     <Content Include="Scripts\dbUpgrade_201711.sql" />
@@ -1421,6 +1422,21 @@
       <DependentUpon>catalog_akce.aspx</DependentUpon>
     </Compile>
     <Compile Include="PasswGenerator.cs" />
+    <Compile Include="pay\csob\utils\CertificateHelper.cs" />
+    <Compile Include="pay\csob\PaymentInitResponse.cs" />
+    <Compile Include="pay\csob\utils\Digest.cs" />
+    <Compile Include="pay\csob\utils\JsonConverter.cs" />
+    <Compile Include="pay\csob\PaymentCart.cs" />
+    <Compile Include="pay\csob\PaymentInitBase.cs" />
+    <Compile Include="pay\csob\PaymentInitRequest.cs" />
+    <Compile Include="pay\csob\testPay.aspx.cs">
+      <DependentUpon>testPay.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="pay\csob\testPay.aspx.designer.cs">
+      <DependentUpon>testPay.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="pay\csob\Transaction.cs" />
     <Compile Include="pay\gp\CertificateHelper.cs" />
     <Compile Include="pay\gp\Digest.cs" />
     <Compile Include="pay\gp\paymentresult.aspx.cs">
