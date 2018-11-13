@@ -48,16 +48,35 @@ namespace Eurona.PAY.CSOB {
             var serializer = new JavaScriptSerializer();
             serializer.RegisterConverters(new JavaScriptConverter[] { new JsonConverter() });
             var json = serializer.Serialize(paymentInit);
-            string responseData = postJson(paymentInitUrl, json);
+            string responseData = httpPostPaymentInit(paymentInitUrl, json);
             PaymentInitResponse paymentInitResponse = new JavaScriptSerializer().Deserialize<PaymentInitResponse>(responseData);
+            string data2Verify = paymentInitResponse.getData2VerifyResponse();
+            string signed = Digest.Sign(data2Verify, CMS.Utilities.ConfigUtilities.ConfigValue("SHP:PAY:CSOB:PrivateKeyPath", page));
+            //bool verification = Digest.Verify(CMS.Utilities.ConfigUtilities.ConfigValue("SHP:PAY:CSOB:PublicKeyPath", page), data2Verify, paymentInitResponse.signature);
+            /*
+            if (verification == false) {
+                throw new InvalidOperationException("PaymentInitResponse verification failed!");
+            }*/
             return paymentInitResponse;
         }
 
-        public string ProcessPayment(PaymentInitResponse paymentInitResponse) {
-            return string.Empty;
+        public void ProcessPayment(System.Web.UI.Page page, PaymentInitResponse paymentInitResponse) {
+            //Požadavek obsahuje položky přímo v URL adrese https://api.platebnibrana.csob.cz/api/v1/payment/process/{merchantId}/{payId}/{dttm}/{signature}
+            if (paymentInitResponse == null) throw new InvalidOperationException("No payment initialize response!!!");
+            CMS.EvenLog.WritoToEventLog(string.Format("ProcessPayment, OrderId:{0}", this.paymentInit.orderNo), EventLogEntryType.Information);
+
+            string apiUrl = CMS.Utilities.ConfigUtilities.ConfigValue("SHP:PAY:CSOB:PaymentGatewayUrl", page);
+            string method = "/payment/process";
+            string paymentProcessUrl = apiUrl + method;
+
+            string merchantId = CMS.Utilities.ConfigUtilities.ConfigValue("SHP:PAY:CSOB:MerchantID", page);
+            string dttm = DateTime.Now.ToString("yyyyMMddHHmmss");
+            string signature = signPaymentProcessData(paymentInitResponse, merchantId, dttm, page);
+            paymentProcessUrl = paymentProcessUrl + "/" + merchantId + "/" + paymentInitResponse.payId + "/" + dttm + "/" + HttpUtility.UrlEncode(signature, Encoding.UTF8);//SafeBase64UrlEncoder.EncodeBase64Url(signature);
+            page.Response.Redirect(paymentProcessUrl, true);
         }
 
-        private static string postJson(string url, string json) {
+        private static string httpPostPaymentInit(string url, string json) {
             var httpWebRequest = (HttpWebRequest)WebRequest.Create(url);
             httpWebRequest.ContentType = "application/json";
             httpWebRequest.Credentials = CredentialCache.DefaultCredentials;
@@ -92,8 +111,50 @@ namespace Eurona.PAY.CSOB {
             return responseData;
         }
 
+        private static string httpGetProcessPayment(string url) {
+            var httpWebRequest = (HttpWebRequest)WebRequest.Create(url);
+            httpWebRequest.ContentType = "application/x-www-form-urlencoded";
+            httpWebRequest.Credentials = CredentialCache.DefaultCredentials;
+            httpWebRequest.ProtocolVersion = HttpVersion.Version11;
+            httpWebRequest.Method = "GET";
+            httpWebRequest.AllowAutoRedirect = true;
+            //If you are using .Net 4.0 then SecurityProtocolType.Tls11 and SecurityProtocolType.Tls2 are not defined so instead you can use the hard coded value below.
+            SecurityProtocolType Tls11OrTsl12 = (SecurityProtocolType)3072;
+            ServicePointManager.SecurityProtocol = Tls11OrTsl12;
+
+            String responseData = null;
+            try {
+                HttpWebResponse httpResponse = (HttpWebResponse)httpWebRequest.GetResponse();
+                using (var streamReader = new StreamReader(httpResponse.GetResponseStream())) {
+                    responseData = streamReader.ReadToEnd();
+                }
+            } catch (WebException webex) {
+                WebResponse errResp = webex.Response;
+                using (Stream respStream = errResp.GetResponseStream()) {
+                    StreamReader reader = new StreamReader(respStream);
+                    responseData = reader.ReadToEnd();
+                }
+                if (string.IsNullOrEmpty(responseData)) {
+                    throw webex;
+                }
+            }
+            return responseData;
+        }
+
         private static string signPaymentInitData(PaymentInitRequest paymentInit, System.Web.UI.Page page) {
             string data2Sign = paymentInit.getData2Sign();
+            string signedData = Digest.Sign(data2Sign, CMS.Utilities.ConfigUtilities.ConfigValue("SHP:PAY:CSOB:PrivateKeyPath", page));
+            bool verification = Digest.Verify(CMS.Utilities.ConfigUtilities.ConfigValue("SHP:PAY:CSOB:PublicKeyPath", page), data2Sign, signedData);
+            if (verification == false) {
+                throw new InvalidOperationException("Signature verification failed!");
+            }
+            return signedData;
+        }
+
+        private static string signPaymentProcessData(PaymentInitResponse paymentInitResponse, string merchantId, string dttm, System.Web.UI.Page page) {
+            //Požadavek obsahuje položky přímo v URL adrese https://api.platebnibrana.csob.cz/api/v1/payment/process/{merchantId}/{payId}/{dttm}/{signature}
+
+            string data2Sign = merchantId + "|" + paymentInitResponse.payId + "|" + dttm;
             string signedData = Digest.Sign(data2Sign, CMS.Utilities.ConfigUtilities.ConfigValue("SHP:PAY:CSOB:PrivateKeyPath", page));
             bool verification = Digest.Verify(CMS.Utilities.ConfigUtilities.ConfigValue("SHP:PAY:CSOB:PublicKeyPath", page), data2Sign, signedData);
             if (verification == false) {

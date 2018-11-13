@@ -5,7 +5,7 @@ using System.Web;
 using System.Web.Script.Serialization;
 
 namespace Eurona.pay.csob {
-    public class PaymentInitRequest : PaymentInitBase {
+    public class PaymentInitRequest : SignedRequest {
         /*
             merchantId String ID obchodníka přiřazené platební bránou 
             orderNo String Referenční číslo objednávky využívané pro párování plateb, které bude uvedeno také na výpisu z banky. Numerická hodnota, maximální délka 10 číslic. 

@@ -4,7 +4,7 @@ using System.Linq;
 using System.Web;
 
 namespace Eurona.pay.csob {
-    public abstract class PaymentInitBase {
+    public abstract class SignedRequest {
        public virtual string getData2Sign() {
            throw new NotImplementedException("Please implement getData2Sign in your class!");
         }

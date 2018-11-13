@@ -11,13 +11,16 @@ namespace Eurona.pay.csob {
     public partial class testPay : System.Web.UI.Page {
         protected void Page_Load(object sender, EventArgs e) {
             string orderNumber = Request.QueryString["OrderNumber"];
-            if (string.IsNullOrEmpty(orderNumber)) {
-                orderNumber = "20181000004";
-            }
             OrderEntity order = Storage<OrderEntity>.ReadFirst(new OrderEntity.ReadByFilter { OrderNumber = orderNumber });
             Transaction payTransaction = Transaction.CreateTransaction(order, this);
             PaymentInitResponse paymentInitResponse = payTransaction.InitPayment(this);
-            Response.Write(paymentInitResponse);
+            if (paymentInitResponse != null && paymentInitResponse.resultCode == 0) {
+                payTransaction.ProcessPayment(this, paymentInitResponse);
+                //Response.Write(response);
+            } else {
+                Response.Write(paymentInitResponse.resultMessage);
+            }
+            //Response.Write(paymentInitResponse);
         }
     }
 }

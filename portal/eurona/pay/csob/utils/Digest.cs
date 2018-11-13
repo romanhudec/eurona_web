@@ -48,7 +48,6 @@ namespace Eurona.pay.csob.utils {
             }
         }
 
-
         public static byte[] DecodePemKey(string instr) {
             const string pempubheader = "-----BEGIN PUBLIC KEY-----";
             const string pempubfooter = "-----END PUBLIC KEY-----";
