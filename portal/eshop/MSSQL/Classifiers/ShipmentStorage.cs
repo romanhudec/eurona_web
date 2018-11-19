@@ -32,6 +32,7 @@ namespace SHP.MSSQL.Classifiers {
         public override List<Shipment> Read(object criteria) {
             if (criteria is Shipment.ReadById) return LoadById(criteria as Shipment.ReadById);
             if (criteria is Shipment.ReadByCode) return LoadByCode(criteria as Shipment.ReadByCode);
+            if (criteria is Shipment.ReadDefault) return LoadDefault();
             List<Shipment> list = new List<Shipment>();
             using (SqlConnection connection = Connect()) {
                 string sql = @"
@@ -39,6 +40,21 @@ namespace SHP.MSSQL.Classifiers {
 								FROM vShpShipments
 								WHERE Locale = @Locale AND InstanceId=@InstanceId
 								ORDER BY [Code] DESC";
+                DataTable table = Query<DataTable>(connection, sql, new SqlParameter("@Locale", Locale), new SqlParameter("@InstanceId", InstanceId));
+                foreach (DataRow dr in table.Rows)
+                    list.Add(GetShipment(dr));
+            }
+            return list;
+        }
+
+        public List<Shipment> LoadDefault() {
+            List<Shipment> list = new List<Shipment>();
+            using (SqlConnection connection = Connect()) {
+                string sql = @"
+								SELECT ShipmentId, InstanceId, [Name], [Code], [Icon], [Locale], [Notes], [Price], [VATId], [PriceWVAT], [VAT]
+								FROM vShpShipments
+								WHERE Locale = @Locale AND InstanceId=@InstanceId AND [Default]=1
+								ORDER BY [Default] DESC";
                 DataTable table = Query<DataTable>(connection, sql, new SqlParameter("@Locale", Locale), new SqlParameter("@InstanceId", InstanceId));
                 foreach (DataRow dr in table.Rows)
                     list.Add(GetShipment(dr));
@@ -65,6 +81,7 @@ namespace SHP.MSSQL.Classifiers {
             }
             return list;
         }
+
 
         private List<Shipment> LoadByCode(Shipment.ReadByCode by) {
             List<Shipment> list = new List<Shipment>();

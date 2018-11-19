@@ -295,7 +295,8 @@ namespace Eurona.Controls {
                 #endregion
 
                 if (String.IsNullOrEmpty(this.cartEntity.ShipmentCode)) {
-                    ShipmentEntity shipment = Storage<ShipmentEntity>.ReadFirst(new ShipmentEntity.ReadByCode { Code = "3"/*GLS*/ });
+                    //ShipmentEntity shipment = Storage<ShipmentEntity>.ReadFirst(new ShipmentEntity.ReadByCode { Code = "3"/*GLS*/ });
+                    ShipmentEntity shipment = Storage<ShipmentEntity>.ReadFirst(new ShipmentEntity.ReadDefault());
                     if (shipment != null) {
                         this.cartEntity.ShipmentCode = shipment.Code;
                     }
