@@ -273,6 +273,7 @@
     <Content Include="pay\csob\testPay.aspx" />
     <Content Include="pay\gp\paymentresult.aspx" />
     <Content Include="pay\gp\testPay.aspx" />
+    <Content Include="Scripts\dbUpgrade_2018_11.sql" />
     <Content Include="Scripts\dbUpgrade_201711.sql" />
     <Content Include="Scripts\dbUpgrade_201704.sql" />
     <Content Include="Scripts\dbUpgrade_201701_2.sql" />

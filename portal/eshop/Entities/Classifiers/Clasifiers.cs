@@ -22,6 +22,9 @@ namespace SHP.Entities.Classifiers {
                 return string.Format("{0} - {1}", this.Name, Utilities.CultureUtilities.CurrencyInfo.ToString(this.Price.HasValue ? this.Price.Value : 0m, null));
             }
         }
+
+        public class ReadDefault{
+        }
     }
     public class Payment : CMS.Entities.Classifiers.ClassifierBase { }
     public class VAT : CMS.Entities.Classifiers.ClassifierBase {
