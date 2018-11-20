@@ -2,6 +2,7 @@
 using OrderEntity = Eurona.DAL.Entities.Order;
 using System.Data;
 using Eurona.Controls;
+using Eurona.pay.csob;
 
 namespace Eurona.User.Anonymous {
     public partial class PayOrderControl : Eurona.Common.Controls.UserControl {
@@ -50,8 +51,17 @@ namespace Eurona.User.Anonymous {
 
             this.OrderEntity.PriceWVAT = Convert.ToDecimal(dt.Rows[0]["celkem_k_uhrade"]);
             this.OrderEntity.CurrencyCode = Convert.ToString(dt.Rows[0]["kod_meny"]);
+            /*
             Eurona.PAY.GP.Transaction payTransaction = Eurona.PAY.GP.Transaction.CreateTransaction(this.OrderEntity, this.Page);
             payTransaction.MakePayment(this.Page);
+             * */
+            Eurona.PAY.CSOB.Transaction payTransaction = Eurona.PAY.CSOB.Transaction.CreateTransaction(order, this.Page);
+            PaymentInitResponse paymentInitResponse = payTransaction.InitPayment(this.Page);
+            if (paymentInitResponse != null && paymentInitResponse.resultCode == 0) {
+                payTransaction.ProcessPayment(this.Page, paymentInitResponse);
+            } else {
+                Response.Write(paymentInitResponse.resultMessage);
+            }
         }
     }
 }

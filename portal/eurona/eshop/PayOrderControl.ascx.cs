@@ -8,6 +8,7 @@ using SettingsEntity = Eurona.Common.DAL.Entities.Settings;
 using Eurona.Common.DAL.Entities;
 using System.Collections.Generic;
 using System.Web.UI.WebControls;
+using Eurona.pay.csob;
 
 namespace Eurona.EShop {
     public partial class PayOrderControl : Eurona.Common.Controls.UserControl {
@@ -140,9 +141,17 @@ namespace Eurona.EShop {
                 return;
             }
 #endif
-
+            Eurona.PAY.CSOB.Transaction payTransaction = Eurona.PAY.CSOB.Transaction.CreateTransaction(order, this.Page);
+            PaymentInitResponse paymentInitResponse = payTransaction.InitPayment(this.Page);
+            if (paymentInitResponse != null && paymentInitResponse.resultCode == 0) {
+                payTransaction.ProcessPayment(this.Page, paymentInitResponse);
+            } else {
+                Response.Write(paymentInitResponse.resultMessage);
+            }
+            /*
             Eurona.PAY.GP.Transaction payTransaction = Eurona.PAY.GP.Transaction.CreateTransaction(order, this.Page);
             payTransaction.MakePayment(this.Page);
+             **/
             /*#else
                                     this.OrderEntity.PriceWVAT = Convert.ToDecimal(dt.Rows[0]["celkem_k_uhrade"]);
                         this.OrderEntity.CurrencyCode = Convert.ToString(dt.Rows[0]["kod_meny"]);

@@ -3,6 +3,7 @@ using System.Data;
 using System.Configuration;
 using System.Security.Cryptography;
 using System.Security.Cryptography.X509Certificates;
+using System.Diagnostics;
 
 
 namespace Eurona.pay.csob.utils {
@@ -23,6 +24,9 @@ namespace Eurona.pay.csob.utils {
         public static string Sign(string inputData, byte[] privateKeyData) {
             //Decode private key
             using (System.Security.Cryptography.RSACryptoServiceProvider rsaCryptoServiceProvider = DecodeRSAPrivateKey(privateKeyData)) {
+                if (rsaCryptoServiceProvider == null ) {
+                    throw new InvalidOperationException("Can create rsaCryptoServiceProvider!");
+                }
                 //Sign
                 byte[] signedData = rsaCryptoServiceProvider.SignData(System.Text.Encoding.UTF8.GetBytes(inputData), new System.Security.Cryptography.SHA1CryptoServiceProvider());
                 return Convert.ToBase64String(signedData);
@@ -31,7 +35,14 @@ namespace Eurona.pay.csob.utils {
 
         public static string Sign(string inputData, string privatekeypath) {
             //Get key buffer from file
-            byte[] privateKeyData = DecodePemKey(System.IO.File.ReadAllText(privatekeypath));
+            String pk = System.IO.File.ReadAllText(privatekeypath);
+            if (string.IsNullOrEmpty(pk)) {
+                throw new InvalidOperationException("Can not read private key certificate!");
+            }
+            byte[] privateKeyData = DecodePemKey(pk);
+            if (privateKeyData == null ) {
+                throw new InvalidOperationException("Can not decode pem certificate!");
+            }
             //Sign
             return Sign(inputData, privateKeyData);
         }
@@ -224,7 +235,8 @@ namespace Eurona.pay.csob.utils {
                 RSAparams.InverseQ = IQ;
                 RSA.ImportParameters(RSAparams);
                 return RSA;
-            } catch (Exception) {
+            } catch (Exception ex) {
+                CMS.EvenLog.WritoToEventLog(ex);
                 return null;
             } finally {
                 binr.Close();
