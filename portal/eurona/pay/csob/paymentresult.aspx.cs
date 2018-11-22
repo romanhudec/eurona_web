@@ -235,6 +235,8 @@ namespace Eurona.pay.csob {
                imSuccessCZ.Visible = true;
            }
 
+           Response.Redirect(String.Format("~/user/advisor/orderFinish.aspx?id={0}", order.Id));
+
         }
         private void OnPaymentNotSuccess(string resultText, int resultCode, int paymentStatus) {
             string locale = Security.Account.Locale;//System.Threading.Thread.CurrentThread.CurrentUICulture.TwoLetterISOLanguageName.ToLower();

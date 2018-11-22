@@ -197,16 +197,19 @@ namespace Eurona.PAY.CSOB {
             paymentInit.closePayment = true;
             paymentInit.returnUrl = CMS.Utilities.ConfigUtilities.ConfigValue("SHP:PAY:CSOB:PaymentResultUrl", page);
             paymentInit.returnMethod = "POST";
-            paymentInit.customerId = order.AccountId.ToString();//Jednoznačné ID zákazníka, který přiděluje e-shop. Maximální délka 50 znaků. Používá se při uložení karty a jejím následném použití při další návštěvě tohoto e-shopu
+            //paymentInit.customerId = order.AccountId.ToString();//Jednoznačné ID zákazníka, který přiděluje e-shop. Maximální délka 50 znaků. Používá se při uložení karty a jejím následném použití při další návštěvě tohoto e-shopu
             //POZOR: Od verze v1 musí být v košíku nejméně jedna (například "dobití kreditu"), nejvýše dvě položky, například "nákup na mujobchod" a "poštovné"). 
             //Omezení je dáno grafickou úpravou platební brány a v další verzi bude limit položek výrazně posunut.
             paymentInit.cart = new List<PaymentCart>();
+            paymentInit.cart.Add(new PaymentCart(setStringValue("Nákup: euronabycerny.com", 20), 1, (int)(priceTotalWithWAT * 100), setStringValue("", 40)));
+            /*
             if ((int)(order.CartEntity.KatalogovaCenaCelkem * 100) + (int)(order.CartEntity.DopravneEurosap * 100) == (int)(priceTotalWithWAT * 100)) {
                 paymentInit.cart.Add(new PaymentCart(setStringValue("Nákup: euronabycerny.com", 20), 1, (int)(order.CartEntity.KatalogovaCenaCelkem * 100), setStringValue("", 40)));
                 paymentInit.cart.Add(new PaymentCart(setStringValue("Poštovné", 20), 1, (int)(order.CartEntity.DopravneEurosap * 100), setStringValue(order.ShipmentName, 40)));
             } else {
                 paymentInit.cart.Add(new PaymentCart(setStringValue("Nákup: euronabycerny.com", 20), 1, (int)(priceTotalWithWAT * 100), setStringValue("", 40)));
             }
+            */
 
             paymentInit.description = setStringValue("Nákup na euronabycerny.com", 255);
             paymentInit.merchantData = Digest.EncodeToBase64String(order.Id.ToString());//Libovolná pomocná data, která budou vrácena ve zpětném redirectu z platební brány na stránku obchodníka. Mohou sloužit např pro udržení kontinuity procesu na e-shopu, musí být kódována v BASE64. Maximální délka po zakódování 255 znaků.
