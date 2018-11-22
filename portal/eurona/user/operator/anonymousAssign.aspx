@@ -15,7 +15,7 @@
         }
 
 	    $(function () {
-            var $allCheckbox = $('.rpCekajiciNovacci :checkbox');
+	        var $allCheckbox = $('.select-to-save :checkbox');
         	var btnUlozitVybrane = document.getElementById('<%=this.btnUlozitVybrane.ClientID %>');
 	        btnUlozitVybrane.disabled = true;
 	        $allCheckbox.change(function () {
@@ -57,9 +57,9 @@
 					<td><span><%#Eval("AnonymousAssignByCode")%></span></td>
 					<td><span><%#this.GetOrganizationNameByCode(Eval("AnonymousAssignByCode").ToString())%></span></td>
                     <td rowspan="2">
-                        <div id='edit_<%#Eval("Id") %>' class="edit">
+                        <div id='edit_<%#Eval("Id") %>'>
                             <asp:Button ID="btnUlzit" runat="server" Text="Uložit" CssClass="button" OnClick="OnUlozit" CommandArgument='<%#Eval("Id") %>'/>
-                            <asp:CheckBox runat="server" ID="cbxVybrat" Text="Vybrat" CommandArgument='<%#Eval("Id") %>' />
+                            <asp:CheckBox runat="server" ID="cbxVybrat" Text="Vybrat" CommandArgument='<%#Eval("Id") %>'  class="select-to-save"/>
                         </div>
                     </td>
                 </tr>
