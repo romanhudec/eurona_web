@@ -9,28 +9,33 @@
 	</div>
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="content" runat="server">
-	<script type="text/javascript">
-		function validatePrijemNovacka(id) {
-			var elmCode = document.getElementById('code_' + id.toString());
-			var elmJmeno = document.getElementById('code_jmeno_' + id.toString());
-			if (elmCode.value.length == 0 && elmJmeno.value.length == 0) return false;
+	<script type="text/javascript">	  
+	    function fnOnPageSubmit() {
+	        blockUIProcessing('<%=Resources.Strings.Please_Wait%>');
+        }
 
-			var elmHfCode = document.getElementById('<%=this.hfRegistracniCislo.ClientID %>');
-			elmHfCode.value = elmCode.value;
-
-			var elmHfJmeno = document.getElementById('<%=this.hfJmenoSponzora.ClientID %>');
-			elmHfJmeno.value = elmJmeno.value;
-			return true;
-		}
+	    $(function () {
+            var $allCheckbox = $('.rpCekajiciNovacci :checkbox');
+        	var btnUlozitVybrane = document.getElementById('<%=this.btnUlozitVybrane.ClientID %>');
+	        btnUlozitVybrane.disabled = true;
+	        $allCheckbox.change(function () {
+	            if ($allCheckbox.is(':checked')) {
+	                btnUlozitVybrane.disabled = false;
+	            }
+	            else {
+	                btnUlozitVybrane.disabled = true;
+	            }
+	        });
+	    });
 	</script>
 	<h2>Potvrzení požadavku na přiřazení nováčka</h2>
 	<div>
 		<asp:CheckBox runat="server" ID="cbShowAll" Text="Zobrazit všechny (standardne se zobrazuje jen předchozí měsíc)." OnCheckedChanged="OnCheckAllCheckedChanged" AutoPostBack="true" />
 	</div>
-    <asp:HiddenField runat="server" ID="hfRegistracniCislo" EnableViewState="true" />
-	<asp:HiddenField runat="server" ID="hfJmenoSponzora" EnableViewState="true" />
-    <div style="margin:20px;">
-        <asp:Repeater runat="server" ID="rpCekajiciNovacci" OnItemDataBound="OnItemDataBound">
+    <%--<asp:HiddenField runat="server" ID="hfRegistracniCislo" EnableViewState="true" />
+	<asp:HiddenField runat="server" ID="hfJmenoSponzora" EnableViewState="true" />--%>
+    <div style="margin:20px;" class="rpCekajiciNovacci">
+        <asp:Repeater runat="server" ID="rpCekajiciNovacci">
             <HeaderTemplate>
 				<table border="0" cellpadding="0" cellspacing="0" class="dataGrid">
 				<tr>
@@ -54,6 +59,7 @@
                     <td rowspan="2">
                         <div id='edit_<%#Eval("Id") %>' class="edit">
                             <asp:Button ID="btnUlzit" runat="server" Text="Uložit" CssClass="button" OnClick="OnUlozit" CommandArgument='<%#Eval("Id") %>'/>
+                            <asp:CheckBox runat="server" ID="cbxVybrat" Text="Vybrat" CommandArgument='<%#Eval("Id") %>' />
                         </div>
                     </td>
                 </tr>
@@ -82,6 +88,13 @@
 				</tr>
             </ItemTemplate>
             <FooterTemplate></table></FooterTemplate>
-        </asp:Repeater>    
+        </asp:Repeater>  
+        <table width="100%" cellpadding="0", cellspacing="0">
+            <tr>
+                <td align="right">
+                    <asp:Button ID="btnUlozitVybrane" runat="server" Text="Uložit vybrané" CssClass="button" Enabled="false" OnClick="OnPotvrditPrijetiVybrane"/>  
+                </td>
+            </tr>
+        </table>    
     </div>
 </asp:Content>

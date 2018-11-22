@@ -10,9 +10,28 @@
 			elmHfCode.value = elmCode.value;
 
 			var elmHfJmeno = document.getElementById('<%=this.hfJmenoSponzora.ClientID %>');
-			elmHfJmeno.value = elmJmeno.value;
+		    elmHfJmeno.value = elmJmeno.value;
 			return true;
 		}
+
+	    function fnOnPageSubmit() {
+	        blockUIProcessing('<%=Resources.Strings.Please_Wait%>');
+	    }
+
+	    $(function () {
+	        var $allCheckbox = $('.rpCekajiciNovacci :checkbox');
+	        var btnPotvrditVybrane = document.getElementById('<%=this.btnPotvrditVybrane.ClientID %>');
+	        btnPotvrditVybrane.disabled = true;
+	        $allCheckbox.change(function () {
+	            if ($allCheckbox.is(':checked')) {
+	                btnPotvrditVybrane.disabled = false;
+	            }
+	            else {
+	                btnPotvrditVybrane.disabled = true;
+	            }
+	        });
+	    });
+
 	</script>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="navigation" runat="server">
@@ -25,7 +44,7 @@
 <asp:Content ID="Content3" ContentPlaceHolderID="content" runat="server">
     <asp:HiddenField runat="server" ID="hfRegistracniCislo" EnableViewState="true" />
 	<asp:HiddenField runat="server" ID="hfJmenoSponzora" EnableViewState="true" />
-    <div style="margin:0px;">
+    <div style="margin:0px;" class="rpCekajiciNovacci">
         <asp:Repeater runat="server" ID="rpCekajiciNovacci" OnItemDataBound="OnItemDataBound">
             <HeaderTemplate>
 				<table border="0" cellpadding="0" cellspacing="0" class="dataGrid">
@@ -58,6 +77,7 @@
                     <td rowspan="2">
                         <div id='edit_<%#Eval("Id") %>' class="edit">
                             <asp:Button ID="btnPotvrdit" runat="server" Text="Potvrdit" CssClass="button" OnClick="OnPotvrditPrijeti" CommandArgument='<%#Eval("Id") %>'/>
+                            <asp:CheckBox runat="server" ID="cbxVybrat" Text="Vybrat" CommandArgument='<%#Eval("Id") %>' />
                         </div>
                     </td>
                 </tr>
@@ -86,6 +106,13 @@
 				</tr>
             </ItemTemplate>
             <FooterTemplate></table></FooterTemplate>
-        </asp:Repeater>    
+        </asp:Repeater>  
+        <table width="100%" cellpadding="0", cellspacing="0">
+            <tr>
+                <td align="right">
+                    <asp:Button ID="btnPotvrditVybrane" runat="server" Text="Potvrdit vybrané" CssClass="button" Enabled="false" OnClick="OnPotvrditPrijetiVybrane"/>  
+                </td>
+            </tr>
+        </table>        
     </div>
 </asp:Content>

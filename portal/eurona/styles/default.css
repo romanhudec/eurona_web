@@ -44,6 +44,16 @@ input[type=button], input[type=submit]
 	margin:2px;
 	cursor:pointer;
 }
+input[type=button]:disabled, input[type=submit]:disabled
+{
+	height:24px;
+	border: solid 1px #DADADA;
+	
+	background-color:#DADADA;
+	color: #FFFFFF;
+	margin:2px;
+	cursor:pointer;
+}
 
 /*a:link, a:visited, a:active*/
 a, a:hover{	color: #00B8EC;}
