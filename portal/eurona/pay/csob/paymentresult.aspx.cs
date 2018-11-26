@@ -7,6 +7,7 @@ using System.Data.SqlClient;
 using System.Diagnostics;
 using System.Linq;
 using System.Security.Cryptography.X509Certificates;
+using System.Text;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
@@ -21,12 +22,12 @@ namespace Eurona.pay.csob {
 
             paymentResponse = parseRequestData();
             string data2Verify = paymentResponse.getData2VerifyResponse();
-            bool verification = Digest.Verify(CMS.Utilities.ConfigUtilities.ConfigValue("SHP:PAY:CSOB:PublicKeyPath", this), data2Verify, paymentResponse.signature);
-            //if (verification == false) {
-            //    throw new InvalidOperationException("PaymentResultResponse verification failed!");
-            //}
+            bool verification = Crypto.Verify(CMS.Utilities.ConfigUtilities.ConfigValue("SHP:PAY:CSOB:PublicKeyPath", this), data2Verify, paymentResponse.signature);
+            if (verification == false) {
+                throw new InvalidOperationException("PaymentResultResponse verification failed!");
+            }
 
-            string merchantData = Digest.DefoceFromBase64String(paymentResponse.merchantData);
+            string merchantData = Crypto.DecodeFromBase64String(paymentResponse.merchantData);
             CMS.EvenLog.WritoToEventLog(string.Format("PaymentResult OrderId={0}", merchantData), EventLogEntryType.Information);
             int orderId = Convert.ToInt32(merchantData);
 
@@ -77,15 +78,16 @@ namespace Eurona.pay.csob {
                 payId=4db540c347414DK&dttm=20181113100229&resultCode=0&resultMessage=OK&paymentStatus=3&signature=G0g1zBCzckR394GFf%2Flps2TaK%2BcLR%2FyGwHzq201tls6MF3BJJFpa7i1ZX95uGXx3Nzn4nasRNjQajW5ScejGmiVyWctzboOGnuD2DxSTFFDKJdKIAWZKzKB5y6C9ht3rLSfRz31Pby8VIA76JQbneItPZAsDrs0Oz3H3IpgEWj1FyS2G2paq2vcEA2BbmKLXTc%2BxyvLRqtbhugtaeT4GNeRLtxcLCX8caIrSnd2s%2BvknK88LnKl90CFbyoSgJvDnHwCIGhfgM7T6LlUstl7lu6F%2BS06BaAko5DP5WviSffRq10jCttcFrxS%2Fffd8oK8sbQLZuhxbQLHkes2SnEkW6A%3D%3D&merchantData=NjMxNzYz	          
              */
             PaymentProcessResponse response = new PaymentProcessResponse();
-            if (!string.IsNullOrEmpty(Request["payId"])) {
+            if (Request.HttpMethod != "POST") {
                 //GET params
                 response.payId = Request["payId"];
                 response.dttm = Request["dttm"];
                 response.resultCode = Convert.ToInt32(Request["resultCode"]);
                 response.resultMessage = Request["resultMessage"];
                 response.paymentStatus = Convert.ToInt32(Request["paymentStatus"]);
+                response.authCode = Request["authCode"];
                 response.merchantData = Request["merchantData"];
-                response.signature = Request["signature"];
+                response.signature = HttpUtility.UrlDecode(Request["signature"], Encoding.UTF8);
             } else if (!string.IsNullOrEmpty(Request.Form["payId"])) {
                 //POST params
                 response.payId = Request.Form["payId"];
@@ -93,6 +95,7 @@ namespace Eurona.pay.csob {
                 response.resultCode = Convert.ToInt32(Request.Form["resultCode"]);
                 response.resultMessage = Request.Form["resultMessage"];
                 response.paymentStatus = Convert.ToInt32(Request.Form["paymentStatus"]);
+                response.authCode = Request.Form["authCode"];
                 response.merchantData = Request.Form["merchantData"];
                 response.signature = Request.Form["signature"];
             } else {
@@ -238,7 +241,7 @@ namespace Eurona.pay.csob {
            Response.Redirect(String.Format("~/user/advisor/orderFinish.aspx?id={0}", order.Id));
 
         }
-        private void OnPaymentNotSuccess(string resultText, int resultCode, int paymentStatus) {
+        private void OnPaymentNotSuccess(string resultText, int resultCode, int? paymentStatus) {
             string locale = Security.Account.Locale;//System.Threading.Thread.CurrentThread.CurrentUICulture.TwoLetterISOLanguageName.ToLower();
             if (locale == "pl") {
                 imErrorPL.Visible = true;

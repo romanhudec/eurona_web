@@ -51,12 +51,10 @@ namespace Eurona.PAY.CSOB {
             string responseData = httpPostPaymentInit(paymentInitUrl, json);
             PaymentInitResponse paymentInitResponse = new JavaScriptSerializer().Deserialize<PaymentInitResponse>(responseData);
             string data2Verify = paymentInitResponse.getData2VerifyResponse();
-            string signed = Digest.Sign(data2Verify, CMS.Utilities.ConfigUtilities.ConfigValue("SHP:PAY:CSOB:PrivateKeyPath", page));
-            //bool verification = Digest.Verify(CMS.Utilities.ConfigUtilities.ConfigValue("SHP:PAY:CSOB:PublicKeyPath", page), data2Verify, paymentInitResponse.signature);
-            /*
+            bool verification = Crypto.Verify(CMS.Utilities.ConfigUtilities.ConfigValue("SHP:PAY:CSOB:PublicKeyPath", page), data2Verify, paymentInitResponse.signature);
             if (verification == false) {
                 throw new InvalidOperationException("PaymentInitResponse verification failed!");
-            }*/
+            }
             return paymentInitResponse;
         }
 
@@ -110,7 +108,7 @@ namespace Eurona.PAY.CSOB {
             }
             return responseData;
         }
-
+        /*
         private static string httpGetProcessPayment(string url) {
             var httpWebRequest = (HttpWebRequest)WebRequest.Create(url);
             httpWebRequest.ContentType = "application/x-www-form-urlencoded";
@@ -140,26 +138,18 @@ namespace Eurona.PAY.CSOB {
             }
             return responseData;
         }
+         * */
 
         private static string signPaymentInitData(PaymentInitRequest paymentInit, System.Web.UI.Page page) {
             string data2Sign = paymentInit.getData2Sign();
-            string signedData = Digest.Sign(data2Sign, CMS.Utilities.ConfigUtilities.ConfigValue("SHP:PAY:CSOB:PrivateKeyPath", page));
-            bool verification = Digest.Verify(CMS.Utilities.ConfigUtilities.ConfigValue("SHP:PAY:CSOB:PublicKeyPath", page), data2Sign, signedData);
-            if (verification == false) {
-                throw new InvalidOperationException("Signature verification failed!");
-            }
+            string signedData = Crypto.Sign(data2Sign, CMS.Utilities.ConfigUtilities.ConfigValue("SHP:PAY:CSOB:PrivateKeyPath", page));
             return signedData;
         }
 
         private static string signPaymentProcessData(PaymentInitResponse paymentInitResponse, string merchantId, string dttm, System.Web.UI.Page page) {
             //Požadavek obsahuje položky přímo v URL adrese https://api.platebnibrana.csob.cz/api/v1/payment/process/{merchantId}/{payId}/{dttm}/{signature}
-
             string data2Sign = merchantId + "|" + paymentInitResponse.payId + "|" + dttm;
-            string signedData = Digest.Sign(data2Sign, CMS.Utilities.ConfigUtilities.ConfigValue("SHP:PAY:CSOB:PrivateKeyPath", page));
-            bool verification = Digest.Verify(CMS.Utilities.ConfigUtilities.ConfigValue("SHP:PAY:CSOB:PublicKeyPath", page), data2Sign, signedData);
-            if (verification == false) {
-                throw new InvalidOperationException("Signature verification failed!");
-            }
+            string signedData = Crypto.Sign(data2Sign, CMS.Utilities.ConfigUtilities.ConfigValue("SHP:PAY:CSOB:PrivateKeyPath", page));
             return signedData;
         }
 
@@ -212,7 +202,7 @@ namespace Eurona.PAY.CSOB {
             */
 
             paymentInit.description = setStringValue("Nákup na euronabycerny.com", 255);
-            paymentInit.merchantData = Digest.EncodeToBase64String(order.Id.ToString());//Libovolná pomocná data, která budou vrácena ve zpětném redirectu z platební brány na stránku obchodníka. Mohou sloužit např pro udržení kontinuity procesu na e-shopu, musí být kódována v BASE64. Maximální délka po zakódování 255 znaků.
+            paymentInit.merchantData = Crypto.EncodeToBase64String(order.Id.ToString());//Libovolná pomocná data, která budou vrácena ve zpětném redirectu z platební brány na stránku obchodníka. Mohou sloužit např pro udržení kontinuity procesu na e-shopu, musí být kódována v BASE64. Maximální délka po zakódování 255 znaků.
             paymentInit.language = "CZ";//Preferovaná jazyková mutace, která se zobrazí zákazníkovi na platební bráně. Od verze 1.6 povinný parametr. Povolené hodnoty: CZ, EN, DE, FR, HU, IT, JP, PL, PT, RO, RU, SK, ES, TR, VN, HR, SI. Stejnou jazykovou sadu lze použít i v eAPI v1, v1.5 a V1.6
             paymentInit.signature = signPaymentInitData(paymentInit, page);
 

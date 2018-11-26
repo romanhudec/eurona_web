@@ -4,10 +4,12 @@ using System.Configuration;
 using System.Security.Cryptography;
 using System.Security.Cryptography.X509Certificates;
 using System.Diagnostics;
+using System.Text;
+using System.IO;
 
 
 namespace Eurona.pay.csob.utils {
-    public class Digest {
+    public class Crypto {
 
         public static string EncodeToBase64String(string plainText) {
             byte[] dataBytes = System.Text.Encoding.UTF8.GetBytes(plainText);
@@ -15,7 +17,7 @@ namespace Eurona.pay.csob.utils {
             return encoded;
         }
 
-        public static string DefoceFromBase64String(string base64String) {
+        public static string DecodeFromBase64String(string base64String) {
             byte[] dataBytes = Convert.FromBase64String(base64String);
             string plainText = System.Text.Encoding.UTF8.GetString(dataBytes);
             return plainText;
@@ -55,10 +57,10 @@ namespace Eurona.pay.csob.utils {
                 //verify
                 byte[] dataForSigningByteArray = System.Text.Encoding.UTF8.GetBytes(dataForSigning);
                 byte[] signedDataByteArray = Convert.FromBase64String(signedData);
-                return rsaCryptoServiceProvider.VerifyData(dataForSigningByteArray, new System.Security.Cryptography.SHA1CryptoServiceProvider(), signedDataByteArray);
+                return rsaCryptoServiceProvider.VerifyData(dataForSigningByteArray, new System.Security.Cryptography.SHA1CryptoServiceProvider(), signedDataByteArray);                
             }
         }
-
+     
         public static byte[] DecodePemKey(string instr) {
             const string pempubheader = "-----BEGIN PUBLIC KEY-----";
             const string pempubfooter = "-----END PUBLIC KEY-----";
@@ -73,7 +75,7 @@ namespace Eurona.pay.csob.utils {
 
             try {
                 binkey = Convert.FromBase64String(keystr);
-            } catch (FormatException) {
+            } catch (FormatException ex) {
                 //if can't b64 decode, data is not valid
                 return null;
             }
@@ -160,9 +162,12 @@ namespace Eurona.pay.csob.utils {
                 System.Security.Cryptography.RSAParameters RSAKeyInfo = new System.Security.Cryptography.RSAParameters();
                 RSAKeyInfo.Modulus = modulus;
                 RSAKeyInfo.Exponent = exponent;
+                // Generate the public key / these can be sent to the user.
                 RSA.ImportParameters(RSAKeyInfo);
+
                 return RSA;
-            } catch (Exception) {
+            } catch (Exception ex) {
+                //throw new InvalidOperationException(ex);
                 return null;
             } finally {
                 binr.Close();

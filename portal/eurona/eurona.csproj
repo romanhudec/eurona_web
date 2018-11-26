@@ -269,6 +269,7 @@
     <Content Include="javascripts\homeflashcontrol.js" />
     <Content Include="javascripts\jquery.blockUI.js" />
     <Content Include="javascripts\snowfall.jquery.min.js" />
+    <Content Include="pay\csob\testVerify.aspx" />
     <Content Include="pay\csob\paymentresult.aspx" />
     <Content Include="pay\csob\testPay.aspx" />
     <Content Include="pay\gp\paymentresult.aspx" />
@@ -1424,6 +1425,13 @@
       <DependentUpon>catalog_akce.aspx</DependentUpon>
     </Compile>
     <Compile Include="PasswGenerator.cs" />
+    <Compile Include="pay\csob\testVerify.aspx.cs">
+      <DependentUpon>testVerify.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="pay\csob\testVerify.aspx.designer.cs">
+      <DependentUpon>testVerify.aspx</DependentUpon>
+    </Compile>
     <Compile Include="pay\csob\SignedResponse.cs" />
     <Compile Include="pay\csob\PaymentProcessResponse.cs" />
     <Compile Include="pay\csob\paymentresult.aspx.cs">
@@ -1435,7 +1443,7 @@
     </Compile>
     <Compile Include="pay\csob\utils\CertificateHelper.cs" />
     <Compile Include="pay\csob\PaymentInitResponse.cs" />
-    <Compile Include="pay\csob\utils\Digest.cs" />
+    <Compile Include="pay\csob\utils\Crypto.cs" />
     <Compile Include="pay\csob\utils\JsonConverter.cs" />
     <Compile Include="pay\csob\PaymentCart.cs" />
     <Compile Include="pay\csob\SignedRequest.cs" />
