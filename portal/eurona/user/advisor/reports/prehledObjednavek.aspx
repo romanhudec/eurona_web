@@ -54,6 +54,11 @@
                     </ItemTemplate>
                 </telerik:GridTemplateColumn>
 
+                <telerik:GridBoundColumn HeaderText="Kód sp." DataField="Kod_odberatele_sponzor" UniqueName="Kod_odberatele_sponzor" HeaderStyle-Width="100px"
+                    SortExpression="Kod_odberatele_sponzor" AutoPostBackOnFilter="true" CurrentFilterFunction="Contains" ShowFilterIcon="false" />
+                <telerik:GridBoundColumn HeaderText="<%$ Resources:Reports, JmenoSp_Column %>" DataField="Nazev_firmy_sponzor" UniqueName="Nazev_firmy_sponzor" HeaderStyle-Width="90px"
+                    SortExpression="Nazev_firmy_sponzor" AutoPostBackOnFilter="true" CurrentFilterFunction="Contains" ShowFilterIcon="false" />
+                
                 <telerik:GridBoundColumn HeaderText="Datum objednávky" DataField="datum_vystaveni" UniqueName="datum_vystaveni" HeaderStyle-Width="80px" ItemStyle-HorizontalAlign="Right" HeaderStyle-HorizontalAlign="Right" DataFormatString="{0:d}"
                     SortExpression="datum_vystaveni" AutoPostBackOnFilter="false" AllowFiltering="false" CurrentFilterFunction="Contains" ShowFilterIcon="false" />
                 

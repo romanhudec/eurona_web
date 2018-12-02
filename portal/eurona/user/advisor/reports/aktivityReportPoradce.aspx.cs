@@ -14,8 +14,8 @@ using System.Drawing;
 
 namespace Eurona.User.Advisor.Reports {
     public partial class AktivityReportPoradce : ReportPage {
-        private DateTime uzavierkaFrom;
-        private DateTime uzavierkaTo;
+        private DateTime aktualniObdobiUzavierkaFrom;
+        private DateTime aktualniObdobiUzavierkaTo;
         private int? obdobi;
 
         protected void Page_Load(object sender, EventArgs e) {
@@ -27,19 +27,27 @@ namespace Eurona.User.Advisor.Reports {
             if (uzavierkaBefore == null) {
                 uzavierkaBefore = new UzavierkaEntity();
                 DateTime beforeOd = GetLastDayOfMonth(DateTime.Now.Year, DateTime.Now.AddMonths(-1).Month);
-                uzavierkaFrom = new DateTime(beforeOd.Year, beforeOd.Month, beforeOd.Day, 0, 0, 0);
-                uzavierkaTo = new DateTime(beforeOd.Year, beforeOd.Month, beforeOd.Day, 23, 59, 59);
+                aktualniObdobiUzavierkaFrom = new DateTime(beforeOd.Year, beforeOd.Month, beforeOd.Day, 0, 0, 0);
+                aktualniObdobiUzavierkaTo = new DateTime(beforeOd.Year, beforeOd.Month, beforeOd.Day, 23, 59, 59);
             } else {
-                uzavierkaFrom = uzavierkaBefore.UzavierkaDo.Value;
+                //Dopracovane 02.12.2018
+                {
+                    if (uzavierkaBefore.UzavierkaDo.Value.Month < DateTime.Now.Month)
+                        aktualniObdobiUzavierkaFrom = new DateTime(DateTime.Now.Year, DateTime.Now.Month, 1, 0, 0, 0);
+                    else
+                        aktualniObdobiUzavierkaFrom = uzavierkaBefore.UzavierkaDo.Value;
+                }
+                //Zakomentovane 02.12.2018
+                //aktualniObdobiUzavierkaFrom = uzavierkaBefore.UzavierkaDo.Value;
             }
             UzavierkaEntity uzavierka = Storage<UzavierkaEntity>.ReadFirst(new UzavierkaEntity.ReadById { UzavierkaId = (int)UzavierkaEntity.UzavierkaId.Eurona });
             if (uzavierka == null) {
                 uzavierka = new UzavierkaEntity();
                 DateTime datumDo = GetLastDayOfMonth(DateTime.Now.Year, DateTime.Now.Month);
-                uzavierkaFrom = new DateTime(datumDo.Year, datumDo.Month, datumDo.Day, 0, 0, 0);
-                uzavierkaTo = new DateTime(datumDo.Year, datumDo.Month, datumDo.Day, 23, 59, 59);
+                aktualniObdobiUzavierkaFrom = new DateTime(datumDo.Year, datumDo.Month, datumDo.Day, 0, 0, 0);
+                aktualniObdobiUzavierkaTo = new DateTime(datumDo.Year, datumDo.Month, datumDo.Day, 23, 59, 59);
             } else {
-                uzavierkaTo = uzavierka.UzavierkaDo.Value;
+                aktualniObdobiUzavierkaTo = uzavierka.UzavierkaDo.Value;
             }
             #endregion
 
@@ -107,16 +115,16 @@ namespace Eurona.User.Advisor.Reports {
 
             #region Uzavierka
             int currentObdobiRRRRMM = this.CurrentObdobiRRRRMM;
-            if (uzavierkaTo <= DateTime.Now) {
-                int year = uzavierkaTo.Year * 100;
-                currentObdobiRRRRMM = year + uzavierkaTo.Month;
+            if (aktualniObdobiUzavierkaTo <= DateTime.Now) {
+                int year = aktualniObdobiUzavierkaTo.Year * 100;
+                currentObdobiRRRRMM = year + aktualniObdobiUzavierkaTo.Month;
                 if (this.CurrentObdobiRRRRMM == currentObdobiRRRRMM) {
-                    DateTime date = uzavierkaTo.AddMonths(-1);
+                    DateTime date = aktualniObdobiUzavierkaTo.AddMonths(-1);
                     year = date.Year * 100;
                     currentObdobiRRRRMM = year + date.Month;
                 }
-            } else if (uzavierkaFrom <= DateTime.Now && uzavierkaTo >= DateTime.Now && uzavierkaFrom.Month != uzavierkaTo.Month) {
-                DateTime date = uzavierkaTo.AddMonths(-1);
+            } else if (aktualniObdobiUzavierkaFrom <= DateTime.Now && aktualniObdobiUzavierkaTo >= DateTime.Now && aktualniObdobiUzavierkaFrom.Month != aktualniObdobiUzavierkaTo.Month) {
+                DateTime date = aktualniObdobiUzavierkaTo.AddMonths(-1);
                 int year = date.Year * 100;
                 currentObdobiRRRRMM = year + date.Month;
             }
