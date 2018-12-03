@@ -46,13 +46,13 @@ namespace Eurona.Common.HttpModules{
                 return;
 
             string ip = HttpContext.Current.Request.UserHostAddress;
+            //EuronaI P
+            if (ip.Contains("31.30.6.139")) {
+                return;
+            }
             if (_Banned.Contains(ip)) {
                 HttpContext.Current.Response.Redirect("~/ddosattac.aspx");
                 HttpContext.Current.Response.End();
-                /*
-                HttpContext.Current.Response.StatusCode = 403;
-                HttpContext.Current.Response.End();
-                 * */
             }
 
             try {
