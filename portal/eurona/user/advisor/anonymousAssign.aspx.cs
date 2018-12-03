@@ -102,50 +102,16 @@ namespace Eurona.User.Advisor {
 
             int id = Convert.ToInt32(btn.CommandArgument);
             PotvrditPrijetiNovacka(id, btn);
-            /*
-            Organization org = Storage<Organization>.ReadFirst(new Organization.ReadById { OrganizationId = id });
-            if (org == null) return;
-
-            if (org.AnonymousAssignAt.HasValue) {
-                string js = string.Format("alert('{0}');", "Nováček již byl potvrzen jiným uživatelem!");
-                btn.Page.ClientScript.RegisterStartupScript(btn.Page.GetType(), "parentValidateOrganization", js, true);
-                return;
-            }
-
-            //Get Parent
-            string parentCode = this.hfRegistracniCislo.Value;
-            string parentName = this.hfJmenoSponzora.Value;
-            Organization parentOrg = null;
-            if (!string.IsNullOrEmpty(parentCode)) parentOrg = Storage<Organization>.ReadFirst(new Organization.ReadByCode { Code = parentCode });
-            if (parentOrg == null && !string.IsNullOrEmpty(parentName)) parentOrg = Storage<Organization>.ReadFirst(new Organization.ReadBy { Name = parentName });
-            if (parentOrg == null || (string.IsNullOrEmpty(parentCode) && string.IsNullOrEmpty(parentName))) {
-                string js = string.Format("alert('{0}');", "Nesprávne registrační číslo nebo jméno!");
-                btn.Page.ClientScript.RegisterStartupScript(btn.Page.GetType(), "parentValidateOrganization", js, true);
-                return;
-            }
-
-            string message = string.Empty;
-            org.ParentId = parentOrg.TVD_Id.Value;
-            if (OrganizationControl.UpdateSponsorTVDUser(org, btn, out message)) {
-                org.AnonymousAssignStatus = message;
-                org.ParentId = parentOrg.TVD_Id.Value;
-                org.AnonymousAssignAt = DateTime.Now;
-                org.AnonymousAssignToCode = parentOrg.Code;
-                Storage<Organization>.Update(org);
-            } else {
-                org.AnonymousAssignStatus = message;
-                Storage<Organization>.Update(org);
-            }
-            */
+           
             LoadData(true);
         }
 
         protected void OnPotvrditPrijetiVybrane(object sender, EventArgs e) {
             foreach (RepeaterItem item in this.rpCekajiciNovacci.Items) {
-                CheckBox cbxVybrat = (CheckBox)item.FindControl("cbxVybrat");
-                if (cbxVybrat.Checked) {
-                    int id = Convert.ToInt32(cbxVybrat.Attributes["CommandArgument"]);
-                    if (PotvrditPrijetiNovacka(id, cbxVybrat) == false) return;
+                CheckBox cbxAnonymousOvereniSluzeb = (CheckBox)item.FindControl("cbAnonymousOvereniSluzeb");
+                if (cbxAnonymousOvereniSluzeb.Checked) {
+                    int id = Convert.ToInt32(cbxAnonymousOvereniSluzeb.Attributes["CommandArgument"]);
+                    if (PotvrditPrijetiNovacka(id, cbxAnonymousOvereniSluzeb) == false) return;
                 }
             }
             LoadData(true);

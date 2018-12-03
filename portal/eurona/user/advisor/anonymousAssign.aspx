@@ -18,9 +18,10 @@
 	        blockUIProcessing('<%=Resources.Strings.Please_Wait%>');
 	    }
 
+        /*
 	    $(function () {
 	        var $allCheckbox = $('.rpCekajiciNovacci :checkbox');
-	        var btnPotvrditVybrane = document.getElementById('<%=this.btnPotvrditVybrane.ClientID %>');
+	        var btnPotvrditVybrane = document.getElementById('%=this.btnPotvrditVybrane.ClientID %');
 	        btnPotvrditVybrane.disabled = true;
 	        $allCheckbox.change(function () {
 	            if ($allCheckbox.is(':checked')) {
@@ -31,6 +32,7 @@
 	            }
 	        });
 	    });
+        */
 
 	</script>
 </asp:Content>
@@ -77,7 +79,6 @@
                     <td rowspan="2">
                         <div id='edit_<%#Eval("Id") %>' class="edit">
                             <asp:Button ID="btnPotvrdit" runat="server" Text="Potvrdit" CssClass="button" OnClick="OnPotvrditPrijeti" CommandArgument='<%#Eval("Id") %>'/>
-                            <asp:CheckBox runat="server" ID="cbxVybrat" Text="Vybrat" CommandArgument='<%#Eval("Id") %>' />
                         </div>
                     </td>
                 </tr>
@@ -85,7 +86,7 @@
 					<td colspan="6">
 						<table>
 							<tr>
-								<td><asp:CheckBox Enabled="false" runat="server" ID="cbAnonymousOvereniSluzeb" Text="Ověření služeb" Checked='<%#Eval("AnonymousOvereniSluzeb") %>' /></td>
+								<td><asp:CheckBox Enabled="false" runat="server" ID="cbAnonymousOvereniSluzeb" Text="Ověření služeb" Checked='<%#Eval("AnonymousOvereniSluzeb") %>' CommandArgument='<%#Eval("Id") %>'/></td>
 								<td><asp:CheckBox Enabled="false" runat="server" ID="cbAnonymousZmenaNaJineRegistracniCislo" Text="Změna na jiné reg.číslo" Checked='<%#Eval("AnonymousZmenaNaJineRegistracniCislo") %>' />&nbsp;
 								<asp:TextBox  Enabled="false" runat="server" ID="txtAnonymousZmenaNaJineRegistracniCisloText" Text='<%#Eval("AnonymousZmenaNaJineRegistracniCisloText")%>' style="width:100px;" /></td>
 							</tr>
@@ -110,7 +111,7 @@
         <table width="100%" cellpadding="0", cellspacing="0">
             <tr>
                 <td align="right">
-                    <asp:Button ID="btnPotvrditVybrane" runat="server" Text="Potvrdit vybrané" CssClass="button" Enabled="false" OnClick="OnPotvrditPrijetiVybrane"/>  
+                    <asp:Button ID="btnPotvrditVybrane" runat="server" Text="Potvrdit změny hromadně" CssClass="button" Enabled="false" OnClick="OnPotvrditPrijetiVybrane"/>  
                 </td>
             </tr>
         </table>        
