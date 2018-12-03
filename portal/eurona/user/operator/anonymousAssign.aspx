@@ -13,10 +13,11 @@
 	    function fnOnPageSubmit() {
 	        blockUIProcessing('<%=Resources.Strings.Please_Wait%>');
         }
-
+        
+        /*
 	    $(function () {
 	        var $allCheckbox = $('.select-to-save :checkbox');
-        	var btnUlozitVybrane = document.getElementById('<%=this.btnUlozitVybrane.ClientID %>');
+        	var btnUlozitVybrane = document.getElementById('%=this.btnUlozitVybrane.ClientID %');
 	        btnUlozitVybrane.disabled = true;
 	        $allCheckbox.change(function () {
 	            if ($allCheckbox.is(':checked')) {
@@ -26,7 +27,7 @@
 	                btnUlozitVybrane.disabled = true;
 	            }
 	        });
-	    });
+	    });*/
 	</script>
 	<h2>Potvrzení požadavku na přiřazení nováčka</h2>
 	<div>
@@ -59,7 +60,7 @@
                     <td rowspan="2">
                         <div id='edit_<%#Eval("Id") %>'>
                             <asp:Button ID="btnUlzit" runat="server" Text="Uložit" CssClass="button" OnClick="OnUlozit" CommandArgument='<%#Eval("Id") %>'/>
-                            <asp:CheckBox runat="server" ID="cbxVybrat" Text="Vybrat" CommandArgument='<%#Eval("Id") %>'  class="select-to-save"/>
+                            <%--<asp:CheckBox runat="server" ID="cbxVybrat" Text="Vybrat" CommandArgument='<%#Eval("Id") %>'  class="select-to-save"/>--%>
                         </div>
                     </td>
                 </tr>
@@ -67,7 +68,7 @@
 					<td colspan="4">
 						<table>
 							<tr>
-								<td><asp:CheckBox Enabled="true" runat="server" ID="cbAnonymousOvereniSluzeb" Text="Ověření služeb" Checked='<%#Eval("AnonymousOvereniSluzeb") %>' /></td>
+								<td><asp:CheckBox Enabled="true" runat="server" ID="cbAnonymousOvereniSluzeb" Text="Ověření služeb" Checked='<%#Eval("AnonymousOvereniSluzeb") %>' CommandArgument='<%#Eval("Id") %>'/></td>
 								<td><asp:CheckBox Enabled="true" runat="server" ID="cbAnonymousZmenaNaJineRegistracniCislo" Text="Změna na jiné reg.číslo" Checked='<%#Eval("AnonymousZmenaNaJineRegistracniCislo") %>' OnCheckedChanged="OnZmenaNaJineRegCislo" AutoPostBack="true" />&nbsp;
 								<asp:TextBox  Enabled='<%#Convert.ToBoolean(Eval("AnonymousZmenaNaJineRegistracniCislo")) %>' runat="server" ID="txtAnonymousZmenaNaJineRegistracniCisloText" Text='<%#Eval("AnonymousZmenaNaJineRegistracniCisloText")%>' style="width:100px;" /></td>
 							</tr>
@@ -92,7 +93,10 @@
         <table width="100%" cellpadding="0", cellspacing="0">
             <tr>
                 <td align="right">
-                    <asp:Button ID="btnUlozitVybrane" runat="server" Text="Uložit vybrané" CssClass="button" Enabled="false" OnClick="OnPotvrditPrijetiVybrane"/>  
+                    <div>
+                        <span>Ukládají se pouze záznamy, které mají zaškrtnuto "Ověření služeb"</span>
+                    </div>
+                    <asp:Button ID="btnUlozitVybrane" runat="server" Text="Uložit změny hromadně" CssClass="button" Enabled="false" OnClick="OnPotvrditPrijetiVybrane"/>  
                 </td>
             </tr>
         </table>    

@@ -105,10 +105,10 @@ namespace Eurona.User.Operator {
 
         protected void OnPotvrditPrijetiVybrane(object sender, EventArgs e) {
             foreach (RepeaterItem item in this.rpCekajiciNovacci.Items) {
-                CheckBox cbxVybrat = (CheckBox)item.FindControl("cbxVybrat");
-                if (cbxVybrat.Checked) {
-                    int id = Convert.ToInt32(cbxVybrat.Attributes["CommandArgument"]);
-                    if (PotvrditPrijetiNovacka(id, cbxVybrat) == false) return;
+                CheckBox cbxAnonymousOvereniSluzeb = (CheckBox)item.FindControl("cbAnonymousOvereniSluzeb");
+                if (cbxAnonymousOvereniSluzeb.Checked) {
+                    int id = Convert.ToInt32(cbxAnonymousOvereniSluzeb.Attributes["CommandArgument"]);
+                    if (PotvrditPrijetiNovacka(id, cbxAnonymousOvereniSluzeb) == false) return;
                 }
             }
             LoadData(true);
