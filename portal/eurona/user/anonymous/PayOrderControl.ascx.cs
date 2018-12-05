@@ -43,11 +43,17 @@ namespace Eurona.User.Anonymous {
                 return;
             }
 
+            string var_symbol_eurosap = "";
             DataTable dt = CartOrderHelper.GetTVDFaktura(this.OrderEntity);
             if (dt.Rows.Count == 0) {
                 this.Page.ClientScript.RegisterStartupScript(this.GetType(), "payTransactionResult", "alert('Pro danou objednávku se nenašla faktura!');", true);
                 return;
             }
+            if( dt.Rows[0]["var_symbol_eurosap"] == DBNull.Value ){
+                this.Page.ClientScript.RegisterStartupScript(this.GetType(), "payTransactionResult", "alert('Daná objednávka nemá vyplnen variabilní symbol!');", true);
+                return;
+            }
+            var_symbol_eurosap = Convert.ToInt32(dt.Rows[0]["var_symbol_eurosap"]).ToString();
 
             this.OrderEntity.PriceWVAT = Convert.ToDecimal(dt.Rows[0]["celkem_k_uhrade"]);
             this.OrderEntity.CurrencyCode = Convert.ToString(dt.Rows[0]["kod_meny"]);
@@ -55,7 +61,7 @@ namespace Eurona.User.Anonymous {
             Eurona.PAY.GP.Transaction payTransaction = Eurona.PAY.GP.Transaction.CreateTransaction(this.OrderEntity, this.Page);
             payTransaction.MakePayment(this.Page);
              * */
-            Eurona.PAY.CSOB.Transaction payTransaction = Eurona.PAY.CSOB.Transaction.CreateTransaction(order, this.Page);
+            Eurona.PAY.CSOB.Transaction payTransaction = Eurona.PAY.CSOB.Transaction.CreateTransaction(order, var_symbol_eurosap, this.Page);
             PaymentInitResponse paymentInitResponse = payTransaction.InitPayment(this.Page);
             if (paymentInitResponse != null && paymentInitResponse.resultCode == 0) {
                 payTransaction.ProcessPayment(this.Page, paymentInitResponse);

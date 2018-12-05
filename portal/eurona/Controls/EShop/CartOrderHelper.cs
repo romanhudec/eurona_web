@@ -38,7 +38,7 @@ namespace Eurona.Controls {
             CMS.Pump.MSSQLStorage tvdStorage = new CMS.Pump.MSSQLStorage(connectionString);
             using (SqlConnection connection = tvdStorage.Connect()) {
                 //Clear data
-                DataTable dt = tvdStorage.Query(connection, "SELECT celkem_k_uhrade=([celkem_k_uhrade]-[castka_dobropis]), kod_meny FROM www_faktury WHERE id_prepoctu=@id_prepoctu", new SqlParameter("@id_prepoctu", order.Id));
+                DataTable dt = tvdStorage.Query(connection, "SELECT celkem_k_uhrade=([celkem_k_uhrade]-[castka_dobropis]), kod_meny, var_symbol_eurosap FROM www_faktury WHERE id_prepoctu=@id_prepoctu", new SqlParameter("@id_prepoctu", order.Id));
                 return dt;
             }
         }

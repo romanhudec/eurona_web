@@ -12,7 +12,7 @@ namespace Eurona.pay.csob {
         protected void Page_Load(object sender, EventArgs e) {
             string orderNumber = Request.QueryString["OrderNumber"];
             OrderEntity order = Storage<OrderEntity>.ReadFirst(new OrderEntity.ReadByFilter { OrderNumber = orderNumber });
-            Transaction payTransaction = Transaction.CreateTransaction(order, this);
+            Transaction payTransaction = Transaction.CreateTransaction(order, order.OrderNumber, this);
             PaymentInitResponse paymentInitResponse = payTransaction.InitPayment(this);
             if (paymentInitResponse != null && paymentInitResponse.resultCode == 0) {
                 payTransaction.ProcessPayment(this, paymentInitResponse);

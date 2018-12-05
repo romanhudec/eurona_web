@@ -156,7 +156,7 @@ namespace Eurona.PAY.CSOB {
         /// <summary>
         /// Vytorenie objektu Pay transakcie.
         /// </summary>
-        public static Transaction CreateTransaction(OrderEntity order, System.Web.UI.Page page) {
+        public static Transaction CreateTransaction(OrderEntity order, string vs, System.Web.UI.Page page) {
             CMS.EvenLog.WritoToEventLog(string.Format("CreatePaymentTransaction, ID:{0}, Order Number:{1}", order.Id, order.OrderNumber), EventLogEntryType.Information);
             AccountEntity account = Storage<AccountEntity>.ReadFirst(new AccountEntity.ReadById { AccountId = order.AccountId });
             decimal priceTotalWithWAT = order.PriceWVAT;
@@ -178,7 +178,7 @@ namespace Eurona.PAY.CSOB {
 
             PaymentInitRequest paymentInit = new PaymentInitRequest();
             paymentInit.merchantId = CMS.Utilities.ConfigUtilities.ConfigValue("SHP:PAY:CSOB:MerchantID", page);
-            paymentInit.orderNo = order.Id.ToString();//Referenční číslo objednávky využívané pro párování plateb, které bude uvedeno také na výpisu z banky. Numerická hodnota, maximální délka 10 číslic.
+            paymentInit.orderNo = vs;/*order.Id.ToString();*///Referenční číslo objednávky využívané pro párování plateb, které bude uvedeno také na výpisu z banky. Numerická hodnota, maximální délka 10 číslic.
             paymentInit.dttm = DateTime.Now.ToString("yyyyMMddHHmmss");//Datum a čas odeslání požadavku ve formátu YYYYMMDDHHMMSS
             paymentInit.payOperation = "payment";//Typ platební operace. Povolené hodnoty: payment, oneclickPayment 
             paymentInit.payMethod = "card";//Typ implicitní platební metody, která bude nabídnuta zákazníkovi. Povolené hodnoty: card.
