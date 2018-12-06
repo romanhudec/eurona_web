@@ -1,19 +1,6 @@
 ﻿<%@ Page Title="Potvrzení požadavku na přiřazení nováčka" Language="C#" MasterPageFile="~/user/advisor/page.master" AutoEventWireup="true" CodeBehind="anonymousAssign.aspx.cs" Inherits="Eurona.User.Advisor.AnonymousAssignPage" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 	<script type="text/javascript">
-		function validatePrijemNovacka(id) {
-			var elmCode = document.getElementById('code_' + id.toString());
-			var elmJmeno = document.getElementById('code_jmeno_' + id.toString());
-			if (elmCode.value.length == 0 && elmJmeno.value.length == 0) return false;
-
-			var elmHfCode = document.getElementById('<%=this.hfRegistracniCislo.ClientID %>');
-			elmHfCode.value = elmCode.value;
-
-			var elmHfJmeno = document.getElementById('<%=this.hfJmenoSponzora.ClientID %>');
-		    elmHfJmeno.value = elmJmeno.value;
-			return true;
-		}
-
 	    function fnOnPageSubmit() {
 	        blockUIProcessing('<%=Resources.Strings.Please_Wait%>');
 	    }
@@ -44,8 +31,8 @@
     </div>
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="content" runat="server">
-    <asp:HiddenField runat="server" ID="hfRegistracniCislo" EnableViewState="true" />
-	<asp:HiddenField runat="server" ID="hfJmenoSponzora" EnableViewState="true" />
+<%--    <asp:HiddenField runat="server" ID="hfRegistracniCislo" EnableViewState="true" />
+	<asp:HiddenField runat="server" ID="hfJmenoSponzora" EnableViewState="true" />--%>
     <div style="margin:0px;" class="rpCekajiciNovacci">
         <asp:Repeater runat="server" ID="rpCekajiciNovacci" OnItemDataBound="OnItemDataBound">
             <HeaderTemplate>
@@ -69,10 +56,10 @@
 					<td><span><%#Eval("Code")%></span></td>
 					<td><span><%#Eval("AnonymousCreatedAt")%></span></td>
 					<td>
-						<input type="text" id='code_<%#Eval("Id") %>' title="Registrační číslo" value='<%#Eval("AnonymousAssignToCode")%>' style="width:100px;" />
+						<asp:TextBox id='txtCode' runat="server" title="Registrační číslo" Text='<%#Eval("AnonymousAssignToCode")%>' style="width:100px;" />
 					</td>
 					<td>
-						<input type="text" id='code_jmeno_<%#Eval("Id") %>' title="Jméno sponzora" value='<%#Eval("AnonymousAssignToCode")%>' style="width:100px;" />
+						<asp:TextBox id='txtCodeJmeno' runat="server" title="Jméno sponzora" Text='<%#Eval("AnonymousAssignToCode")%>' style="width:100px;" />
 					</td>
 					<td><span><%#Eval("AnonymousAssignByCode")%></span></td>
 					<td><span><%#this.GetOrganizationNameByCode(Eval("AnonymousAssignByCode").ToString())%></span></td>
