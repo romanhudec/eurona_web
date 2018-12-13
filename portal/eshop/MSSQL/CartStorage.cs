@@ -9,6 +9,7 @@ using CMS.Entities;
 using CMS.MSSQL;
 
 namespace SHP.MSSQL {
+    [Serializable]
     public sealed class CartStorage : MSSQLStorage<Cart> {
 
         private const string entitySelect = @"SELECT CartId, InstanceId, AccountId, SessionId, Created, Closed, PriceTotal, PriceTotalWVAT,

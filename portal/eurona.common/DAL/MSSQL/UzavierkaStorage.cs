@@ -9,6 +9,7 @@ using CMS.Entities;
 using Eurona.Common.DAL.Entities;
 
 namespace Eurona.Common.DAL.MSSQL {
+    [Serializable]
     public sealed class UzavierkaStorage : MSSQLStorage<Uzavierka> {
         private string entitySelect = "SELECT UzavierkaId, Povolena, UzavierkaOd, UzavierkaDo, OperatorOrderOd, OperatorOrderDo, OperatorOrderDate FROM vShpUzavierka";
         public UzavierkaStorage(int instanceId, Account account, string connectionString)

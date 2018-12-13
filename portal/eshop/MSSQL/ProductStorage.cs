@@ -9,6 +9,7 @@ using CMS.MSSQL;
 using CMS.Entities;
 
 namespace SHP.MSSQL {
+    [Serializable]
     public sealed class ProductStorage : MSSQLStorage<Product> {
         public ProductStorage(int instanceId, Account account, string connectionString)
             : base(instanceId, account, connectionString) {

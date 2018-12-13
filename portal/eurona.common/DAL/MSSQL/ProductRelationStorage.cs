@@ -8,17 +8,14 @@ using CMS.Entities;
 using CMS.MSSQL;
 using Eurona.Common.DAL.Entities;
 
-namespace Eurona.Common.DAL.MSSQL
-{
-    public sealed class ProductRelationStorage : MSSQLStorage<ProductRelation>
-    {
+namespace Eurona.Common.DAL.MSSQL {
+    [Serializable]
+    public sealed class ProductRelationStorage : MSSQLStorage<ProductRelation> {
         public ProductRelationStorage(int instanceId, Account account, string connectionString)
-            : base(instanceId, account, connectionString)
-        {
+            : base(instanceId, account, connectionString) {
         }
 
-        private static ProductRelation GetProductRelation(DataRow record)
-        {
+        private static ProductRelation GetProductRelation(DataRow record) {
             ProductRelation productRelation = new ProductRelation();
             productRelation.Id = Convert.ToInt32(record["ProductRelationId"]);
             productRelation.InstanceId = Convert.ToInt32(record["InstanceId"]);
@@ -41,13 +38,11 @@ namespace Eurona.Common.DAL.MSSQL
             return productRelation;
         }
 
-        public override List<ProductRelation> Read(object criteria)
-        {
+        public override List<ProductRelation> Read(object criteria) {
             if (criteria is ProductRelation.ReadById) return LoadById(criteria as ProductRelation.ReadById);
             if (criteria is ProductRelation.ReadBy) return LoadBy(criteria as ProductRelation.ReadBy);
             List<ProductRelation> cartList = new List<ProductRelation>();
-            using (SqlConnection connection = Connect())
-            {
+            using (SqlConnection connection = Connect()) {
                 string sql = @"
 								SELECT ProductRelationId, InstanceId, ParentProductId, ProductId, RelationType, ProductName, 
 										ProductPrice, ProductDiscount, ProductPriceWDiscount, PriceTotal, PriceTotalWVAT, ProductAvailability,
@@ -61,16 +56,13 @@ namespace Eurona.Common.DAL.MSSQL
             return cartList;
         }
 
-        public override int Count(object criteria)
-        {
+        public override int Count(object criteria) {
             throw new NotImplementedException();
         }
 
-        private List<ProductRelation> LoadById(ProductRelation.ReadById byProductRelationId)
-        {
+        private List<ProductRelation> LoadById(ProductRelation.ReadById byProductRelationId) {
             List<ProductRelation> cartList = new List<ProductRelation>();
-            using (SqlConnection connection = Connect())
-            {
+            using (SqlConnection connection = Connect()) {
                 string sql = @"
 								SELECT ProductRelationId, InstanceId, ParentProductId, ProductId, RelationType, ProductName, 
 										ProductPrice, ProductDiscount, ProductPriceWDiscount, PriceTotal, PriceTotalWVAT, ProductAvailability,
@@ -87,11 +79,9 @@ namespace Eurona.Common.DAL.MSSQL
         }
 
 
-        private List<ProductRelation> LoadBy(ProductRelation.ReadBy by)
-        {
+        private List<ProductRelation> LoadBy(ProductRelation.ReadBy by) {
             List<ProductRelation> cartList = new List<ProductRelation>();
-            using (SqlConnection connection = Connect())
-            {
+            using (SqlConnection connection = Connect()) {
                 string sql = @"
 								SELECT ProductRelationId, InstanceId, ParentProductId, ProductId, RelationType, ProductName, 
 										ProductPrice,  ProductDiscount, ProductPriceWDiscount, PriceTotal, PriceTotalWVAT, ProductAvailability,
@@ -112,10 +102,8 @@ namespace Eurona.Common.DAL.MSSQL
             return cartList;
         }
 
-        public override void Create(ProductRelation productRelation)
-        {
-            using (SqlConnection connection = Connect())
-            {
+        public override void Create(ProductRelation productRelation) {
+            using (SqlConnection connection = Connect()) {
                 SqlParameter result = new SqlParameter("@Result", -1);
                 result.Direction = ParameterDirection.Output;
 
@@ -131,15 +119,12 @@ namespace Eurona.Common.DAL.MSSQL
 
         }
 
-        public override void Update(ProductRelation entity)
-        {
+        public override void Update(ProductRelation entity) {
             throw new NotImplementedException();
         }
 
-        public override void Delete(ProductRelation productRelation)
-        {
-            using (SqlConnection connection = Connect())
-            {
+        public override void Delete(ProductRelation productRelation) {
+            using (SqlConnection connection = Connect()) {
                 SqlParameter id = new SqlParameter("@ProductRelationId", productRelation.Id);
                 SqlParameter result = new SqlParameter("@Result", -1);
                 result.Direction = ParameterDirection.Output;

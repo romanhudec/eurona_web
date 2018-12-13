@@ -7,6 +7,7 @@ using CMS.MSSQL;
 using SHP.Entities.Classifiers;
 
 namespace Eurona.DAL.MSSQL.Classifiers {
+    [Serializable]
     internal sealed class CurrencyStorage : MSSQLStorage<Currency> {
         public CurrencyStorage(int instanceId, Account account, string connectionString)
             : base(instanceId, account, connectionString) {

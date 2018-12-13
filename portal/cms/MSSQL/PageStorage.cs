@@ -7,6 +7,7 @@ using System.Data.SqlClient;
 using System.Data;
 
 namespace CMS.MSSQL {
+    [Serializable]
     internal sealed class PageStorage : MSSQLStorage<Page> {
         public PageStorage(int instanceId, Account account, string connectionString)
             : base(instanceId, account, connectionString) {

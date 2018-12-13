@@ -8,17 +8,14 @@ using System.Data;
 using CMS.MSSQL;
 using Eurona.DAL.Entities;
 
-namespace Eurona.DAL.MSSQL
-{
-    internal sealed class AdvisorPageStorage : MSSQLStorage<AdvisorPage>
-    {
+namespace Eurona.DAL.MSSQL {
+    [Serializable]
+    internal sealed class AdvisorPageStorage : MSSQLStorage<AdvisorPage> {
         public AdvisorPageStorage(int instanceId, CMS.Entities.Account account, string connectionString)
-            : base(instanceId, account, connectionString)
-        {
+            : base(instanceId, account, connectionString) {
         }
 
-        private static AdvisorPage GetPage(DataRow record)
-        {
+        private static AdvisorPage GetPage(DataRow record) {
             AdvisorPage page = new AdvisorPage();
             page.Id = Convert.ToInt32(record["AdvisorPageId"]);
             page.InstanceId = Convert.ToInt32(record["InstanceId"]);
@@ -40,46 +37,33 @@ namespace Eurona.DAL.MSSQL
             return page;
         }
 
-        public override List<AdvisorPage> Read(object criteria)
-        {
+        public override List<AdvisorPage> Read(object criteria) {
             if (criteria is AdvisorPage.ReadForCurrentAccount) return ReadForCurrentAccount(criteria as AdvisorPage.ReadForCurrentAccount);
             List<AdvisorPage> list = new List<AdvisorPage>();
-            using (SqlConnection connection = Connect())
-            {
+            using (SqlConnection connection = Connect()) {
                 string sql = @"
 						SELECT AdvisorPageId, InstanceId, ParentId, MasterPageId, [Name], [Email], [AdvisorAccountId], [Blocked], [OrganizationId], [OrganizationName], [OrganizationCode], Title, Locale, [UrlAliasId], Alias, [Content], RoleId
 						FROM vAdvisorPages";
                 SqlParameter[] @params = null;
-                if (criteria is AdvisorPage.ReadById)
-                {
+                if (criteria is AdvisorPage.ReadById) {
                     @params = new SqlParameter[] { new SqlParameter("@AdvisorPageId", (criteria as AdvisorPage.ReadById).AdvisorPageId) };
                     sql += " WHERE AdvisorPageId = @AdvisorPageId";
-                }
-                else if (criteria is AdvisorPage.ReadByAdvisorAccountId)
-                {
+                } else if (criteria is AdvisorPage.ReadByAdvisorAccountId) {
                     @params = new SqlParameter[] { new SqlParameter("@AdvisorAccountId", (criteria as AdvisorPage.ReadByAdvisorAccountId).AdvisorAccountId) };
                     sql += " WHERE AdvisorAccountId = @AdvisorAccountId";
-                }
-                else if (criteria is AdvisorPage.ReadByParent)
-                {
+                } else if (criteria is AdvisorPage.ReadByParent) {
                     @params = new SqlParameter[] { new SqlParameter("@ParentId", (criteria as AdvisorPage.ReadByParent).ParentId) };
                     sql += " WHERE ParentId = @ParentId";
-                }
-                else if (criteria is AdvisorPage.ReadByName)
-                {
+                } else if (criteria is AdvisorPage.ReadByName) {
                     @params = new SqlParameter[] { 
 						new SqlParameter("@Name", (criteria as AdvisorPage.ReadByName).Name), 
 						new SqlParameter("@Locale", string.IsNullOrEmpty((criteria as AdvisorPage.ReadByName).Locale) ? Locale : (criteria as AdvisorPage.ReadByName).Locale ),
 						new SqlParameter( "@InstanceId", InstanceId )};
                     sql += " WHERE Locale = @Locale AND InstanceId=@InstanceId AND [Name] = @Name";
-                }
-                else if (criteria is AdvisorPage.ReadContentPages)
-                {
+                } else if (criteria is AdvisorPage.ReadContentPages) {
                     @params = new SqlParameter[] { new SqlParameter("@Locale", Locale), new SqlParameter("@InstanceId", InstanceId) };
                     sql += " WHERE Locale = @Locale AND InstanceId=@InstanceId AND Content IS NOT NULL"; // AND LEN(ISNULL(Content, '')) != 0";
-                }
-                else
-                {
+                } else {
                     @params = new SqlParameter[] { new SqlParameter("@Locale", Locale), new SqlParameter("@InstanceId", InstanceId) };
                     sql += " WHERE Locale = @Locale AND InstanceId=@InstanceId";
                 }
@@ -90,17 +74,14 @@ namespace Eurona.DAL.MSSQL
             return list;
         }
 
-        public override int Count(object criteria)
-        {
+        public override int Count(object criteria) {
             throw new NotImplementedException();
         }
 
 
-        private List<AdvisorPage> ReadForCurrentAccount(AdvisorPage.ReadForCurrentAccount by)
-        {
+        private List<AdvisorPage> ReadForCurrentAccount(AdvisorPage.ReadForCurrentAccount by) {
             List<AdvisorPage> list = new List<AdvisorPage>();
-            using (SqlConnection connection = Connect())
-            {
+            using (SqlConnection connection = Connect()) {
                 string sql = @"
 				DECLARE @AdministratorRoleId INT, @PageRoleId INT
 				SELECT @AdministratorRoleId = RoleId FROM vRoles WHERE Name = @AdministratorRoleName
@@ -133,11 +114,9 @@ namespace Eurona.DAL.MSSQL
             return list;
         }
 
-        public override void Create(AdvisorPage page)
-        {
+        public override void Create(AdvisorPage page) {
 
-            using (SqlConnection connection = Connect())
-            {
+            using (SqlConnection connection = Connect()) {
                 SqlParameter result = new SqlParameter("@Result", -1);
                 result.Direction = ParameterDirection.Output;
 
@@ -162,10 +141,8 @@ namespace Eurona.DAL.MSSQL
             }
         }
 
-        public override void Update(AdvisorPage page)
-        {
-            using (SqlConnection connection = Connect())
-            {
+        public override void Update(AdvisorPage page) {
+            using (SqlConnection connection = Connect()) {
                 ExecProc(connection, "pAdvisorPageModify",
                     new SqlParameter("@HistoryAccount", AccountId),
                     new SqlParameter("@AdvisorPageId", page.Id),
@@ -181,10 +158,8 @@ namespace Eurona.DAL.MSSQL
             }
         }
 
-        public override void Delete(AdvisorPage page)
-        {
-            using (SqlConnection connection = Connect())
-            {
+        public override void Delete(AdvisorPage page) {
+            using (SqlConnection connection = Connect()) {
                 SqlParameter historyAccount = new SqlParameter("@HistoryAccount", AccountId);
                 SqlParameter pageId = new SqlParameter("@AdvisorPageId", page.Id);
                 SqlParameter result = new SqlParameter("@Result", -1);

@@ -9,6 +9,7 @@ using CMS.MSSQL;
 using Eurona.Common.DAL.Entities;
 
 namespace Eurona.Common.DAL.MSSQL {
+    [Serializable]
     public sealed class OrderStorage : MSSQLStorage<Order> {
         private const string entitySelect = @"SELECT OrderId, InstanceId, OrderDate, OrderNumber ,CartId, PaydDate ,AccountId, AccountName, OrderStatusCode ,OrderStatusName, OrderStatusIcon ,
 						ShipmentCode ,ShipmentName, ShipmentIcon ,ShipmentPrice, ShipmentPriceWVAT ,Price, PriceWVAT, PaymentCode, PaymentName, PaymentIcon, DeliveryAddressId, InvoiceAddressId, InvoiceUrl, Notes, Notified, Exported,
@@ -67,7 +68,7 @@ namespace Eurona.Common.DAL.MSSQL {
         public override List<Order> Read(object criteria) {
             if (criteria is Order.ReadById) return LoadById(criteria as Order.ReadById);
             if (criteria is Order.ReadByAccount) return LoadByAccountId(criteria as Order.ReadByAccount);
-            
+
             if (criteria is Order.ReadByCart) return LoadByCartId(criteria as Order.ReadByCart);
             if (criteria is Order.ReadByAccountYearMonth) return LoadByYearMonthForAccount(criteria as Order.ReadByAccountYearMonth);
             if (criteria is Order.ReadByFilter) return LoadByFilter(criteria as Order.ReadByFilter);
@@ -145,16 +146,16 @@ namespace Eurona.Common.DAL.MSSQL {
             List<Order> list = new List<Order>();
             using (SqlConnection connection = Connect()) {
                 string sql = entitySelect;
-//                sql += @" WHERE InstanceId = @InstanceId AND 
-//						(@AccountId IS NULL OR (AccountId = @AccountId OR CreatedByAccountId=@AccountId)) AND
-//						(@OrderNumber IS NULL OR OrderNumber LIKE @OrderNumber + '%') AND
-//						(@OrderStatusCode IS NULL OR OrderStatusCode = @OrderStatusCode) AND
-//						(@ShipmentCode IS NULL OR ShipmentCode = @ShipmentCode) AND
-//						(@Notified IS NULL OR Notified = @Notified) AND
-//						(@Exported IS NULL OR Exported = @Exported)";
+                //                sql += @" WHERE InstanceId = @InstanceId AND 
+                //						(@AccountId IS NULL OR (AccountId = @AccountId OR CreatedByAccountId=@AccountId)) AND
+                //						(@OrderNumber IS NULL OR OrderNumber LIKE @OrderNumber + '%') AND
+                //						(@OrderStatusCode IS NULL OR OrderStatusCode = @OrderStatusCode) AND
+                //						(@ShipmentCode IS NULL OR ShipmentCode = @ShipmentCode) AND
+                //						(@Notified IS NULL OR Notified = @Notified) AND
+                //						(@Exported IS NULL OR Exported = @Exported)";
 
                 sql += @" WHERE InstanceId = @InstanceId";
-				sql += by.AccountId.HasValue ? " AND ((AccountId = @AccountId OR CreatedByAccountId=@AccountId))" : "";
+                sql += by.AccountId.HasValue ? " AND ((AccountId = @AccountId OR CreatedByAccountId=@AccountId))" : "";
                 sql += !string.IsNullOrEmpty(by.OrderNumber) ? " AND (OrderNumber LIKE @OrderNumber + '%')" : "";
                 sql += !string.IsNullOrEmpty(by.OrderStatusCode) ? " AND (OrderStatusCode LIKE @OrderStatusCode)" : "";
                 sql += !string.IsNullOrEmpty(by.ShipmentCode) ? " AND (ShipmentCode LIKE @ShipmentCode)" : "";

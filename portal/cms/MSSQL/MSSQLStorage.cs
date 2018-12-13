@@ -7,6 +7,7 @@ using System.Data;
 using System.Data.SqlClient;
 
 namespace CMS.MSSQL {
+    [Serializable]
     public abstract class MSSQLStorage<T> : IStorage<T> where T : class, new() {
         private Account account;
         private string connectionString;

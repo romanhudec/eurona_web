@@ -8,6 +8,7 @@ using CMS.MSSQL;
 using CMS.Entities;
 
 namespace CMS.MSSQL{
+    [Serializable]
     public sealed class EmailLogStorage : MSSQLStorage<EmailLog> {
         private string entitySelect = "SELECT * FROM tEmailLog";
         public EmailLogStorage(int instanceId, Account account, string connectionString)
