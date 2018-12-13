@@ -5,6 +5,7 @@ using System.Web;
 using System.Text;
 
 namespace Eurona.Common.DAL.Entities {
+    [Serializable]
     public class BonusovyKreditLog : CMS.Entities.Entity {
         public int AccountId { get; set; }
         public int? BonusovyKreditTyp { get; set; }

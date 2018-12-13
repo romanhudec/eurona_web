@@ -5,6 +5,7 @@ using System.Text;
 using CMS.Entities;
 
 namespace Eurona.Common.DAL.Entities {
+    [Serializable]
     public class Settings : CMS.Entities.Entity {
         public Settings() {
             this.Name = string.Empty;

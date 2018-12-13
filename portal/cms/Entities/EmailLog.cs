@@ -5,6 +5,7 @@ using System.Text;
 using CMS.Entities;
 
 namespace CMS.Entities {
+    [Serializable]
     public class EmailLog : CMS.Entities.Entity {
 
         public class ReadById {

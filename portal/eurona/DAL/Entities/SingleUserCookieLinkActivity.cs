@@ -6,6 +6,7 @@ using CMS.Entities;
 using CartEntity = Eurona.Common.DAL.Entities.Cart;
 
 namespace Eurona.DAL.Entities {
+    [Serializable]
     public class SingleUserCookieLinkActivity : CMS.Entities.Entity {
         public string Url { get; set; }
         public DateTime UrlTimestamp { get; set; }

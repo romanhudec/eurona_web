@@ -5,6 +5,7 @@ using System.Text;
 using CMS.Entities;
 
 namespace SHP.Entities {
+    [Serializable]
     public class Order : Entity {
         public enum OrderStatus : int {
             None = 0,

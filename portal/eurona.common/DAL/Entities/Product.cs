@@ -5,6 +5,7 @@ using System.Text;
 using CMS.Entities;
 
 namespace Eurona.Common.DAL.Entities {
+    [Serializable]
     public class Product : SHP.Entities.Product {
         public const int INTERNAL_STORAGE_NOT_AVAILABLE = -1;
         /// <summary>

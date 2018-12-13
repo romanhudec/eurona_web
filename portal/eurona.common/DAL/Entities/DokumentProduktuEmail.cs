@@ -5,6 +5,7 @@ using System.Text;
 using CMS.Entities;
 
 namespace Eurona.Common.DAL.Entities {
+    [Serializable]
     public class DokumentProduktuEmail : CMS.Entities.Entity {
         public class ReadByProduct {
             public int ProductId { get; set; }
