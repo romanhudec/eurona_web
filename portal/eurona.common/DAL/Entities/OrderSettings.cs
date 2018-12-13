@@ -5,6 +5,7 @@ using System.Text;
 using CMS.Entities;
 
 namespace Eurona.Common.DAL.Entities {
+    [Serializable]
     public class OrderSettings : CMS.Entities.Entity {
         public OrderSettings() {
             this.Code = string.Empty;

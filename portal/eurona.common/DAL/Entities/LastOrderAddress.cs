@@ -5,6 +5,7 @@ using System.Text;
 using CMS.Entities;
 
 namespace Eurona.Common.DAL.Entities{
+    [Serializable]
     public class LastOrderAddress : Entity {
         public class ReadById {
             public int AddressId { get; set; }

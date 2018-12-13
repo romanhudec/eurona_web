@@ -4,38 +4,31 @@ using System.Linq;
 using System.Text;
 using CMS.Entities;
 
-namespace Eurona.DAL.Entities
-{
-    public class AdvisorPage : Entity, IUrlAliasEntity
-    {
-        public AdvisorPage()
-        {
+namespace Eurona.DAL.Entities {
+    [Serializable]
+    public class AdvisorPage : Entity, IUrlAliasEntity {
+        public AdvisorPage() {
             this.Alias = string.Empty;
         }
 
-        public class ReadById
-        {
+        public class ReadById {
             public int AdvisorPageId { get; set; }
         }
 
-        public class ReadByAdvisorAccountId
-        {
+        public class ReadByAdvisorAccountId {
             public int AdvisorAccountId { get; set; }
         }
 
-        public class ReadByParent
-        {
+        public class ReadByParent {
             public int? ParentId { get; set; }
         }
 
-        public class ReadForCurrentAccount
-        {
+        public class ReadForCurrentAccount {
             public string Name { get; set; }
             public string Locale { get; set; }
         }
 
-        public class ReadByName
-        {
+        public class ReadByName {
             public string Name { get; set; }
             public string Locale { get; set; }
         }
@@ -60,10 +53,8 @@ namespace Eurona.DAL.Entities
         //FK Role
         public int? RoleId { get; set; }
         private Role role = null;
-        public Role Role
-        {
-            get
-            {
+        public Role Role {
+            get {
                 if (!this.RoleId.HasValue) return null;
                 if (role != null) return role;
                 role = Storage<Role>.ReadFirst(new Role.ReadById { RoleId = this.RoleId.Value });
@@ -71,17 +62,14 @@ namespace Eurona.DAL.Entities
             }
         }
 
-        public string RoleName
-        {
+        public string RoleName {
             get { return Role != null ? role.Name : String.Empty; }
         }
 
         //FK MasterPage
         private MasterPage masterPage;
-        public MasterPage MasterPage
-        {
-            get
-            {
+        public MasterPage MasterPage {
+            get {
                 if (masterPage != null) return masterPage;
                 masterPage = Storage<MasterPage>.ReadFirst(new MasterPage.ReadById { MasterPageId = this.MasterPageId });
                 return masterPage;
@@ -90,10 +78,8 @@ namespace Eurona.DAL.Entities
 
         //FK Childs
         private List<Page> childPages;
-        public List<Page> ChildPages
-        {
-            get
-            {
+        public List<Page> ChildPages {
+            get {
                 if (childPages != null) return childPages;
                 childPages = Storage<Page>.Read(new Page.ReadByParent { ParentId = this.Id });
                 return childPages;

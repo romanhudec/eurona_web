@@ -5,6 +5,7 @@ using System.Web;
 using System.Text;
 
 namespace Eurona.Common.DAL.Entities {
+    [Serializable]
     public class BonusovyKreditUzivatele : CMS.Entities.Entity {
         public BonusovyKreditUzivatele() {
             this.Poznamka = string.Empty;

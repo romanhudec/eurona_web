@@ -6,6 +6,7 @@ using CMS.Entities;
 using SHP.Entities;
 
 namespace Eurona.Common.DAL.Entities {
+    [Serializable]
     public class Cart : SHP.Entities.Cart {
         public string Locale { get; set; }
         public decimal? Discount { get; set; }
