@@ -193,12 +193,19 @@ namespace Eurona.Controls.UserManagement {
 					//kod_odberatele.Value = "555-555555-" + r.Next().ToString();
 #endif
                     bool bSuccess = Convert.ToBoolean(probehlo.Value);
+                    string evenlogMessage = "";
                     message = zprava.Value.ToString();
                     if (!bSuccess) {
+                        evenlogMessage = string.Format("TVD Zmena nadrizeneho pro odberatele {0}, nadrizeny {1} Statu={2}, FAILED!", organization.Code, parentOrg.Code, message);
+                        CMS.EvenLog.WritoToEventLog(evenlogMessage, System.Diagnostics.EventLogEntryType.Error);
+
                         string js = string.Format("alert('Synchronizace se vzdáleným servrem (SAP) byla neúspěšná! Chyba: " + message + "');");
                         buttonControl.Page.ClientScript.RegisterStartupScript(buttonControl.Page.GetType(), "UpdateSponsorTVDUser", js, true);
                         return false;
                     }
+
+                    evenlogMessage = string.Format("TVD Zmena nadrizeneho pro odberatele {0}, nadrizeny {1} Statu={2}", organization.Code, parentOrg.Code, message);
+                    CMS.EvenLog.WritoToEventLog(evenlogMessage, System.Diagnostics.EventLogEntryType.Information);
 
                 }
                 return true;

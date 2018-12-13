@@ -829,7 +829,7 @@
     <value>Stare hasło</value>
   </data>
   <data name="ForgotPasswordControl_Email_ForgotPassword_Message" xml:space="preserve">
-    <value>Dzień dobry,&lt;/br&gt;&lt;/br&gt;Twoje imię do zameldowania :&lt;b&gt;{0}&lt;/b&gt;&lt;/br&gt;Twoje nowe hasło: &lt;b&gt;{1}&lt;/b&gt;&lt;/br&gt;&lt;/br&gt;Pozdrawiam&lt;/br&gt;{2}</value>
+    <value>Dzień dobry, &lt;/br&gt;&lt;/br&gt; Twoje imię do zameldowania :&lt;b&gt;{0} &lt;/b&gt; &lt;/br&gt; Twoje nowe hasło: &lt;b&gt;{1} &lt;/b&gt;&lt;/br&gt;&lt;/br&gt; Pozdrawiam &lt;/br&gt;{2}</value>
   </data>
   <data name="ForgotPasswordControl_Email_ForgotPassword_Subject" xml:space="preserve">
     <value>Zapomniane hasło</value>

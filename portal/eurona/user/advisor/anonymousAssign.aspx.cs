@@ -45,38 +45,41 @@ namespace Eurona.User.Advisor {
         }
 
         protected void OnItemDataBound(object Sender, RepeaterItemEventArgs e) {
-            if (e.Item.ItemType == ListItemType.Item || e.Item.ItemType == ListItemType.AlternatingItem) {
-                Button btn = (Button)e.Item.FindControl("btnPotvrdit");
-                if (btn != null) {
-                    btn.OnClientClick = string.Format("return validatePrijemNovacka({0})", (e.Item.DataItem as Organization).Id);
-                }
-                CheckBox cbx = (CheckBox)e.Item.FindControl("cbxVybrat");
-                if (cbx != null) {
-                    cbx.Attributes.Add("onchange", string.Format("return validatePrijemNovacka({0})", (e.Item.DataItem as Organization).Id));
-                }
-            }
+            //if (e.Item.ItemType == ListItemType.Item || e.Item.ItemType == ListItemType.AlternatingItem) {
+            //    Button btn = (Button)e.Item.FindControl("btnPotvrdit");
+            //    if (btn != null) {
+            //        btn.OnClientClick = string.Format("return validatePrijemNovacka({0})", (e.Item.DataItem as Organization).Id);
+            //    }
+            //    CheckBox cbx = (CheckBox)e.Item.FindControl("cbxVybrat");
+            //    if (cbx != null) {
+            //        cbx.Attributes.Add("onchange", string.Format("return validatePrijemNovacka({0})", (e.Item.DataItem as Organization).Id));
+            //    }
+            //}
         }
 
-        private bool PotvrditPrijetiNovacka(int organizationId, Control sender) {
+        private bool PotvrditPrijetiNovacka(int organizationId, Control sender, string parentCode, string parentName) {
             Organization org = Storage<Organization>.ReadFirst(new Organization.ReadById { OrganizationId = organizationId });
             if (org == null) return false;
 
-            if (org.AnonymousAssignAt.HasValue) {
-                string js = string.Format("blockUIAlert('Chyba', '{0}');", "Nováček již byl potvrzen jiným uživatelem!");
-                sender.Page.ClientScript.RegisterStartupScript(sender.Page.GetType(), "parentValidateOrganization", js, true);
-                return false;
+            if (!Security.Account.IsInRole(Role.ADMINISTRATOR)) {
+                if (org.AnonymousAssignAt.HasValue) {
+                    string js = string.Format("blockUIAlert('Chyba', '{0}');", "Nováček již byl potvrzen jiným uživatelem!");
+                    sender.Page.ClientScript.RegisterStartupScript(sender.Page.GetType(), "parentValidateOrganization", js, true);
+                    return false;
+                }
             }
 
             //Get Parent
-            string parentCode = this.hfRegistracniCislo.Value;
-            string parentName = this.hfJmenoSponzora.Value;
             Organization parentOrg = null;
             if (!string.IsNullOrEmpty(parentCode)) parentOrg = Storage<Organization>.ReadFirst(new Organization.ReadByCode { Code = parentCode });
             if (parentOrg == null && !string.IsNullOrEmpty(parentName)) parentOrg = Storage<Organization>.ReadFirst(new Organization.ReadBy { Name = parentName });
             if (parentOrg == null || (string.IsNullOrEmpty(parentCode) && string.IsNullOrEmpty(parentName))) {
+                return false;
+                /*
                 string js = string.Format("blockUIAlert('Chyba', '{0}');", "Nesprávne registrační číslo nebo jméno!");
                 sender.Page.ClientScript.RegisterStartupScript(sender.Page.GetType(), "parentValidateOrganization", js, true);
                 return false;
+                 * */
             }
 
             string message = string.Empty;
@@ -101,7 +104,11 @@ namespace Eurona.User.Advisor {
             if (string.IsNullOrEmpty(btn.CommandArgument)) return;
 
             int id = Convert.ToInt32(btn.CommandArgument);
-            PotvrditPrijetiNovacka(id, btn);
+
+            TextBox txtCode = (TextBox)btn.Parent.FindControl("txtCode");
+            TextBox txtCodeJmeno = (TextBox)btn.Parent.FindControl("txtCodeJmeno");
+
+            PotvrditPrijetiNovacka(id, btn, txtCode.Text, txtCodeJmeno.Text);
            
             LoadData(true);
         }
@@ -109,9 +116,12 @@ namespace Eurona.User.Advisor {
         protected void OnPotvrditPrijetiVybrane(object sender, EventArgs e) {
             foreach (RepeaterItem item in this.rpCekajiciNovacci.Items) {
                 CheckBox cbxAnonymousOvereniSluzeb = (CheckBox)item.FindControl("cbAnonymousOvereniSluzeb");
+                TextBox txtCode = (TextBox)item.FindControl("txtCode");
+                TextBox txtCodeJmeno = (TextBox)item.FindControl("txtCodeJmeno");
+               
                 if (cbxAnonymousOvereniSluzeb.Checked) {
                     int id = Convert.ToInt32(cbxAnonymousOvereniSluzeb.Attributes["CommandArgument"]);
-                    if (PotvrditPrijetiNovacka(id, cbxAnonymousOvereniSluzeb) == false) return;
+                    if (PotvrditPrijetiNovacka(id, cbxAnonymousOvereniSluzeb, txtCode.Text, txtCodeJmeno.Text) == false) return;
                 }
             }
             LoadData(true);
