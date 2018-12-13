@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 
 namespace CMS.Entities {
+    [Serializable]
     public class Account : Entity {
         public class ReadById {
             public int AccountId { get; set; }

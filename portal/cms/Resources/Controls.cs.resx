@@ -829,7 +829,7 @@
     <value>Staré heslo :</value>
   </data>
   <data name="ForgotPasswordControl_Email_ForgotPassword_Message" xml:space="preserve">
-    <value>Dobrý den,&lt;br/&gt;&lt;br/&gt;Vaše přihlašovací jméno je  : &lt;b&gt;{0}&lt;/b&gt;&lt;/br&gt;Vaše nové heslo je : &lt;b&gt;{1}&lt;/b&gt;&lt;br/&gt;&lt;br/&gt;S pozdravem&lt;br/&gt;{2}</value>
+    <value>Dobrý den, &lt;br/&gt;&lt;br/&gt; Vaše přihlašovací jméno je  : &lt;b&gt;{0}&lt;/b&gt;&lt;/br&gt; Vaše nové heslo je : &lt;b&gt;{1}&lt;/b&gt;&lt;br/&gt;&lt;br/&gt; S pozdravem&lt;br/&gt;{2}</value>
   </data>
   <data name="ForgotPasswordControl_Email_ForgotPassword_Subject" xml:space="preserve">
     <value>Zapomenuté heslo</value>

@@ -562,7 +562,9 @@
       <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="Resources\Controls.de.resx" />
-    <EmbeddedResource Include="Resources\Controls.pl.resx" />
+    <EmbeddedResource Include="Resources\Controls.pl.resx">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
     <EmbeddedResource Include="Resources\Controls.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>Controls.Designer.cs</LastGenOutput>
