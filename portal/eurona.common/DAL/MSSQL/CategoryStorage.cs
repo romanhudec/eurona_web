@@ -9,6 +9,7 @@ using CMS.Entities;
 using CMS.MSSQL;
 
 namespace Eurona.Common.DAL.MSSQL {
+    [Serializable]
     public sealed class CategoryStorage : MSSQLStorage<Category> {
         public CategoryStorage(int instanceId, Account account, string connectionString)
             : base(instanceId, account, connectionString) {

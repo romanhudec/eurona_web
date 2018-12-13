@@ -8,6 +8,7 @@ using Eurona.DAL.Entities;
 using CMS.MSSQL;
 
 namespace Eurona.DAL.MSSQL {
+    [Serializable]
     internal sealed class SingleUserCookieLinkActivityStorage : MSSQLStorage<SingleUserCookieLinkActivity> {
         public SingleUserCookieLinkActivityStorage(int instanceId, Account account, string connectionString)
             : base(instanceId, account, connectionString) {
@@ -30,12 +31,12 @@ namespace Eurona.DAL.MSSQL {
             if (criteria is SingleUserCookieLinkActivity.ReadBy) {
                 return LoadBy((SingleUserCookieLinkActivity.ReadBy)criteria);
             }
-            
+
             string sql = @"SELECT * from tSingleUserCookieLinkActivity";
             using (SqlConnection connection = Connect()) {
                 DataTable table = Query<DataTable>(connection, sql);
                 foreach (DataRow dr in table.Rows) list.Add(GetItem(dr));
-            }           
+            }
             return list;
         }
 

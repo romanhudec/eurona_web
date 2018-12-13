@@ -7,6 +7,7 @@ using System.Data.SqlClient;
 using System.Data;
 
 namespace Eurona.DAL.MSSQL {
+    [Serializable]
     internal sealed class AccountStorage : CMS.MSSQL.MSSQLStorage<Account> {
         public AccountStorage(int instanceId, Account account, string connectionString)
             : base(instanceId, account, connectionString) {
@@ -60,7 +61,7 @@ namespace Eurona.DAL.MSSQL {
             throw new NotImplementedException();
         }
 
-        
+
         private List<Account> LoadByLogin(string login) {
             login = NormalizeSQLParameterValue(login);
             List<Account> accounts = new List<Account>();

@@ -9,6 +9,7 @@ using CMS.MSSQL;
 using Eurona.Common.DAL.Entities;
 
 namespace Eurona.Common.DAL.MSSQL {
+    [Serializable]
     public sealed class LastOrderAddressStorage : MSSQLStorage<LastOrderAddress> {
         public LastOrderAddressStorage(int instanceId, CMS.Entities.Account account, string connectionString)
             : base(instanceId, account, connectionString) {
@@ -42,7 +43,7 @@ namespace Eurona.Common.DAL.MSSQL {
         public override List<LastOrderAddress> Read(object criteria) {
             if (criteria is LastOrderAddress.ReadById) return LoadById(criteria as LastOrderAddress.ReadById);
             if (criteria is LastOrderAddress.ReadByAccountId) return LoadById(criteria as LastOrderAddress.ReadByAccountId);
-            List<LastOrderAddress> addesses = new List<LastOrderAddress>();          
+            List<LastOrderAddress> addesses = new List<LastOrderAddress>();
             return addesses;
         }
 

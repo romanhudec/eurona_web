@@ -9,6 +9,7 @@ using CMS.MSSQL;
 using CMS.Entities;
 
 namespace Eurona.Common.DAL.MSSQL {
+    [Serializable]
     public sealed class BonusovyKreditLogStorage : MSSQLStorage<BonusovyKreditLog> {
         private const string entitySelect = @"SELECT * FROM tBonusovyKreditLog";
         public BonusovyKreditLogStorage(int instanceId, Account account, string connectionString)

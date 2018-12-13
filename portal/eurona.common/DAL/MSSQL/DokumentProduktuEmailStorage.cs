@@ -9,6 +9,7 @@ using CMS.Entities;
 using Eurona.Common.DAL.Entities;
 
 namespace Eurona.Common.DAL.MSSQL {
+    [Serializable]
     public sealed class DokumentProduktuEmailStorage : MSSQLStorage<DokumentProduktuEmail> {
         private string entitySelect = "SELECT * FROM tShpDokumentProduktuEmail";
         public DokumentProduktuEmailStorage(int instanceId, Account account, string connectionString)

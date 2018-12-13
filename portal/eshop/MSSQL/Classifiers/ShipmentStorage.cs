@@ -7,6 +7,7 @@ using CMS.MSSQL;
 using SHP.Entities.Classifiers;
 
 namespace SHP.MSSQL.Classifiers {
+    [Serializable]
     public sealed class ShipmentStorage : MSSQLStorage<Shipment> {
         public ShipmentStorage(int instanceId, Account account, string connectionString)
             : base(instanceId, account, connectionString) {

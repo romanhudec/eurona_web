@@ -8,86 +8,76 @@ using System.Data;
 using CMS.Entities;
 using CMS.MSSQL;
 
-namespace SHP.MSSQL
-{
-		public sealed class ProductRelationStorage: MSSQLStorage<ProductRelation>
-		{
-				public ProductRelationStorage( int instanceId, Account account, string connectionString )
-						: base( instanceId, account, connectionString )
-				{
-				}
+namespace SHP.MSSQL {
+    [Serializable]
+    public sealed class ProductRelationStorage : MSSQLStorage<ProductRelation> {
+        public ProductRelationStorage(int instanceId, Account account, string connectionString)
+            : base(instanceId, account, connectionString) {
+        }
 
-				private static ProductRelation GetProductRelation( DataRow record )
-				{
-						ProductRelation productRelation = new ProductRelation();
-						productRelation.Id = Convert.ToInt32( record["ProductRelationId"] );
-						productRelation.InstanceId = Convert.ToInt32( record["InstanceId"] );
-						productRelation.ParentProductId = Convert.ToInt32( record["ParentProductId"] );
-						productRelation.ProductId = Convert.ToInt32( record["ProductId"] );
-						productRelation.RelationType = Convert.ToInt32( record["RelationType"] );
-						//JOIN-ed properties
-						productRelation.ProductName = Convert.ToString( record["ProductName"] );
-						productRelation.ProductPrice = Convert.ToDecimal( record["ProductPrice"] );
-						productRelation.ProductDiscount = Convert.ToDecimal( record["ProductDiscount"] );
-						productRelation.ProductAvailability = Convert.ToString( record["ProductAvailability"] );
-						productRelation.ProductPriceWDiscount = Convert.ToDecimal( record["ProductPriceWDiscount"] );
-						productRelation.PriceTotal = Convert.ToDecimal( record["PriceTotal"] );
-						productRelation.PriceTotalWVAT = Convert.ToDecimal( record["PriceTotalWVAT"] );
-						productRelation.Alias = Convert.ToString( record["Alias"] );
+        private static ProductRelation GetProductRelation(DataRow record) {
+            ProductRelation productRelation = new ProductRelation();
+            productRelation.Id = Convert.ToInt32(record["ProductRelationId"]);
+            productRelation.InstanceId = Convert.ToInt32(record["InstanceId"]);
+            productRelation.ParentProductId = Convert.ToInt32(record["ParentProductId"]);
+            productRelation.ProductId = Convert.ToInt32(record["ProductId"]);
+            productRelation.RelationType = Convert.ToInt32(record["RelationType"]);
+            //JOIN-ed properties
+            productRelation.ProductName = Convert.ToString(record["ProductName"]);
+            productRelation.ProductPrice = Convert.ToDecimal(record["ProductPrice"]);
+            productRelation.ProductDiscount = Convert.ToDecimal(record["ProductDiscount"]);
+            productRelation.ProductAvailability = Convert.ToString(record["ProductAvailability"]);
+            productRelation.ProductPriceWDiscount = Convert.ToDecimal(record["ProductPriceWDiscount"]);
+            productRelation.PriceTotal = Convert.ToDecimal(record["PriceTotal"]);
+            productRelation.PriceTotalWVAT = Convert.ToDecimal(record["PriceTotalWVAT"]);
+            productRelation.Alias = Convert.ToString(record["Alias"]);
 
-						return productRelation;
-				}
+            return productRelation;
+        }
 
-				public override List<ProductRelation> Read( object criteria )
-				{
-						if ( criteria is ProductRelation.ReadById ) return LoadById( criteria as ProductRelation.ReadById );
-						if ( criteria is ProductRelation.ReadBy ) return LoadBy( criteria as ProductRelation.ReadBy );
-						List<ProductRelation> cartList = new List<ProductRelation>();
-						using ( SqlConnection connection = Connect() )
-						{
-								string sql = @"
+        public override List<ProductRelation> Read(object criteria) {
+            if (criteria is ProductRelation.ReadById) return LoadById(criteria as ProductRelation.ReadById);
+            if (criteria is ProductRelation.ReadBy) return LoadBy(criteria as ProductRelation.ReadBy);
+            List<ProductRelation> cartList = new List<ProductRelation>();
+            using (SqlConnection connection = Connect()) {
+                string sql = @"
 								SELECT ProductRelationId, InstanceId, ParentProductId, ProductId, RelationType, ProductName, 
 										ProductPrice, ProductDiscount, ProductPriceWDiscount, PriceTotal, PriceTotalWVAT, ProductAvailability,
 										Alias
 								FROM vShpProductRelations WHERE InstanceId=@InstanceId";
-								DataTable table = Query<DataTable>( connection, sql, new SqlParameter( "@InstanceId", InstanceId ) );
-								foreach ( DataRow dr in table.Rows )
-										cartList.Add( GetProductRelation( dr ) );
-						}
-						return cartList;
-				}
+                DataTable table = Query<DataTable>(connection, sql, new SqlParameter("@InstanceId", InstanceId));
+                foreach (DataRow dr in table.Rows)
+                    cartList.Add(GetProductRelation(dr));
+            }
+            return cartList;
+        }
 
-				public override int Count( object criteria )
-				{
-						throw new NotImplementedException();
-				}
+        public override int Count(object criteria) {
+            throw new NotImplementedException();
+        }
 
-				private List<ProductRelation> LoadById( ProductRelation.ReadById byProductRelationId )
-				{
-						List<ProductRelation> cartList = new List<ProductRelation>();
-						using ( SqlConnection connection = Connect() )
-						{
-								string sql = @"
+        private List<ProductRelation> LoadById(ProductRelation.ReadById byProductRelationId) {
+            List<ProductRelation> cartList = new List<ProductRelation>();
+            using (SqlConnection connection = Connect()) {
+                string sql = @"
 								SELECT ProductRelationId, InstanceId, ParentProductId, ProductId, RelationType, ProductName, 
 										ProductPrice, ProductDiscount, ProductPriceWDiscount, PriceTotal, PriceTotalWVAT, ProductAvailability,
 										Alias
 								FROM vShpProductRelations
 								WHERE ProductRelationId = @ProductRelationId";
-								DataTable table = Query<DataTable>( connection, sql,
-										new SqlParameter( "@ProductRelationId", byProductRelationId.ProductRelationId ) );
-								foreach ( DataRow dr in table.Rows )
-										cartList.Add( GetProductRelation( dr ) );
-						}
-						return cartList;
-				}
+                DataTable table = Query<DataTable>(connection, sql,
+                        new SqlParameter("@ProductRelationId", byProductRelationId.ProductRelationId));
+                foreach (DataRow dr in table.Rows)
+                    cartList.Add(GetProductRelation(dr));
+            }
+            return cartList;
+        }
 
 
-				private List<ProductRelation> LoadBy( ProductRelation.ReadBy by )
-				{
-						List<ProductRelation> cartList = new List<ProductRelation>();
-						using ( SqlConnection connection = Connect() )
-						{
-								string sql = @"
+        private List<ProductRelation> LoadBy(ProductRelation.ReadBy by) {
+            List<ProductRelation> cartList = new List<ProductRelation>();
+            using (SqlConnection connection = Connect()) {
+                string sql = @"
 								SELECT ProductRelationId, InstanceId, ParentProductId, ProductId, RelationType, ProductName, 
 										ProductPrice, ProductDiscount, ProductPriceWDiscount, PriceTotal, PriceTotalWVAT, ProductAvailability,
 										Alias
@@ -96,49 +86,44 @@ namespace SHP.MSSQL
 										RelationType = ISNULL(@RelationType, RelationType) AND 
 										ParentProductId = ISNULL(@ParentProductId,ParentProductId) AND 
 										InstanceId=@InstanceId";
-								DataTable table = Query<DataTable>( connection, sql,
-										new SqlParameter( "@RelationType", Null( by.RelationType ) ),
-										new SqlParameter( "@ParentProductId", Null( by.ParentProductId ) ),
-										new SqlParameter( "@InstanceId", InstanceId ) );
-								foreach ( DataRow dr in table.Rows )
-										cartList.Add( GetProductRelation( dr ) );
-						}
-						return cartList;
-				}
+                DataTable table = Query<DataTable>(connection, sql,
+                        new SqlParameter("@RelationType", Null(by.RelationType)),
+                        new SqlParameter("@ParentProductId", Null(by.ParentProductId)),
+                        new SqlParameter("@InstanceId", InstanceId));
+                foreach (DataRow dr in table.Rows)
+                    cartList.Add(GetProductRelation(dr));
+            }
+            return cartList;
+        }
 
-				public override void Create( ProductRelation productRelation )
-				{
-						using ( SqlConnection connection = Connect() )
-						{
-								SqlParameter result = new SqlParameter( "@Result", -1 );
-								result.Direction = ParameterDirection.Output;
+        public override void Create(ProductRelation productRelation) {
+            using (SqlConnection connection = Connect()) {
+                SqlParameter result = new SqlParameter("@Result", -1);
+                result.Direction = ParameterDirection.Output;
 
-								ExecProc( connection, "pShpProductRelationCreate",
-										new SqlParameter( "@InstanceId", InstanceId ),
-										new SqlParameter( "@ParentProductId", productRelation.ParentProductId ),
-										new SqlParameter( "@ProductId", productRelation.ProductId ),
-										new SqlParameter( "@RelationType", productRelation.RelationType ),
-										result );
+                ExecProc(connection, "pShpProductRelationCreate",
+                        new SqlParameter("@InstanceId", InstanceId),
+                        new SqlParameter("@ParentProductId", productRelation.ParentProductId),
+                        new SqlParameter("@ProductId", productRelation.ProductId),
+                        new SqlParameter("@RelationType", productRelation.RelationType),
+                        result);
 
-								productRelation.Id = Convert.ToInt32( result.Value );
-						}
+                productRelation.Id = Convert.ToInt32(result.Value);
+            }
 
-				}
+        }
 
-				public override void Update( ProductRelation entity )
-				{
-						throw new NotImplementedException();
-				}
+        public override void Update(ProductRelation entity) {
+            throw new NotImplementedException();
+        }
 
-				public override void Delete( ProductRelation productRelation )
-				{
-						using ( SqlConnection connection = Connect() )
-						{
-								SqlParameter id = new SqlParameter( "@ProductRelationId", productRelation.Id );
-								SqlParameter result = new SqlParameter( "@Result", -1 );
-								result.Direction = ParameterDirection.Output;
-								ExecProc( connection, "pShpProductRelationDelete", result, id );
-						}
-				}
-		}
+        public override void Delete(ProductRelation productRelation) {
+            using (SqlConnection connection = Connect()) {
+                SqlParameter id = new SqlParameter("@ProductRelationId", productRelation.Id);
+                SqlParameter result = new SqlParameter("@Result", -1);
+                result.Direction = ParameterDirection.Output;
+                ExecProc(connection, "pShpProductRelationDelete", result, id);
+            }
+        }
+    }
 }

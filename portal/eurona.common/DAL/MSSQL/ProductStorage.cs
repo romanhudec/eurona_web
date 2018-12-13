@@ -9,6 +9,7 @@ using CMS.Entities;
 using Eurona.Common.DAL.Entities;
 
 namespace Eurona.Common.DAL.MSSQL {
+    [Serializable]
     public sealed class ProductStorage : MSSQLStorage<Product> {
         public ProductStorage(int instanceId, Account account, string connectionString)
             : base(instanceId, account, connectionString) {
@@ -151,7 +152,7 @@ namespace Eurona.Common.DAL.MSSQL {
 								WHERE Code = @Code AND Locale=@Locale /*AND (InstanceId = 0 OR InstanceId=@InstanceId )*/ AND (ProdejUkoncen IS NULL OR ProdejUkoncen=0)
 								ORDER BY Novinka DESC, Name ASC";
                 DataTable table = Query<DataTable>(connection, sql,
-                        new SqlParameter("@Code", by.Code), 
+                        new SqlParameter("@Code", by.Code),
                         new SqlParameter("@Locale", Locale),
                         new SqlParameter("@InstanceId", InstanceId));
                 foreach (DataRow dr in table.Rows)
@@ -202,7 +203,7 @@ namespace Eurona.Common.DAL.MSSQL {
 				WHERE p.OnWeb=1 AND p.Locale=@Locale AND (p.ProdejUkoncen IS NULL OR p.ProdejUkoncen=0)", top);
 
                 List<SqlParameter> sqlParams = new List<SqlParameter>();
-                sqlParams.Add(new SqlParameter("@CategoryId", Null(by.CategoryId)));         
+                sqlParams.Add(new SqlParameter("@CategoryId", Null(by.CategoryId)));
                 sqlParams.Add(new SqlParameter("@Locale", Locale));
 
                 string byFilterWhere = string.Empty;
@@ -336,7 +337,7 @@ namespace Eurona.Common.DAL.MSSQL {
                 p.ZadniEtiketa, p.ZobrazovatZadniEtiketu
 				FROM vShpProducts p
 				WHERE p.OnWeb=1 AND p.Locale = @Locale AND (p.ProdejUkoncen IS NULL OR p.ProdejUkoncen=0)", top);
-                List<SqlParameter> sqlParams = new List<SqlParameter>();              
+                List<SqlParameter> sqlParams = new List<SqlParameter>();
                 sqlParams.Add(new SqlParameter("@Locale", Locale));
                 string byFilterWhere = string.Empty;
                 if (by != null) {

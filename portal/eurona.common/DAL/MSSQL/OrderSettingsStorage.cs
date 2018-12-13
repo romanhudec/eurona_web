@@ -9,6 +9,7 @@ using CMS.Entities;
 using Eurona.Common.DAL.Entities;
 
 namespace Eurona.Common.DAL.MSSQL {
+    [Serializable]
     public sealed class OrderSettingsStorage : MSSQLStorage<OrderSettings> {
         private string entitySelect = @"SELECT * FROM tShpOrderSettings";
         public OrderSettingsStorage(int instanceId, Account account, string connectionString)
