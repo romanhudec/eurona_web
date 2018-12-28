@@ -19,22 +19,24 @@ namespace Eurona.EShop {
             btnPay.Attributes["onclick"] = "this.disabled=true;this.value='Please wait...';" + Page.ClientScript.GetPostBackEventReference(btnPay, null).ToString();
             this.settingsPlatbaKartouLimit = Storage<SettingsEntity>.ReadFirst(new SettingsEntity.ReadByCode { Code = "ESHOP_PLATBAKARTOU_LIMIT" });
 
-            if (this.settingsPlatbaKartouLimit != null) {
-                int limit = Eurona.Common.DAL.Entities.Settings.GetPlatbaKartouLimit();
-                if (limit > 0) {
-                    if (Eurona.Common.DAL.Entities.Settings.IsPaymentAfterLimit(this.OrderEntity)) {
-                        payLimit.Visible = false;
-                        this.btnPay.Enabled = false;
-                        this.btnPay.Text = "";
-                        this.btnPay.CssClass = "button-uhrada-kartou-disabled";
-                    } else {
-                        payLimit.Visible = true;
-                        DateTime dateFrom = OrderEntity.OrderDate;
-                        DateTime dateTo = dateFrom.AddMinutes(limit);
-                        int seconds = (int)(dateTo - DateTime.Now).TotalSeconds;
-                        RegisterStartupCountDownScript("cnt_container", seconds);
-                        this.btnPay.Enabled = true;
-                        this.btnPay.CssClass = "button-uhrada-kartou";
+            if (Eurona.Common.DAL.Entities.Settings.IsPlatbaKartouPovolena()) {
+                if (this.settingsPlatbaKartouLimit != null) {
+                    int limit = Eurona.Common.DAL.Entities.Settings.GetPlatbaKartouLimit();
+                    if (limit > 0) {
+                        if (Eurona.Common.DAL.Entities.Settings.IsPaymentAfterLimit(this.OrderEntity)) {
+                            payLimit.Visible = false;
+                            this.btnPay.Enabled = false;
+                            this.btnPay.Text = "";
+                            this.btnPay.CssClass = "button-uhrada-kartou-disabled";
+                        } else {
+                            payLimit.Visible = true;
+                            DateTime dateFrom = OrderEntity.OrderDate;
+                            DateTime dateTo = dateFrom.AddMinutes(limit);
+                            int seconds = (int)(dateTo - DateTime.Now).TotalSeconds;
+                            RegisterStartupCountDownScript("cnt_container", seconds);
+                            this.btnPay.Enabled = true;
+                            this.btnPay.CssClass = "button-uhrada-kartou";
+                        }
                     }
                 }
             }
@@ -79,6 +81,9 @@ namespace Eurona.EShop {
         //}
 
         private void RegisterStartupCountDownScript(string containerId, int seconds) {
+            if (!Eurona.Common.DAL.Entities.Settings.IsPlatbaKartouPovolena())
+                return;
+
             ClientScriptManager cs = this.Page.ClientScript;
             Type cstype = this.Page.GetType();
 
