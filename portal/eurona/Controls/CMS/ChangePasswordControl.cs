@@ -7,6 +7,7 @@ using System.Web.UI.WebControls;
 using System.Web.UI;
 using CMS.Utilities;
 using CMS.Controls;
+using Eurona.DAL.Entities;
 
 namespace Eurona.Controls {
     public class ChangePasswordControl : CmsControl {
@@ -31,12 +32,13 @@ namespace Eurona.Controls {
 
             base.CreateChildControls();
 
-            this.AccountId = Convert.ToInt32(Request["id"]);
-            this.account = Storage<AccountEntity>.ReadFirst(new AccountEntity.ReadById { AccountId = this.AccountId });
-            if (this.account == null) {
-                if (Security.Account == null)
-                    return;
-
+            if (Security.IsInRole(Role.ADMINISTRATOR) && !String.IsNullOrEmpty(Request["id"])) {
+                this.AccountId = Convert.ToInt32(Request["id"]);
+                this.account = Storage<AccountEntity>.ReadFirst(new AccountEntity.ReadById { AccountId = this.AccountId });
+                if (this.account == null) {
+                    this.account = Security.Account;
+                }
+            } else {
                 this.account = Security.Account;
             }
 
