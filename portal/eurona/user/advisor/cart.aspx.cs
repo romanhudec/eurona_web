@@ -12,6 +12,7 @@ using SettingsEntity = Eurona.Common.DAL.Entities.Settings;
 using Eurona.Common.Controls.Cart;
 using Eurona.Common;
 using System.Configuration;
+using CMS;
 
 namespace Eurona.User.Advisor {
     public partial class CartPage : WebPage {
