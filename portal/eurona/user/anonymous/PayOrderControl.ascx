@@ -17,8 +17,7 @@
 			<asp:Button CssClass="button-uhrada-kartou-disabled" runat="server" ID="btnPayDisabled" Text="" Enabled="false" />
         <%}else{ %>
             <asp:Button CssClass="button-uhrada-kartou" runat="server" ID="btnPay" Text="<%$ Resources:EShopStrings, PayOrderControl_UhradaKartou%>" OnClick="OnPayNow" />
-        <%}%>
-            <div style="color:#868686" ><asp:Literal ID="Literal2" runat="server" Text="<%$ Resources:EShopStrings, OrderFinish_NelzeVyuzitProSdruzeneObjednavky %>"></asp:Literal></div>
+        <%}%>            
 		</td>
     </tr>
 </table>
