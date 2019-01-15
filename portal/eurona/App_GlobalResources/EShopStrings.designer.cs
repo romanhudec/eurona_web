@@ -1501,15 +1501,6 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to (nelze využít pro sdružené objednávky).
-        /// </summary>
-        internal static string OrderFinish_NelzeVyuzitProSdruzeneObjednavky {
-            get {
-                return ResourceManager.GetString("OrderFinish_NelzeVyuzitProSdruzeneObjednavky", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to Nevíte si rady, kontaktujte&lt;br/&gt; naše operátorky.
         /// </summary>
         internal static string OrderFinish_NeviteSiRady {

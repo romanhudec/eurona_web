@@ -681,9 +681,6 @@ E: prodej@eurona.cz</value>
   <data name="CartControl_OrderAndPayButton_Text" xml:space="preserve">
     <value>ODESLAT OBJEDNÁVKU A ZVOLIT PLATBU</value>
   </data>
-  <data name="OrderFinish_NelzeVyuzitProSdruzeneObjednavky" xml:space="preserve">
-    <value>(nelze využít pro sdružené objednávky)</value>
-  </data>
   <data name="Anonymous_UhradaObjednavky" xml:space="preserve">
     <value>Úhrada objednávky</value>
   </data>
