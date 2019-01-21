@@ -159,7 +159,9 @@ namespace Cron.Eurona.Import {
         }
         public static DataTable GetTVDProductAlternativni(CMS.Pump.MSSQLStorage mssqStorageSrc, int productId) {
             using (SqlConnection connection = mssqStorageSrc.Connect()) {
-                string sql = @"SELECT C_Zbo, Alternativni_C_Zbo FROM Produkty_Alternativni WHERE C_Zbo=@ProductId";
+                string sql = @"SELECT a.C_Zbo, a.Alternativni_C_Zbo FROM Produkty_Alternativni a
+                INNER JOIN Produkty pa ON pa.C_Zbo = a.Alternativni_C_Zbo 
+                WHERE pa.On_web=1 AND C_Zbo=@ProductId";
                 DataTable dt = mssqStorageSrc.Query(connection, sql, new SqlParameter("@ProductId", productId));
 
                 return dt;

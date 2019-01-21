@@ -730,6 +730,6 @@ E: prodej@eurona.cz</value>
     <value>Vámi zvolené přihlašovací jméno je již jednou použito, zvolte prosím jiné.</value>
   </data>
   <data name="OrderControl_PSC_Hint" xml:space="preserve">
-    <value>Začněte vypisováním města a vyberte jej z nabídky.</value>
+    <value>PSČ nevyplňujte. Začněte vypisováním města a vyberte jej z nabídky.</value>
   </data>
 </root>

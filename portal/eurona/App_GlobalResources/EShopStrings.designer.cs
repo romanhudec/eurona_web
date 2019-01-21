@@ -1474,7 +1474,7 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Začněte vypisováním města a vyberte jej z nabídky..
+        ///   Looks up a localized string similar to PSČ nevyplňujte. Začněte vypisováním města a vyberte jej z nabídky..
         /// </summary>
         internal static string OrderControl_PSC_Hint {
             get {
