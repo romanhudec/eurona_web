@@ -238,6 +238,15 @@ namespace Eurona.User.Anonymous {
         protected global::System.Web.UI.WebControls.TextBox txtAdresaDodaci_PSC;
         
         /// <summary>
+        /// Literal13 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Literal Literal13;
+        
+        /// <summary>
         /// linkVasePrilezitosti control.
         /// </summary>
         /// <remarks>
@@ -290,6 +299,15 @@ namespace Eurona.User.Anonymous {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtPsc;
+        
+        /// <summary>
+        /// Literal12 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Literal Literal12;
         
         /// <summary>
         /// txtTelefon control.

@@ -544,7 +544,7 @@ E: prodej@eurona.cz</value>
     <value>Stejná jako fakturační</value>
   </data>
   <data name="Anonymous_Register_Telefon" xml:space="preserve">
-    <value>Telefón :</value>
+    <value>Telefon :</value>
   </data>
   <data name="Anonymous_Register_Ulice" xml:space="preserve">
     <value>Ulice :</value>
@@ -728,5 +728,8 @@ E: prodej@eurona.cz</value>
   </data>
   <data name="Anonymous_Register_LoginExists" xml:space="preserve">
     <value>Vámi zvolené přihlašovací jméno je již jednou použito, zvolte prosím jiné.</value>
+  </data>
+  <data name="OrderControl_PSC_Hint" xml:space="preserve">
+    <value>Začněte vypisováním města a vyberte jej z nabídky.</value>
   </data>
 </root>

@@ -628,4 +628,7 @@ E: prodej@eurona.cz</value>
   <data name="Anonymous_Register_LoginExists" xml:space="preserve">
     <value>Wybrany login jest już zajęty, wybierz proszę inny.</value>
   </data>
+  <data name="OrderControl_PSC_Hint" xml:space="preserve">
+    <value>Nie wypełniaj kodu pocztowego. Zacznij od wpisania miasta i wybierz je z menu.</value>
+  </data>
 </root>

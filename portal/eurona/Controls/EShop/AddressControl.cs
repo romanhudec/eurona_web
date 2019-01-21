@@ -345,7 +345,7 @@ namespace Eurona.Controls {
 
             //Zip|Id3
             row = new TableRow();
-            baseValidatorZip = AddControlToRow(row, SHP.Resources.Controls.AddressControl_Zip, this.txtZip, 0, true, Settings.Validation.Zip/*, Resources.Strings.ZipDescription*/);
+            baseValidatorZip = AddZipControlToRow(row, SHP.Resources.Controls.AddressControl_Zip, this.txtZip, 0, true, Settings.Validation.Zip, Resources.EShopStrings.OrderControl_PSC_Hint);
             AddControlToRow(row, SHP.Resources.Controls.AddressControl_Id3, this.txtId3, 0, false, null);
             this.txtZip.Enabled = false;
             table.Rows.Add(row);
@@ -457,30 +457,41 @@ namespace Eurona.Controls {
             return baseValidator;
         }
 
-        private void AddControlToRow(TableRow row, string labelText, Control control, int controlColspan, bool required, RegExpValidator validator, string description) {
+
+        private BaseValidator AddZipControlToRow(TableRow row, string labelText, Control control, int controlColspan, bool required, RegExpValidator validator, string description) {
             (control as WebControl).Enabled = this.IsEditing;
 
             TableCell cell = new TableCell();
             cell.CssClass = required && this.IsEditing ? "form_label_required" : "form_label";
             cell.Text = labelText;
             row.Cells.Add(cell);
+            row.VerticalAlign = VerticalAlign.Middle;
+            row.Attributes.Add("valign", "middle");
 
             cell = new TableCell();
             //cell.CssClass = "form_control";
+            cell.VerticalAlign = VerticalAlign.Middle;
             cell.Style.Add("width", "50%");
             cell.Style.Add("padding-right", "5px");//margin: 2px;white-space: nowrap;text-align: left;
             cell.Style.Add("white-space", "nowrap");
             cell.Style.Add("text-align", "left");
             cell.Controls.Add(control);
-            cell.Controls.Add(new LiteralControl(string.Format("&nbsp;<span>{0}</span>", description)));
+            cell.Controls.Add(new LiteralControl(string.Format("<div style='width:235px;margin-left:3px;display:inline-flex;vertical-align:middle;white-space:pre-line;' class='address_notes_desription'>{0}</div>", description)));
             cell.ColumnSpan = controlColspan;
-            if (required && this.IsEditing) cell.Controls.Add(base.CreateRequiredFieldValidatorControl(control.ID));
+            BaseValidator baseValidator = null;
+            if (required && this.IsEditing) {
+                baseValidator = base.CreateRequiredFieldValidatorControl(control.ID);
+                cell.Controls.Add(baseValidator);
+            }
             if (validator != null && this.IsEditing) {
                 validator.ControlToValidate = control.ID;
-                cell.Controls.Add(base.CreateRegularExpressionValidatorControl(validator));
+                baseValidator = base.CreateRegularExpressionValidatorControl(validator);
+                cell.Controls.Add(baseValidator);
             }
             row.Cells.Add(cell);
+            return baseValidator;
         }
+        
 
         private CustomValidator CreateCustomFieldValidatorControl(string controlToValidateId, string clientValidationFunction) {
             if (String.IsNullOrEmpty(clientValidationFunction)) return null;

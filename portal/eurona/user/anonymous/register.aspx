@@ -395,7 +395,9 @@
 										<td><span class="required">*</span><asp:Literal runat="server" Text="<%$ Resources:EShopStrings, Anonymous_Register_PSC %>"></asp:Literal></td>
 										<td>
 											<asp:TextBox runat="server" ID="txtAdresaDodaci_PSC" Width="40px" onclick="hideElm('validatorAdresaDodaci_PSC');"></asp:TextBox>
-											<%--<span style="font-size:8px;"><asp:Literal ID="Literal9" runat="server" Text="<%$Resources:Strings, ZipDescription %>"></asp:Literal></span>--%>
+                                            <div style='margin-left:3px; width:150px; display:inline-flex;vertical-align:middle;word-wrap:break-word;' class='address_notes_desription'>
+                                                <asp:Literal ID="Literal13" runat="server" Text="<%$ Resources:EShopStrings, OrderControl_PSC_Hint %>"></asp:Literal>
+                                            </div>
 											<div class="validator" id='validatorAdresaDodaci_PSC' onclick="hideElm('validatorAdresaDodaci_PSC');">
 												<div style="position:absolute;margin-top:-20px;">
 													<asp:Literal runat="server" Text="<%$ Resources:EShopStrings, Anonymous_Register_VyplntePovinnouPolozku %>"></asp:Literal>           
@@ -470,8 +472,11 @@
                             <span class="required">*</span>
 							<asp:Literal runat="server" Text="<%$ Resources:EShopStrings, Anonymous_Register_PSC %>"></asp:Literal>
                         </td>
-                        <td>
+                        <td valign="middle">
                             <asp:TextBox runat="server" ID="txtPsc" Width="40px" onclick="hideElm('validatorPSC');"></asp:TextBox>
+                            <div style='margin-left:3px; width:150px; display:inline-flex;vertical-align:middle;word-wrap:break-word;' class='address_notes_desription'>
+                                <asp:Literal ID="Literal12" runat="server" Text="<%$ Resources:EShopStrings, OrderControl_PSC_Hint %>"></asp:Literal>
+                            </div>
 							<%--<span style="font-size:8px;"><asp:Literal runat="server" Text="<%$Resources:Strings, ZipDescription %>"></asp:Literal></span>--%>
                             <div class="validator" id='validatorPSC' onclick="hideElm('validatorPSC');">
                                 <div style="position:absolute;margin-top:-20px;">

@@ -664,7 +664,7 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Telefón :.
+        ///   Looks up a localized string similar to Telefon :.
         /// </summary>
         internal static string Anonymous_Register_Telefon {
             get {
@@ -1470,6 +1470,15 @@ namespace Resources {
         internal static string OrderControl_OrderUser {
             get {
                 return ResourceManager.GetString("OrderControl_OrderUser", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Začněte vypisováním města a vyberte jej z nabídky..
+        /// </summary>
+        internal static string OrderControl_PSC_Hint {
+            get {
+                return ResourceManager.GetString("OrderControl_PSC_Hint", resourceCulture);
             }
         }
         

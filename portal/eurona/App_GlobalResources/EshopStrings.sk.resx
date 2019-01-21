@@ -712,4 +712,7 @@ E: prodej@eurona.cz</value>
   <data name="Anonymous_Register_LoginExists" xml:space="preserve">
     <value>Vami zvolené prihlasovacie meno je už raz použité, zvoľte, prosím, iné.</value>
   </data>
+  <data name="OrderControl_PSC_Hint" xml:space="preserve">
+    <value>PSČ nevyplňujte. Začnite vypisovaním mesta a vyberte ho z ponuky.</value>
+  </data>
 </root>
