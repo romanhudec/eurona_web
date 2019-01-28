@@ -125,7 +125,7 @@ namespace Eurona.Controls {
             row.Cells.Add(cell);
             CompareValidator cv = new CompareValidator();
             cv.ID = "cv_pwd";
-            cv.ErrorMessage = "Hesla se musí zhodovat!";
+            cv.ErrorMessage = "Hesla se musí shodovat!";
             cv.CssClass = "ms-formvalidation";
             cv.ControlToValidate = this.txtNewPassword.ID;
             cv.ControlToCompare = this.txtConfirmNewPassword.ID;
