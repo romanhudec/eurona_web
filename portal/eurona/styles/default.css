@@ -65,7 +65,7 @@ a, a:hover{	color: #00B8EC;}
 /*WHOLE PAGE CSS STYLES*/
 /*-------------------------------------------------------------------------------------------------------*/
 .page{width: 1064px; margin: 0 auto 0 auto; text-align:left; background-image:url(../images/bg-shadow.png); background-repeat:repeat-y;}
-.page-container{width: 1024px;background: #FAFAFA url(../images/bg_zimni.png) no-repeat; background-position:bottom; color: inherit; margin: 0 auto 0 auto; padding-bottom:3px;text-align:left;}
+.page-container{width: 1024px;background: #FAFAFA url(../images/bg_letni.png) no-repeat; background-position:bottom; color: inherit; margin: 0 auto 0 auto; padding-bottom:3px;text-align:left;}
 .page-container-header{position:relative;z-index:2;height:80px;padding:10px!important;}
 .page-container-overlay{width:1024px;background-image:url(../images/bg-overlay.png);background-repeat:no-repeat;background-position:bottom;}
 
