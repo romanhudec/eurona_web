@@ -29,14 +29,19 @@ namespace Eurona.user.advisor.reports {
                 aktualniObdobiUzavierkaTo = new DateTime(beforeOd.Year, beforeOd.Month, beforeOd.Day, 23, 59, 59);
             } else {
                 //Dopracovane 02.12.2018
+                /*
                 {
                     if (uzavierkaBefore.UzavierkaDo.Value.Month < DateTime.Now.Month)
                         aktualniObdobiUzavierkaFrom = new DateTime(DateTime.Now.Year, DateTime.Now.Month, 1, 0, 0, 0);
                     else
                         aktualniObdobiUzavierkaFrom = uzavierkaBefore.UzavierkaDo.Value;
                 }
+                */
                 //Zakomentovane 02.12.2018
-                //aktualniObdobiUzavierkaFrom = uzavierkaBefore.UzavierkaDo.Value;
+                //Takto to musi byt pre tento pripad
+                //Before   = 02.01.2019 10:00 - 02.01.2019 16:00
+                //Aktualni = 01.02.2019 10:00 - 01.02.2019 16:00
+                aktualniObdobiUzavierkaFrom = uzavierkaBefore.UzavierkaDo.Value;
             }
             UzavierkaEntity uzavierka = Storage<UzavierkaEntity>.ReadFirst(new UzavierkaEntity.ReadById { UzavierkaId = (int)UzavierkaEntity.UzavierkaId.Eurona });
             if (uzavierka == null) {
