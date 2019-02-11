@@ -155,6 +155,7 @@
     <Content Include="App_Themes\Default\TabStrip\TabStripVStates.png" />
     <Content Include="Controls\BKProductsControl.ascx" />
     <Content Include="Controls\BonusoveKredityUzivateleInfoControl.ascx" />
+    <Content Include="Controls\RequestEmailVerifyControl.ascx" />
     <Content Include="Controls\HomeFlashRotatorControl.ascx" />
     <Content Include="Controls\LoginControl.ascx" />
     <Content Include="Controls\HomeFlashControl.ascx" />
@@ -164,6 +165,10 @@
     <Content Include="admin\nastaveniAnonymniRegistrace.aspx" />
     <Content Include="advisorPage.aspx" />
     <Content Include="changePassword.aspx" />
+    <Content Include="images\success.png" />
+    <Content Include="images\warning.png" />
+    <Content Include="requestEmailVerifycation.aspx" />
+    <Content Include="emailVerifycation.aspx" />
     <Content Include="ddosattac.aspx" />
     <Content Include="datovyList.aspx" />
     <Content Include="error.aspx" />
@@ -1259,6 +1264,13 @@
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Controls\AngelTeamHelper.cs" />
+    <Compile Include="Controls\RequestEmailVerifyControl.ascx.cs">
+      <DependentUpon>RequestEmailVerifyControl.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Controls\RequestEmailVerifyControl.ascx.designer.cs">
+      <DependentUpon>RequestEmailVerifyControl.ascx</DependentUpon>
+    </Compile>
     <Compile Include="Controls\EShop\RepayOrderControl.cs">
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
@@ -1350,6 +1362,23 @@
       <DependentUpon>changePassword.aspx</DependentUpon>
     </Compile>
     <Compile Include="CookiesUtils.cs" />
+    <Compile Include="emailVerifycationService.ashx.cs">
+      <DependentUpon>emailVerifycationService.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="requestEmailVerifycation.aspx.cs">
+      <DependentUpon>requestEmailVerifycation.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="requestEmailVerifycation.aspx.designer.cs">
+      <DependentUpon>requestEmailVerifycation.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="emailVerifycation.aspx.cs">
+      <DependentUpon>emailVerifycation.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="emailVerifycation.aspx.designer.cs">
+      <DependentUpon>emailVerifycation.aspx</DependentUpon>
+    </Compile>
     <Compile Include="ddosattac.aspx.cs">
       <DependentUpon>ddosattac.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -3227,6 +3256,7 @@
     <Content Include="rss\products.ashx" />
     <Content Include="empty.master" />
     <Content Include="getPPCFeed.ashx" />
+    <Content Include="emailVerifycationService.ashx" />
     <None Include="Properties\PublishProfiles\Eurona.pubxml" />
     <Content Include="user\host\page.master" />
     <Content Include="user\advisor\page.master" />

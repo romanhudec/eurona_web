@@ -1149,4 +1149,46 @@ www.euronabycerny.com</value>
   <data name="Please_Wait" xml:space="preserve">
     <value>Prosím čekejte ...</value>
   </data>
+  <data name="EmailVerifyControl_Email" xml:space="preserve">
+    <value>Zadejte Email pro ověření</value>
+  </data>
+  <data name="EmailVerifyControl_EmailSended_Message" xml:space="preserve">
+    <value>Email byl úspěšne odeslan. Prosim, pokracujte linkem zaslanym na Váš email.</value>
+  </data>
+  <data name="EmailVerifyControl_EmailValidation_EmailJeJizOveren" xml:space="preserve">
+    <value>Vami zadaný Email je již ověrený! Zadejte jiný email, nebo se přihlašte jiným účtem.</value>
+  </data>
+  <data name="EmailVerifyControl_EmailValidation_EmailNeexituje" xml:space="preserve">
+    <value>Vami zadaný Email se v systému nenachází!</value>
+  </data>
+  <data name="EmailVerifyControl_OdeslatZnovu" xml:space="preserve">
+    <value>Odeslat znovu</value>
+  </data>
+  <data name="EmailVerifyControl_OveritEmail" xml:space="preserve">
+    <value>Ověřit email</value>
+  </data>
+  <data name="EmailVerifyControl_Pokracovat" xml:space="preserve">
+    <value>Pokračovat</value>
+  </data>
+  <data name="EmailVerifyControl_SendingEmailError_Message" xml:space="preserve">
+    <value>Při odesílání emailu doslo k chybe. Posim, zkuste to pozdeji.</value>
+  </data>
+  <data name="EmailVerifyControl_SendingEmail_Message" xml:space="preserve">
+    <value>Na Vámi zadaný emai se práve odesíla mail, prosím čekejte ...</value>
+  </data>
+  <data name="EmailVerifyControl_Title" xml:space="preserve">
+    <value>Ověření Vašeho emailu</value>
+  </data>
+  <data name="EmailVerifyControl_VerifyingEmail_Message" xml:space="preserve">
+    <value>Právě probíha verifykace Vašeho emailu. Prosím, čekejete ...</value>
+  </data>
+  <data name="EmailVerifyControl_EmailVerified_Message" xml:space="preserve">
+    <value>Váš email byl úspěšne ověřen!</value>
+  </data>
+  <data name="EmailVerifyControl_EmailVerifiedFailed_Message" xml:space="preserve">
+    <value>Váš email se nepodařilo ověřit! Zkuste ověření opakovat pozdeji.</value>
+  </data>
+  <data name="EmailVerifyControl_Opakovat" xml:space="preserve">
+    <value>Opakovat</value>
+  </data>
 </root>

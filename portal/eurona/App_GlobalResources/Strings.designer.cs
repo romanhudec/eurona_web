@@ -791,6 +791,132 @@ namespace Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Zadejte Email pro ověření.
+        /// </summary>
+        internal static string EmailVerifyControl_Email {
+            get {
+                return ResourceManager.GetString("EmailVerifyControl_Email", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Email byl úspěšne odeslan. Prosim, pokracujte linkem zaslanym na Váš email..
+        /// </summary>
+        internal static string EmailVerifyControl_EmailSended_Message {
+            get {
+                return ResourceManager.GetString("EmailVerifyControl_EmailSended_Message", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Vami zadaný Email je již ověrený! Zadejte jiný email, nebo se přihlašte jiným účtem..
+        /// </summary>
+        internal static string EmailVerifyControl_EmailValidation_EmailJeJizOveren {
+            get {
+                return ResourceManager.GetString("EmailVerifyControl_EmailValidation_EmailJeJizOveren", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Vami zadaný Email se v systému nenachází!.
+        /// </summary>
+        internal static string EmailVerifyControl_EmailValidation_EmailNeexituje {
+            get {
+                return ResourceManager.GetString("EmailVerifyControl_EmailValidation_EmailNeexituje", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Váš email se nepodařilo ověřit! Zkuste ověření opakovat pozdeji..
+        /// </summary>
+        internal static string EmailVerifyControl_EmailVerifiedFailed_Message {
+            get {
+                return ResourceManager.GetString("EmailVerifyControl_EmailVerifiedFailed_Message", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Váš email byl úspěšne ověřen!.
+        /// </summary>
+        internal static string EmailVerifyControl_EmailVerified_Message {
+            get {
+                return ResourceManager.GetString("EmailVerifyControl_EmailVerified_Message", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Odeslat znovu.
+        /// </summary>
+        internal static string EmailVerifyControl_OdeslatZnovu {
+            get {
+                return ResourceManager.GetString("EmailVerifyControl_OdeslatZnovu", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Opakovat.
+        /// </summary>
+        internal static string EmailVerifyControl_Opakovat {
+            get {
+                return ResourceManager.GetString("EmailVerifyControl_Opakovat", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Ověřit email.
+        /// </summary>
+        internal static string EmailVerifyControl_OveritEmail {
+            get {
+                return ResourceManager.GetString("EmailVerifyControl_OveritEmail", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Pokračovat.
+        /// </summary>
+        internal static string EmailVerifyControl_Pokracovat {
+            get {
+                return ResourceManager.GetString("EmailVerifyControl_Pokracovat", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Při odesílání emailu doslo k chybe. Posim, zkuste to pozdeji..
+        /// </summary>
+        internal static string EmailVerifyControl_SendingEmailError_Message {
+            get {
+                return ResourceManager.GetString("EmailVerifyControl_SendingEmailError_Message", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Na Vámi zadaný emai se práve odesíla mail, prosím čekejte ....
+        /// </summary>
+        internal static string EmailVerifyControl_SendingEmail_Message {
+            get {
+                return ResourceManager.GetString("EmailVerifyControl_SendingEmail_Message", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Ověření Vašeho emailu.
+        /// </summary>
+        internal static string EmailVerifyControl_Title {
+            get {
+                return ResourceManager.GetString("EmailVerifyControl_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Právě probíha verifykace Vašeho emailu. Prosím, čekejete ....
+        /// </summary>
+        internal static string EmailVerifyControl_VerifyingEmail_Message {
+            get {
+                return ResourceManager.GetString("EmailVerifyControl_VerifyingEmail_Message", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Find advisor.
         /// </summary>
         internal static string FindAdvisor {
