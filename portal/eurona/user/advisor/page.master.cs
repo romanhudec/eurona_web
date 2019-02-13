@@ -25,6 +25,16 @@ namespace Eurona.User.Advisor {
                 this.debugVersion.Visible = true;
 
             Security.IsLogged(true);
+            
+            //Email validation process
+            if (Security.Account.IsInRole(Role.ADVISOR) || Security.Account.IsInRole(Role.ANONYMOUSADVISOR)) {
+                if (Security.Account.EmailVerified.HasValue == false) {
+                    Response.Redirect("~/user/requestEmailVerifycation.aspx");
+                    return;
+                }
+            }
+
+
             //Update Login time for logged user
             Security.UpdateLoginTime();
             /*

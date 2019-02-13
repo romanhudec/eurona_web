@@ -1,4 +1,4 @@
-﻿<%@ Control Language="C#" AutoEventWireup="true" CodeBehind="RequestEmailVerifyControl.ascx.cs" Inherits="Eurona.Controls.RequestEmailVerifyControl" %>
+﻿<%@ Control Language="C#" AutoEventWireup="true" CodeBehind="RequestEmailVerifyControl.ascx.cs" Inherits="Eurona.User.RequestEmailVerifyControl" %>
 <script type="text/javascript">
     function checkEmail() {
         var email = document.getElementById('<%=txtEmail.ClientID%>').value;
@@ -7,11 +7,15 @@
         labelElm.style.display = "none";
         btnVerifyElm.disabled = true;
         var isEmailValid = validateEmailPattern(email);
-        if (isEmailValid == false) return;
+        if (isEmailValid == false) {
+            labelElm.innerText = "<%=Resources.Strings.EmailVerifyControl_EmailValidation_NespravnyFormat %>";
+            labelElm.style.display = "block";
+            return;
+        }
         
 
         $.ajax({
-            url: "<%=Page.ResolveUrl("~/emailVerifycationService.ashx")%>?method=checkEmail",
+            url: "<%=Page.ResolveUrl("~/user/emailVerifycationService.ashx")%>?method=checkEmail",
             data: email,
             dataType: "json",
             type: "POST",
@@ -46,11 +50,9 @@
         layoutEmailSend.style.display = 'none';
 
         var email = document.getElementById('<%=txtEmail.ClientID%>').value;
-
-        var dataValue = "{ email: '"+email+"'}";
         $.ajax({
-            url: "<%=Page.ResolveUrl("~/emailVerifycationService.ashx")%>?method=sendEmail2EmailVerify",
-              data: dataValue,
+            url: "<%=Page.ResolveUrl("~/user/emailVerifycationService.ashx")%>?method=sendEmail2EmailVerify",
+              data: email,
               dataType: "json",
               type: "POST",
               contentType: "application/json; charset=utf-8",
@@ -79,20 +81,34 @@
 </script>
 <table style="width:100%;">
     <tr>
-        <td style="text-align:center;"><h2><asp:Literal ID="Label1" runat="server" Text="<%$ Resources:Strings, EmailVerifyControl_Title %>"></asp:Literal></h2></td>
+        <td class="title" style="text-align:center;"><h4><asp:Literal ID="Label1" runat="server" Text="<%$ Resources:Strings, EmailVerifyControl_Title %>"></asp:Literal></h4></td>
     </tr>
     <tr>
         <td>
             <div style="width:100%;display:block;">
                 <table id="layoutTypeEmail" style="width:100%;display:table;">
                     <tr>
-                        <td style="text-align:left;"><asp:Label runat="server" Text="<%$ Resources:Strings, EmailVerifyControl_Email %>"></asp:Label></td>
+                        <td>
+                        <div class="input-description" style="padding-top:0px;">
+                            <asp:Label runat="server" ID="Label2" Text="<%$ Resources:Strings, EmailVerifyControl_EmailDescriptionTop %>" ></asp:Label>
+                        </div>
+                        </td>    
                     </tr>
                     <tr>
-                        <td><asp:TextBox runat="server" ID="txtEmail" Width="100%" oninput="checkEmail()"></asp:TextBox></td>
-                    </tr>
-                    <tr>
-                        <td><asp:Label runat="server" ID="lblValidatorText" ForeColor="#EA008A" style="display:none;font-size: 16px;padding-top:10px;"></asp:Label></td>
+                        <td>
+                            <div class="input-label">
+                                <asp:Label ID="Label4" runat="server" Text="<%$ Resources:Strings, EmailVerifyControl_Email %>"></asp:Label>
+                            </div>
+                            <div>
+                            <asp:TextBox runat="server" ID="txtEmail" Width="100%" type="email" CssClass="form-control" oninput="checkEmail()"></asp:TextBox>
+                            </div>
+                            <div class="validation-message">
+                                <asp:Label runat="server" ID="lblValidatorText" style="display:none;"></asp:Label>
+                            </div>
+                            <div class="input-description">
+                                <asp:Label runat="server" ID="Label3" Text="<%$ Resources:Strings, EmailVerifyControl_EmailDescriptionBottom %>" ></asp:Label>
+                            </div>
+                        </td>
                     </tr>
                     <tr>
                         <td style="text-align:right;padding-top:10px;">
@@ -102,12 +118,15 @@
                 </table>
                 <table id="layoutSendinEmail" style="width:100%;display:none;">
                     <tr>
-                        <td style="text-align:center;color:#EA008A;font-size: 16px;"><asp:Literal ID="Literal1" runat="server" Text="<%$ Resources:Strings, EmailVerifyControl_SendingEmail_Message %>"></asp:Literal></td>
+                        <td class="message"><asp:Literal ID="Literal1" runat="server" Text="<%$ Resources:Strings, EmailVerifyControl_SendingEmail_Message %>"></asp:Literal></td>
+                    </tr>
+                    <tr>
+                        <td style="text-align:center;color:#EA008A;font-size: 16px;"><asp:Image ID="Image3" runat="server" ImageUrl="~/images/ajax-indicator.gif" /></td>
                     </tr>
                 </table>
                 <table id="layoutEmailSend" style="width:100%;display:none;">
                     <tr>
-                         <td style="text-align:center;color:#EA008A;font-size: 16px;"><asp:Literal ID="Literal2" runat="server" Text="<%$ Resources:Strings, EmailVerifyControl_EmailSended_Message %>"></asp:Literal></td>
+                         <td class="message"><asp:Literal ID="Literal2" runat="server" Text="<%$ Resources:Strings, EmailVerifyControl_EmailSended_Message %>"></asp:Literal></td>
                     </tr>  
                     <tr>
                          <td style="text-align:center;color:#EA008A;font-size: 16px;"><asp:Image ID="Image1" runat="server" ImageUrl="~/images/success.png" /></td>
@@ -118,7 +137,7 @@
                          <td style="text-align:center;color:#EA008A;font-size: 16px;"><asp:Image ID="Image2" runat="server" ImageUrl="~/images/warning.png" /></td>
                     </tr> 
                     <tr>
-                         <td style="text-align:center;color:#EA008A;font-size: 16px;"><asp:Literal ID="Literal3" runat="server" Text="<%$ Resources:Strings, EmailVerifyControl_SendingEmailError_Message %>"></asp:Literal></td>
+                         <td class="message"><asp:Literal ID="Literal3" runat="server" Text="<%$ Resources:Strings, EmailVerifyControl_SendingEmailError_Message %>"></asp:Literal></td>
                     </tr> 
                     <tr>
                         <td style="text-align:right;padding-top:10px;">

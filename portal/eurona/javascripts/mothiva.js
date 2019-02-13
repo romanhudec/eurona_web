@@ -248,6 +248,7 @@ function blockUIProcessing(message) {
             backgroundColor: '#fff',
             '-webkit-border-radius': '10px',
             '-moz-border-radius': '10px',
+            'border-radius': '10px',
             opacity: 1,
             color: '#EA008A'
         }
@@ -264,6 +265,7 @@ function blockUIAlert(title, message) {
             backgroundColor: '#fff',
             '-webkit-border-radius': '10px',
             '-moz-border-radius': '10px',
+            'border-radius': '10px',
             opacity: 1,
             color: '#EA008A'
         }

@@ -318,6 +318,14 @@ namespace Eurona.User.Anonymous {
                 Security.UpdateLoginTime();
             }
 
+            //Email validation process
+            if (Security.Account.IsInRole(Eurona.Common.DAL.Entities.Role.ADVISOR) || Security.Account.IsInRole(Eurona.Common.DAL.Entities.Role.ANONYMOUSADVISOR)) {
+                if (Security.Account.EmailVerified.HasValue == false) {
+                    Response.Redirect("~/user/requestEmailVerifycation.aspx");
+                    return;
+                }
+            }
+
             Response.Redirect(aliasUtilities.Resolve("~/user/anonymous/cart.aspx"));
         }
 

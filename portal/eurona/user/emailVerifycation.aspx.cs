@@ -7,10 +7,9 @@ using System.Web.Services;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
-namespace Eurona {
+namespace Eurona.User {
     public partial class EmailVerifycation : WebPage {
         protected void Page_Load(object sender, EventArgs e) {
-
         }
     }
 }

@@ -30,7 +30,7 @@
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
     <OutputPath>bin\</OutputPath>
-    <DefineConstants>TRACE;DEBUG;N__CUSTOM_ERROR;N__DEBUG_VERSION;N__DEBUG_VERSION_WITHOUTTVD;N__LOCAL_BANK_PAY</DefineConstants>
+    <DefineConstants>TRACE;DEBUG;N__CUSTOM_ERROR;__DEBUG_VERSION;__DEBUG_VERSION_WITHOUTTVD;N__LOCAL_BANK_PAY</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
@@ -155,7 +155,8 @@
     <Content Include="App_Themes\Default\TabStrip\TabStripVStates.png" />
     <Content Include="Controls\BKProductsControl.ascx" />
     <Content Include="Controls\BonusoveKredityUzivateleInfoControl.ascx" />
-    <Content Include="Controls\RequestEmailVerifyControl.ascx" />
+    <Content Include="styles\emailVerify.css" />
+    <Content Include="user\RequestEmailVerifyControl.ascx" />
     <Content Include="Controls\HomeFlashRotatorControl.ascx" />
     <Content Include="Controls\LoginControl.ascx" />
     <Content Include="Controls\HomeFlashControl.ascx" />
@@ -167,8 +168,8 @@
     <Content Include="changePassword.aspx" />
     <Content Include="images\success.png" />
     <Content Include="images\warning.png" />
-    <Content Include="requestEmailVerifycation.aspx" />
-    <Content Include="emailVerifycation.aspx" />
+    <Content Include="user\requestEmailVerifycation.aspx" />
+    <Content Include="user\emailVerifycation.aspx" />
     <Content Include="ddosattac.aspx" />
     <Content Include="datovyList.aspx" />
     <Content Include="error.aspx" />
@@ -279,6 +280,7 @@
     <Content Include="pay\csob\testPay.aspx" />
     <Content Include="pay\gp\paymentresult.aspx" />
     <Content Include="pay\gp\testPay.aspx" />
+    <Content Include="Scripts\dbUpgrade_2019_02_EmailVerify.sql" />
     <Content Include="Scripts\dbUpgrade_2018_11.sql" />
     <Content Include="Scripts\dbUpgrade_201711.sql" />
     <Content Include="Scripts\dbUpgrade_201704.sql" />
@@ -1264,11 +1266,11 @@
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Controls\AngelTeamHelper.cs" />
-    <Compile Include="Controls\RequestEmailVerifyControl.ascx.cs">
+    <Compile Include="user\RequestEmailVerifyControl.ascx.cs">
       <DependentUpon>RequestEmailVerifyControl.ascx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Controls\RequestEmailVerifyControl.ascx.designer.cs">
+    <Compile Include="user\RequestEmailVerifyControl.ascx.designer.cs">
       <DependentUpon>RequestEmailVerifyControl.ascx</DependentUpon>
     </Compile>
     <Compile Include="Controls\EShop\RepayOrderControl.cs">
@@ -1362,21 +1364,21 @@
       <DependentUpon>changePassword.aspx</DependentUpon>
     </Compile>
     <Compile Include="CookiesUtils.cs" />
-    <Compile Include="emailVerifycationService.ashx.cs">
+    <Compile Include="user\emailVerifycationService.ashx.cs">
       <DependentUpon>emailVerifycationService.ashx</DependentUpon>
     </Compile>
-    <Compile Include="requestEmailVerifycation.aspx.cs">
+    <Compile Include="user\requestEmailVerifycation.aspx.cs">
       <DependentUpon>requestEmailVerifycation.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="requestEmailVerifycation.aspx.designer.cs">
+    <Compile Include="user\requestEmailVerifycation.aspx.designer.cs">
       <DependentUpon>requestEmailVerifycation.aspx</DependentUpon>
     </Compile>
-    <Compile Include="emailVerifycation.aspx.cs">
+    <Compile Include="user\emailVerifycation.aspx.cs">
       <DependentUpon>emailVerifycation.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="emailVerifycation.aspx.designer.cs">
+    <Compile Include="user\emailVerifycation.aspx.designer.cs">
       <DependentUpon>emailVerifycation.aspx</DependentUpon>
     </Compile>
     <Compile Include="ddosattac.aspx.cs">
@@ -3256,7 +3258,7 @@
     <Content Include="rss\products.ashx" />
     <Content Include="empty.master" />
     <Content Include="getPPCFeed.ashx" />
-    <Content Include="emailVerifycationService.ashx" />
+    <Content Include="user\emailVerifycationService.ashx" />
     <None Include="Properties\PublishProfiles\Eurona.pubxml" />
     <Content Include="user\host\page.master" />
     <Content Include="user\advisor\page.master" />

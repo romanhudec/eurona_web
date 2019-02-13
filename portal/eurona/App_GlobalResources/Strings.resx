@@ -1150,13 +1150,13 @@ www.euronabycerny.com</value>
     <value>Prosím čekejte ...</value>
   </data>
   <data name="EmailVerifyControl_Email" xml:space="preserve">
-    <value>Zadejte Email pro ověření</value>
+    <value>Váš email k ověření</value>
   </data>
   <data name="EmailVerifyControl_EmailSended_Message" xml:space="preserve">
-    <value>Email byl úspěšne odeslan. Prosim, pokracujte linkem zaslanym na Váš email.</value>
+    <value>Na Váš email byl odeslán ověřovací odkaz. Pro vstup ověřte prosím prokliknutím odkazu z emailu.</value>
   </data>
   <data name="EmailVerifyControl_EmailValidation_EmailJeJizOveren" xml:space="preserve">
-    <value>Vami zadaný Email je již ověrený! Zadejte jiný email, nebo se přihlašte jiným účtem.</value>
+    <value>Tento mail je již ověřený k jinému účtu.</value>
   </data>
   <data name="EmailVerifyControl_EmailValidation_EmailNeexituje" xml:space="preserve">
     <value>Vami zadaný Email se v systému nenachází!</value>
@@ -1165,30 +1165,88 @@ www.euronabycerny.com</value>
     <value>Odeslat znovu</value>
   </data>
   <data name="EmailVerifyControl_OveritEmail" xml:space="preserve">
-    <value>Ověřit email</value>
+    <value>Ověřit</value>
   </data>
   <data name="EmailVerifyControl_Pokracovat" xml:space="preserve">
     <value>Pokračovat</value>
   </data>
   <data name="EmailVerifyControl_SendingEmailError_Message" xml:space="preserve">
-    <value>Při odesílání emailu doslo k chybe. Posim, zkuste to pozdeji.</value>
+    <value>Váš email se nepodařilo ověřit! Zkuste to prosím znova, případně kontaktujte naše obchodní oddělení na +420 491 477 361 nebo prodej@eurona.cz.</value>
   </data>
   <data name="EmailVerifyControl_SendingEmail_Message" xml:space="preserve">
-    <value>Na Vámi zadaný emai se práve odesíla mail, prosím čekejte ...</value>
+    <value>Na Vámi zadaný email se práve odesíla ověřovací odkaz, prosím čekejte ...</value>
   </data>
   <data name="EmailVerifyControl_Title" xml:space="preserve">
-    <value>Ověření Vašeho emailu</value>
+    <value>OVĚŘENÍ ÚČTU</value>
   </data>
   <data name="EmailVerifyControl_VerifyingEmail_Message" xml:space="preserve">
-    <value>Právě probíha verifykace Vašeho emailu. Prosím, čekejete ...</value>
+    <value>Právě probíhá ověření Vašeho emailu, vyčkejte prosím na přesměrování.</value>
   </data>
-  <data name="EmailVerifyControl_EmailVerified_Message" xml:space="preserve">
-    <value>Váš email byl úspěšne ověřen!</value>
+  <data name="EmailVerifyControl_VerifycationSuccessStep1_Title" xml:space="preserve">
+    <value>První část ověření splněna!</value>
   </data>
   <data name="EmailVerifyControl_EmailVerifiedFailed_Message" xml:space="preserve">
     <value>Váš email se nepodařilo ověřit! Zkuste ověření opakovat pozdeji.</value>
   </data>
   <data name="EmailVerifyControl_Opakovat" xml:space="preserve">
     <value>Opakovat</value>
+  </data>
+  <data name="EmailVerifyControl_DokoncitOvereni" xml:space="preserve">
+    <value>Změnit heslo a dokončit ověření</value>
+  </data>
+  <data name="EmailVerifyControl_Password" xml:space="preserve">
+    <value>Nyní prosím zvolte nové, bezpečné heslo</value>
+  </data>
+  <data name="EmailVerifyControl_PasswordRepeat" xml:space="preserve">
+    <value>Zopakovat heslo</value>
+  </data>
+  <data name="EmailVerifyControl_VerifycationSuccessFinish_Title" xml:space="preserve">
+    <value>Děkujeme, vše potřebné je již nastaveno.</value>
+  </data>
+  <data name="EmailVerifyControl_UserVerificationEmail_Message" xml:space="preserve">
+    <value>Dobrý den,
+&lt;br/&gt;
+pro ověření Vašeho eurona účtu prosím klikněte na následující &lt;a href='{0}'&gt;odkaz&lt;/a&gt;. 
+&lt;br/&gt;
+Ten Vás přesměruje na naše stránky a vyzve k zadání nového hesla. Zvolte si, prosím, bezpečné, alespoň 6ti místné heslo obsahující minimálně jedno velké a jedno malé písmeno a alespoň jedno číslo.
+Pokud se po kliknutí na odkaz nic neděje, označte jej kurzorem a zároveň pomocí kombinace kláves Ctrl+C zkopírujte a pomocí Ctrl+V vložte odkaz do adresního řádku internetového prohlížeče.
+Děkujeme za pochopení,
+&lt;br/&gt;&lt;br/&gt;
+Vaše Eurona by Cerny.</value>
+  </data>
+  <data name="EmailVerifyControl_UserVerificationEmail_Subject" xml:space="preserve">
+    <value>OVĚŘENÍ ÚČTU EURONA</value>
+  </data>
+  <data name="EmailVerifyControl_UserVerificationFinishEmail_Subject" xml:space="preserve">
+    <value>OVĚŘENÍ ÚČTU EURONA</value>
+  </data>
+  <data name="EmailVerifyControl_UserVerificationFinish_Message" xml:space="preserve">
+    <value>Dobrý den
+ověření úspěšně dokončeno, děkujeme… 
+Eurona a.s</value>
+  </data>
+  <data name="EmailVerifyControl_EmailDescriptionBottom" xml:space="preserve">
+    <value>Váš email s ověřovacím odkazem se poté stane i Vaším přihlašovacím jménem.</value>
+  </data>
+  <data name="EmailVerifyControl_EmailDescriptionTop" xml:space="preserve">
+    <value>Pro bezpečnost Vašeho účtu jsme nově upravili požadavky na nastavení.
+K jedné registraci je nyní přidružen pouze jeden emailový účet a naopak. Pro další účty nelze použít shodný email.</value>
+  </data>
+  <data name="EmailVerifyControl_EmailValidation_NespravnyFormat" xml:space="preserve">
+    <value>Nesprávný formát emailu</value>
+  </data>
+  <data name="EmailVerifyControl_PasswordDescriptionBottom" xml:space="preserve">
+    <value>S vědomím nejvyšší bezpečnosti Vašich osobních údajů klademe důraz na důslednou ochranu veškerých informací. Přihlašovací údaje, prosím, uchovávejte v diskrétnosti.</value>
+  </data>
+  <data name="EmailVerifyControl_PasswordDescriptionTop" xml:space="preserve">
+    <value>Nyní prosím zvolte nové, bezpečné heslo.</value>
+  </data>
+  <data name="EmailVerifyControl_VerifycationSuccessFinish_Message" xml:space="preserve">
+    <value>Zapamatujte si, prosím, Vaše nové přihlašovací údaje:
+Přihlašovací jméno: {0}
+Heslo: zvolené v předchozím kroku</value>
+  </data>
+  <data name="EmailVerifyControl_ZrusitOvereni" xml:space="preserve">
+    <value>Zrušit ověření a vrátit se na web.</value>
   </data>
 </root>

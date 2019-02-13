@@ -8,7 +8,7 @@ using System.Web.Services;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
-namespace Eurona.Controls {
+namespace Eurona.User {
     public partial class RequestEmailVerifyControl : System.Web.UI.UserControl {
         protected void Page_Load(object sender, EventArgs e) {
 

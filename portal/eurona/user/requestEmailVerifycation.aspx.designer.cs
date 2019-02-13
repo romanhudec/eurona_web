@@ -7,7 +7,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Eurona {
+namespace Eurona.User {
     
     
     public partial class RequestEmailVerifycation {
@@ -19,6 +19,6 @@ namespace Eurona {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::Eurona.Controls.RequestEmailVerifyControl RequestEmailVerifyControl;
+        protected global::Eurona.User.RequestEmailVerifyControl RequestEmailVerifyControl;
     }
 }
