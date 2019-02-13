@@ -70,6 +70,12 @@ namespace Eurona.User.Advisor {
                 this.btnMimoradnaNabidka.CommandArgument = mn.Alias;
             }
              * */
+
+            if (Page.Request.RawUrl.Contains("?verified")) {
+                if (Security.Account.IsInRole(Eurona.DAL.Entities.Role.ANONYMOUSADVISOR)) {
+                    Response.Redirect("~/user/anonymous/cart.aspx");
+                }
+            }
         }
 
         public OrganizationEntity LogedAdvisor {

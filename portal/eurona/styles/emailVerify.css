@@ -4,7 +4,7 @@
     font-weight:bold!important;
 }
 
-.message {
+.message span, .message {
     text-align:center;
     color:#3F3F3F!important;
     font-style:normal;

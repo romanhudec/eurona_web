@@ -23,7 +23,7 @@
             dataFilter: function (data) { return data; },
             success: function (data) {
                 if (data.Status != 0) {
-                    labelElm.innerText = data.Message;
+                    labelElm.innerText = data.ErrorMessage;
                     labelElm.style.display = "block";
                 } else {
                     btnVerifyElm.disabled = false;

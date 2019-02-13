@@ -42,11 +42,10 @@
         });
 
         function startVerifycationProcess() {
-            var code="<%=Page.Request["code"]%>";
             showLayoutVerifycationProcess();
             $.ajax({
                 url: "<%=Page.ResolveUrl("~/user/emailVerifycationService.ashx")%>?method=verify",
-                data: code,
+                data: "<%=Page.Request["code"]%>",
                 dataType: "json",
                 type: "POST",
                 contentType: "application/json; charset=utf-8",
@@ -55,11 +54,11 @@
                     if (data.Status == 0) {
                         showLayoutVerifycationSuccessStep1();
                     } else {
-                        showLayoutVerifycationFailed();
+                        showLayoutVerifycationFailed(data.ErrorMessage);
                     }
                 },
                 error: function (XMLHttpRequest, textStatus, errorThrown) {
-                    showLayoutVerifycationFailed();
+                    showLayoutVerifycationFailed(null);
                 }
             });
         }
@@ -72,12 +71,16 @@
             layoutVerifycationFailed.style.display = 'none';
         }
 
-        function showLayoutVerifycationFailed() {
+        function showLayoutVerifycationFailed(message) {
             verifyForm.style.display = 'block';
             layoutVerifycationProcess.style.display = 'none';
             layoutVerifycationSuccessStep1.style.display = 'none';
             layoutVerifycationSuccessFinish.style.display = 'none';
             layoutVerifycationFailed.style.display = 'block';
+            var lblErrorMesage = document.getElementById('<%=lblErrorMesage.ClientID%>');
+            if (message != null) {
+                lblErrorMesage.innerHTML = message;
+            }
         }
 
         function showLayoutVerifycationSuccessStep1() {
@@ -114,11 +117,11 @@
                     if (data.Status == 0) {
                         showLayoutVerifycationSuccessFinish(data.Message);
                     } else {
-                        showLayoutVerifycationFailed();
+                        showLayoutVerifycationFailed(data.ErrorMessage);
                     }
                 },
                 error: function (XMLHttpRequest, textStatus, errorThrown) {
-                    showLayoutVerifycationFailed();
+                    showLayoutVerifycationFailed(null);
                 }
             });
         }
@@ -143,19 +146,16 @@
         function onContinueToOffice() {
             $.ajax({
                 url: "<%=Page.ResolveUrl("~/user/emailVerifycationService.ashx")%>?method=getRedirectUrlAfterVerify",
-                data: "",
+                data: "<%=Page.Request["code"]%>",
                 dataType: "json",
                 type: "POST",
                 contentType: "application/json; charset=utf-8",
                 dataFilter: function (data) { return data; },
                 success: function (data) {
-                    if (data.Url.length == 0)
-                        location.href = "<%=Page.ResolveUrl("~/user/advisor/default.aspx")%>";
-                    else
-                        location.href = data.Url;
+                    location.href = "<%=Page.ResolveUrl("~/user/advisor/default.aspx?verified")%>";
                 },
                 error: function (XMLHttpRequest, textStatus, errorThrown) {
-                    location.href = "<%=Page.ResolveUrl("~/user/advisor/default.aspx")%>";
+                    location.href = "<%=Page.ResolveUrl("~/user/advisor/default.aspx?verified")%>";
                 }
             });
         }
@@ -275,7 +275,7 @@
             <table style="text-align:center;margin: 0 auto;width:100%;">
                 <tr><td><h4><asp:Literal ID="Literal4" runat="server" Text="<%$ Resources:Strings, EmailVerifyControl_Title %>"></asp:Literal></h4></td></tr>
                 <tr><td style="text-align:center;"><asp:Image ID="Image2" runat="server" ImageUrl="~/images/warning.png" /></td></tr> 
-                <tr><td class="message"><asp:Literal ID="Literal3" runat="server" Text="<%$ Resources:Strings, EmailVerifyControl_EmailVerifiedFailed_Message %>"></asp:Literal></td></tr> 
+                <tr><td class="message"><asp:Label ID="lblErrorMesage" runat="server" Text="<%$ Resources:Strings, EmailVerifyControl_EmailVerifiedFailed_Message %>"></asp:Label></td></tr> 
                 <tr>
                     <td style="text-align:right;padding-top:10px;">
                         <asp:Button ID="Button1" runat="server" CssClass="button" Text="<%$ Resources:Strings, EmailVerifyControl_Opakovat %>" OnClientClick="startVerifycationProcess();" />
