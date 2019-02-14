@@ -24,8 +24,9 @@
                 overlayCSS: { backgroundColor: '#333' },
                 css: {
                     top: '30%',
-                    width: '30%',
-                    left: '35%',
+                    width: 'aouto',
+                    left: '32%',
+                    right: '32%',
                     cursor: 'default',
                     border: 'none',
                     padding: '15px',
@@ -169,14 +170,11 @@
             var btnContinueToFinish = document.getElementById('<%=btnContinueToFinish.ClientID%>');
             // at least one number, one lowercase and one uppercase letter
             // at least six characters that are letters, numbers or the underscore
-            var strongRegex = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])\w{8,}$/;
+            var strongRegex = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])\w{6,}$/;
             var elmErrorMessage = document.getElementById('<%=lblValidatorTextPwd.ClientID%>');           
             var elmErrorMessageRepeat = document.getElementById('<%=lblValidatorTextPwdRepeat.ClientID%>');
             var elm = document.getElementById('<%=txtPwd.ClientID%>');
             var elmRepeat = document.getElementById('<%=txtPwdRepeat.ClientID%>');
-
-            elmErrorMessage.innerText = "Vámi zadané heslo nesplňuje bezpečnostní podmíky...";
-            elmErrorMessageRepeat.innerText = "Heslo a opakované heslo se nezhodují!";
 
             if (elm.value.length == 0 && elmRepeat.value.length == 0) {
                 elmErrorMessage.style.display = 'block';
@@ -224,14 +222,14 @@
                         </div>
                         <asp:TextBox runat="server" ID="txtPwd" Width="100%" TextMode="Password" CssClass="form-control" oninput="validatePwd();"></asp:TextBox>
                         <div class="validation-message">
-                            <asp:Label runat="server" ID="lblValidatorTextPwd" ForeColor="#EA008A" style="display:none;"></asp:Label>
+                            <asp:Label runat="server" ID="lblValidatorTextPwd" Text="<%$ Resources:Strings, EmailVerifyControl_PasswordErrorMessage %>" ForeColor="#EA008A" style="display:none;"></asp:Label>
                         </div>
                         <div class="input-label">
                             <asp:Label ID="Label6" runat="server" Text="<%$ Resources:Strings, EmailVerifyControl_PasswordRepeat %>"></asp:Label>
                         </div>
                         <asp:TextBox runat="server" ID="txtPwdRepeat" Width="100%" TextMode="Password" CssClass="form-control" oninput="validatePwd();"></asp:TextBox>
                         <div class="validation-message">
-                            <asp:Label runat="server" ID="lblValidatorTextPwdRepeat" ForeColor="#EA008A" style="display:none;"></asp:Label>
+                            <asp:Label runat="server" ID="lblValidatorTextPwdRepeat" Text="<%$ Resources:Strings, EmailVerifyControl_PasswordRepeatErrorMessage %>" ForeColor="#EA008A" style="display:none;"></asp:Label>
                         </div>
                     </td>
                 </tr>

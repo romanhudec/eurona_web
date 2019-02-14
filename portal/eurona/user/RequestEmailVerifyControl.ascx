@@ -105,9 +105,9 @@
                             <div class="validation-message">
                                 <asp:Label runat="server" ID="lblValidatorText" style="display:none;"></asp:Label>
                             </div>
-                            <div class="input-description">
+<%--                            <div class="input-description">
                                 <asp:Label runat="server" ID="Label3" Text="<%$ Resources:Strings, EmailVerifyControl_EmailDescriptionBottom %>" ></asp:Label>
-                            </div>
+                            </div>--%>
                         </td>
                     </tr>
                     <tr>

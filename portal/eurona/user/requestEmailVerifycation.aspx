@@ -23,7 +23,7 @@
                 css: {
                     top: '30%',
                     width: '30%',
-                    left: '37%',
+                    left: '35%',
                     cursor: 'default',
                     border: 'none',
                     padding: '15px',

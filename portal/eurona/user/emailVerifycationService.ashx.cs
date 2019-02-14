@@ -132,7 +132,7 @@ namespace Eurona.User {
             //Check IP
             if (ipAddress != Utilities.GetUserIP(context.Request)) {
                 status = (int)JSONResponseStatus.ERROR;
-                errorMessage = String.Format("Ověření z jiného zařízení! Ověření prosím dokončete na zařízení na které bylo započato.", accountByVerifyCode.EmailToVerify);
+                errorMessage = String.Format("Ověření z jiného zařízení! Ověření prosím dokončete na zařízení na kterém bylo započato.", accountByVerifyCode.EmailToVerify);
                 sbJson.AppendFormat("{{ \"Status\":\"{0}\", \"ErrorMessage\":\"{1}\" }}", status, errorMessage);
                 context.Response.ContentType = "application/json; charset=utf-8";
                 context.Response.Write(sbJson.ToString());

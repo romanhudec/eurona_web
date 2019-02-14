@@ -800,7 +800,7 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Váš email k ověření.
+        ///   Looks up a localized string similar to Zadejte email pro ověření:.
         /// </summary>
         internal static string EmailVerifyControl_Email {
             get {
@@ -818,8 +818,7 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Pro bezpečnost Vašeho účtu jsme nově upravili požadavky na nastavení.
-        ///K jedné registraci je nyní přidružen pouze jeden emailový účet a naopak. Pro další účty nelze použít shodný email..
+        ///   Looks up a localized string similar to Pro zabezpečení Vašeho zákaznického účtu Eurona, prosím, zadejte Vaši platnou emailovou adresu. Vaše emailová adresa se stane Vaším novým jedinečným Přihlašovacím jménem k zákaznickému účtu. Uvedenou emailovou adresu nelze zadat pro více zákaznických účtů!.
         /// </summary>
         internal static string EmailVerifyControl_EmailDescriptionTop {
             get {
@@ -828,7 +827,7 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Na Váš email byl odeslán ověřovací odkaz. Pro vstup ověřte prosím prokliknutím odkazu z emailu..
+        ///   Looks up a localized string similar to Na Vaši emailovou adresu byl úspěšně odeslán ověřovací odkaz. Pro dokončení ověření klikněte na odkaz v emailu. Děkujeme..
         /// </summary>
         internal static string EmailVerifyControl_EmailSended_Message {
             get {
@@ -900,7 +899,7 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Nyní prosím zvolte nové, bezpečné heslo.
+        ///   Looks up a localized string similar to Nyní prosím zvolte nové, bezpečné heslo:.
         /// </summary>
         internal static string EmailVerifyControl_Password {
             get {
@@ -927,11 +926,29 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Zopakovat heslo.
+        ///   Looks up a localized string similar to Vámi zadané heslo nesplňuje bezpečnostní podmínky. Musí být min. 6místné s obsahem min. 1 velké písmeno, 1 malé písmeno a 1 číslici..
+        /// </summary>
+        internal static string EmailVerifyControl_PasswordErrorMessage {
+            get {
+                return ResourceManager.GetString("EmailVerifyControl_PasswordErrorMessage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Zopakovat heslo:.
         /// </summary>
         internal static string EmailVerifyControl_PasswordRepeat {
             get {
                 return ResourceManager.GetString("EmailVerifyControl_PasswordRepeat", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Heslo a opakované heslo se neshodují!.
+        /// </summary>
+        internal static string EmailVerifyControl_PasswordRepeatErrorMessage {
+            get {
+                return ResourceManager.GetString("EmailVerifyControl_PasswordRepeatErrorMessage", resourceCulture);
             }
         }
         
@@ -954,7 +971,7 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Na Vámi zadaný email se práve odesíla ověřovací odkaz, prosím čekejte ....
+        ///   Looks up a localized string similar to Na Vámi zadanou emailovou adresu se právě odesílá ověřovací odkaz, prosím čekejte….
         /// </summary>
         internal static string EmailVerifyControl_SendingEmail_Message {
             get {
@@ -972,13 +989,16 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Dobrý den,
-        ///&lt;br/&gt;
-        ///pro ověření Vašeho eurona účtu prosím klikněte na následující &lt;a href=&apos;{0}&apos;&gt;odkaz&lt;/a&gt;. 
-        ///&lt;br/&gt;
-        ///Ten Vás přesměruje na naše stránky a vyzve k zadání nového hesla. Zvolte si, prosím, bezpečné, alespoň 6ti místné heslo obsahující minimálně jedno velké a jedno malé písmeno a alespoň jedno číslo.
-        ///Pokud se po kliknutí na odkaz nic neděje, označte jej kurzorem a zároveň pomocí kombinace kláves Ctrl+C zkopírujte a pomocí Ctrl+V vložte odkaz do adresního řádku internetového prohlížeče.
-        ///Děkujeme  [rest of string was truncated]&quot;;.
+        ///   Looks up a localized string similar to Dobrý den,&lt;br/&gt;&lt;br/&gt;
+        ///pro ověření Vašeho zákaznického účtu Eurona prosím klikněte na následující odkaz, který Vás přesměruje na stránky EuronabyCerny a vyzve k         ///
+        ///zadání nového hesla.
+        ///&lt;br/&gt;&lt;br/&gt;
+        ///[&lt;a href=&apos;{0}&apos;&gt;odkaz&lt;/a&gt;]
+        ///&lt;br/&gt;&lt;br/&gt;
+        ///Zvolte si, prosím, bezpečné, alespoň 6místné heslo, které bude obsahovat minimálně jedno velké písmeno, jedno malé písmeno a alespoň jednu         ///
+        ///číslici.
+        ///&lt;br/&gt;&lt;br/&gt;
+        ///Pokud se po kliknutí na odkaz nic neděje, označte jej kurzorem a zároveň pomocí kombinace kláves Ctrl+C zkopíruj [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string EmailVerifyControl_UserVerificationEmail_Message {
             get {
@@ -1027,7 +1047,7 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Děkujeme, vše potřebné je již nastaveno..
+        ///   Looks up a localized string similar to Děkujeme, právě jste dokončil/a ověření Vašeho zákaznického účtu!.
         /// </summary>
         internal static string EmailVerifyControl_VerifycationSuccessFinish_Title {
             get {
@@ -1054,7 +1074,7 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Zrušit ověření a vrátit se na web..
+        ///   Looks up a localized string similar to Pokračovat bez přihlášení.
         /// </summary>
         internal static string EmailVerifyControl_ZrusitOvereni {
             get {
