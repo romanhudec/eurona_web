@@ -647,7 +647,7 @@ E: prodej@eurona.cz</value>
     <value>Pre konečné odoslanie objednávky</value>
   </data>
   <data name="AdminOrderControl_save_text" xml:space="preserve">
-    <value>Uložte objednávku pre združenia, alebo prípadnú úpravu</value>
+    <value>Uložte objednávku pre neskoršie úpravy.</value>
   </data>
   <data name="AdminOrderControl_warning" xml:space="preserve">
     <value>&lt;b&gt;VYPLŇTE DORUČOVACÍ ÚDAJE&lt;/b&gt;</value>
