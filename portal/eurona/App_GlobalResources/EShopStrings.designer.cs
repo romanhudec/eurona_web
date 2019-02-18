@@ -214,7 +214,7 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Uložte objednávku pro sdružení, nebo případnou úpravu.
+        ///   Looks up a localized string similar to Uložte objednávku pro pozdější úpravy..
         /// </summary>
         internal static string AdminOrderControl_save_text {
             get {

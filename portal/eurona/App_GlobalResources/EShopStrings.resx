@@ -659,7 +659,7 @@ Your order is currently in progress. Statu your order can see on : {0}</value>
     <value>Pro konečné odeslání objednávky</value>
   </data>
   <data name="AdminOrderControl_save_text" xml:space="preserve">
-    <value>Uložte objednávku pro sdružení, nebo případnou úpravu</value>
+    <value>Uložte objednávku pro pozdější úpravy.</value>
   </data>
   <data name="AdminOrderControl_warning" xml:space="preserve">
     <value>&lt;b&gt;VYPLŇTE DORUČOVACÍ ÚDAJE&lt;/b&gt;</value>
