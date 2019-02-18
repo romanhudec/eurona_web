@@ -26,7 +26,7 @@ namespace Eurona.PAY.CSOB {
 
         public PaymentInitResponse InitPayment(System.Web.UI.Page page) {
             if (paymentInit == null) throw new InvalidOperationException("No payment initialize!!!");
-            CMS.EvenLog.WritoToEventLog(string.Format("InitPayment, OrderId:{0}", this.paymentInit.orderNo), EventLogEntryType.Information);
+            CMS.EvenLog.WritoToEventLog(string.Format("InitPayment, Order VS:{0}", this.paymentInit.orderNo), EventLogEntryType.Information);
 
             string paymentMerchantID = CMS.Utilities.ConfigUtilities.ConfigValue("SHP:PAY:CSOB:MerchantID", page);
             string paymentGatewayUrl = CMS.Utilities.ConfigUtilities.ConfigValue("SHP:PAY:CSOB:PaymentGatewayUrl", page);
@@ -61,7 +61,7 @@ namespace Eurona.PAY.CSOB {
         public void ProcessPayment(System.Web.UI.Page page, PaymentInitResponse paymentInitResponse) {
             //Požadavek obsahuje položky přímo v URL adrese https://api.platebnibrana.csob.cz/api/v1/payment/process/{merchantId}/{payId}/{dttm}/{signature}
             if (paymentInitResponse == null) throw new InvalidOperationException("No payment initialize response!!!");
-            CMS.EvenLog.WritoToEventLog(string.Format("ProcessPayment, OrderId:{0}", this.paymentInit.orderNo), EventLogEntryType.Information);
+            CMS.EvenLog.WritoToEventLog(string.Format("ProcessPayment, Order VS:{0}", this.paymentInit.orderNo), EventLogEntryType.Information);
 
             string apiUrl = CMS.Utilities.ConfigUtilities.ConfigValue("SHP:PAY:CSOB:PaymentGatewayUrl", page);
             string method = "/payment/process";
@@ -157,7 +157,7 @@ namespace Eurona.PAY.CSOB {
         /// Vytorenie objektu Pay transakcie.
         /// </summary>
         public static Transaction CreateTransaction(OrderEntity order, string vs, System.Web.UI.Page page) {
-            CMS.EvenLog.WritoToEventLog(string.Format("CreatePaymentTransaction, ID:{0}, Order Number:{1}", order.Id, order.OrderNumber), EventLogEntryType.Information);
+            CMS.EvenLog.WritoToEventLog(string.Format("CreatePaymentTransaction, ID:{0}, Order Number:{1}, VS:{2}", order.Id, order.OrderNumber, vs), EventLogEntryType.Information);
             AccountEntity account = Storage<AccountEntity>.ReadFirst(new AccountEntity.ReadById { AccountId = order.AccountId });
             decimal priceTotalWithWAT = order.PriceWVAT;
 
