@@ -118,28 +118,28 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="Attachment" xml:space="preserve">
-    <value>Attachment</value>
+    <value>Příloha</value>
   </data>
   <data name="Boolean" xml:space="preserve">
-    <value>Yes/No</value>
+    <value>Ano/Ne</value>
   </data>
   <data name="Choice" xml:space="preserve">
-    <value>Choice</value>
+    <value>Jednoznačný výběr</value>
   </data>
   <data name="Double" xml:space="preserve">
-    <value>Double</value>
+    <value>Desetinné číslo</value>
   </data>
   <data name="Int" xml:space="preserve">
-    <value>Integer</value>
+    <value>Celé číslo</value>
   </data>
   <data name="MultiChoice" xml:space="preserve">
-    <value>Multichoice</value>
+    <value>Viaceznačný výběr</value>
   </data>
   <data name="None" xml:space="preserve">
     <value />
   </data>
   <data name="Picture" xml:space="preserve">
-    <value>Picture</value>
+    <value>Obrázek</value>
   </data>
   <data name="String" xml:space="preserve">
     <value>Text</value>

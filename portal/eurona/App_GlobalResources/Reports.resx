@@ -118,7 +118,7 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="Advisor" xml:space="preserve">
-    <value>Advisor :</value>
+    <value>Poradce : </value>
   </data>
   <data name="AktivityReportPoradce" xml:space="preserve">
     <value>&gt; Aktivity report poradce</value>
@@ -131,6 +131,12 @@
   </data>
   <data name="AktualnyNarokBonusu" xml:space="preserve">
     <value>Aktuální nárok bonusů</value>
+  </data>
+  <data name="Bez21Poradcu" xml:space="preserve">
+    <value>Bez 21% poradců</value>
+  </data>
+  <data name="Bez21Skupin" xml:space="preserve">
+    <value>Osobní skupina bez 21% podřízených skupin</value>
   </data>
   <data name="BodyDoDosazeniDalsiUrovne" xml:space="preserve">
     <value>body do dosažení další úrovně</value>
@@ -180,17 +186,44 @@
   <data name="DatumReg_Column" xml:space="preserve">
     <value>Datum reg.</value>
   </data>
+  <data name="DatumVymazu_Column" xml:space="preserve">
+    <value>Datum zrušení</value>
+  </data>
+  <data name="DenniPrehledObjednavek" xml:space="preserve">
+    <value>&gt; Denní přehled objednávek</value>
+  </data>
+  <data name="DenniPrehledObjednavek_Title" xml:space="preserve">
+    <value>Denní přehled objednávek</value>
+  </data>
+  <data name="DnesZauctovanaProdukce" xml:space="preserve">
+    <value>&gt; Dnes zaúčtovaná produkce</value>
+  </data>
+  <data name="DnesZauctovanaProdukce_Title" xml:space="preserve">
+    <value>Dnes zaúčtovaná produkce</value>
+  </data>
   <data name="Generovat" xml:space="preserve">
     <value>Generovat</value>
   </data>
   <data name="GenerovatMujMesicniReportPDF" xml:space="preserve">
     <value>Generovat můj měsíční report ve formátu pdf</value>
   </data>
+  <data name="HistorieObjednavek" xml:space="preserve">
+    <value>&gt; Historie objednávek</value>
+  </data>
+  <data name="HistorieObjednavek_Title" xml:space="preserve">
+    <value>Historie objednávek</value>
+  </data>
+  <data name="Jmeno" xml:space="preserve">
+    <value>jméno</value>
+  </data>
   <data name="JmenoSp_Column" xml:space="preserve">
     <value>Jméno sp.</value>
   </data>
   <data name="Jmeno_Column" xml:space="preserve">
     <value>Jméno</value>
+  </data>
+  <data name="KodPoradce" xml:space="preserve">
+    <value>kód poradce</value>
   </data>
   <data name="KreditZiskanyVMesici" xml:space="preserve">
     <value>kredit získaný v měsíci</value>
@@ -203,6 +236,9 @@
   </data>
   <data name="Mesic_Column" xml:space="preserve">
     <value>Měsíc</value>
+  </data>
+  <data name="MobilniTelefon" xml:space="preserve">
+    <value>mobilní telefon</value>
   </data>
   <data name="NezauctovanaProdukcevReportech" xml:space="preserve">
     <value>&gt; Nezaúčtovaná produkce v reportech</value>
@@ -217,7 +253,7 @@
     <value>Noví poradci</value>
   </data>
   <data name="Obdobi" xml:space="preserve">
-    <value>Období :</value>
+    <value>Období : </value>
   </data>
   <data name="ObjemProMarzi_Column" xml:space="preserve">
     <value>objem pro marži</value>
@@ -231,11 +267,26 @@
   <data name="OsobniPrehledPoradce_Title" xml:space="preserve">
     <value>Osobní přehled poradce</value>
   </data>
+  <data name="OsobniSkupiny" xml:space="preserve">
+    <value>Osobní skupiny</value>
+  </data>
   <data name="PredbeznyNarokNaMarziProPristiMesic" xml:space="preserve">
     <value>předběžný nárok na marži pro příští měsíc % </value>
   </data>
+  <data name="PrehledObjednavek" xml:space="preserve">
+    <value>&gt; Přehled objednávek</value>
+  </data>
+  <data name="PrehledObjednavek_Title" xml:space="preserve">
+    <value>Přehled objednávek</value>
+  </data>
   <data name="PrehledProdukceSkupiny" xml:space="preserve">
     <value>&gt; Přehled produkce skupiny</value>
+  </data>
+  <data name="PrehledProdukceSkupinyATP" xml:space="preserve">
+    <value>&gt; Přehled produkce skupiny ATP</value>
+  </data>
+  <data name="PrehledProdukceSkupinyATP_Title" xml:space="preserve">
+    <value>Přehled produkce skupiny ATP</value>
   </data>
   <data name="PrehledProdukceSkupiny_Title" xml:space="preserve">
     <value>Přehled produkce skupiny</value>
@@ -245,6 +296,9 @@
   </data>
   <data name="ProDosazeni25MarzeZbyvaObjednat" xml:space="preserve">
     <value>Pro dosažení 25% marže Vám zbývá objednat výrobky za BO</value>
+  </data>
+  <data name="ProDosazeni30MarzeZbyvaObjednat" xml:space="preserve">
+    <value>Pro dosažení 30% marže Vám zbývá objednat výrobky za BO</value>
   </data>
   <data name="ProvizeVAktualnimMesiciZeSkupiny" xml:space="preserve">
     <value>provize v aktuálním měsíci ze skupiny</value>
@@ -267,6 +321,12 @@
   <data name="SoucetBonusu" xml:space="preserve">
     <value>součet bonusů</value>
   </data>
+  <data name="TelefonDomu" xml:space="preserve">
+    <value>telefon domů</value>
+  </data>
+  <data name="TelefonDoPrace" xml:space="preserve">
+    <value>telefon do práce</value>
+  </data>
   <data name="TelefonSp_Column" xml:space="preserve">
     <value>Telefon sp.</value>
   </data>
@@ -288,73 +348,10 @@
   <data name="ZpetDoMojiKancelare" xml:space="preserve">
     <value>Zpět do mojí kanceláře</value>
   </data>
-  <data name="Jmeno" xml:space="preserve">
-    <value>jméno</value>
-  </data>
-  <data name="KodPoradce" xml:space="preserve">
-    <value>kód poradce</value>
-  </data>
-  <data name="MobilniTelefon" xml:space="preserve">
-    <value>mobilní telefon</value>
-  </data>
-  <data name="ProDosazeni30MarzeZbyvaObjednat" xml:space="preserve">
-    <value>Pro dosažení 30% marže Vám zbývá objednat výrobky za BO</value>
-  </data>
-  <data name="TelefonDomu" xml:space="preserve">
-    <value>telefon domů</value>
-  </data>
-  <data name="TelefonDoPrace" xml:space="preserve">
-    <value>telefon do práce</value>
-  </data>
-  <data name="DnesZauctovanaProdukce" xml:space="preserve">
-    <value>&gt; Dnes zaúčtovaná produkce</value>
-  </data>
-  <data name="DnesZauctovanaProdukce_Title" xml:space="preserve">
-    <value>Dnes zaúčtovaná produkce</value>
-  </data>
-  <data name="HistorieObjednavek" xml:space="preserve">
-    <value>&gt; Historie objednávek</value>
-  </data>
-  <data name="HistorieObjednavek_Title" xml:space="preserve">
-    <value>Historie objednávek</value>
-  </data>
-  <data name="Bez21Poradcu" xml:space="preserve">
-    <value>Bez 21% poradců</value>
-  </data>
-  <data name="Bez21Skupin" xml:space="preserve">
-    <value>Osobní skupina bez 21% podřízených skupin</value>
-  </data>
-  <data name="PrehledProdukceSkupinyATP" xml:space="preserve">
-    <value>&gt; Přehled produkce skupiny</value>
-  </data>
-  <data name="PrehledProdukceSkupinyATP_Title" xml:space="preserve">
-    <value>Přehled produkce skupiny</value>
-  </data>
-  <data name="DatumVymazu_Column" xml:space="preserve">
-    <value>Datum zrušení</value>
-  </data>
   <data name="ZruseniPoradci" xml:space="preserve">
     <value>&gt; Zrušení poradci</value>
   </data>
   <data name="ZruseniPoradci_Title" xml:space="preserve">
     <value>Zrušení poradci</value>
-  </data>
-  <data name="JenMojeSkupina" xml:space="preserve">
-    <value>Jen moje skupina</value>
-  </data>
-  <data name="DenniPrehledObjednavek" xml:space="preserve">
-    <value>&gt; Denní přehled objednávek</value>
-  </data>
-  <data name="DenniPrehledObjednavek_Title" xml:space="preserve">
-    <value>Denní přehled objednávek</value>
-  </data>
-  <data name="PrehledObjednavek" xml:space="preserve">
-    <value>&gt; Přehled objednávek</value>
-  </data>
-  <data name="OsobniSkupiny" xml:space="preserve">
-    <value>Osobní skupiny</value>
-  </data>
-  <data name="PrehledObjednavek_Title" xml:space="preserve">
-    <value>Přehled objednávek</value>
   </data>
 </root>

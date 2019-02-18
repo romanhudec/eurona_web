@@ -117,44 +117,62 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="EditColumnText" xml:space="preserve">
+    <value>Upravit</value>
+  </data>
+  <data name="RadGrid_ClientSettings_ClientMessages_DragToGroupOrReorder" xml:space="preserve">
+    <value>Potáhnete pro seskupeni anebo změnu pořadí</value>
+  </data>
+  <data name="RadGrid_ClientSettings_ClientMessages_DragToResize" xml:space="preserve">
+    <value>Potáhnete pro změnu velikosti</value>
+  </data>
+  <data name="RadGrid_ClientSettings_ClientMessages_DropHereToReorder" xml:space="preserve">
+    <value>Přesunte sem pro změnu pořadí</value>
+  </data>
+  <data name="RadGrid_ClientSettings_ClientMessages_PagerTooltipFormatString" xml:space="preserve">
+    <value>Stránka {0} z {1}</value>
+  </data>
   <data name="RadGrid_FilterMenu_ToolTip" xml:space="preserve">
-    <value>Filter</value>
+    <value>Filtr</value>
   </data>
   <data name="RadGrid_GroupingSettings_CollapseTooltip" xml:space="preserve">
-    <value>Collapse group</value>
+    <value>Zbalit skupinu</value>
   </data>
   <data name="RadGrid_GroupingSettings_ExpandTooltip" xml:space="preserve">
-    <value>Expand group</value>
+    <value>Rozbalit skupinu</value>
   </data>
   <data name="RadGrid_GroupingSettings_GroupByFieldsSeparator" xml:space="preserve">
     <value>; </value>
   </data>
   <data name="RadGrid_GroupingSettings_GroupContinuedFormatString" xml:space="preserve">
-    <value>... group continued from the previous page.</value>
+    <value>... seskupení pokračující z předcházející stránky.</value>
   </data>
   <data name="RadGrid_GroupingSettings_GroupContinuesFormatString" xml:space="preserve">
-    <value>Group continues on the next page.</value>
+    <value>Seskupení pokračuje na další stránce.</value>
   </data>
   <data name="RadGrid_GroupingSettings_GroupSplitDisplayFormat" xml:space="preserve">
-    <value>Showing {0} of {1} items.</value>
+    <value>Zobrazených {0} z {1} záznamů.</value>
   </data>
   <data name="RadGrid_GroupingSettings_GroupSplitFormat" xml:space="preserve">
     <value> ({0})</value>
   </data>
+  <data name="RadGrid_GroupingSettings_UnGroupButtonTooltip" xml:space="preserve">
+    <value>Kliknete zde pro zrušení seskupení</value>
+  </data>
   <data name="RadGrid_GroupingSettings_UnGroupTooltip" xml:space="preserve">
-    <value>Drag out of the bar to ungroup</value>
+    <value>Přemístete tento sloupec mimo panel, jestli chcete zrušit seskupování podle nej</value>
   </data>
   <data name="RadGrid_GroupPanel_Text" xml:space="preserve">
-    <value>Drag a column header and drop it here to group by that column</value>
+    <value>Sem přesunte sloupec, podle ktorého chcete seskupovat</value>
   </data>
   <data name="RadGrid_GroupPanel_ToolTip" xml:space="preserve">
-    <value>Drag the column here to group</value>
+    <value>Sem přesunte sloupec, podle ktorého chcete seskupovat</value>
   </data>
   <data name="RadGrid_HierarchySettings_CollapseTooltip" xml:space="preserve">
-    <value>Collapse</value>
+    <value>Zbalit</value>
   </data>
   <data name="RadGrid_HierarchySettings_ExpandTooltip" xml:space="preserve">
-    <value>Expand</value>
+    <value>Rozbalit</value>
   </data>
   <data name="RadGrid_HierarchySettings_SelfCollapseTooltip" xml:space="preserve">
     <value>Self reference collapse</value>
@@ -162,91 +180,73 @@
   <data name="RadGrid_HierarchySettings_SelfExpandTooltip" xml:space="preserve">
     <value>Self reference expand</value>
   </data>
+  <data name="RadGrid_MasterTableView_Caption" xml:space="preserve">
+    <value>Master tabuľka</value>
+  </data>
+  <data name="RadGrid_MasterTableView_CommandItemSettings_AddNewRecordText" xml:space="preserve">
+    <value>Přidat nový záznam</value>
+  </data>
+  <data name="RadGrid_MasterTableView_CommandItemSettings_RefreshText" xml:space="preserve">
+    <value>Obnovit</value>
+  </data>
+  <data name="RadGrid_MasterTableView_EditFormSettings_EditColumn_CancelText" xml:space="preserve">
+    <value>Zrušit</value>
+  </data>
+  <data name="RadGrid_MasterTableView_EditFormSettings_EditColumn_EditText" xml:space="preserve">
+    <value>Upravit</value>
+  </data>
+  <data name="RadGrid_MasterTableView_EditFormSettings_EditColumn_InsertText" xml:space="preserve">
+    <value>Přidat</value>
+  </data>
+  <data name="RadGrid_MasterTableView_EditFormSettings_EditColumn_UpdateText" xml:space="preserve">
+    <value>Úprava</value>
+  </data>
   <data name="RadGrid_MasterTableView_NoDetailRecordsText" xml:space="preserve">
-    <value>No child records to display.</value>
+    <value>Žádna data.</value>
   </data>
   <data name="RadGrid_MasterTableView_NoMasterRecordsText" xml:space="preserve">
-    <value>No records to display.</value>
+    <value>Žádna data.</value>
   </data>
   <data name="RadGrid_PagerStyle_FirstPageToolTip" xml:space="preserve">
-    <value>First Page</value>
+    <value>První stránka</value>
   </data>
   <data name="RadGrid_PagerStyle_LastPageToolTip" xml:space="preserve">
-    <value>Last Page</value>
+    <value>Poslední stránka</value>
   </data>
   <data name="RadGrid_PagerStyle_NextPagesToolTip" xml:space="preserve">
-    <value>Next Pages</value>
+    <value>Ďaľší stránky</value>
   </data>
   <data name="RadGrid_PagerStyle_NextPageToolTip" xml:space="preserve">
-    <value>Next Pages</value>
+    <value>Ďaľší stránka</value>
   </data>
   <data name="RadGrid_PagerStyle_PagerTextFormat" xml:space="preserve">
-    <value>Page {4} &amp;nbsp;Page &lt;strong&gt;{0}&lt;/strong&gt; of &lt;strong&gt;{1}&lt;/strong&gt;, items &lt;strong&gt;{2}&lt;/strong&gt; to &lt;strong&gt;{3}&lt;/strong&gt; of &lt;strong&gt;{5}&lt;/strong&gt;.</value>
+    <value>{4} &lt;strong&gt;{5}&lt;/strong&gt; záznamů v &lt;strong&gt;{1}&lt;/strong&gt; stránkach</value>
+  </data>
+  <data name="RadGrid_PagerStyle_PageSizeLabelText" xml:space="preserve">
+    <value>Počet záznamů na stránku :</value>
   </data>
   <data name="RadGrid_PagerStyle_PrevPagesToolTip" xml:space="preserve">
-    <value>Previous Pages</value>
+    <value>Předešlé stránky</value>
   </data>
   <data name="RadGrid_PagerStyle_PrevPageToolTip" xml:space="preserve">
-    <value>Previous Page</value>
+    <value>Předešlá stránka</value>
   </data>
   <data name="RadGrid_SortingSettings_SortedAscToolTip" xml:space="preserve">
-    <value>Sorted asc</value>
+    <value>Třídit sestupne</value>
   </data>
   <data name="RadGrid_SortingSettings_SortedDescToolTip" xml:space="preserve">
-    <value>Sorted desc</value>
+    <value>Třídit vzestupne</value>
   </data>
   <data name="RadGrid_SortingSettings_SortToolTip" xml:space="preserve">
-    <value>Click here to sort</value>
+    <value>Kliknete zde pro setřídení</value>
   </data>
   <data name="RadGrid_StatusBarSettings_LoadingText" xml:space="preserve">
-    <value>Loading...</value>
+    <value>Načítavam...</value>
   </data>
   <data name="RadGrid_StatusBarSettings_ReadyText" xml:space="preserve">
-    <value>Ready</value>
+    <value>Připraven</value>
   </data>
   <data name="RadGrid_ToolTip" xml:space="preserve">
     <value>RadGrid</value>
-  </data>
-  <data name="RadGrid_MasterTableView_CommandItemSettings_AddNewRecordText" xml:space="preserve">
-    <value>Add new record</value>
-  </data>
-  <data name="RadGrid_MasterTableView_CommandItemSettings_RefreshText" xml:space="preserve">
-    <value>Refresh</value>
-  </data>
-  <data name="RadGrid_MasterTableView_EditFormSettings_EditColumn_CancelText" xml:space="preserve">
-    <value>Cancel</value>
-  </data>
-  <data name="RadGrid_MasterTableView_EditFormSettings_EditColumn_EditText" xml:space="preserve">
-    <value>Edit</value>
-  </data>
-  <data name="RadGrid_MasterTableView_EditFormSettings_EditColumn_InsertText" xml:space="preserve">
-    <value>Add</value>
-  </data>
-  <data name="RadGrid_MasterTableView_EditFormSettings_EditColumn_UpdateText" xml:space="preserve">
-    <value>Update</value>
-  </data>
-  <data name="RadGrid_ClientSettings_ClientMessages_DragToResize" xml:space="preserve">
-    <value>Drag to resize</value>
-  </data>
-  <data name="RadGrid_ClientSettings_ClientMessages_DropHereToReorder" xml:space="preserve">
-    <value>Drop here to reorder</value>
-  </data>
-  <data name="RadGrid_ClientSettings_ClientMessages_DragToGroupOrReorder" xml:space="preserve">
-    <value>Drag to group or reorder</value>
-  </data>
-  <data name="RadGrid_ClientSettings_ClientMessages_PagerTooltipFormatString" xml:space="preserve">
-    <value>Page {0} of {1}</value>
-  </data>
-  <data name="RadGrid_MasterTableView_Caption" xml:space="preserve">
-    <value>Master table</value>
-  </data>
-  <data name="EditColumnText" xml:space="preserve">
-    <value>Edit</value>
-  </data>
-  <data name="RadGrid_GroupingSettings_UnGroupButtonTooltip" xml:space="preserve">
-    <value>Click here to cancel grouping</value>
-  </data>
-  <data name="RadGrid_PagerStyle_PageSizeLabelText" xml:space="preserve">
-    <value>Page size :</value>
   </data>
 </root>
