@@ -61,7 +61,7 @@ namespace SHP.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to City :.
+        ///   Looks up a localized string similar to Město :.
         /// </summary>
         public static string AddressControl_City {
             get {
@@ -79,7 +79,7 @@ namespace SHP.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to First Name :.
+        ///   Looks up a localized string similar to Jméno :.
         /// </summary>
         public static string AddressControl_FirstName {
             get {
@@ -88,7 +88,7 @@ namespace SHP.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Id1 :.
+        ///   Looks up a localized string similar to IČO :.
         /// </summary>
         public static string AddressControl_Id1 {
             get {
@@ -97,7 +97,7 @@ namespace SHP.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Id2 :.
+        ///   Looks up a localized string similar to DIČ :.
         /// </summary>
         public static string AddressControl_Id2 {
             get {
@@ -106,7 +106,7 @@ namespace SHP.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Id3 :.
+        ///   Looks up a localized string similar to IČ DPH :.
         /// </summary>
         public static string AddressControl_Id3 {
             get {
@@ -115,7 +115,7 @@ namespace SHP.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Last Name :.
+        ///   Looks up a localized string similar to Příjmení :.
         /// </summary>
         public static string AddressControl_LastName {
             get {
@@ -124,7 +124,7 @@ namespace SHP.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Notes :.
+        ///   Looks up a localized string similar to Poznámka :.
         /// </summary>
         public static string AddressControl_Notes {
             get {
@@ -133,7 +133,7 @@ namespace SHP.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Organization :.
+        ///   Looks up a localized string similar to Firma :.
         /// </summary>
         public static string AddressControl_Organization {
             get {
@@ -142,7 +142,7 @@ namespace SHP.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Phone :.
+        ///   Looks up a localized string similar to Telefon :.
         /// </summary>
         public static string AddressControl_Phone {
             get {
@@ -151,7 +151,7 @@ namespace SHP.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to State :.
+        ///   Looks up a localized string similar to Stát :.
         /// </summary>
         public static string AddressControl_State {
             get {
@@ -160,7 +160,7 @@ namespace SHP.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Street :.
+        ///   Looks up a localized string similar to Ulice :.
         /// </summary>
         public static string AddressControl_Street {
             get {
@@ -169,7 +169,7 @@ namespace SHP.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Zip :.
+        ///   Looks up a localized string similar to PSČ :.
         /// </summary>
         public static string AddressControl_Zip {
             get {
@@ -178,7 +178,7 @@ namespace SHP.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Default Value :.
+        ///   Looks up a localized string similar to Přednastavená hodnota :.
         /// </summary>
         public static string AdminAttributeControl_DefaultValue {
             get {
@@ -187,7 +187,7 @@ namespace SHP.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Name :.
+        ///   Looks up a localized string similar to Název :.
         /// </summary>
         public static string AdminAttributeControl_Name {
             get {
@@ -196,7 +196,7 @@ namespace SHP.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Type :.
+        ///   Looks up a localized string similar to Typ :.
         /// </summary>
         public static string AdminAttributeControl_Type {
             get {
@@ -205,7 +205,7 @@ namespace SHP.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Defaut value.
+        ///   Looks up a localized string similar to Přednastavená hodnota.
         /// </summary>
         public static string AdminAttributesControl_ColumnDefaultValue {
             get {
@@ -214,7 +214,7 @@ namespace SHP.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Name.
+        ///   Looks up a localized string similar to Název.
         /// </summary>
         public static string AdminAttributesControl_ColumnName {
             get {
@@ -223,7 +223,7 @@ namespace SHP.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Type.
+        ///   Looks up a localized string similar to Typ.
         /// </summary>
         public static string AdminAttributesControl_ColumnType {
             get {
@@ -232,7 +232,7 @@ namespace SHP.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to New attribute.
+        ///   Looks up a localized string similar to Nový atribut.
         /// </summary>
         public static string AdminAttributesControl_NewAttributeButton_Text {
             get {
@@ -241,7 +241,7 @@ namespace SHP.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Add value.
+        ///   Looks up a localized string similar to Přidat.
         /// </summary>
         public static string AdminAttributeTypeControl_AddValueButtonText {
             get {
@@ -250,7 +250,7 @@ namespace SHP.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to From :.
+        ///   Looks up a localized string similar to Z.
         /// </summary>
         public static string AdminAttributeTypeControl_FromLabel {
             get {
@@ -259,7 +259,7 @@ namespace SHP.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Remove selected value.
+        ///   Looks up a localized string similar to Smazat vybrané.
         /// </summary>
         public static string AdminAttributeTypeControl_RemoveSelectedValueButtonText {
             get {
@@ -268,7 +268,7 @@ namespace SHP.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to To :.
+        ///   Looks up a localized string similar to Do.
         /// </summary>
         public static string AdminAttributeTypeControl_ToLabel {
             get {
@@ -277,7 +277,7 @@ namespace SHP.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Value :.
+        ///   Looks up a localized string similar to Text.
         /// </summary>
         public static string AdminAttributeTypeControl_ValueLabelText {
             get {
@@ -286,7 +286,7 @@ namespace SHP.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Category Attributes.
+        ///   Looks up a localized string similar to Attributy kategorie.
         /// </summary>
         public static string AdminCategoriesControl_AttributesToolTip {
             get {
@@ -304,7 +304,7 @@ namespace SHP.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Name.
+        ///   Looks up a localized string similar to Název.
         /// </summary>
         public static string AdminCategoriesControl_ColumnName {
             get {
@@ -313,7 +313,7 @@ namespace SHP.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Order.
+        ///   Looks up a localized string similar to Pořadí.
         /// </summary>
         public static string AdminCategoriesControl_ColumnOrder {
             get {
@@ -322,7 +322,7 @@ namespace SHP.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to New category.
+        ///   Looks up a localized string similar to Nová kategorie.
         /// </summary>
         public static string AdminCategoriesControl_NewCategoryButton_Text {
             get {
@@ -331,7 +331,7 @@ namespace SHP.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Supcategories.
+        ///   Looks up a localized string similar to Podkategorie.
         /// </summary>
         public static string AdminCategoriesControl_SubCategoriesToolTip {
             get {
@@ -340,7 +340,7 @@ namespace SHP.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Name :.
+        ///   Looks up a localized string similar to Název :.
         /// </summary>
         public static string AdminCategoryControl_Name {
             get {
@@ -349,7 +349,7 @@ namespace SHP.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Order :.
+        ///   Looks up a localized string similar to Pořadí :.
         /// </summary>
         public static string AdminCategoryControl_Order {
             get {
@@ -358,7 +358,7 @@ namespace SHP.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Url Alias :.
+        ///   Looks up a localized string similar to Url alias :.
         /// </summary>
         public static string AdminCategoryControl_UrlAlias {
             get {
@@ -367,7 +367,7 @@ namespace SHP.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Order date.
+        ///   Looks up a localized string similar to Datum objednávky.
         /// </summary>
         public static string AdminOrdersControl_ColumnOrderDate {
             get {
@@ -376,7 +376,7 @@ namespace SHP.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Order number.
+        ///   Looks up a localized string similar to Číslo.
         /// </summary>
         public static string AdminOrdersControl_ColumnOrderNumber {
             get {
@@ -385,7 +385,7 @@ namespace SHP.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Status.
+        ///   Looks up a localized string similar to Stav.
         /// </summary>
         public static string AdminOrdersControl_ColumnOrderStatus {
             get {
@@ -394,7 +394,7 @@ namespace SHP.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Payed.
+        ///   Looks up a localized string similar to Zaplaceno.
         /// </summary>
         public static string AdminOrdersControl_ColumnPayed {
             get {
@@ -403,7 +403,7 @@ namespace SHP.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Payment.
+        ///   Looks up a localized string similar to Úhrada.
         /// </summary>
         public static string AdminOrdersControl_ColumnPayment {
             get {
@@ -412,7 +412,7 @@ namespace SHP.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Price total.
+        ///   Looks up a localized string similar to Celkem.
         /// </summary>
         public static string AdminOrdersControl_ColumnPriceTotal {
             get {
@@ -421,7 +421,7 @@ namespace SHP.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Price total with VAT.
+        ///   Looks up a localized string similar to Celkem s DPH.
         /// </summary>
         public static string AdminOrdersControl_ColumnPriceTotalWVAT {
             get {
@@ -430,7 +430,7 @@ namespace SHP.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Shipment.
+        ///   Looks up a localized string similar to Přeprava.
         /// </summary>
         public static string AdminOrdersControl_ColumnShipment {
             get {
@@ -439,7 +439,7 @@ namespace SHP.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to User.
+        ///   Looks up a localized string similar to Uživatel.
         /// </summary>
         public static string AdminOrdersControl_ColumnUser {
             get {
@@ -448,7 +448,7 @@ namespace SHP.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Find.
+        ///   Looks up a localized string similar to Hledat.
         /// </summary>
         public static string AdminOrdersControl_Find {
             get {
@@ -457,7 +457,7 @@ namespace SHP.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to - all -.
+        ///   Looks up a localized string similar to - všechny -.
         /// </summary>
         public static string AdminOrdersControl_OptionAll {
             get {
@@ -466,7 +466,7 @@ namespace SHP.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Order number :.
+        ///   Looks up a localized string similar to Číslo objednávky :.
         /// </summary>
         public static string AdminOrdersControl_OrderNumber {
             get {
@@ -475,7 +475,7 @@ namespace SHP.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Order status :.
+        ///   Looks up a localized string similar to Stav :.
         /// </summary>
         public static string AdminOrdersControl_OrderStatus {
             get {
@@ -484,7 +484,7 @@ namespace SHP.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Shipment :.
+        ///   Looks up a localized string similar to Přeprava :.
         /// </summary>
         public static string AdminOrdersControl_Shipment {
             get {
@@ -493,7 +493,7 @@ namespace SHP.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Add product to cart.
+        ///   Looks up a localized string similar to Vložit produkt do košíku.
         /// </summary>
         public static string AdminProductControl_AddProductToCart_ToolTip {
             get {
@@ -502,7 +502,7 @@ namespace SHP.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Advanced properties.
+        ///   Looks up a localized string similar to Doplnkové vlastnosti.
         /// </summary>
         public static string AdminProductControl_AdvancedProperties {
             get {
@@ -511,7 +511,7 @@ namespace SHP.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Alternate products.
+        ///   Looks up a localized string similar to Alternativní produkty.
         /// </summary>
         public static string AdminProductControl_AlternateProducts {
             get {
@@ -520,7 +520,7 @@ namespace SHP.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Availability :.
+        ///   Looks up a localized string similar to Dostupnost :.
         /// </summary>
         public static string AdminProductControl_Availability {
             get {
@@ -529,7 +529,7 @@ namespace SHP.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Basic properties.
+        ///   Looks up a localized string similar to Základní vlastnosti.
         /// </summary>
         public static string AdminProductControl_BasicProperties {
             get {
@@ -538,7 +538,7 @@ namespace SHP.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Categories :.
+        ///   Looks up a localized string similar to Kategorie :.
         /// </summary>
         public static string AdminProductControl_Categories {
             get {
@@ -547,7 +547,7 @@ namespace SHP.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Code :.
+        ///   Looks up a localized string similar to Kód produktu :.
         /// </summary>
         public static string AdminProductControl_Code {
             get {
@@ -556,7 +556,7 @@ namespace SHP.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Description :.
+        ///   Looks up a localized string similar to Popis :.
         /// </summary>
         public static string AdminProductControl_Description {
             get {
@@ -565,7 +565,7 @@ namespace SHP.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Discount :.
+        ///   Looks up a localized string similar to Sleva :.
         /// </summary>
         public static string AdminProductControl_Discount {
             get {
@@ -574,7 +574,7 @@ namespace SHP.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Discount Type :.
+        ///   Looks up a localized string similar to Typ slevy :.
         /// </summary>
         public static string AdminProductControl_DiscountType {
             get {
@@ -583,7 +583,7 @@ namespace SHP.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Percent.
+        ///   Looks up a localized string similar to %.
         /// </summary>
         public static string AdminProductControl_DiscountType_Percent {
             get {
@@ -592,7 +592,7 @@ namespace SHP.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Price.
+        ///   Looks up a localized string similar to Suma.
         /// </summary>
         public static string AdminProductControl_DiscountType_Price {
             get {
@@ -601,7 +601,7 @@ namespace SHP.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Highlights :.
+        ///   Looks up a localized string similar to Zvýraznení produktu :.
         /// </summary>
         public static string AdminProductControl_Highlights {
             get {
@@ -610,7 +610,7 @@ namespace SHP.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Manufacturer :.
+        ///   Looks up a localized string similar to Výrobce :.
         /// </summary>
         public static string AdminProductControl_Manufacturer {
             get {
@@ -619,7 +619,7 @@ namespace SHP.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Name :.
+        ///   Looks up a localized string similar to Název :.
         /// </summary>
         public static string AdminProductControl_Name {
             get {
@@ -628,7 +628,7 @@ namespace SHP.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Photos.
+        ///   Looks up a localized string similar to Fotografie.
         /// </summary>
         public static string AdminProductControl_Photos {
             get {
@@ -637,7 +637,7 @@ namespace SHP.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Price :.
+        ///   Looks up a localized string similar to Cena bez DPH :.
         /// </summary>
         public static string AdminProductControl_Price {
             get {
@@ -646,7 +646,7 @@ namespace SHP.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Price width VAT :.
+        ///   Looks up a localized string similar to Cena s DPH :.
         /// </summary>
         public static string AdminProductControl_PriceWVAT {
             get {
@@ -655,7 +655,7 @@ namespace SHP.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to {0}, was added to chart {1}x..
+        ///   Looks up a localized string similar to {0}, byl přidán do nákupního košíku v počtu {1}Ks..
         /// </summary>
         public static string AdminProductControl_ProductWasAddedToCart_Message {
             get {
@@ -664,7 +664,7 @@ namespace SHP.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Quantity :.
+        ///   Looks up a localized string similar to Počet kusů :.
         /// </summary>
         public static string AdminProductControl_Quantity {
             get {
@@ -673,7 +673,7 @@ namespace SHP.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Related products.
+        ///   Looks up a localized string similar to Související produkty.
         /// </summary>
         public static string AdminProductControl_RelatedProducts {
             get {
@@ -682,7 +682,7 @@ namespace SHP.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Reviews.
+        ///   Looks up a localized string similar to Recenze.
         /// </summary>
         public static string AdminProductControl_Reviews {
             get {
@@ -691,7 +691,7 @@ namespace SHP.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Short description :.
+        ///   Looks up a localized string similar to Krátký popis :.
         /// </summary>
         public static string AdminProductControl_ShortDescription {
             get {
@@ -700,7 +700,7 @@ namespace SHP.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Storage count :.
+        ///   Looks up a localized string similar to Na sklade  :.
         /// </summary>
         public static string AdminProductControl_StorageCount {
             get {
@@ -709,7 +709,7 @@ namespace SHP.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Url Alias :.
+        ///   Looks up a localized string similar to Url alias :.
         /// </summary>
         public static string AdminProductControl_UrlAlias {
             get {
@@ -718,7 +718,7 @@ namespace SHP.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to VAT :.
+        ///   Looks up a localized string similar to DPH :.
         /// </summary>
         public static string AdminProductControl_VAT {
             get {
@@ -727,7 +727,7 @@ namespace SHP.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Category :.
+        ///   Looks up a localized string similar to Kategorie :.
         /// </summary>
         public static string AdminProductRelationControl_Category {
             get {
@@ -736,7 +736,7 @@ namespace SHP.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Article category :.
+        ///   Looks up a localized string similar to Kategorie článku :.
         /// </summary>
         public static string AdminProductReviewsControl_Category {
             get {
@@ -754,7 +754,7 @@ namespace SHP.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Code.
+        ///   Looks up a localized string similar to Kód.
         /// </summary>
         public static string AdminProductsControl_ColumnCode {
             get {
@@ -763,7 +763,7 @@ namespace SHP.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Description.
+        ///   Looks up a localized string similar to Popis.
         /// </summary>
         public static string AdminProductsControl_ColumnDescription {
             get {
@@ -772,7 +772,7 @@ namespace SHP.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Discount.
+        ///   Looks up a localized string similar to Sleva.
         /// </summary>
         public static string AdminProductsControl_ColumnDiscount {
             get {
@@ -781,7 +781,7 @@ namespace SHP.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Discount type.
+        ///   Looks up a localized string similar to Typ slevy.
         /// </summary>
         public static string AdminProductsControl_ColumnDiscountType {
             get {
@@ -790,7 +790,7 @@ namespace SHP.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Manufacturer.
+        ///   Looks up a localized string similar to Výrobce.
         /// </summary>
         public static string AdminProductsControl_ColumnManufacturer {
             get {
@@ -799,7 +799,7 @@ namespace SHP.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Name.
+        ///   Looks up a localized string similar to Název.
         /// </summary>
         public static string AdminProductsControl_ColumnName {
             get {
@@ -808,7 +808,7 @@ namespace SHP.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Price.
+        ///   Looks up a localized string similar to Cena.
         /// </summary>
         public static string AdminProductsControl_ColumnPrice {
             get {
@@ -817,7 +817,7 @@ namespace SHP.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to New Product.
+        ///   Looks up a localized string similar to Nový produkt.
         /// </summary>
         public static string AdminProductsControl_NewProductButton_Text {
             get {
@@ -826,7 +826,7 @@ namespace SHP.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Categories.
+        ///   Looks up a localized string similar to Kategorie.
         /// </summary>
         public static string AdminUrlAliasesControl_AliasType_Categories {
             get {
@@ -835,7 +835,7 @@ namespace SHP.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Products.
+        ///   Looks up a localized string similar to Produkty.
         /// </summary>
         public static string AdminUrlAliasesControl_AliasType_Products {
             get {
@@ -844,7 +844,7 @@ namespace SHP.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to back.
+        ///   Looks up a localized string similar to zpět.
         /// </summary>
         public static string BackLink {
             get {
@@ -853,7 +853,7 @@ namespace SHP.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Cancel.
+        ///   Looks up a localized string similar to Zrušit.
         /// </summary>
         public static string CancelButton_Text {
             get {
@@ -862,7 +862,7 @@ namespace SHP.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Order number.
+        ///   Looks up a localized string similar to Číslo objednávky.
         /// </summary>
         public static string CartControl_ColumnId {
             get {
@@ -871,7 +871,7 @@ namespace SHP.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Name.
+        ///   Looks up a localized string similar to Název.
         /// </summary>
         public static string CartControl_ColumnName {
             get {
@@ -880,7 +880,7 @@ namespace SHP.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Price.
+        ///   Looks up a localized string similar to Cena/Ks.
         /// </summary>
         public static string CartControl_ColumnPrice {
             get {
@@ -889,7 +889,7 @@ namespace SHP.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Price total.
+        ///   Looks up a localized string similar to Celkem.
         /// </summary>
         public static string CartControl_ColumnPriceTotal {
             get {
@@ -898,7 +898,7 @@ namespace SHP.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Price total with VAT.
+        ///   Looks up a localized string similar to Celkem s DPH.
         /// </summary>
         public static string CartControl_ColumnPriceTotalWithVAT {
             get {
@@ -907,7 +907,7 @@ namespace SHP.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Price with discount.
+        ///   Looks up a localized string similar to Cena se slevou/Ks.
         /// </summary>
         public static string CartControl_ColumnPriceWithDiscount {
             get {
@@ -916,7 +916,7 @@ namespace SHP.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Quantity.
+        ///   Looks up a localized string similar to Ks.
         /// </summary>
         public static string CartControl_ColumnQuantity {
             get {
@@ -925,7 +925,7 @@ namespace SHP.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Continue in order.
+        ///   Looks up a localized string similar to Pokračovat.
         /// </summary>
         public static string CartControl_ContinueButton_Text {
             get {
@@ -934,7 +934,7 @@ namespace SHP.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Delivery Address.
+        ///   Looks up a localized string similar to Adresa pro doručení.
         /// </summary>
         public static string CartControl_DeliveryAddress {
             get {
@@ -943,7 +943,7 @@ namespace SHP.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Invoice Address.
+        ///   Looks up a localized string similar to Fakturační adresa.
         /// </summary>
         public static string CartControl_InvoiceAddress {
             get {
@@ -952,7 +952,7 @@ namespace SHP.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Login.
+        ///   Looks up a localized string similar to Přihlásit.
         /// </summary>
         public static string CartControl_LoginButton_Text {
             get {
@@ -961,7 +961,7 @@ namespace SHP.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Next step.
+        ///   Looks up a localized string similar to Pokračovat.
         /// </summary>
         public static string CartControl_NextStepButton_Text {
             get {
@@ -970,7 +970,7 @@ namespace SHP.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Order.
+        ///   Looks up a localized string similar to Objednat.
         /// </summary>
         public static string CartControl_OrderButton_Text {
             get {
@@ -979,7 +979,7 @@ namespace SHP.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Payment :.
+        ///   Looks up a localized string similar to Spůsob platby :.
         /// </summary>
         public static string CartControl_Payment {
             get {
@@ -988,7 +988,7 @@ namespace SHP.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Shipment :.
+        ///   Looks up a localized string similar to Spůsob přepravy :.
         /// </summary>
         public static string CartControl_Shipment {
             get {
@@ -997,7 +997,7 @@ namespace SHP.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to » show cart.
+        ///   Looks up a localized string similar to » zobrazit košík.
         /// </summary>
         public static string CartControl_ShowCart {
             get {
@@ -1006,7 +1006,7 @@ namespace SHP.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Icon :.
+        ///   Looks up a localized string similar to Ikona :.
         /// </summary>
         public static string ClassifierControl_Icon {
             get {
@@ -1015,7 +1015,7 @@ namespace SHP.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Name :.
+        ///   Looks up a localized string similar to Název :.
         /// </summary>
         public static string ClassifierControl_Name {
             get {
@@ -1024,7 +1024,7 @@ namespace SHP.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Notes :.
+        ///   Looks up a localized string similar to Poznámka :.
         /// </summary>
         public static string ClassifierControl_Notes {
             get {
@@ -1033,7 +1033,7 @@ namespace SHP.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Remove icon.
+        ///   Looks up a localized string similar to Odstranit ikonu.
         /// </summary>
         public static string ClassifierControl_RemoveIcon {
             get {
@@ -1042,7 +1042,7 @@ namespace SHP.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Add item.
+        ///   Looks up a localized string similar to Přidat položku.
         /// </summary>
         public static string ClassifiersControl_AddItem {
             get {
@@ -1051,7 +1051,7 @@ namespace SHP.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Icon.
+        ///   Looks up a localized string similar to Ikona.
         /// </summary>
         public static string ClassifiersControl_ColumnIcon {
             get {
@@ -1060,7 +1060,7 @@ namespace SHP.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Name.
+        ///   Looks up a localized string similar to Název.
         /// </summary>
         public static string ClassifiersControl_ColumnName {
             get {
@@ -1069,7 +1069,7 @@ namespace SHP.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Notes.
+        ///   Looks up a localized string similar to Poznámka.
         /// </summary>
         public static string ClassifiersControl_ColumnNotes {
             get {
@@ -1078,7 +1078,7 @@ namespace SHP.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Percent.
+        ///   Looks up a localized string similar to Procent.
         /// </summary>
         public static string ClassifiersControl_ColumnPrecent {
             get {
@@ -1087,7 +1087,7 @@ namespace SHP.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Price.
+        ///   Looks up a localized string similar to Cena.
         /// </summary>
         public static string ClassifiersControl_ColumnPrice {
             get {
@@ -1096,7 +1096,7 @@ namespace SHP.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Price with VAT.
+        ///   Looks up a localized string similar to Cena s DPH.
         /// </summary>
         public static string ClassifiersControl_ColumnPriceWithVAT {
             get {
@@ -1105,7 +1105,7 @@ namespace SHP.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Rate.
+        ///   Looks up a localized string similar to Výměnný kurz.
         /// </summary>
         public static string ClassifiersControl_ColumnRate {
             get {
@@ -1114,7 +1114,7 @@ namespace SHP.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Currency symbol.
+        ///   Looks up a localized string similar to Symbol měny.
         /// </summary>
         public static string ClassifiersControl_ColumnSymbol {
             get {
@@ -1123,7 +1123,7 @@ namespace SHP.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to VAT.
+        ///   Looks up a localized string similar to DPH.
         /// </summary>
         public static string ClassifiersControl_ColumnVAT {
             get {
@@ -1132,7 +1132,7 @@ namespace SHP.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to comment.
+        ///   Looks up a localized string similar to komentare.
         /// </summary>
         public static string Comment_AliasText {
             get {
@@ -1141,7 +1141,7 @@ namespace SHP.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Choice currency.
+        ///   Looks up a localized string similar to Vyberte měnu.
         /// </summary>
         public static string CurrencyChoiceControl_ChoiceButtonText {
             get {
@@ -1150,7 +1150,7 @@ namespace SHP.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Rate :.
+        ///   Looks up a localized string similar to Výměnný kurz :.
         /// </summary>
         public static string CurrencyControl_Rate {
             get {
@@ -1159,7 +1159,7 @@ namespace SHP.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Currency Symbol :.
+        ///   Looks up a localized string similar to Symbol měny :.
         /// </summary>
         public static string CurrencyControl_Symbol {
             get {
@@ -1168,7 +1168,7 @@ namespace SHP.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Do you really want to delete the selected item ?.
+        ///   Looks up a localized string similar to Opravdu chcete smazat tento záznam?.
         /// </summary>
         public static string DeleteItemQuestion {
             get {
@@ -1177,7 +1177,7 @@ namespace SHP.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Cancel.
+        ///   Looks up a localized string similar to Zrušit.
         /// </summary>
         public static string FilterControl_CancelFindButtonText {
             get {
@@ -1186,7 +1186,7 @@ namespace SHP.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Find.
+        ///   Looks up a localized string similar to Vyhledat.
         /// </summary>
         public static string FilterControl_FindButtonText {
             get {
@@ -1195,7 +1195,7 @@ namespace SHP.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Delete item.
+        ///   Looks up a localized string similar to Vymazat položku.
         /// </summary>
         public static string GridView_ToolTip_DeleteItem {
             get {
@@ -1204,7 +1204,7 @@ namespace SHP.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Edit item.
+        ///   Looks up a localized string similar to Upravit.
         /// </summary>
         public static string GridView_ToolTip_EditItem {
             get {
@@ -1213,7 +1213,7 @@ namespace SHP.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Delivery address.
+        ///   Looks up a localized string similar to Adresa pro doručení.
         /// </summary>
         public static string OrderControl_DeliveryAddress {
             get {
@@ -1222,7 +1222,7 @@ namespace SHP.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Invoice address.
+        ///   Looks up a localized string similar to Fakturační adresa.
         /// </summary>
         public static string OrderControl_InvoiceAddress {
             get {
@@ -1231,7 +1231,7 @@ namespace SHP.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Create order.
+        ///   Looks up a localized string similar to Objednat.
         /// </summary>
         public static string OrderControl_OrderButton_Text {
             get {
@@ -1240,7 +1240,7 @@ namespace SHP.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Order nr.: {0}.
+        ///   Looks up a localized string similar to Objednávka č.: {0}.
         /// </summary>
         public static string OrderControl_OrderNumberFormatText {
             get {
@@ -1249,7 +1249,7 @@ namespace SHP.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Order products.
+        ///   Looks up a localized string similar to Objednané zboží.
         /// </summary>
         public static string OrderControl_OrderProducts {
             get {
@@ -1258,7 +1258,7 @@ namespace SHP.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Order status :.
+        ///   Looks up a localized string similar to Stav obj. :.
         /// </summary>
         public static string OrderControl_OrderStatus {
             get {
@@ -1267,7 +1267,10 @@ namespace SHP.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Dobrý den &lt;br/&gt;&lt;br/&gt;stav Vašej objednávky č. {0} sa zmenil na &lt;b&gt;{1}&lt;/b&gt;&lt;br/&gt;S pozdravom&lt;br/&gt;{2}.
+        ///   Looks up a localized string similar to Dobrý den &lt;br/&gt;&lt;br/&gt;
+        ///stav Vaší objednávky č. {0} se změnil na &lt;b&gt;{1}&lt;/b&gt;&lt;br/&gt;&lt;/br&gt;
+        ///S pozdravem&lt;br/&gt;
+        ///{2}.
         /// </summary>
         public static string OrderControl_OrderStatusChanged_Email_Message {
             get {
@@ -1276,7 +1279,7 @@ namespace SHP.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Payd date :.
+        ///   Looks up a localized string similar to Datum úhrady :.
         /// </summary>
         public static string OrderControl_PaydDate {
             get {
@@ -1285,7 +1288,7 @@ namespace SHP.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Payment :.
+        ///   Looks up a localized string similar to Platba :.
         /// </summary>
         public static string OrderControl_Payment {
             get {
@@ -1294,7 +1297,7 @@ namespace SHP.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Price.
+        ///   Looks up a localized string similar to Cena.
         /// </summary>
         public static string OrderControl_Price {
             get {
@@ -1303,7 +1306,7 @@ namespace SHP.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Price for products :.
+        ///   Looks up a localized string similar to Cena za tovar:.
         /// </summary>
         public static string OrderControl_PriceForProducts {
             get {
@@ -1312,7 +1315,7 @@ namespace SHP.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Price for shipment :.
+        ///   Looks up a localized string similar to Cena za přepravu :.
         /// </summary>
         public static string OrderControl_PriceForShipment {
             get {
@@ -1321,7 +1324,7 @@ namespace SHP.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Price total :.
+        ///   Looks up a localized string similar to Celkem :.
         /// </summary>
         public static string OrderControl_PriceTotal {
             get {
@@ -1330,7 +1333,7 @@ namespace SHP.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Price total with VAT :.
+        ///   Looks up a localized string similar to K úhrade s DPH :.
         /// </summary>
         public static string OrderControl_PriceTotalWVAT {
             get {
@@ -1348,7 +1351,7 @@ namespace SHP.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Inappropriate post.
+        ///   Looks up a localized string similar to Nevhodný příspěvek.
         /// </summary>
         public static string ProductCommentsControl_InappropriatePost {
             get {
@@ -1357,7 +1360,7 @@ namespace SHP.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Reply.
+        ///   Looks up a localized string similar to Reagovat.
         /// </summary>
         public static string ProductCommentsControl_Reply {
             get {
@@ -1366,7 +1369,7 @@ namespace SHP.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Alternate products.
+        ///   Looks up a localized string similar to Alternativní produkty.
         /// </summary>
         public static string ProductControl_AlternateProducts {
             get {
@@ -1375,7 +1378,7 @@ namespace SHP.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Availability :.
+        ///   Looks up a localized string similar to Dostupnost :.
         /// </summary>
         public static string ProductControl_Availability {
             get {
@@ -1384,7 +1387,7 @@ namespace SHP.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Comments count .
+        ///   Looks up a localized string similar to Komentáře.
         /// </summary>
         public static string ProductControl_CommentsCount {
             get {
@@ -1393,7 +1396,7 @@ namespace SHP.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Description.
+        ///   Looks up a localized string similar to Popis.
         /// </summary>
         public static string ProductControl_Description {
             get {
@@ -1402,7 +1405,7 @@ namespace SHP.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Price :.
+        ///   Looks up a localized string similar to Cena bez DPH :.
         /// </summary>
         public static string ProductControl_Price {
             get {
@@ -1411,7 +1414,7 @@ namespace SHP.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Price with VAT :.
+        ///   Looks up a localized string similar to Cena s DPH :.
         /// </summary>
         public static string ProductControl_PriceWVAT {
             get {
@@ -1420,7 +1423,7 @@ namespace SHP.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Product Reviews.
+        ///   Looks up a localized string similar to Recenze.
         /// </summary>
         public static string ProductControl_ProductReviews {
             get {
@@ -1429,7 +1432,7 @@ namespace SHP.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Related products.
+        ///   Looks up a localized string similar to Související produkty.
         /// </summary>
         public static string ProductControl_RelatedProducts {
             get {
@@ -1438,7 +1441,7 @@ namespace SHP.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to No products found..
+        ///   Looks up a localized string similar to Nebyly nalezeny žádne produkty.
         /// </summary>
         public static string ProductsControl_NoProductsFound_Message {
             get {
@@ -1447,7 +1450,7 @@ namespace SHP.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Expression.
+        ///   Looks up a localized string similar to Výraz.
         /// </summary>
         public static string ProductsFilterControl_Expression {
             get {
@@ -1456,7 +1459,7 @@ namespace SHP.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Manufacturer.
+        ///   Looks up a localized string similar to Výrobce.
         /// </summary>
         public static string ProductsFilterControl_Manufacturer {
             get {
@@ -1465,7 +1468,7 @@ namespace SHP.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Price from.
+        ///   Looks up a localized string similar to Cena od.
         /// </summary>
         public static string ProductsFilterControl_PriceFrom {
             get {
@@ -1474,7 +1477,7 @@ namespace SHP.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to to.
+        ///   Looks up a localized string similar to do.
         /// </summary>
         public static string ProductsFilterControl_PriceTo {
             get {
@@ -1483,7 +1486,7 @@ namespace SHP.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Sort.
+        ///   Looks up a localized string similar to Seřadit.
         /// </summary>
         public static string ProductsFilterControl_Sort {
             get {
@@ -1492,7 +1495,7 @@ namespace SHP.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Name.
+        ///   Looks up a localized string similar to Názvu.
         /// </summary>
         public static string ProductsFilterControl_SortBy_NameASC_Label {
             get {
@@ -1510,7 +1513,7 @@ namespace SHP.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Price Ascending.
+        ///   Looks up a localized string similar to Od nejlevnejšího.
         /// </summary>
         public static string ProductsFilterControl_SortBy_PriceASC_Label {
             get {
@@ -1519,7 +1522,7 @@ namespace SHP.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Price Descending.
+        ///   Looks up a localized string similar to Od nejdražšího.
         /// </summary>
         public static string ProductsFilterControl_SortBy_PriceDESC_Label {
             get {
@@ -1528,7 +1531,7 @@ namespace SHP.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Save.
+        ///   Looks up a localized string similar to Uložit.
         /// </summary>
         public static string SaveButton_Text {
             get {
@@ -1537,7 +1540,7 @@ namespace SHP.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Price :.
+        ///   Looks up a localized string similar to Cena :.
         /// </summary>
         public static string ShipmentControl_Price {
             get {
@@ -1546,7 +1549,7 @@ namespace SHP.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to VAT :.
+        ///   Looks up a localized string similar to DPH :.
         /// </summary>
         public static string ShipmentControl_VAT {
             get {
@@ -1555,7 +1558,7 @@ namespace SHP.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Percent :.
+        ///   Looks up a localized string similar to Procent :.
         /// </summary>
         public static string VATControl_Percent {
             get {
@@ -1564,7 +1567,7 @@ namespace SHP.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to with VAT.
+        ///   Looks up a localized string similar to s DPH.
         /// </summary>
         public static string WithVAT {
             get {

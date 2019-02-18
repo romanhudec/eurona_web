@@ -70,7 +70,7 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Cart.
+        ///   Looks up a localized string similar to Nákupní košík.
         /// </summary>
         internal static string AdministrationMode_Cart {
             get {
@@ -79,7 +79,7 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Categories.
+        ///   Looks up a localized string similar to Kategorie.
         /// </summary>
         internal static string AdministrationMode_Categories {
             get {
@@ -88,7 +88,7 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Classifiers.
+        ///   Looks up a localized string similar to Číselníky.
         /// </summary>
         internal static string AdministrationMode_Classifiers {
             get {
@@ -106,7 +106,7 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to e-Shop Administration.
+        ///   Looks up a localized string similar to e-Shop Administrace.
         /// </summary>
         internal static string AdministrationMode_HeaderAdministration {
             get {
@@ -115,7 +115,7 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to My orders.
+        ///   Looks up a localized string similar to Moje objednávky.
         /// </summary>
         internal static string AdministrationMode_MyOrders {
             get {
@@ -124,7 +124,7 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Orders.
+        ///   Looks up a localized string similar to Objednávky.
         /// </summary>
         internal static string AdministrationMode_Orders {
             get {
@@ -133,7 +133,7 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Products.
+        ///   Looks up a localized string similar to Produkty.
         /// </summary>
         internal static string AdministrationMode_Products {
             get {
@@ -142,7 +142,7 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to URL Aliases.
+        ///   Looks up a localized string similar to URL Aliasy.
         /// </summary>
         internal static string AdministrationMode_UrlAliases {
             get {
@@ -241,7 +241,7 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Associate selected orders.
+        ///   Looks up a localized string similar to Přidružit vybrané objednávky.
         /// </summary>
         internal static string AdminOrdersControl_AsociateSelectedOrders {
             get {
@@ -250,7 +250,7 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Associated.
+        ///   Looks up a localized string similar to Přidružení.
         /// </summary>
         internal static string AdminOrdersControl_ColumnAssociated {
             get {
@@ -259,7 +259,7 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Advisor.
+        ///   Looks up a localized string similar to Poradce.
         /// </summary>
         internal static string AdminOrdersControl_ColumnOrderOwnerName {
             get {
@@ -268,7 +268,7 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Active orders.
+        ///   Looks up a localized string similar to ULOŽENÉ OBJEDNÁVKY.
         /// </summary>
         internal static string AdminOrdersControl_Title_ActiveOrders {
             get {
@@ -277,7 +277,7 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Order archiv.
+        ///   Looks up a localized string similar to Archiv objednávek.
         /// </summary>
         internal static string AdminOrdersControl_Title_OrderArchiv {
             get {
@@ -907,7 +907,7 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to &gt; Backt to catalog.
+        ///   Looks up a localized string similar to &gt;Zpět na katalog výrobků.
         /// </summary>
         internal static string BackToCatalog {
             get {
@@ -916,7 +916,7 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to 1. Select Advisor.
+        ///   Looks up a localized string similar to 1. Vyberte poradce.
         /// </summary>
         internal static string CartControl_1VybertePoradce {
             get {
@@ -925,7 +925,7 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to 2. Create order for advisor.
+        ///   Looks up a localized string similar to 2. Vytvořte poradci objednávku.
         /// </summary>
         internal static string CartControl_2VytvortePoradciObjednavku {
             get {
@@ -934,7 +934,7 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Add.
+        ///   Looks up a localized string similar to Přidat.
         /// </summary>
         internal static string CartControl_Add {
             get {
@@ -943,7 +943,7 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Cart.
+        ///   Looks up a localized string similar to Nákupní košík.
         /// </summary>
         internal static string CartControl_Cart {
             get {
@@ -952,7 +952,7 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Creating order as another Advisor.
+        ///   Looks up a localized string similar to Vytvoření objednávky za jiného poradce.
         /// </summary>
         internal static string CartControl_CreateOrderAsAnotherAdvisor {
             get {
@@ -961,7 +961,7 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Create order.
+        ///   Looks up a localized string similar to Vytvořit objednávku.
         /// </summary>
         internal static string CartControl_CreateOrderButton_Text {
             get {
@@ -970,7 +970,7 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Create order for advisor.
+        ///   Looks up a localized string similar to Vytvořit objednávku pro poradce.
         /// </summary>
         internal static string CartControl_CreateOrderForUserButton_Text {
             get {
@@ -1006,7 +1006,7 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to My Order.
+        ///   Looks up a localized string similar to Moje objednávka.
         /// </summary>
         internal static string CartControl_MyOrder {
             get {
@@ -1015,7 +1015,7 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Not verified user can create only 1 order!.
+        ///   Looks up a localized string similar to Neověřený uživatel může vytvořit pouze jednu objednávku!.
         /// </summary>
         internal static string CartControl_NotVeriedUserCanOnly1OrderCreate {
             get {
@@ -1033,7 +1033,7 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Price :.
+        ///   Looks up a localized string similar to Cena :.
         /// </summary>
         internal static string CartControl_Price {
             get {
@@ -1042,7 +1042,7 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Product code :.
+        ///   Looks up a localized string similar to Kód zboží : .
         /// </summary>
         internal static string CartControl_ProductCode {
             get {
@@ -1051,7 +1051,7 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Quantity : .
+        ///   Looks up a localized string similar to Množství : .
         /// </summary>
         internal static string CartControl_ProductQuantity {
             get {
@@ -1060,7 +1060,7 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Recalculate cart.
+        ///   Looks up a localized string similar to Přepočítat marže a body.
         /// </summary>
         internal static string CartControl_RecalculateCartButton_Text {
             get {
@@ -1069,7 +1069,7 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Register.
+        ///   Looks up a localized string similar to Zaregistrujte se.
         /// </summary>
         internal static string CartControl_RegisterButton_Text {
             get {
@@ -1078,7 +1078,7 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to E-Shop classifiers.
+        ///   Looks up a localized string similar to Číselníky elektronického obchodu.
         /// </summary>
         internal static string ClassifiersPage_EshopGroup {
             get {
@@ -1087,7 +1087,7 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to (generate register document).
+        ///   Looks up a localized string similar to (generovat registrační formulář).
         /// </summary>
         internal static string GenerateRegisterDocument {
             get {
@@ -1105,7 +1105,7 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to e-Shop Administration.
+        ///   Looks up a localized string similar to e-Shop Administrace.
         /// </summary>
         internal static string Navigation_Administration {
             get {
@@ -1114,7 +1114,7 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Associated Order.
+        ///   Looks up a localized string similar to Přidružená objednávka.
         /// </summary>
         internal static string Navigation_AssociatedOrder {
             get {
@@ -1123,7 +1123,7 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Associated Orders.
+        ///   Looks up a localized string similar to Přidružené objednávky.
         /// </summary>
         internal static string Navigation_AssociatedOrders {
             get {
@@ -1132,7 +1132,7 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Associate selected orders to advisor order.
+        ///   Looks up a localized string similar to Přidružení vybraných objednávek k objednávkám jiného poradce.
         /// </summary>
         internal static string Navigation_AssociateSelectedOrdersToAdvisor {
             get {
@@ -1141,7 +1141,7 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Category Attributes.
+        ///   Looks up a localized string similar to Atribúty kategorie.
         /// </summary>
         internal static string Navigation_Attributes {
             get {
@@ -1150,7 +1150,7 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Categories.
+        ///   Looks up a localized string similar to Kategorie.
         /// </summary>
         internal static string Navigation_Categories {
             get {
@@ -1159,7 +1159,7 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Classifiers.
+        ///   Looks up a localized string similar to Číselníky.
         /// </summary>
         internal static string Navigation_Classifiers {
             get {
@@ -1168,7 +1168,7 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Currencies.
+        ///   Looks up a localized string similar to Měny.
         /// </summary>
         internal static string Navigation_Classifier_Currencies {
             get {
@@ -1177,7 +1177,7 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Currency.
+        ///   Looks up a localized string similar to Měna.
         /// </summary>
         internal static string Navigation_Classifier_Currency {
             get {
@@ -1186,7 +1186,7 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Highlight.
+        ///   Looks up a localized string similar to Zvýraznení.
         /// </summary>
         internal static string Navigation_Classifier_Highlight {
             get {
@@ -1195,7 +1195,7 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Highlights.
+        ///   Looks up a localized string similar to Zvýraznení.
         /// </summary>
         internal static string Navigation_Classifier_Highlights {
             get {
@@ -1204,7 +1204,7 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Order status.
+        ///   Looks up a localized string similar to Stav objednávky.
         /// </summary>
         internal static string Navigation_Classifier_OrderStatus {
             get {
@@ -1213,7 +1213,7 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Orded statuses.
+        ///   Looks up a localized string similar to Stavy objednávky.
         /// </summary>
         internal static string Navigation_Classifier_OrderStatuses {
             get {
@@ -1222,7 +1222,7 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Payment.
+        ///   Looks up a localized string similar to Spůsob platby.
         /// </summary>
         internal static string Navigation_Classifier_Payment {
             get {
@@ -1231,7 +1231,7 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Payments.
+        ///   Looks up a localized string similar to Spůsoby platby.
         /// </summary>
         internal static string Navigation_Classifier_Payments {
             get {
@@ -1240,7 +1240,7 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Shipment.
+        ///   Looks up a localized string similar to Spůsob přepravy.
         /// </summary>
         internal static string Navigation_Classifier_Shipment {
             get {
@@ -1249,7 +1249,7 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Shipments.
+        ///   Looks up a localized string similar to Spůsob přepravy.
         /// </summary>
         internal static string Navigation_Classifier_Shipments {
             get {
@@ -1258,7 +1258,7 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to VAT.
+        ///   Looks up a localized string similar to DPH.
         /// </summary>
         internal static string Navigation_Classifier_VAT {
             get {
@@ -1267,7 +1267,7 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to VATs.
+        ///   Looks up a localized string similar to Seznam DPH.
         /// </summary>
         internal static string Navigation_Classifier_VATs {
             get {
@@ -1276,7 +1276,7 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to DPD package.
+        ///   Looks up a localized string similar to DPD balík.
         /// </summary>
         internal static string Navigation_DPDPackage {
             get {
@@ -1285,7 +1285,7 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Action Products.
+        ///   Looks up a localized string similar to Akční nabídky!.
         /// </summary>
         internal static string Navigation_MenuItem_ActionProducts {
             get {
@@ -1303,7 +1303,7 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to New Products.
+        ///   Looks up a localized string similar to Novinky.
         /// </summary>
         internal static string Navigation_MenuItem_NewProducts {
             get {
@@ -1312,7 +1312,7 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Special Products.
+        ///   Looks up a localized string similar to Speciální nabídky.
         /// </summary>
         internal static string Navigation_MenuItem_SpecialProducts {
             get {
@@ -1321,7 +1321,7 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to TOP Products.
+        ///   Looks up a localized string similar to TOP výrobky.
         /// </summary>
         internal static string Navigation_MenuItem_TopProducts {
             get {
@@ -1339,7 +1339,7 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to my cart.
+        ///   Looks up a localized string similar to můj košik.
         /// </summary>
         internal static string Navigation_MyCart {
             get {
@@ -1348,7 +1348,7 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Order.
+        ///   Looks up a localized string similar to Objednávka.
         /// </summary>
         internal static string Navigation_Order {
             get {
@@ -1357,7 +1357,7 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Orders.
+        ///   Looks up a localized string similar to Objednávky.
         /// </summary>
         internal static string Navigation_Orders {
             get {
@@ -1366,7 +1366,7 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Orderd to associate.
+        ///   Looks up a localized string similar to Objednávky pro sdružení.
         /// </summary>
         internal static string Navigation_OrdersToAssociate {
             get {
@@ -1375,7 +1375,7 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Product.
+        ///   Looks up a localized string similar to Produkt.
         /// </summary>
         internal static string Navigation_Product {
             get {
@@ -1384,7 +1384,7 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Product comments.
+        ///   Looks up a localized string similar to Komentáře produktu.
         /// </summary>
         internal static string Navigation_ProductComments {
             get {
@@ -1393,7 +1393,7 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Products.
+        ///   Looks up a localized string similar to Produkty.
         /// </summary>
         internal static string Navigation_Products {
             get {
@@ -1411,7 +1411,7 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to URL Aliases.
+        ///   Looks up a localized string similar to URL Aliasy.
         /// </summary>
         internal static string Navigation_UrlAliases {
             get {
@@ -1420,7 +1420,7 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Associated to Advisor :.
+        ///   Looks up a localized string similar to Přidružená k objednávce poradce :.
         /// </summary>
         internal static string OrderControl_AssociationAdvisor {
             get {
@@ -1429,7 +1429,7 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Association status :.
+        ///   Looks up a localized string similar to Stav přidružení :.
         /// </summary>
         internal static string OrderControl_AssociationStatus {
             get {
@@ -1438,7 +1438,7 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to my orders.
+        ///   Looks up a localized string similar to moje objednávky.
         /// </summary>
         internal static string OrderControl_MyOrders {
             get {
@@ -1447,7 +1447,7 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Order.
+        ///   Looks up a localized string similar to Objednávka.
         /// </summary>
         internal static string OrderControl_Order {
             get {
@@ -1456,7 +1456,7 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Order created :.
+        ///   Looks up a localized string similar to Objednávku vytvořil :.
         /// </summary>
         internal static string OrderControl_OrderCreatedUser {
             get {
@@ -1465,7 +1465,7 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Order user :.
+        ///   Looks up a localized string similar to Objednávka uživatele :.
         /// </summary>
         internal static string OrderControl_OrderUser {
             get {
@@ -1645,7 +1645,7 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Additional information.
+        ///   Looks up a localized string similar to Doplňující informace.
         /// </summary>
         internal static string ProductControl_AdditionalInformation {
             get {
@@ -1654,7 +1654,7 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Additional info.
+        ///   Looks up a localized string similar to Doplňující info.
         /// </summary>
         internal static string ProductControl_AditionalInfo {
             get {
@@ -1663,7 +1663,7 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Alternate products.
+        ///   Looks up a localized string similar to Alternativní produkty.
         /// </summary>
         internal static string ProductControl_AlternateProducts {
             get {
@@ -1672,7 +1672,7 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Alternate products.
+        ///   Looks up a localized string similar to Alternativní produkty.
         /// </summary>
         internal static string ProductControl_AlternativeProducts {
             get {
@@ -1690,7 +1690,7 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Code :.
+        ///   Looks up a localized string similar to Kód :.
         /// </summary>
         internal static string ProductControl_Code {
             get {
@@ -1699,7 +1699,7 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Description.
+        ///   Looks up a localized string similar to Popis.
         /// </summary>
         internal static string ProductControl_Description {
             get {
@@ -1708,7 +1708,7 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Instructions for use.
+        ///   Looks up a localized string similar to Návod na použití.
         /// </summary>
         internal static string ProductControl_InstructionsForUse {
             get {
@@ -1717,7 +1717,7 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to No product found.
+        ///   Looks up a localized string similar to Nebyl nalezen žádný produkt..
         /// </summary>
         internal static string ProductControl_NoProductFound {
             get {
@@ -1726,7 +1726,7 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to No Reviwes Found.
+        ///   Looks up a localized string similar to Nebyla nalezena žádna recenze.
         /// </summary>
         internal static string ProductControl_NoReviewsFound {
             get {
@@ -1735,7 +1735,7 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Parfumation.
+        ///   Looks up a localized string similar to Parfemace.
         /// </summary>
         internal static string ProductControl_Parfumation {
             get {
@@ -1744,7 +1744,7 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Pictograms.
+        ///   Looks up a localized string similar to Piktogramy.
         /// </summary>
         internal static string ProductControl_Pictograms {
             get {
@@ -1753,7 +1753,7 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Points :.
+        ///   Looks up a localized string similar to body :.
         /// </summary>
         internal static string ProductControl_Points {
             get {
@@ -1762,7 +1762,7 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Properties ....
+        ///   Looks up a localized string similar to Přednosti a vlastnosti.
         /// </summary>
         internal static string ProductControl_PrednostiAVlastnosti {
             get {
@@ -1771,7 +1771,7 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Product Reviews.
+        ///   Looks up a localized string similar to Recenze.
         /// </summary>
         internal static string ProductControl_ProductReviews {
             get {
@@ -1780,7 +1780,7 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Properties.
+        ///   Looks up a localized string similar to Vlastnosti.
         /// </summary>
         internal static string ProductControl_Properties {
             get {
@@ -1789,7 +1789,7 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Quantity .
+        ///   Looks up a localized string similar to Množství .
         /// </summary>
         internal static string ProductControl_Quantity {
             get {
@@ -1798,7 +1798,7 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Related products.
+        ///   Looks up a localized string similar to Související produkty.
         /// </summary>
         internal static string ProductControl_RelatedProducts {
             get {
@@ -1807,7 +1807,7 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Special effects.
+        ///   Looks up a localized string similar to Specialní účinky.
         /// </summary>
         internal static string ProductControl_SpecialEffects {
             get {
@@ -1816,7 +1816,7 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to New request to proccess order . Order detail can zou see in page  {0}.
+        ///   Looks up a localized string similar to Nová požadavka na spracování objednávky. &lt;br/&gt;&lt;br/&gt;Detail objednávky si můžete skontrolovat na stránce &lt;a href=&apos;{0}&apos;&gt;objednávka&lt;/a&gt;.
         /// </summary>
         internal static string UserOrderFinishPage_Email2Central_Message {
             get {
@@ -1825,7 +1825,7 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to New Order nr.: {0}.
+        ///   Looks up a localized string similar to Nová objednávka č.: {0}.
         /// </summary>
         internal static string UserOrderFinishPage_Email2Central_Subject {
             get {
@@ -1834,8 +1834,9 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to &lt;b&gt;Thak You for your order&lt;/b&gt;
-        ///Your order is currently in progress. Statu your order can see on : {0}.
+        ///   Looks up a localized string similar to Dobrý den,&lt;br /&gt;&lt;br /&gt;
+        ///děkujeme za Vaši objednávku a nákup v Euroně. O dalším průběhu zpracování objednávky – expedici budete informováni informační zprávou od dopravce a SMS zprávou. Stav své objednávky můžete sledovat prostřednictvím tohoto &lt;a href=&apos;{0}&apos;&gt;odkazu&lt;/a&gt; nebo &lt;a href=&apos;{1}&apos;&gt;přihlášením&lt;/a&gt; do svého uživatelského účtu na našich webových stránkách. Pro přihlášení na webových stránkách využijte, prosím, své uživatelské jméno a heslo, které jste uvedl/a při vyplnění údajů pro objednání.
+        ///&lt;br /&gt;&lt;br  [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string UserOrderFinishPage_Email2User_Message {
             get {
@@ -1844,7 +1845,7 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Order nr.: {0}.
+        ///   Looks up a localized string similar to Objednávka č.: {0}.
         /// </summary>
         internal static string UserOrderFinishPage_Email2User_Subject {
             get {

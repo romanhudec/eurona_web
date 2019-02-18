@@ -61,7 +61,7 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Advisor :.
+        ///   Looks up a localized string similar to Poradce : .
         /// </summary>
         internal static string Advisor {
             get {
@@ -349,15 +349,6 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Jen moje skupina.
-        /// </summary>
-        internal static string JenMojeSkupina {
-            get {
-                return ResourceManager.GetString("JenMojeSkupina", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to jméno.
         /// </summary>
         internal static string Jmeno {
@@ -475,7 +466,7 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Období :.
+        ///   Looks up a localized string similar to Období : .
         /// </summary>
         internal static string Obdobi {
             get {
@@ -565,7 +556,7 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to &gt; Přehled produkce skupiny.
+        ///   Looks up a localized string similar to &gt; Přehled produkce skupiny ATP.
         /// </summary>
         internal static string PrehledProdukceSkupinyATP {
             get {
@@ -574,7 +565,7 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Přehled produkce skupiny.
+        ///   Looks up a localized string similar to Přehled produkce skupiny ATP.
         /// </summary>
         internal static string PrehledProdukceSkupinyATP_Title {
             get {
