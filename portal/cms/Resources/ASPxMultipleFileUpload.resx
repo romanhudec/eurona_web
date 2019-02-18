@@ -118,30 +118,30 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="Action" xml:space="preserve">
-    <value>Action</value>
+    <value>Akce</value>
   </data>
   <data name="AddButtonCaption" xml:space="preserve">
-    <value>Add file</value>
+    <value>Přidat soubor</value>
   </data>
   <data name="ChooceAtOneFile" xml:space="preserve">
-    <value>Select at one file</value>
+    <value>Vyber jeden soubor</value>
   </data>
   <data name="DeleteButtonCaption" xml:space="preserve">
-    <value>Delete file</value>
+    <value>Smazat soubor</value>
   </data>
   <data name="Description" xml:space="preserve">
-    <value>Description</value>
+    <value>Popis</value>
   </data>
   <data name="EditButtonCaption" xml:space="preserve">
-    <value>Edit</value>
+    <value>Editace</value>
   </data>
   <data name="File" xml:space="preserve">
-    <value>File</value>
+    <value>Soubor</value>
   </data>
   <data name="Position" xml:space="preserve">
-    <value>Position</value>
+    <value>Pozice</value>
   </data>
   <data name="UploadButtonCaption" xml:space="preserve">
-    <value>Upload</value>
+    <value>Nahrát</value>
   </data>
 </root>

@@ -118,7 +118,7 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="OrganizationControl_Code" xml:space="preserve">
-    <value>Code :</value>
+    <value>Kód :</value>
   </data>
   <data name="OrganizationControl_FAX" xml:space="preserve">
     <value>FAX :</value>
@@ -127,39 +127,39 @@
     <value>ICQ :</value>
   </data>
   <data name="OrganizationControl_Parent" xml:space="preserve">
-    <value>Parent :</value>
+    <value>Kód sponzora :</value>
   </data>
   <data name="OrganizationControl_PF_F" xml:space="preserve">
-    <value>The Individual Person</value>
+    <value>Fyzická osoba</value>
   </data>
   <data name="OrganizationControl_PF_P" xml:space="preserve">
-    <value>Legal person</value>
+    <value>Právnická osoba</value>
   </data>
   <data name="OrganizationControl_Skype" xml:space="preserve">
     <value>Skype :</value>
   </data>
+  <data name="OrganizationControl_TopManager" xml:space="preserve">
+    <value>Top manager :</value>
+  </data>
   <data name="OrganizationControl_VATPayment" xml:space="preserve">
-    <value>Pay VAT :</value>
+    <value>Plátce DPH :</value>
+  </data>
+  <data name="OrganizationControl_VATPayment_Description" xml:space="preserve">
+    <value>Jestli jste plátce DPH, kontaktujte obchodní oddelení.</value>
   </data>
   <data name="PersonControl_BirthDay" xml:space="preserve">
-    <value>Birth day :</value>
+    <value>Datum narození :</value>
   </data>
   <data name="PersonControl_CardId" xml:space="preserve">
-    <value>Personal card ID :</value>
+    <value>Číslo OP :</value>
   </data>
   <data name="PersonControl_PF" xml:space="preserve">
     <value>PF :</value>
   </data>
   <data name="PersonControl_RegionCode" xml:space="preserve">
-    <value>Region code :</value>
+    <value>Kód oblasti :</value>
   </data>
   <data name="PersonControl_WorkPhone" xml:space="preserve">
-    <value>Work phone :</value>
-  </data>
-  <data name="OrganizationControl_VATPayment_Description" xml:space="preserve">
-    <value>You are VAT payment ? Contact  Business division.</value>
-  </data>
-  <data name="OrganizationControl_TopManager" xml:space="preserve">
-    <value>Top manager :</value>
+    <value>Telefon do práce :</value>
   </data>
 </root>
