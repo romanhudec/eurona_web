@@ -104,9 +104,7 @@
 			if (validate('<%=txtAdresaDodaci_Mesto.ClientID %>', 'validatorAdresaDodaci_Mesto') == false) return false;
 			if (validate('<%=txtAdresaDodaci_PSC.ClientID %>', 'validatorAdresaDodaci_PSC') == false) return false;
 
-		    //if (validate('<perc=txtKraj.ClientID perc>', 'validatorKraj') == false) return false;
-
-			if (validate('<%=txtLogin.ClientID %>', 'validatorLogin') == false) return false;
+		    //if (validate('<perc=txtLogin.ClientID perc>', 'validatorLogin') == false) return false;
 		    if (validate('<%=txtPassword.ClientID %>', 'validatorPassword') == false) return false;
             
 		    if (validateRegExp('<%=txtMobil.ClientID %>', 'validatorMobil', '^[0-9]{9}$') == false) {
@@ -114,11 +112,6 @@
 		        return false;
 		    }
 
-            //PasswordPolicy
-		    //if (validateRegExp('<%=txtPassword.ClientID %>', 'validatorPasswordExp', '^(?=.*[A-Z])(?=.*\\d)(?!.*(.)\\1\\1)[a-zA-Z0-9@]{8,}$') == false) {
-		    //    alert('Heslo musí obsahovat čisla, malá a velká písmena.Minimální délka je 8 znaků!');
-		    //    return false;
-		    //}
 			if (validate('<%=txtConfirmPassword.ClientID %>', 'validatorConfirmPassword') == false) return false;
 			return true;
 		}
@@ -133,7 +126,21 @@
 			return true;
 		}
 
+        function validatePwd() {
+            var btnContinue = document.getElementById('<%=btnContinue.ClientID%>');
+            var elmErrorMessage = document.getElementById('<%=lblValidatorTextPwd.ClientID%>');
+            var elmErrorMessageRepeat = document.getElementById('<%=lblValidatorTextPwdRepeat.ClientID%>');
+            var elm = document.getElementById('<%=txtPassword.ClientID%>');
+            var elmRepeat = document.getElementById('<%=txtConfirmPassword.ClientID%>');
 
+            var result = validatePasswordAndRepeatPassword(elm, elmRepeat, elmErrorMessage, elmErrorMessageRepeat);
+            if (result == false) {
+                btnContinue.disabled = true;
+            } else {
+                onSave();
+            }
+        }
+        
 		$(function () {
 			$(".tbCityAutocomplette").autocomplete({
 				source: function (request, response) {
@@ -197,7 +204,7 @@
 				},
 			    minLength: 2
 			});
-});
+        });
  
 	</script>
 </asp:Content>
@@ -552,7 +559,8 @@
                     <tr>
                         <td>
                             <table border="0" style="border:2px solid #c10076;margin:10px 0px 10px 0px;padding:10px 0px 10px 0px;">
-                                <tr>
+
+<%--                                <tr>
                                     <td style="width:130px;">
                                         <span class="required">*</span>
                                         <asp:Literal ID="Literal3" runat="server" Text="<%$ Resources:Strings, RegisterControl_LoginLabel %>" />
@@ -565,24 +573,22 @@
                                             </div>
                                         </div>
                                     </td>
-                                </tr>
+                                </tr>--%>
                                 <tr>
                                     <td>
                                         <span class="required">*</span>
                                         <asp:Literal ID="Literal1" runat="server" Text="<%$ Resources:Strings, RegisterControl_PasswordLabel %>" />
                                     </td>
                                     <td>
-                                        <asp:TextBox runat="server" TextMode="Password" ID="txtPassword" Width="200px" onclick="hideElm('validatorPassword');"></asp:TextBox>
+                                        <asp:TextBox runat="server" TextMode="Password" ID="txtPassword" Width="250px" oninput="validatePwd();" onclick="hideElm('validatorPassword');"></asp:TextBox>
                                         <div class="validator" id='validatorPassword' onclick="hideElm('validatorPassword');">
                                             <div style="position:absolute;margin-top:-20px;">
                                                 <asp:Literal runat="server" Text="<%$ Resources:EShopStrings, Anonymous_Register_VyplntePovinnouPolozku %>"></asp:Literal>
                                             </div>
-                                        </div> 
-                                        <div class="validator" id='validatorPasswordExp' onclick="hideElm('validatorPasswordExp');">
-                                            <div style="position:absolute;margin-top:-20px;">
-                                                <asp:Literal ID="Literal10" runat="server" Text="<%$ Resources:EShopStrings, PasswordPolicyMessage %>"></asp:Literal>
-                                            </div>
-                                        </div>                                                                                
+                                        </div>    
+                                        <div class="validation-message">
+                                            <asp:Label runat="server" ID="lblValidatorTextPwd" Width="250px" Text="<%$ Resources:Strings, EmailVerifyControl_PasswordErrorMessage %>" ForeColor="#EA008A" style="display:none;"></asp:Label>
+                                        </div>                                                                           
                                     </td>
                                 </tr>
                                 <tr>
@@ -591,12 +597,15 @@
                                         <asp:Literal ID="Literal2" runat="server" Text="<%$ Resources:Strings, RegisterControl_PasswordConfirmLabel %>" />
                                     </td>
                                     <td>
-                                        <asp:TextBox runat="server" TextMode="Password" ID="txtConfirmPassword" Width="200px" CausesValidation="True" onclick="hideElm('validatorConfirmPassword');"></asp:TextBox>
+                                        <asp:TextBox runat="server" TextMode="Password" ID="txtConfirmPassword" oninput="validatePwd();" Width="250px" CausesValidation="True" onclick="hideElm('validatorConfirmPassword');"></asp:TextBox>
                                         <div class="validator" id='validatorConfirmPassword' onclick="hideElm('validatorConfirmPassword');">
                                             <div style="position:absolute;margin-top:-20px;">
 												<asp:Literal runat="server" Text="<%$ Resources:EShopStrings, Anonymous_Register_VyplntePovinnouPolozku %>"></asp:Literal>
                                             </div>
                                         </div> 
+                                        <div class="validation-message">
+                                            <asp:Label runat="server" ID="lblValidatorTextPwdRepeat"  Width="250px" Text="<%$ Resources:Strings, EmailVerifyControl_PasswordRepeatErrorMessage %>" ForeColor="#EA008A" style="display:none;"></asp:Label>
+                                        </div>
                                     </td>
                                 </tr>
                             </table>

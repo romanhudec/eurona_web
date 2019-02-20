@@ -355,24 +355,6 @@ namespace Eurona.User.Anonymous {
         protected global::System.Web.UI.WebControls.RegularExpressionValidator mobilValidator;
         
         /// <summary>
-        /// Literal3 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Literal Literal3;
-        
-        /// <summary>
-        /// txtLogin control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtLogin;
-        
-        /// <summary>
         /// Literal1 control.
         /// </summary>
         /// <remarks>
@@ -391,13 +373,13 @@ namespace Eurona.User.Anonymous {
         protected global::System.Web.UI.WebControls.TextBox txtPassword;
         
         /// <summary>
-        /// Literal10 control.
+        /// lblValidatorTextPwd control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Literal Literal10;
+        protected global::System.Web.UI.WebControls.Label lblValidatorTextPwd;
         
         /// <summary>
         /// Literal2 control.
@@ -416,6 +398,15 @@ namespace Eurona.User.Anonymous {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtConfirmPassword;
+        
+        /// <summary>
+        /// lblValidatorTextPwdRepeat control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblValidatorTextPwdRepeat;
         
         /// <summary>
         /// Literal9 control.

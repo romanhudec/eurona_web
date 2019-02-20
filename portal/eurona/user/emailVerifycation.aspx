@@ -168,37 +168,17 @@
 
         function validatePwd() {
             var btnContinueToFinish = document.getElementById('<%=btnContinueToFinish.ClientID%>');
-            // at least one number, one lowercase and one uppercase letter
-            // at least six characters that are letters, numbers or the underscore
-            var strongRegex = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])\w{6,}$/;
             var elmErrorMessage = document.getElementById('<%=lblValidatorTextPwd.ClientID%>');           
             var elmErrorMessageRepeat = document.getElementById('<%=lblValidatorTextPwdRepeat.ClientID%>');
             var elm = document.getElementById('<%=txtPwd.ClientID%>');
             var elmRepeat = document.getElementById('<%=txtPwdRepeat.ClientID%>');
 
-            if (elm.value.length == 0 && elmRepeat.value.length == 0) {
-                elmErrorMessage.style.display = 'block';
+            var result = validatePasswordAndRepeatPassword(elm, elmRepeat, elmErrorMessage, elmErrorMessageRepeat);
+            if (result == false) {
                 btnContinueToFinish.disabled = true;
-                return;
+            } else {
+                btnContinueToFinish.disabled = false;
             }
-
-            if (strongRegex.test(elm.value) == false) {
-                elmErrorMessage.style.display = 'block';
-                btnContinueToFinish.disabled = true;
-                return;
-            }
-          
-            //Check repaeting pwd
-            if (elm.value != elmRepeat.value) {
-                elmErrorMessage.style.display = 'none';
-                elmErrorMessageRepeat.style.display = 'block';
-                btnContinueToFinish.disabled = true;
-                return;
-            }
-
-            elmErrorMessage.style.display = 'none';
-            elmErrorMessageRepeat.style.display = 'none';
-            btnContinueToFinish.disabled = false;
         }
 
     </script>

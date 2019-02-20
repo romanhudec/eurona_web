@@ -148,12 +148,13 @@ namespace Eurona.User.Anonymous {
                 this.cbAcceptTerms.Checked = false;
                 return;
             }
+            /*
             if (AccountLoginExists(txtLogin.Text)) {
                 string js = string.Format("alert('{0}');", Resources.EShopStrings.Anonymous_Register_LoginExists);
                 this.btnContinue.Page.ClientScript.RegisterStartupScript(this.btnContinue.Page.GetType(), "addValidateOrganization", js, true);
                 this.cbAcceptTerms.Checked = false;
                 return;
-            }
+            }*/
 
 
             string hesloProHosta = Organization.EURONA_CODE;
@@ -187,7 +188,8 @@ namespace Eurona.User.Anonymous {
 
             Account account = new Account();
             account.Locale = System.Threading.Thread.CurrentThread.CurrentUICulture.TwoLetterISOLanguageName.ToLower();
-            account.Login = txtLogin.Text;
+            //account.Login = txtLogin.Text;
+            account.Login = txtEmail.Text;
             account.Email = txtEmail.Text;
             account.Password = Cryptographer.MD5Hash(txtPassword.Text);
             account.SingleUserCookieLinkEnabled = true;
