@@ -1207,7 +1207,7 @@ www.euronabycerny.com</value>
     <value>Dobrý den,&lt;br/&gt;&lt;br/&gt;
 pro ověření Vašeho zákaznického účtu Eurona prosím klikněte na následující odkaz, který Vás přesměruje na stránky EuronabyCerny a vyzve k zadání nového hesla.
 &lt;br/&gt;&lt;br/&gt;
-[&lt;a href='{0}'&gt;odkaz&lt;/a&gt;]
+&lt;a href='{0}'&gt;{0}&lt;/a&gt;
 &lt;br/&gt;&lt;br/&gt;
 Zvolte si, prosím, bezpečné, alespoň 6místné heslo, které bude obsahovat minimálně jedno velké písmeno, jedno malé písmeno a alespoň jednu číslici.
 &lt;br/&gt;&lt;br/&gt;
@@ -1224,9 +1224,16 @@ Eurona by Cerny</value>
     <value>OVĚŘENÍ ÚČTU EURONA</value>
   </data>
   <data name="EmailVerifyControl_UserVerificationFinish_Message" xml:space="preserve">
-    <value>Dobrý den
-ověření úspěšně dokončeno, děkujeme… 
-Eurona a.s</value>
+    <value>Děkujeme, &lt;br/&gt;&lt;br/&gt;
+ověření Vašeho zákaznického účtu je dokončeno.
+&lt;br/&gt;&lt;br/&gt;
+Zapamatujte si, prosím, Vaše nové přihlašovací údaje:&lt;br/&gt;
+Přihlašovací jméno: {0} a Vaše nové heslo.
+&lt;br/&gt;&lt;br/&gt;
+Nyní můžete pokračovat na naše stránky: https://euronabycerny.com/.
+&lt;br/&gt;&lt;br/&gt;
+S přáním příjemného dne,&lt;br/&gt;
+Tým Eurona.</value>
   </data>
   <data name="EmailVerifyControl_EmailDescriptionBottom" xml:space="preserve">
     <value>Váš email s ověřovacím odkazem se poté stane i Vaším přihlašovacím jménem.</value>
@@ -1256,5 +1263,14 @@ Heslo: zvolené v předchozím kroku</value>
   </data>
   <data name="EmailVerifyControl_PasswordRepeatErrorMessage" xml:space="preserve">
     <value>Heslo a opakované heslo se neshodují!</value>
+  </data>
+  <data name="AdminAccountControl_LabelZrusitOvereniEmailem" xml:space="preserve">
+    <value>Zrušit ověření emailem</value>
+  </data>
+  <data name="EmailVerifyControl_EmailValidation_OvereniZJinehoZarizeni" xml:space="preserve">
+    <value>Ověření z jiného zařízení! Ověření prosím dokončete na zařízení na kterém bylo započato.</value>
+  </data>
+  <data name="EmailVerifyControl_EmailValidation_UcetJeJizOverenPokracovat" xml:space="preserve">
+    <value>Váš účet byl ověřen, nyní prosím pokračujte přihlášením.</value>
   </data>
 </root>

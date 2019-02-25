@@ -17,6 +17,7 @@
             layoutVerifycationSuccessStep1 = document.getElementById('layoutVerifycationSuccessStep1');
             layoutVerifycationSuccessFinish = document.getElementById('layoutVerifycationSuccessFinish');
             layoutVerifycationFailed = document.getElementById('layoutVerifycationFailed');
+            layoutVerifycationMessage = document.getElementById('layoutVerifycationMessage');
 
             $.blockUI.defaults.overlayCSS.cursor = 'default';
             $.blockUI({
@@ -54,6 +55,8 @@
                 success: function (data) {
                     if (data.Status == 0) {
                         showLayoutVerifycationSuccessStep1();
+                    } else if(data.Status == 2){
+                        showLayoutVerifycationMessage(data.Message);
                     } else {
                         showLayoutVerifycationFailed(data.ErrorMessage);
                     }
@@ -79,8 +82,21 @@
             layoutVerifycationSuccessFinish.style.display = 'none';
             layoutVerifycationFailed.style.display = 'block';
             var lblErrorMesage = document.getElementById('<%=lblErrorMesage.ClientID%>');
-            if (message != null) {
+            if (message != null && message.length != 0) {
                 lblErrorMesage.innerHTML = message;
+            }
+        }
+
+        function showLayoutVerifycationMessage(message) {
+            verifyForm.style.display = 'block';
+            layoutVerifycationProcess.style.display = 'none';
+            layoutVerifycationSuccessStep1.style.display = 'none';
+            layoutVerifycationSuccessFinish.style.display = 'none';
+            layoutVerifycationFailed.style.display = 'none';
+            layoutVerifycationMessage.style.display = 'block';
+            var lblMesage = document.getElementById('<%=lblMesage.ClientID%>');
+            if (message != null && message.length != 0) {
+                lblMesage.innerHTML = message;
             }
         }
 
@@ -233,7 +249,7 @@
         <div id="layoutVerifycationSuccessFinish" style="display:none;">
             <table style="text-align:center;margin: 0 auto;">
                 <tr><td><h4><asp:Literal ID="Literal6" runat="server" Text="<%$ Resources:Strings, EmailVerifyControl_Title %> "></asp:Literal></h4></td></tr>
-                <tr><td><asp:Label runat="server" ID="Label3" Text="<%$ Resources:Strings, EmailVerifyControl_VerifycationSuccessFinish_Title %>" style="text-align:center;color:#EA008A;font-size:20px;"></asp:Label></td></tr>
+                <tr><td><asp:Label runat="server" ID="lblFinishTitle" Text="<%$ Resources:Strings, EmailVerifyControl_VerifycationSuccessFinish_Title %>" style="text-align:center;color:#EA008A;font-size:20px;"></asp:Label></td></tr>
                 <tr>
                     <td>
                         <div class="message" style="padding-top:10px;">
@@ -257,6 +273,18 @@
                 <tr>
                     <td style="text-align:right;padding-top:10px;">
                         <asp:Button ID="Button1" runat="server" CssClass="button" Text="<%$ Resources:Strings, EmailVerifyControl_Opakovat %>" OnClientClick="startVerifycationProcess();" />
+                    </td>
+                </tr>                              
+            </table>
+        </div>
+        <div id="layoutVerifycationMessage" style="display:none;">
+            <table style="text-align:center;margin: 0 auto;width:100%;">
+                <tr><td><h4><asp:Literal ID="Literal3" runat="server" Text="<%$ Resources:Strings, EmailVerifyControl_Title %>"></asp:Literal></h4></td></tr>
+                <tr><td style="text-align:center;"><asp:Image ID="Image1" runat="server" ImageUrl="~/images/success.png" /></td></tr> 
+                <tr><td class="message"><asp:Label ID="lblMesage" runat="server"></asp:Label></td></tr> 
+                <tr>
+                    <td style="text-align:right;padding-top:10px;">
+                        <asp:Button ID="Button2" runat="server" CssClass="button" Text="<%$ Resources:Strings, EmailVerifyControl_Pokracovat %>" OnClientClick="onContinueToOffice();" />
                     </td>
                 </tr>                              
             </table>

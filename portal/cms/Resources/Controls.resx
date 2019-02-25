@@ -1134,4 +1134,7 @@
   <data name="RaitingControl_RatingLabel" xml:space="preserve">
     <value>Rating</value>
   </data>
+  <data name="AdminAccountsControl_ColumnEmailVerified" xml:space="preserve">
+    <value>Ověření Emailem</value>
+  </data>
 </root>

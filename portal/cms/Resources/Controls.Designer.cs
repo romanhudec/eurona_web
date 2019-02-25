@@ -205,6 +205,15 @@ namespace CMS.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Ověření Emailem.
+        /// </summary>
+        public static string AdminAccountsControl_ColumnEmailVerified {
+            get {
+                return ResourceManager.GetString("AdminAccountsControl_ColumnEmailVerified", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Povoleno.
         /// </summary>
         public static string AdminAccountsControl_ColumnEnabled {

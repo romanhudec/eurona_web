@@ -142,6 +142,15 @@ namespace Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Zrušit ověření emailem.
+        /// </summary>
+        internal static string AdminAccountControl_LabelZrusitOvereniEmailem {
+            get {
+                return ResourceManager.GetString("AdminAccountControl_LabelZrusitOvereniEmailem", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Osobní stránky uživatelů.
         /// </summary>
         internal static string AdministrationMode_AdvisorPages {
@@ -863,6 +872,24 @@ namespace Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Ověření z jiného zařízení! Ověření prosím dokončete na zařízení na kterém bylo započato..
+        /// </summary>
+        internal static string EmailVerifyControl_EmailValidation_OvereniZJinehoZarizeni {
+            get {
+                return ResourceManager.GetString("EmailVerifyControl_EmailValidation_OvereniZJinehoZarizeni", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Váš účet byl ověřen, nyní prosím pokračujte přihlášením..
+        /// </summary>
+        internal static string EmailVerifyControl_EmailValidation_UcetJeJizOverenPokracovat {
+            get {
+                return ResourceManager.GetString("EmailVerifyControl_EmailValidation_UcetJeJizOverenPokracovat", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Váš email se nepodařilo ověřit! Zkuste ověření opakovat pozdeji..
         /// </summary>
         internal static string EmailVerifyControl_EmailVerifiedFailed_Message {
@@ -990,15 +1017,13 @@ namespace Resources {
         
         /// <summary>
         ///   Looks up a localized string similar to Dobrý den,&lt;br/&gt;&lt;br/&gt;
-        ///pro ověření Vašeho zákaznického účtu Eurona prosím klikněte na následující odkaz, který Vás přesměruje na stránky EuronabyCerny a vyzve k         ///
-        ///zadání nového hesla.
+        ///pro ověření Vašeho zákaznického účtu Eurona prosím klikněte na následující odkaz, který Vás přesměruje na stránky EuronabyCerny a vyzve k zadání nového hesla.
         ///&lt;br/&gt;&lt;br/&gt;
-        ///[&lt;a href=&apos;{0}&apos;&gt;odkaz&lt;/a&gt;]
+        ///&lt;a href=&apos;{0}&apos;&gt;{0}&lt;/a&gt;
         ///&lt;br/&gt;&lt;br/&gt;
-        ///Zvolte si, prosím, bezpečné, alespoň 6místné heslo, které bude obsahovat minimálně jedno velké písmeno, jedno malé písmeno a alespoň jednu         ///
-        ///číslici.
+        ///Zvolte si, prosím, bezpečné, alespoň 6místné heslo, které bude obsahovat minimálně jedno velké písmeno, jedno malé písmeno a alespoň jednu číslici.
         ///&lt;br/&gt;&lt;br/&gt;
-        ///Pokud se po kliknutí na odkaz nic neděje, označte jej kurzorem a zároveň pomocí kombinace kláves Ctrl+C zkopíruj [rest of string was truncated]&quot;;.
+        ///Pokud se po kliknutí na odkaz nic neděje, označte jej kurzorem a zároveň pomocí kombinace kláves Ctrl+C zkopírujte a pomoc [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string EmailVerifyControl_UserVerificationEmail_Message {
             get {
@@ -1025,9 +1050,16 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Dobrý den
-        ///ověření úspěšně dokončeno, děkujeme… 
-        ///Eurona a.s.
+        ///   Looks up a localized string similar to Děkujeme, &lt;br/&gt;&lt;br/&gt;
+        ///ověření Vašeho zákaznického účtu je dokončeno.
+        ///&lt;br/&gt;&lt;br/&gt;
+        ///Zapamatujte si, prosím, Vaše nové přihlašovací údaje:&lt;br/&gt;
+        ///Přihlašovací jméno: {0} a Vaše nové heslo.
+        ///&lt;br/&gt;&lt;br/&gt;
+        ///Nyní můžete pokračovat na naše stránky: https://euronabycerny.com/.
+        ///&lt;br/&gt;&lt;br/&gt;
+        ///S přáním příjemného dne,&lt;br/&gt;
+        ///Tým Eurona..
         /// </summary>
         internal static string EmailVerifyControl_UserVerificationFinish_Message {
             get {

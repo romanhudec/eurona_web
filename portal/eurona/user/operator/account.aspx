@@ -16,8 +16,8 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="content" Runat="Server">
     <div style="margin:auto;">
-	<cms:RoundPanel ID="rpAccount" runat="server" CssClass="roundPanel" Width="400px">
-	<cmsAccount:AdminAccountControl runat="server" ID="adminAccount" UseCapcha="false" UserDetailUrlFormat="~/user/operator/user.aspx?id={0}" RegisterUserUrlFormat="~/user/operator/registerUser.aspx?id={0}"  ChangePasswordUrlFormat="~/user/operator/changePassword.aspx?id={0}" GeneratePasswordUrlFormat="~/user/operator/generatePassword.aspx?id={0}" Width="400px" />
+	<cms:RoundPanel ID="rpAccount" runat="server" CssClass="roundPanel" Width="100%">
+	<cmsAccount:AdminAccountControl runat="server" ID="adminAccount" UseCapcha="false" UserDetailUrlFormat="~/user/operator/user.aspx?id={0}" RegisterUserUrlFormat="~/user/operator/registerUser.aspx?id={0}"  ChangePasswordUrlFormat="~/user/operator/changePassword.aspx?id={0}" GeneratePasswordUrlFormat="~/user/operator/generatePassword.aspx?id={0}" Width="95%" />
     </cms:RoundPanel>
     </div>
 </asp:Content>

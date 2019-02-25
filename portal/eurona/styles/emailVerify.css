@@ -26,6 +26,14 @@
     padding-bottom:10px;
     padding-top:10px;
 }
+.input-description-black span {
+    color:#000000!important;
+    font-style:normal;
+    text-align:left!important;
+    padding-bottom:10px;
+    padding-top:10px;
+    font-size:14px!important;
+}
 .input-label span, .input-label {
     text-align:left;
     color:#3F3F3F!important;

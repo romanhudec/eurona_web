@@ -89,8 +89,8 @@
                 <table id="layoutTypeEmail" style="width:100%;display:table;">
                     <tr>
                         <td>
-                        <div class="input-description" style="padding-top:0px;">
-                            <asp:Label runat="server" ID="Label2" Text="<%$ Resources:Strings, EmailVerifyControl_EmailDescriptionTop %>" ></asp:Label>
+                        <div class="input-description-black" style="padding-top:0px;text-align:left;padding-bottom:10px;">
+                            <asp:Label runat="server" ID="Label2" Text="<%$ Resources:Strings, EmailVerifyControl_EmailDescriptionTop %>" style="text-align:left;" ></asp:Label>
                         </div>
                         </td>    
                     </tr>

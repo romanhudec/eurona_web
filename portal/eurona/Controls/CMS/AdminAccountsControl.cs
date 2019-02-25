@@ -177,6 +177,15 @@ namespace Eurona.Controls
 			});
 			grid.Columns[3].HeaderStyle.Width = Unit.Pixel(60);
 
+            grid.Columns.Add(new GridBoundColumn {
+                DataField = "EmailVerified",
+                HeaderText = global::CMS.Resources.Controls.AdminAccountsControl_ColumnEmailVerified,
+                SortExpression = "EmailVerified",
+                AutoPostBackOnFilter = true,
+                CurrentFilterFunction = GridKnownFunction.Contains
+            });
+            grid.Columns[4].HeaderStyle.Width = Unit.Pixel(60);
+
 			grid.Columns.Add(new GridBoundColumn
 			{
 				DataField = "RoleStringDisplay",
@@ -184,7 +193,7 @@ namespace Eurona.Controls
 				AutoPostBackOnFilter = true,
 				CurrentFilterFunction = GridKnownFunction.Contains
 			});
-			grid.Columns[4].ItemStyle.Wrap = true;
+			grid.Columns[5].ItemStyle.Wrap = true;
 
 			if (!HideCredit)
 			{
