@@ -287,7 +287,7 @@ namespace Eurona.User.Anonymous {
                 Storage<AnonymniRegistraceEntity>.Update(are);
             }
 
-            account.Enabled = true;
+            account.Enabled = false;
             account.Verified = false;
             account.AddToRoles(Eurona.Common.DAL.Entities.Role.REGISTEREDUSER, Eurona.Common.DAL.Entities.Role.ADVISOR, Eurona.Common.DAL.Entities.Role.ANONYMOUSADVISOR);
             Storage<Account>.Update(account);
@@ -316,7 +316,7 @@ namespace Eurona.User.Anonymous {
             SendRegistrationEmail(account);
 
             account = Storage<Account>.ReadFirst(new Account.ReadById { AccountId = account.Id });
-            if (account != null && account.Enabled && account.Authenticate(account.Password)) {
+            if (account != null /*&& account.Enabled*/ && account.Authenticate(account.Password)) {
                 Security.Login(account, false);
                 Security.UpdateLoginTime();
             }
