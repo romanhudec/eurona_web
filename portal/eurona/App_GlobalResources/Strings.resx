@@ -1273,4 +1273,7 @@ Heslo: zvolené v předchozím kroku</value>
   <data name="EmailVerifyControl_EmailValidation_UcetJeJizOverenPokracovat" xml:space="preserve">
     <value>Váš účet byl ověřen, nyní prosím pokračujte přihlášením.</value>
   </data>
+  <data name="EmailVerifyControl_AnonymousEmailSended_Message" xml:space="preserve">
+    <value>Na email jsem Vám právě zaslali ověřovací odkaz. Prokliknutím tohoto odkazu dokončíte registraci a můžete pokračovat v objednávce</value>
+  </data>
 </root>

@@ -800,6 +800,15 @@ namespace Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Na email jsem Vám právě zaslali ověřovací odkaz. Prokliknutím tohoto odkazu dokončíte registraci a můžete pokračovat v objednávce.
+        /// </summary>
+        internal static string EmailVerifyControl_AnonymousEmailSended_Message {
+            get {
+                return ResourceManager.GetString("EmailVerifyControl_AnonymousEmailSended_Message", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Změnit heslo a dokončit ověření.
         /// </summary>
         internal static string EmailVerifyControl_DokoncitOvereni {

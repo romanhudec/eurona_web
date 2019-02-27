@@ -287,6 +287,13 @@ function validatePasswordAndRepeatPassword(elm, elmRepeat, elmErrorMessage, elmE
     }
 
     //Check repaeting pwd
+    if (elmRepeat.value == null || elmRepeat.value.length == 0) {
+        elmErrorMessage.style.display = 'none';
+        elmErrorMessageRepeat.style.display = 'none';
+        return false;
+    }
+
+    //Check repaeting pwd
     if (elm.value != elmRepeat.value) {
         elmErrorMessage.style.display = 'none';
         elmErrorMessageRepeat.style.display = 'block';
@@ -296,4 +303,9 @@ function validatePasswordAndRepeatPassword(elm, elmRepeat, elmErrorMessage, elmE
     elmErrorMessage.style.display = 'none';
     elmErrorMessageRepeat.style.display = 'none';
     return true;
+}
+
+function validateEmailPattern(email) {
+    var re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+    return re.test(String(email).toLowerCase());
 }

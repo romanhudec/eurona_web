@@ -141,13 +141,14 @@ namespace Eurona.User.Anonymous {
                 this.btnContinue.Page.ClientScript.RegisterStartupScript(this.btnContinue.Page.GetType(), "addValidateTerms", js, true);
                 return;
             }
-
+            /*
             if (AccountEmailExists(txtEmail.Text)) {
                 string js = string.Format("alert('{0}');", Resources.EShopStrings.Anonymous_Register_EmailExists);
                 this.btnContinue.Page.ClientScript.RegisterStartupScript(this.btnContinue.Page.GetType(), "addValidateOrganization", js, true);
                 this.cbAcceptTerms.Checked = false;
                 return;
             }
+             * */
             /*
             if (AccountLoginExists(txtLogin.Text)) {
                 string js = string.Format("alert('{0}');", Resources.EShopStrings.Anonymous_Register_LoginExists);
@@ -287,7 +288,7 @@ namespace Eurona.User.Anonymous {
             }
 
             account.Enabled = true;
-            account.Verified = true;
+            account.Verified = false;
             account.AddToRoles(Eurona.Common.DAL.Entities.Role.REGISTEREDUSER, Eurona.Common.DAL.Entities.Role.ADVISOR, Eurona.Common.DAL.Entities.Role.ANONYMOUSADVISOR);
             Storage<Account>.Update(account);
 
@@ -323,7 +324,7 @@ namespace Eurona.User.Anonymous {
             //Email validation process
             if (Security.Account.IsInRole(Eurona.Common.DAL.Entities.Role.ADVISOR) || Security.Account.IsInRole(Eurona.Common.DAL.Entities.Role.ANONYMOUSADVISOR)) {
                 if (Security.Account.EmailVerified.HasValue == false) {
-                    Response.Redirect("~/user/requestEmailVerifycation.aspx");
+                    Response.Redirect("~/user/anonymous/requestEmailVerifycation.aspx");
                     return;
                 }
             }

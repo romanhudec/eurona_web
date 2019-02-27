@@ -133,7 +133,8 @@ namespace Eurona.Controls.UserManagement {
                         Storage<Organization>.Update(organization);
                     } else {
                         string js = string.Format("alert('Synchronizace se vzdáleným servrem (SAP) byla neúspěšná! Chyba: " + message + "');");
-                        buttonControl.Page.ClientScript.RegisterStartupScript(buttonControl.Page.GetType(), "TVDSyncOrganization", js, true);
+                        if( buttonControl != null )
+                            buttonControl.Page.ClientScript.RegisterStartupScript(buttonControl.Page.GetType(), "TVDSyncOrganization", js, true);
                         return false;
                     }
 
@@ -143,7 +144,8 @@ namespace Eurona.Controls.UserManagement {
                 CMS.EvenLog.WritoToEventLog(ex);
 
                 string js = string.Format("alert('Synchronizace se vzdáleným servrem (SAP) byla neúspěšná!');");
-                buttonControl.Page.ClientScript.RegisterStartupScript(buttonControl.Page.GetType(), "TVDSyncOrganization", js, true);
+                if (buttonControl != null)
+                    buttonControl.Page.ClientScript.RegisterStartupScript(buttonControl.Page.GetType(), "TVDSyncOrganization", js, true);
                 return false;
             }
         }

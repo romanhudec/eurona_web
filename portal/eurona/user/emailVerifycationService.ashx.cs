@@ -29,12 +29,18 @@ namespace Eurona.User {
             string method = context.Request["method"];
             if (method == "checkEmail") {
                 checkEmail(context);
+            } else if (method == "checkEmailExistence") {
+                checkEmailExistence(context);
             } else if (method == "sendEmail2EmailVerify") {
                 sendEmail2EmailVerify(context);
+            } else if (method == "sendEmail2EmailAnonymousVerify") {
+                sendEmail2EmailAnonymousVerify(context);
             } else if (method == "verify") {
                 verify(context);
             } else if (method == "verifyFinish") {
                 verifyFinish(context);
+            } else if (method == "verifyAnonymousFinish") {
+                verifyAnonymousFinish(context);
             } else if (method == "verifyCancel") {
                 verifyCancel(context);
             } else if (method == "getRedirectUrlAfterVerify") {
@@ -59,6 +65,29 @@ namespace Eurona.User {
             if (account != null) {
                 status = (int)JSONResponseStatus.ERROR;
                 errorMessage = Resources.Strings.EmailVerifyControl_EmailValidation_EmailJeJizOveren;
+            }
+
+            if (status != (int)JSONResponseStatus.SUCCESS) {
+                EvenLog.WritoToEventLog(errorMessage, System.Diagnostics.EventLogEntryType.Error);
+            }
+
+            sbJson.AppendFormat("{{ \"Status\":\"{0}\", \"ErrorMessage\":\"{1}\" }}", status, errorMessage);
+            context.Response.ContentType = "application/json; charset=utf-8";
+            context.Response.Write(sbJson.ToString());
+            context.Response.End();
+        }
+
+        private void checkEmailExistence(HttpContext context) {
+            string email = GetRequestData(context.Request);
+            //Zistim, ci email uz nahodou nieje overeny!
+            bool exists = AccountEmailExists(email);
+            StringBuilder sbJson = new StringBuilder();
+
+            int status = (int)JSONResponseStatus.SUCCESS;
+            string errorMessage = "";
+            if (exists ) {
+                status = (int)JSONResponseStatus.ERROR;
+                errorMessage = Resources.EShopStrings.Anonymous_Register_EmailExists;
             }
 
             if (status != (int)JSONResponseStatus.SUCCESS) {
@@ -96,6 +125,43 @@ namespace Eurona.User {
             } else {
                 status = (int)JSONResponseStatus.ERROR;
                 errorMessage = String.Format("sendEmail2EmailVerify:User not Loged!({0})", email);
+            }
+            if (status != (int)JSONResponseStatus.SUCCESS) {
+                EvenLog.WritoToEventLog(errorMessage, System.Diagnostics.EventLogEntryType.Error);
+            }
+
+            StringBuilder sbJson = new StringBuilder();
+            sbJson.AppendFormat("{{ \"Status\":\"{0}\", \"ErrorMessage\":\"{1}\" }}", status, errorMessage);
+            context.Response.ContentType = "application/json; charset=utf-8";
+            context.Response.Write(sbJson.ToString());
+            context.Response.End();
+        }
+
+        /// <summary>
+        /// Odoslanie emaily anonymous poradcovi aj s linkom na overenie emailu
+        /// </summary>
+        /// <param name="context"></param>
+        private void sendEmail2EmailAnonymousVerify(HttpContext context) {
+            int status = (int)JSONResponseStatus.SUCCESS;
+            string errorMessage = "";
+            if (Security.IsLogged(false)) {
+                string email = Security.Account.Login;
+                string code = string.Format("{0}|{1}|{2}", email, Security.Account.Id, Utilities.GetUserIP(context.Request));
+                code = CMS.Utilities.Cryptographer.Encrypt(code);
+                string url = Utilities.Root(context.Request) + "user/anonymous/emailVerifycation.aspx?code=" + code;
+
+                Security.Account.EmailVerifyCode = code;
+                Security.Account.EmailToVerify = email;
+                Storage<Account>.Update(Security.Account);
+                if (SendEmailVerificationEmail(email, url)) {
+                    Security.Account.EmailVerifyStatus = (int)Account.EmailVerifyStatusCode.EMAIL_SEND;
+                    Storage<Account>.Update(Security.Account);
+                } else {
+                    status = (int)JSONResponseStatus.ERROR;
+                }
+            } else {
+                status = (int)JSONResponseStatus.ERROR;
+                errorMessage = "sendEmail2EmailVerify:User not Loged!";
             }
             if (status != (int)JSONResponseStatus.SUCCESS) {
                 EvenLog.WritoToEventLog(errorMessage, System.Diagnostics.EventLogEntryType.Error);
@@ -259,6 +325,76 @@ namespace Eurona.User {
             context.Response.ContentType = "application/json; charset=utf-8";
             context.Response.Write(sbJson.ToString());
             context.Response.End();
+        }
+
+                /// <summary>
+        /// Konecny zapis overenych udajov
+        /// </summary>
+        /// <param name="context"></param>
+        private void verifyAnonymousFinish(HttpContext context) {
+            int status = (int)JSONResponseStatus.SUCCESS;
+            string message = "";
+            string errorMessage = "";
+
+            if (Security.IsLogged(false)) {
+                if (Security.Account.EmailVerifyStatus != (int)Account.EmailVerifyStatusCode.DATA_VALIDATED) {
+                    status = (int)JSONResponseStatus.ERROR;
+                    message = "EmailVerifyStatusCode is NOT Validated! ";
+                } else {
+                    string pwd = GetRequestData(context.Request);
+                    pwd = CMS.Utilities.Cryptographer.MD5Hash(pwd);
+
+                    Security.Account.Login = Security.Account.EmailToVerify;
+                    Security.Account.Email = Security.Account.EmailToVerify;
+                    Security.Account.EmailVerifyStatus = (int)Account.EmailVerifyStatusCode.VERIFIED;
+                    Security.Account.EmailVerified = DateTime.Now;
+                    Storage<Account>.Update(Security.Account);
+
+                    //Update Organization
+                    Organization organization = Storage<Organization>.ReadFirst(new Organization.ReadByAccountId { AccountId = Security.Account.Id });
+                    organization.ContactEmail = Security.Account.EmailToVerify;
+                    Storage<Organization>.Update(organization);
+
+                    //Sync TVD User Data
+                    if (!Eurona.Controls.UserManagement.OrganizationControl.SyncTVDUser(organization, null)) {
+                        Security.Account.EmailVerified = null;
+                        Storage<Account>.Update(Security.Account);
+                        status = (int)JSONResponseStatus.ERROR;
+                        message = "verifyFinish:TVD Error!";
+                        errorMessage = "Synchronizace se vzdáleným servrem (SAP) byla neúspěšná!";
+                        return;
+                    } else {
+                        SendEmailVerificationFinishedEmail(Security.Account.EmailToVerify);
+                        message = String.Format(Resources.Strings.EmailVerifyControl_VerifycationSuccessFinish_Message, Security.Account.Login);
+                        message = message.Replace("\r\n", "<br/>");
+
+                        Security.Account.EmailVerified = DateTime.Now;
+                         Security.Account.Enabled = true;
+                         Security.Account.Verified = true;
+                        Storage<Account>.Update(Security.Account);
+                    }
+                }
+
+            } else {
+                status = (int)JSONResponseStatus.ERROR;
+                message = "verifyFinish:User not Loged!";
+            }
+
+            if (status != (int)JSONResponseStatus.SUCCESS) {
+                EvenLog.WritoToEventLog(message, System.Diagnostics.EventLogEntryType.Error);
+            }
+
+            StringBuilder sbJson = new StringBuilder();
+            sbJson.AppendFormat("{{ \"Status\":\"{0}\", \"Message\":\"{1}\", \"ErrorMessage\":\"{2}\" }}", status, message, errorMessage);
+            context.Response.ContentType = "application/json; charset=utf-8";
+            context.Response.Write(sbJson.ToString());
+            context.Response.End();
+        }
+        
+
+        private bool AccountEmailExists(string email) {
+            List<Account> exists = Storage<Account>.Read(new Account.ReadByEmail { Email = email });
+            return exists != null && exists.Count > 0;
         }
 
         private void getRedirectUrlAfterVerify(HttpContext context) {

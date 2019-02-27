@@ -29,7 +29,11 @@ namespace Eurona.User.Advisor {
             //Email validation process
             if (Security.Account.IsInRole(Role.ADVISOR) || Security.Account.IsInRole(Role.ANONYMOUSADVISOR)) {
                 if (Security.Account.EmailVerified.HasValue == false) {
-                    Response.Redirect("~/user/requestEmailVerifycation.aspx");
+                    if (Security.Account.IsInRole(Role.ANONYMOUSADVISOR)) {
+                        Response.Redirect("~/user/anonymous/requestEmailVerifycation.aspx");
+                    } else {
+                        Response.Redirect("~/user/requestEmailVerifycation.aspx");
+                    }
                     return;
                 }
             }
@@ -196,7 +200,7 @@ namespace Eurona.User.Advisor {
                 if (indexHostAccesss.HasValue) this.sitemenu.RemoveAt(indexHostAccesss.Value);
             }
 
-            this.linkAccount.HRef = String.Format(this.linkAccount.HRef, Security.Account.Id);
+            //this.linkAccount.HRef = String.Format(this.linkAccount.HRef, Security.Account.Id);
             this.linkChangePassword.HRef = String.Format(this.linkChangePassword.HRef, Security.Account.Id);
 
             if (this.LogedAdvisor != null && !logedAdvisor.Account.Verified) {

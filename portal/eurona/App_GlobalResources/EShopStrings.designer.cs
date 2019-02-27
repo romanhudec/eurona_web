@@ -673,7 +673,7 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Ulice :.
+        ///   Looks up a localized string similar to Ulice a č.p. :.
         /// </summary>
         internal static string Anonymous_Register_Ulice {
             get {
@@ -682,7 +682,7 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Vaše přihlašovací údaje.
+        ///   Looks up a localized string similar to Heslo do Vašeho účtu.
         /// </summary>
         internal static string Anonymous_Register_VasePrihlasovaciUdaje {
             get {

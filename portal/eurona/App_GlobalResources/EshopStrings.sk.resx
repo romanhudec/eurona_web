@@ -521,10 +521,10 @@ E: prodej@eurona.cz</value>
     <value>Telefón:</value>
   </data>
   <data name="Anonymous_Register_Ulice" xml:space="preserve">
-    <value>Ulica:</value>
+    <value>Ulica a č.p. ::</value>
   </data>
   <data name="Anonymous_Register_VasePrihlasovaciUdaje" xml:space="preserve">
-    <value>Vaše prihlasovacie údaje</value>
+    <value>Heslo do Vášho účtu</value>
   </data>
   <data name="Anonymous_Register_VyplntePovinnouPolozku" xml:space="preserve">
     <value>Prosím vyplňte!</value>

@@ -34,10 +34,6 @@
             }
         });
     }
-    function validateEmailPattern(email) {
-        var re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-        return re.test(String(email).toLowerCase());
-    }
 
     function onBtnVerifyClick() {
         var layoutTypeEmail = document.getElementById('layoutTypeEmail');
@@ -52,31 +48,48 @@
         var email = document.getElementById('<%=txtEmail.ClientID%>').value;
         $.ajax({
             url: "<%=Page.ResolveUrl("~/user/emailVerifycationService.ashx")%>?method=sendEmail2EmailVerify",
-              data: email,
-              dataType: "json",
-              type: "POST",
-              contentType: "application/json; charset=utf-8",
-              dataFilter: function (data) { return data; },
-              success: function (data) {
-                  if (data.Status == 0) {
-                      layoutTypeEmail.style.display = 'none';
-                      layoutSendinEmail.style.display = 'none';
-                      layoutSendinEmailError.style.display = 'none';
-                      layoutEmailSend.style.display = 'table';
-                  } else {
-                      layoutTypeEmail.style.display = 'none';
-                      layoutSendinEmail.style.display = 'none';
-                      layoutSendinEmailError.style.display = 'table';
-                      layoutEmailSend.style.display = 'none';
-                  }
-              },
-              error: function (XMLHttpRequest, textStatus, errorThrown) {
-                  layoutTypeEmail.style.display = 'none';
-                  layoutSendinEmail.style.display = 'none';
-                  layoutSendinEmailError.style.display = 'table';
-                  layoutEmailSend.style.display = 'none';
-              }
-          });
+            data: email,
+            dataType: "json",
+            type: "POST",
+            contentType: "application/json; charset=utf-8",
+            dataFilter: function (data) { return data; },
+            success: function (data) {
+                if (data.Status == 0) {
+                    layoutTypeEmail.style.display = 'none';
+                    layoutSendinEmail.style.display = 'none';
+                    layoutSendinEmailError.style.display = 'none';
+                    layoutEmailSend.style.display = 'table';
+                } else {
+                    layoutTypeEmail.style.display = 'none';
+                    layoutSendinEmail.style.display = 'none';
+                    layoutSendinEmailError.style.display = 'table';
+                    layoutEmailSend.style.display = 'none';
+                }
+            },
+            error: function (XMLHttpRequest, textStatus, errorThrown) {
+                layoutTypeEmail.style.display = 'none';
+                layoutSendinEmail.style.display = 'none';
+                layoutSendinEmailError.style.display = 'table';
+                layoutEmailSend.style.display = 'none';
+            }
+        });
+    }
+
+    function onContinueToCancel() {
+        $.ajax({
+            url: "<%=Page.ResolveUrl("~/user/emailVerifycationService.ashx")%>?method=verifyCancel",
+            data: "",
+            dataType: "json",
+            type: "POST",
+            contentType: "application/json; charset=utf-8",
+            dataFilter: function (data) { return data; },
+            success: function (data) {
+                location.href = "<%=Page.ResolveUrl("~/")%>";
+            },
+            error: function (XMLHttpRequest, textStatus, errorThrown) {
+                location.href = "<%=Page.ResolveUrl("~/")%>";
+            }
+        });
     }
 </script>
 <table style="width:100%;">
@@ -88,14 +101,14 @@
             <div style="width:100%;display:block;">
                 <table id="layoutTypeEmail" style="width:100%;display:table;">
                     <tr>
-                        <td>
+                        <td colspan="2">
                         <div class="input-description-black" style="padding-top:0px;text-align:left;padding-bottom:10px;">
                             <asp:Label runat="server" ID="Label2" Text="<%$ Resources:Strings, EmailVerifyControl_EmailDescriptionTop %>" style="text-align:left;" ></asp:Label>
                         </div>
                         </td>    
                     </tr>
                     <tr>
-                        <td>
+                        <td colspan="2">
                             <div class="input-label">
                                 <asp:Label ID="Label4" runat="server" Text="<%$ Resources:Strings, EmailVerifyControl_Email %>"></asp:Label>
                             </div>
@@ -111,6 +124,9 @@
                         </td>
                     </tr>
                     <tr>
+                        <td style="text-align:left;padding-top:10px;">
+                            <asp:Button ID="btnCancelAndLogout" runat="server" CssClass="button" Text="<%$ Resources:Strings, EmailVerifyControl_ZrusitOvereni %>" OnClientClick="onContinueToCancel();" />    
+                        </td>
                         <td style="text-align:right;padding-top:10px;">
                             <asp:Button runat="server" ID="btnVerify" CssClass="button" Text="<%$ Resources:Strings, EmailVerifyControl_OveritEmail %>" disabled="true" OnClientClick="onBtnVerifyClick();" />
                         </td>

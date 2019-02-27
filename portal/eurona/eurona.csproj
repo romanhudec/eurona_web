@@ -156,6 +156,8 @@
     <Content Include="Controls\BKProductsControl.ascx" />
     <Content Include="Controls\BonusoveKredityUzivateleInfoControl.ascx" />
     <Content Include="styles\emailVerify.css" />
+    <Content Include="user\anonymous\emailVerifycation.aspx" />
+    <Content Include="user\anonymous\requestEmailVerifycation.aspx" />
     <Content Include="user\RequestEmailVerifyControl.ascx" />
     <Content Include="Controls\HomeFlashRotatorControl.ascx" />
     <Content Include="Controls\LoginControl.ascx" />
@@ -1259,6 +1261,9 @@
     <Compile Include="Controls\CMS\AdminNewsletterAccountsControl.cs">
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
+    <Compile Include="Controls\CMS\ForgotPasswordControl.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
     <Compile Include="Controls\CMS\MimoradnaNabidkaControl.cs">
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
@@ -1266,6 +1271,20 @@
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Controls\AngelTeamHelper.cs" />
+    <Compile Include="user\anonymous\emailVerifycation.aspx.cs">
+      <DependentUpon>emailVerifycation.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="user\anonymous\emailVerifycation.aspx.designer.cs">
+      <DependentUpon>emailVerifycation.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="user\anonymous\requestEmailVerifycation.aspx.cs">
+      <DependentUpon>requestEmailVerifycation.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="user\anonymous\requestEmailVerifycation.aspx.designer.cs">
+      <DependentUpon>requestEmailVerifycation.aspx</DependentUpon>
+    </Compile>
     <Compile Include="user\RequestEmailVerifyControl.ascx.cs">
       <DependentUpon>RequestEmailVerifyControl.ascx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>

@@ -322,10 +322,10 @@
     <value>Telefon :</value>
   </data>
   <data name="Anonymous_Register_Ulice" xml:space="preserve">
-    <value>Ulice :</value>
+    <value>Ulice a č.p. :</value>
   </data>
   <data name="Anonymous_Register_VasePrihlasovaciUdaje" xml:space="preserve">
-    <value>Vaše přihlašovací údaje</value>
+    <value>Heslo do Vašeho účtu</value>
   </data>
   <data name="Anonymous_Register_VyplntePovinnouPolozku" xml:space="preserve">
     <value>Prosím vyplňe!</value>
