@@ -1026,6 +1026,24 @@ namespace Resources {
         
         /// <summary>
         ///   Looks up a localized string similar to Dobrý den,&lt;br/&gt;&lt;br/&gt;
+        ///pro ověření Vašeho zákaznického účtu Eurona prosím klikněte na následující odkaz, který Vás přesměruje na stránky EuronabyCerny.
+        ///&lt;br/&gt;&lt;br/&gt;
+        ///&lt;a href=&apos;{0}&apos;&gt;{0}&lt;/a&gt;
+        ///&lt;br/&gt;&lt;br/&gt;
+        ///Pokud se po kliknutí na odkaz nic neděje, označte jej kurzorem a zároveň pomocí kombinace kláves Ctrl+C zkopírujte a pomocí Ctrl+V vložte odkaz do adresního řádku internetového prohlížeče a potvrďte klávesou Enter.
+        ///&lt;br/&gt;&lt;br/&gt;
+        ///Děkujeme za pochopení!
+        ///&lt;br/&gt;
+        ///Eurona by Cerny.
+        /// </summary>
+        internal static string EmailVerifyControl_UserVerificationEmail_AnonymousMessage {
+            get {
+                return ResourceManager.GetString("EmailVerifyControl_UserVerificationEmail_AnonymousMessage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Dobrý den,&lt;br/&gt;&lt;br/&gt;
         ///pro ověření Vašeho zákaznického účtu Eurona prosím klikněte na následující odkaz, který Vás přesměruje na stránky EuronabyCerny a vyzve k zadání nového hesla.
         ///&lt;br/&gt;&lt;br/&gt;
         ///&lt;a href=&apos;{0}&apos;&gt;{0}&lt;/a&gt;

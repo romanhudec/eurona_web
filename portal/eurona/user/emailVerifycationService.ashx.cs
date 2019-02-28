@@ -153,10 +153,10 @@ namespace Eurona.User {
                 Security.Account.EmailVerifyCode = code;
                 Security.Account.EmailToVerify = email;
                 Storage<Account>.Update(Security.Account);
-                if (SendEmailVerificationEmail(email, url)) {
+                if (SendEmailVerificationAnonymousEmail(email, url)) {
                     Security.Account.EmailVerifyStatus = (int)Account.EmailVerifyStatusCode.EMAIL_SEND;
                     Storage<Account>.Update(Security.Account);
-                    Security.Logout();
+                    Security.LogoutWithoutRedirect();
                 } else {
                     status = (int)JSONResponseStatus.ERROR;
                 }
@@ -366,6 +366,7 @@ namespace Eurona.User {
                         return;
                     } else {
                         SendEmailVerificationFinishedEmail(Security.Account.EmailToVerify);
+                        SendRegistrationEmail(context, Security.Account);
                         message = String.Format(Resources.Strings.EmailVerifyControl_VerifycationSuccessFinish_Message, Security.Account.Login);
                         message = message.Replace("\r\n", "<br/>");
 
@@ -579,6 +580,73 @@ namespace Eurona.User {
 
             bool okUser = email2User.Notify(true);
             return okUser;
+        }
+
+        /// <summary>
+        /// Odoslanie informacneho mailu s linkom pre overenie emailu.
+        /// </summary>
+        private bool SendEmailVerificationAnonymousEmail(string email, string url) {
+            EmailNotification email2User = new EmailNotification {
+                To = email,
+                Subject = Resources.Strings.EmailVerifyControl_UserVerificationEmail_Subject,
+                Message = String.Format(Resources.Strings.EmailVerifyControl_UserVerificationEmail_AnonymousMessage, url).Replace("\\n", Environment.NewLine) + "<br/><br/>"
+            };
+
+            bool okUser = email2User.Notify(true);
+            return okUser;
+        }
+
+        /// <summary>
+        /// Odoslanie informacneho mailu o registracii pouzivatela
+        /// </summary>
+        private bool SendRegistrationEmail(HttpContext context, Account customerAccount) {
+            Organization org = Storage<Organization>.ReadFirst(new Organization.ReadByAccountId { AccountId = customerAccount.Id });
+            if (org == null) return false;
+
+            Organization parentOrg = null;
+            if (org.ParentId.HasValue) parentOrg = Storage<Organization>.ReadFirst(new Organization.ReadByTVDId { TVD_Id = org.ParentId.Value });
+            /*
+			StringBuilder htmlResponse = new StringBuilder();
+			TextWriter textWriter = new StringWriter(htmlResponse);
+			Server.Execute(ResolveUrl(string.Format("~/user/advisor/registerDocument.aspx?id={0}", org.Id)), textWriter);
+            */
+
+            string root = Utilities.Root(context.Request);
+            string urlUser = root + "user/advisor/";
+            string urlParentUser = root + "advisor/newAdvisors.aspx";
+            string urlCentral = String.Format("{0}admin/account.aspx?id={1}&ReturnUrl=/default.aspx", root, customerAccount.Id);
+            EmailNotification email2User = new EmailNotification {
+                To = customerAccount.Email,
+                Subject = Resources.Strings.UserRegistrationPage_Email2User_Subject,
+                Message = String.Format(Resources.Strings.UserRegistrationPage_Email2User_Message, customerAccount.Login).Replace("\\n", Environment.NewLine) + "<br/><br/>"// + htmlResponse.ToString()
+            };
+            if (parentOrg != null) {
+                string contact = string.Format("{0}, {1}, {2}, {3}, reg. číslo: {4}", org.Name, org.RegisteredAddressString, org.ContactMobile, org.Account.Email, org.Code);
+                EmailNotification email2Parent = new EmailNotification {
+                    To = parentOrg.Account.Email,
+                    Subject = Resources.Strings.UserRegistrationPage_Email2Central_Subject,
+                    Message = String.Format(Resources.Strings.UserRegistrationPage_Email2Sponsor_Message, contact.ToUpper()).Replace("\\n", Environment.NewLine) + "<br/><br/>"// + htmlResponse.ToString()
+                };
+                email2Parent.Notify(true);
+            }
+
+            EmailNotification email2Central = new EmailNotification {
+                To = ConfigurationManager.AppSettings["SMTP:CentralInbox"],
+                Subject = Resources.Strings.UserRegistrationPage_Email2Central_Subject,
+                Message = String.Format(Resources.Strings.UserRegistrationPage_Email2Central_Message, urlCentral, customerAccount.Login).Replace("\\n", Environment.NewLine)
+            };
+
+            //14.11.2016 - Dále Vás žádám z e-mailů odstranit zobrazovaný registrační formulář a to jak ve znění e-mailu, tak v příloze. Tento registrační formulář nechci, aby se zasílal v jakékoli podobě.
+            /*
+            email2User.Attachments = new List<System.Net.Mail.Attachment>();
+            Attachment attachment = new Attachment(Server.MapPath(mailAttachment));
+            email2User.Attachments.Add(attachment);
+            */
+
+            bool okUser = email2User.Notify(true);
+            bool okCentral = email2Central.Notify();
+
+            return okUser && okCentral;
         }
 
         /// <summary>

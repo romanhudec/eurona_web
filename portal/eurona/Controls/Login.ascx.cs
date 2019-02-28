@@ -113,7 +113,7 @@ namespace Eurona.Controls {
                     if (account.Enabled == false) {
                         ClientScriptManager csm = Page.ClientScript;
                         StringBuilder script = new StringBuilder();
-                        script.Append("alert('Vaše konto nebylo zatím povoleno. Pro více informací kontaktujte operátora (prodej@eurona.cz).');");
+                        script.Append("alert('Váš účet ještě nebyl ověřen. Kliknutím na odkaz v emailu toto ověření provedete.');");
                         csm.RegisterStartupScript(GetType(), "invalidLogin", script.ToString(), true);
 
                         return;

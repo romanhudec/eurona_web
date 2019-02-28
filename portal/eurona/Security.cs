@@ -54,6 +54,15 @@ namespace Eurona {
             FormsAuthentication.RedirectToLoginPage();
         }
 
+        public static void LogoutWithoutRedirect() {
+            HttpContext context = HttpContext.Current;
+            HttpSessionState session = context.Session;
+            HttpResponse response = context.Response;
+            if (session != null) session.Clear();
+            FormsAuthentication.SignOut();
+            response.Cookies[COOKIE_ROLES].Value = "";
+        }
+
         public static bool IsLogged(bool redirect) {
             HttpContext context = HttpContext.Current;
             HttpResponse response = context.Response;

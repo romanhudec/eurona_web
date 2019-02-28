@@ -313,7 +313,7 @@ namespace Eurona.User.Anonymous {
             }
             #endregion
 
-            SendRegistrationEmail(account);
+            //SendRegistrationEmail(account);
 
             account = Storage<Account>.ReadFirst(new Account.ReadById { AccountId = account.Id });
             if (account != null /*&& account.Enabled*/ && account.Authenticate(account.Password)) {
@@ -341,7 +341,7 @@ namespace Eurona.User.Anonymous {
             List<Account> exists = Storage<Account>.Read(new Account.ReadByEmail { Email = email });
             return exists != null && exists.Count > 0;
         }
-
+        /*
         /// <summary>
         /// Odoslanie informacneho mailu o registracii pouzivatela
         /// </summary>
@@ -351,11 +351,6 @@ namespace Eurona.User.Anonymous {
 
             Organization parentOrg = null;
             if (org.ParentId.HasValue) parentOrg = Storage<Organization>.ReadFirst(new Organization.ReadByTVDId { TVD_Id = org.ParentId.Value });
-            /*
-			StringBuilder htmlResponse = new StringBuilder();
-			TextWriter textWriter = new StringWriter(htmlResponse);
-			Server.Execute(ResolveUrl(string.Format("~/user/advisor/registerDocument.aspx?id={0}", org.Id)), textWriter);
-            */
 
             string root = Utilities.Root(Request);
             string urlUser = root + "user/advisor/";
@@ -364,7 +359,7 @@ namespace Eurona.User.Anonymous {
             EmailNotification email2User = new EmailNotification {
                 To = customerAccount.Email,
                 Subject = Resources.Strings.UserRegistrationPage_Email2User_Subject,
-                Message = String.Format(Resources.Strings.UserRegistrationPage_Email2User_Message, customerAccount.Login, this.txtPassword.Text).Replace("\\n", Environment.NewLine) + "<br/><br/>"// + htmlResponse.ToString()
+                Message = String.Format(Resources.Strings.UserRegistrationPage_Email2User_Message, customerAccount.Login).Replace("\\n", Environment.NewLine) + "<br/><br/>"// + htmlResponse.ToString()
             };
             if (parentOrg != null) {
                 string contact = string.Format("{0}, {1}, {2}, {3}, reg. číslo: {4}", org.Name, org.RegisteredAddressString, org.ContactMobile, org.Account.Email, org.Code);
@@ -383,17 +378,17 @@ namespace Eurona.User.Anonymous {
             };
 
             //14.11.2016 - Dále Vás žádám z e-mailů odstranit zobrazovaný registrační formulář a to jak ve znění e-mailu, tak v příloze. Tento registrační formulář nechci, aby se zasílal v jakékoli podobě.
-            /*
-            email2User.Attachments = new List<System.Net.Mail.Attachment>();
-            Attachment attachment = new Attachment(Server.MapPath(mailAttachment));
-            email2User.Attachments.Add(attachment);
-            */
+            
+            //email2User.Attachments = new List<System.Net.Mail.Attachment>();
+            //Attachment attachment = new Attachment(Server.MapPath(mailAttachment));
+            //email2User.Attachments.Add(attachment);
 
             bool okUser = email2User.Notify(true);
             bool okCentral = email2Central.Notify();
 
             return okUser && okCentral;
         }
+         */
 
         private string GetPrefixByState(string state) {
             string prefix = "+420";

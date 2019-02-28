@@ -1276,4 +1276,16 @@ Heslo: zvolené v předchozím kroku</value>
   <data name="EmailVerifyControl_AnonymousEmailSended_Message" xml:space="preserve">
     <value>Na email jsem Vám právě zaslali ověřovací odkaz. Prokliknutím tohoto odkazu dokončíte registraci a můžete pokračovat v objednávce</value>
   </data>
+  <data name="EmailVerifyControl_UserVerificationEmail_AnonymousMessage" xml:space="preserve">
+    <value>Dobrý den,&lt;br/&gt;&lt;br/&gt;
+pro ověření Vašeho zákaznického účtu Eurona prosím klikněte na následující odkaz, který Vás přesměruje na stránky EuronabyCerny.
+&lt;br/&gt;&lt;br/&gt;
+&lt;a href='{0}'&gt;{0}&lt;/a&gt;
+&lt;br/&gt;&lt;br/&gt;
+Pokud se po kliknutí na odkaz nic neděje, označte jej kurzorem a zároveň pomocí kombinace kláves Ctrl+C zkopírujte a pomocí Ctrl+V vložte odkaz do adresního řádku internetového prohlížeče a potvrďte klávesou Enter.
+&lt;br/&gt;&lt;br/&gt;
+Děkujeme za pochopení!
+&lt;br/&gt;
+Eurona by Cerny</value>
+  </data>
 </root>
