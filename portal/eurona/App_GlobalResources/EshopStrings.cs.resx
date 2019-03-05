@@ -691,7 +691,7 @@ E: prodej@eurona.cz</value>
     <value>Vánoce 2014!</value>
   </data>
   <data name="PasswordPolicyMessage" xml:space="preserve">
-    <value>Heslo musí obsahovat čisla, malá a velká písmena.&lt;br/&gt;Minimální délka je 8 znaků!</value>
+    <value>Heslo musí obsahovat čísla, malá a velká písmena.&lt;br/&gt;Minimální délka je 6 znaků!</value>
   </data>
   <data name="ProductControl_BackList" xml:space="preserve">
     <value>Zadní etiketa výrobku</value>

@@ -55,6 +55,7 @@ namespace Eurona.Common.Controls.UserManagement {
 
         protected Button btnSave = null;
         private Button btnCancel = null;
+        protected Button btnChangeEmail = null;
 
         private Organization organization = null;
         private bool isNew = false;
@@ -63,9 +64,11 @@ namespace Eurona.Common.Controls.UserManagement {
 
         public string CancelButtonText { get; set; }
         public string SaveButtonText { get; set; }
+        public string ChangeEmailButtonText { get; set; }
 
         public EventHandler SaveCompleted = null;
         public EventHandler Canceled = null;
+        public EventHandler ChangeEmail = null;
 
         public OrganizationControl() {
         }
@@ -324,6 +327,7 @@ namespace Eurona.Common.Controls.UserManagement {
             this.txtContactEmail = new TextBox();
             this.txtContactEmail.ID = "txtContactEmail";
             this.txtContactEmail.Width = Unit.Percentage(100);
+            this.txtContactEmail.Enabled = false;
 
             this.txtContactPhone = new TextBox();
             this.txtContactPhone.ID = "txtContactPhone";
@@ -437,6 +441,11 @@ namespace Eurona.Common.Controls.UserManagement {
             this.btnCancel.CausesValidation = false;
             this.btnCancel.Text = String.IsNullOrEmpty(CancelButtonText) ? CMS.Resources.Controls.CancelButton_Text : CancelButtonText;
             this.btnCancel.Click += new EventHandler(OnCancel);
+            
+            this.btnChangeEmail = new Button();
+            this.btnChangeEmail.CausesValidation = true;
+            this.btnChangeEmail.Text = String.IsNullOrEmpty(SaveButtonText) ? CMS.Resources.Controls.ChangeEmail_Text : ChangeEmailButtonText;
+            this.btnChangeEmail.Click += new EventHandler(OnChangeEmail);
 
             Table mainTable = new Table();
             mainTable.Width = this.Width;
@@ -530,6 +539,7 @@ namespace Eurona.Common.Controls.UserManagement {
                 AddControlToRow(row, CMS.Resources.Controls.PersonControl_Email, this.txtContactEmail, 0, this.Settings.Require.ContactEmail);
                 table.Rows.Add(row);
                 row.Cells[row.Cells.Count - 1].Controls.Add(CreateEmailValidatorControl(txtContactEmail.ID));
+                this.txtContactEmail.Enabled = false;
             }
             //Phone
             if (this.Settings.Visibility.ContactPhone) {
@@ -694,9 +704,12 @@ namespace Eurona.Common.Controls.UserManagement {
                 //Save Cancel Buttons
                 row = new TableRow();
                 TableCell cell = new TableCell();
-                cell.ColumnSpan = 2;
                 cell.Controls.Add(this.btnSave);
                 cell.Controls.Add(this.btnCancel);
+                row.Cells.Add(cell);
+                cell = new TableCell();
+                cell.HorizontalAlign = HorizontalAlign.Right;
+                cell.Controls.Add(this.btnChangeEmail);
                 row.Cells.Add(cell);
                 mainTable.Rows.Add(row);
             }
@@ -865,6 +878,11 @@ namespace Eurona.Common.Controls.UserManagement {
         #endregion
 
         #region Event handlers
+        void OnChangeEmail(object sender, EventArgs e) {
+            if (ChangeEmail != null)
+                ChangeEmail(this, EventArgs.Empty);
+        }
+
         void OnSave(object sender, EventArgs e) {
             if (this.isNew) CreateOrganization(this.organization);
             else UpdateOrganization(this.organization);

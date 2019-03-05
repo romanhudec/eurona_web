@@ -114,7 +114,7 @@ namespace Eurona.Controls.UserManagement {
 					probehlo.Value = true;
 					zprava.Value = "";
 					id_odberatele.Value = (( 999 ) * 1000) + r.Next();
-					kod_odberatele.Value = "555-555555-" + r.Next().ToString();
+					kod_odberatele.Value = "420-555555-" + r.Next().ToString();
 #endif
                     bool bSuccess = Convert.ToBoolean(probehlo.Value);
                     string message = zprava.Value.ToString();

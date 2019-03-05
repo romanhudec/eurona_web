@@ -28,28 +28,46 @@ namespace Eurona.Controls {
         #region Protected Overrides
         protected override void CreateChildControls() {
             //Povolene len pre prihlaseneho pouzivatela
-            if (!Security.IsLogged(true)) return;
+            string fromCodeAsUnloged = Request["code"];
+            if (fromCodeAsUnloged == null) {
+                if (!Security.IsLogged(true)) return;
+            }
 
             base.CreateChildControls();
 
-            if (Security.IsInRole(Role.ADMINISTRATOR) && !String.IsNullOrEmpty(Request["id"])) {
-                this.AccountId = Convert.ToInt32(Request["id"]);
-                this.account = Storage<AccountEntity>.ReadFirst(new AccountEntity.ReadById { AccountId = this.AccountId });
-                if (this.account == null) {
+            if (fromCodeAsUnloged == null) {
+                if (Security.IsInRole(Role.ADMINISTRATOR) && !String.IsNullOrEmpty(Request["id"])) {
+                    this.AccountId = Convert.ToInt32(Request["id"]);
+                    this.account = Storage<AccountEntity>.ReadFirst(new AccountEntity.ReadById { AccountId = this.AccountId });
+                    if (this.account == null) {
+                        this.account = Security.Account;
+                    }
+                } else {
                     this.account = Security.Account;
                 }
             } else {
-                this.account = Security.Account;
+                string[] data = decodeVerifyCode(fromCodeAsUnloged);
+                string emailFromCode = data[0];
+                int accountFromCode = Convert.ToInt32(data[1]);
+                string ipAddress = data[2];
+                this.account = Storage<AccountEntity>.ReadFirst(new AccountEntity.ReadById { AccountId = Convert.ToInt32(accountFromCode) });
+                if (this.account == null) {
+                    string js2 = "blockUIAlert('Změna hesla', 'Omlouváme se, ale link v Emailu není správný, nebo byl změnen!');";
+                    Page.ClientScript.RegisterStartupScript(Page.GetType(), "ForgotPassword2", js2, true);
+                    return;
+                }
             }
 
             #region Create controls
             this.lblLogin = new Label();
             this.lblLogin.Text = this.account.Login;
 
-            this.txtOldPassword = new TextBox();
-            this.txtOldPassword.ID = "oldPwd";
-            this.txtOldPassword.TextMode = TextBoxMode.Password;
-            this.txtOldPassword.Width = Unit.Percentage(100);
+            if (fromCodeAsUnloged == null) {
+                this.txtOldPassword = new TextBox();
+                this.txtOldPassword.ID = "oldPwd";
+                this.txtOldPassword.TextMode = TextBoxMode.Password;
+                this.txtOldPassword.Width = Unit.Percentage(100);
+            }
 
             this.txtNewPassword = new TextBox();
             this.txtNewPassword.ID = "newPwd";
@@ -75,12 +93,15 @@ namespace Eurona.Controls {
                 this.capcha.Validate();
                 if (!this.capcha.IsValid) return;
 
-                if (Security.Account.IsInRole(CMS.Entities.Role.ADMINISTRATOR) == false) {
-                    if (this.account.Password != Cryptographer.MD5Hash(this.txtOldPassword.Text)) {
-                        string script = string.Format("alert('{0}');", CMS.Resources.Controls.ChangePasswordControl_InvalidOldPasswordMessage);
-                        Page.ClientScript.RegisterStartupScript(this.GetType(), "ChangePasswordControl_error", script, true);
-                        return;
+                if (fromCodeAsUnloged == null) {
+                    if (Security.Account.IsInRole(CMS.Entities.Role.ADMINISTRATOR) == false) {
+                        if (this.account.Password != Cryptographer.MD5Hash(this.txtOldPassword.Text)) {
+                            string script = string.Format("alert('{0}');", CMS.Resources.Controls.ChangePasswordControl_InvalidOldPasswordMessage);
+                            Page.ClientScript.RegisterStartupScript(this.GetType(), "ChangePasswordControl_error", script, true);
+                            return;
+                        }
                     }
+                } else {
                 }
 
                 this.account.Password = Cryptographer.MD5Hash(this.txtNewPassword.Text);
@@ -89,7 +110,10 @@ namespace Eurona.Controls {
                 this.account = Storage<AccountEntity>.Update(account);
 
                 string url = this.ReturnUrl;
-                if (string.IsNullOrEmpty(url)) return;
+                if (string.IsNullOrEmpty(url)) {
+                    Response.Redirect(Page.ResolveUrl("~/login"));
+                    return;
+                }
                 Response.Redirect(Page.ResolveUrl(url));
             };
 
@@ -98,10 +122,10 @@ namespace Eurona.Controls {
             this.btnCancel.CausesValidation = false;
             this.btnCancel.Text = CMS.Resources.Controls.CancelButton_Text;
             this.btnCancel.Click += (s, e) => {
-                        string url = this.ReturnUrl;
-                        if (string.IsNullOrEmpty(url)) return;
-                        Response.Redirect(Page.ResolveUrl(url));
-                    };
+                string url = this.ReturnUrl;
+                if (string.IsNullOrEmpty(url)) return;
+                Response.Redirect(Page.ResolveUrl(url));
+            };
             #endregion
 
             Table table = new Table();
@@ -109,12 +133,13 @@ namespace Eurona.Controls {
             table.Width = this.Width;
             table.Height = this.Height;
             table.Rows.Add(CreateTableRow(CMS.Resources.Controls.ChangePasswordControl_Login_Label, this.lblLogin, false));
-            if (Security.Account.IsInRole(CMS.Entities.Role.ADMINISTRATOR) == false)
-                table.Rows.Add(CreateTableRow(CMS.Resources.Controls.ChangePasswordControl_OldPassword_Label, this.txtOldPassword, false));
-
+            if (fromCodeAsUnloged == null) {
+                if (Security.Account.IsInRole(CMS.Entities.Role.ADMINISTRATOR) == false)
+                    table.Rows.Add(CreateTableRow(CMS.Resources.Controls.ChangePasswordControl_OldPassword_Label, this.txtOldPassword, false));
+            }
             table.Rows.Add(CreateTableRow(CMS.Resources.Controls.ChangePasswordControl_NewPassword_Label, this.txtNewPassword, false));
             //PasswordPolicy
-            //table.Rows.Add(CreateValidationRow(this.txtNewPassword, base.CreatePasswordValidatorControl(this.txtNewPassword.ID, "Heslo musí obsahovat čisla, malá a velká písmena.<br/>Minimální délka je 8 znaků!")));
+            table.Rows.Add(CreateValidationRow(this.txtNewPassword, base.CreatePasswordValidatorControl(this.txtNewPassword.ID, Resources.EShopStrings.PasswordPolicyMessage)));
             table.Rows.Add(CreateValidationRow(this.txtNewPassword, base.CreateRequiredFieldValidatorControl(this.txtNewPassword.ID, "Heslo musí být vyplneno!")));
             table.Rows.Add(CreateTableRow(CMS.Resources.Controls.ChangePasswordControl_ConfirmNewPassword_Label, this.txtConfirmNewPassword, false));
             table.Rows.Add(CreateValidationRow(this.txtConfirmNewPassword, base.CreateRequiredFieldValidatorControl(this.txtConfirmNewPassword.ID, "Potvrzení hesla musí být vyplneno!")));
@@ -132,7 +157,7 @@ namespace Eurona.Controls {
             cv.SetFocusOnError = true;
             cv.EnableClientScript = true;
             cell = new TableCell();
-            cell.Controls.Add(cv);            
+            cell.Controls.Add(cv);
             row.Cells.Add(cell);
             table.Rows.Add(row);
 
@@ -158,6 +183,12 @@ namespace Eurona.Controls {
             this.Controls.Add(table);
         }
         #endregion
+
+        private string[] decodeVerifyCode(string codeEncrypted) {
+            string code = CMS.Utilities.Cryptographer.Decrypt(codeEncrypted);
+            string[] data = code.Split('|');
+            return data;
+        }
 
         private TableRow CreateValidationRow(Control control, RegularExpressionValidator rv) {
             TableRow row = new TableRow();
@@ -190,7 +221,7 @@ namespace Eurona.Controls {
 
             return row;
         }
-       
+
         private TableRow CreateTableRow(string labelText, Control control, bool required) {
             TableRow row = new TableRow();
             TableCell cell = new TableCell();

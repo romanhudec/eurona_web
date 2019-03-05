@@ -7,14 +7,11 @@ using System.Web.UI.WebControls;
 using CMS.Entities;
 using CMS;
 
-namespace Eurona.User
-{
-		public partial class ChangePasswordPage: WebPage
-		{
-				protected void Page_Load( object sender, EventArgs e )
-				{
-						if ( string.IsNullOrEmpty( Request["id"] ) ) return;
-						this.changePassword.AccountId = Convert.ToInt32( Request["id"] );
-				}
-		}
+namespace Eurona.User {
+    public partial class ChangePasswordPage : WebPage {
+        protected void Page_Load(object sender, EventArgs e) {
+            if (string.IsNullOrEmpty(Request["id"])) return;
+            this.changePassword.AccountId = Convert.ToInt32(Request["id"]);
+        }
+    }
 }

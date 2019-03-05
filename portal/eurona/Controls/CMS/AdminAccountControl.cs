@@ -170,6 +170,7 @@ namespace Eurona.Controls {
             };
             cell.Controls.Add(tbLogin);
             cell.Controls.Add(CreateRequiredFieldValidatorControl(tbLogin.ID));
+            if ((Security.IsInRole(Role.OPERATOR)) && !isNew) tbLogin.Enabled = false;
             return cell;
         }
 
@@ -183,7 +184,7 @@ namespace Eurona.Controls {
             cell.Controls.Add(tbEmail);
             cell.Controls.Add(CreateEmailValidatorControl(tbEmail.ID));
 
-            if ((Security.IsInRole(Role.OPERATOR) /*|| Security.IsInRole( Role.ADMINISTRATOR )*/ ) && !isNew) tbEmail.Enabled = false;
+            if ((Security.IsInRole(Role.OPERATOR)) && !isNew) tbEmail.Enabled = false;
             return cell;
         }
 

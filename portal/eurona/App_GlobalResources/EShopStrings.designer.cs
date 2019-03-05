@@ -1573,7 +1573,7 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Heslo musí obsahovat čisla, malá a velká písmena.&lt;br/&gt;Minimální délka je 8 znaků!.
+        ///   Looks up a localized string similar to Heslo musí obsahovat čísla, malá a velká písmena.&lt;br/&gt;Minimální délka je 6 znaků!.
         /// </summary>
         internal static string PasswordPolicyMessage {
             get {

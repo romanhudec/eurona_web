@@ -622,7 +622,7 @@
     <value>Volejte!</value>
   </data>
   <data name="PasswordPolicyMessage" xml:space="preserve">
-    <value>Heslo musí obsahovat čisla, malá a velká písmena.&lt;br/&gt;Minimální délka je 8 znaků!</value>
+    <value>Heslo musí obsahovat čísla, malá a velká písmena.&lt;br/&gt;Minimální délka je 6 znaků!</value>
   </data>
   <data name="PayOrderControl_OrderHeader" xml:space="preserve">
     <value>Vyberte si nyní způsob úhrady Vaši objednávky</value>

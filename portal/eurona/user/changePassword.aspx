@@ -16,7 +16,7 @@
 	</div>
 </asp:Content>
 <asp:Content ID="Content4" ContentPlaceHolderID="content" runat="Server">
-    <cms:RoundPanel ID="rpChangePassword" runat="server" CssClass="roundPanel" Width="350px">
-	    <cmsAcount:ChangePasswordControl ID="changePassword"  runat="server" Width="300px" />
+    <cms:RoundPanel ID="rpChangePassword" runat="server" CssClass="roundPanel" Width="550px">
+	    <cmsAcount:ChangePasswordControl ID="changePassword"  runat="server" Width="500px" />
     </cms:RoundPanel>
 </asp:Content>

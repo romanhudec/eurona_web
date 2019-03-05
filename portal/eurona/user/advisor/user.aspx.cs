@@ -100,12 +100,17 @@ namespace Eurona.User.Advisor {
                 this.organizationControl.OnChildControlsCreated += OnOrganizationChildControlsCreated;
                 if (IsPostBack) {
                     OnOrganizationChildControlsCreated(this, null);
-                }               
+                }
+
+                this.organizationControl.ChangeEmail += OmRequestChangeEmail;
             }
 
             this.rpPerson.Visible = this.personControl.Visible;
             this.rpOrganization.Visible = this.organizationControl.Visible;
 
+        }
+        void OmRequestChangeEmail(object sender, EventArgs e) {
+            Response.Redirect("~/user/requestEmailChange.aspx");
         }
        
         void OnOrganizationChildControlsCreated(object sender, EventArgs e) {
