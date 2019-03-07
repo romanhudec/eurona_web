@@ -610,6 +610,24 @@ namespace Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Dobrý den,&lt;br/&gt;&lt;br/&gt;
+        ///pro změnu Vašeho emailu/přihlašovacího jména účtu Eurona prosím klikněte na následující odkaz, který Vás přesměruje na stránky EuronabyCerny.
+        ///&lt;br/&gt;&lt;br/&gt;
+        ///&lt;a href=&apos;{0}&apos;&gt;{0}&lt;/a&gt;
+        ///&lt;br/&gt;&lt;br/&gt;
+        ///Pokud se po kliknutí na odkaz nic neděje, označte jej kurzorem a zároveň pomocí kombinace kláves Ctrl+C zkopírujte a pomocí Ctrl+V vložte odkaz do adresního řádku internetového prohlížeče a potvrďte klávesou Enter.
+        ///&lt;br/&gt;&lt;br/&gt;
+        ///Děkujeme za pochopení!
+        ///&lt;br/&gt;
+        ///Eurona by Cerny.
+        /// </summary>
+        internal static string ChangeEmailControl_RequestChangeEmail_Message {
+            get {
+                return ResourceManager.GetString("ChangeEmailControl_RequestChangeEmail_Message", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Váš email se nepodařilo ověřit! Zkuste to prosím znova, případně kontaktujte naše obchodní oddělení na +420 491 477 361 nebo prodej@eurona.cz..
         /// </summary>
         internal static string ChangeEmailControl_SendingEmailError_Message {
@@ -1362,7 +1380,7 @@ namespace Resources {
         /// <summary>
         ///   Looks up a localized string similar to Dobrý den,
         ///&lt;br/&gt;&lt;br/&gt;
-        ///Vaše přihlašovací jméno je: {0}
+        ///Vaše přihlašovací jméno je: &lt;b&gt;{0}&lt;/b&gt;
         ///&lt;br/&gt;&lt;br/&gt;
         ///pro zadání nového hesla k Vašemu zákaznickému účtu Eurona prosím klikněte na následující odkaz, který Vás přesměruje na stránky         ///
         ///EuronabyCerny a vyzve k zadání nového hesla. 
@@ -1372,7 +1390,7 @@ namespace Resources {
         ///Zvolte si, prosím, bezpečné, alespoň 6 místné heslo, které bude obsahovat minimálně jedno velké písmeno, jedno malé písmeno a alespoň jednu         ///
         ///číslici. 
         ///&lt;br/&gt;&lt;br/&gt;
-        ///Pokud se po kliknutí na odkaz nic neděje, označte je [rest of string was truncated]&quot;;.
+        ///Pokud se po kliknutí na odkaz nic neděje, ozn [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string ForgotPasswordControl_Email_ForgotPassword_Message {
             get {

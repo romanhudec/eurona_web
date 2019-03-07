@@ -1291,7 +1291,7 @@ Eurona by Cerny</value>
   <data name="ForgotPasswordControl_Email_ForgotPassword_Message" xml:space="preserve">
     <value>Dobrý den,
 &lt;br/&gt;&lt;br/&gt;
-Vaše přihlašovací jméno je: {0}
+Vaše přihlašovací jméno je: &lt;b&gt;{0}&lt;/b&gt;
 &lt;br/&gt;&lt;br/&gt;
 pro zadání nového hesla k Vašemu zákaznickému účtu Eurona prosím klikněte na následující odkaz, který Vás přesměruje na stránky 
 EuronabyCerny a vyzve k zadání nového hesla. 
@@ -1384,5 +1384,17 @@ Heslo: stejné jako doposud.</value>
   </data>
   <data name="ChangeEmailControl_Opakovat" xml:space="preserve">
     <value>Opakovat</value>
+  </data>
+  <data name="ChangeEmailControl_RequestChangeEmail_Message" xml:space="preserve">
+    <value>Dobrý den,&lt;br/&gt;&lt;br/&gt;
+pro změnu Vašeho emailu/přihlašovacího jména účtu Eurona prosím klikněte na následující odkaz, který Vás přesměruje na stránky EuronabyCerny.
+&lt;br/&gt;&lt;br/&gt;
+&lt;a href='{0}'&gt;{0}&lt;/a&gt;
+&lt;br/&gt;&lt;br/&gt;
+Pokud se po kliknutí na odkaz nic neděje, označte jej kurzorem a zároveň pomocí kombinace kláves Ctrl+C zkopírujte a pomocí Ctrl+V vložte odkaz do adresního řádku internetového prohlížeče a potvrďte klávesou Enter.
+&lt;br/&gt;&lt;br/&gt;
+Děkujeme za pochopení!
+&lt;br/&gt;
+Eurona by Cerny</value>
   </data>
 </root>

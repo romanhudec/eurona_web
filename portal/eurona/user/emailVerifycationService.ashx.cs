@@ -140,7 +140,7 @@ namespace Eurona.User {
             context.Response.End();
         }
 
-                /// <summary>
+        /// <summary>
         /// Odoslanie emaily poradcovi aj s linkom na overenie emailu
         /// </summary>
         /// <param name="context"></param>
@@ -175,6 +175,24 @@ namespace Eurona.User {
             context.Response.ContentType = "application/json; charset=utf-8";
             context.Response.Write(sbJson.ToString());
             context.Response.End();
+        }
+
+        /// <summary>
+        /// Odoslanie emaily poradcovi aj s linkom na request zmeny emailu
+        /// </summary>
+        /// <param name="context"></param>
+        public static bool sendRequestEmail2ChangeEmailFromAdmin(Account account, HttpRequest request) {
+            if (Security.IsLogged(false)) {
+                string code = string.Format("{0}|{1}|{2}", account.Email, account.Id, "from_operator");
+                code = CMS.Utilities.Cryptographer.Encrypt(code);
+                string url = Utilities.Root(request) + "user/requestEmailChange.aspx?code=" + code;
+                if (SendRequestChangeEmailVerificationEmailFromAdmin(account.Email, url)) {
+                    return true;
+                } else {
+                    return false;
+                }
+            }
+            return false;
         }
 
         /// <summary>
@@ -215,7 +233,7 @@ namespace Eurona.User {
             context.Response.End();
         }
 
-        private string[] decodeVerifyCode(string codeEncrypted) {
+        public static string[] decodeVerifyCode(string codeEncrypted) {
             string code = CMS.Utilities.Cryptographer.Decrypt(codeEncrypted);
             string[] data = code.Split('|');
             return data;
@@ -695,6 +713,20 @@ namespace Eurona.User {
                 To = email,
                 Subject = Resources.Strings.ChangeEmailControl_UserVerificationEmail_Subject,
                 Message = String.Format(Resources.Strings.ChangeEmailControl_UserVerificationEmail_Message, url).Replace("\\n", Environment.NewLine) + "<br/><br/>"
+            };
+
+            bool okUser = email2User.Notify(true);
+            return okUser;
+        }
+
+        /// <summary>
+        /// Odoslanie informacneho mailu s linkom pre overenie emailu.
+        /// </summary>
+        private static bool SendRequestChangeEmailVerificationEmailFromAdmin(string email, string url) {
+            EmailNotification email2User = new EmailNotification {
+                To = email,
+                Subject = Resources.Strings.ChangeEmailControl_UserVerificationEmail_Subject,
+                Message = String.Format(Resources.Strings.ChangeEmailControl_RequestChangeEmail_Message, url).Replace("\\n", Environment.NewLine) + "<br/><br/>"
             };
 
             bool okUser = email2User.Notify(true);
