@@ -98,7 +98,7 @@ namespace Eurona.User.Operator {
              Eurona.DAL.Entities.Account account = Storage<Eurona.DAL.Entities.Account>.ReadFirst(new Account.ReadById { AccountId = accountId });
              Eurona.User.emailVerifycationService.sendRequestEmail2ChangeEmailFromAdmin(account, this.Page.Request);
 
-             string js2 = string.Format("blockUIAlert('Email pro změnu emailu, byl odeslán poradci!', '{0}');", Resources.Strings.ForgotPasswordControl_Finish);
+             string js2 = string.Format("blockUIAlert('Změna emailu uživatele', 'Email pro změnu emailu, byl odeslán poradci!');");
              Page.ClientScript.RegisterStartupScript(Page.GetType(), "SendEmailToUser", js2, true);
         }
     }
