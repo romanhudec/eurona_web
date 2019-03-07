@@ -1,5 +1,10 @@
 ﻿<%@ Control Language="C#" AutoEventWireup="true" CodeBehind="RequestEmailChangeControl.ascx.cs" Inherits="Eurona.User.RequestEmailChangeControl" %>
 <script type="text/javascript">
+    document.getElementById('<%=txtEmail.ClientID%>').addEventListener('keypress', function (event) {
+        if (event.keyCode == 13) {
+            document.getElementById('<%=btnVerify.ClientID%>').click();
+        }
+    });
     function checkEmail() {
         var email = document.getElementById('<%=txtEmail.ClientID%>').value;
         var labelElm = document.getElementById('<%=lblValidatorText.ClientID%>');

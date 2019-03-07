@@ -152,8 +152,8 @@ namespace Eurona.Controls {
             cv.ID = "cv_pwd";
             cv.ErrorMessage = "Hesla se musí shodovat!";
             cv.CssClass = "ms-formvalidation";
-            cv.ControlToValidate = this.txtNewPassword.ID;
-            cv.ControlToCompare = this.txtConfirmNewPassword.ID;
+            cv.ControlToValidate = this.txtConfirmNewPassword.ID;
+            cv.ControlToCompare = this.txtNewPassword.ID;
             cv.SetFocusOnError = true;
             cv.EnableClientScript = true;
             cell = new TableCell();

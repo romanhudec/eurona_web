@@ -64,7 +64,7 @@ namespace Eurona.Controls {
 
                 CMS.EmailNotification email = new CMS.EmailNotification();
                 email.Subject = global::CMS.Resources.Controls.ForgotPasswordControl_Email_ForgotPassword_Subject;
-                email.Message = string.Format(Resources.Strings.ForgotPasswordControl_Email_ForgotPassword_Message, url);
+                email.Message = string.Format(Resources.Strings.ForgotPasswordControl_Email_ForgotPassword_Message, account.Login, url);
                 email.To = account.Email;
                 email.Notify(true);
                 

@@ -1362,15 +1362,17 @@ namespace Resources {
         /// <summary>
         ///   Looks up a localized string similar to Dobrý den,
         ///&lt;br/&gt;&lt;br/&gt;
+        ///Vaše přihlašovací jméno je: {0}
+        ///&lt;br/&gt;&lt;br/&gt;
         ///pro zadání nového hesla k Vašemu zákaznickému účtu Eurona prosím klikněte na následující odkaz, který Vás přesměruje na stránky         ///
         ///EuronabyCerny a vyzve k zadání nového hesla. 
         ///&lt;br/&gt;&lt;br/&gt;
-        ///&lt;a href=&apos;{0}&apos;&gt;{0}&lt;/a&gt;
+        ///&lt;a href=&apos;{1}&apos;&gt;{1}&lt;/a&gt;
         ///&lt;br/&gt;&lt;br/&gt;
         ///Zvolte si, prosím, bezpečné, alespoň 6 místné heslo, které bude obsahovat minimálně jedno velké písmeno, jedno malé písmeno a alespoň jednu         ///
         ///číslici. 
         ///&lt;br/&gt;&lt;br/&gt;
-        ///Pokud se po kliknutí na odkaz nic neděje, označte jej kurzorem a zároveň pomocí kombinace kláves  [rest of string was truncated]&quot;;.
+        ///Pokud se po kliknutí na odkaz nic neděje, označte je [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string ForgotPasswordControl_Email_ForgotPassword_Message {
             get {
