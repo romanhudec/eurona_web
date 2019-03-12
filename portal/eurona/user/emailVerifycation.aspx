@@ -5,13 +5,7 @@
     <link href='<%=ResolveUrl("~/styles/emailVerify.css") %>' type="text/css" rel="stylesheet" />
 </asp:Content>
 <asp:Content ID="Content4" ContentPlaceHolderID="content" Runat="Server">
-    <script type="text/jscript">
-        document.getElementById('<%=txtPwdRepeat.ClientID%>').addEventListener('keypress', function (event) {
-            if (event.keyCode == 13) {
-                document.getElementById('<%=btnContinueToFinish.ClientID%>').click();
-            }
-        });
-
+    <script type="text/jscript">       
         var verifyForm = document.getElementById('verifyForm');
         var layoutVerifycationProcess;
         var layoutVerifycationSuccessStep1;
@@ -24,6 +18,12 @@
             layoutVerifycationSuccessFinish = document.getElementById('layoutVerifycationSuccessFinish');
             layoutVerifycationFailed = document.getElementById('layoutVerifycationFailed');
             layoutVerifycationMessage = document.getElementById('layoutVerifycationMessage');
+
+            document.getElementById('<%=txtPwdRepeat.ClientID%>').addEventListener('keypress', function (event) {
+                if (event.keyCode == 13) {
+                    document.getElementById('<%=btnContinueToFinish.ClientID%>').click();
+            }
+            });
 
             $.blockUI.defaults.overlayCSS.cursor = 'default';
             $.blockUI({
