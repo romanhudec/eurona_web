@@ -8,6 +8,7 @@
 *.user
 *.userosscache
 *.sln.docstates
+rdp.txt
 /keys
 Web.config
 keys/
