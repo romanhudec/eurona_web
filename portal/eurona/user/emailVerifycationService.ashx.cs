@@ -119,7 +119,8 @@ namespace Eurona.User {
                 Security.Account.EmailVerifyCode = code;
                 Security.Account.EmailToVerify = email;
                 Storage<Account>.Update(Security.Account);
-                if (SendEmailVerificationEmail(email, url)) {
+                Organization organization = Storage<Organization>.ReadFirst(new Organization.ReadByAccountId { AccountId = Security.Account.Id });
+                if (SendEmailVerificationEmail(organization.Code, Security.Account.Login, email, url)) {
                     Security.Account.EmailVerifyStatus = (int)Account.EmailVerifyStatusCode.EMAIL_SEND;
                     Storage<Account>.Update(Security.Account);
                 } else {
@@ -211,7 +212,8 @@ namespace Eurona.User {
                 Security.Account.EmailVerifyCode = code;
                 Security.Account.EmailToVerify = email;
                 Storage<Account>.Update(Security.Account);
-                if (SendEmailVerificationAnonymousEmail(email, url)) {
+                Organization organization = Storage<Organization>.ReadFirst(new Organization.ReadByAccountId { AccountId = Security.Account.Id });
+                if (SendEmailVerificationAnonymousEmail(organization.Code, Security.Account.Login, email, url)) {
                     Security.Account.EmailVerifyStatus = (int)Account.EmailVerifyStatusCode.EMAIL_SEND;
                     Storage<Account>.Update(Security.Account);
                     Security.LogoutWithoutRedirect();
@@ -694,11 +696,11 @@ namespace Eurona.User {
         /// <summary>
         /// Odoslanie informacneho mailu s linkom pre overenie emailu.
         /// </summary>
-        private bool SendEmailVerificationEmail(string email, string url) {
+        private bool SendEmailVerificationEmail(string code, string login, string email, string url) {
             EmailNotification email2User = new EmailNotification {
                 To = email,
                 Subject = Resources.Strings.EmailVerifyControl_UserVerificationEmail_Subject,
-                Message = String.Format(Resources.Strings.EmailVerifyControl_UserVerificationEmail_Message, url).Replace("\\n", Environment.NewLine) + "<br/><br/>"
+                Message = String.Format(Resources.Strings.EmailVerifyControl_UserVerificationEmail_Message, code, login, url).Replace("\\n", Environment.NewLine) + "<br/><br/>"
             };
 
             bool okUser = email2User.Notify(true);
@@ -750,11 +752,11 @@ namespace Eurona.User {
         /// <summary>
         /// Odoslanie informacneho mailu s linkom pre overenie emailu.
         /// </summary>
-        private bool SendEmailVerificationAnonymousEmail(string email, string url) {
+        private bool SendEmailVerificationAnonymousEmail(string code, string login, string email, string url) {
             EmailNotification email2User = new EmailNotification {
                 To = email,
                 Subject = Resources.Strings.EmailVerifyControl_UserVerificationEmail_Subject,
-                Message = String.Format(Resources.Strings.EmailVerifyControl_UserVerificationEmail_AnonymousMessage, url).Replace("\\n", Environment.NewLine) + "<br/><br/>"
+                Message = String.Format(Resources.Strings.EmailVerifyControl_UserVerificationEmail_AnonymousMessage, code, login, url).Replace("\\n", Environment.NewLine) + "<br/><br/>"
             };
 
             bool okUser = email2User.Notify(true);

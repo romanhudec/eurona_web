@@ -611,7 +611,7 @@ namespace Resources {
         
         /// <summary>
         ///   Looks up a localized string similar to Dobrý den,&lt;br/&gt;&lt;br/&gt;
-        ///pro změnu Vašeho emailu/přihlašovacího jména účtu Eurona prosím klikněte na následující odkaz, který Vás přesměruje na stránky EuronabyCerny.
+        ///pro změnu Vašeho emailu/přihlašovacího jména účtu Eurona prosím klikněte na následující odkaz, který Vás přesměruje na stránky Eurona by Cerny.
         ///&lt;br/&gt;&lt;br/&gt;
         ///&lt;a href=&apos;{0}&apos;&gt;{0}&lt;/a&gt;
         ///&lt;br/&gt;&lt;br/&gt;
@@ -656,7 +656,7 @@ namespace Resources {
         
         /// <summary>
         ///   Looks up a localized string similar to Dobrý den,&lt;br/&gt;&lt;br/&gt;
-        ///pro dokončení změny emailu Vašeho zákaznického účtu Eurona prosím klikněte na následující odkaz, který Vás přesměruje na stránky EuronabyCerny.
+        ///pro dokončení změny emailu Vašeho zákaznického účtu Eurona prosím klikněte na následující odkaz, který Vás přesměruje na stránky Eurona by Cerny.
         ///&lt;br/&gt;&lt;br/&gt;
         ///&lt;a href=&apos;{0}&apos;&gt;{0}&lt;/a&gt;
         ///&lt;br/&gt;&lt;br/&gt;
@@ -673,7 +673,7 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to ZMĚNA EMAILU REGISTRACE EURONA.
+        ///   Looks up a localized string similar to ZMĚNA EMAILU EURONA.
         /// </summary>
         internal static string ChangeEmailControl_UserVerificationEmail_Subject {
             get {
@@ -682,7 +682,7 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to ZMĚNA EMAILU REGISTRACE EURONA.
+        ///   Looks up a localized string similar to ZMĚNA EMAILU EURONA DOKONČENA.
         /// </summary>
         internal static string ChangeEmailControl_UserVerificationFinishEmail_Subject {
             get {
@@ -1063,7 +1063,7 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Nesprávný formát emailu.
+        ///   Looks up a localized string similar to Nesprávný formát emailu..
         /// </summary>
         internal static string EmailVerifyControl_EmailValidation_NespravnyFormat {
             get {
@@ -1217,15 +1217,12 @@ namespace Resources {
         
         /// <summary>
         ///   Looks up a localized string similar to Dobrý den,&lt;br/&gt;&lt;br/&gt;
-        ///pro ověření Vašeho zákaznického účtu Eurona prosím klikněte na následující odkaz, který Vás přesměruje na stránky EuronabyCerny.
+        ///pro ověření Vašeho nového zákaznického účtu Eurona s registračním číslem &lt;b&gt;{0}&lt;/b&gt; a přihlašovacím jménem &lt;b&gt;{1}&lt;/b&gt; prosím klikněte na následující odkaz, který Vás přesměruje na stránky Eurona by Cerny a ověří Vaši registraci.
         ///&lt;br/&gt;&lt;br/&gt;
-        ///&lt;a href=&apos;{0}&apos;&gt;{0}&lt;/a&gt;
+        ///&lt;a href=&apos;{2}&apos;&gt;{2}&lt;/a&gt;
         ///&lt;br/&gt;&lt;br/&gt;
         ///Pokud se po kliknutí na odkaz nic neděje, označte jej kurzorem a zároveň pomocí kombinace kláves Ctrl+C zkopírujte a pomocí Ctrl+V vložte odkaz do adresního řádku internetového prohlížeče a potvrďte klávesou Enter.
-        ///&lt;br/&gt;&lt;br/&gt;
-        ///Děkujeme za pochopení!
-        ///&lt;br/&gt;
-        ///Eurona by Cerny.
+        ///&lt;br [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string EmailVerifyControl_UserVerificationEmail_AnonymousMessage {
             get {
@@ -1235,13 +1232,11 @@ namespace Resources {
         
         /// <summary>
         ///   Looks up a localized string similar to Dobrý den,&lt;br/&gt;&lt;br/&gt;
-        ///pro ověření Vašeho zákaznického účtu Eurona prosím klikněte na následující odkaz, který Vás přesměruje na stránky EuronabyCerny a vyzve k zadání nového hesla.
+        ///pro ověření Vašeho zákaznického účtu Eurona s registračním číslem {0} a dosavadním přihlašovacím jménem {1} prosím klikněte na následující odkaz, který Vás přesměruje na stránky Eurona by Cerny a vyzve k zadání nového hesla. Po dokončení ověření se Vaším přihlašovacím jménem stane nově zvolený ověřený email.
         ///&lt;br/&gt;&lt;br/&gt;
-        ///&lt;a href=&apos;{0}&apos;&gt;{0}&lt;/a&gt;
+        ///&lt;a href=&apos;{2}&apos;&gt;{2}&lt;/a&gt;
         ///&lt;br/&gt;&lt;br/&gt;
-        ///Zvolte si, prosím, bezpečné, alespoň 6 místné heslo, které bude obsahovat minimálně jedno velké písmeno, jedno malé písmeno a alespoň jednu číslici.
-        ///&lt;br/&gt;&lt;br/&gt;
-        ///Pokud se po kliknutí na odkaz nic neděje, označte jej kurzorem a zároveň pomocí kombinace kláves Ctrl+C zkopírujte a pomo [rest of string was truncated]&quot;;.
+        ///Pokud se po kliknutí na odkaz nic neděje, označte jej kurzorem a zároveň pomocí kombinace kláves Ctrl+C zkopírujte a pomocí Ctrl+V vložte [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string EmailVerifyControl_UserVerificationEmail_Message {
             get {
@@ -1259,7 +1254,7 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to OVĚŘENÍ REGISTRACE EURONA.
+        ///   Looks up a localized string similar to OVĚŘENÍ REGISTRACE EURONA DOKONČENO.
         /// </summary>
         internal static string EmailVerifyControl_UserVerificationFinishEmail_Subject {
             get {
@@ -1382,15 +1377,13 @@ namespace Resources {
         ///&lt;br/&gt;&lt;br/&gt;
         ///Vaše přihlašovací jméno je: &lt;b&gt;{0}&lt;/b&gt;
         ///&lt;br/&gt;&lt;br/&gt;
-        ///pro zadání nového hesla k Vašemu zákaznickému účtu Eurona prosím klikněte na následující odkaz, který Vás přesměruje na stránky         ///
-        ///EuronabyCerny a vyzve k zadání nového hesla. 
+        ///pro zadání nového hesla k Vašemu zákaznickému účtu Eurona prosím klikněte na následující odkaz, který Vás přesměruje na stránky Eurona by Cerny a vyzve k zadání nového hesla. 
         ///&lt;br/&gt;&lt;br/&gt;
         ///&lt;a href=&apos;{1}&apos;&gt;{1}&lt;/a&gt;
         ///&lt;br/&gt;&lt;br/&gt;
-        ///Zvolte si, prosím, bezpečné, alespoň 6 místné heslo, které bude obsahovat minimálně jedno velké písmeno, jedno malé písmeno a alespoň jednu         ///
-        ///číslici. 
+        ///Zvolte si, prosím, bezpečné, alespoň 6 místné heslo, které bude obsahovat minimálně jedno velké písmeno, jedno malé písmeno a alespoň jednu číslici. 
         ///&lt;br/&gt;&lt;br/&gt;
-        ///Pokud se po kliknutí na odkaz nic neděje, ozn [rest of string was truncated]&quot;;.
+        ///Pokud se po kliknutí na odkaz nic neděje, označte jej kurzo [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string ForgotPasswordControl_Email_ForgotPassword_Message {
             get {
@@ -1399,7 +1392,7 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Váš email :.
+        ///   Looks up a localized string similar to Váš email:.
         /// </summary>
         internal static string ForgotPasswordControl_Email_Label {
             get {

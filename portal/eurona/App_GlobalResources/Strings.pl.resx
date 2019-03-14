@@ -1062,4 +1062,242 @@ www.euronabycerny.com</value>
   <data name="Please_Wait" xml:space="preserve">
     <value>Proszę czekać ...</value>
   </data>
+  <data name="ChangeEmailControl_Email" xml:space="preserve">
+    <value>Wprowadź adres e-mail, dla weryfikacji:</value>
+  </data>
+  <data name="ChangeEmailControl_EmailDescriptionTop" xml:space="preserve">
+    <value>Z powodu ochrony Twojego konta użytkownika Eurona, prosię, podaj Twój ważny adres. Twój adres e-mailowy staje się Twoim nowym wyjątkowym loginem do konta użytkownika. Podany adres e-mailowy nie można włożyć dla wiącej kont użytkownika!</value>
+  </data>
+  <data name="ChangeEmailControl_EmailSended_Message" xml:space="preserve">
+    <value>Na Twój adres e-mailowy został z powodzeniem odesłany odsyłacz weryfikacyjny. Dla zakończenia zmiany e-mailu, kliknij na odsyłacz w e-mailu. Dziękujemy.</value>
+  </data>
+  <data name="ChangeEmailControl_OdeslatZnovu" xml:space="preserve">
+    <value>Odeślij znów</value>
+  </data>
+  <data name="ChangeEmailControl_Opakovat" xml:space="preserve">
+    <value>Powtarzać </value>
+  </data>
+  <data name="ChangeEmailControl_OveritEmail" xml:space="preserve">
+    <value>Weryfikować</value>
+  </data>
+  <data name="ChangeEmailControl_Pokracovat" xml:space="preserve">
+    <value>Kontynuować </value>
+  </data>
+  <data name="ChangeEmailControl_RequestChangeEmail_Message" xml:space="preserve">
+    <value>Dzień dobry,&lt;br/&gt;&lt;br/&gt;
+z powodu zmiany Twojego e-mailu/loginu konta użytkownika, prosię, kliknij na następny odsyłacz, który przekieruje Cie na strony Eurona by Cerny.
+&lt;br/&gt;&lt;br/&gt;
+&lt;a href='{0}'&gt;{0}&lt;/a&gt;
+&lt;br/&gt;&lt;br/&gt;
+Jeżeli po kliknięciu na odsyłacz nic się nie dzieje, odsyłacz oznakuj kursorem i równocześnie przy pomocy kombinacji klawiszy Ctrl+C skopiuj i przy pomocy klawiszy Ctrl+V odsyłacz włóż do wiersza odresowego przeglądarki internetowej i potwierdź klawiszem Enter.
+&lt;br/&gt;&lt;br/&gt;
+Dziękujemy za zrozumienie!
+&lt;br/&gt;
+Eurona by Cerny</value>
+  </data>
+  <data name="ChangeEmailControl_SendingEmailError_Message" xml:space="preserve">
+    <value>Twój e-mail nie udało się weryfikować! Spróbój to prosię znów, ewentualnie kontaktuj nasz dział handlowy na +420 491 477 361 lub prodej@eurona.cz.</value>
+  </data>
+  <data name="ChangeEmailControl_SendingEmail_Message" xml:space="preserve">
+    <value>Na przez Ciebie podany adres e-mailowy jest prawie przesyłany odsyłacz weryfikacyjny, prosię czakać…</value>
+  </data>
+  <data name="ChangeEmailControl_Title" xml:space="preserve">
+    <value>Zmiana adresu e-mail </value>
+  </data>
+  <data name="ChangeEmailControl_UserVerificationEmail_Message" xml:space="preserve">
+    <value>Dzień dobry,&lt;br/&gt;&lt;br/&gt;
+dla zakończenia zmieny e-mail Twojego konta użytkownika, prosię, kliknij na następny odsylaczm, który przekieruje Cie na strony Eurona by Cerny.
+&lt;br/&gt;&lt;br/&gt;
+&lt;a href='{0}'&gt;{0}&lt;/a&gt;
+&lt;br/&gt;&lt;br/&gt;
+Jeżeli po kliknięciu na odsyłacz nic się nie dzieje, odsyłacz oznakuj kursorem i równocześnie przy pomocy kombinacji klawiczy Ctrl+C skopiuj i przy pomocy klawiszy Ctrl+V odsyłacz włóż do wiersza odresowego przeglądarki internetowej i potwierdź klawiszem Enter.
+&lt;br/&gt;&lt;br/&gt;
+Dziękujemy za zrozumienie!
+&lt;br/&gt;
+Eurona by Cerny</value>
+  </data>
+  <data name="ChangeEmailControl_UserVerificationEmail_Subject" xml:space="preserve">
+    <value>ZMIANA ADRESU E-MAIL EURONA</value>
+  </data>
+  <data name="ChangeEmailControl_UserVerificationFinishEmail_Subject" xml:space="preserve">
+    <value>ZMIANA ADRESU E-MAIL EURONA ZAKOŃCZONA </value>
+  </data>
+  <data name="ChangeEmailControl_UserVerificationFinish_Message" xml:space="preserve">
+    <value>Dziękujemy,&lt;br/&gt;&lt;br/&gt;
+zmiana e-mail Twojego konta użytkownika jest zakończona.
+&lt;br/&gt;&lt;br/&gt;
+Zapamiętaj sobie, prosię, Twoje nowe dane do zalogowania:&lt;br/&gt;
+Login:{0}
+&lt;br/&gt;&lt;br/&gt;
+Teraz możesz kontynuować na nasze strony: https://euronabycerny.com/.
+&lt;br/&gt;&lt;br/&gt;
+Z życzeniami  przyjemnego dnia,&lt;br/&gt;
+Ekipa Eurona.</value>
+  </data>
+  <data name="ChangeEmailControl_VerifycationSuccessFinish_Message" xml:space="preserve">
+    <value>Zapamiętaj swoje nowe dane logowania: 
+Nazwa użytkownika: {0}
+Hasło: wybrane w poprzednim kroku</value>
+  </data>
+  <data name="ChangeEmailControl_VerifycationSuccessFinish_Title" xml:space="preserve">
+    <value>Dziękujemy, właśnie dokończyłeś weryfikację  swojego konta klienta.</value>
+  </data>
+  <data name="ChangeEmailControl_ZrusitZmenu" xml:space="preserve">
+    <value>Kontynuuj bez zmian</value>
+  </data>
+  <data name="EmailVerifyControl_AnonymousEmailSended_Message" xml:space="preserve">
+    <value>Właśnie wysłaliśmy Ci link weryfikacyjny pod  adres Twojego e-mailu. Kliknij ten link, aby ukończyć rejestrację i kontynuować zamówienie.</value>
+  </data>
+  <data name="EmailVerifyControl_DokoncitOvereni" xml:space="preserve">
+    <value>Zmień hasło i dokończ weryfikację </value>
+  </data>
+  <data name="EmailVerifyControl_Email" xml:space="preserve">
+    <value>Wprowadź adres e-mail, dla weryfikacji:</value>
+  </data>
+  <data name="EmailVerifyControl_EmailDescriptionBottom" xml:space="preserve">
+    <value>Twój e-mail z odsyłaczem weryfikacyjnym następnie staje się i Twoim nazwiskiem do załogowania.</value>
+  </data>
+  <data name="EmailVerifyControl_EmailDescriptionTop" xml:space="preserve">
+    <value>Z powodu ochrony Twojego konta użytkownika Eurona, prosię, podaj Twój ważny adres. Twój adres e-mailowy staje się Twoim nowym wyjątkowym loginem do konta użytkownika. Podany adres e-mailowy nie można włożyć dla wiącej kont użytkownika!</value>
+  </data>
+  <data name="EmailVerifyControl_EmailSended_Message" xml:space="preserve">
+    <value>Link weryfikacyjny został pomyślnie wysłany na Twój adres e-mail. Aby zakończyć weryfikację, kliknij link w e-mailu. Dziękuję</value>
+  </data>
+  <data name="EmailVerifyControl_EmailValidation_EmailJeJizOveren" xml:space="preserve">
+    <value>Ten e-mail jest już używany na innym koncie.</value>
+  </data>
+  <data name="EmailVerifyControl_EmailValidation_EmailNeexituje" xml:space="preserve">
+    <value>Przez Ciebie podany E-mail w systemie nie znajduje się!</value>
+  </data>
+  <data name="EmailVerifyControl_EmailValidation_NespravnyFormat" xml:space="preserve">
+    <value>Niepoprawny format adresu e-mail.</value>
+  </data>
+  <data name="EmailVerifyControl_EmailValidation_OvereniZJinehoZarizeni" xml:space="preserve">
+    <value>Weryfikacja z innego urządzenia! Weryfikację prosię dokończ na urządzeniu, na który weryfikacja została rozpoczęta.</value>
+  </data>
+  <data name="EmailVerifyControl_EmailValidation_UcetJeJizOverenPokracovat" xml:space="preserve">
+    <value>Dziękujemy! Twoje konto klienta zostało zweryfikowane. Naciśnij przycisk kontynuuj, aby być przekierowany do biura konsultanta.</value>
+  </data>
+  <data name="EmailVerifyControl_EmailVerifiedFailed_Message" xml:space="preserve">
+    <value>Twój e-mail nie mógł zostać zweryfikowany! Spróbuj później ponownie.</value>
+  </data>
+  <data name="EmailVerifyControl_OdeslatZnovu" xml:space="preserve">
+    <value>Odeślij znów</value>
+  </data>
+  <data name="EmailVerifyControl_Opakovat" xml:space="preserve">
+    <value>Powtarzać </value>
+  </data>
+  <data name="EmailVerifyControl_OveritEmail" xml:space="preserve">
+    <value>Weryfikować</value>
+  </data>
+  <data name="EmailVerifyControl_Password" xml:space="preserve">
+    <value>teraz prosię wybierz nowe, bezpieczne hasło. </value>
+  </data>
+  <data name="EmailVerifyControl_PasswordDescriptionBottom" xml:space="preserve">
+    <value>Z świadomością najwyższej bezpieczności Twoich danych osobowych kładź nacisk na konsekwentną ochronę wszystkich informacji. Dane logowania, prosię skrywaj.</value>
+  </data>
+  <data name="EmailVerifyControl_PasswordDescriptionTop" xml:space="preserve">
+    <value>teraz prosię wybierz nowe, bezpieczne hasło. </value>
+  </data>
+  <data name="EmailVerifyControl_PasswordErrorMessage" xml:space="preserve">
+    <value>Wprowadzone hasło nie spełnia warunków bezpieczeństwa. Powinno ono zawierać minimum 6 znaków, 1 dużą literę, 1 małą literę i 1 cyfrę.</value>
+  </data>
+  <data name="EmailVerifyControl_PasswordRepeat" xml:space="preserve">
+    <value>Powtórz hasło:</value>
+  </data>
+  <data name="EmailVerifyControl_PasswordRepeatErrorMessage" xml:space="preserve">
+    <value>Hasło i powtórzenie hasła nie pasują!</value>
+  </data>
+  <data name="EmailVerifyControl_Pokracovat" xml:space="preserve">
+    <value>Kontynuować </value>
+  </data>
+  <data name="EmailVerifyControl_SendingEmailError_Message" xml:space="preserve">
+    <value>Twój e-mail nie udało się weryfikować! Spróbój to prosię znów, ewentualnie kontaktuj nasz dział handlowy na +420 491 477 361 lub prodej@eurona.cz.</value>
+  </data>
+  <data name="EmailVerifyControl_SendingEmail_Message" xml:space="preserve">
+    <value>Na przez Ciebie podany adres e-mailowy jest prawie przesyłany odsyłacz weryfikacyjny, prosię czakać…</value>
+  </data>
+  <data name="EmailVerifyControl_Title" xml:space="preserve">
+    <value>WERYFIKACJA KONTA</value>
+  </data>
+  <data name="EmailVerifyControl_UserVerificationEmail_AnonymousMessage" xml:space="preserve">
+    <value>Dzień dobry, &lt;br/&gt;&lt;br/&gt;
+z powodu weryfikacji Twojego nowego konta klienta Eurona z numerem rejestracyjnym &lt;b&gt;{0}&lt;/b&gt; i loginem &lt;b&gt;{1}&lt;/b&gt;, prosię kliknij na następny odsyłacz, który nakieruję Cie na strony  Eurona by Cerny i zweryfikuje Twoją rejestrację.
+&lt;br/&gt;&lt;br/&gt;
+&lt;br/&gt;&lt;br/&gt;
+Jeżeli po kliknięciu na odsyłacz nic się nie dzieje, odsyłacz oznakuj kursorem i równocześnie przy pomocy kombinacji klawiszy Ctrl+C skopiuj i przy pomocy klawiszy Ctrl+V odsyłacz włóż do wiersza odresowego przeglądarki internetowej i potwierdź klawiszem Enter.
+&lt;br/&gt;&lt;br/&gt;
+Dziękujemy za zrozumienie!
+&lt;br/&gt;
+Eurona by Cerny</value>
+  </data>
+  <data name="EmailVerifyControl_UserVerificationEmail_Message" xml:space="preserve">
+    <value>Witamy,&lt;br/&gt;&lt;br/&gt;
+Do weryfikacji Twojego hasła konta klienta Eurona z numerem rejestracyjnym {0} i dotychczasowego identyfikatora użytkownika {1}, prosię kliknąć na następny odsyłacz, który Cię nakieruje na strony Eurona by Cerny i wezwie cię do zadania nowego hasła. Po zakończeniu weryfikacji Twoim identyfikatorem użytkownika staję się nowo wybrany e-mail weryfikacyjny.
+&lt;br/&gt;&lt;br/&gt;
+&lt;a href='{2}'&gt;{2}&lt;/a&gt;
+&lt;br/&gt;&lt;br/&gt;
+Jeśli nic się nie dzieje po kliknięciu linku, podświetl go kursorem i skopiuj naciskając Ctrl+C oraz następnie Ctrl+V, aby wkleić link do paska adresu przeglądarki internetowej i potwierdź klawiszem Enter.
+&lt;br/&gt;&lt;br/&gt;
+Dziękujemy za zrozumienie,
+&lt;br/&gt;
+Eurona by Cerny</value>
+  </data>
+  <data name="EmailVerifyControl_UserVerificationEmail_Subject" xml:space="preserve">
+    <value>WERYFIKACJA REJESTRACJI EURONA</value>
+  </data>
+  <data name="EmailVerifyControl_UserVerificationFinishEmail_Subject" xml:space="preserve">
+    <value>WERYFIKACJA REJESTRACJI EURON ZAKOŃCZONA</value>
+  </data>
+  <data name="EmailVerifyControl_UserVerificationFinish_Message" xml:space="preserve">
+    <value>Dziękujemy,&lt;br/&gt;&lt;br/&gt;
+weryfikacja Twojego konta klienta została zakończona.
+&lt;br/&gt;&lt;br/&gt;
+Zapamiętaj proszę swoje nowe dane logowania:
+Nazwa użytkownika: {0} i twoje nowe hasło.
+&lt;br/&gt;&lt;br/&gt;
+Teraz możesz przejść do naszej strony internetowej: https://euronabycerny.com/.
+&lt;br/&gt;&lt;br/&gt;
+Z życzeniami miłego dnia,&lt;br/&gt;
+Zespół Eurona</value>
+  </data>
+  <data name="EmailVerifyControl_VerifycationSuccessFinish_Message" xml:space="preserve">
+    <value>Zapamiętaj swoje nowe dane logowania: 
+Nazwa użytkownika: {0}
+Hasło: wybrane w poprzednim kroku</value>
+  </data>
+  <data name="EmailVerifyControl_VerifycationSuccessFinish_Title" xml:space="preserve">
+    <value>Dziękujemy, właśnie dokończyłeś weryfikację  swojego konta klienta.</value>
+  </data>
+  <data name="EmailVerifyControl_VerifycationSuccessStep1_Title" xml:space="preserve">
+    <value>Pierwsza część weryfikacji jest spełniona!</value>
+  </data>
+  <data name="EmailVerifyControl_VerifyingEmail_Message" xml:space="preserve">
+    <value>Aktualnie realizuje się weryfikacja Twojego e-mailu, czekaj prosię na przekierowanie.</value>
+  </data>
+  <data name="EmailVerifyControl_ZrusitOvereni" xml:space="preserve">
+    <value>Kontynuuj bez załogowania </value>
+  </data>
+  <data name="ForgotPasswordControl_Email_ForgotPassword_Message" xml:space="preserve">
+    <value>Witamy,
+&lt;br/&gt;&lt;br/&gt;
+Twój login to: &lt;b&gt;{0}&lt;/b&gt;
+&lt;br/&gt;&lt;br/&gt;
+aby wprowadzić nowe hasło do konta klienta Eurona, kliknij poniższy link. Zostaniesz przekierowany do Eurona by Cerny i zostaniesz wyzwany o wpisanie nowego hasła.
+&lt;br/&gt;&lt;br/&gt;
+&lt;a href='{1}'&gt;{1}&lt;/a&gt;
+&lt;br/&gt;&lt;br/&gt;
+Wybierz bezpieczne, co najmniej 6-cio znakowe hasło zawierające co najmniej jedną wielką literę, jedną małą literę i co najmniej jedną cyfrę.
+&lt;br/&gt;&lt;br/&gt;
+Jeśli nic się nie dzieje po kliknięciu linku, podświetl go kursorem i skopiuj naciskając Ctrl+C a następnie Ctrl+V, aby wkleić link do paska adresu przeglądarki internetowej i potwierdź klawiszem Enter.
+&lt;br/&gt;&lt;br/&gt;
+Dziękujemy za zrozumienie,&lt;br/&gt;
+Eurona by Cerny</value>
+  </data>
+  <data name="ForgotPasswordControl_Email_Label" xml:space="preserve">
+    <value>Twój e-mail:</value>
+  </data>
+  <data name="ForgotPasswordControl_Finish" xml:space="preserve">
+    <value>Kliknij link w wiadomości email, aby kontynuować.</value>
+  </data>
 </root>

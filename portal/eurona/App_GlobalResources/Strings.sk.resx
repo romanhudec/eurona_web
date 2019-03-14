@@ -1159,4 +1159,243 @@ www.euronabycerny.com</value>
   <data name="Please_Wait" xml:space="preserve">
     <value>Prosím čakajte ...</value>
   </data>
+  <data name="ChangeEmailControl_Email" xml:space="preserve">
+    <value>Zadajte e-mail na overenie:</value>
+  </data>
+  <data name="ChangeEmailControl_EmailDescriptionTop" xml:space="preserve">
+    <value>Na zabezpečenie Vášho zákazníckeho účtu Eurona, prosím, zadajte Vašu platnú e-mailovú adresu. Vaša e-mailová adresa sa stane Vaším novým jedinečným prihlasovacím menom do zákazníckeho účtu. Uvedenú e-mailovú adresu nie je možné zadať pre viac zákazníckych účtov!</value>
+  </data>
+  <data name="ChangeEmailControl_EmailSended_Message" xml:space="preserve">
+    <value>Na Vašu e-mailovú adresu bol úspešne odoslaný overovací odkaz. Na dokončenie zmeny e-mailu kliknite na odkaz v e-maile. Ďakujeme.</value>
+  </data>
+  <data name="ChangeEmailControl_OdeslatZnovu" xml:space="preserve">
+    <value>Odoslať znovu</value>
+  </data>
+  <data name="ChangeEmailControl_Opakovat" xml:space="preserve">
+    <value>Opakovať</value>
+  </data>
+  <data name="ChangeEmailControl_OveritEmail" xml:space="preserve">
+    <value>Overiť</value>
+  </data>
+  <data name="ChangeEmailControl_Pokracovat" xml:space="preserve">
+    <value>Pokračovať</value>
+  </data>
+  <data name="ChangeEmailControl_RequestChangeEmail_Message" xml:space="preserve">
+    <value>Dobrý deň,&lt;br/&gt;&lt;br/&gt;
+na zmenu Vášho e-mailu/prihlasovacieho mena účtu Eurona, prosím, kliknite na nasledujúci odkaz, ktorý Vás presmeruje na stránky Eurona by Cerny.
+&lt;br/&gt;&lt;br/&gt;
+&lt;a href='{0}'&gt;{0}&lt;/a&gt;
+&lt;br/&gt;&lt;br/&gt;
+Ak sa po kliknutí na odkaz nič nedeje, označte ho kurzorom a zároveň pomocou kombinácie klávesov Ctrl+C skopírujte a pomocou Ctrl+V vložte odkaz do riadka s adresou v internetovom prehliadači a potvrďte klávesom Enter.
+&lt;br/&gt;&lt;br/&gt;
+Ďakujeme za pochopenie!
+&lt;br/&gt;
+Eurona by Cerny</value>
+  </data>
+  <data name="ChangeEmailControl_SendingEmailError_Message" xml:space="preserve">
+    <value>Váš e-mail sa nepodarilo overiť! Skúste to, prosím, znova, prípadne kontaktujte naše obchodné oddelenie na +420 491 477 361 alebo prodej@eurona.cz.</value>
+  </data>
+  <data name="ChangeEmailControl_SendingEmail_Message" xml:space="preserve">
+    <value>Na Vami zadanú e-mailovú adresu sa práve odosiela overovací odkaz. Prosím, čakajte…</value>
+  </data>
+  <data name="ChangeEmailControl_Title" xml:space="preserve">
+    <value>Zmena e-mailu</value>
+  </data>
+  <data name="ChangeEmailControl_UserVerificationEmail_Message" xml:space="preserve">
+    <value>Dobrý deň,&lt;br/&gt;&lt;br/&gt;
+na dokončenie zmeny e-mailu Vášho zákazníckeho účtu Eurona, prosím, kliknite na nasledujúci odkaz, ktorý Vás presmeruje na stránky Eurona by Cerny.
+&lt;br/&gt;&lt;br/&gt;
+&lt;a href='{0}'&gt;{0}&lt;/a&gt;
+&lt;br/&gt;&lt;br/&gt;
+Ak sa po kliknutí na odkaz nič nedeje, označte ho kurzorom a zároveň pomocou kombinácie klávesov Ctrl+C skopírujte a pomocou Ctrl+V vložte odkaz do riadka s adresou v internetovom prehliadači a potvrďte klávesom Enter.
+&lt;br/&gt;&lt;br/&gt;
+Ďakujeme za pochopenie!
+&lt;br/&gt;
+Eurona by Cerny</value>
+  </data>
+  <data name="ChangeEmailControl_UserVerificationEmail_Subject" xml:space="preserve">
+    <value>ZMENA E-MAILU EURONA</value>
+  </data>
+  <data name="ChangeEmailControl_UserVerificationFinishEmail_Subject" xml:space="preserve">
+    <value>ZMENA E-MAILU EURONA DOKONČENÁ</value>
+  </data>
+  <data name="ChangeEmailControl_UserVerificationFinish_Message" xml:space="preserve">
+    <value>Ďakujeme,&lt;br/&gt;&lt;br/&gt;
+zmena e-mailu Vášho zákazníckeho účtu je dokončená.
+&lt;br/&gt;&lt;br/&gt;
+Zapamätajte si, prosím, Vaše nové prihlasovacie údaje:&lt;br/&gt;
+Prihlasovacie meno:{0}
+&lt;br/&gt;&lt;br/&gt;
+Teraz môžete pokračovať na naše stránky: https://euronabycerny.com/.
+&lt;br/&gt;&lt;br/&gt;
+S prianím príjemného dňa,&lt;br/&gt;
+Tím Eurona.</value>
+  </data>
+  <data name="ChangeEmailControl_VerifycationSuccessFinish_Message" xml:space="preserve">
+    <value>Zapamätajte si, prosím, Vaše nové prihlasovacie údaje:
+Prihlasovacie meno: {0}
+Heslo: zvolené v predchádzajúcom kroku</value>
+  </data>
+  <data name="ChangeEmailControl_VerifycationSuccessFinish_Title" xml:space="preserve">
+    <value>Ďakujeme, práve ste dokončili overenie Vášho zákazníckeho účtu!</value>
+  </data>
+  <data name="ChangeEmailControl_ZrusitZmenu" xml:space="preserve">
+    <value>Pokračovať bez zmeny</value>
+  </data>
+  <data name="EmailVerifyControl_AnonymousEmailSended_Message" xml:space="preserve">
+    <value>Na e-mail sme Vám práve zaslali overovací odkaz. Prekliknutím tohto odkazu dokončíte registráciu a môžete pokračovať v objednávke.</value>
+  </data>
+  <data name="EmailVerifyControl_DokoncitOvereni" xml:space="preserve">
+    <value>Zmeniť heslo a dokončiť overenie</value>
+  </data>
+  <data name="EmailVerifyControl_Email" xml:space="preserve">
+    <value>Zadajte e-mail na overenie:</value>
+  </data>
+  <data name="EmailVerifyControl_EmailDescriptionBottom" xml:space="preserve">
+    <value>Váš e-mail s overovacím odkazom sa potom stane aj Vaším prihlasovacím menom.</value>
+  </data>
+  <data name="EmailVerifyControl_EmailDescriptionTop" xml:space="preserve">
+    <value>Na zabezpečenie Vášho zákazníckeho účtu Eurona, prosím, zadajte Vašu platnú e-mailovú adresu. Vaša e-mailová adresa sa stane Vaším novým jedinečným prihlasovacím menom do zákazníckeho účtu. Uvedenú e-mailovú adresu nie je možné zadať pre viac zákazníckych účtov!</value>
+  </data>
+  <data name="EmailVerifyControl_EmailSended_Message" xml:space="preserve">
+    <value>Na Vašu emailovú adresu bol úspešne odoslaný overovací odkaz. Pre dokončenie overenia kliknite na odkaz v emaile. Ďakujeme.</value>
+  </data>
+  <data name="EmailVerifyControl_EmailValidation_EmailJeJizOveren" xml:space="preserve">
+    <value>Tento e-mail je už overený k inému účtu.</value>
+  </data>
+  <data name="EmailVerifyControl_EmailValidation_EmailNeexituje" xml:space="preserve">
+    <value>Vami zadaný E-mail sa v systéme nenachádza!</value>
+  </data>
+  <data name="EmailVerifyControl_EmailValidation_NespravnyFormat" xml:space="preserve">
+    <value>Nesprávny formát e-mailu.</value>
+  </data>
+  <data name="EmailVerifyControl_EmailValidation_OvereniZJinehoZarizeni" xml:space="preserve">
+    <value>Overenie z iného zariadenia! Overenie, prosím, dokončite na zariadení, na ktorom ste ho začali.</value>
+  </data>
+  <data name="EmailVerifyControl_EmailValidation_UcetJeJizOverenPokracovat" xml:space="preserve">
+    <value>Ďakujeme! Váš účet bol overený. Tlačidlom pokračovať budete presmerovaní do svojej kancelárie poradcu.</value>
+  </data>
+  <data name="EmailVerifyControl_EmailVerifiedFailed_Message" xml:space="preserve">
+    <value>Váš e-mail sa nepodarilo overiť! Skúste overenie opakovať neskôr.</value>
+  </data>
+  <data name="EmailVerifyControl_OdeslatZnovu" xml:space="preserve">
+    <value>Odoslať znovu</value>
+  </data>
+  <data name="EmailVerifyControl_Opakovat" xml:space="preserve">
+    <value>Opakovať</value>
+  </data>
+  <data name="EmailVerifyControl_OveritEmail" xml:space="preserve">
+    <value>Overiť</value>
+  </data>
+  <data name="EmailVerifyControl_Password" xml:space="preserve">
+    <value>Teraz, prosím, zvoľte nové, bezpečné heslo.</value>
+  </data>
+  <data name="EmailVerifyControl_PasswordDescriptionBottom" xml:space="preserve">
+    <value>S vedomím najvyššej bezpečnosti Vašich osobných údajov kladieme dôraz na dôslednú ochranu všetkých informácií. Prihlasovacie údaje, prosím, uchovávajte v diskrétnosti.</value>
+  </data>
+  <data name="EmailVerifyControl_PasswordDescriptionTop" xml:space="preserve">
+    <value>Teraz, prosím, zvoľte nové, bezpečné heslo.</value>
+  </data>
+  <data name="EmailVerifyControl_PasswordErrorMessage" xml:space="preserve">
+    <value>Vami zadané heslo nespĺňa bezpečnostné podmienky. Musí byť min. 6-miestne a obsahovať min. 1 veľké písmeno, 1 malé písmeno a 1 číslicu.</value>
+  </data>
+  <data name="EmailVerifyControl_PasswordRepeat" xml:space="preserve">
+    <value>Zopakovať heslo:</value>
+  </data>
+  <data name="EmailVerifyControl_PasswordRepeatErrorMessage" xml:space="preserve">
+    <value>Heslo a opakované heslo sa nezhodujú!</value>
+  </data>
+  <data name="EmailVerifyControl_Pokracovat" xml:space="preserve">
+    <value>Pokračovať</value>
+  </data>
+  <data name="EmailVerifyControl_SendingEmailError_Message" xml:space="preserve">
+    <value>Váš e-mail sa nepodarilo overiť! Skúste to, prosím, znova, prípadne kontaktujte naše obchodné oddelenie na +420 491 477 361 alebo prodej@eurona.cz.</value>
+  </data>
+  <data name="EmailVerifyControl_SendingEmail_Message" xml:space="preserve">
+    <value>Na Vami zadanú e-mailovú adresu sa práve odosiela overovací odkaz. Prosím, čakajte…</value>
+  </data>
+  <data name="EmailVerifyControl_Title" xml:space="preserve">
+    <value>OVERENIE ÚČTU</value>
+  </data>
+  <data name="EmailVerifyControl_UserVerificationEmail_AnonymousMessage" xml:space="preserve">
+    <value>Dobrý deň, &lt;br/&gt;&lt;br/&gt;
+na overenie Vášho nového zákazníckeho účtu Eurona s registračným číslom &lt;b&gt;{0}&lt;/b&gt; a prihlasovacím menom &lt;b&gt;{1}&lt;/b&gt;, prosím, kliknite na nasledujúci odkaz, ktorý Vás presmeruje na stránky Eurona by Cerny a overí Vašu registráciu.
+&lt;br/&gt;&lt;br/&gt;
+&lt;a href='{2}'&gt;{2}&lt;/a&gt;
+&lt;br/&gt;&lt;br/&gt;
+Ak sa po kliknutí na odkaz nič nedeje, označte ho kurzorom a zároveň pomocou kombinácie klávesov Ctrl+C skopírujte a pomocou Ctrl+V vložte odkaz do riadka s adresou v internetovom prehliadači a potvrďte klávesom Enter.
+&lt;br/&gt;&lt;br/&gt;
+Ďakujeme za pochopenie!
+&lt;br/&gt;
+Eurona by Cerny</value>
+  </data>
+  <data name="EmailVerifyControl_UserVerificationEmail_Message" xml:space="preserve">
+    <value>Dobrý deň,&lt;br/&gt;&lt;br/&gt;
+Na overenie Vášho zákazníckeho účtu Eurona s registračným číslom {0} a doterajším prihlasovacím menom {1} kliknite, prosím, na nasledujúci odkaz, ktorý Vás presmeruje na stránky Eurona by Cerny a vyzve na zadanie nového hesla. Po dokončení overenia sa vaším prihlasovacím menom stane novozvolený overený e-mail.
+&lt;br/&gt;&lt;br/&gt;
+&lt;a href='{2}'&gt;{2}&lt;/a&gt;
+&lt;br/&gt;&lt;br/&gt;
+Pokiaľ sa po kliknutí na odkaz nič nedeje, označte ho kurzorom a zároveň pomocou kombinácie klávesov Ctrl+C skopírujte a pomocou Ctrl+V vložte odkaz do adresného riadka internetového prehliadača a potvrďte klávesom Enter. 
+&lt;br/&gt;&lt;br/&gt;
+Ďakujeme za pochopenie, 
+&lt;br/&gt;
+Eurona by Cerny</value>
+  </data>
+  <data name="EmailVerifyControl_UserVerificationEmail_Subject" xml:space="preserve">
+    <value>OVERENIE REGISTRÁCIE EURONA</value>
+  </data>
+  <data name="EmailVerifyControl_UserVerificationFinishEmail_Subject" xml:space="preserve">
+    <value>OVERENIE REGISTRÁCIE EURONA  DOKONČENÉ</value>
+  </data>
+  <data name="EmailVerifyControl_UserVerificationFinish_Message" xml:space="preserve">
+    <value>Ďakujeme,  &lt;br/&gt;&lt;br/&gt;
+overenie Vášho zákazníckeho účtu je dokončené. 
+&lt;br/&gt;&lt;br/&gt;
+Zapamätajte si, prosím, Vaše nové prihlasovacie údaje:
+Prihlasovacie meno: {0} a Vaše nové heslo. 
+&lt;br/&gt;&lt;br/&gt;
+Teraz môžete pokračovať na naše stránky: https://euronabycerny.com/. 
+&lt;br/&gt;&lt;br/&gt;
+S prianím príjemného dňa, &lt;br/&gt;
+Tím Eurona</value>
+  </data>
+  <data name="EmailVerifyControl_VerifycationSuccessFinish_Message" xml:space="preserve">
+    <value>Zapamätajte si, prosím, Vaše nové prihlasovacie údaje:
+Prihlasovacie meno: {0}
+Heslo: zvolené v predchádzajúcom kroku</value>
+  </data>
+  <data name="EmailVerifyControl_VerifycationSuccessFinish_Title" xml:space="preserve">
+    <value>Ďakujeme, práve ste dokončili overenie Vášho zákazníckeho účtu!</value>
+  </data>
+  <data name="EmailVerifyControl_VerifycationSuccessStep1_Title" xml:space="preserve">
+    <value>Prvá časť overenia splnená!</value>
+  </data>
+  <data name="EmailVerifyControl_VerifyingEmail_Message" xml:space="preserve">
+    <value>Práve prebieha overenie Vášho e-mailu, vyčkajte, prosím, na presmerovanie.</value>
+  </data>
+  <data name="EmailVerifyControl_ZrusitOvereni" xml:space="preserve">
+    <value>Pokračovať bez prihlásenia</value>
+  </data>
+  <data name="ForgotPasswordControl_Email_ForgotPassword_Message" xml:space="preserve">
+    <value>Dobrý deň, 
+&lt;br/&gt;&lt;br/&gt;
+Vaše prihlasovacie meno je: &lt;b&gt;{0}&lt;/b&gt;
+&lt;br/&gt;&lt;br/&gt;
+pre zadaní nového hesla k Vášmu zákazníckemu účtu Eurona kliknite, prosím, na nasledujúci odkaz, ktorý Vás presmeruje na stránky Eurona by Cerny a vyzve na zadanie nového hesla. 
+&lt;br/&gt;&lt;br/&gt;
+&lt;a href='{1}'&gt;{1}&lt;/a&gt;
+&lt;br/&gt;&lt;br/&gt;
+Zvoľte si, prosím, bezpečné, aspoň 6-miestne heslo, ktoré bude obsahovať minimálne jedno veľké písmeno, jedno malé písmeno a aspoň jednu číslicu. 
+&lt;br/&gt;&lt;br/&gt;
+Pokiaľ sa po kliknutí na odkaz nič nedeje, označte ho kurzorom a zároveň pomocou kombinácie klávesov Ctrl+C skopírujte a pomocou Ctrl+V vložte odkaz do adresného riadka internetového prehliadača a potvrďte klávesom Enter. 
+&lt;br/&gt;&lt;br/&gt;
+Ďakujeme za pochopenie, &lt;br/&gt;
+Eurona by Cerny</value>
+  </data>
+  <data name="ForgotPasswordControl_Email_Label" xml:space="preserve">
+    <value>Váš email:</value>
+  </data>
+  <data name="ForgotPasswordControl_Finish" xml:space="preserve">
+    <value>Na pokračovanie kliknite na odkaz vo Vašom e-maile!</value>
+  </data>
 </root>
