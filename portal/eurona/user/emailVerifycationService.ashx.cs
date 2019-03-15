@@ -258,7 +258,7 @@ namespace Eurona.User {
             Account accountByVerifyCode = Storage<Account>.ReadFirst(new Account.ReadByEmailVerifyCode { EmailVerifyCode = codeEncrypted });
 
             StringBuilder sbJson = new StringBuilder();
-
+            /*
             //Check IP
             if (ipAddress != Utilities.GetUserIP(context.Request)) {
                 status = (int)JSONResponseStatus.ERROR;
@@ -269,7 +269,7 @@ namespace Eurona.User {
                 context.Response.Write(sbJson.ToString());
                 context.Response.End();
                 return;
-            }
+            }*/
 
             if (accountByVerifyCode != null && accountByVerifyCode.EmailVerified.HasValue) {
                 status = (int)JSONResponseStatus.MESSAGE;
