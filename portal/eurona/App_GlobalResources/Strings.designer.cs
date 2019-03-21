@@ -710,8 +710,7 @@ namespace Resources {
         
         /// <summary>
         ///   Looks up a localized string similar to Zapamatujte si, prosím, Vaše nové přihlašovací údaje:
-        ///Přihlašovací jméno: {0}
-        ///Heslo: stejné jako doposud..
+        ///Přihlašovací jméno: {0}.
         /// </summary>
         internal static string ChangeEmailControl_VerifycationSuccessFinish_Message {
             get {
@@ -1221,8 +1220,7 @@ namespace Resources {
         ///&lt;br/&gt;&lt;br/&gt;
         ///&lt;a href=&apos;{2}&apos;&gt;{2}&lt;/a&gt;
         ///&lt;br/&gt;&lt;br/&gt;
-        ///Pokud se po kliknutí na odkaz nic neděje, označte jej kurzorem a zároveň pomocí kombinace kláves Ctrl+C zkopírujte a pomocí Ctrl+V vložte odkaz do adresního řádku internetového prohlížeče a potvrďte klávesou Enter.
-        ///&lt;br [rest of string was truncated]&quot;;.
+        ///Pokud se po kliknutí na odkaz nic neděje, označte jej kurzorem a zároveň pomocí kombinace kláves Ctrl+C zkopírujte a pomocí Ctrl+V vložte odkaz do adresního řádku internetového prohlížeče a potvrďte klávesou Enter [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string EmailVerifyControl_UserVerificationEmail_AnonymousMessage {
             get {
@@ -1236,7 +1234,7 @@ namespace Resources {
         ///&lt;br/&gt;&lt;br/&gt;
         ///&lt;a href=&apos;{2}&apos;&gt;{2}&lt;/a&gt;
         ///&lt;br/&gt;&lt;br/&gt;
-        ///Pokud se po kliknutí na odkaz nic neděje, označte jej kurzorem a zároveň pomocí kombinace kláves Ctrl+C zkopírujte a pomocí Ctrl+V vložte [rest of string was truncated]&quot;;.
+        ///Pokud se po kliknutí na odkaz nic neděje, označte jej kurzorem a zároveň pomocí kombinace kláves Ctrl+C zkopírujte a pomocí Ctrl+V v [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string EmailVerifyControl_UserVerificationEmail_Message {
             get {
@@ -1245,7 +1243,7 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to OVĚŘENÍ REGISTRACE EURONA.
+        ///   Looks up a localized string similar to OVĚŘENÍ ÚČTU EURONA.
         /// </summary>
         internal static string EmailVerifyControl_UserVerificationEmail_Subject {
             get {
@@ -1254,7 +1252,7 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to OVĚŘENÍ REGISTRACE EURONA DOKONČENO.
+        ///   Looks up a localized string similar to OVĚŘENÍ ÚČTU EURONA DOKONČENO.
         /// </summary>
         internal static string EmailVerifyControl_UserVerificationFinishEmail_Subject {
             get {
@@ -1383,7 +1381,7 @@ namespace Resources {
         ///&lt;br/&gt;&lt;br/&gt;
         ///Zvolte si, prosím, bezpečné, alespoň 6 místné heslo, které bude obsahovat minimálně jedno velké písmeno, jedno malé písmeno a alespoň jednu číslici. 
         ///&lt;br/&gt;&lt;br/&gt;
-        ///Pokud se po kliknutí na odkaz nic neděje, označte jej kurzo [rest of string was truncated]&quot;;.
+        ///Pokud se po kliknutí na odkaz nic neděje, označte [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string ForgotPasswordControl_Email_ForgotPassword_Message {
             get {

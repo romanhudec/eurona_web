@@ -20,6 +20,8 @@
     </style>
     <script language="javascript" type="text/javascript">
 
+        $(":input").attr("autocomplete", "off");
+
     	function AcceptTermsAndConditions(checkbox) {
     		var btnAccept = document.getElementById("<%=btnContinue.ClientID%>");
     		if (btnAccept == null) return;
@@ -301,7 +303,7 @@
                             <asp:Literal ID="Literal4" runat="server" Text="<%$ Resources:Strings, RegisterControl_EmailLabel %>" />
                         </td>
                         <td>
-                            <asp:TextBox runat="server" ID="txtEmail" CausesValidation="True" Width="200px" onclick="hideElm('validatorEmail');" oninput="checkEmail()"></asp:TextBox>
+                            <asp:TextBox runat="server" ID="txtEmail" CausesValidation="True" Width="200px" onclick="hideElm('validatorEmail');" oninput="checkEmail()" autocomplete="false"></asp:TextBox>
                             &nbsp;<span style="color:#c10076;font-size:16px;vertical-align:middle;"><asp:Literal ID="Literal10" runat="server" Text="bude také Vaše přihlašovací jméno"></asp:Literal></span>
                            <%-- <asp:RegularExpressionValidator ID="emailValidator" runat="server" ControlToValidate="txtEmail"
                                 ErrorMessage="!" ValidationExpression="^([\w-\.]+)@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([\w-]+\.)+))([a-zA-Z]{2,4}|[0-9]{1,3})(\]?)$">
@@ -624,7 +626,7 @@
                                         <asp:Literal ID="Literal3" runat="server" Text="<%$ Resources:Strings, RegisterControl_LoginLabel %>" />
                                     </td>
                                     <td>
-                                        <asp:TextBox runat="server" ID="txtLogin" Width="200px" onclick="hideElm('validatorLogin');"></asp:TextBox>
+                                        <asp:TextBox runat="server" ID="txtLogin" Width="200px" onclick="hideElm('validatorLogin');" autocomplete="false"></asp:TextBox>
                                         <div class="validator" id='validatorLogin' onclick="hideElm('validatorLogin');">
                                             <div style="position:absolute;margin-top:-20px;">
                                                 <asp:Literal runat="server" Text="<%$ Resources:EShopStrings, Anonymous_Register_VyplntePovinnouPolozku %>"></asp:Literal>
@@ -638,7 +640,7 @@
                                         <asp:Literal ID="Literal1" runat="server" Text="<%$ Resources:Strings, RegisterControl_PasswordLabel %>" />
                                     </td>
                                     <td>
-                                        <asp:TextBox runat="server" TextMode="Password" ID="txtPassword" Width="250px" oninput="validatePwd();" onclick="hideElm('validatorPassword');"></asp:TextBox>
+                                        <asp:TextBox runat="server" TextMode="Password" ID="txtPassword" Width="250px" oninput="validatePwd();" onclick="hideElm('validatorPassword');" autocomplete="false"></asp:TextBox>
                                         <div class="validator" id='validatorPassword' onclick="hideElm('validatorPassword');">
                                             <div style="position:absolute;margin-top:-20px;">
                                                 <asp:Literal runat="server" Text="<%$ Resources:EShopStrings, Anonymous_Register_VyplntePovinnouPolozku %>"></asp:Literal>
@@ -655,7 +657,7 @@
                                         <asp:Literal ID="Literal2" runat="server" Text="<%$ Resources:Strings, RegisterControl_PasswordConfirmLabel %>" />
                                     </td>
                                     <td>
-                                        <asp:TextBox runat="server" TextMode="Password" ID="txtConfirmPassword" oninput="validatePwd();" Width="250px" CausesValidation="True" onclick="hideElm('validatorConfirmPassword');"></asp:TextBox>
+                                        <asp:TextBox runat="server" TextMode="Password" ID="txtConfirmPassword" oninput="validatePwd();" Width="250px" CausesValidation="True" onclick="hideElm('validatorConfirmPassword');" autocomplete="false"></asp:TextBox>
                                         <div class="validator" id='validatorConfirmPassword' onclick="hideElm('validatorConfirmPassword');">
                                             <div style="position:absolute;margin-top:-20px;">
 												<asp:Literal runat="server" Text="<%$ Resources:EShopStrings, Anonymous_Register_VyplntePovinnouPolozku %>"></asp:Literal>

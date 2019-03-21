@@ -1187,8 +1187,7 @@ Tým Eurona.</value>
   </data>
   <data name="ChangeEmailControl_VerifycationSuccessFinish_Message" xml:space="preserve">
     <value>Zapamatujte si, prosím, Vaše nové přihlašovací údaje:
-Přihlašovací jméno: {0}
-Heslo: stejné jako doposud.</value>
+Přihlašovací jméno: {0}</value>
   </data>
   <data name="ChangeEmailControl_VerifycationSuccessFinish_Title" xml:space="preserve">
     <value>Děkujeme, právě jste dokončil/a změnu emailu Vašeho zákaznického účtu!</value>

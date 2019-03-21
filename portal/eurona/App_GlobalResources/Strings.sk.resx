@@ -1233,8 +1233,7 @@ Tím Eurona.</value>
   </data>
   <data name="ChangeEmailControl_VerifycationSuccessFinish_Message" xml:space="preserve">
     <value>Zapamätajte si, prosím, Vaše nové prihlasovacie údaje:
-Prihlasovacie meno: {0}
-Heslo: zvolené v predchádzajúcom kroku</value>
+Prihlasovacie meno: {0}</value>
   </data>
   <data name="ChangeEmailControl_VerifycationSuccessFinish_Title" xml:space="preserve">
     <value>Ďakujeme, práve ste dokončili overenie Vášho zákazníckeho účtu!</value>
@@ -1342,10 +1341,10 @@ Pokiaľ sa po kliknutí na odkaz nič nedeje, označte ho kurzorom a zároveň p
 Eurona by Cerny</value>
   </data>
   <data name="EmailVerifyControl_UserVerificationEmail_Subject" xml:space="preserve">
-    <value>OVERENIE REGISTRÁCIE EURONA</value>
+    <value>OVERENIE ÚČTU EURONA</value>
   </data>
   <data name="EmailVerifyControl_UserVerificationFinishEmail_Subject" xml:space="preserve">
-    <value>OVERENIE REGISTRÁCIE EURONA  DOKONČENÉ</value>
+    <value>OVERENIE ÚČTU EURONA DOKONČENÉ</value>
   </data>
   <data name="EmailVerifyControl_UserVerificationFinish_Message" xml:space="preserve">
     <value>Ďakujeme,  &lt;br/&gt;&lt;br/&gt;

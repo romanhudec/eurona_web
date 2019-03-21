@@ -255,7 +255,7 @@ namespace Eurona.User {
             string emailFromCode = data[0];
             int accountFromCode = Convert.ToInt32(data[1]);
             string ipAddress = data[2];
-            Account accountByVerifyCode = Storage<Account>.ReadFirst(new Account.ReadByEmailVerifyCode { EmailVerifyCode = codeEncrypted });
+            Account accountByVerifyCode = Storage<Account>.ReadFirst(new Account.ReadById { AccountId = accountFromCode });
 
             StringBuilder sbJson = new StringBuilder();
             /*
@@ -274,8 +274,10 @@ namespace Eurona.User {
             if (accountByVerifyCode != null && accountByVerifyCode.EmailVerified.HasValue) {
                 status = (int)JSONResponseStatus.MESSAGE;
                 string message = Resources.Strings.EmailVerifyControl_EmailValidation_UcetJeJizOverenPokracovat;
+                errorMessage = Resources.Strings.EmailVerifyControl_EmailValidation_UcetJeJizOverenPokracovat;
                 sbJson.AppendFormat("{{ \"Status\":\"{0}\", \"ErrorMessage\":\"{1}\", \"Message\":\"{2}\" }}", status, "", message);
-                EvenLog.WritoToEventLog(errorMessage, System.Diagnostics.EventLogEntryType.Error);
+                detailedMessage = errorMessage + String.Format(" ({0})", emailFromCode);
+                EvenLog.WritoToEventLog(detailedMessage, System.Diagnostics.EventLogEntryType.Error);
                 context.Response.ContentType = "application/json; charset=utf-8";
                 context.Response.Write(sbJson.ToString());
                 context.Response.End();
@@ -318,6 +320,7 @@ namespace Eurona.User {
             if (status == (int)JSONResponseStatus.SUCCESS) {
                 Security.Account.EmailVerifyStatus = (int)Account.EmailVerifyStatusCode.DATA_VALIDATED;
                 Storage<Account>.Update(Security.Account);
+                errorMessage = "";
             }
             if (status != (int)JSONResponseStatus.SUCCESS) {
                 EvenLog.WritoToEventLog(detailedMessage, System.Diagnostics.EventLogEntryType.Error);

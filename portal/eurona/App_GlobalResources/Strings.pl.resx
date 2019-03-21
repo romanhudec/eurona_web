@@ -1136,8 +1136,7 @@ Ekipa Eurona.</value>
   </data>
   <data name="ChangeEmailControl_VerifycationSuccessFinish_Message" xml:space="preserve">
     <value>Zapamiętaj swoje nowe dane logowania: 
-Nazwa użytkownika: {0}
-Hasło: wybrane w poprzednim kroku</value>
+Nazwa użytkownika: {0}</value>
   </data>
   <data name="ChangeEmailControl_VerifycationSuccessFinish_Title" xml:space="preserve">
     <value>Dziękujemy, właśnie dokończyłeś weryfikację  swojego konta klienta.</value>
@@ -1224,6 +1223,7 @@ Hasło: wybrane w poprzednim kroku</value>
     <value>Dzień dobry, &lt;br/&gt;&lt;br/&gt;
 z powodu weryfikacji Twojego nowego konta klienta Eurona z numerem rejestracyjnym &lt;b&gt;{0}&lt;/b&gt; i loginem &lt;b&gt;{1}&lt;/b&gt;, prosię kliknij na następny odsyłacz, który nakieruję Cie na strony  Eurona by Cerny i zweryfikuje Twoją rejestrację.
 &lt;br/&gt;&lt;br/&gt;
+&lt;a href='{2}'&gt;{2}&lt;/a&gt;
 &lt;br/&gt;&lt;br/&gt;
 Jeżeli po kliknięciu na odsyłacz nic się nie dzieje, odsyłacz oznakuj kursorem i równocześnie przy pomocy kombinacji klawiszy Ctrl+C skopiuj i przy pomocy klawiszy Ctrl+V odsyłacz włóż do wiersza odresowego przeglądarki internetowej i potwierdź klawiszem Enter.
 &lt;br/&gt;&lt;br/&gt;
@@ -1244,10 +1244,10 @@ Dziękujemy za zrozumienie,
 Eurona by Cerny</value>
   </data>
   <data name="EmailVerifyControl_UserVerificationEmail_Subject" xml:space="preserve">
-    <value>WERYFIKACJA REJESTRACJI EURONA</value>
+    <value>WERYFIKACJA KONTA EURONA</value>
   </data>
   <data name="EmailVerifyControl_UserVerificationFinishEmail_Subject" xml:space="preserve">
-    <value>WERYFIKACJA REJESTRACJI EURON ZAKOŃCZONA</value>
+    <value>WERYFIKACJA KONTA EURONA ZAKOŃCZONA</value>
   </data>
   <data name="EmailVerifyControl_UserVerificationFinish_Message" xml:space="preserve">
     <value>Dziękujemy,&lt;br/&gt;&lt;br/&gt;
