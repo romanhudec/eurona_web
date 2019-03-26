@@ -9,6 +9,7 @@ using CMS.Controls;
 using Eurona.Common.DAL.Entities;
 using CMS;
 using CMS.Utilities;
+using Eurona.Controls.UserManagement;
 
 
 namespace Eurona.Controls {
@@ -325,11 +326,15 @@ namespace Eurona.Controls {
                 accountEntity.SingleUserCookieLinkEnabled = cbSingleUserCookieLinkEnabled.Checked;
                 accountEntity.RoleString = roles.ToString();
 
+                bool overeniZruseno = false;
                 if (accountEntity.EmailVerified.HasValue && this.cbZrusitOvereniEmailem.Checked) {
                     accountEntity.EmailVerified = null;
                     accountEntity.EmailVerifyCode = null;
                     accountEntity.EmailVerifyStatus = null;
                     accountEntity.EmailToVerify = null;
+                    accountEntity.Login = accountEntity.LoginBeforeVerify;
+                    accountEntity.Email = accountEntity.EmailBeforeVerify;
+                    overeniZruseno = true;
                 }
 
                 if (isNew) {
@@ -370,6 +375,10 @@ namespace Eurona.Controls {
                         org.AccountId = accountEntity.Id;
                         org.ContactEmail = accountEntity.Email;
                         Storage<Organization>.Create(org);
+                        if (overeniZruseno == true) {
+                            //Sync to TVD
+                            OrganizationControl.SyncTVDUser(org, btnSave);
+                        }
 
                         if (isNew) {
                             if (!string.IsNullOrEmpty(this.RegisterUserUrlFormat))

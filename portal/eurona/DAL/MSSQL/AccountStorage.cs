@@ -31,6 +31,8 @@ namespace Eurona.DAL.MSSQL {
             account.EmailToVerify = Convert.ToString(record["EmailToVerify"]);
             account.EmailVerifyStatus = ConvertNullable.ToInt32(record["EmailVerifyStatus"]);
             account.EmailVerified = ConvertNullable.ToDateTime(record["EmailVerified"]);
+            account.EmailBeforeVerify = Convert.ToString(record["EmailBeforeVerify"]);
+            account.LoginBeforeVerify = Convert.ToString(record["LoginBeforeVerify"]);
             account.Credit = Convert.ToDecimal(record["Credit"]);
             account.CanAccessIntensa = Convert.ToBoolean(record["CanAccessIntensa"]);
             account.MustChangeAccountPassword = Convert.ToBoolean(record["MustChangeAccount"]);
@@ -50,14 +52,14 @@ namespace Eurona.DAL.MSSQL {
             using (SqlConnection connection = Connect()) {
                 string sql = @"
 				SELECT AccountId, TVD_Id, Created, InstanceId, Email, Login, Password, Locale, Verified, VerifyCode, 
-                EmailVerifyCode, EmailToVerify, EmailVerifyStatus, EmailVerified,
+                EmailVerifyCode, EmailToVerify, EmailVerifyStatus, EmailVerified, EmailBeforeVerify, LoginBeforeVerify,
                 Enabled, Credit, CanAccessIntensa, Roles, MustChangeAccount, PasswordChanged, SingleUserCookieLinkEnabled
 				FROM vAccounts WHERE AccountId > 1 AND ( InstanceId=@InstanceId OR InstanceId=0 ) ";
 
                 if (((Eurona.DAL.Entities.Account)Account).IsInRole(Role.OPERATOR)) {
                     sql = @"
 					SELECT AccountId, TVD_Id, Created, InstanceId, Email, Login, Password, Locale, Verified, VerifyCode, 
-                    EmailVerifyCode, EmailToVerify, EmailVerifyStatus, EmailVerified,                    
+                    EmailVerifyCode, EmailToVerify, EmailVerifyStatus, EmailVerified, EmailBeforeVerify, LoginBeforeVerify,                    
                     Enabled, Credit, CanAccessIntensa, Roles, MustChangeAccount, PasswordChanged, SingleUserCookieLinkEnabled
 					FROM vAccounts WHERE AccountId > 1 AND ( InstanceId=@InstanceId OR InstanceId=0 ) AND  Roles LIKE'%' + @Role +'%'";
                 }
@@ -76,7 +78,7 @@ namespace Eurona.DAL.MSSQL {
             using (SqlConnection connection = Connect()) {
                 string sql = @"
 				SELECT AccountId, TVD_Id, Created, InstanceId, Email, Login, Password, Locale, Enabled, Verified, VerifyCode, 
-                EmailVerifyCode, EmailToVerify, EmailVerifyStatus, EmailVerified,
+                EmailVerifyCode, EmailToVerify, EmailVerifyStatus, EmailVerified, EmailBeforeVerify, LoginBeforeVerify,         
                 Credit, CanAccessIntensa, Roles, MustChangeAccount, PasswordChanged, SingleUserCookieLinkEnabled
 				FROM vAccounts
 				WHERE EmailVerifyCode = @EmailVerifyCode";
@@ -92,7 +94,7 @@ namespace Eurona.DAL.MSSQL {
             using (SqlConnection connection = Connect()) {
                 string sql = @"
 				SELECT AccountId, TVD_Id, Created, InstanceId, Email, Login, Password, Locale, Enabled, Verified, VerifyCode, 
-                EmailVerifyCode, EmailToVerify, EmailVerifyStatus, EmailVerified,
+                EmailVerifyCode, EmailToVerify, EmailVerifyStatus, EmailVerified, EmailBeforeVerify, LoginBeforeVerify,         
                 Credit, CanAccessIntensa, Roles, MustChangeAccount, PasswordChanged, SingleUserCookieLinkEnabled
 				FROM vAccounts
 				WHERE EmailToVerify = @EmailToVerify AND 
@@ -110,7 +112,7 @@ namespace Eurona.DAL.MSSQL {
             using (SqlConnection connection = Connect()) {
                 string sql = @"
 				SELECT AccountId, TVD_Id, Created, InstanceId, Email, Login, Password, Locale, Enabled, Verified, VerifyCode, 
-                EmailVerifyCode, EmailToVerify, EmailVerifyStatus, EmailVerified,
+                EmailVerifyCode, EmailToVerify, EmailVerifyStatus, EmailVerified, EmailBeforeVerify, LoginBeforeVerify,         
                 Credit, CanAccessIntensa, Roles, MustChangeAccount, PasswordChanged, SingleUserCookieLinkEnabled
 				FROM vAccounts
 				WHERE Login = @Login --AND ( InstanceId=@InstanceId OR InstanceId=0 )";
@@ -127,7 +129,7 @@ namespace Eurona.DAL.MSSQL {
             using (SqlConnection connection = Connect()) {
                 string sql = @"
 				SELECT AccountId, TVD_Id, Created, InstanceId, Email, Login, Password, Locale, Enabled, Verified, VerifyCode, 
-                EmailVerifyCode, EmailToVerify, EmailVerifyStatus, EmailVerified,
+                EmailVerifyCode, EmailToVerify, EmailVerifyStatus, EmailVerified, EmailBeforeVerify, LoginBeforeVerify,         
                 Credit, CanAccessIntensa, Roles, MustChangeAccount, PasswordChanged, SingleUserCookieLinkEnabled
 				FROM vAccounts
 				WHERE Email = @Email AND ( InstanceId=@InstanceId OR InstanceId=0 )";
@@ -143,7 +145,7 @@ namespace Eurona.DAL.MSSQL {
             using (SqlConnection connection = Connect()) {
                 string sql = @"
 				SELECT AccountId, TVD_Id, Created, InstanceId, Email, Login, Password, Locale, Enabled, Verified, 
-                EmailVerifyCode, EmailToVerify, EmailVerifyStatus, EmailVerified,
+                EmailVerifyCode, EmailToVerify, EmailVerifyStatus, EmailVerified, EmailBeforeVerify, LoginBeforeVerify,         
                 VerifyCode, Credit, CanAccessIntensa, Roles, MustChangeAccount, PasswordChanged, SingleUserCookieLinkEnabled
 				FROM vAccounts
 				WHERE AccountId = @AccountId";
@@ -159,7 +161,7 @@ namespace Eurona.DAL.MSSQL {
             using (SqlConnection connection = Connect()) {
                 string sql = @"
 				SELECT AccountId, TVD_Id, Created, InstanceId, Email, Login, Password, Locale, Enabled, Verified, VerifyCode, 
-                EmailVerifyCode, EmailToVerify, EmailVerifyStatus, EmailVerified,
+                EmailVerifyCode, EmailToVerify, EmailVerifyStatus, EmailVerified, EmailBeforeVerify, LoginBeforeVerify,         
                 Credit, CanAccessIntensa, Roles, MustChangeAccount, PasswordChanged, SingleUserCookieLinkEnabled
 				FROM vAccounts
 				WHERE Login = @Login AND InstanceId=@InstanceId";
@@ -216,6 +218,7 @@ namespace Eurona.DAL.MSSQL {
                 SqlParameter emailToVerify = new SqlParameter("@EmailToVerify", account.EmailToVerify);
                 SqlParameter emailVerifyStatus = new SqlParameter("@EmailVerifyStatus", account.EmailVerifyStatus);
                 SqlParameter emailVerified = new SqlParameter("@EmailVerified", account.EmailVerified);
+        
                 SqlParameter singleUserCookieLinkEnabled = new SqlParameter("@SingleUserCookieLinkEnabled", account.SingleUserCookieLinkEnabled);
                 SqlParameter result = new SqlParameter("@Result", -1);
                 result.Direction = ParameterDirection.Output;
