@@ -758,7 +758,7 @@ namespace Eurona.User {
         private bool SendEmailVerificationAnonymousEmail(string code, string login, string email, string url) {
             EmailNotification email2User = new EmailNotification {
                 To = email,
-                Subject = Resources.Strings.EmailVerifyControl_UserVerificationEmail_Subject,
+                Subject = Resources.Strings.EmailVerifyControl_UserVerificationEmail_AnonymousSubject,
                 Message = String.Format(Resources.Strings.EmailVerifyControl_UserVerificationEmail_AnonymousMessage, code, login, url).Replace("\\n", Environment.NewLine) + "<br/><br/>"
             };
 

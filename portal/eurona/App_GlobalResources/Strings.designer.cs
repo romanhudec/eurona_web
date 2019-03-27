@@ -1229,6 +1229,15 @@ namespace Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to OVĚŘENÍ REGISTRACE EURONA.
+        /// </summary>
+        internal static string EmailVerifyControl_UserVerificationEmail_AnonymousSubject {
+            get {
+                return ResourceManager.GetString("EmailVerifyControl_UserVerificationEmail_AnonymousSubject", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Dobrý den,&lt;br/&gt;&lt;br/&gt;
         ///pro ověření Vašeho zákaznického účtu Eurona s registračním číslem {0} a dosavadním přihlašovacím jménem {1} prosím klikněte na následující odkaz, který Vás přesměruje na stránky Eurona by Cerny a vyzve k zadání nového hesla. Po dokončení ověření se Vaším přihlašovacím jménem stane nově zvolený ověřený email.
         ///&lt;br/&gt;&lt;br/&gt;

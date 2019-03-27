@@ -1397,4 +1397,7 @@ Eurona by Cerny</value>
   <data name="ForgotPasswordControl_Finish" xml:space="preserve">
     <value>Na pokračovanie kliknite na odkaz vo Vašom e-maile!</value>
   </data>
+  <data name="EmailVerifyControl_UserVerificationEmail_AnonymousSubject" xml:space="preserve">
+    <value>OVERENIE REGISTRÁCIE EURONA</value>
+  </data>
 </root>
