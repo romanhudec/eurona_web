@@ -148,6 +148,12 @@ namespace Eurona.User.Anonymous {
                 this.cbAcceptTerms.Checked = false;
                 return;
             }
+            if (String.IsNullOrEmpty(txtLogin.Text.Trim())) {
+                string js = string.Format("alert('{0}');", "Prázdne přihlašovací jméno není povoleno!");
+                this.btnContinue.Page.ClientScript.RegisterStartupScript(this.btnContinue.Page.GetType(), "addValidateOrganization", js, true);
+                this.cbAcceptTerms.Checked = false;
+                return;
+            }
             if (AccountLoginExists(txtLogin.Text)) {
                 string js = string.Format("alert('{0}');", Resources.EShopStrings.Anonymous_Register_LoginExists);
                 this.btnContinue.Page.ClientScript.RegisterStartupScript(this.btnContinue.Page.GetType(), "addValidateOrganization", js, true);
