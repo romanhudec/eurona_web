@@ -7,6 +7,14 @@ using System.Text;
 namespace Eurona.DAL.Entities {
     [Serializable]
     public class Account : CMS.Entities.Account {
+
+        public enum EmailVerifyStatusCode :int  {
+            NONE = 1,
+            EMAIL_SEND = 2,
+            DATA_VALIDATED = 3,
+            VERIFIED = 0
+        }
+
         public string InstanceName {
             get {
                 switch (this.InstanceId) {
@@ -43,115 +51,21 @@ namespace Eurona.DAL.Entities {
 
         public bool SingleUserCookieLinkEnabled { get; set; }
 
-        /*
-        public class CmdGetAccountRoles
-        {
-                public int AccountId { get; set; }
-                public string Result { get; set; }
+        //Email verification
+        public string EmailVerifyCode { get; set; }
+        public string EmailToVerify { get; set; }
+        public int? EmailVerifyStatus { get; set; }
+        public DateTime? EmailVerified { get; set; }
+        public string LoginBeforeVerify{ get; set; }
+        public string EmailBeforeVerify { get; set; }
+
+        public class ReadByEmailVerifyCode {
+            public string EmailVerifyCode { get; set; }
         }
 
-        private List<Role> roles = new List<Role>();
-        public new List<Role> Roles
-        {
-                get 
-                {
-                        EnsureRoles();
-                        return roles; 
-                }
-                set { roles = value; }
+        public class ReadByEmailToVerify {
+            public string EmailToVerify { get; set; }
+            public bool OnlyEmailVerified { get; set; }
         }
-
-        public new string[] RoleArray
-        {
-                get
-                {
-                        return roles.ConvertAll<string>( r => r.Name ).ToArray();
-                }
-                set
-                {
-                        roles.Clear();
-                        if ( value != null && value.Length > 0 )
-                                foreach ( String r in value )
-                                        roles.Add( new Role { Name = r } );
-                }
-        }
-
-
-        private string roleString = null;
-        public new string RoleString
-        {
-                get
-                {
-                        if ( roleString != null )
-                        {
-                                StringBuilder sb = new StringBuilder();
-                                roles.ForEach( r => sb.AppendFormat( "{0};", r.Name ) );
-                                return sb.ToString();
-                        }
-                        else
-                        {
-                                EnsureRoles();
-                                return roleString;
-                        }
-                }
-                set
-                {
-                        RoleArray = value.Split( new char[] { ';' }, StringSplitOptions.RemoveEmptyEntries );
-                }
-        }
-
-        /// <summary>
-        /// Methoda potiahne RoleString
-        /// </summary>
-        private void EnsureRoles()
-        {
-                if ( this.roles.Count == 0 )
-                {
-                        Account.CmdGetAccountRoles cmd = new Account.CmdGetAccountRoles();
-                        cmd.AccountId = this.Id;
-                        cmd = Storage<Account>.Execute( cmd );
-                        this.roleString = cmd.Result;
-                        this.RoleArray = roleString.Split( new char[] { ';' }, StringSplitOptions.RemoveEmptyEntries );
-                }
-        }
-
-        /// <summary>
-        /// Property na zobraznie rolestringu napr. v GridView
-        /// </summary>
-        public new string RoleStringDisplay
-        {
-                get
-                {
-                        return RoleString.Replace( ";", "; " );
-                }
-        }
-
-        public new bool IsInRole( string role )
-        {
-                return this.RoleString.Contains( role );
-        }
-
-        public new void AddToRoles( params string[] roles )
-        {
-                StringBuilder sb = new StringBuilder();
-                sb.Append( this.RoleString );
-
-                foreach ( string role in roles )
-                        sb.AppendFormat( "{0};", role );
-
-                this.RoleString = sb.ToString();
-        }
-
-        public new void RemoveFromRole( string role )
-        {
-                StringBuilder sb = new StringBuilder();
-                foreach ( Role r in roles )
-                {
-                        if ( r.Name != role )
-                                sb.AppendFormat( "{0};", r.Name );
-                }
-                this.RoleString = sb.ToString();
-        }
-        */
     }
 }

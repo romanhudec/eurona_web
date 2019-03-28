@@ -141,19 +141,21 @@ namespace Eurona.User.Anonymous {
                 this.btnContinue.Page.ClientScript.RegisterStartupScript(this.btnContinue.Page.GetType(), "addValidateTerms", js, true);
                 return;
             }
-
+            /*
             if (AccountEmailExists(txtEmail.Text)) {
                 string js = string.Format("alert('{0}');", Resources.EShopStrings.Anonymous_Register_EmailExists);
                 this.btnContinue.Page.ClientScript.RegisterStartupScript(this.btnContinue.Page.GetType(), "addValidateOrganization", js, true);
                 this.cbAcceptTerms.Checked = false;
                 return;
             }
+             * */
+            /*
             if (AccountLoginExists(txtLogin.Text)) {
                 string js = string.Format("alert('{0}');", Resources.EShopStrings.Anonymous_Register_LoginExists);
                 this.btnContinue.Page.ClientScript.RegisterStartupScript(this.btnContinue.Page.GetType(), "addValidateOrganization", js, true);
                 this.cbAcceptTerms.Checked = false;
                 return;
-            }
+            }*/
 
 
             string hesloProHosta = Organization.EURONA_CODE;
@@ -187,7 +189,8 @@ namespace Eurona.User.Anonymous {
 
             Account account = new Account();
             account.Locale = System.Threading.Thread.CurrentThread.CurrentUICulture.TwoLetterISOLanguageName.ToLower();
-            account.Login = txtLogin.Text;
+            //account.Login = txtLogin.Text;
+            account.Login = txtEmail.Text;
             account.Email = txtEmail.Text;
             account.Password = Cryptographer.MD5Hash(txtPassword.Text);
             account.SingleUserCookieLinkEnabled = true;
@@ -284,8 +287,8 @@ namespace Eurona.User.Anonymous {
                 Storage<AnonymniRegistraceEntity>.Update(are);
             }
 
-            account.Enabled = true;
-            account.Verified = true;
+            account.Enabled = false;
+            account.Verified = false;
             account.AddToRoles(Eurona.Common.DAL.Entities.Role.REGISTEREDUSER, Eurona.Common.DAL.Entities.Role.ADVISOR, Eurona.Common.DAL.Entities.Role.ANONYMOUSADVISOR);
             Storage<Account>.Update(account);
 
@@ -310,12 +313,20 @@ namespace Eurona.User.Anonymous {
             }
             #endregion
 
-            SendRegistrationEmail(account);
+            //SendRegistrationEmail(account);
 
             account = Storage<Account>.ReadFirst(new Account.ReadById { AccountId = account.Id });
-            if (account != null && account.Enabled && account.Authenticate(account.Password)) {
+            if (account != null /*&& account.Enabled*/ && account.Authenticate(account.Password)) {
                 Security.Login(account, false);
                 Security.UpdateLoginTime();
+            }
+
+            //Email validation process
+            if (Security.Account.IsInRole(Eurona.Common.DAL.Entities.Role.ADVISOR) || Security.Account.IsInRole(Eurona.Common.DAL.Entities.Role.ANONYMOUSADVISOR)) {
+                if (Security.Account.EmailVerified.HasValue == false) {
+                    Response.Redirect("~/user/anonymous/requestEmailVerifycation.aspx");
+                    return;
+                }
             }
 
             Response.Redirect(aliasUtilities.Resolve("~/user/anonymous/cart.aspx"));
@@ -330,7 +341,7 @@ namespace Eurona.User.Anonymous {
             List<Account> exists = Storage<Account>.Read(new Account.ReadByEmail { Email = email });
             return exists != null && exists.Count > 0;
         }
-
+        /*
         /// <summary>
         /// Odoslanie informacneho mailu o registracii pouzivatela
         /// </summary>
@@ -340,11 +351,6 @@ namespace Eurona.User.Anonymous {
 
             Organization parentOrg = null;
             if (org.ParentId.HasValue) parentOrg = Storage<Organization>.ReadFirst(new Organization.ReadByTVDId { TVD_Id = org.ParentId.Value });
-            /*
-			StringBuilder htmlResponse = new StringBuilder();
-			TextWriter textWriter = new StringWriter(htmlResponse);
-			Server.Execute(ResolveUrl(string.Format("~/user/advisor/registerDocument.aspx?id={0}", org.Id)), textWriter);
-            */
 
             string root = Utilities.Root(Request);
             string urlUser = root + "user/advisor/";
@@ -353,7 +359,7 @@ namespace Eurona.User.Anonymous {
             EmailNotification email2User = new EmailNotification {
                 To = customerAccount.Email,
                 Subject = Resources.Strings.UserRegistrationPage_Email2User_Subject,
-                Message = String.Format(Resources.Strings.UserRegistrationPage_Email2User_Message, customerAccount.Login, this.txtPassword.Text).Replace("\\n", Environment.NewLine) + "<br/><br/>"// + htmlResponse.ToString()
+                Message = String.Format(Resources.Strings.UserRegistrationPage_Email2User_Message, customerAccount.Login).Replace("\\n", Environment.NewLine) + "<br/><br/>"// + htmlResponse.ToString()
             };
             if (parentOrg != null) {
                 string contact = string.Format("{0}, {1}, {2}, {3}, reg. číslo: {4}", org.Name, org.RegisteredAddressString, org.ContactMobile, org.Account.Email, org.Code);
@@ -372,17 +378,17 @@ namespace Eurona.User.Anonymous {
             };
 
             //14.11.2016 - Dále Vás žádám z e-mailů odstranit zobrazovaný registrační formulář a to jak ve znění e-mailu, tak v příloze. Tento registrační formulář nechci, aby se zasílal v jakékoli podobě.
-            /*
-            email2User.Attachments = new List<System.Net.Mail.Attachment>();
-            Attachment attachment = new Attachment(Server.MapPath(mailAttachment));
-            email2User.Attachments.Add(attachment);
-            */
+            
+            //email2User.Attachments = new List<System.Net.Mail.Attachment>();
+            //Attachment attachment = new Attachment(Server.MapPath(mailAttachment));
+            //email2User.Attachments.Add(attachment);
 
             bool okUser = email2User.Notify(true);
             bool okCentral = email2Central.Notify();
 
             return okUser && okCentral;
         }
+         */
 
         private string GetPrefixByState(string state) {
             string prefix = "+420";

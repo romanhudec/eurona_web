@@ -1,0 +1,97 @@
+﻿
+#verifyForm .title, h4 {
+    color:#EA008A!important;
+    font-weight:bold!important;
+}
+
+.message span, .message {
+    text-align:center;
+    color:#3F3F3F!important;
+    font-style:normal;
+    font-size:14px!important;
+    padding-bottom:5px;
+}
+
+.validation-message span, .validation-message {
+    color:#EA008A!important;
+    text-align:left!Important;
+    padding-top:0px!important;
+    padding-bottom:0px!important;
+}
+
+.input-description {
+    color:#878787!important;
+    font-style:italic;
+    text-align:justify;
+    padding-bottom:10px;
+    padding-top:10px;
+}
+.input-description-black span {
+    color:#000000!important;
+    font-style:normal;
+    text-align:left!important;
+    padding-bottom:10px;
+    padding-top:10px;
+    font-size:14px!important;
+}
+.input-label span, .input-label {
+    text-align:left;
+    color:#3F3F3F!important;
+    font-style:normal;
+    font-size:14px!important;
+    padding-bottom:5px;
+}
+
+
+input[type=text], input[type=password], select
+{
+	height: 28px !important;
+    line-height: 28px !important;
+    vertical-align: middle;
+    padding-left: 5px;
+    padding-right: 5px;
+	margin: 0px;
+}
+
+input[type=button], input[type=submit]
+{
+	height:30px !important; 
+	border: solid 1px #DD0000;
+	
+	background-color:#DD0000;
+	color: #FFFFFF;
+	padding: 5px 10px 5px 10px;
+	cursor:pointer;
+    margin: 0px;
+}
+
+input[type=button].button-positive:enabled, input[type=submit].button-positive:enabled
+{
+	height:30px !important; 
+	border: solid 1px #41a237!important;
+	
+	background-color:#41a237!important;
+	color: #FFFFFF;
+	padding: 5px 10px 5px 10px;
+	cursor:pointer;
+    margin: 0px;
+}
+input[type=button].button-positive:disabled, input[type=submit].button-positive:disabled
+{
+	height:30px !important;   
+    vertical-align: middle;
+	color: #FFFFFF;
+	cursor:pointer;
+    padding: 5px 10px 5px 10px;
+	margin: 0px;
+}
+
+input[type=button]:disabled, input[type=submit]:disabled
+{
+	height:30px !important;   
+    vertical-align: middle;
+	color: #FFFFFF;
+	cursor:pointer;
+    padding: 5px 10px 5px 10px;
+	margin: 0px;
+}

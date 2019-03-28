@@ -547,10 +547,10 @@ E: prodej@eurona.cz</value>
     <value>Telefon :</value>
   </data>
   <data name="Anonymous_Register_Ulice" xml:space="preserve">
-    <value>Ulice :</value>
+    <value>Ulice a č.p. :</value>
   </data>
   <data name="Anonymous_Register_VasePrihlasovaciUdaje" xml:space="preserve">
-    <value>Vaše přihlašovací údaje</value>
+    <value>Heslo do Vašeho účtu</value>
   </data>
   <data name="Anonymous_Register_VyplntePovinnouPolozku" xml:space="preserve">
     <value>Prosím vyplňe!</value>
@@ -691,7 +691,7 @@ E: prodej@eurona.cz</value>
     <value>Vánoce 2014!</value>
   </data>
   <data name="PasswordPolicyMessage" xml:space="preserve">
-    <value>Heslo musí obsahovat čisla, malá a velká písmena.&lt;br/&gt;Minimální délka je 8 znaků!</value>
+    <value>Heslo musí obsahovat čísla, malá a velká písmena.&lt;br/&gt;Minimální délka je 6 znaků!</value>
   </data>
   <data name="ProductControl_BackList" xml:space="preserve">
     <value>Zadní etiketa výrobku</value>

@@ -205,6 +205,15 @@ namespace CMS.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Ověření Emailem.
+        /// </summary>
+        public static string AdminAccountsControl_ColumnEmailVerified {
+            get {
+                return ResourceManager.GetString("AdminAccountsControl_ColumnEmailVerified", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Povoleno.
         /// </summary>
         public static string AdminAccountsControl_ColumnEnabled {
@@ -2194,6 +2203,15 @@ namespace CMS.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Změna Emailu (loginu).
+        /// </summary>
+        public static string ChangeEmail_Text {
+            get {
+                return ResourceManager.GetString("ChangeEmail_Text", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Změnit heslo.
         /// </summary>
         public static string ChangePassword_Text {
@@ -2338,7 +2356,7 @@ namespace CMS.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Chyba : Správu se nepodařilo odeslat! Zopakujte operaci pozdeji..
+        ///   Looks up a localized string similar to Chyba : Správu se nepodařilo odeslat! Zopakujte operaci později..
         /// </summary>
         public static string ContactFormControl_SendErrorMessage {
             get {

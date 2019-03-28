@@ -248,6 +248,7 @@ function blockUIProcessing(message) {
             backgroundColor: '#fff',
             '-webkit-border-radius': '10px',
             '-moz-border-radius': '10px',
+            'border-radius': '10px',
             opacity: 1,
             color: '#EA008A'
         }
@@ -264,8 +265,47 @@ function blockUIAlert(title, message) {
             backgroundColor: '#fff',
             '-webkit-border-radius': '10px',
             '-moz-border-radius': '10px',
+            'border-radius': '10px',
             opacity: 1,
             color: '#EA008A'
         }
     });
+}
+
+function validatePasswordAndRepeatPassword(elm, elmRepeat, elmErrorMessage, elmErrorMessageRepeat) {
+    // at least one number, one lowercase and one uppercase letter
+    // at least six characters that are letters, numbers or the underscore
+    var strongRegex = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])\w{6,}$/;
+    if (elm.value.length == 0 && elmRepeat.value.length == 0) {
+        elmErrorMessage.style.display = 'block';
+        return false;
+    }
+
+    if (strongRegex.test(elm.value) == false) {
+        elmErrorMessage.style.display = 'block';
+        return false;
+    }
+
+    //Check repaeting pwd
+    if (elmRepeat.value == null || elmRepeat.value.length == 0) {
+        elmErrorMessage.style.display = 'none';
+        elmErrorMessageRepeat.style.display = 'none';
+        return false;
+    }
+
+    //Check repaeting pwd
+    if (elm.value != elmRepeat.value) {
+        elmErrorMessage.style.display = 'none';
+        elmErrorMessageRepeat.style.display = 'block';
+        return false;
+    }
+
+    elmErrorMessage.style.display = 'none';
+    elmErrorMessageRepeat.style.display = 'none';
+    return true;
+}
+
+function validateEmailPattern(email) {
+    var re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+    return re.test(String(email).toLowerCase());
 }

@@ -25,20 +25,13 @@ namespace Eurona.Common.Controls.UserManagement {
         public TextBox txtWeb = null;
         public TextBox txtNotes = null;
         public CheckBox cbVATPayment = null;
-        //public CheckBox cbTopManager = null;
-        //private DropDownList ddlParent = null;
         public TextBox txtParent = null;
 
         public TextBox txtContactEmail = null;
         public TextBox txtContactPhone = null;
         public TextBox txtContactMobil = null;
 
-        //public TextBox txtFAX = null;
-        //public TextBox txtSkype = null;
-        //public TextBox txtICQ = null;
         public ASPxDatePicker dtpContactBirthDay = null;
-        //public TextBox txtContactCardId = null;
-        //public TextBox txtContactWorkPhone = null;
         public DropDownList ddlRegion = null;
         public DropDownList ddlPF = null;
         public DropDownList ddlStatut = null;
@@ -55,6 +48,7 @@ namespace Eurona.Common.Controls.UserManagement {
 
         protected Button btnSave = null;
         private Button btnCancel = null;
+        protected Button btnChangeEmail = null;
 
         private Organization organization = null;
         private bool isNew = false;
@@ -63,9 +57,11 @@ namespace Eurona.Common.Controls.UserManagement {
 
         public string CancelButtonText { get; set; }
         public string SaveButtonText { get; set; }
+        public string ChangeEmailButtonText { get; set; }
 
         public EventHandler SaveCompleted = null;
         public EventHandler Canceled = null;
+        public EventHandler ChangeEmail = null;
 
         public OrganizationControl() {
         }
@@ -177,19 +173,6 @@ namespace Eurona.Common.Controls.UserManagement {
                 this.organization = Storage<Organization>.ReadFirst(new Organization.ReadById { OrganizationId = this.OrganizationId.Value });
 
 
-            //List<Organization> listOrg = Storage<Organization>.Read();
-            //if ( Security.IsLogged( false ) )
-            //{
-            //    if ( Security.IsInRole( Eurona.Common.DAL.Entities.Role.ADMINISTRATOR ) || Security.IsInRole( Eurona.Common.DAL.Entities.Role.OPERATOR ) )
-            //        listOrg.Insert( 0, new Organization { Id = 0, TVD_Id = 0 } );
-            //}
-
-            //this.ddlParent.DataSource = listOrg;
-            //this.ddlParent.DataTextField = "Name";
-            //this.ddlParent.DataValueField = "TVD_Id";
-
-            //this.cbTopManager.Checked = Convert.ToBoolean(this.organization.TopManager);
-
             if (!IsPostBack) {
                 //this.ddlParent.DataBind();
                 this.ddlPF.DataBind();
@@ -207,7 +190,6 @@ namespace Eurona.Common.Controls.UserManagement {
                     if (parentOrg != null)
                         this.txtParent.Text = parentOrg.Code;
                 }
-                //if ( this.organization.ParentId.HasValue ) this.ddlParent.SelectedValue = this.organization.ParentId.Value.ToString();
 
                 this.txtName.Text = this.organization.Name;
                 this.txtWeb.Text = this.organization.Web;
@@ -217,12 +199,7 @@ namespace Eurona.Common.Controls.UserManagement {
                 this.txtContactMobil.Text = this.organization.ContactMobile;
                 this.txtContactPhone.Text = this.organization.ContactPhone;
 
-                //this.txtFAX.Text = this.organization.FAX;
-                //this.txtSkype.Text = this.organization.Skype;
-                //this.txtICQ.Text = this.organization.ICQ;
                 this.dtpContactBirthDay.Value = this.organization.ContactBirthDay;
-                //this.txtContactCardId.Text = this.organization.ContactCardId;
-                //this.txtContactWorkPhone.Text = this.organization.ContactWorkPhone;
                 this.txtPredmetCinnosti.Text = this.organization.PredmetCinnosti;
 
                 if (this.ddlRegion.Items.FindByValue(this.organization.RegionCode) != null)
@@ -310,13 +287,6 @@ namespace Eurona.Common.Controls.UserManagement {
             this.cbVATPayment.Text = Resources.Controls.OrganizationControl_VATPayment_Description;
             this.cbVATPayment.TextAlign = TextAlign.Right;
 
-            //this.cbTopManager = new CheckBox();
-            //this.cbTopManager.ID = "cbTopManager";
-            //this.cbTopManager.Width = Unit.Percentage(100);
-
-            //this.ddlParent = new DropDownList();
-            //this.ddlParent.ID = "ddlParent";
-            //this.ddlParent.Width = Unit.Percentage( 100 );
             this.txtParent = new TextBox();
             this.txtParent.ID = "txtParent";
             this.txtParent.Width = Unit.Percentage(100);
@@ -324,6 +294,7 @@ namespace Eurona.Common.Controls.UserManagement {
             this.txtContactEmail = new TextBox();
             this.txtContactEmail.ID = "txtContactEmail";
             this.txtContactEmail.Width = Unit.Percentage(100);
+            this.txtContactEmail.Enabled = false;
 
             this.txtContactPhone = new TextBox();
             this.txtContactPhone.ID = "txtContactPhone";
@@ -333,29 +304,9 @@ namespace Eurona.Common.Controls.UserManagement {
             this.txtContactMobil.ID = "txtContactMobil";
             this.txtContactMobil.Width = Unit.Percentage(100);
 
-            //this.txtFAX = new TextBox();
-            //this.txtFAX.ID = "txtFAX";
-            //this.txtFAX.Width = Unit.Percentage(100);
-
-            //this.txtSkype = new TextBox();
-            //this.txtSkype.ID = "txtSkype";
-            //this.txtSkype.Width = Unit.Percentage(100);
-
-            //this.txtICQ = new TextBox();
-            //this.txtICQ.ID = "txtICQ";
-            //this.txtICQ.Width = Unit.Percentage(100);
-
             this.dtpContactBirthDay = new ASPxDatePicker();
             this.dtpContactBirthDay.ID = "dtpContactBirthDay";
             this.dtpContactBirthDay.Width = Unit.Percentage(100);
-
-            //this.txtContactCardId = new TextBox();
-            //this.txtContactCardId.ID = "txtContactCardId";
-            //this.txtContactCardId.Width = Unit.Percentage(100);
-
-            //this.txtContactWorkPhone = new TextBox();
-            //this.txtContactWorkPhone.ID = "txtContactWorkPhone";
-            //this.txtContactWorkPhone.Width = Unit.Percentage(100);
 
             this.ddlRegion = new DropDownList();
             this.ddlRegion.ID = "ddlRegion";
@@ -437,6 +388,11 @@ namespace Eurona.Common.Controls.UserManagement {
             this.btnCancel.CausesValidation = false;
             this.btnCancel.Text = String.IsNullOrEmpty(CancelButtonText) ? CMS.Resources.Controls.CancelButton_Text : CancelButtonText;
             this.btnCancel.Click += new EventHandler(OnCancel);
+            
+            this.btnChangeEmail = new Button();
+            this.btnChangeEmail.CausesValidation = true;
+            this.btnChangeEmail.Text = String.IsNullOrEmpty(SaveButtonText) ? CMS.Resources.Controls.ChangeEmail_Text : ChangeEmailButtonText;
+            this.btnChangeEmail.Click += new EventHandler(OnChangeEmail);
 
             Table mainTable = new Table();
             mainTable.Width = this.Width;
@@ -530,6 +486,7 @@ namespace Eurona.Common.Controls.UserManagement {
                 AddControlToRow(row, CMS.Resources.Controls.PersonControl_Email, this.txtContactEmail, 0, this.Settings.Require.ContactEmail);
                 table.Rows.Add(row);
                 row.Cells[row.Cells.Count - 1].Controls.Add(CreateEmailValidatorControl(txtContactEmail.ID));
+                this.txtContactEmail.Enabled = false;
             }
             //Phone
             if (this.Settings.Visibility.ContactPhone) {
@@ -694,9 +651,12 @@ namespace Eurona.Common.Controls.UserManagement {
                 //Save Cancel Buttons
                 row = new TableRow();
                 TableCell cell = new TableCell();
-                cell.ColumnSpan = 2;
                 cell.Controls.Add(this.btnSave);
                 cell.Controls.Add(this.btnCancel);
+                row.Cells.Add(cell);
+                cell = new TableCell();
+                cell.HorizontalAlign = HorizontalAlign.Right;
+                cell.Controls.Add(this.btnChangeEmail);
                 row.Cells.Add(cell);
                 mainTable.Rows.Add(row);
             }
@@ -865,6 +825,11 @@ namespace Eurona.Common.Controls.UserManagement {
         #endregion
 
         #region Event handlers
+        void OnChangeEmail(object sender, EventArgs e) {
+            if (ChangeEmail != null)
+                ChangeEmail(this, EventArgs.Empty);
+        }
+
         void OnSave(object sender, EventArgs e) {
             if (this.isNew) CreateOrganization(this.organization);
             else UpdateOrganization(this.organization);

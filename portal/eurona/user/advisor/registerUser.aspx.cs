@@ -150,7 +150,7 @@ namespace Eurona.User.Advisor {
             EmailNotification email2User = new EmailNotification {
                 To = customerAccount.Email,
                 Subject = Resources.Strings.UserRegistrationPage_Email2User_Subject,
-                Message = String.Format(Resources.Strings.UserRegistrationPage_Email2User_Message, customerAccount.Login, pwd).Replace("\\n", Environment.NewLine) + "<br/><br/>"// + htmlResponse.ToString()
+                Message = String.Format(Resources.Strings.UserRegistrationPage_Email2User_Message, customerAccount.Login).Replace("\\n", Environment.NewLine) + "<br/><br/>"// + htmlResponse.ToString()
             };
             if (parentOrg != null) {
                 string contact = string.Format("{0}, {1}, {2}, {3}, reg. číslo: {4}", org.Name, org.RegisteredAddressString, org.ContactMobile, org.Account.Email, org.Code);

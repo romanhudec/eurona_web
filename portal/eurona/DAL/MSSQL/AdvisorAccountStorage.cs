@@ -27,6 +27,12 @@ namespace Eurona.DAL.MSSQL {
             account.RoleString = Convert.ToString(record["Roles"]);
             account.Verified = Convert.ToBoolean(record["Verified"]);
             account.VerifyCode = Convert.ToString(record["VerifyCode"]);
+            account.EmailVerifyCode = Convert.ToString(record["EmailVerifyCode"]);
+            account.EmailToVerify = Convert.ToString(record["EmailToVerify"]);
+            account.EmailVerifyStatus = ConvertNullable.ToInt32(record["EmailVerifyStatus"]);
+            account.EmailVerified = ConvertNullable.ToDateTime(record["EmailVerified"]);
+            account.EmailBeforeVerify = Convert.ToString(record["EmailBeforeVerify"]);
+            account.LoginBeforeVerify = Convert.ToString(record["LoginBeforeVerify"]);
             account.Credit = Convert.ToDecimal(record["Credit"]);
             account.CanAccessIntensa = Convert.ToBoolean(record["CanAccessIntensa"]);
 
@@ -57,7 +63,8 @@ namespace Eurona.DAL.MSSQL {
             using (SqlConnection connection = Connect()) {
                 string sql =
                         sql = @"
-				SELECT AccountId, TVD_Id, Created, InstanceId, Email, Login, Password, Locale, Verified, VerifyCode, Enabled, Credit, CanAccessIntensa, Roles, 
+				SELECT AccountId, TVD_Id, Created, InstanceId, Email, Login, Password, Locale, Verified, VerifyCode, Enabled, Credit, CanAccessIntensa, Roles,
+                EmailVerifyCode, EmailToVerify, EmailVerifyStatus, EmailVerified, EmailBeforeVerify, LoginBeforeVerify, 
 				AdvisorCode, Name, Phone, Mobile, RegisteredAddress, CorrespondenceAddress, ZasilaniTiskovin,ZasilaniNewsletter, ZasilaniKatalogu
 				FROM vAdvisorAccounts WHERE AccountId > 1 AND ( InstanceId=@InstanceId OR InstanceId=0 ) AND  Roles LIKE'%' + @Role +'%'";
 
@@ -76,6 +83,7 @@ namespace Eurona.DAL.MSSQL {
             using (SqlConnection connection = Connect()) {
                 string sql = @"
 				SELECT AccountId, TVD_Id, Created, InstanceId, Email, Login, Password, Locale, Enabled, Verified, VerifyCode, Credit, CanAccessIntensa, Roles, 
+                EmailVerifyCode, EmailToVerify, EmailVerifyStatus, EmailVerified, EmailBeforeVerify, LoginBeforeVerify,
 				AdvisorCode, Name, Phone, Mobile, RegisteredAddress, CorrespondenceAddress, ZasilaniTiskovin,ZasilaniNewsletter, ZasilaniKatalogu
 				FROM vAdvisorAccounts
 				WHERE (ZasilaniNewsletter = 1 OR ZasilaniTiskovin = 1 OR ZasilaniKatalogu = 1) AND ( InstanceId=@InstanceId OR InstanceId=0 )";
@@ -90,6 +98,7 @@ namespace Eurona.DAL.MSSQL {
             using (SqlConnection connection = Connect()) {
                 string sql = @"
 				SELECT AccountId, TVD_Id, Created, InstanceId, Email, Login, Password, Locale, Enabled, Verified, VerifyCode, Credit, CanAccessIntensa, Roles, 
+                EmailVerifyCode, EmailToVerify, EmailVerifyStatus, EmailVerified, EmailBeforeVerify, LoginBeforeVerify,
 				AdvisorCode, Name, Phone, Mobile, RegisteredAddress, CorrespondenceAddress, ZasilaniTiskovin,ZasilaniNewsletter, ZasilaniKatalogu
 				FROM vAdvisorAccounts
 				WHERE
@@ -115,6 +124,7 @@ namespace Eurona.DAL.MSSQL {
             using (SqlConnection connection = Connect()) {
                 string sql = @"
 				SELECT AccountId, TVD_Id, Created, InstanceId, Email, Login, Password, Locale, Enabled, Verified, VerifyCode, Credit, CanAccessIntensa, Roles, 
+                EmailVerifyCode, EmailToVerify, EmailVerifyStatus, EmailVerified, EmailBeforeVerify, LoginBeforeVerify,
 				AdvisorCode, Name, Phone, Mobile, RegisteredAddress, CorrespondenceAddress, ZasilaniTiskovin,ZasilaniNewsletter, ZasilaniKatalogu
 				FROM vAdvisorAccounts
 				WHERE Login = @Login AND ( InstanceId=@InstanceId OR InstanceId=0 )";
@@ -130,6 +140,7 @@ namespace Eurona.DAL.MSSQL {
             using (SqlConnection connection = Connect()) {
                 string sql = @"
 				SELECT AccountId, TVD_Id, Created, InstanceId, Email, Login, Password, Locale, Enabled, Verified, VerifyCode, Credit, CanAccessIntensa, Roles, 
+                EmailVerifyCode, EmailToVerify, EmailVerifyStatus, EmailVerified, EmailBeforeVerify, LoginBeforeVerify,
 				AdvisorCode, Name, Phone, Mobile, RegisteredAddress, CorrespondenceAddress, ZasilaniTiskovin,ZasilaniNewsletter, ZasilaniKatalogu
 				FROM vAdvisorAccounts
 				WHERE Email = @Email AND ( InstanceId=@InstanceId OR InstanceId=0 )";
@@ -145,6 +156,7 @@ namespace Eurona.DAL.MSSQL {
             using (SqlConnection connection = Connect()) {
                 string sql = @"
 				SELECT AccountId, TVD_Id, Created, InstanceId, Email, Login, Password, Locale, Enabled, Verified, VerifyCode, Credit, CanAccessIntensa, Roles, 
+                EmailVerifyCode, EmailToVerify, EmailVerifyStatus, EmailVerified, EmailBeforeVerify, LoginBeforeVerify,
 				AdvisorCode, Name, Phone, Mobile, RegisteredAddress, CorrespondenceAddress, ZasilaniTiskovin,ZasilaniNewsletter, ZasilaniKatalogu
 				FROM vAdvisorAccounts
 				WHERE AccountId = @AccountId";
@@ -160,6 +172,7 @@ namespace Eurona.DAL.MSSQL {
             using (SqlConnection connection = Connect()) {
                 string sql = @"
 				SELECT AccountId, TVD_Id, Created, InstanceId, Email, Login, Password, Locale, Enabled, Verified, VerifyCode, Credit, CanAccessIntensa, Roles, 
+                EmailVerifyCode, EmailToVerify, EmailVerifyStatus, EmailVerified, EmailBeforeVerify, LoginBeforeVerify,
 				AdvisorCode, Name, Phone, Mobile, RegisteredAddress, CorrespondenceAddress, ZasilaniTiskovin,ZasilaniNewsletter, ZasilaniKatalogu
 				FROM vAdvisorAccounts
 				WHERE Enabled=0 AND ( InstanceId=@InstanceId OR InstanceId=0 )";
@@ -174,6 +187,7 @@ namespace Eurona.DAL.MSSQL {
             using (SqlConnection connection = Connect()) {
                 string sql = @"
 				SELECT AccountId, TVD_Id, Created, InstanceId, Email, Login, Password, Locale, Enabled, Verified, VerifyCode, Credit, CanAccessIntensa, Roles, 
+                EmailVerifyCode, EmailToVerify, EmailVerifyStatus, EmailVerified, EmailBeforeVerify, LoginBeforeVerify,
 				AdvisorCode, Name, Phone, Mobile, RegisteredAddress, CorrespondenceAddress, ZasilaniTiskovin,ZasilaniNewsletter, ZasilaniKatalogu
 				FROM vAdvisorAccounts
 				WHERE Enabled=1 AND ( InstanceId=@InstanceId OR InstanceId=0 )";
@@ -215,9 +229,13 @@ namespace Eurona.DAL.MSSQL {
                 SqlParameter roles = new SqlParameter("@Roles", account.RoleString);
                 SqlParameter verified = new SqlParameter("@Verified", account.Verified);
                 SqlParameter verifyCode = new SqlParameter("@VerifyCode", account.VerifyCode);
+                SqlParameter emailVerifyCode = new SqlParameter("@EmailVerifyCode", account.EmailVerifyCode);
+                SqlParameter emailToVerify = new SqlParameter("@EmailToVerify", account.EmailToVerify);
+                SqlParameter emailVerifyStatus = new SqlParameter("@EmailVerifyStatus", account.EmailVerifyStatus);
+                SqlParameter emailVerified = new SqlParameter("@EmailVerified", account.EmailVerified);
                 SqlParameter result = new SqlParameter("@Result", -1);
                 result.Direction = ParameterDirection.Output;
-                ExecProc(connection, "pAccountModify", result, historyAccount, verified, verifyCode,
+                ExecProc(connection, "pAccountModify", result, historyAccount, verified, verifyCode, emailVerifyCode, emailToVerify, emailVerifyStatus, emailVerified,
                     accountId, tvdId, accessIntensa, email, login, password, enabled, locale, roles);
             }
         }

@@ -865,7 +865,7 @@
     <value>Váš telefon :</value>
   </data>
   <data name="ContactFormControl_SendErrorMessage" xml:space="preserve">
-    <value>Chyba : Správu se nepodařilo odeslat! Zopakujte operaci pozdeji.</value>
+    <value>Chyba : Správu se nepodařilo odeslat! Zopakujte operaci později.</value>
   </data>
   <data name="ContactFormControl_SendSuccessMessage" xml:space="preserve">
     <value>Vaše zpráva byla úspěšne odeslána!</value>
@@ -1133,5 +1133,11 @@
   </data>
   <data name="RaitingControl_RatingLabel" xml:space="preserve">
     <value>Rating</value>
+  </data>
+  <data name="AdminAccountsControl_ColumnEmailVerified" xml:space="preserve">
+    <value>Ověření Emailem</value>
+  </data>
+  <data name="ChangeEmail_Text" xml:space="preserve">
+    <value>Změna Emailu (loginu)</value>
   </data>
 </root>

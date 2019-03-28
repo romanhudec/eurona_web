@@ -35,7 +35,7 @@ namespace Cron.Eurona.Import {
                     try {
                         string sql = string.Empty;
 
-                        DateTime date = DateTime.Now.AddMonths(-1);
+                        DateTime date = DateTime.Now.AddMonths(-2);
                         int obdobi = Convert.ToInt32(string.Format("{0}{1:#00}", date.Year, date.Month));
                         sql = String.Format(@"SELECT [RRRRMM] ,[Id_odberatele] ,[Narok] FROM www_bonuskredit_naroky_eurosap WHERE RRRRMM>{0}", obdobi);
                         using (SqlConnection connectionDst = this.DestinationDataStorage.Connect()) {

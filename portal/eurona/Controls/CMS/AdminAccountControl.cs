@@ -9,6 +9,7 @@ using CMS.Controls;
 using Eurona.Common.DAL.Entities;
 using CMS;
 using CMS.Utilities;
+using Eurona.Controls.UserManagement;
 
 
 namespace Eurona.Controls {
@@ -22,6 +23,7 @@ namespace Eurona.Controls {
         private CheckBoxList clbRoles;
 
         private CheckBox cbSingleUserCookieLinkEnabled;
+        private CheckBox cbZrusitOvereniEmailem;
         private Button btnSave;
         private Button btnChangePassword;
         private Button btnCancel;
@@ -116,6 +118,16 @@ namespace Eurona.Controls {
             trRoles.Cells.Add(CreateRolesCheckListBox());
             table.Rows.Add(trRoles);
 
+            if (accountEntity.EmailVerified.HasValue) {
+                TableRow trZrusitOvereniEmailem = new TableRow();
+                trZrusitOvereniEmailem.Cells.Add(new TableCell {
+                    Text = Resources.Strings.AdminAccountControl_LabelZrusitOvereniEmailem,
+                    CssClass = "form_label_required"
+                });
+                trZrusitOvereniEmailem.Cells.Add(CreateZrusitOvereniEmailemCheckBox());
+                table.Rows.Add(trZrusitOvereniEmailem);
+            }
+
 
             this.capcha = new Telerik.Web.UI.RadCaptcha();
             this.capcha.ErrorMessage = CMS.Resources.Controls.ForgotPasswordControl_Capcha_ErrorMessage;
@@ -155,10 +167,11 @@ namespace Eurona.Controls {
             tbLogin = new TextBox {
                 ID = "tbLogin",
                 Text = accountEntity.Login,
-                Width = Unit.Percentage(80)
+                Width = Unit.Pixel(200)
             };
             cell.Controls.Add(tbLogin);
             cell.Controls.Add(CreateRequiredFieldValidatorControl(tbLogin.ID));
+            if ((Security.IsInRole(Role.OPERATOR)) && !isNew) tbLogin.Enabled = false;
             return cell;
         }
 
@@ -167,12 +180,12 @@ namespace Eurona.Controls {
             tbEmail = new TextBox {
                 ID = "tbEmail",
                 Text = accountEntity.Email,
-                Width = Unit.Percentage(80)
+                Width = Unit.Pixel(200)
             };
             cell.Controls.Add(tbEmail);
             cell.Controls.Add(CreateEmailValidatorControl(tbEmail.ID));
 
-            if ((Security.IsInRole(Role.OPERATOR) /*|| Security.IsInRole( Role.ADMINISTRATOR )*/ ) && !isNew) tbEmail.Enabled = false;
+            if ((Security.IsInRole(Role.OPERATOR)) && !isNew) tbEmail.Enabled = false;
             return cell;
         }
 
@@ -193,6 +206,16 @@ namespace Eurona.Controls {
                 Checked = accountEntity.Verified
             };
             cell.Controls.Add(cbVerified);
+            return cell;
+        }
+
+        private TableCell CreateZrusitOvereniEmailemCheckBox() {
+            TableCell cell = new TableCell();
+            cbZrusitOvereniEmailem = new CheckBox {
+                ID = "cbZrusitOvereniEmailem",
+                Checked = false
+            };
+            cell.Controls.Add(cbZrusitOvereniEmailem);
             return cell;
         }
 
@@ -303,6 +326,17 @@ namespace Eurona.Controls {
                 accountEntity.SingleUserCookieLinkEnabled = cbSingleUserCookieLinkEnabled.Checked;
                 accountEntity.RoleString = roles.ToString();
 
+                bool overeniZruseno = false;
+                if (accountEntity.EmailVerified.HasValue && this.cbZrusitOvereniEmailem.Checked) {
+                    accountEntity.EmailVerified = null;
+                    accountEntity.EmailVerifyCode = null;
+                    accountEntity.EmailVerifyStatus = null;
+                    accountEntity.EmailToVerify = null;
+                    accountEntity.Login = accountEntity.LoginBeforeVerify;
+                    accountEntity.Email = accountEntity.EmailBeforeVerify;
+                    overeniZruseno = true;
+                }
+
                 if (isNew) {
                     string newPwd = capcha.CaptchaImage.Text;
                     accountEntity.Password = Cryptographer.MD5Hash(newPwd);
@@ -341,6 +375,10 @@ namespace Eurona.Controls {
                         org.AccountId = accountEntity.Id;
                         org.ContactEmail = accountEntity.Email;
                         Storage<Organization>.Create(org);
+                        if (overeniZruseno == true) {
+                            //Sync to TVD
+                            OrganizationControl.SyncTVDUser(org, btnSave);
+                        }
 
                         if (isNew) {
                             if (!string.IsNullOrEmpty(this.RegisterUserUrlFormat))

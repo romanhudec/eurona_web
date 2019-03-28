@@ -61,7 +61,7 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Nesprávny ověřovací kód!.
+        ///   Looks up a localized string similar to Verify code is not valid!.
         /// </summary>
         internal static string AccountControl_InvalidVerifyCodeMessage {
             get {
@@ -79,7 +79,7 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Povoleno :.
+        ///   Looks up a localized string similar to Enabled :.
         /// </summary>
         internal static string AccountControl_LabelEnabled {
             get {
@@ -88,7 +88,7 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Konto :.
+        ///   Looks up a localized string similar to Login :.
         /// </summary>
         internal static string AccountControl_LabelLogin {
             get {
@@ -97,7 +97,7 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Role :.
+        ///   Looks up a localized string similar to Roles :.
         /// </summary>
         internal static string AccountControl_LabelRoles {
             get {
@@ -106,7 +106,7 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Ověřený :.
+        ///   Looks up a localized string similar to Verified :.
         /// </summary>
         internal static string AccountControl_LabelVerified {
             get {
@@ -115,7 +115,7 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Ověřovací kód :.
+        ///   Looks up a localized string similar to Verify code :.
         /// </summary>
         internal static string AccountControl_LabelVerifyCode {
             get {
@@ -124,7 +124,7 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Posílat informační e-maily.
+        ///   Looks up a localized string similar to Send me information emails.
         /// </summary>
         internal static string AccountControl_SendInformationEmails {
             get {
@@ -142,6 +142,15 @@ namespace Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Zrušit ověření emailem.
+        /// </summary>
+        internal static string AdminAccountControl_LabelZrusitOvereniEmailem {
+            get {
+                return ResourceManager.GetString("AdminAccountControl_LabelZrusitOvereniEmailem", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Osobní stránky uživatelů.
         /// </summary>
         internal static string AdministrationMode_AdvisorPages {
@@ -151,7 +160,7 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Články.
+        ///   Looks up a localized string similar to Articles.
         /// </summary>
         internal static string AdministrationMode_Articles {
             get {
@@ -160,7 +169,7 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Blogy.
+        ///   Looks up a localized string similar to Blogs.
         /// </summary>
         internal static string AdministrationMode_Blogs {
             get {
@@ -169,7 +178,7 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Číselníky.
+        ///   Looks up a localized string similar to Classifiers.
         /// </summary>
         internal static string AdministrationMode_Classifiers {
             get {
@@ -187,7 +196,7 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Fórum.
+        ///   Looks up a localized string similar to Forum themes.
         /// </summary>
         internal static string AdministrationMode_Forums {
             get {
@@ -196,7 +205,7 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Fórum kategorie.
+        ///   Looks up a localized string similar to Forum categories.
         /// </summary>
         internal static string AdministrationMode_ForumThreads {
             get {
@@ -205,7 +214,7 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Administrace.
+        ///   Looks up a localized string similar to Admnistration.
         /// </summary>
         internal static string AdministrationMode_HeaderAdministration {
             get {
@@ -214,7 +223,7 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Položka menu.
+        ///   Looks up a localized string similar to Menu.
         /// </summary>
         internal static string AdministrationMode_HeaderMenu {
             get {
@@ -223,7 +232,7 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Galérie obrázků.
+        ///   Looks up a localized string similar to Image galleries.
         /// </summary>
         internal static string AdministrationMode_ImageGalleries {
             get {
@@ -232,7 +241,7 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Menu.
+        ///   Looks up a localized string similar to Menus.
         /// </summary>
         internal static string AdministrationMode_Menus {
             get {
@@ -241,7 +250,7 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Navigační menu.
+        ///   Looks up a localized string similar to Navigation menus.
         /// </summary>
         internal static string AdministrationMode_NavigationMenus {
             get {
@@ -250,7 +259,7 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Aktuality.
+        ///   Looks up a localized string similar to News.
         /// </summary>
         internal static string AdministrationMode_News {
             get {
@@ -259,7 +268,7 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Informační buletíny.
+        ///   Looks up a localized string similar to Newsletters.
         /// </summary>
         internal static string AdministrationMode_Newsletters {
             get {
@@ -268,7 +277,7 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Stránky.
+        ///   Looks up a localized string similar to Pages.
         /// </summary>
         internal static string AdministrationMode_Pages {
             get {
@@ -277,7 +286,7 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Ankety.
+        ///   Looks up a localized string similar to Polls.
         /// </summary>
         internal static string AdministrationMode_Polls {
             get {
@@ -286,7 +295,7 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Role.
+        ///   Looks up a localized string similar to Roles.
         /// </summary>
         internal static string AdministrationMode_Roles {
             get {
@@ -295,7 +304,7 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Tagy.
+        ///   Looks up a localized string similar to Tags.
         /// </summary>
         internal static string AdministrationMode_Tags {
             get {
@@ -304,7 +313,7 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to URL Aliasy.
+        ///   Looks up a localized string similar to URL Aliases.
         /// </summary>
         internal static string AdministrationMode_UrlAliases {
             get {
@@ -313,7 +322,7 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Uživatelé.
+        ///   Looks up a localized string similar to Users.
         /// </summary>
         internal static string AdministrationMode_Users {
             get {
@@ -358,7 +367,7 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Aktuální stav.
+        ///   Looks up a localized string similar to Current status.
         /// </summary>
         internal static string AdvisorDesktop_AktualniStav {
             get {
@@ -367,7 +376,7 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Cílový stav.
+        ///   Looks up a localized string similar to Target status.
         /// </summary>
         internal static string AdvisorDesktop_CilovyStav {
             get {
@@ -376,7 +385,7 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Co udělat do cílového stavu.
+        ///   Looks up a localized string similar to What do the target state.
         /// </summary>
         internal static string AdvisorDesktop_CoUdelatDoCilovehoStavu {
             get {
@@ -385,7 +394,7 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Grafy | Lidé v síti.
+        ///   Looks up a localized string similar to Charts | People in the network.
         /// </summary>
         internal static string AdvisorDesktop_GrafyLideVSiti {
             get {
@@ -394,7 +403,7 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Objednávky pro sdružení.
+        ///   Looks up a localized string similar to Orders for the association.
         /// </summary>
         internal static string AdvisorDesktop_ObjednavkyProZdruzeni {
             get {
@@ -403,7 +412,7 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Stav od počátku roku.
+        ///   Looks up a localized string similar to State from the beginning of the year.
         /// </summary>
         internal static string AdvisorDesktop_StavOdPocatkuRoku {
             get {
@@ -412,7 +421,7 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Vámi nejvíce nakupované produkty.
+        ///   Looks up a localized string similar to Your top buy products.
         /// </summary>
         internal static string AdvisorDesktop_YourTopBuyProducts {
             get {
@@ -421,7 +430,7 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Změna hesla.
+        ///   Looks up a localized string similar to Change password.
         /// </summary>
         internal static string AuthenticatedMenuItem_ChangePassword {
             get {
@@ -430,7 +439,7 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Změna osobních údajů.
+        ///   Looks up a localized string similar to Change personal data.
         /// </summary>
         internal static string AuthenticatedMenuItem_ChangePersonalData {
             get {
@@ -439,7 +448,7 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Odhlásit.
+        ///   Looks up a localized string similar to Log Out.
         /// </summary>
         internal static string AuthenticatedMenuItem_LogOut {
             get {
@@ -448,7 +457,7 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Moje konto.
+        ///   Looks up a localized string similar to My account.
         /// </summary>
         internal static string AuthenticatedMenuItem_MyAccount {
             get {
@@ -457,7 +466,7 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Moje Blogy.
+        ///   Looks up a localized string similar to My Blogs.
         /// </summary>
         internal static string AuthenticatedMenuItem_MyBlogs {
             get {
@@ -466,7 +475,7 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Můj profil.
+        ///   Looks up a localized string similar to My profile.
         /// </summary>
         internal static string AuthenticatedMenuItem_MyProfile {
             get {
@@ -475,7 +484,7 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Objednávky.
+        ///   Looks up a localized string similar to Orders.
         /// </summary>
         internal static string AuthenticatedMenuItem_Orders {
             get {
@@ -493,7 +502,7 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Zpět.
+        ///   Looks up a localized string similar to Back.
         /// </summary>
         internal static string BackButton_Text {
             get {
@@ -502,7 +511,7 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to zpět.
+        ///   Looks up a localized string similar to back.
         /// </summary>
         internal static string BackLink {
             get {
@@ -511,7 +520,7 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Je nám líto, ale vzhledem k tomu, že jste v minulém měsíci neobjednal/a, nesplnil/a jste tak podmínku pro připsání bonusových kreditů z daného měsíce nebo jste si již tento měsíc své BK vyčerpal/a..
+        ///   Looks up a localized string similar to Je nám líto, ale vzhledem k tomu, že jste v minulém měsíci neobjednal/la, nesplnil/la jste tak podmínku pro připsání bonusových kreditů z daného měsíce nebo jste si již tento měsíc své BK vyčerpal/la..
         /// </summary>
         internal static string BKErrorMessage {
             get {
@@ -520,7 +529,7 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Vážený uživateli, zřejmě používáte starý prohlížeč Internet Explorer. Je pravdepodobné, že nekteré části se Vám nezobrazí správne, anebo vůbec. Doporučujeme proto použít bezpečnejší &lt;a target=_blank href=&apos;http://www.browserchoice.eu&apos;&gt;prohlížeč&lt;/a&gt;.
+        ///   Looks up a localized string similar to Dear user, apparently using the old browser Internet Explorer. It is likely that some of you do not properly or at all. We therefore recommend the use of safer &lt;a target=_blank href=&apos;http://www.browserchoice.eu&apos;&gt; browser &lt;/ a&gt;.
         /// </summary>
         internal static string BrowserVersionWarning {
             get {
@@ -529,7 +538,7 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Zrušit.
+        ///   Looks up a localized string similar to Cancel.
         /// </summary>
         internal static string CancelButton_Text {
             get {
@@ -538,7 +547,197 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Kód :.
+        ///   Looks up a localized string similar to Zadejte email pro ověření:.
+        /// </summary>
+        internal static string ChangeEmailControl_Email {
+            get {
+                return ResourceManager.GetString("ChangeEmailControl_Email", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Pro zabezpečení Vašeho zákaznického účtu Eurona, prosím, zadejte Vaši platnou emailovou adresu. Vaše emailová adresa se stane Vaším novým jedinečným přihlašovacím jménem k zákaznickému účtu. Uvedenou emailovou adresu nelze zadat pro více zákaznických účtů!.
+        /// </summary>
+        internal static string ChangeEmailControl_EmailDescriptionTop {
+            get {
+                return ResourceManager.GetString("ChangeEmailControl_EmailDescriptionTop", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Na Vaši emailovou adresu byl úspěšně odeslán ověřovací odkaz. Pro dokončení změny emailu klikněte na odkaz v emailu. Děkujeme..
+        /// </summary>
+        internal static string ChangeEmailControl_EmailSended_Message {
+            get {
+                return ResourceManager.GetString("ChangeEmailControl_EmailSended_Message", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Odeslat znovu.
+        /// </summary>
+        internal static string ChangeEmailControl_OdeslatZnovu {
+            get {
+                return ResourceManager.GetString("ChangeEmailControl_OdeslatZnovu", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Opakovat.
+        /// </summary>
+        internal static string ChangeEmailControl_Opakovat {
+            get {
+                return ResourceManager.GetString("ChangeEmailControl_Opakovat", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Ověřit.
+        /// </summary>
+        internal static string ChangeEmailControl_OveritEmail {
+            get {
+                return ResourceManager.GetString("ChangeEmailControl_OveritEmail", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Pokračovat.
+        /// </summary>
+        internal static string ChangeEmailControl_Pokracovat {
+            get {
+                return ResourceManager.GetString("ChangeEmailControl_Pokracovat", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Dobrý den,&lt;br/&gt;&lt;br/&gt;
+        ///pro změnu Vašeho emailu/přihlašovacího jména účtu Eurona prosím klikněte na následující odkaz, který Vás přesměruje na stránky Eurona by Cerny.
+        ///&lt;br/&gt;&lt;br/&gt;
+        ///&lt;a href=&apos;{0}&apos;&gt;{0}&lt;/a&gt;
+        ///&lt;br/&gt;&lt;br/&gt;
+        ///Pokud se po kliknutí na odkaz nic neděje, označte jej kurzorem a zároveň pomocí kombinace kláves Ctrl+C zkopírujte a pomocí Ctrl+V vložte odkaz do adresního řádku internetového prohlížeče a potvrďte klávesou Enter.
+        ///&lt;br/&gt;&lt;br/&gt;
+        ///Děkujeme za pochopení!
+        ///&lt;br/&gt;
+        ///Eurona by Cerny.
+        /// </summary>
+        internal static string ChangeEmailControl_RequestChangeEmail_Message {
+            get {
+                return ResourceManager.GetString("ChangeEmailControl_RequestChangeEmail_Message", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Váš email se nepodařilo ověřit! Zkuste to prosím znova, případně kontaktujte naše obchodní oddělení na +420 491 477 361 nebo prodej@eurona.cz..
+        /// </summary>
+        internal static string ChangeEmailControl_SendingEmailError_Message {
+            get {
+                return ResourceManager.GetString("ChangeEmailControl_SendingEmailError_Message", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Na Vámi zadanou emailovou adresu se právě odesílá ověřovací odkaz, prosím čekejte….
+        /// </summary>
+        internal static string ChangeEmailControl_SendingEmail_Message {
+            get {
+                return ResourceManager.GetString("ChangeEmailControl_SendingEmail_Message", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Změna emailu.
+        /// </summary>
+        internal static string ChangeEmailControl_Title {
+            get {
+                return ResourceManager.GetString("ChangeEmailControl_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Dobrý den,&lt;br/&gt;&lt;br/&gt;
+        ///pro dokončení změny emailu Vašeho zákaznického účtu Eurona prosím klikněte na následující odkaz, který Vás přesměruje na stránky Eurona by Cerny.
+        ///&lt;br/&gt;&lt;br/&gt;
+        ///&lt;a href=&apos;{0}&apos;&gt;{0}&lt;/a&gt;
+        ///&lt;br/&gt;&lt;br/&gt;
+        ///Pokud se po kliknutí na odkaz nic neděje, označte jej kurzorem a zároveň pomocí kombinace kláves Ctrl+C zkopírujte a pomocí Ctrl+V vložte odkaz do adresního řádku internetového prohlížeče a potvrďte klávesou Enter.
+        ///&lt;br/&gt;&lt;br/&gt;
+        ///Děkujeme za pochopení!
+        ///&lt;br/&gt;
+        ///Eurona by Cerny.
+        /// </summary>
+        internal static string ChangeEmailControl_UserVerificationEmail_Message {
+            get {
+                return ResourceManager.GetString("ChangeEmailControl_UserVerificationEmail_Message", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to ZMĚNA EMAILU EURONA.
+        /// </summary>
+        internal static string ChangeEmailControl_UserVerificationEmail_Subject {
+            get {
+                return ResourceManager.GetString("ChangeEmailControl_UserVerificationEmail_Subject", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to ZMĚNA EMAILU EURONA DOKONČENA.
+        /// </summary>
+        internal static string ChangeEmailControl_UserVerificationFinishEmail_Subject {
+            get {
+                return ResourceManager.GetString("ChangeEmailControl_UserVerificationFinishEmail_Subject", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Děkujeme, &lt;br/&gt;&lt;br/&gt;
+        ///změna emailu Vašeho zákaznického účtu je dokončena.
+        ///&lt;br/&gt;&lt;br/&gt;
+        ///Zapamatujte si, prosím, Vaše nové přihlašovací údaje:&lt;br/&gt;
+        ///Přihlašovací jméno: {0}
+        ///&lt;br/&gt;&lt;br/&gt;
+        ///Nyní můžete pokračovat na naše stránky: https://euronabycerny.com/.
+        ///&lt;br/&gt;&lt;br/&gt;
+        ///S přáním příjemného dne,&lt;br/&gt;
+        ///Tým Eurona..
+        /// </summary>
+        internal static string ChangeEmailControl_UserVerificationFinish_Message {
+            get {
+                return ResourceManager.GetString("ChangeEmailControl_UserVerificationFinish_Message", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Zapamatujte si, prosím, Vaše nové přihlašovací údaje:
+        ///Přihlašovací jméno: {0}.
+        /// </summary>
+        internal static string ChangeEmailControl_VerifycationSuccessFinish_Message {
+            get {
+                return ResourceManager.GetString("ChangeEmailControl_VerifycationSuccessFinish_Message", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Děkujeme, právě jste dokončil/a změnu emailu Vašeho zákaznického účtu!.
+        /// </summary>
+        internal static string ChangeEmailControl_VerifycationSuccessFinish_Title {
+            get {
+                return ResourceManager.GetString("ChangeEmailControl_VerifycationSuccessFinish_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Pokračovat bez změny.
+        /// </summary>
+        internal static string ChangeEmailControl_ZrusitZmenu {
+            get {
+                return ResourceManager.GetString("ChangeEmailControl_ZrusitZmenu", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Code :.
         /// </summary>
         internal static string ClassifierControl_Code {
             get {
@@ -547,7 +746,7 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Ikona :.
+        ///   Looks up a localized string similar to Icon :.
         /// </summary>
         internal static string ClassifierControl_Icon {
             get {
@@ -556,7 +755,7 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Název :.
+        ///   Looks up a localized string similar to Name :.
         /// </summary>
         internal static string ClassifierControl_Name {
             get {
@@ -565,7 +764,7 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Poznámka :.
+        ///   Looks up a localized string similar to Notes :.
         /// </summary>
         internal static string ClassifierControl_Notes {
             get {
@@ -574,7 +773,7 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Odstranit ikonu.
+        ///   Looks up a localized string similar to Remove icon.
         /// </summary>
         internal static string ClassifierControl_RemoveIcon {
             get {
@@ -583,7 +782,7 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Přidať položku.
+        ///   Looks up a localized string similar to Add item.
         /// </summary>
         internal static string ClassifiersControl_AddItem {
             get {
@@ -592,7 +791,7 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Kód.
+        ///   Looks up a localized string similar to Code.
         /// </summary>
         internal static string ClassifiersControl_ColumnCode {
             get {
@@ -601,7 +800,7 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Ikona.
+        ///   Looks up a localized string similar to Icon.
         /// </summary>
         internal static string ClassifiersControl_ColumnIcon {
             get {
@@ -610,7 +809,7 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Název.
+        ///   Looks up a localized string similar to Name.
         /// </summary>
         internal static string ClassifiersControl_ColumnName {
             get {
@@ -619,7 +818,7 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Poznámka.
+        ///   Looks up a localized string similar to Notes.
         /// </summary>
         internal static string ClassifiersControl_ColumnNotes {
             get {
@@ -628,7 +827,7 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Společné číselníky.
+        ///   Looks up a localized string similar to Common Classifiers.
         /// </summary>
         internal static string ClassifiersPage_CommonGroup {
             get {
@@ -637,7 +836,7 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Doplnení kreditu uživatele.
+        ///   Looks up a localized string similar to Adding user credit.
         /// </summary>
         internal static string Classifier_ProvidedService_AddingCredit {
             get {
@@ -646,7 +845,7 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Doplnení kreditu uživatele.
+        ///   Looks up a localized string similar to Adding user credit.
         /// </summary>
         internal static string Classifier_ProvidedService_AddingCredit_Description {
             get {
@@ -655,7 +854,7 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Kontaktovat poradce.
+        ///   Looks up a localized string similar to Contact Advisor.
         /// </summary>
         internal static string ContactAdvisor {
             get {
@@ -664,7 +863,7 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Pokračovat.
+        ///   Looks up a localized string similar to Continue.
         /// </summary>
         internal static string ContinueButton_Text {
             get {
@@ -764,7 +963,7 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to dní.
+        ///   Looks up a localized string similar to days.
         /// </summary>
         internal static string Days {
             get {
@@ -773,7 +972,7 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Skutečne si přejete vymazat tento záznam?.
+        ///   Looks up a localized string similar to Do you really want to delete the selected item ?.
         /// </summary>
         internal static string DeleteItemQuestion {
             get {
@@ -782,7 +981,7 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Upravit.
+        ///   Looks up a localized string similar to Edit.
         /// </summary>
         internal static string EditButton_Text {
             get {
@@ -791,7 +990,352 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Vyhledávání poradce.
+        ///   Looks up a localized string similar to Na email jsme Vám právě zaslali ověřovací odkaz. Prokliknutím tohoto odkazu dokončíte registraci a můžete pokračovat v objednávce..
+        /// </summary>
+        internal static string EmailVerifyControl_AnonymousEmailSended_Message {
+            get {
+                return ResourceManager.GetString("EmailVerifyControl_AnonymousEmailSended_Message", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Změnit heslo a dokončit ověření.
+        /// </summary>
+        internal static string EmailVerifyControl_DokoncitOvereni {
+            get {
+                return ResourceManager.GetString("EmailVerifyControl_DokoncitOvereni", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Zadejte email pro ověření:.
+        /// </summary>
+        internal static string EmailVerifyControl_Email {
+            get {
+                return ResourceManager.GetString("EmailVerifyControl_Email", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Váš email s ověřovacím odkazem se poté stane i Vaším přihlašovacím jménem..
+        /// </summary>
+        internal static string EmailVerifyControl_EmailDescriptionBottom {
+            get {
+                return ResourceManager.GetString("EmailVerifyControl_EmailDescriptionBottom", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Pro zabezpečení Vašeho zákaznického účtu Eurona, prosím, zadejte Vaši platnou emailovou adresu. Vaše emailová adresa se stane Vaším novým jedinečným přihlašovacím jménem k zákaznickému účtu. Uvedenou emailovou adresu nelze zadat pro více zákaznických účtů!.
+        /// </summary>
+        internal static string EmailVerifyControl_EmailDescriptionTop {
+            get {
+                return ResourceManager.GetString("EmailVerifyControl_EmailDescriptionTop", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Na Vaši emailovou adresu byl úspěšně odeslán ověřovací odkaz. Pro dokončení ověření klikněte na odkaz v emailu. Děkujeme..
+        /// </summary>
+        internal static string EmailVerifyControl_EmailSended_Message {
+            get {
+                return ResourceManager.GetString("EmailVerifyControl_EmailSended_Message", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Tento mail je již ověřený k jinému účtu..
+        /// </summary>
+        internal static string EmailVerifyControl_EmailValidation_EmailJeJizOveren {
+            get {
+                return ResourceManager.GetString("EmailVerifyControl_EmailValidation_EmailJeJizOveren", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Vami zadaný Email se v systému nenachází!.
+        /// </summary>
+        internal static string EmailVerifyControl_EmailValidation_EmailNeexituje {
+            get {
+                return ResourceManager.GetString("EmailVerifyControl_EmailValidation_EmailNeexituje", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Nesprávný formát emailu..
+        /// </summary>
+        internal static string EmailVerifyControl_EmailValidation_NespravnyFormat {
+            get {
+                return ResourceManager.GetString("EmailVerifyControl_EmailValidation_NespravnyFormat", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Ověření z jiného zařízení! Ověření prosím dokončete na zařízení na kterém bylo započato..
+        /// </summary>
+        internal static string EmailVerifyControl_EmailValidation_OvereniZJinehoZarizeni {
+            get {
+                return ResourceManager.GetString("EmailVerifyControl_EmailValidation_OvereniZJinehoZarizeni", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Dekujeme! Váš účet byl ověřen. Tlačitkem pokračovat budete přesměrováni do své kanceláře poradce. .
+        /// </summary>
+        internal static string EmailVerifyControl_EmailValidation_UcetJeJizOverenPokracovat {
+            get {
+                return ResourceManager.GetString("EmailVerifyControl_EmailValidation_UcetJeJizOverenPokracovat", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Váš email se nepodařilo ověřit! Zkuste ověření opakovat později..
+        /// </summary>
+        internal static string EmailVerifyControl_EmailVerifiedFailed_Message {
+            get {
+                return ResourceManager.GetString("EmailVerifyControl_EmailVerifiedFailed_Message", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Odeslat znovu.
+        /// </summary>
+        internal static string EmailVerifyControl_OdeslatZnovu {
+            get {
+                return ResourceManager.GetString("EmailVerifyControl_OdeslatZnovu", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Opakovat.
+        /// </summary>
+        internal static string EmailVerifyControl_Opakovat {
+            get {
+                return ResourceManager.GetString("EmailVerifyControl_Opakovat", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Ověřit.
+        /// </summary>
+        internal static string EmailVerifyControl_OveritEmail {
+            get {
+                return ResourceManager.GetString("EmailVerifyControl_OveritEmail", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Nyní prosím zvolte nové, bezpečné heslo:.
+        /// </summary>
+        internal static string EmailVerifyControl_Password {
+            get {
+                return ResourceManager.GetString("EmailVerifyControl_Password", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to S vědomím nejvyšší bezpečnosti Vašich osobních údajů klademe důraz na důslednou ochranu veškerých informací. Přihlašovací údaje, prosím, uchovávejte v diskrétnosti..
+        /// </summary>
+        internal static string EmailVerifyControl_PasswordDescriptionBottom {
+            get {
+                return ResourceManager.GetString("EmailVerifyControl_PasswordDescriptionBottom", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Nyní prosím zvolte nové, bezpečné heslo..
+        /// </summary>
+        internal static string EmailVerifyControl_PasswordDescriptionTop {
+            get {
+                return ResourceManager.GetString("EmailVerifyControl_PasswordDescriptionTop", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Vámi zadané heslo nesplňuje bezpečnostní podmínky. Musí být min. 6 místné s obsahem min. 1 velké písmeno, 1 malé písmeno a 1 číslici..
+        /// </summary>
+        internal static string EmailVerifyControl_PasswordErrorMessage {
+            get {
+                return ResourceManager.GetString("EmailVerifyControl_PasswordErrorMessage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Zopakovat heslo:.
+        /// </summary>
+        internal static string EmailVerifyControl_PasswordRepeat {
+            get {
+                return ResourceManager.GetString("EmailVerifyControl_PasswordRepeat", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Heslo a opakované heslo se neshodují!.
+        /// </summary>
+        internal static string EmailVerifyControl_PasswordRepeatErrorMessage {
+            get {
+                return ResourceManager.GetString("EmailVerifyControl_PasswordRepeatErrorMessage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Pokračovat.
+        /// </summary>
+        internal static string EmailVerifyControl_Pokracovat {
+            get {
+                return ResourceManager.GetString("EmailVerifyControl_Pokracovat", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Váš email se nepodařilo ověřit! Zkuste to prosím znova, případně kontaktujte naše obchodní oddělení na +420 491 477 361 nebo prodej@eurona.cz..
+        /// </summary>
+        internal static string EmailVerifyControl_SendingEmailError_Message {
+            get {
+                return ResourceManager.GetString("EmailVerifyControl_SendingEmailError_Message", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Na Vámi zadanou emailovou adresu se právě odesílá ověřovací odkaz, prosím čekejte….
+        /// </summary>
+        internal static string EmailVerifyControl_SendingEmail_Message {
+            get {
+                return ResourceManager.GetString("EmailVerifyControl_SendingEmail_Message", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to OVĚŘENÍ ÚČTU.
+        /// </summary>
+        internal static string EmailVerifyControl_Title {
+            get {
+                return ResourceManager.GetString("EmailVerifyControl_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Dobrý den,&lt;br/&gt;&lt;br/&gt;
+        ///pro ověření Vašeho nového zákaznického účtu Eurona s registračním číslem &lt;b&gt;{0}&lt;/b&gt; a přihlašovacím jménem &lt;b&gt;{1}&lt;/b&gt; prosím klikněte na následující odkaz, který Vás přesměruje na stránky Eurona by Cerny a ověří Vaši registraci.
+        ///&lt;br/&gt;&lt;br/&gt;
+        ///&lt;a href=&apos;{2}&apos;&gt;{2}&lt;/a&gt;
+        ///&lt;br/&gt;&lt;br/&gt;
+        ///Pokud se po kliknutí na odkaz nic neděje, označte jej kurzorem a zároveň pomocí kombinace kláves Ctrl+C zkopírujte a pomocí Ctrl+V vložte odkaz do adresního řádku internetového prohlížeče a potvrďte klávesou Enter [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string EmailVerifyControl_UserVerificationEmail_AnonymousMessage {
+            get {
+                return ResourceManager.GetString("EmailVerifyControl_UserVerificationEmail_AnonymousMessage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to OVĚŘENÍ REGISTRACE EURONA.
+        /// </summary>
+        internal static string EmailVerifyControl_UserVerificationEmail_AnonymousSubject {
+            get {
+                return ResourceManager.GetString("EmailVerifyControl_UserVerificationEmail_AnonymousSubject", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Dobrý den,&lt;br/&gt;&lt;br/&gt;
+        ///pro ověření Vašeho zákaznického účtu Eurona s registračním číslem {0} a dosavadním přihlašovacím jménem {1} prosím klikněte na následující odkaz, který Vás přesměruje na stránky Eurona by Cerny a vyzve k zadání nového hesla. Po dokončení ověření se Vaším přihlašovacím jménem stane nově zvolený ověřený email.
+        ///&lt;br/&gt;&lt;br/&gt;
+        ///&lt;a href=&apos;{2}&apos;&gt;{2}&lt;/a&gt;
+        ///&lt;br/&gt;&lt;br/&gt;
+        ///Pokud se po kliknutí na odkaz nic neděje, označte jej kurzorem a zároveň pomocí kombinace kláves Ctrl+C zkopírujte a pomocí Ctrl+V v [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string EmailVerifyControl_UserVerificationEmail_Message {
+            get {
+                return ResourceManager.GetString("EmailVerifyControl_UserVerificationEmail_Message", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to OVĚŘENÍ ÚČTU EURONA.
+        /// </summary>
+        internal static string EmailVerifyControl_UserVerificationEmail_Subject {
+            get {
+                return ResourceManager.GetString("EmailVerifyControl_UserVerificationEmail_Subject", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to OVĚŘENÍ ÚČTU EURONA DOKONČENO.
+        /// </summary>
+        internal static string EmailVerifyControl_UserVerificationFinishEmail_Subject {
+            get {
+                return ResourceManager.GetString("EmailVerifyControl_UserVerificationFinishEmail_Subject", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Děkujeme, &lt;br/&gt;&lt;br/&gt;
+        ///ověření Vašeho zákaznického účtu je dokončeno.
+        ///&lt;br/&gt;&lt;br/&gt;
+        ///Zapamatujte si, prosím, Vaše nové přihlašovací údaje:&lt;br/&gt;
+        ///Přihlašovací jméno: {0} a Vaše nové heslo.
+        ///&lt;br/&gt;&lt;br/&gt;
+        ///Nyní můžete pokračovat na naše stránky: https://euronabycerny.com/.
+        ///&lt;br/&gt;&lt;br/&gt;
+        ///S přáním příjemného dne,&lt;br/&gt;
+        ///Tým Eurona..
+        /// </summary>
+        internal static string EmailVerifyControl_UserVerificationFinish_Message {
+            get {
+                return ResourceManager.GetString("EmailVerifyControl_UserVerificationFinish_Message", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Zapamatujte si, prosím, Vaše nové přihlašovací údaje:
+        ///Přihlašovací jméno: {0}
+        ///Heslo: zvolené v předchozím kroku.
+        /// </summary>
+        internal static string EmailVerifyControl_VerifycationSuccessFinish_Message {
+            get {
+                return ResourceManager.GetString("EmailVerifyControl_VerifycationSuccessFinish_Message", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Děkujeme, právě jste dokončil/a ověření Vašeho zákaznického účtu!.
+        /// </summary>
+        internal static string EmailVerifyControl_VerifycationSuccessFinish_Title {
+            get {
+                return ResourceManager.GetString("EmailVerifyControl_VerifycationSuccessFinish_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to První část ověření splněna!.
+        /// </summary>
+        internal static string EmailVerifyControl_VerifycationSuccessStep1_Title {
+            get {
+                return ResourceManager.GetString("EmailVerifyControl_VerifycationSuccessStep1_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Právě probíhá ověření Vašeho emailu, vyčkejte prosím na přesměrování..
+        /// </summary>
+        internal static string EmailVerifyControl_VerifyingEmail_Message {
+            get {
+                return ResourceManager.GetString("EmailVerifyControl_VerifyingEmail_Message", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Pokračovat bez přihlášení.
+        /// </summary>
+        internal static string EmailVerifyControl_ZrusitOvereni {
+            get {
+                return ResourceManager.GetString("EmailVerifyControl_ZrusitOvereni", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Find advisor.
         /// </summary>
         internal static string FindAdvisor {
             get {
@@ -800,7 +1344,7 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Adresa.
+        ///   Looks up a localized string similar to Address.
         /// </summary>
         internal static string FindAdvisorControl_ColumnAddress {
             get {
@@ -809,7 +1353,7 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Mobil.
+        ///   Looks up a localized string similar to Mobile.
         /// </summary>
         internal static string FindAdvisorControl_ColumnMobile {
             get {
@@ -818,7 +1362,7 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Jméno.
+        ///   Looks up a localized string similar to Name.
         /// </summary>
         internal static string FindAdvisorControl_ColumnName {
             get {
@@ -827,7 +1371,7 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Telefon.
+        ///   Looks up a localized string similar to Phone.
         /// </summary>
         internal static string FindAdvisorControl_ColumnPhone {
             get {
@@ -836,7 +1380,44 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Obsah fóra.
+        ///   Looks up a localized string similar to Dobrý den,
+        ///&lt;br/&gt;&lt;br/&gt;
+        ///Vaše přihlašovací jméno je: &lt;b&gt;{0}&lt;/b&gt;
+        ///&lt;br/&gt;&lt;br/&gt;
+        ///pro zadání nového hesla k Vašemu zákaznickému účtu Eurona prosím klikněte na následující odkaz, který Vás přesměruje na stránky Eurona by Cerny a vyzve k zadání nového hesla. 
+        ///&lt;br/&gt;&lt;br/&gt;
+        ///&lt;a href=&apos;{1}&apos;&gt;{1}&lt;/a&gt;
+        ///&lt;br/&gt;&lt;br/&gt;
+        ///Zvolte si, prosím, bezpečné, alespoň 6 místné heslo, které bude obsahovat minimálně jedno velké písmeno, jedno malé písmeno a alespoň jednu číslici. 
+        ///&lt;br/&gt;&lt;br/&gt;
+        ///Pokud se po kliknutí na odkaz nic neděje, označte [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string ForgotPasswordControl_Email_ForgotPassword_Message {
+            get {
+                return ResourceManager.GetString("ForgotPasswordControl_Email_ForgotPassword_Message", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Váš email:.
+        /// </summary>
+        internal static string ForgotPasswordControl_Email_Label {
+            get {
+                return ResourceManager.GetString("ForgotPasswordControl_Email_Label", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Pro pokračování klikněte na odkaz ve Vašem emailu!.
+        /// </summary>
+        internal static string ForgotPasswordControl_Finish {
+            get {
+                return ResourceManager.GetString("ForgotPasswordControl_Finish", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Forum Content.
         /// </summary>
         internal static string Forums_ForumContent {
             get {
@@ -845,7 +1426,7 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Vymazat položku.
+        ///   Looks up a localized string similar to Delete item.
         /// </summary>
         internal static string GridView_ToolTip_DeleteItem {
             get {
@@ -854,7 +1435,7 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Zobraziť položku.
+        ///   Looks up a localized string similar to Display item.
         /// </summary>
         internal static string GridView_ToolTip_DisplayItem {
             get {
@@ -863,7 +1444,7 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Upravit položku.
+        ///   Looks up a localized string similar to Edit item.
         /// </summary>
         internal static string GridView_ToolTip_EditItem {
             get {
@@ -872,7 +1453,7 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Poradce :.
+        ///   Looks up a localized string similar to Advisor :.
         /// </summary>
         internal static string HostLogin_Advisor {
             get {
@@ -881,7 +1462,7 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Poradce.
+        ///   Looks up a localized string similar to Advisor.
         /// </summary>
         internal static string HostLogin_AdvisorLabel {
             get {
@@ -890,7 +1471,7 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Město.
+        ///   Looks up a localized string similar to City.
         /// </summary>
         internal static string HostLogin_CityLabel {
             get {
@@ -899,7 +1480,7 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Kraj.
+        ///   Looks up a localized string similar to District.
         /// </summary>
         internal static string HostLogin_DistrictLabel {
             get {
@@ -908,7 +1489,7 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Najít poradce.
+        ///   Looks up a localized string similar to Find Advisor.
         /// </summary>
         internal static string HostLogin_FindAdvisor_ButtonText {
             get {
@@ -917,7 +1498,7 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Přihlásit.
+        ///   Looks up a localized string similar to Login.
         /// </summary>
         internal static string HostLogin_Login {
             get {
@@ -926,7 +1507,7 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Příjmení  a jméno :.
+        ///   Looks up a localized string similar to First Name and Last Name :.
         /// </summary>
         internal static string HostLogin_Name {
             get {
@@ -935,7 +1516,7 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Heslo :.
+        ///   Looks up a localized string similar to Password :.
         /// </summary>
         internal static string HostLogin_Password {
             get {
@@ -944,7 +1525,7 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Hledat dle jména poradce.
+        ///   Looks up a localized string similar to Please enter advisor name.
         /// </summary>
         internal static string HostLogin_PleaseEneterAdvisor {
             get {
@@ -953,7 +1534,7 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Hledat dle kódu poradce.
+        ///   Looks up a localized string similar to Please enter advisor code.
         /// </summary>
         internal static string HostLogin_PleaseEneterAdvisorCode {
             get {
@@ -962,7 +1543,7 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Hledat dle města.
+        ///   Looks up a localized string similar to Please enter City.
         /// </summary>
         internal static string HostLogin_PleaseEneterCity {
             get {
@@ -971,7 +1552,7 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Hledat dle kódu oblasti.
+        ///   Looks up a localized string similar to Please enter region code.
         /// </summary>
         internal static string HostLogin_PleaseEneterRegionCode {
             get {
@@ -980,7 +1561,7 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Okres.
+        ///   Looks up a localized string similar to Region.
         /// </summary>
         internal static string HostLogin_RegionLabel {
             get {
@@ -989,7 +1570,7 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Stát.
+        ///   Looks up a localized string similar to State.
         /// </summary>
         internal static string HostLogin_StateLabel {
             get {
@@ -998,7 +1579,7 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to PSČ.
+        ///   Looks up a localized string similar to Zip.
         /// </summary>
         internal static string HostLogin_ZipLabel {
             get {
@@ -1007,16 +1588,7 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Jen moje skupina.
-        /// </summary>
-        internal static string JenMojeSkupina {
-            get {
-                return ResourceManager.GetString("JenMojeSkupina", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to » Pokračujte v registraci.
+        ///   Looks up a localized string similar to » Continue in registration.
         /// </summary>
         internal static string LogedHostControl_ContinueInRegistration {
             get {
@@ -1025,7 +1597,7 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Vážený(á) pane/paní.
+        ///   Looks up a localized string similar to Dear mr/ms.
         /// </summary>
         internal static string LogedHostControl_Welcome {
             get {
@@ -1034,7 +1606,7 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Jste přihlášený(á) jako host.
+        ///   Looks up a localized string similar to You are loged as Host.
         /// </summary>
         internal static string LogedHostControl_YouAreLogedAsHost {
             get {
@@ -1043,7 +1615,7 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Zapomenuté heslo.
+        ///   Looks up a localized string similar to Forgot password.
         /// </summary>
         internal static string LoginControl_ForgotPasswordButton {
             get {
@@ -1052,7 +1624,7 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Přihlásit.
+        ///   Looks up a localized string similar to OK.
         /// </summary>
         internal static string LoginControl_LoginButton {
             get {
@@ -1061,7 +1633,7 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Přihlášení.
+        ///   Looks up a localized string similar to Login.
         /// </summary>
         internal static string LoginControl_LoginHeaderLabel {
             get {
@@ -1070,7 +1642,7 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Přihlašovací jméno.
+        ///   Looks up a localized string similar to Login.
         /// </summary>
         internal static string LoginControl_LoginLabel {
             get {
@@ -1079,7 +1651,7 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Odhlásit.
+        ///   Looks up a localized string similar to Logout.
         /// </summary>
         internal static string LoginControl_LogoutButton {
             get {
@@ -1088,7 +1660,7 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Heslo.
+        ///   Looks up a localized string similar to Password.
         /// </summary>
         internal static string LoginControl_PasswordLabel {
             get {
@@ -1097,7 +1669,7 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Vitejte.
+        ///   Looks up a localized string similar to Welcome.
         /// </summary>
         internal static string LoginControl_Welcome {
             get {
@@ -1106,7 +1678,7 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Váš aktuální kredit je  &lt;b&gt;{0}&lt;/b&gt;.
+        ///   Looks up a localized string similar to Your current credit si &lt;b&gt;{0}&lt;/b&gt;.
         /// </summary>
         internal static string LoginControl_YourCurrentCreditIs {
             get {
@@ -1115,7 +1687,16 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Profil uživatele.
+        ///   Looks up a localized string similar to Current cars offer.
+        /// </summary>
+        internal static string MasterPage_CurrentCarsOffer {
+            get {
+                return ResourceManager.GetString("MasterPage_CurrentCarsOffer", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Users profile.
         /// </summary>
         internal static string Navigation_AccountProfile {
             get {
@@ -1124,7 +1705,7 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Přidání kreditu uživatele.
+        ///   Looks up a localized string similar to Account credit adding.
         /// </summary>
         internal static string Navigation_AddAccountCredit {
             get {
@@ -1133,7 +1714,7 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Administrace.
+        ///   Looks up a localized string similar to Administration.
         /// </summary>
         internal static string Navigation_Administration {
             get {
@@ -1160,7 +1741,7 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Archiv článků.
+        ///   Looks up a localized string similar to Archived articles.
         /// </summary>
         internal static string Navigation_ArchivedArticles {
             get {
@@ -1169,7 +1750,7 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Archiv blogů.
+        ///   Looks up a localized string similar to Blogs archiv.
         /// </summary>
         internal static string Navigation_ArchivedBlogs {
             get {
@@ -1178,7 +1759,7 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Archiv novinek.
+        ///   Looks up a localized string similar to Archived News.
         /// </summary>
         internal static string Navigation_ArchivedNews {
             get {
@@ -1187,7 +1768,7 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Článek.
+        ///   Looks up a localized string similar to Article.
         /// </summary>
         internal static string Navigation_Article {
             get {
@@ -1196,7 +1777,7 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Komentáře k článku.
+        ///   Looks up a localized string similar to Article comments.
         /// </summary>
         internal static string Navigation_ArticleComments {
             get {
@@ -1205,11 +1786,29 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Články.
+        ///   Looks up a localized string similar to Articles.
         /// </summary>
         internal static string Navigation_Articles {
             get {
                 return ResourceManager.GetString("Navigation_Articles", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Auction.
+        /// </summary>
+        internal static string Navigation_Auction {
+            get {
+                return ResourceManager.GetString("Navigation_Auction", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Auctions.
+        /// </summary>
+        internal static string Navigation_Auctions {
+            get {
+                return ResourceManager.GetString("Navigation_Auctions", resourceCulture);
             }
         }
         
@@ -1223,7 +1822,7 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Komentáře.
+        ///   Looks up a localized string similar to Comments.
         /// </summary>
         internal static string Navigation_BlogComments {
             get {
@@ -1232,7 +1831,7 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Blogy.
+        ///   Looks up a localized string similar to Blogs.
         /// </summary>
         internal static string Navigation_Blogs {
             get {
@@ -1241,7 +1840,7 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Změna hesla.
+        ///   Looks up a localized string similar to Chage Password.
         /// </summary>
         internal static string Navigation_ChangePassword {
             get {
@@ -1250,7 +1849,7 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Číselníky.
+        ///   Looks up a localized string similar to Classifiers.
         /// </summary>
         internal static string Navigation_Classifiers {
             get {
@@ -1259,7 +1858,7 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Kategorie článků.
+        ///   Looks up a localized string similar to Article categories.
         /// </summary>
         internal static string Navigation_Classifier_ArticleCategories {
             get {
@@ -1268,7 +1867,7 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Kategoria článku.
+        ///   Looks up a localized string similar to Article category.
         /// </summary>
         internal static string Navigation_Classifier_ArticleCategory {
             get {
@@ -1277,7 +1876,7 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Placená služba.
+        ///   Looks up a localized string similar to Paid service.
         /// </summary>
         internal static string Navigation_Classifier_PaidService {
             get {
@@ -1286,7 +1885,7 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Placené služby.
+        ///   Looks up a localized string similar to Paid services.
         /// </summary>
         internal static string Navigation_Classifier_Paidservices {
             get {
@@ -1295,7 +1894,7 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Jazyk.
+        ///   Looks up a localized string similar to Locale.
         /// </summary>
         internal static string Navigation_Classifier_SupportedLocale {
             get {
@@ -1304,7 +1903,7 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Podporované jazyky.
+        ///   Looks up a localized string similar to Supported locales.
         /// </summary>
         internal static string Navigation_Classifier_SupportedLocales {
             get {
@@ -1313,7 +1912,7 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Prefix url aliasu.
+        ///   Looks up a localized string similar to Url Alias prefix.
         /// </summary>
         internal static string Navigation_Classifier_UrlAliasPrefix {
             get {
@@ -1322,7 +1921,7 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Prefixy url aliasů.
+        ///   Looks up a localized string similar to Url Alias prefixes.
         /// </summary>
         internal static string Navigation_Classifier_UrlAliasPrefixes {
             get {
@@ -1331,11 +1930,20 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Kontaktní formulář.
+        ///   Looks up a localized string similar to Contact form.
         /// </summary>
         internal static string Navigation_ContactForm {
             get {
                 return ResourceManager.GetString("Navigation_ContactForm", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Customer.
+        /// </summary>
+        internal static string Navigation_Customer {
+            get {
+                return ResourceManager.GetString("Navigation_Customer", resourceCulture);
             }
         }
         
@@ -1349,7 +1957,16 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Informace o možnosti doručování balíku.
+        ///   Looks up a localized string similar to Dealer.
+        /// </summary>
+        internal static string Navigation_Dealer {
+            get {
+                return ResourceManager.GetString("Navigation_Dealer", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Information about the ability to deliver package.
         /// </summary>
         internal static string Navigation_DPD_InformaceOMoznostiDoruceni {
             get {
@@ -1358,7 +1975,7 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Nedoručená zásilka.
+        ///   Looks up a localized string similar to Undelivered consignment.
         /// </summary>
         internal static string Navigation_DPD_NedorucenaZasilka {
             get {
@@ -1367,7 +1984,7 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Online čas doručení.
+        ///   Looks up a localized string similar to Online Time Delivery.
         /// </summary>
         internal static string Navigation_DPD_OnlineCasDoruceni {
             get {
@@ -1376,11 +1993,20 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Sledování zásilky.
+        ///   Looks up a localized string similar to Shipment Tracking.
         /// </summary>
         internal static string Navigation_DPD_SledovaniZasilky {
             get {
                 return ResourceManager.GetString("Navigation_DPD_SledovaniZasilky", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to entrepreneur.
+        /// </summary>
+        internal static string Navigation_Entrepreneur {
+            get {
+                return ResourceManager.GetString("Navigation_Entrepreneur", resourceCulture);
             }
         }
         
@@ -1403,7 +2029,7 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Fórum.
+        ///   Looks up a localized string similar to Forum theme.
         /// </summary>
         internal static string Navigation_Forum {
             get {
@@ -1412,7 +2038,7 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Fórum příspěvek.
+        ///   Looks up a localized string similar to Forum post.
         /// </summary>
         internal static string Navigation_ForumPost {
             get {
@@ -1421,7 +2047,7 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Fórum příspěvky.
+        ///   Looks up a localized string similar to Forum posts.
         /// </summary>
         internal static string Navigation_ForumPosts {
             get {
@@ -1430,7 +2056,7 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Fórum.
+        ///   Looks up a localized string similar to Forums.
         /// </summary>
         internal static string Navigation_Forums {
             get {
@@ -1439,7 +2065,7 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Fórum kategorie.
+        ///   Looks up a localized string similar to Forum category.
         /// </summary>
         internal static string Navigation_ForumThread {
             get {
@@ -1448,7 +2074,7 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Fórum kategorie.
+        ///   Looks up a localized string similar to Forum categories.
         /// </summary>
         internal static string Navigation_ForumThreads {
             get {
@@ -1484,7 +2110,7 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Galérie obrázků.
+        ///   Looks up a localized string similar to Image galleries.
         /// </summary>
         internal static string Navigation_ImageGalleries {
             get {
@@ -1493,7 +2119,7 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Galéria obrázků.
+        ///   Looks up a localized string similar to Image gallery.
         /// </summary>
         internal static string Navigation_ImageGallery {
             get {
@@ -1502,7 +2128,7 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Komentráře galérie obrázků.
+        ///   Looks up a localized string similar to Image gallerz comments.
         /// </summary>
         internal static string Navigation_ImageGalleryComments {
             get {
@@ -1511,7 +2137,7 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Komentáře obrázku.
+        ///   Looks up a localized string similar to Image comments.
         /// </summary>
         internal static string Navigation_ImageGalleryItemComments {
             get {
@@ -1520,16 +2146,7 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Faktúry.
-        /// </summary>
-        internal static string Navigation_Invoices {
-            get {
-                return ResourceManager.GetString("Navigation_Invoices", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Položka menu.
+        ///   Looks up a localized string similar to Menu.
         /// </summary>
         internal static string Navigation_Menu {
             get {
@@ -1538,7 +2155,7 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Menu.
+        ///   Looks up a localized string similar to Menus.
         /// </summary>
         internal static string Navigation_Menus {
             get {
@@ -1547,7 +2164,7 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Moje konto.
+        ///   Looks up a localized string similar to My Account.
         /// </summary>
         internal static string Navigation_MyAccount {
             get {
@@ -1556,7 +2173,16 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Moje kancelář.
+        ///   Looks up a localized string similar to My Invoices.
+        /// </summary>
+        internal static string Navigation_MyInvoices {
+            get {
+                return ResourceManager.GetString("Navigation_MyInvoices", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to My Office.
         /// </summary>
         internal static string Navigation_MyOffice {
             get {
@@ -1574,7 +2200,7 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Můj profil.
+        ///   Looks up a localized string similar to My profile.
         /// </summary>
         internal static string Navigation_MyProfile {
             get {
@@ -1583,7 +2209,7 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Navigační menu.
+        ///   Looks up a localized string similar to Navigation menu.
         /// </summary>
         internal static string Navigation_NavigationMenu {
             get {
@@ -1592,7 +2218,7 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Navigační podmenu.
+        ///   Looks up a localized string similar to Navigation sub menu.
         /// </summary>
         internal static string Navigation_NavigationMenuItem {
             get {
@@ -1601,7 +2227,7 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Navigační podmenu.
+        ///   Looks up a localized string similar to Navigation sub menus.
         /// </summary>
         internal static string Navigation_NavigationMenuItems {
             get {
@@ -1610,7 +2236,7 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Navigační menu.
+        ///   Looks up a localized string similar to Navigation menus.
         /// </summary>
         internal static string Navigation_NavigationMenus {
             get {
@@ -1619,7 +2245,7 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Noví poradci.
+        ///   Looks up a localized string similar to New Advisors.
         /// </summary>
         internal static string Navigation_NewAdvisors {
             get {
@@ -1628,7 +2254,7 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Aktualita.
+        ///   Looks up a localized string similar to News.
         /// </summary>
         internal static string Navigation_News {
             get {
@@ -1637,7 +2263,7 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Informační buletín.
+        ///   Looks up a localized string similar to Newsletter.
         /// </summary>
         internal static string Navigation_Newsletter {
             get {
@@ -1646,7 +2272,7 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Informačné buletíny.
+        ///   Looks up a localized string similar to Newsletters.
         /// </summary>
         internal static string Navigation_NewsletterList {
             get {
@@ -1655,7 +2281,7 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Seznam noviniek.
+        ///   Looks up a localized string similar to News List.
         /// </summary>
         internal static string Navigation_NewsList {
             get {
@@ -1664,7 +2290,7 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Kancelář.
+        ///   Looks up a localized string similar to Office.
         /// </summary>
         internal static string Navigation_Office {
             get {
@@ -1673,7 +2299,7 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Stránka.
+        ///   Looks up a localized string similar to Page.
         /// </summary>
         internal static string Navigation_Page {
             get {
@@ -1682,7 +2308,7 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Stránky.
+        ///   Looks up a localized string similar to Pages.
         /// </summary>
         internal static string Navigation_Pages {
             get {
@@ -1691,7 +2317,16 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Akční ceník.
+        ///   Looks up a localized string similar to person.
+        /// </summary>
+        internal static string Navigation_Person {
+            get {
+                return ResourceManager.GetString("Navigation_Person", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Action Pricelist.
         /// </summary>
         internal static string Navigation_Podpora_AkcniCenik {
             get {
@@ -1709,7 +2344,7 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Podpora prodeje.
+        ///   Looks up a localized string similar to Sales Support.
         /// </summary>
         internal static string Navigation_Podpora_PodporaProdeje {
             get {
@@ -1718,7 +2353,7 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Prezentační letáky.
+        ///   Looks up a localized string similar to Leaflets Presentation.
         /// </summary>
         internal static string Navigation_Podpora_PrezentacniLetaky {
             get {
@@ -1727,7 +2362,7 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Úspěšný start.
+        ///   Looks up a localized string similar to Successful start.
         /// </summary>
         internal static string Navigation_Podpora_UspesnyStart {
             get {
@@ -1736,7 +2371,7 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Vzdělávání.
+        ///   Looks up a localized string similar to Education.
         /// </summary>
         internal static string Navigation_Podpora_Vzdelavani {
             get {
@@ -1745,7 +2380,7 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Anketa.
+        ///   Looks up a localized string similar to Poll.
         /// </summary>
         internal static string Navigation_Poll {
             get {
@@ -1754,7 +2389,7 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Možnost ankety.
+        ///   Looks up a localized string similar to Poll Option.
         /// </summary>
         internal static string Navigation_PollOption {
             get {
@@ -1763,7 +2398,7 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Možnosti ankety.
+        ///   Looks up a localized string similar to Poll Options.
         /// </summary>
         internal static string Navigation_PollOptions {
             get {
@@ -1772,7 +2407,7 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Ankety.
+        ///   Looks up a localized string similar to Polls.
         /// </summary>
         internal static string Navigation_Polls {
             get {
@@ -1781,7 +2416,7 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Výrobky.
+        ///   Looks up a localized string similar to Products.
         /// </summary>
         internal static string Navigation_Products {
             get {
@@ -1790,7 +2425,7 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Virtuální katalog.
+        ///   Looks up a localized string similar to Products catalog.
         /// </summary>
         internal static string Navigation_ProductsCatalog {
             get {
@@ -1799,11 +2434,29 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Registrace.
+        ///   Looks up a localized string similar to Registration.
         /// </summary>
         internal static string Navigation_Registration {
             get {
                 return ResourceManager.GetString("Navigation_Registration", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Customer registration.
+        /// </summary>
+        internal static string Navigation_RegistrationCustomer {
+            get {
+                return ResourceManager.GetString("Navigation_RegistrationCustomer", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Registration finished!.
+        /// </summary>
+        internal static string Navigation_RegistrationFinishedMessage {
+            get {
+                return ResourceManager.GetString("Navigation_RegistrationFinishedMessage", resourceCulture);
             }
         }
         
@@ -1817,7 +2470,7 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Role.
+        ///   Looks up a localized string similar to Roles.
         /// </summary>
         internal static string Navigation_Roles {
             get {
@@ -1826,7 +2479,7 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Výsledek vyhledávání.
+        ///   Looks up a localized string similar to Search Result.
         /// </summary>
         internal static string Navigation_SearchResult {
             get {
@@ -1844,7 +2497,7 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Tagy.
+        ///   Looks up a localized string similar to Tags.
         /// </summary>
         internal static string Navigation_Tags {
             get {
@@ -1862,7 +2515,7 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to URL Aliasy.
+        ///   Looks up a localized string similar to URL Aliases.
         /// </summary>
         internal static string Navigation_UrlAliases {
             get {
@@ -1871,7 +2524,7 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Uživatel.
+        ///   Looks up a localized string similar to User.
         /// </summary>
         internal static string Navigation_User {
             get {
@@ -1880,7 +2533,7 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Uživatelé.
+        ///   Looks up a localized string similar to Users.
         /// </summary>
         internal static string Navigation_Users {
             get {
@@ -1889,7 +2542,7 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Adresa.
+        ///   Looks up a localized string similar to Address.
         /// </summary>
         internal static string NewAdvisorsControl_ColumnAddress {
             get {
@@ -1907,7 +2560,7 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Do odeslání reg. formuláře zbývá.
+        ///   Looks up a localized string similar to To verification left.
         /// </summary>
         internal static string NewAdvisorsControl_ColumnLeftToVerification {
             get {
@@ -1916,7 +2569,7 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Mobil.
+        ///   Looks up a localized string similar to Mobile.
         /// </summary>
         internal static string NewAdvisorsControl_ColumnMobile {
             get {
@@ -1925,7 +2578,7 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Název.
+        ///   Looks up a localized string similar to Name.
         /// </summary>
         internal static string NewAdvisorsControl_ColumnName {
             get {
@@ -1934,7 +2587,7 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Do odeslání Vašeho registračního formuláře zbývá :.
+        ///   Looks up a localized string similar to Remining days to recieve required docs :.
         /// </summary>
         internal static string NotVerifiedTimeSpanUserMessage {
             get {
@@ -1943,7 +2596,7 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Datum dodání od :.
+        ///   Looks up a localized string similar to Shipment from :.
         /// </summary>
         internal static string OrderControl_ShipmentFrom {
             get {
@@ -1952,7 +2605,7 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Datum dodání do :.
+        ///   Looks up a localized string similar to Shipment to :.
         /// </summary>
         internal static string OrderControl_ShipmentTo {
             get {
@@ -1970,7 +2623,7 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Souhlasím z obchodními podmínkami.
+        ///   Looks up a localized string similar to Accept terms and conditions.
         /// </summary>
         internal static string RegisterControl_AcceptTermsAndConditions {
             get {
@@ -1979,7 +2632,7 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Konto již existuje!.
+        ///   Looks up a localized string similar to Account already exists!.
         /// </summary>
         internal static string RegisterControl_AccountAlreadyExists {
             get {
@@ -1988,7 +2641,7 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Poradce :.
+        ///   Looks up a localized string similar to Advisor :.
         /// </summary>
         internal static string RegisterControl_AdvisorLabel {
             get {
@@ -1997,7 +2650,7 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Pokračovat.
+        ///   Looks up a localized string similar to Continue.
         /// </summary>
         internal static string RegisterControl_ContinueButton {
             get {
@@ -2015,7 +2668,7 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Přihlašovací jméno :.
+        ///   Looks up a localized string similar to Login :.
         /// </summary>
         internal static string RegisterControl_LoginLabel {
             get {
@@ -2024,7 +2677,7 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Kontrola hesla :.
+        ///   Looks up a localized string similar to Confirm Password :.
         /// </summary>
         internal static string RegisterControl_PasswordConfirmLabel {
             get {
@@ -2033,7 +2686,7 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Heslo :.
+        ///   Looks up a localized string similar to Password :.
         /// </summary>
         internal static string RegisterControl_PasswordLabel {
             get {
@@ -2042,7 +2695,7 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Obchodní podmínky.
+        ///   Looks up a localized string similar to Terms and conditions.
         /// </summary>
         internal static string RegisterControl_TermsAndConditions {
             get {
@@ -2051,7 +2704,7 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Registrace.
+        ///   Looks up a localized string similar to Registe.
         /// </summary>
         internal static string RegisterControl_Title {
             get {
@@ -2060,7 +2713,7 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Článek.
+        ///   Looks up a localized string similar to Article.
         /// </summary>
         internal static string RSS_ArticleTitle {
             get {
@@ -2069,7 +2722,7 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to EURONA novinky.
+        ///   Looks up a localized string similar to Firma News.
         /// </summary>
         internal static string RSS_NewsTitle {
             get {
@@ -2078,7 +2731,7 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Uložit.
+        ///   Looks up a localized string similar to Save.
         /// </summary>
         internal static string SaveButton_Text {
             get {
@@ -2087,7 +2740,7 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Skutečne si přejete stornovat tuto objednávku?.
+        ///   Looks up a localized string similar to Storno this order ?.
         /// </summary>
         internal static string StornoItemQuestion {
             get {
@@ -2096,7 +2749,7 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Údaje organizace.
+        ///   Looks up a localized string similar to Organization detail.
         /// </summary>
         internal static string UserPage_OrganizationDetail {
             get {
@@ -2105,7 +2758,7 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Osobní údaje uživatele.
+        ///   Looks up a localized string similar to Person detail.
         /// </summary>
         internal static string UserPage_PersonDetail {
             get {
@@ -2114,7 +2767,7 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Právě byl zaregistrován nový uživatel &apos;{1}&apos;. Zkontrolujte uživatele zde: {0}.
+        ///   Looks up a localized string similar to New  user &apos;{1}&apos; is registered. Check user here: {0}.
         /// </summary>
         internal static string UserRegistrationPage_Email2Central_Message {
             get {
@@ -2123,11 +2776,20 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Registrace nového uživatele.
+        ///   Looks up a localized string similar to New user registration.
         /// </summary>
         internal static string UserRegistrationPage_Email2Central_Subject {
             get {
                 return ResourceManager.GetString("UserRegistrationPage_Email2Central_Subject", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        internal static string UserRegistrationPage_Email2Sponsor_Message {
+            get {
+                return ResourceManager.GetString("UserRegistrationPage_Email2Sponsor_Message", resourceCulture);
             }
         }
         
@@ -2142,25 +2804,6 @@ namespace Resources {
         ///			size=&quot;2&quot;&gt;&lt;span style=&quot;FONT-WEIGHT: normal&quot;&gt;
         ///		&lt;span style=&quot;BACKGROUND [rest of string was truncated]&quot;;.
         /// </summary>
-        internal static string UserRegistrationPage_Email2Sponsor_Message {
-            get {
-                return ResourceManager.GetString("UserRegistrationPage_Email2Sponsor_Message", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to &lt;html&gt;
-        ///&lt;body&gt;
-        ///&lt;p&gt;Dobrý den,&lt;/p&gt;
-        ///&lt;p&gt;blahopřejeme, Vaše registrace proběhla úspěšně. Jsme rádi, že jste si pro svůj nákup zvolil/a &lt;br/&gt;právě českou společnost Eurona s.r.o.&lt;/p&gt;
-        ///&lt;p&gt;
-        ///    Vaše přihlašovací jméno: {0}
-        ///    &lt;br /&gt;
-        ///    Heslo:  {1}
-        ///&lt;/p&gt;
-        ///&lt;p&gt;Co Vám můžeme nabídnout? Výhodnější nákupní ceny, odměny, prémie, bonusy, soutěže, &lt;br/&gt;motivační programy, pasivní příjem a mnohem víc.&lt;/p&gt;
-        ///&lt;p&gt;Než Vám doručíme objednaný balíček přímo do Vašich rukou, můžete se přihlásit do své &lt;br/&gt;kanceláře poradce Eu [rest of string was truncated]&quot;;.
-        /// </summary>
         internal static string UserRegistrationPage_Email2User_Message {
             get {
                 return ResourceManager.GetString("UserRegistrationPage_Email2User_Message", resourceCulture);
@@ -2168,7 +2811,7 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Registrace nového uživatele.
+        ///   Looks up a localized string similar to New user registration.
         /// </summary>
         internal static string UserRegistrationPage_Email2User_Subject {
             get {
@@ -2177,7 +2820,7 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Gratulujeme, Vaše registrace je úspěšně ukončena!.
+        ///   Looks up a localized string similar to Congratulation, user registration finished!.
         /// </summary>
         internal static string UserRegistrationPage_Finished {
             get {
@@ -2186,7 +2829,7 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Vstoupit do mé kanceláře.
+        ///   Looks up a localized string similar to Goto my office.
         /// </summary>
         internal static string UserRegistrationPage_GotoMyOffice {
             get {
@@ -2195,7 +2838,25 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Pro plnou aktivaci účtu, nezapomeňte odeslat do 14 dnů registrační formulář a do 48 hodin učiňte Vaši první objednávku..
+        ///   Looks up a localized string similar to Become verified user.
+        /// </summary>
+        internal static string UserRegistrationPage_VerifiedUserCheckBox {
+            get {
+                return ResourceManager.GetString("UserRegistrationPage_VerifiedUserCheckBox", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Request.
+        /// </summary>
+        internal static string UserRegistrationPage_VerifiedUserRequestButton {
+            get {
+                return ResourceManager.GetString("UserRegistrationPage_VerifiedUserRequestButton", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Pro plnou aktivaci účtu, nezapomeňte odeslat do 14 dnů registrační formulář a do 48 hodin učinte Vaši první objednávku..
         /// </summary>
         internal static string UserRegistrationPage_Warning {
             get {
@@ -2204,7 +2865,79 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Více.
+        ///   Looks up a localized string similar to New request to be verified user &apos;{1}&apos; registered. Check user here: {0}.
+        /// </summary>
+        internal static string UserVerifyRegistrationPage_Email2Central_Message {
+            get {
+                return ResourceManager.GetString("UserVerifyRegistrationPage_Email2Central_Message", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Request to be verified user.
+        /// </summary>
+        internal static string UserVerifyRegistrationPage_Email2Central_Subject {
+            get {
+                return ResourceManager.GetString("UserVerifyRegistrationPage_Email2Central_Subject", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Your request to be verified user is in process. You can check status of request on following url: {0}.\n\nBest regards,\nPortal Team.
+        /// </summary>
+        internal static string UserVerifyRegistrationPage_Email2User_Message {
+            get {
+                return ResourceManager.GetString("UserVerifyRegistrationPage_Email2User_Message", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Request to be verified user.
+        /// </summary>
+        internal static string UserVerifyRegistrationPage_Email2User_Subject {
+            get {
+                return ResourceManager.GetString("UserVerifyRegistrationPage_Email2User_Subject", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Request was send..
+        /// </summary>
+        internal static string Verify_RequestWasSend {
+            get {
+                return ResourceManager.GetString("Verify_RequestWasSend", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Verify code.
+        /// </summary>
+        internal static string Verify_VerifyCode {
+            get {
+                return ResourceManager.GetString("Verify_VerifyCode", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to You are not verified user..
+        /// </summary>
+        internal static string Verify_YouAreNotVerifiedUser {
+            get {
+                return ResourceManager.GetString("Verify_YouAreNotVerifiedUser", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to You are verified user..
+        /// </summary>
+        internal static string Verify_YouAreVerifiedUser {
+            get {
+                return ResourceManager.GetString("Verify_YouAreVerifiedUser", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to More.
         /// </summary>
         internal static string Vice {
             get {

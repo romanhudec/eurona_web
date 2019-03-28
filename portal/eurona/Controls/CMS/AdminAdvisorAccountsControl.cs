@@ -187,6 +187,14 @@ namespace Eurona.Controls {
                 AutoPostBackOnFilter = true,
                 CurrentFilterFunction = GridKnownFunction.Contains
             });
+
+            grid.Columns.Add(new GridBoundColumn {
+                DataField = "EmailVerified",
+                HeaderText = global::CMS.Resources.Controls.AdminAccountsControl_ColumnEmailVerified,
+                SortExpression = "EmailVerified",
+                AutoPostBackOnFilter = true,
+                CurrentFilterFunction = GridKnownFunction.Contains
+            });
             /*
             grid.Columns.Add( new GridBoundColumn
             {

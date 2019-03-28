@@ -41,8 +41,8 @@
             </td>
             <td>
                 <asp:TextBox runat="server" TextMode="Password" ID="txtPassword" Width="200px"></asp:TextBox>
-                <asp:RequiredFieldValidator ID="passwordRequired" runat="server" ControlToValidate="txtPassword" Display="Dynamic" ErrorMessage="*"></asp:RequiredFieldValidator>
-                <asp:RegularExpressionValidator ID="RequiredFieldValidator2" runat="server" ControlToValidate="txtPassword" Display="Dynamic" ValidationExpression="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d).{8,}$" ErrorMessage="Heslo musí obsahovat čisla, malá a velká písmena.<br/>Minimální délka je 8 znaků!"></asp:RegularExpressionValidator>
+                <asp:RequiredFieldValidator ID="passwordRequired" runat="server" ControlToValidate="txtPassword" Display="Dynamic" ErrorMessage="*"></asp:RequiredFieldValidator>                
+                <asp:RegularExpressionValidator ID="RequiredFieldValidator2" runat="server" ControlToValidate="txtPassword" Display="Dynamic" ValidationExpression="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d).{8,}$" ErrorMessage="<%$ Resources:EShopStrings, PasswordPolicyMessage %>"></asp:RegularExpressionValidator>
             </td>
         </tr>
         <tr>
