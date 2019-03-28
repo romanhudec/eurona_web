@@ -95,11 +95,14 @@ namespace Eurona.User.Operator {
 
         private void OmRequestChangeEmail(object sender, EventArgs e) {
              int accountId = Convert.ToInt32(Request["id"]);
+            /*
              Eurona.DAL.Entities.Account account = Storage<Eurona.DAL.Entities.Account>.ReadFirst(new Account.ReadById { AccountId = accountId });
              Eurona.User.emailVerifycationService.sendRequestEmail2ChangeEmailFromAdmin(account, this.Page.Request);
 
              string js2 = string.Format("blockUIAlert('Změna emailu uživatele', 'Email pro změnu emailu, byl odeslán poradci!');");
              Page.ClientScript.RegisterStartupScript(Page.GetType(), "SendEmailToUser", js2, true);
+             * */
+             Response.Redirect(string.Format("~/user/requestEmailChangeFromAdmin.aspx?id={0}", accountId));
         }
     }
 }

@@ -47,6 +47,8 @@ namespace Eurona.User {
                 getRedirectUrlAfterVerify(context);
             } else if (method == "sendEmail2ChangeEmail") {
                 sendEmail2ChangeEmail(context);
+            } else if (method == "sendEmail2ChangeEmailFromAdmin") {
+                sendEmail2ChangeEmailFromAdmin(context);
             } else if (method == "verifyChangeEmailFinish") {
                 verifyChangeEmailFinish(context);
             }
@@ -179,6 +181,48 @@ namespace Eurona.User {
         }
 
         /// <summary>
+        /// Odoslanie emaily poradcovi aj s linkom na overenie emailu
+        /// </summary>
+        /// <param name="context"></param>
+        private void sendEmail2ChangeEmailFromAdmin(HttpContext context) {
+            string emailAccountId = GetRequestData(context.Request);
+            string[] data = emailAccountId.Split('|');
+            string email = data[0];
+            string accountIdString = data[1];
+            int status = (int)JSONResponseStatus.SUCCESS;
+            string errorMessage = "";
+            if (Security.IsLogged(false)) {
+                string code = string.Format("{0}|{1}|{2}", email, accountIdString, "from_operator");
+                code = CMS.Utilities.Cryptographer.Encrypt(code);
+                string url = Utilities.Root(context.Request) + "user/emailChangeVerifycation.aspx?code=" + code;
+
+                Security.Account.EmailVerifyCode = code;
+                Security.Account.EmailToVerify = email;
+                Storage<Account>.Update(Security.Account);
+                if (SendChangeEmailVerificationEmail(email, url)) {
+                    Security.Account.EmailVerifyStatus = (int)Account.EmailVerifyStatusCode.EMAIL_SEND;
+                    Storage<Account>.Update(Security.Account);
+                } else {
+                    status = (int)JSONResponseStatus.ERROR;
+                }
+            } else {
+                status = (int)JSONResponseStatus.ERROR;
+                errorMessage = String.Format("sendEmail2ChangeEmail:User not Loged!({0})", email);
+            }
+            if (status != (int)JSONResponseStatus.SUCCESS) {
+                EvenLog.WritoToEventLog(errorMessage, System.Diagnostics.EventLogEntryType.Error);
+            }
+
+            StringBuilder sbJson = new StringBuilder();
+            sbJson.AppendFormat("{{ \"Status\":\"{0}\", \"ErrorMessage\":\"{1}\" }}", status, errorMessage);
+            context.Response.ContentType = "application/json; charset=utf-8";
+            context.Response.Write(sbJson.ToString());
+            context.Response.End();
+        }
+
+
+        /*
+        /// <summary>
         /// Odoslanie emaily poradcovi aj s linkom na request zmeny emailu
         /// </summary>
         /// <param name="context"></param>
@@ -194,7 +238,7 @@ namespace Eurona.User {
                 }
             }
             return false;
-        }
+        }*/
 
         /// <summary>
         /// Odoslanie emaily anonymous poradcovi aj s linkom na overenie emailu
@@ -465,7 +509,7 @@ namespace Eurona.User {
             string emailFromCode = data[0];
             int accountFromCode = Convert.ToInt32(data[1]);
             string ipAddress = data[2];
-            Account accountByVerifyCode = Storage<Account>.ReadFirst(new Account.ReadByEmailVerifyCode { EmailVerifyCode = codeEncrypted });
+            Account accountByVerifyCode = Storage<Account>.ReadFirst(new Account.ReadById { AccountId = accountFromCode });
             //Prihlasenie pouzivatela ak nieje prihlaseny
             if (!Security.IsLogged(false) && accountByVerifyCode != null) {
                 Security.Login(accountByVerifyCode, false);
@@ -476,33 +520,33 @@ namespace Eurona.User {
                     status = (int)JSONResponseStatus.ERROR;
                     message = "EmailVerifyStatusCode is NOT VERIFIED! ";
                 } else {
-                    Security.Account.Login = emailFromCode;
-                    Security.Account.Email = emailFromCode;
-                    Security.Account.EmailVerifyStatus = (int)Account.EmailVerifyStatusCode.VERIFIED;
-                    Security.Account.EmailVerified = DateTime.Now;
-                    Storage<Account>.Update(Security.Account);
+                    accountByVerifyCode.Login = emailFromCode;
+                    accountByVerifyCode.Email = emailFromCode;
+                    accountByVerifyCode.EmailVerifyStatus = (int)Account.EmailVerifyStatusCode.VERIFIED;
+                    accountByVerifyCode.EmailVerified = DateTime.Now;
+                    Storage<Account>.Update(accountByVerifyCode);
 
                     //Update Organization
-                    Organization organization = Storage<Organization>.ReadFirst(new Organization.ReadByAccountId { AccountId = Security.Account.Id });
-                    organization.ContactEmail = Security.Account.EmailToVerify;
+                    Organization organization = Storage<Organization>.ReadFirst(new Organization.ReadByAccountId { AccountId = accountByVerifyCode.Id });
+                    organization.ContactEmail = accountByVerifyCode.EmailToVerify;
                     Storage<Organization>.Update(organization);
 
                     //Sync TVD User Data
                     if (!Eurona.Controls.UserManagement.OrganizationControl.SyncTVDUser(organization, null)) {
-                        Security.Account.EmailVerified = null;
-                        Storage<Account>.Update(Security.Account);
+                        accountByVerifyCode.EmailVerified = null;
+                        Storage<Account>.Update(accountByVerifyCode);
                         status = (int)JSONResponseStatus.ERROR;
                         message = "verifyFinish:TVD Error!";
                         errorMessage = "Synchronizace se vzdáleným servrem (SAP) byla neúspěšná!";
                     } else {
-                        SendEmailChangedEmail(Security.Account.EmailToVerify);
+                        SendEmailChangedEmail(accountByVerifyCode.EmailToVerify);
                         message = String.Format(Resources.Strings.ChangeEmailControl_VerifycationSuccessFinish_Message, Security.Account.Login);
                         message = message.Replace("\r\n", "<br/>");
 
-                        Security.Account.EmailVerified = DateTime.Now;
-                        Security.Account.Enabled = true;
-                        Security.Account.Verified = true;
-                        Storage<Account>.Update(Security.Account);
+                        accountByVerifyCode.EmailVerified = DateTime.Now;
+                        accountByVerifyCode.Enabled = true;
+                        accountByVerifyCode.Verified = true;
+                        Storage<Account>.Update(accountByVerifyCode);
                     }
                 }
 

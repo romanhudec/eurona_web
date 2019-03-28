@@ -158,6 +158,8 @@
     <Content Include="styles\emailVerify.css" />
     <Content Include="user\anonymous\emailVerifycation.aspx" />
     <Content Include="user\anonymous\requestEmailVerifycation.aspx" />
+    <Content Include="user\requestEmailChangeFromAdmin.aspx" />
+    <Content Include="user\RequestEmailChangeFromAdminControl.ascx" />
     <Content Include="user\emailChangeVerifycation.aspx" />
     <Content Include="user\RequestEmailChangeControl.ascx" />
     <Content Include="user\requestEmailChange.aspx" />
@@ -1287,6 +1289,20 @@
     </Compile>
     <Compile Include="user\anonymous\requestEmailVerifycation.aspx.designer.cs">
       <DependentUpon>requestEmailVerifycation.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="user\requestEmailChangeFromAdmin.aspx.cs">
+      <DependentUpon>requestEmailChangeFromAdmin.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="user\requestEmailChangeFromAdmin.aspx.designer.cs">
+      <DependentUpon>requestEmailChangeFromAdmin.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="user\RequestEmailChangeFromAdminControl.ascx.cs">
+      <DependentUpon>RequestEmailChangeFromAdminControl.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="user\RequestEmailChangeFromAdminControl.ascx.designer.cs">
+      <DependentUpon>RequestEmailChangeFromAdminControl.ascx</DependentUpon>
     </Compile>
     <Compile Include="user\emailChangeVerifycation.aspx.cs">
       <DependentUpon>emailChangeVerifycation.aspx</DependentUpon>
