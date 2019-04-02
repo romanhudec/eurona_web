@@ -111,11 +111,14 @@ namespace Eurona.Controls {
                     }
 
                     if (account.Enabled == false) {
+                        //Account is after registration disables
+                        Response.Redirect(string.Format("~/user/anonymous/requestEmailVerifycation.aspx?status=typeEmail&id={0}", account.Id));
+                        /*
                         ClientScriptManager csm = Page.ClientScript;
                         StringBuilder script = new StringBuilder();
                         script.Append("alert('Váš účet ještě nebyl ověřen. Kliknutím na odkaz v emailu toto ověření provedete.');");
                         csm.RegisterStartupScript(GetType(), "invalidLogin", script.ToString(), true);
-
+                        */
                         return;
                     }
                 }

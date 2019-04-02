@@ -10,7 +10,9 @@ using System.Web.UI.WebControls;
 namespace Eurona.User.Anonymous {
     public partial class RequestEmailVerifycation : WebPage {
         protected void Page_Load(object sender, EventArgs e) {
-            Security.IsLogged(true);
+            if (string.IsNullOrEmpty(Request["status"]) && string.IsNullOrEmpty(Request["id"])) {
+                Security.IsLogged(true);
+            }
         }
     }
 }

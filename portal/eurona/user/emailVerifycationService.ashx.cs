@@ -35,7 +35,9 @@ namespace Eurona.User {
                 sendEmail2EmailVerify(context);
             } else if (method == "sendEmail2EmailAnonymousVerify") {
                 sendEmail2EmailAnonymousVerify(context);
-            } else if (method == "verify") {
+            } else if (method == "sendEmail2EmailAnonymousVerifyEmailId") {
+                sendEmail2EmailAnonymousVerifyEmailId(context);
+            }  else if (method == "verify") {
                 verify(context);
             } else if (method == "verifyFinish") {
                 verifyFinish(context);
@@ -261,6 +263,50 @@ namespace Eurona.User {
                     Security.Account.EmailVerifyStatus = (int)Account.EmailVerifyStatusCode.EMAIL_SEND;
                     Storage<Account>.Update(Security.Account);
                     Security.LogoutWithoutRedirect();
+                } else {
+                    status = (int)JSONResponseStatus.ERROR;
+                }
+            } else {
+                status = (int)JSONResponseStatus.ERROR;
+                errorMessage = "sendEmail2EmailVerify:User not Loged!";
+            }
+            if (status != (int)JSONResponseStatus.SUCCESS) {
+                EvenLog.WritoToEventLog(errorMessage, System.Diagnostics.EventLogEntryType.Error);
+            }
+
+            StringBuilder sbJson = new StringBuilder();
+            sbJson.AppendFormat("{{ \"Status\":\"{0}\", \"ErrorMessage\":\"{1}\" }}", status, errorMessage);
+            context.Response.ContentType = "application/json; charset=utf-8";
+            context.Response.Write(sbJson.ToString());
+            context.Response.End();
+        }
+
+        /// <summary>
+        /// Odoslanie emaily anonymous poradcovi aj s linkom na overenie emailu
+        /// </summary>
+        /// <param name="context"></param>
+        private void sendEmail2EmailAnonymousVerifyEmailId(HttpContext context) {
+            int status = (int)JSONResponseStatus.SUCCESS;
+            string emailAccountId = GetRequestData(context.Request);
+            string[] data = emailAccountId.Split('|');
+            string email = data[0];
+            string accountIdString = data[1];
+            int accountFromCode = Convert.ToInt32(accountIdString);
+
+            string errorMessage = "";
+            Account accountById = Storage<Account>.ReadFirst(new Account.ReadById { AccountId = accountFromCode});
+            if ( accountById != null) {
+                string code = string.Format("{0}|{1}|{2}", email, accountById.Id, Utilities.GetUserIP(context.Request));
+                code = CMS.Utilities.Cryptographer.Encrypt(code);
+                string url = Utilities.Root(context.Request) + "user/anonymous/emailVerifycation.aspx?code=" + code;
+
+                accountById.EmailVerifyCode = code;
+                accountById.EmailToVerify = email;
+                Storage<Account>.Update(accountById);
+                Organization organization = Storage<Organization>.ReadFirst(new Organization.ReadByAccountId { AccountId = accountById.Id });
+                if (SendEmailVerificationAnonymousEmail(organization.Code, accountById.Login, email, url)) {
+                    accountById.EmailVerifyStatus = (int)Account.EmailVerifyStatusCode.EMAIL_SEND;
+                    Storage<Account>.Update(accountById);
                 } else {
                     status = (int)JSONResponseStatus.ERROR;
                 }
