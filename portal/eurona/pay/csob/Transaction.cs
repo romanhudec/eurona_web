@@ -26,7 +26,8 @@ namespace Eurona.PAY.CSOB {
 
         public PaymentInitResponse InitPayment(System.Web.UI.Page page) {
             if (paymentInit == null) throw new InvalidOperationException("No payment initialize!!!");
-            CMS.EvenLog.WritoToEventLog(string.Format("InitPayment, OrderId:{0}", this.paymentInit.orderNo), EventLogEntryType.Information);
+            string orderId = paymentInit.merchantData = Crypto.DecodeFromBase64String(paymentInit.merchantData);
+            CMS.EvenLog.WritoToEventLog(string.Format("InitPayment, OrderId:{0}, orderNo:{1}", orderId, this.paymentInit.orderNo), EventLogEntryType.Information);
 
             string paymentMerchantID = CMS.Utilities.ConfigUtilities.ConfigValue("SHP:PAY:CSOB:MerchantID", page);
             string paymentGatewayUrl = CMS.Utilities.ConfigUtilities.ConfigValue("SHP:PAY:CSOB:PaymentGatewayUrl", page);
@@ -61,7 +62,8 @@ namespace Eurona.PAY.CSOB {
         public void ProcessPayment(System.Web.UI.Page page, PaymentInitResponse paymentInitResponse) {
             //Požadavek obsahuje položky přímo v URL adrese https://api.platebnibrana.csob.cz/api/v1/payment/process/{merchantId}/{payId}/{dttm}/{signature}
             if (paymentInitResponse == null) throw new InvalidOperationException("No payment initialize response!!!");
-            CMS.EvenLog.WritoToEventLog(string.Format("ProcessPayment, OrderId:{0}", this.paymentInit.orderNo), EventLogEntryType.Information);
+            string orderId = paymentInit.merchantData = Crypto.DecodeFromBase64String(paymentInit.merchantData);
+            CMS.EvenLog.WritoToEventLog(string.Format("ProcessPayment, OrderId:{0}, orderNo:{1}", orderId, this.paymentInit.orderNo), EventLogEntryType.Information);
 
             string apiUrl = CMS.Utilities.ConfigUtilities.ConfigValue("SHP:PAY:CSOB:PaymentGatewayUrl", page);
             string method = "/payment/process";
