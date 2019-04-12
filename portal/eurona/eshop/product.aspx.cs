@@ -264,7 +264,13 @@ namespace Eurona.EShop {
             if (fileInfos.Length == 0)
                 return null;
 
-            string urlThumbnail = storagePath + "_t/" + fileInfos[fileInfos.Length - 1].Name;
+            //Sort files by name
+            Comparison<FileInfo> comparison = new Comparison<FileInfo>(delegate(FileInfo a, FileInfo b) {
+                return String.Compare(a.Name, b.Name);
+            });
+            Array.Sort(fileInfos, comparison);
+
+            string urlThumbnail = storagePath + "_t/" + fileInfos[0].Name;
             string img = string.Format("<img src='{0}' style='border:0px none #fff;'>", this.ResolveUrl(urlThumbnail));
 
             return img;

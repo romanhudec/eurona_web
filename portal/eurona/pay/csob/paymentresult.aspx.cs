@@ -18,12 +18,13 @@ namespace Eurona.pay.csob {
         private OrderEntity order;
         private PaymentProcessResponse paymentResponse;
         protected void Page_Load(object sender, EventArgs e) {
-            CMS.EvenLog.WritoToEventLog(string.Format("Payment Gateway redirect to Eurona PaymentResult"), EventLogEntryType.Information);
+            CMS.EvenLog.WritoToEventLog(string.Format("Payment Gateway redirect to Eurona PaymentResult: query:{0}", Request.QueryString), EventLogEntryType.Information);
 
             paymentResponse = parseRequestData();
             string data2Verify = paymentResponse.getData2VerifyResponse();
             bool verification = Crypto.Verify(CMS.Utilities.ConfigUtilities.ConfigValue("SHP:PAY:CSOB:PublicKeyPath", this), data2Verify, paymentResponse.signature);
             if (verification == false) {
+                CMS.EvenLog.WritoToEventLog(string.Format("PaymentResultResponse verification failed!: query:{0}", Request.QueryString), EventLogEntryType.Error);
                 throw new InvalidOperationException("PaymentResultResponse verification failed!");
             }
 
