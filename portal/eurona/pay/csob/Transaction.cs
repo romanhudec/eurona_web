@@ -82,6 +82,7 @@ namespace Eurona.PAY.CSOB {
             httpWebRequest.Credentials = CredentialCache.DefaultCredentials;
             httpWebRequest.ProtocolVersion = HttpVersion.Version11;
             httpWebRequest.Method = "POST";
+            httpWebRequest.UserAgent = "Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1; SV1; .NET CLR 1.1.4322; .NET CLR 2.0.50727)";
             //If you are using .Net 4.0 then SecurityProtocolType.Tls11 and SecurityProtocolType.Tls2 are not defined so instead you can use the hard coded value below.
             SecurityProtocolType Tls11OrTsl12 = (SecurityProtocolType)3072;
             ServicePointManager.SecurityProtocol = Tls11OrTsl12;
@@ -105,6 +106,7 @@ namespace Eurona.PAY.CSOB {
                     responseData = reader.ReadToEnd();
                 }
                 if (string.IsNullOrEmpty(responseData)) {
+                    CMS.EvenLog.WritoToEventLog(webex);
                     throw webex;
                 }
             }
