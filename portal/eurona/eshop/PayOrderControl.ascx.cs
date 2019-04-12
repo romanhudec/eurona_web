@@ -140,6 +140,7 @@ namespace Eurona.EShop {
                 }
             }
             string var_symbol_eurosap = "";
+#if !__DEBUG_VERSION_WITHOUTTVD
             DataTable dt = CartOrderHelper.GetTVDFaktura(this.OrderEntity);
             if (dt.Rows.Count == 0) {
                 this.Page.ClientScript.RegisterStartupScript(this.GetType(), "payTransactionResult", "alert('Pro danou objednávku se nenašla faktura!');", true);
@@ -150,7 +151,9 @@ namespace Eurona.EShop {
                 return;
             }
             var_symbol_eurosap = Convert.ToInt32(dt.Rows[0]["var_symbol_eurosap"]).ToString();
-
+#else
+            var_symbol_eurosap = "1234569";
+#endif
             Eurona.PAY.CSOB.Transaction payTransaction = Eurona.PAY.CSOB.Transaction.CreateTransaction(order, var_symbol_eurosap, this.Page);
             PaymentInitResponse paymentInitResponse = payTransaction.InitPayment(this.Page);
             if (paymentInitResponse != null && paymentInitResponse.resultCode == 0) {
