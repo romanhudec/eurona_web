@@ -936,4 +936,7 @@
   <data name="ForgotPasswordControl_Send_ButtonText" xml:space="preserve">
     <value>Prześlij</value>
   </data>
+  <data name="EmailMessageFooter" xml:space="preserve">
+    <value>Niniejszy email generowany jest automatycznie. Prosimy na mail nie odpowiadać. W przypadku potrzeby prosimy o kontakt na adres prodej@eurona.cz lub numer telefonu +420 491 477 361, w dni robocze w godzinach od 8:00 do 16:00.</value>
+  </data>
 </root>

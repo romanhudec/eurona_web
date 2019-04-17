@@ -2374,6 +2374,15 @@ namespace CMS.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Tento e-mail je generován automaticky. Prosím, neodpovídejte na něj. V případě potřeby nás kontaktujte na adrese prodej@eurona.cz nebo na +420 491 477 361 v pracovních dnech od 8.00 h do 16.00 h..
+        /// </summary>
+        public static string EmailMessageFooter {
+            get {
+                return ResourceManager.GetString("EmailMessageFooter", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Nesprávne opsaný kód!.
         /// </summary>
         public static string ForgotPasswordControl_Capcha_ErrorMessage {

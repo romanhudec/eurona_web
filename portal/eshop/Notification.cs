@@ -36,6 +36,12 @@ namespace SHP {
                 if (!string.IsNullOrEmpty(strUseSSL))
                     Boolean.TryParse(strUseSSL, out useSSL);
 
+                if (isBodyHtml) {
+                    this.Message += "<br/><br/>" + CMS.Resources.Controls.EmailMessageFooter;
+                } else {
+                    this.Message += (Environment.NewLine + Environment.NewLine + CMS.Resources.Controls.EmailMessageFooter);
+                }
+
                 EmailLog log = new EmailLog();
                 log.Email = this.To;
                 log.Subject = this.Subject;

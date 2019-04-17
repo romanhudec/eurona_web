@@ -229,12 +229,13 @@ namespace Eurona.User.Operator {
                 email.Notify(true);
             }
 
-
+            /*
             email = new EshopEmailNotification();
             email.To = CMS.Utilities.ConfigUtilities.ConfigValue("SHP:SMTP:CentralInbox", this.Page);
             email.Subject = string.Format(Resources.EShopStrings.UserOrderFinishPage_Email2Central_Subject, order.OrderNumber);
             email.Message = String.Format(Resources.EShopStrings.UserOrderFinishPage_Email2Central_Message, urlCentral).Replace("\\n", Environment.NewLine);
             email.Notify(true);
+             * */
         }
         protected string GetOrdersUrl() {
             const string virtualUrl = "~/user/advisor/orders.aspx?type=ar";
