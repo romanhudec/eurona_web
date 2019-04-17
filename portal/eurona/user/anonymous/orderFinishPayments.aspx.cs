@@ -80,7 +80,7 @@ namespace Eurona.User.Anonymous {
             email.Subject = string.Format(Resources.EShopStrings.UserOrderFinishPage_Email2Central_Subject, order.OrderNumber);
             email.Message = String.Format(Resources.EShopStrings.UserOrderFinishPage_Email2Central_Message, urlCentral).Replace("\\n", Environment.NewLine);
             email.Notify(true);
-            */
+*/
         }
     }
 }

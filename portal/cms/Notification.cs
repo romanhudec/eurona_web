@@ -86,7 +86,7 @@ namespace CMS {
                     try {
                         log.Status = true;
                         Storage<EmailLog>.Create(log);
-                    }catch{
+                    } catch {
                     }
 
 
