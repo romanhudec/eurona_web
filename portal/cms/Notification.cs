@@ -43,6 +43,12 @@ namespace CMS {
                 if (!string.IsNullOrEmpty(strUseSSL))
                     Boolean.TryParse(strUseSSL, out useSSL);
 
+                if (isBodyHtml) {
+                    this.Message += "<br/><br/>" + Resources.Controls.EmailMessageFooter;
+                } else {
+                    this.Message += (Environment.NewLine + Environment.NewLine + Resources.Controls.EmailMessageFooter);
+                }
+
                 EmailLog log = new EmailLog();
                 log.Email = this.To;
                 log.Subject = this.Subject;

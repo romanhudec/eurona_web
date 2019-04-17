@@ -28,13 +28,19 @@ namespace SHP {
 
             return successSend;
         }
-
+        
         public bool Notify(bool isBodyHtml, string[] attachmentFiles , string fromEmail = null) {
             using (MailMessage msg = new MailMessage()) {
                 bool useSSL = false;
                 string strUseSSL = ConfigurationManager.AppSettings["SHP:SMTP:UseSSL"];
                 if (!string.IsNullOrEmpty(strUseSSL))
                     Boolean.TryParse(strUseSSL, out useSSL);
+
+                if (isBodyHtml) {
+                    this.Message += "<br/><br/>" + CMS.Resources.Controls.EmailMessageFooter;
+                } else {
+                    this.Message += (Environment.NewLine + Environment.NewLine + CMS.Resources.Controls.EmailMessageFooter);
+                }
 
                 EmailLog log = new EmailLog();
                 log.Email = this.To;

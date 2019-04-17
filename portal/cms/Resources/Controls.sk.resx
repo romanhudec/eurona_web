@@ -1122,4 +1122,7 @@
   <data name="GridView_ToolTip_EditPosts" xml:space="preserve">
     <value>Upraviť príspevky</value>
   </data>
+  <data name="EmailMessageFooter" xml:space="preserve">
+    <value>Tento e-mail je generovaný automaticky. Prosím, neodpovedajte naň. V prípade potreby nás kontaktujte na adrese prodej@eurona.cz alebo čísle +420 491 477 361 v pracovných dňoch od 8.00 h do 16.00 h.</value>
+  </data>
 </root>

@@ -1140,4 +1140,7 @@
   <data name="ChangeEmail_Text" xml:space="preserve">
     <value>Změna Emailu (loginu)</value>
   </data>
+  <data name="EmailMessageFooter" xml:space="preserve">
+    <value>Tento e-mail je generován automaticky. Prosím, neodpovídejte na něj. V případě potřeby nás kontaktujte na adrese prodej@eurona.cz nebo na +420 491 477 361 v pracovních dnech od 8.00 h do 16.00 h.</value>
+  </data>
 </root>

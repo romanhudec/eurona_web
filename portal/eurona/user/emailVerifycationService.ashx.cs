@@ -889,23 +889,15 @@ namespace Eurona.User {
                 };
                 email2Parent.Notify(true);
             }
-
+            
             EmailNotification email2Central = new EmailNotification {
                 To = ConfigurationManager.AppSettings["SMTP:CentralInbox"],
                 Subject = Resources.Strings.UserRegistrationPage_Email2Central_Subject,
                 Message = String.Format(Resources.Strings.UserRegistrationPage_Email2Central_Message, urlCentral, customerAccount.Login).Replace("\\n", Environment.NewLine)
             };
-
-            //14.11.2016 - Dále Vás žádám z e-mailů odstranit zobrazovaný registrační formulář a to jak ve znění e-mailu, tak v příloze. Tento registrační formulář nechci, aby se zasílal v jakékoli podobě.
-            /*
-            email2User.Attachments = new List<System.Net.Mail.Attachment>();
-            Attachment attachment = new Attachment(Server.MapPath(mailAttachment));
-            email2User.Attachments.Add(attachment);
-            */
-
+            
             bool okUser = email2User.Notify(true);
             bool okCentral = email2Central.Notify();
-
             return okUser && okCentral;
         }
 

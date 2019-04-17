@@ -41,7 +41,7 @@ namespace Eurona.Admin {
 
                 EmailNotification email = new EmailNotification();
                 email.Subject = "Nové heslo pro EURONA.cz";
-                email.Message = string.Format("Dobrý den<br/><br/>právě Vám bylo vygenerováno neové heslo pro vstup na portál EURONA.cz.<br/>Vaše přihlašovací jméno je : {0}<br/>Vaše nové heslo : {1}<br/><br/>S pozdravem<br/>{2}",
+                email.Message = string.Format("Dobrý den<br/><br/>právě Vám bylo vygenerováno neové heslo pro vstup na portál EURONA.cz.<br/>Vaše přihlašovací jméno je : {0}<br/>Vaše nové heslo : {1}<br/><br/>S pozdravem<br/>{2}<br/><br/>",
                         account.Login, newPwd,
                         CMS.Utilities.ConfigUtilities.ConfigValue("SHP:SMTP:FromDisplay"));
                 email.To = account.Email;
