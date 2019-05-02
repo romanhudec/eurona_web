@@ -164,6 +164,7 @@ namespace Eurona.User {
                 if (SendChangeEmailVerificationEmail(email, url)) {
                     Security.Account.EmailVerifyStatus = (int)Account.EmailVerifyStatusCode.EMAIL_SEND;
                     Storage<Account>.Update(Security.Account);
+                    Security.LogoutWithoutRedirect();
                 } else {
                     status = (int)JSONResponseStatus.ERROR;
                 }
