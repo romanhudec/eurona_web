@@ -44,6 +44,11 @@ namespace Eurona.Controls {
             DirectoryInfo di = new DirectoryInfo(productImagesPath);
             FileInfo[] fileInfos = di.GetFiles("*.*");
 
+            //Sort files by name
+            Comparison<FileInfo> comparison = new Comparison<FileInfo>(delegate(FileInfo a, FileInfo b) {
+                return String.Compare(a.Name, b.Name);
+            });
+            Array.Sort(fileInfos, comparison);
             if (fileInfos.Length == 0)
                 return noImageUrl;
 
