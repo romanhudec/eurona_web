@@ -172,6 +172,16 @@ namespace Eurona.Common.Controls.UserManagement {
             } else
                 this.organization = Storage<Organization>.ReadFirst(new Organization.ReadById { OrganizationId = this.OrganizationId.Value });
 
+            //Enabled email editing only for Admin, Operator for NotEmaile verified users
+            if (Security.IsInRole(Eurona.Common.DAL.Entities.Role.ADMINISTRATOR) || Security.IsInRole(Eurona.Common.DAL.Entities.Role.OPERATOR)) {
+                if (this.organization.AccountId.HasValue && this.organization.Account != null) {
+                    if (this.organization.Account.EmailVerified.HasValue == false) {
+                        this.txtContactEmail.Enabled = true;
+                        this.btnChangeEmail.Visible = false;
+                    }
+                }
+            }
+
 
             if (!IsPostBack) {
                 //this.ddlParent.DataBind();

@@ -199,12 +199,24 @@ namespace Eurona.User {
                 code = CMS.Utilities.Cryptographer.Encrypt(code);
                 string url = Utilities.Root(context.Request) + "user/emailChangeVerifycation.aspx?code=" + code;
 
+                /*
                 Security.Account.EmailVerifyCode = code;
                 Security.Account.EmailToVerify = email;
                 Storage<Account>.Update(Security.Account);
                 if (SendChangeEmailVerificationEmail(email, url)) {
                     Security.Account.EmailVerifyStatus = (int)Account.EmailVerifyStatusCode.EMAIL_SEND;
                     Storage<Account>.Update(Security.Account);
+                } else {
+                    status = (int)JSONResponseStatus.ERROR;
+                }
+                 * */
+                Account account = Storage<Account>.ReadFirst(new Account.ReadById { AccountId = Convert.ToInt32(accountIdString) });
+                account.EmailVerifyCode = code;
+                account.EmailToVerify = email;
+                Storage<Account>.Update(account);
+                if (SendChangeEmailVerificationEmail(email, url)) {
+                    account.EmailVerifyStatus = (int)Account.EmailVerifyStatusCode.EMAIL_SEND;
+                    Storage<Account>.Update(account);
                 } else {
                     status = (int)JSONResponseStatus.ERROR;
                 }

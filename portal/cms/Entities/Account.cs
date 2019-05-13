@@ -105,5 +105,7 @@ namespace CMS.Entities {
         public string Display {
             get { return string.Format("{0} ({1})", this.Login, this.Email); }
         }
+
+        public DateTime? EmailVerified { get; set; }
     }
 }

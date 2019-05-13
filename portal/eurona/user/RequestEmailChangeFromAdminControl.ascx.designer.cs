@@ -112,6 +112,15 @@ namespace Eurona.User {
         protected global::System.Web.UI.WebControls.Image Image1;
         
         /// <summary>
+        /// btnOk control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnOk;
+        
+        /// <summary>
         /// Image2 control.
         /// </summary>
         /// <remarks>

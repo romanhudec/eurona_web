@@ -26,6 +26,7 @@ namespace CMS.MSSQL {
             account.Verified = Convert.ToBoolean(record["Verified"]);
             account.VerifyCode = Convert.ToString(record["VerifyCode"]);
             account.Credit = Convert.ToDecimal(record["Credit"]);
+            account.EmailVerified = ConvertNullable.ToDateTime(record["EmailVerified"]);
             return account;
         }
 
@@ -37,7 +38,7 @@ namespace CMS.MSSQL {
             using (SqlConnection connection = Connect()) {
                 //Nacitava zoznam vsetkych okrem system
                 string sql = @"
-										SELECT AccountId, InstanceId, Email, Login, Password, Locale, Verified, VerifyCode, Enabled, Roles, Credit
+										SELECT AccountId, InstanceId, Email, Login, Password, Locale, Verified, VerifyCode, Enabled, Roles, Credit, EmailVerified
 										FROM vAccounts WHERE AccountId > 1 AND InstanceId=@InstanceId";
                 DataTable table = Query<DataTable>(connection, sql, new SqlParameter("@InstanceId", InstanceId));
                 foreach (DataRow dr in table.Rows) accounts.Add(GetAccount(dr));
@@ -53,7 +54,7 @@ namespace CMS.MSSQL {
             List<Account> accounts = new List<Account>();
             using (SqlConnection connection = Connect()) {
                 string sql = @"
-										SELECT AccountId, InstanceId, Email, Login, Password, Locale, Enabled, Verified, VerifyCode, Roles, Credit
+										SELECT AccountId, InstanceId, Email, Login, Password, Locale, Enabled, Verified, VerifyCode, Roles, Credit, EmailVerified
 										FROM vAccounts
 										WHERE Login = @Login AND InstanceId=@InstanceId";
                 DataTable table = Query<DataTable>(connection, sql, new SqlParameter("@Login", login), new SqlParameter("@InstanceId", InstanceId));
@@ -67,7 +68,7 @@ namespace CMS.MSSQL {
             List<Account> accounts = new List<Account>();
             using (SqlConnection connection = Connect()) {
                 string sql = @"
-										SELECT AccountId, InstanceId, Email, Login, Password, Locale, Enabled, Verified, VerifyCode, Roles, Credit
+										SELECT AccountId, InstanceId, Email, Login, Password, Locale, Enabled, Verified, VerifyCode, Roles, Credit, EmailVerified
 										FROM vAccounts
 										WHERE Email = @Email AND InstanceId=@InstanceId";
                 DataTable table = Query<DataTable>(connection, sql, new SqlParameter("@Email", email), new SqlParameter("@InstanceId", InstanceId));
@@ -81,7 +82,7 @@ namespace CMS.MSSQL {
             List<Account> accounts = new List<Account>();
             using (SqlConnection connection = Connect()) {
                 string sql = @"
-										SELECT AccountId, InstanceId, Email, Login, Password, Locale, Enabled, Verified, VerifyCode, Roles, Credit
+										SELECT AccountId, InstanceId, Email, Login, Password, Locale, Enabled, Verified, VerifyCode, Roles, Credit, EmailVerified
 										FROM vAccounts
 										WHERE AccountId = @AccountId";
                 DataTable table = Query<DataTable>(connection, sql, new SqlParameter("@AccountId", id));

@@ -96,6 +96,10 @@
             }
         });
     }
+
+    function onClose() {
+        location.href = "<%=Page.ResolveUrl("~/")%>";
+    }
 </script>
 <table style="width:100%;">
     <tr>
@@ -151,7 +155,12 @@
                     </tr>  
                     <tr>
                          <td style="text-align:center;color:#EA008A;font-size: 16px;"><asp:Image ID="Image1" runat="server" ImageUrl="~/images/success.png" /></td>
-                    </tr>                              
+                    </tr>   
+                    <tr> 
+                        <td style="text-align:center;padding-top:10px;">
+                            <asp:Button ID="btnOk" runat="server" CssClass="button" Text=" Ok " OnClientClick="onClose();" />    
+                        </td>   
+                    </tr>                                                 
                 </table>
                 <table id="layoutSendinEmailError" style="width:100%;display:none;">
                     <tr>

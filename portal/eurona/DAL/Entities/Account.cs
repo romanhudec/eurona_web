@@ -55,7 +55,6 @@ namespace Eurona.DAL.Entities {
         public string EmailVerifyCode { get; set; }
         public string EmailToVerify { get; set; }
         public int? EmailVerifyStatus { get; set; }
-        public DateTime? EmailVerified { get; set; }
         public string LoginBeforeVerify{ get; set; }
         public string EmailBeforeVerify { get; set; }
 

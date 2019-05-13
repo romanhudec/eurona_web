@@ -333,7 +333,6 @@ namespace Eurona.Controls {
                     accountEntity.EmailVerifyStatus = null;
                     accountEntity.EmailToVerify = null;
                     accountEntity.Login = accountEntity.LoginBeforeVerify;
-                    accountEntity.Email = accountEntity.EmailBeforeVerify;
                     overeniZruseno = true;
                 }
 
@@ -368,17 +367,12 @@ namespace Eurona.Controls {
                         Storage<AccountEntity>.Update(accountEntity);
                     }
 
-                    //Organization org = Storage<Organization>.ReadFirst( new Organization.ReadByAccountId { AccountId = accountEntity.Id } );
                     if (org == null) {
                         org = new Organization();
                         org.Name = accountEntity.Login;
                         org.AccountId = accountEntity.Id;
                         org.ContactEmail = accountEntity.Email;
                         Storage<Organization>.Create(org);
-                        if (overeniZruseno == true) {
-                            //Sync to TVD
-                            OrganizationControl.SyncTVDUser(org, btnSave);
-                        }
 
                         if (isNew) {
                             if (!string.IsNullOrEmpty(this.RegisterUserUrlFormat))
