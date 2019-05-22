@@ -237,7 +237,7 @@
                 </tr>
                 <tr>
                     <td style="padding-top:20px;text-align:left;">
-                        <asp:Button ID="btnCancelAndLogout" runat="server" CssClass="button" Text="<%$ Resources:Strings, EmailVerifyControl_ZrusitOvereni %>" OnClientClick="onContinueToCancel();" />    
+                        <asp:Button ID="btnCancelAndLogout" runat="server" CssClass="button-blue" Text="<%$ Resources:Strings, EmailVerifyControl_ZrusitOvereni %>" OnClientClick="onContinueToCancel();" />    
                     </td>
                     <td style="padding-top:20px;text-align:right;">
                         <asp:Button ID="btnContinueToFinish" runat="server" CssClass="button-positive" disabled="true"  Text="<%$ Resources:Strings, EmailVerifyControl_DokoncitOvereni %>" OnClientClick="onContinueToFinish();" />    
@@ -290,7 +290,7 @@
                 <tr><td class="message"><asp:Label ID="lblMesage" runat="server"></asp:Label></td></tr> 
                 <tr>
                     <td style="text-align:right;padding-top:10px;">
-                        <asp:Button ID="Button2" runat="server" CssClass="button" Text="<%$ Resources:Strings, EmailVerifyControl_Pokracovat %>" OnClientClick="onContinueToOffice();" />
+                        <asp:Button ID="Button2" runat="server" CssClass="button-positive" Text="<%$ Resources:Strings, EmailVerifyControl_Pokracovat %>" OnClientClick="onContinueToOffice();" />
                     </td>
                 </tr>                              
             </table>

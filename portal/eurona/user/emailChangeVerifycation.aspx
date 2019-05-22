@@ -183,7 +183,7 @@
                 <tr><td class="message"><asp:Label ID="lblMesage" runat="server"></asp:Label></td></tr> 
                 <tr>
                     <td style="text-align:right;padding-top:10px;">
-                        <asp:Button ID="Button2" runat="server" CssClass="button" Text="<%$ Resources:Strings, ChangeEmailControl_Pokracovat %>" OnClientClick="onContinueToOffice();" />
+                        <asp:Button ID="Button2" runat="server" CssClass="button-positive" Text="<%$ Resources:Strings, ChangeEmailControl_Pokracovat %>" OnClientClick="onContinueToOffice();" />
                     </td>
                 </tr>                              
             </table>

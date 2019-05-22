@@ -547,7 +547,7 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Zadejte email pro ověření:.
+        ///   Looks up a localized string similar to Zadejte e-mail pro ověření:.
         /// </summary>
         internal static string ChangeEmailControl_Email {
             get {
@@ -628,7 +628,7 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Váš email se nepodařilo ověřit! Zkuste to prosím znova, případně kontaktujte naše obchodní oddělení na +420 491 477 361 nebo prodej@eurona.cz..
+        ///   Looks up a localized string similar to Váš e-mail se nepodařilo ověřit! Zkuste to prosím znova, případně kontaktujte naše obchodní oddělení na +420 491 477 361 nebo prodej@eurona.cz..
         /// </summary>
         internal static string ChangeEmailControl_SendingEmailError_Message {
             get {
@@ -990,11 +990,20 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Na email jsme Vám právě zaslali ověřovací odkaz. Prokliknutím tohoto odkazu dokončíte registraci a můžete pokračovat v objednávce..
+        ///   Looks up a localized string similar to Na e-mail jsme Vám právě zaslali ověřovací odkaz. Prokliknutím tohoto odkazu dokončíte registraci a můžete pokračovat v objednávce..
         /// </summary>
         internal static string EmailVerifyControl_AnonymousEmailSended_Message {
             get {
                 return ResourceManager.GetString("EmailVerifyControl_AnonymousEmailSended_Message", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to V případě, že potřebujete s ověřením Vašeho účtu pomoci, obraťte se na svého TOP manažera..
+        /// </summary>
+        internal static string EmailVerifyControl_DescriptionBottom {
+            get {
+                return ResourceManager.GetString("EmailVerifyControl_DescriptionBottom", resourceCulture);
             }
         }
         
@@ -1008,7 +1017,7 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Zadejte email pro ověření:.
+        ///   Looks up a localized string similar to Zadejte e-mail pro ověření:.
         /// </summary>
         internal static string EmailVerifyControl_Email {
             get {
@@ -1017,7 +1026,7 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Váš email s ověřovacím odkazem se poté stane i Vaším přihlašovacím jménem..
+        ///   Looks up a localized string similar to Váš e-mail s ověřovacím odkazem se poté stane i Vaším přihlašovacím jménem..
         /// </summary>
         internal static string EmailVerifyControl_EmailDescriptionBottom {
             get {
@@ -1089,7 +1098,7 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Váš email se nepodařilo ověřit! Zkuste ověření opakovat později..
+        ///   Looks up a localized string similar to Váš e-mail se nepodařilo ověřit! Zkuste ověření opakovat později..
         /// </summary>
         internal static string EmailVerifyControl_EmailVerifiedFailed_Message {
             get {
@@ -1188,7 +1197,7 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Váš email se nepodařilo ověřit! Zkuste to prosím znova, případně kontaktujte naše obchodní oddělení na +420 491 477 361 nebo prodej@eurona.cz..
+        ///   Looks up a localized string similar to Váš e-mail se nepodařilo ověřit! Zkuste to prosím znova, případně kontaktujte naše obchodní oddělení na +420 491 477 361 nebo prodej@eurona.cz..
         /// </summary>
         internal static string EmailVerifyControl_SendingEmailError_Message {
             get {
@@ -1239,11 +1248,11 @@ namespace Resources {
         
         /// <summary>
         ///   Looks up a localized string similar to Dobrý den,&lt;br/&gt;&lt;br/&gt;
-        ///pro ověření Vašeho zákaznického účtu Eurona s registračním číslem {0} a dosavadním přihlašovacím jménem {1} prosím klikněte na následující odkaz, který Vás přesměruje na stránky Eurona by Cerny a vyzve k zadání nového hesla. Po dokončení ověření se Vaším přihlašovacím jménem stane nově zvolený ověřený email.
+        ///pro ověření Vašeho zákaznického účtu Eurona s registračním číslem {0} a dosavadním přihlašovacím jménem {1} prosím klikněte na následující odkaz, který Vás přesměruje na stránky Eurona by Cerny a vyzve k zadání nového hesla. Po dokončení ověření se Vaším přihlašovacím jménem stane nově zvolený ověřený e-mail.
         ///&lt;br/&gt;&lt;br/&gt;
         ///&lt;a href=&apos;{2}&apos;&gt;{2}&lt;/a&gt;
         ///&lt;br/&gt;&lt;br/&gt;
-        ///Pokud se po kliknutí na odkaz nic neděje, označte jej kurzorem a zároveň pomocí kombinace kláves Ctrl+C zkopírujte a pomocí Ctrl+V v [rest of string was truncated]&quot;;.
+        ///Pokud se po kliknutí na odkaz nic neděje, označte jej kurzorem a zároveň pomocí kombinace kláves Ctrl+C zkopírujte a pomocí Ctrl+V  [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string EmailVerifyControl_UserVerificationEmail_Message {
             get {
@@ -1399,7 +1408,7 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Váš email:.
+        ///   Looks up a localized string similar to Váš e-mail:.
         /// </summary>
         internal static string ForgotPasswordControl_Email_Label {
             get {

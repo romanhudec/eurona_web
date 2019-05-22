@@ -127,17 +127,21 @@
                             <div class="validation-message">
                                 <asp:Label runat="server" ID="lblValidatorText" style="display:none;"></asp:Label>
                             </div>
-<%--                            <div class="input-description">
-                                <asp:Label runat="server" ID="Label3" Text="<%$ Resources:Strings, EmailVerifyControl_EmailDescriptionBottom %>" ></asp:Label>
-                            </div>--%>
                         </td>
                     </tr>
                     <tr>
                         <td style="text-align:left;padding-top:10px;">
-                            <asp:Button ID="btnCancelAndLogout" runat="server" CssClass="button" Text="<%$ Resources:Strings, EmailVerifyControl_ZrusitOvereni %>" OnClientClick="onContinueToCancel();" />    
+                            <asp:Button ID="btnCancelAndLogout" runat="server" CssClass="button-blue" Text="<%$ Resources:Strings, EmailVerifyControl_ZrusitOvereni %>" OnClientClick="onContinueToCancel();" />    
                         </td>
                         <td style="text-align:right;padding-top:10px;">
-                            <asp:Button runat="server" ID="btnVerify" CssClass="button" Text="<%$ Resources:Strings, EmailVerifyControl_OveritEmail %>" disabled="true" OnClientClick="onBtnVerifyClick();" />
+                            <asp:Button runat="server" ID="btnVerify" CssClass="button-positive" Text="<%$ Resources:Strings, EmailVerifyControl_OveritEmail %>" disabled="true" OnClientClick="onBtnVerifyClick();" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="2">
+                            <div class="input-description">
+                                <asp:Label runat="server" ID="Label3" Text="<%$ Resources:Strings, EmailVerifyControl_DescriptionBottom %>" ></asp:Label>
+                            </div>
                         </td>
                     </tr>
                 </table>
