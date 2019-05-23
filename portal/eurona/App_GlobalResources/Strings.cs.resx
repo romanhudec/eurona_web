@@ -1117,10 +1117,10 @@ www.euronabycerny.com</value>
     <value>Zadejte e-mail pro ověření:</value>
   </data>
   <data name="ChangeEmailControl_EmailDescriptionTop" xml:space="preserve">
-    <value>Pro zabezpečení Vašeho zákaznického účtu Eurona, prosím, zadejte Vaši platnou emailovou adresu. Vaše emailová adresa se stane Vaším novým jedinečným přihlašovacím jménem k zákaznickému účtu. Uvedenou emailovou adresu nelze zadat pro více zákaznických účtů!</value>
+    <value>Pro zabezpečení Vašeho zákaznického účtu Eurona, prosím, zadejte Vaši platnou e-mailovou adresu. Vaše e-mailová adresa se stane Vaším novým jedinečným přihlašovacím jménem k zákaznickému účtu. Uvedenou e-mailovou adresu nelze zadat pro více zákaznických účtů!</value>
   </data>
   <data name="ChangeEmailControl_EmailSended_Message" xml:space="preserve">
-    <value>Na Vaši emailovou adresu byl úspěšně odeslán ověřovací odkaz. Pro dokončení změny emailu klikněte na odkaz v emailu. Děkujeme.</value>
+    <value>Na Vaši e-mailovou adresu byl úspěšně odeslán ověřovací odkaz. Pro dokončení změny e-mailu klikněte na odkaz v e-mailu. Děkujeme.</value>
   </data>
   <data name="ChangeEmailControl_OdeslatZnovu" xml:space="preserve">
     <value>Odeslat znovu</value>
@@ -1136,7 +1136,7 @@ www.euronabycerny.com</value>
   </data>
   <data name="ChangeEmailControl_RequestChangeEmail_Message" xml:space="preserve">
     <value>Dobrý den,&lt;br/&gt;&lt;br/&gt;
-pro změnu Vašeho emailu/přihlašovacího jména účtu Eurona prosím klikněte na následující odkaz, který Vás přesměruje na stránky Eurona by Cerny.
+pro změnu Vašeho e-mailu/přihlašovacího jména účtu Eurona prosím klikněte na následující odkaz, který Vás přesměruje na stránky Eurona by Cerny.
 &lt;br/&gt;&lt;br/&gt;
 &lt;a href='{0}'&gt;{0}&lt;/a&gt;
 &lt;br/&gt;&lt;br/&gt;
@@ -1150,14 +1150,14 @@ Eurona by Cerny</value>
     <value>Váš e-mail se nepodařilo ověřit! Zkuste to prosím znova, případně kontaktujte naše obchodní oddělení na +420 491 477 361 nebo prodej@eurona.cz.</value>
   </data>
   <data name="ChangeEmailControl_SendingEmail_Message" xml:space="preserve">
-    <value>Na Vámi zadanou emailovou adresu se právě odesílá ověřovací odkaz, prosím čekejte…</value>
+    <value>Na Vámi zadanou e-mailovou adresu se právě odesílá ověřovací odkaz, prosím čekejte…</value>
   </data>
   <data name="ChangeEmailControl_Title" xml:space="preserve">
-    <value>Změna emailu</value>
+    <value>Změna e-mailu</value>
   </data>
   <data name="ChangeEmailControl_UserVerificationEmail_Message" xml:space="preserve">
     <value>Dobrý den,&lt;br/&gt;&lt;br/&gt;
-pro dokončení změny emailu Vašeho zákaznického účtu Eurona prosím klikněte na následující odkaz, který Vás přesměruje na stránky Eurona by Cerny.
+pro dokončení změny e-mailu Vašeho zákaznického účtu Eurona prosím klikněte na následující odkaz, který Vás přesměruje na stránky Eurona by Cerny.
 &lt;br/&gt;&lt;br/&gt;
 &lt;a href='{0}'&gt;{0}&lt;/a&gt;
 &lt;br/&gt;&lt;br/&gt;
@@ -1175,7 +1175,7 @@ Eurona by Cerny</value>
   </data>
   <data name="ChangeEmailControl_UserVerificationFinish_Message" xml:space="preserve">
     <value>Děkujeme, &lt;br/&gt;&lt;br/&gt;
-změna emailu Vašeho zákaznického účtu je dokončena.
+změna e-mailu Vašeho zákaznického účtu je dokončena.
 &lt;br/&gt;&lt;br/&gt;
 Zapamatujte si, prosím, Vaše nové přihlašovací údaje:&lt;br/&gt;
 Přihlašovací jméno: {0}
@@ -1190,7 +1190,7 @@ Tým Eurona.</value>
 Přihlašovací jméno: {0}</value>
   </data>
   <data name="ChangeEmailControl_VerifycationSuccessFinish_Title" xml:space="preserve">
-    <value>Děkujeme, právě jste dokončil/a změnu emailu Vašeho zákaznického účtu!</value>
+    <value>Děkujeme, právě jste dokončil/a změnu e-mailu Vašeho zákaznického účtu!</value>
   </data>
   <data name="ChangeEmailControl_ZrusitZmenu" xml:space="preserve">
     <value>Pokračovat bez změny</value>
@@ -1208,10 +1208,10 @@ Přihlašovací jméno: {0}</value>
     <value>Váš e-mail s ověřovacím odkazem se poté stane i Vaším přihlašovacím jménem.</value>
   </data>
   <data name="EmailVerifyControl_EmailDescriptionTop" xml:space="preserve">
-    <value>Pro zabezpečení Vašeho zákaznického účtu Eurona, prosím, zadejte Vaši platnou emailovou adresu. Vaše emailová adresa se stane Vaším novým jedinečným přihlašovacím jménem k zákaznickému účtu. Uvedenou emailovou adresu nelze zadat pro více zákaznických účtů!</value>
+    <value>Pro zabezpečení Vašeho zákaznického účtu Eurona, prosím, zadejte Vaši platnou e-mailovou adresu. Vaše e-mailová adresa se stane Vaším novým jedinečným přihlašovacím jménem k zákaznickému účtu. Uvedenou e-mailovou adresu nelze zadat pro více zákaznických účtů!</value>
   </data>
   <data name="EmailVerifyControl_EmailSended_Message" xml:space="preserve">
-    <value>Na Vaši emailovou adresu byl úspěšně odeslán ověřovací odkaz. Pro dokončení ověření klikněte na odkaz v emailu. Děkujeme.</value>
+    <value>Na Vaši e-mailovou adresu byl úspěšně odeslán ověřovací odkaz. Pro dokončení ověření klikněte na odkaz v e-mailu. Děkujeme.</value>
   </data>
   <data name="EmailVerifyControl_EmailValidation_EmailJeJizOveren" xml:space="preserve">
     <value>Tento mail je již ověřený k jinému účtu.</value>
@@ -1220,7 +1220,7 @@ Přihlašovací jméno: {0}</value>
     <value>Vami zadaný Email se v systému nenachází!</value>
   </data>
   <data name="EmailVerifyControl_EmailValidation_NespravnyFormat" xml:space="preserve">
-    <value>Nesprávný formát emailu.</value>
+    <value>Nesprávný formát e-mailu.</value>
   </data>
   <data name="EmailVerifyControl_EmailValidation_OvereniZJinehoZarizeni" xml:space="preserve">
     <value>Ověření z jiného zařízení! Ověření prosím dokončete na zařízení na kterém bylo započato.</value>
@@ -1265,7 +1265,7 @@ Přihlašovací jméno: {0}</value>
     <value>Váš e-mail se nepodařilo ověřit! Zkuste to prosím znova, případně kontaktujte naše obchodní oddělení na +420 491 477 361 nebo prodej@eurona.cz.</value>
   </data>
   <data name="EmailVerifyControl_SendingEmail_Message" xml:space="preserve">
-    <value>Na Vámi zadanou emailovou adresu se právě odesílá ověřovací odkaz, prosím čekejte…</value>
+    <value>Na Vámi zadanou e-mailovou adresu se právě odesílá ověřovací odkaz, prosím čekejte…</value>
   </data>
   <data name="EmailVerifyControl_Title" xml:space="preserve">
     <value>OVĚŘENÍ ÚČTU</value>
@@ -1324,7 +1324,7 @@ Heslo: zvolené v předchozím kroku</value>
     <value>První část ověření splněna!</value>
   </data>
   <data name="EmailVerifyControl_VerifyingEmail_Message" xml:space="preserve">
-    <value>Právě probíhá ověření Vašeho emailu, vyčkejte prosím na přesměrování.</value>
+    <value>Právě probíhá ověření Vašeho e-mailu, vyčkejte prosím na přesměrování.</value>
   </data>
   <data name="EmailVerifyControl_ZrusitOvereni" xml:space="preserve">
     <value>Pokračovat bez přihlášení</value>
@@ -1351,7 +1351,7 @@ Eurona by Cerny</value>
     <value>Váš e-mail:</value>
   </data>
   <data name="ForgotPasswordControl_Finish" xml:space="preserve">
-    <value>Pro pokračování klikněte na odkaz ve Vašem emailu!</value>
+    <value>Pro pokračování klikněte na odkaz ve Vašem e-mailu!</value>
   </data>
   <data name="EmailVerifyControl_UserVerificationEmail_AnonymousSubject" xml:space="preserve">
     <value>OVĚŘENÍ REGISTRACE EURONA</value>

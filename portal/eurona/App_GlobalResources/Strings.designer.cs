@@ -124,7 +124,7 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Send me information emails.
+        ///   Looks up a localized string similar to Send me information e-mails.
         /// </summary>
         internal static string AccountControl_SendInformationEmails {
             get {
@@ -142,7 +142,7 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Zrušit ověření emailem.
+        ///   Looks up a localized string similar to Zrušit ověření e-mailem.
         /// </summary>
         internal static string AdminAccountControl_LabelZrusitOvereniEmailem {
             get {
@@ -556,7 +556,7 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Pro zabezpečení Vašeho zákaznického účtu Eurona, prosím, zadejte Vaši platnou emailovou adresu. Vaše emailová adresa se stane Vaším novým jedinečným přihlašovacím jménem k zákaznickému účtu. Uvedenou emailovou adresu nelze zadat pro více zákaznických účtů!.
+        ///   Looks up a localized string similar to Pro zabezpečení Vašeho zákaznického účtu Eurona, prosím, zadejte Vaši platnou e-mailovou adresu. Vaše e-mailová adresa se stane Vaším novým jedinečným přihlašovacím jménem k zákaznickému účtu. Uvedenou e-mailovou adresu nelze zadat pro více zákaznických účtů!.
         /// </summary>
         internal static string ChangeEmailControl_EmailDescriptionTop {
             get {
@@ -565,7 +565,7 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Na Vaši emailovou adresu byl úspěšně odeslán ověřovací odkaz. Pro dokončení změny emailu klikněte na odkaz v emailu. Děkujeme..
+        ///   Looks up a localized string similar to Na Vaši e-mailovou adresu byl úspěšně odeslán ověřovací odkaz. Pro dokončení změny e-mailu klikněte na odkaz v e-mailu. Děkujeme..
         /// </summary>
         internal static string ChangeEmailControl_EmailSended_Message {
             get {
@@ -611,7 +611,7 @@ namespace Resources {
         
         /// <summary>
         ///   Looks up a localized string similar to Dobrý den,&lt;br/&gt;&lt;br/&gt;
-        ///pro změnu Vašeho emailu/přihlašovacího jména účtu Eurona prosím klikněte na následující odkaz, který Vás přesměruje na stránky Eurona by Cerny.
+        ///pro změnu Vašeho e-mailu/přihlašovacího jména účtu Eurona prosím klikněte na následující odkaz, který Vás přesměruje na stránky Eurona by Cerny.
         ///&lt;br/&gt;&lt;br/&gt;
         ///&lt;a href=&apos;{0}&apos;&gt;{0}&lt;/a&gt;
         ///&lt;br/&gt;&lt;br/&gt;
@@ -637,7 +637,7 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Na Vámi zadanou emailovou adresu se právě odesílá ověřovací odkaz, prosím čekejte….
+        ///   Looks up a localized string similar to Na Vámi zadanou e-mailovou adresu se právě odesílá ověřovací odkaz, prosím čekejte….
         /// </summary>
         internal static string ChangeEmailControl_SendingEmail_Message {
             get {
@@ -646,7 +646,7 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Změna emailu.
+        ///   Looks up a localized string similar to Změna e-mailu.
         /// </summary>
         internal static string ChangeEmailControl_Title {
             get {
@@ -656,7 +656,7 @@ namespace Resources {
         
         /// <summary>
         ///   Looks up a localized string similar to Dobrý den,&lt;br/&gt;&lt;br/&gt;
-        ///pro dokončení změny emailu Vašeho zákaznického účtu Eurona prosím klikněte na následující odkaz, který Vás přesměruje na stránky Eurona by Cerny.
+        ///pro dokončení změny e-mailu Vašeho zákaznického účtu Eurona prosím klikněte na následující odkaz, který Vás přesměruje na stránky Eurona by Cerny.
         ///&lt;br/&gt;&lt;br/&gt;
         ///&lt;a href=&apos;{0}&apos;&gt;{0}&lt;/a&gt;
         ///&lt;br/&gt;&lt;br/&gt;
@@ -692,7 +692,7 @@ namespace Resources {
         
         /// <summary>
         ///   Looks up a localized string similar to Děkujeme, &lt;br/&gt;&lt;br/&gt;
-        ///změna emailu Vašeho zákaznického účtu je dokončena.
+        ///změna e-mailu Vašeho zákaznického účtu je dokončena.
         ///&lt;br/&gt;&lt;br/&gt;
         ///Zapamatujte si, prosím, Vaše nové přihlašovací údaje:&lt;br/&gt;
         ///Přihlašovací jméno: {0}
@@ -719,7 +719,7 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Děkujeme, právě jste dokončil/a změnu emailu Vašeho zákaznického účtu!.
+        ///   Looks up a localized string similar to Děkujeme, právě jste dokončil/a změnu e-mailu Vašeho zákaznického účtu!.
         /// </summary>
         internal static string ChangeEmailControl_VerifycationSuccessFinish_Title {
             get {
@@ -1035,7 +1035,7 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Pro zabezpečení Vašeho zákaznického účtu Eurona, prosím, zadejte Vaši platnou emailovou adresu. Vaše emailová adresa se stane Vaším novým jedinečným přihlašovacím jménem k zákaznickému účtu. Uvedenou emailovou adresu nelze zadat pro více zákaznických účtů!.
+        ///   Looks up a localized string similar to Pro zabezpečení Vašeho zákaznického účtu Eurona, prosím, zadejte Vaši platnou e-mailovou adresu. Vaše e-mailová adresa se stane Vaším novým jedinečným přihlašovacím jménem k zákaznickému účtu. Uvedenou e-mailovou adresu nelze zadat pro více zákaznických účtů!.
         /// </summary>
         internal static string EmailVerifyControl_EmailDescriptionTop {
             get {
@@ -1044,7 +1044,7 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Na Vaši emailovou adresu byl úspěšně odeslán ověřovací odkaz. Pro dokončení ověření klikněte na odkaz v emailu. Děkujeme..
+        ///   Looks up a localized string similar to Na Vaši e-mailovou adresu byl úspěšně odeslán ověřovací odkaz. Pro dokončení ověření klikněte na odkaz v e-mailu. Děkujeme..
         /// </summary>
         internal static string EmailVerifyControl_EmailSended_Message {
             get {
@@ -1071,7 +1071,7 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Nesprávný formát emailu..
+        ///   Looks up a localized string similar to Nesprávný formát e-mailu..
         /// </summary>
         internal static string EmailVerifyControl_EmailValidation_NespravnyFormat {
             get {
@@ -1206,7 +1206,7 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Na Vámi zadanou emailovou adresu se právě odesílá ověřovací odkaz, prosím čekejte….
+        ///   Looks up a localized string similar to Na Vámi zadanou e-mailovou adresu se právě odesílá ověřovací odkaz, prosím čekejte….
         /// </summary>
         internal static string EmailVerifyControl_SendingEmail_Message {
             get {
@@ -1326,7 +1326,7 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Právě probíhá ověření Vašeho emailu, vyčkejte prosím na přesměrování..
+        ///   Looks up a localized string similar to Právě probíhá ověření Vašeho e-mailu, vyčkejte prosím na přesměrování..
         /// </summary>
         internal static string EmailVerifyControl_VerifyingEmail_Message {
             get {
@@ -1417,7 +1417,7 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Pro pokračování klikněte na odkaz ve Vašem emailu!.
+        ///   Looks up a localized string similar to Pro pokračování klikněte na odkaz ve Vašem e-mailu!.
         /// </summary>
         internal static string ForgotPasswordControl_Finish {
             get {

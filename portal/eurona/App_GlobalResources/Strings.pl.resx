@@ -139,7 +139,7 @@
     <value>Kod sprawdzenia</value>
   </data>
   <data name="AccountControl_SendInformationEmails" xml:space="preserve">
-    <value>Przysyłać emaile informacyjne </value>
+    <value>Przysyłać e-maile informacyjne </value>
   </data>
   <data name="AdministrationMode_Classifiers" xml:space="preserve">
     <value>Tarcze </value>

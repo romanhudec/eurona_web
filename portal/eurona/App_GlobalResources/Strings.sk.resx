@@ -1257,7 +1257,7 @@ Prihlasovacie meno: {0}</value>
     <value>Na zabezpečenie Vášho zákazníckeho účtu Eurona, prosím, zadajte Vašu platnú e-mailovú adresu. Vaša e-mailová adresa sa stane Vaším novým jedinečným prihlasovacím menom do zákazníckeho účtu. Uvedenú e-mailovú adresu nie je možné zadať pre viac zákazníckych účtov!</value>
   </data>
   <data name="EmailVerifyControl_EmailSended_Message" xml:space="preserve">
-    <value>Na Vašu emailovú adresu bol úspešne odoslaný overovací odkaz. Pre dokončenie overenia kliknite na odkaz v emaile. Ďakujeme.</value>
+    <value>Na Vašu e-mailovú adresu bol úspešne odoslaný overovací odkaz. Pre dokončenie overenia kliknite na odkaz v e-maile. Ďakujeme.</value>
   </data>
   <data name="EmailVerifyControl_EmailValidation_EmailJeJizOveren" xml:space="preserve">
     <value>Tento e-mail je už overený k inému účtu.</value>
