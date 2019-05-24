@@ -100,42 +100,43 @@
 
         function checkEmail() {
             var email = document.getElementById('<%=txtEmail.ClientID%>').value;
-               var labelElm = document.getElementById('<%=lblValidatorText.ClientID%>');
-               var btnVerifyElm = document.getElementById('<%=btnVerify.ClientID%>');
-               labelElm.style.display = "none";
-               btnVerifyElm.disabled = true;
-               var isEmailValid = validateEmailPattern(email);
-               if (isEmailValid == false) {
-                   labelElm.innerText = "<%=Resources.Strings.EmailVerifyControl_EmailValidation_NespravnyFormat %>";
-            labelElm.style.display = "block";
-            return;
-        }
-
-
-        $.ajax({
-            url: "<%=Page.ResolveUrl("~/user/emailVerifycationService.ashx")%>?method=checkEmail",
-            data: email,
-            dataType: "json",
-            type: "POST",
-            contentType: "application/json; charset=utf-8",
-            dataFilter: function (data) { return data; },
-            success: function (data) {
-                if (data.Status != 0) {
-                    labelElm.innerText = data.ErrorMessage;
-                    labelElm.style.display = "block";
-                } else {
-                    btnVerifyElm.disabled = false;
-                }
-            },
-            error: function (XMLHttpRequest, textStatus, errorThrown) {
+            var labelElm = document.getElementById('<%=lblValidatorText.ClientID%>');
+            var btnVerifyElm = document.getElementById('<%=btnVerify.ClientID%>');
+            labelElm.style.display = "none";
+            btnVerifyElm.disabled = true;
+            var isEmailValid = validateEmailPattern(email);
+            if (isEmailValid == false) {
+                labelElm.innerText = "<%=Resources.Strings.EmailVerifyControl_EmailValidation_NespravnyFormat %>";
                 labelElm.style.display = "block";
+                return;
             }
-        });
+
+
+            $.ajax({
+                url: "<%=Page.ResolveUrl("~/user/emailVerifycationService.ashx")%>?method=checkEmail",
+                data: email,
+                dataType: "json",
+                type: "POST",
+                contentType: "application/json; charset=utf-8",
+                dataFilter: function (data) { return data; },
+                success: function (data) {
+                    if (data.Status != 0) {
+                        labelElm.innerText = data.ErrorMessage;
+                        labelElm.style.display = "block";
+                    } else {
+                        btnVerifyElm.disabled = false;
+                    }
+                },
+                error: function (XMLHttpRequest, textStatus, errorThrown) {
+                    labelElm.style.display = "block";
+                }
+            });
+
+        }
 
         function onClose() {
             location.href = "<%=Page.ResolveUrl("~/")%>";
         }
-    }
     </script>
     <div id="verfityForm" style="display: none; cursor: default;">
         <table id="layoutSendinEmail" style="width: 100%; display: none;">
