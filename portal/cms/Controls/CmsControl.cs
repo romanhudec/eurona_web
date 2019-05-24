@@ -149,7 +149,8 @@ namespace CMS.Controls
             rv.CssClass = "ms-formvalidation";
             rv.SetFocusOnError = true;
             rv.EnableClientScript = true;
-            rv.ValidationExpression = @"^(?=.*[A-Z])(?=.*\d)(?!.*(.)\1\1)[a-zA-Z0-9@]{6,}$";
+            rv.ValidationExpression = @"^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])\S{6,}$";
+            //rv.ValidationExpression = @"^(?=.*[A-Z])(?=.*\d)(?!.*(.)\1\1)[a-zA-Z0-9@]{6,}$";
             return rv;
         }
 
