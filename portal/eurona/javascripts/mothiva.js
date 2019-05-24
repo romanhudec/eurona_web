@@ -275,7 +275,8 @@ function blockUIAlert(title, message) {
 function validatePasswordAndRepeatPassword(elm, elmRepeat, elmErrorMessage, elmErrorMessageRepeat) {
     // at least one number, one lowercase and one uppercase letter
     // at least six characters that are letters, numbers or the underscore
-    var strongRegex = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])\w{6,}$/;
+    //var strongRegex = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])\w{6,}$/;
+    var strongRegex = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])\S{6,}$/;
     if (elm.value.length == 0 && elmRepeat.value.length == 0) {
         elmErrorMessage.style.display = 'block';
         return false;

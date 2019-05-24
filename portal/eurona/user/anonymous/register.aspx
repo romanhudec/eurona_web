@@ -19,7 +19,7 @@
         .validator span{color:#fff;}
     </style>
     <script language="javascript" type="text/javascript">
-
+        var isTypedEmailValid = false;
         $(":input").attr("autocomplete", "off");
 
     	function AcceptTermsAndConditions(checkbox) {
@@ -93,6 +93,7 @@
 		    }
 		}
 		function onSave() {
+		    var btnContinueElm = document.getElementById('<%=btnContinue.ClientID%>');
 			if (validate('<%=txtHesloProHosta.ClientID %>', 'validatorHesloProHosta') == false) return false;
 			if (validateRegExp('<%=txtHesloProHosta.ClientID %>', 'validatorHesloProHostaRegExp', '^[0-9]{3}-[0-9]{10}$') == false) return false;
 
@@ -114,8 +115,15 @@
 		        return false;
 		    }
 
-			if (validate('<%=txtConfirmPassword.ClientID %>', 'validatorConfirmPassword') == false) return false;
-			return true;
+		    if (validate('<%=txtConfirmPassword.ClientID %>', 'validatorConfirmPassword') == false) return false;
+
+		    //alert(isTypedEmailValid);
+		    if (isTypedEmailValid == false) {
+		        btnContinueElm.disabled = true;
+		        return false;
+		    }
+
+		    return true;
 		}
 
 		function confirmNemamHeloProHostaCheck() {
@@ -136,11 +144,13 @@
             labelElm.style.display = "none";
             checkElm.style.display = "none";
             btnContinueElm.disabled = true;
+            isTypedEmailValid = false
             var isEmailValid = validateEmailPattern(email);
             if (isEmailValid == false) {
                 labelElm.innerText = "<%=Resources.Strings.EmailVerifyControl_EmailValidation_NespravnyFormat %>";
                 labelElm.style.display = "block";
                 checkElm.style.display = "block";
+                isTypedEmailValid = false
                 return;
             }
 
@@ -157,7 +167,9 @@
                         labelElm.innerText = data.ErrorMessage;
                         labelElm.style.display = "block";
                         checkElm.style.display = "block";
+                        isTypedEmailValid = false
                     } else {
+                        isTypedEmailValid = true
                         btnContinueElm.disabled = false;
                     }
                 },
@@ -169,6 +181,7 @@
         }
 
         function validatePwd() {
+            checkEmail();
             var btnContinue = document.getElementById('<%=btnContinue.ClientID%>');
             var elmErrorMessage = document.getElementById('<%=lblValidatorTextPwd.ClientID%>');
             var elmErrorMessageRepeat = document.getElementById('<%=lblValidatorTextPwdRepeat.ClientID%>');
