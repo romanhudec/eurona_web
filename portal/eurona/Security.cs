@@ -48,7 +48,11 @@ namespace Eurona {
             HttpContext context = HttpContext.Current;
             HttpSessionState session = context.Session;
             HttpResponse response = context.Response;
-            if (session != null) session.Clear();
+            if (session != null) {
+                session.Clear();
+                session.RemoveAll();
+                session.Abandon();
+            }
             FormsAuthentication.SignOut();
             response.Cookies[COOKIE_ROLES].Value = "";
             FormsAuthentication.RedirectToLoginPage();
@@ -58,7 +62,11 @@ namespace Eurona {
             HttpContext context = HttpContext.Current;
             HttpSessionState session = context.Session;
             HttpResponse response = context.Response;
-            if (session != null) session.Clear();
+            if (session != null) {
+                session.Clear();
+                session.RemoveAll();
+                session.Abandon();
+            }
             FormsAuthentication.SignOut();
             response.Cookies[COOKIE_ROLES].Value = "";
         }

@@ -25,7 +25,12 @@ namespace Eurona.User.Advisor {
                 this.debugVersion.Visible = true;
 
             Security.IsLogged(true);
-            
+
+            if (Page.Request.RawUrl.Contains("?verified")) {
+                Account loggedAccount = Storage<Account>.ReadFirst(new Account.ReadById { AccountId = Security.Account.Id });
+                Security.Login(loggedAccount);
+            }
+
             //Email validation process
             if (Security.Account.IsInRole(Role.ADVISOR) || Security.Account.IsInRole(Role.ANONYMOUSADVISOR)) {
                 if (Security.Account.EmailVerified.HasValue == false) {

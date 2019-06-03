@@ -75,7 +75,7 @@ namespace Eurona.User {
             }
 
             if (status != (int)JSONResponseStatus.SUCCESS) {
-                EvenLog.WritoToEventLog(errorMessage, System.Diagnostics.EventLogEntryType.Error);
+                EvenLog.WritoToEventLog("checkEmail:" + errorMessage + ", Email:" + email, System.Diagnostics.EventLogEntryType.Warning);
             }
 
             sbJson.AppendFormat("{{ \"Status\":\"{0}\", \"ErrorMessage\":\"{1}\" }}", status, errorMessage);
@@ -380,7 +380,7 @@ namespace Eurona.User {
                 errorMessage = Resources.Strings.EmailVerifyControl_EmailValidation_UcetJeJizOverenPokracovat;
                 sbJson.AppendFormat("{{ \"Status\":\"{0}\", \"ErrorMessage\":\"{1}\", \"Message\":\"{2}\" }}", status, "", message);
                 detailedMessage = errorMessage + String.Format(" ({0})", emailFromCode);
-                EvenLog.WritoToEventLog(detailedMessage, System.Diagnostics.EventLogEntryType.Error);
+                EvenLog.WritoToEventLog("verify:" + detailedMessage, System.Diagnostics.EventLogEntryType.Information);
                 context.Response.ContentType = "application/json; charset=utf-8";
                 context.Response.Write(sbJson.ToString());
                 context.Response.End();
@@ -388,17 +388,19 @@ namespace Eurona.User {
             }
 
             //Prihlasenie pouzivatela ak nieje prihlaseny
-            if (!Security.IsLogged(false) && accountByVerifyCode != null) {
+            if (accountByVerifyCode != null) {
                 Security.Login(accountByVerifyCode, false);
+                EvenLog.WritoToEventLog("verify:User login Id:" + accountByVerifyCode.Id.ToString(), System.Diagnostics.EventLogEntryType.Information);
             }
 
             if (Security.IsLogged(false)) {
                 if (accountFromCode != Security.Account.Id) {
                     status = (int)JSONResponseStatus.ERROR;
                     detailedMessage = "verify:Verify token falsified! Invalid Account!";
-                } else if (emailFromCode != Security.Account.EmailToVerify) {
+                } else if (emailFromCode != accountByVerifyCode.EmailToVerify) {
                     status = (int)JSONResponseStatus.ERROR;
                     detailedMessage = "verify:Verify token falsified! Invalid Email!";
+                    EvenLog.WritoToEventLog("verify:emailFromCode != EmailToVerify " + emailFromCode + " != " + Security.Account.EmailToVerify, System.Diagnostics.EventLogEntryType.Information);
                 }
 
                 if (status == (int)JSONResponseStatus.SUCCESS) {
@@ -421,12 +423,13 @@ namespace Eurona.User {
             }
 
             if (status == (int)JSONResponseStatus.SUCCESS) {
-                Security.Account.EmailVerifyStatus = (int)Account.EmailVerifyStatusCode.DATA_VALIDATED;
-                Storage<Account>.Update(Security.Account);
+                accountByVerifyCode.EmailVerifyStatus = (int)Account.EmailVerifyStatusCode.DATA_VALIDATED;
+                Storage<Account>.Update(accountByVerifyCode);
                 errorMessage = "";
+                EvenLog.WritoToEventLog("verify: DATA_VALIDATED Id:" + accountByVerifyCode.Id.ToString(), System.Diagnostics.EventLogEntryType.Information);
             }
-            if (status != (int)JSONResponseStatus.SUCCESS) {
-                EvenLog.WritoToEventLog(detailedMessage, System.Diagnostics.EventLogEntryType.Error);
+            if (status != (int)JSONResponseStatus.SUCCESS && !String.IsNullOrEmpty(detailedMessage) ) {
+                EvenLog.WritoToEventLog("verify:" + detailedMessage, status == (int)JSONResponseStatus.ERROR ? System.Diagnostics.EventLogEntryType.Error : System.Diagnostics.EventLogEntryType.Information);
             }
 
             sbJson.AppendFormat("{{ \"Status\":\"{0}\", \"ErrorMessage\":\"{1}\" }}", status, errorMessage);
@@ -445,35 +448,38 @@ namespace Eurona.User {
             string errorMessage = "";
 
             if (Security.IsLogged(false)) {
-                if (Security.Account.EmailVerifyStatus != (int)Account.EmailVerifyStatusCode.DATA_VALIDATED) {
+                Account loggedAccount = Storage<Account>.ReadFirst(new Account.ReadById { AccountId = Security.Account.Id });
+                Security.Login(loggedAccount, false);
+                if (loggedAccount.EmailVerifyStatus != (int)Account.EmailVerifyStatusCode.DATA_VALIDATED) {
+                    EvenLog.WritoToEventLog("verifyFinish: Id :" + loggedAccount.Id.ToString() + " EmailVerificationStatus: " + loggedAccount.EmailVerifyStatus, System.Diagnostics.EventLogEntryType.Information);
                     status = (int)JSONResponseStatus.ERROR;
-                    message = "EmailVerifyStatusCode is NOT Validated! ";
+                    message = "verifyFinish: Id: " + Security.Account.Id.ToString() + "EmailVerifyStatusCode is NOT Validated! ";
                 } else {
                     string pwd = GetRequestData(context.Request);
                     pwd = CMS.Utilities.Cryptographer.MD5Hash(pwd);
 
-                    Security.Account.Login = Security.Account.EmailToVerify;
-                    Security.Account.Email = Security.Account.EmailToVerify;
-                    Security.Account.Password = pwd;
-                    Security.Account.EmailVerifyStatus = (int)Account.EmailVerifyStatusCode.VERIFIED;
-                    Security.Account.EmailVerified = DateTime.Now;
-                    Storage<Account>.Update(Security.Account);
+                    loggedAccount.Login = Security.Account.EmailToVerify;
+                    loggedAccount.Email = Security.Account.EmailToVerify;
+                    loggedAccount.Password = pwd;
+                    loggedAccount.EmailVerifyStatus = (int)Account.EmailVerifyStatusCode.VERIFIED;
+                    loggedAccount.EmailVerified = DateTime.Now;
+                    Storage<Account>.Update(loggedAccount);
 
                     //Update Organization
-                    Organization organization = Storage<Organization>.ReadFirst(new Organization.ReadByAccountId { AccountId = Security.Account.Id });
-                    organization.ContactEmail = Security.Account.EmailToVerify;
+                    Organization organization = Storage<Organization>.ReadFirst(new Organization.ReadByAccountId { AccountId = loggedAccount.Id });
+                    organization.ContactEmail = loggedAccount.EmailToVerify;
                     Storage<Organization>.Update(organization);
 
                     //Sync TVD User Data
                     if (!UpdateTVDUser(organization)) {
-                        Security.Account.EmailVerified = null;
-                        Storage<Account>.Update(Security.Account);
+                        loggedAccount.EmailVerified = null;
+                        Storage<Account>.Update(loggedAccount);
                         status = (int)JSONResponseStatus.ERROR;
                         message = "verifyFinish:TVD Error!";
                         errorMessage = "Synchronizace se vzdáleným servrem (SAP) byla neúspěšná!";
                     } else {
-                        SendEmailVerificationFinishedEmail(Security.Account.EmailToVerify);
-                        message = String.Format(Resources.Strings.EmailVerifyControl_VerifycationSuccessFinish_Message, Security.Account.Login);
+                        SendEmailVerificationFinishedEmail(loggedAccount.EmailToVerify);
+                        message = String.Format(Resources.Strings.EmailVerifyControl_VerifycationSuccessFinish_Message, loggedAccount.Login);
                         message = message.Replace("\r\n", "<br/>");
                     }
                 }
@@ -484,9 +490,10 @@ namespace Eurona.User {
             }
 
             if (status != (int)JSONResponseStatus.SUCCESS) {
-                EvenLog.WritoToEventLog(message, System.Diagnostics.EventLogEntryType.Error);
+                EvenLog.WritoToEventLog("verifyFinish:" + message, System.Diagnostics.EventLogEntryType.Error);
             }
 
+            EvenLog.WritoToEventLog("verifyFinish: Id " + Security.Account.Id.ToString() + "Message:" + message, System.Diagnostics.EventLogEntryType.Information);
             StringBuilder sbJson = new StringBuilder();
             sbJson.AppendFormat("{{ \"Status\":\"{0}\", \"Message\":\"{1}\", \"ErrorMessage\":\"{2}\" }}", status, message, errorMessage);
             context.Response.ContentType = "application/json; charset=utf-8";
@@ -640,8 +647,11 @@ namespace Eurona.User {
             int accountFromCode = Convert.ToInt32(data[1]);
             Account accountByVerifyCode = Storage<Account>.ReadFirst(new Account.ReadByEmailVerifyCode { EmailVerifyCode = codeEncrypted });
             //Prihlasenie pouzivatela ak nieje prihlaseny
-            if (!Security.IsLogged(false) && accountByVerifyCode != null) {
+            EvenLog.WritoToEventLog("verifyFinish:User logout Id:" + Security.Account.Id + ", login:" + Security.Account.Login, System.Diagnostics.EventLogEntryType.Information);        
+            Security.LogoutWithoutRedirect();
+            if (accountByVerifyCode != null) {
                 Security.Login(accountByVerifyCode, false);
+                EvenLog.WritoToEventLog("verifyFinish:User login Id:" + accountByVerifyCode.Id + ", login:" + accountByVerifyCode.Login, System.Diagnostics.EventLogEntryType.Information);
             }
 
             StringBuilder sbJson = new StringBuilder();
