@@ -29,6 +29,10 @@ namespace Eurona.Controls {
             this.txtEmail.ID = "txtEmail";
             this.txtEmail.Width = Unit.Percentage(100);
 
+            if (!String.IsNullOrEmpty(Request["email"])) {
+                this.txtEmail.Text = Request["email"];
+            }
+
             this.capcha = new Telerik.Web.UI.RadCaptcha();
             this.capcha.ErrorMessage = global::CMS.Resources.Controls.ForgotPasswordControl_Capcha_ErrorMessage;
             this.capcha.CaptchaTextBoxLabel = global::CMS.Resources.Controls.ForgotPasswordControl_Capcha_TextBoxLabel;
@@ -56,8 +60,7 @@ namespace Eurona.Controls {
                 string code = string.Format("{0}|{1}|{2}", this.txtEmail.Text, account.Id, Utilities.GetUserIP(this.Page.Request));
                 code = CMS.Utilities.Cryptographer.Encrypt(code);
                 string url = Utilities.Root(this.Page.Request) + "user/changePassword.aspx?code=" + code;
-
-
+                
                 //string newPwd = capcha.CaptchaImage.Text;
                 account.Password = Cryptographer.MD5Hash(capcha.CaptchaImage.Text, Salt);
                 Storage<AccountEntity>.Update(account);

@@ -286,6 +286,7 @@ namespace Eurona.Controls {
             };
             btnCancel.Click += (s1, e1) => Response.Redirect(this.ReturnUrl);
         }
+
         private void CreateChangePasswordButton() {
             btnChangePassword = new Button {
                 Text = global::CMS.Resources.Controls.ChangePassword_Text,
@@ -294,8 +295,21 @@ namespace Eurona.Controls {
             string url = string.Empty;
             if (Security.IsInRole(Role.OPERATOR)) {
                 btnChangePassword.Text = "Generovat nové heslo";
-                url = string.Format(this.GeneratePasswordUrlFormat, accountEntity.Id) + "&" + this.BuildReturnUrlQueryParam();
-                btnChangePassword.Click += (s1, e1) => Response.Redirect(Page.ResolveUrl(url));
+                // url = string.Format(this.GeneratePasswordUrlFormat, accountEntity.Id) + "&" + this.BuildReturnUrlQueryParam();
+                // btnChangePassword.Click += (s1, e1) => Response.Redirect(Page.ResolveUrl(url));
+                btnChangePassword.Click += (s1, e1) => {
+                    string code = string.Format("{0}|{1}|{2}", accountEntity.Email, accountEntity.Id, Utilities.GetUserIP(this.Page.Request));
+                    code = CMS.Utilities.Cryptographer.Encrypt(code);
+                    url = Utilities.Root(this.Page.Request) + "user/changePassword.aspx?code=" + code;
+
+                    CMS.EmailNotification email = new CMS.EmailNotification();
+                    email.Subject = global::CMS.Resources.Controls.ForgotPasswordControl_Email_ForgotPassword_Subject;
+                    email.Message = string.Format(Resources.Strings.ForgotPasswordControl_Email_ForgotPassword_Message, accountEntity.Login, url);
+                    email.To = accountEntity.Email;
+                    email.Notify(true);
+                    string js2 = string.Format("blockUIAlert('Změna hesla', '{0}');", Resources.Strings.ForgotPasswordControl_Finish);
+                    Page.ClientScript.RegisterStartupScript(Page.GetType(), "ForgotPassword2", js2, true);
+                };
                 return;
             }
 

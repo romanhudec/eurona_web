@@ -116,6 +116,9 @@ namespace Eurona.User {
             int status = (int)JSONResponseStatus.SUCCESS;
             string errorMessage = "";
             if (Security.IsLogged(false)) {
+                Account loggedAccount = Storage<Account>.ReadFirst(new Account.ReadById { AccountId = Security.Account.Id });
+                Security.Login(loggedAccount, false);
+
                 string code = string.Format("{0}|{1}|{2}", email, Security.Account.Id, Utilities.GetUserIP(context.Request));
                 code = CMS.Utilities.Cryptographer.Encrypt(code);
                 string url = Utilities.Root(context.Request) + "user/emailVerifycation.aspx?code=" + code;
@@ -129,6 +132,7 @@ namespace Eurona.User {
                     Storage<Account>.Update(Security.Account);
                 } else {
                     status = (int)JSONResponseStatus.ERROR;
+                    EvenLog.WritoToEventLog("sendEmail2EmailVerify: Sending email failed! email:" + email, System.Diagnostics.EventLogEntryType.Error);
                 }
             } else {
                 status = (int)JSONResponseStatus.ERROR;
@@ -154,6 +158,9 @@ namespace Eurona.User {
             int status = (int)JSONResponseStatus.SUCCESS;
             string errorMessage = "";
             if (Security.IsLogged(false)) {
+                Account loggedAccount = Storage<Account>.ReadFirst(new Account.ReadById { AccountId = Security.Account.Id });
+                Security.Login(loggedAccount, false);
+
                 string code = string.Format("{0}|{1}|{2}", email, Security.Account.Id, Utilities.GetUserIP(context.Request));
                 code = CMS.Utilities.Cryptographer.Encrypt(code);
                 string url = Utilities.Root(context.Request) + "user/emailChangeVerifycation.aspx?code=" + code;
@@ -263,7 +270,13 @@ namespace Eurona.User {
             int status = (int)JSONResponseStatus.SUCCESS;
             string errorMessage = "";
             if (Security.IsLogged(false)) {
+                Account loggedAccount = Storage<Account>.ReadFirst(new Account.ReadById { AccountId = Security.Account.Id });
+                Security.Login(loggedAccount, false);
+
                 string email = Security.Account.Login;
+                if (!email.Contains("@")) {
+                    email = Security.Account.Email;
+                }
                 string code = string.Format("{0}|{1}|{2}", email, Security.Account.Id, Utilities.GetUserIP(context.Request));
                 code = CMS.Utilities.Cryptographer.Encrypt(code);
                 string url = Utilities.Root(context.Request) + "user/anonymous/emailVerifycation.aspx?code=" + code;
@@ -278,10 +291,11 @@ namespace Eurona.User {
                     Security.LogoutWithoutRedirect();
                 } else {
                     status = (int)JSONResponseStatus.ERROR;
+                    EvenLog.WritoToEventLog("sendEmail2EmailAnonymousVerify: Sending email failed! email:" + email, System.Diagnostics.EventLogEntryType.Error);
                 }
             } else {
                 status = (int)JSONResponseStatus.ERROR;
-                errorMessage = "sendEmail2EmailVerify:User not Loged!";
+                errorMessage = "sendEmail2EmailAnonymousVerify:User not Loged!";
             }
             if (status != (int)JSONResponseStatus.SUCCESS) {
                 EvenLog.WritoToEventLog(errorMessage, System.Diagnostics.EventLogEntryType.Error);
@@ -322,10 +336,11 @@ namespace Eurona.User {
                     Storage<Account>.Update(accountById);
                 } else {
                     status = (int)JSONResponseStatus.ERROR;
+                    EvenLog.WritoToEventLog("sendEmail2EmailAnonymousVerifyEmailId: Sending email failed! email:" + email, System.Diagnostics.EventLogEntryType.Error);
                 }
             } else {
                 status = (int)JSONResponseStatus.ERROR;
-                errorMessage = "sendEmail2EmailVerify:User not Loged!";
+                errorMessage = "sendEmail2EmailAnonymousVerifyEmailId:User not Loged!";
             }
             if (status != (int)JSONResponseStatus.SUCCESS) {
                 EvenLog.WritoToEventLog(errorMessage, System.Diagnostics.EventLogEntryType.Error);

@@ -157,26 +157,28 @@ namespace Eurona.Controls
 			});
 			grid.Columns[1].HeaderStyle.Width = Unit.Pixel(120);
 
-			grid.Columns.Add(new GridCheckBoxColumn
-			{
-				DataField = "Enabled",
-				HeaderText = global::CMS.Resources.Controls.AdminAccountsControl_ColumnEnabled,
-				SortExpression = "Enabled",
-				AutoPostBackOnFilter = true,
-				CurrentFilterFunction = GridKnownFunction.Contains
-			});
-			grid.Columns[2].HeaderStyle.Width = Unit.Pixel(60);
+            int columnIndex = 2;
+            if (Security.Account.IsInRole(Eurona.DAL.Entities.Role.OPERATOR)) {
+                grid.Columns.Add(new GridCheckBoxColumn {
+                    DataField = "Enabled",
+                    HeaderText = global::CMS.Resources.Controls.AdminAccountsControl_ColumnEnabled,
+                    SortExpression = "Enabled",
+                    AutoPostBackOnFilter = true,
+                    CurrentFilterFunction = GridKnownFunction.Contains
+                });
+                grid.Columns[columnIndex].HeaderStyle.Width = Unit.Pixel(60);
+                columnIndex++;
 
-			grid.Columns.Add(new GridCheckBoxColumn
-			{
-				DataField = "Verified",
-				HeaderText = global::CMS.Resources.Controls.AdminAccountsControl_ColumnVerified,
-				SortExpression = "Verified",
-				AutoPostBackOnFilter = true,
-				CurrentFilterFunction = GridKnownFunction.Contains
-			});
-			grid.Columns[3].HeaderStyle.Width = Unit.Pixel(60);
-
+                grid.Columns.Add(new GridCheckBoxColumn {
+                    DataField = "Verified",
+                    HeaderText = global::CMS.Resources.Controls.AdminAccountsControl_ColumnVerified,
+                    SortExpression = "Verified",
+                    AutoPostBackOnFilter = true,
+                    CurrentFilterFunction = GridKnownFunction.Contains
+                });
+                grid.Columns[columnIndex].HeaderStyle.Width = Unit.Pixel(60);
+                columnIndex++;
+            }
             grid.Columns.Add(new GridBoundColumn {
                 DataField = "EmailVerified",
                 HeaderText = global::CMS.Resources.Controls.AdminAccountsControl_ColumnEmailVerified,
@@ -184,7 +186,8 @@ namespace Eurona.Controls
                 AutoPostBackOnFilter = true,
                 CurrentFilterFunction = GridKnownFunction.Contains
             });
-            grid.Columns[4].HeaderStyle.Width = Unit.Pixel(60);
+            grid.Columns[columnIndex].HeaderStyle.Width = Unit.Pixel(60);
+            columnIndex++;
 
 			grid.Columns.Add(new GridBoundColumn
 			{
@@ -193,7 +196,8 @@ namespace Eurona.Controls
 				AutoPostBackOnFilter = true,
 				CurrentFilterFunction = GridKnownFunction.Contains
 			});
-			grid.Columns[5].ItemStyle.Wrap = true;
+            grid.Columns[columnIndex].ItemStyle.Wrap = true;
+            columnIndex++;
 
 			if (!HideCredit)
 			{
