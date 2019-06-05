@@ -1127,7 +1127,7 @@ Eurona by Cerny</value>
 zmiana e-mail Twojego konta użytkownika jest zakończona.
 &lt;br/&gt;&lt;br/&gt;
 Zapamiętaj sobie, prosię, Twoje nowe dane do zalogowania:&lt;br/&gt;
-Login:{0}
+Login: &lt;b&gt;{0}&lt;/b&gt;
 &lt;br/&gt;&lt;br/&gt;
 Teraz możesz kontynuować na nasze strony: https://euronabycerny.com/.
 &lt;br/&gt;&lt;br/&gt;
@@ -1136,7 +1136,7 @@ Ekipa Eurona.</value>
   </data>
   <data name="ChangeEmailControl_VerifycationSuccessFinish_Message" xml:space="preserve">
     <value>Zapamiętaj swoje nowe dane logowania: 
-Nazwa użytkownika: {0}</value>
+Nazwa użytkownika: &lt;b&gt;{0}&lt;/b&gt;</value>
   </data>
   <data name="ChangeEmailControl_VerifycationSuccessFinish_Title" xml:space="preserve">
     <value>Dziękujemy, właśnie dokończyłeś weryfikację  swojego konta klienta.</value>

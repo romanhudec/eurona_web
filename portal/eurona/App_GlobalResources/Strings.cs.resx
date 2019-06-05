@@ -1178,7 +1178,7 @@ Eurona by Cerny</value>
 změna e-mailu Vašeho zákaznického účtu je dokončena.
 &lt;br/&gt;&lt;br/&gt;
 Zapamatujte si, prosím, Vaše nové přihlašovací údaje:&lt;br/&gt;
-Přihlašovací jméno: {0}
+Přihlašovací jméno: &lt;b&gt;{0}&lt;/b&gt;
 &lt;br/&gt;&lt;br/&gt;
 Nyní můžete pokračovat na naše stránky: https://euronabycerny.com/.
 &lt;br/&gt;&lt;br/&gt;
@@ -1187,7 +1187,7 @@ Tým Eurona.</value>
   </data>
   <data name="ChangeEmailControl_VerifycationSuccessFinish_Message" xml:space="preserve">
     <value>Zapamatujte si, prosím, Vaše nové přihlašovací údaje:
-Přihlašovací jméno: {0}</value>
+Přihlašovací jméno: &lt;b&gt;{0}&lt;/b&gt;</value>
   </data>
   <data name="ChangeEmailControl_VerifycationSuccessFinish_Title" xml:space="preserve">
     <value>Děkujeme, právě jste dokončil/a změnu e-mailu Vašeho zákaznického účtu!</value>
