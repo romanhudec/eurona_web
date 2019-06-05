@@ -1283,7 +1283,7 @@ namespace Resources {
         ///ověření Vašeho zákaznického účtu je dokončeno.
         ///&lt;br/&gt;&lt;br/&gt;
         ///Zapamatujte si, prosím, Vaše nové přihlašovací údaje:&lt;br/&gt;
-        ///Přihlašovací jméno: {0} a Vaše nové heslo.
+        ///Přihlašovací jméno: &lt;b&gt;{0}&lt;/b&gt; a Vaše nové heslo.
         ///&lt;br/&gt;&lt;br/&gt;
         ///Nyní můžete pokračovat na naše stránky: https://euronabycerny.com/.
         ///&lt;br/&gt;&lt;br/&gt;
@@ -1298,7 +1298,7 @@ namespace Resources {
         
         /// <summary>
         ///   Looks up a localized string similar to Zapamatujte si, prosím, Vaše nové přihlašovací údaje:
-        ///Přihlašovací jméno: {0}
+        ///Přihlašovací jméno: &lt;b&gt;{0}&lt;/b&gt;
         ///Heslo: zvolené v předchozím kroku.
         /// </summary>
         internal static string EmailVerifyControl_VerifycationSuccessFinish_Message {
@@ -2744,10 +2744,10 @@ namespace Resources {
         ///&lt;p&gt;Dobrý den,&lt;/p&gt;
         ///&lt;p&gt;blahopřejeme, Vaše registrace proběhla úspěšně. Jsme rádi, že jste si pro svůj nákup zvolil/a &lt;br/&gt;právě českou společnost Eurona s.r.o.&lt;/p&gt;
         ///&lt;p&gt;
-        ///    Vaše přihlašovací jméno: {0} a Vámi zadané heslo při registraci.
+        ///    Vaše přihlašovací jméno: &lt;b&gt;{0}&lt;/b&gt; a Vámi zadané heslo při registraci.
         ///&lt;/p&gt;
         ///&lt;p&gt;Co Vám můžeme nabídnout? Výhodnější nákupní ceny, odměny, prémie, bonusy, soutěže, &lt;br/&gt;motivační programy, pasivní příjem a mnohem více.&lt;/p&gt;
-        ///&lt;p&gt;Než Vám doručíme objednaný balíček přímo do Vašich rukou, můžete se přihlásit do své &lt;br/&gt;kanceláře po [rest of string was truncated]&quot;;.
+        ///&lt;p&gt;Než Vám doručíme objednaný balíček přímo do Vašich rukou, můžete se přihlásit do své &lt;br/&gt;kance [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string UserRegistrationPage_Email2User_Message {
             get {

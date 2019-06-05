@@ -228,7 +228,7 @@
 &lt;p&gt;Witamy,&lt;/p&gt;
 &lt;p&gt;wielkie gratulacje, Twoja rejestracja udała się. Cieszy nas, że wybrałeś/aś na swój zakup&lt;br/&gt;właśnie czeską spółkę Eurona s.r.o.&lt;/p&gt;
 &lt;p&gt;
-    Twoja nazwa użytkownika: {0}
+    Twoja nazwa użytkownika: &lt;b&gt;{0}&lt;/b&gt;
 &lt;br /&gt;
     a Vámi zadané heslo při registraci.
 &lt;/p&gt;
@@ -1263,7 +1263,7 @@ Zespół Eurona</value>
   </data>
   <data name="EmailVerifyControl_VerifycationSuccessFinish_Message" xml:space="preserve">
     <value>Zapamiętaj swoje nowe dane logowania: 
-Nazwa użytkownika: {0}
+Nazwa użytkownika: &lt;b&gt;{0}&lt;b&gt;
 Hasło: wybrane w poprzednim kroku</value>
   </data>
   <data name="EmailVerifyControl_VerifycationSuccessFinish_Title" xml:space="preserve">
