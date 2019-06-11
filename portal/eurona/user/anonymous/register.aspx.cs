@@ -141,7 +141,7 @@ namespace Eurona.User.Anonymous {
                 this.btnContinue.Page.ClientScript.RegisterStartupScript(this.btnContinue.Page.GetType(), "addValidateTerms", js, true);
                 return;
             }
-            /*
+            
             if (AccountEmailExists(txtEmail.Text)) {
                 string js = string.Format("alert('{0}');", Resources.EShopStrings.Anonymous_Register_EmailExists);
                 this.btnContinue.Page.ClientScript.RegisterStartupScript(this.btnContinue.Page.GetType(), "addValidateOrganization", js, true);
@@ -149,12 +149,12 @@ namespace Eurona.User.Anonymous {
                 return;
             }
 
-            if (AccountLoginExists(txtLogin.Text)) {
+            if (AccountLoginExists(txtEmail.Text)) {
                 string js = string.Format("alert('{0}');", Resources.EShopStrings.Anonymous_Register_LoginExists);
                 this.btnContinue.Page.ClientScript.RegisterStartupScript(this.btnContinue.Page.GetType(), "addValidateOrganization", js, true);
                 this.cbAcceptTerms.Checked = false;
                 return;
-            }*/
+            }
 
 
             string hesloProHosta = Organization.EURONA_CODE;
