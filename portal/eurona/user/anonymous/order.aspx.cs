@@ -35,6 +35,16 @@ namespace Eurona.User.Anonymous {
                 if (!IsPostBack) {
                     this.adminOrderControl.RecalculateOrder();
                 }
+
+                //Ak pouzivatel nieje overeny, nemoze dokoncit objednavku
+                //Email validation process
+                if (Security.Account.IsInRole(Eurona.Common.DAL.Entities.Role.ADVISOR) || Security.Account.IsInRole(Eurona.Common.DAL.Entities.Role.ANONYMOUSADVISOR)) {
+                    if (Security.Account.EmailVerified.HasValue == false) {
+                        Response.Redirect("~/user/anonymous/requestEmailVerifycation.aspx");
+                        return;
+                    }
+                }
+
             }
         }
 

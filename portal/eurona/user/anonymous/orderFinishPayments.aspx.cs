@@ -12,6 +12,7 @@ using System.Configuration;
 using CMS.Utilities;
 using System.Net.Mail;
 using System.IO;
+using Eurona.DAL.Entities;
 
 
 namespace Eurona.User.Anonymous {
@@ -19,8 +20,16 @@ namespace Eurona.User.Anonymous {
         public OrderEntity order = null;
         private const string virtualUrl = "~/user/advisor/orders.aspx?type=ar";
         protected void Page_Load(object sender, EventArgs e) {
-            Security.Account.RemoveFromRole(Eurona.Common.DAL.Entities.Role.ANONYMOUSADVISOR.ToString());
-            Storage<AccountEntity>.Update(Security.Account);
+
+
+            //Update and refres logged account
+            Account account = Storage<Account>.ReadFirst(new Account.ReadById { AccountId = Security.Account.Id });
+            account.RemoveFromRole(Eurona.Common.DAL.Entities.Role.ANONYMOUSADVISOR.ToString());
+            Storage<Account>.Update(account);
+            Security.Login(account, false);
+
+            //Security.Account.RemoveFromRole(Eurona.Common.DAL.Entities.Role.ANONYMOUSADVISOR.ToString());
+            //Storage<AccountEntity>.Update(Security.Account);
 
             this.order = Storage<OrderEntity>.ReadFirst(new OrderEntity.ReadById { OrderId = Convert.ToInt32(Request["id"]) });
             this.payOrderControl.OrderId = this.order.Id;

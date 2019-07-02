@@ -137,6 +137,23 @@
         function onClose() {
             location.href = "<%=Page.ResolveUrl("~/")%>";
         }
+
+        function onContinueToCancel() {
+            $.ajax({
+                url: "<%=Page.ResolveUrl("~/user/emailVerifycationService.ashx")%>?method=verifyCancel",
+                data: "",
+                dataType: "json",
+                type: "POST",
+                contentType: "application/json; charset=utf-8",
+                dataFilter: function (data) { return data; },
+                success: function (data) {
+                    location.href = "<%=Page.ResolveUrl("~/")%>";
+                },
+                error: function (XMLHttpRequest, textStatus, errorThrown) {
+                    location.href = "<%=Page.ResolveUrl("~/")%>";
+                }
+            });
+        }
     </script>
     <div id="verfityForm" style="display: none; cursor: default;">
         <table id="layoutSendinEmail" style="width: 100%; display: none;">

@@ -13,6 +13,7 @@ using AccountEntity = CMS.Entities.Account;
 using EshopEmailNotification = SHP.EmailNotification;
 using System.Text;
 using Eurona.DAL.Entities;
+using Eurona.DAL.MSSQL;
 
 namespace Eurona.User.Anonymous {
     public partial class FinishPage : WebPage {
@@ -40,8 +41,11 @@ namespace Eurona.User.Anonymous {
                 }
             }
 
-            Security.Account.RemoveFromRole(Eurona.Common.DAL.Entities.Role.ANONYMOUSADVISOR.ToString());
-            Storage<Account>.Update(Security.Account);
+            //Update and refres logged account
+            Account account = Storage<Account>.ReadFirst(new Account.ReadById { AccountId = Security.Account.Id });
+            account.RemoveFromRole(Eurona.Common.DAL.Entities.Role.ANONYMOUSADVISOR.ToString());
+            Storage<Account>.Update(account);
+            Security.Login(account, false);
 
             this.order = Storage<OrderEntity>.ReadFirst(new OrderEntity.ReadById { OrderId = Convert.ToInt32(Request["id"]) });
 
