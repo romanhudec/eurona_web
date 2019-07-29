@@ -50,8 +50,11 @@
                         </td>
                     </tr>
                     <tr>
-                        <td colspan="3" align="justify" style="vertical-align:top;text-align:justify;">
+                        <td colspan="2" align="justify" style="vertical-align:top;text-align:justify;">
                             <%=ProductEntity.Description%>
+                        </td>
+                        <td align="right" style="vertical-align:top;text-align:right;">
+                           <span class="property"><asp:HyperLink ID="lblZadniEtiketa" runat="server" Text="<%$ Resources:EShopStrings, ProductControl_BackList %>"></asp:HyperLink></span>
                         </td>
                     </tr>
                     <tr>
@@ -77,7 +80,7 @@
                             </asp:LinkButton>
                             </div>
                         </td>                       
-                        <td rowspan="2">
+                        <td rowspan="2" align="right">
                             <div style="background-image:url(../images/product-cart-bg.png); background-repeat:repeat-x ;width:180px;height:120px;padding-top:10px;">
                                 <table cellpadding="5" style="margin-top:10px;">
                                     <tr>
@@ -171,13 +174,12 @@
                 </telerik:RadPageView>
                 <telerik:RadPageView ID="RadPageView2" runat="server" CssClass="pageView">
                     <table width="100%" style="padding:5px;">
-                    <tr>
+<%--                    <tr>
                         <td colspan="2" runat="server" id="tdZadniEtiketa" style="vertical-align:top;">
                             <span class="property"><asp:HyperLink ID="lblZadniEtiketa" runat="server" Text="<%$ Resources:EShopStrings, ProductControl_BackList %>"></asp:HyperLink></span>
                             <br />
-
                         </td>
-                    </tr>
+                    </tr>--%>
                     <tr>
                         <td colspan="2" runat="server" id="tdAdditionalInformation" style="vertical-align:top;text-align:justify;">
                             <span class="property"><asp:Label ID="Literal3" runat="server" Text="<%$ Resources:EShopStrings, ProductControl_AdditionalInformation %>"></asp:Label></span>

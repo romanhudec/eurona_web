@@ -40,6 +40,15 @@ namespace Eurona.EShop {
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl imgGalleryContainer;
         
         /// <summary>
+        /// lblZadniEtiketa control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HyperLink lblZadniEtiketa;
+        
+        /// <summary>
         /// tdPiktogramyProduktu control.
         /// </summary>
         /// <remarks>
@@ -200,24 +209,6 @@ namespace Eurona.EShop {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::Telerik.Web.UI.RadPageView RadPageView2;
-        
-        /// <summary>
-        /// tdZadniEtiketa control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlTableCell tdZadniEtiketa;
-        
-        /// <summary>
-        /// lblZadniEtiketa control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.HyperLink lblZadniEtiketa;
         
         /// <summary>
         /// tdAdditionalInformation control.
