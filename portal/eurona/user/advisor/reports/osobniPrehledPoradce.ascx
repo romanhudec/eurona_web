@@ -48,14 +48,17 @@
 	
 	.stonetable_TD
 	{
-		padding: 20px;
+        margin: 0 auto;
+		padding: 10px;
 		color: #001b98;
 		background-color: #eff1fa;
 		background-image: url(../../../images/reports/stonetable.jpg);
-		text-align: center;
+		text-align: center!important;
+        vertical-align:top;
 		font-weight: normal;
 	}
 	
+
 	.credittable
 	{
 		text-align: left;
@@ -176,34 +179,79 @@
 		    </table>				
 		</td>
 		<td valign="top">
-		    <table class="stonetable" cellpadding="6" cellspacing="0">
+		    <table class="stonetable" cellpadding="6" cellspacing="0" style="width:450px;">
 		    <tr>
-				<td colspan="4" class="stonetable_firstrow"></td>
+				<td colspan="7" class="stonetable_firstrow"></td>
 		    </tr>
 		    <tr>
-				<th colspan="4"><asp:Literal ID="Literal10" runat="server" Text="<%$ Resources:Reports, AktualnyNarokBonusu %>"></asp:Literal></th>
+				<th colspan="7"><asp:Literal ID="Literal10" runat="server" Text="<%$ Resources:Reports, AktualnyNarokBonusu %>"></asp:Literal></th>
 		    </tr>
 	        <tr>
-            <td class="stonetable_TD">
-				<b>EB</b><br /><br />
-                <img id="Img7" src="~/images/reports/animace_eurona.gif" runat="server" visible='<%# Eurona.User.Advisor.Reports.ReportHelper.GreaterThanZero(Eval("Bonus1")) %>' title="eurona bonus" />
-                <img id="Img8" src="~/images/reports/animace_seda.gif" runat="server" visible='<%# !Eurona.User.Advisor.Reports.ReportHelper.GreaterThanZero(Eval("Bonus1")) %>' title="eurona bonus" />
-            </td>
-            <td class="stonetable_TD">
-				<b>RB</b><br /><br />
-                <img id="Img9" src="~/images/reports/animace_rubin.gif" runat="server" visible='<%# Eurona.User.Advisor.Reports.ReportHelper.GreaterThanZero(Eval("Bonus2")) %>' title="rubínový bonus" />
-                <img id="Img10" src="~/images/reports/animace_seda.gif" runat="server" visible='<%# !Eurona.User.Advisor.Reports.ReportHelper.GreaterThanZero(Eval("Bonus2")) %>' title="rubínový bonus" />
-            </td>
-            <td class="stonetable_TD">
-				<b>SB</b><br /><br />
-                <img id="Img11" src="~/images/reports/animace_safir.gif" runat="server" visible='<%# Eurona.User.Advisor.Reports.ReportHelper.GreaterThanZero(Eval("Bonus3")) %>' title="safírový bonus" />
-                <img id="Img12" src="~/images/reports/animace_seda.gif" runat="server" visible='<%# !Eurona.User.Advisor.Reports.ReportHelper.GreaterThanZero(Eval("Bonus3")) %>' title="safírový bonus" />
-            </td>
-            <td class="stonetable_TD">
-				<b>BB</b><br /><br />
-                <img id="Img13" src="~/images/reports/animace_briliant.gif" runat="server" visible='<%# Eurona.User.Advisor.Reports.ReportHelper.GreaterThanZero(Eval("Bonus4")) %>' title="briliantový bonus" />
-                <img id="Img14" src="~/images/reports/animace_seda.gif" runat="server" visible='<%# !Eurona.User.Advisor.Reports.ReportHelper.GreaterThanZero(Eval("Bonus4")) %>' title="briliantový bonus" />
-            </td>
+                <td class="stonetable_TD" align="center">
+				    <b style="text-align:center;">EB</b>
+                     <div style="padding-top:10px;">
+                        <img id="Img7" src="~/images/reports/animace_eurona.gif" runat="server" visible='<%# Eurona.User.Advisor.Reports.ReportHelper.GreaterThanZero(Eval("Bonus1")) %>' title="eurona bonus" />
+                        <img id="Img8" src="~/images/reports/animace_seda.gif" runat="server" visible='<%# !Eurona.User.Advisor.Reports.ReportHelper.GreaterThanZero(Eval("Bonus1")) %>' title="eurona bonus" />
+                    </div>
+                </td>
+                <td class="stonetable_TD">
+				    <b>RB</b>
+                    <div style="padding-top:10px;">
+                        <img id="Img9" src="~/images/reports/animace_rubin.gif" runat="server" visible='<%# Eurona.User.Advisor.Reports.ReportHelper.ShowBonusRubin(3, Eval("BonusRubinHladina")) %>' title="rubínový bonus" />
+                        <img id="Img10" src="~/images/reports/animace_seda.gif" runat="server" visible='<%# !Eurona.User.Advisor.Reports.ReportHelper.ShowBonusRubin(3, Eval("BonusRubinHladina")) %>' title="rubínový bonus" />
+                    </div>
+                </td>
+                <td class="stonetable_TD">
+				    <b>SB</b>
+                     <div style="padding-top:10px;">
+                        <img id="Img11" src="~/images/reports/animace_safir.gif" runat="server" visible='<%# Eurona.User.Advisor.Reports.ReportHelper.ShowBonusRubin(4, Eval("BonusRubinHladina")) %>' title="safírový bonus" />
+                        <img id="Img12" src="~/images/reports/animace_seda.gif" runat="server" visible='<%# !Eurona.User.Advisor.Reports.ReportHelper.ShowBonusRubin(4, Eval("BonusRubinHladina")) %>' title="safírový bonus" />
+                    </div>
+                </td>
+                <td class="stonetable_TD">
+				    <b>BB</b>
+                    <div style="padding-top:10px;">
+                        <img id="Img13" src="~/images/reports/animace_briliant.gif" runat="server" visible='<%# Eurona.User.Advisor.Reports.ReportHelper.ShowBonusRubin(5, Eval("BonusRubinHladina")) %>' title="briliantový bonus" />
+                        <img id="Img14" src="~/images/reports/animace_seda.gif" runat="server" visible='<%# !Eurona.User.Advisor.Reports.ReportHelper.ShowBonusRubin(5, Eval("BonusRubinHladina")) %>' title="briliantový bonus" />
+                    </div>
+                </td>
+                <td class="stonetable_TD">
+				    <b>2RB</b>
+                     <div>
+                        <img id="Img6" src="~/images/reports/animace_2rubin.gif" runat="server" visible='<%# Eurona.User.Advisor.Reports.ReportHelper.ShowBonusRubin(6, Eval("BonusRubinHladina")) %>' title="rubínový bonus" />
+                        <img id="Img16" src="~/images/reports/animace_2seda.gif" runat="server" visible='<%# !Eurona.User.Advisor.Reports.ReportHelper.ShowBonusRubin(6, Eval("BonusRubinHladina")) %>' title="rubínový bonus" />
+                    </div>
+                </td>
+                <td class="stonetable_TD">
+				    <b style="text-align:center;">2SB</b>
+                     <div>
+                        <img id="Img17" src="~/images/reports/animace_2safir.gif" runat="server" visible='<%# Eurona.User.Advisor.Reports.ReportHelper.ShowBonusRubin(7, Eval("BonusRubinHladina")) %>' title="safírový bonus" />
+                        <img id="Img18" src="~/images/reports/animace_2seda.gif" runat="server" visible='<%# !Eurona.User.Advisor.Reports.ReportHelper.ShowBonusRubin(7, Eval("BonusRubinHladina")) %>' title="safírový bonus" />
+                    </div>
+                </td>
+                <td class="stonetable_TD" align="center">
+				   <b style="text-align:center;">2BB</b>
+                    <div>
+                        <img id="Img19" src="~/images/reports/animace_2briliant.gif" runat="server" visible='<%# Eurona.User.Advisor.Reports.ReportHelper.ShowBonusRubin(8, Eval("BonusRubinHladina")) %>' title="briliantový bonus" />
+                        <img id="Img20" src="~/images/reports/animace_2seda.gif" runat="server" visible='<%# !Eurona.User.Advisor.Reports.ReportHelper.ShowBonusRubin(8, Eval("BonusRubinHladina")) %>' title="briliantový bonus" />
+                    </div>
+                </td>
+	        </tr>
+	        <tr>
+                <td class="stonetable_TD">
+                </td>
+                <td class="stonetable_TD">
+                </td>
+                <td class="stonetable_TD">
+                </td>
+                <td class="stonetable_TD">
+                </td>
+                <td class="stonetable_TD">
+                </td>
+                <td class="stonetable_TD">
+                </td>
+                <td class="stonetable_TD">
+                </td>
 	        </tr>
 		    </table>
 		</td>
@@ -216,7 +264,7 @@
 		    <table class="credittable_">
 		    <tr>
 		    <td style="display:none;">
-			    <table class="reporttable" border="0" cellpadding="6" cellspacing="0">
+			    <table class="reporttable" border="0" cellpadding="3" cellspacing="0">
 			    <tr>
                     <th colspan="3">kredity</th>
                 </tr>
@@ -329,8 +377,6 @@
 				<td align="right">
 					<asp:Repeater ID="Repeater1" runat="server" DataSourceID="sqlRestMarginPrice" >
 						<ItemTemplate>
-							<%--<%# Eurona.User.Advisor.Reports.ReportHelper.RestMarginPrice( 24, Eval( "objem_pro_marzi" ), Eval( "Kod_meny" ) )%>--%>
-                            <%--<%# Eurona.User.Advisor.Reports.ReportHelper.PriceCurrency( Eval( "Kod_meny" ) )%>	--%>
                             <%# Eurona.User.Advisor.Reports.ReportHelper.RestMarginBody( 100, Eval( "objem_pro_marzi" ))%>					
 						</ItemTemplate>
                         <FooterTemplate>
@@ -345,8 +391,6 @@
 				<td align="right">
 					<asp:Repeater ID="Repeater2" runat="server" DataSourceID="sqlRestMarginPrice" >
 						<ItemTemplate>
-							<%--<%# Eurona.User.Advisor.Reports.ReportHelper.RestMarginPrice( 29, Eval( "objem_pro_marzi" ), Eval( "Kod_meny" ) )%>--%>
-                            <%--<%# Eurona.User.Advisor.Reports.ReportHelper.PriceCurrency( Eval( "Kod_meny" ) )%>				--%>
                             <%# Eurona.User.Advisor.Reports.ReportHelper.RestMarginBody( 200, Eval( "objem_pro_marzi" ))%>		
 						</ItemTemplate>
                         <FooterTemplate>
@@ -382,30 +426,10 @@
 				<td>email</td>
 				<td><a href='<%# "mailto:" + Eval("E_mail")%>'><%# Eval( "E_mail" )%></a></td>
 			</tr>
-<%--			<tr>
-				<td><asp:Literal ID="Literal27" runat="server" Text="<%$ Resources:Reports, TelefonDomu %>"></asp:Literal></td>
-				<td><%# Eval( "Telefon" )%></td>
-			</tr>
-			<tr>
-				<td><asp:Literal ID="Literal28" runat="server" Text="<%$ Resources:Reports, TelefonDoPrace %>"></asp:Literal></td>
-				<td><%# Eval( "Telefon_prace" )%></td>
-			</tr>--%>
 			<tr>
 				<td><asp:Literal ID="Literal29" runat="server" Text="<%$ Resources:Reports, MobilniTelefon %>"></asp:Literal></td>
 				<td><%# Eval( "Mobil" )%></td>
 			</tr>
-<%--			<tr>
-				<td>fax</td>
-				<td><%# Eval("fax")%></td>
-			</tr>
-			<tr>
-				<td>skype</td>
-				<td><%# Eval("skype")%></td>
-			</tr>
-			<tr>
-				<td>icq</td>
-				<td><%# Eval("icq")%></td>
-			</tr>--%>
 			</table>
 		</td>
 		</tr>
@@ -419,9 +443,23 @@
 		<asp:Parameter Name="Id_odberatele" Type="Int32" />
 	</SelectParameters>
 </asp:SqlDataSource>
-<asp:SqlDataSource ID="sqlBonusGroup" runat="server"
+<%--<asp:SqlDataSource ID="sqlBonusGroup" runat="server"
 	SelectCommand="SELECT usercount = COUNT(*) FROM provize_aktualni
     WHERE Hladina < 21 AND Id_odberatele IN (SELECT Id_Odberatele FROM fGetOdberateleStrom(@Id_odberatele, DATEPART(YEAR, GETDATE())*100 +  DATEPART(MONTH, GETDATE())))" SelectCommandType="Text">
+	<SelectParameters>
+		<asp:Parameter Name="Id_odberatele" Type="Int32" />
+	</SelectParameters>
+</asp:SqlDataSource>--%>
+
+
+<asp:SqlDataSource ID="sqlBonusGroup" runat="server"
+	SelectCommand="SELECT usercount = Count(f.Id_Odberatele) FROM fGetOdberateleStrom(@Id_odberatele, DATEPART(YEAR, GETDATE())*100 +  DATEPART(MONTH, GETDATE())) f
+INNER JOIN provize_aktualni p ON p.Id_odberatele = f.Id_Odberatele
+INNER JOIN odberatele o  ON o.Id_odberatele = p.Id_odberatele
+INNER JOIN odberatele op  ON op.Id_odberatele = o.Cislo_nadrizeneho
+LEFT JOIN odberatele oTop  ON oTop.Id_odberatele = p.Id_topmanagera
+LEFT JOIN uspesny_start us ON us.Id_odberatele = p.Id_odberatele AND us.RRRRMM = p.RRRRMM
+WHERE oTop.Id_odberatele = @Id_odberatele and o.Stav_odberatele!='Z'" SelectCommandType="Text">
 	<SelectParameters>
 		<asp:Parameter Name="Id_odberatele" Type="Int32" />
 	</SelectParameters>
@@ -448,18 +486,3 @@
         <asp:Parameter Name="mesic" Type="Int32" />
 	</SelectParameters>
 </asp:SqlDataSource>
-<%--<asp:SqlDataSource ID="sqlRestMarginPrice" runat="server"
-	SelectCommand="SELECT objem_pro_marzi = SUM( fr.zapocet_mj_marze*fr.mnozstvi), cena_mj_katalogova=SUM(fr.cena_mj_katalogova*fr.mnozstvi), f.kod_meny from www_faktury f
-        INNER JOIN www_faktury_radky fr ON fr.id_prepoctu = f.id_prepoctu
-        WHERE f.cislo_objednavky_eurosap IS NOT NULL 
-        AND f.cislo_objednavky_eurosap IN (select Cislo_objednavky from provize_aktualni_objednavky )
-        AND f.cislo_objednavky_eurosap NOT IN (select id_objednavky from objednavkyfaktury where StavK2=0 ) -- objednavka nesmie byt stornovana
-        AND YEAR(f.datum_vystaveni)=@rok AND MONTH(f.datum_vystaveni)=@mesic
-        AND id_odberatele = @Id_odberatele
-        GROUP BY f.kod_meny " SelectCommandType="Text">
-	<SelectParameters>
-		<asp:Parameter Name="Id_odberatele" Type="Int32" />
-        <asp:Parameter Name="rok" Type="Int32" />
-        <asp:Parameter Name="mesic" Type="Int32" />
-	</SelectParameters>
-</asp:SqlDataSource>--%>
