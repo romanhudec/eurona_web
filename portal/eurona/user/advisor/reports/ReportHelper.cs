@@ -85,8 +85,14 @@ namespace Eurona.User.Advisor.Reports {
 
         public static bool GreaterThanZero(object dbnumber) {
             if (dbnumber is DBNull) return false;
-
             return (int)((decimal)dbnumber) > 0;
+        }
+
+        public static bool ShowBonusRubin(int number, object dbnumber) {
+            if (dbnumber is DBNull) return false;
+            int value = Convert.ToInt32(dbnumber);
+            if (value == 0) return false;
+            return number <= Convert.ToInt32(dbnumber);
         }
 
         public static int SumCredit(object dbeb, object dbrb, object dbsb, object dbbb) {

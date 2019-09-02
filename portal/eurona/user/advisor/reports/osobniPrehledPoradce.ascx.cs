@@ -166,7 +166,8 @@ namespace Eurona.user.advisor.reports {
 										o.Kod_odberatele, o.Nazev_firmy, o.Telefon, o.Telefon_prace, o.Mobil, Adresa = (o.Ulice + ', ' + o.Misto + ', ' + o.Psc + ', ' + o.Stat), o.E_mail, o.Fax, o.Icq, o.skype,
 										Hladina_rozdil = (SELECT Hladina FROM provize_aktualni WHERE Id_odberatele=@Id_odberatele AND RRRRMM=@RRRRMM ) - p.Hladina,
 										Kod_meny = p.Provize_vyplata_kod_meny,
-										ecredit = p.Eurokredit_vlastni+p.Eurokredit_registrace-p.Eurokredit_vyber
+										ecredit = p.Eurokredit_vlastni+p.Eurokredit_registrace-p.Eurokredit_vyber, o.Leadersky_titul,
+                                        BonusRubinHladina = (select MAX(Id_hladiny) from leaderske_postupy where id_odberatele=@Id_odberatele and RRRRMM_dosazeni<=@RRRRMM )
 										FROM provize_aktualni p
 										INNER JOIN odberatele o  ON o.Id_odberatele = p.Id_odberatele 
 										WHERE o.Stav_odberatele!='Z' AND p.RRRRMM=@RRRRMM  AND ( p.Id_odberatele=@Id_odberatele )";
@@ -180,7 +181,8 @@ namespace Eurona.user.advisor.reports {
 										o.Kod_odberatele, o.Nazev_firmy, o.Telefon, o.Telefon_prace, o.Mobil, Adresa = (o.Ulice + ', ' + o.Misto + ', ' + o.Psc + ', ' + o.Stat), o.E_mail, o.Fax, o.Icq, o.skype,
 										Hladina_rozdil = (SELECT Hladina FROM provize_aktualni WHERE Id_odberatele=@Id_odberatele AND RRRRMM=@RRRRMM ) - p.Hladina,
 										Kod_meny = p.Provize_vyplata_kod_meny,
-										ecredit = p.Eurokredit_vlastni+p.Eurokredit_registrace-p.Eurokredit_vyber
+										ecredit = p.Eurokredit_vlastni+p.Eurokredit_registrace-p.Eurokredit_vyber, o.Leadersky_titul,
+                                        BonusRubinHladina = (select MAX(Id_hladiny) from leaderske_postupy where id_odberatele=@Id_odberatele and RRRRMM_dosazeni<=@RRRRMM)
 										FROM provize_finalni p
 										INNER JOIN odberatele o  ON o.Id_odberatele = p.Id_odberatele
 										WHERE o.Stav_odberatele!='Z' AND p.RRRRMM=@RRRRMM AND ( p.Id_odberatele=@Id_odberatele )";
