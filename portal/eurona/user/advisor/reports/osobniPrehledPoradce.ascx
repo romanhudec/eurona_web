@@ -53,6 +53,7 @@
 		color: #001b98;
 		background-color: #eff1fa;
 		background-image: url(../../../images/reports/stonetable.jpg);
+        background-repeat:repeat-x;
 		text-align: center!important;
         vertical-align:top;
 		font-weight: normal;
@@ -177,9 +178,9 @@
 			    <td align="right"><%# Eurona.User.Advisor.Reports.ReportHelper.SumCredit( Eval( "Bonus1" ), Eval( "Bonus2" ), Eval( "Bonus3" ), Eval( "Bonus4" ) )%>&nbsp;<%# Eurona.User.Advisor.Reports.ReportHelper.PriceCurrency( Eval( "Kod_meny" ) )%></td>
 		    </tr>
 		    </table>				
-		</td>
+		</td>       
 		<td valign="top">
-		    <table class="stonetable" cellpadding="6" cellspacing="0" style="width:450px;">
+		    <table cellpadding="6" cellspacing="0" style="width:450px;">
 		    <tr>
 				<td colspan="7" class="stonetable_firstrow"></td>
 		    </tr>
@@ -238,19 +239,7 @@
                 </td>
 	        </tr>
 	        <tr>
-                <td class="stonetable_TD">
-                </td>
-                <td class="stonetable_TD">
-                </td>
-                <td class="stonetable_TD">
-                </td>
-                <td class="stonetable_TD">
-                </td>
-                <td class="stonetable_TD">
-                </td>
-                <td class="stonetable_TD">
-                </td>
-                <td class="stonetable_TD">
+                <td colspan="7">
                 </td>
 	        </tr>
 		    </table>
