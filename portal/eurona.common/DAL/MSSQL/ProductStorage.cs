@@ -364,6 +364,9 @@ namespace Eurona.Common.DAL.MSSQL {
                         case Product.SortBy.IdDESC:
                             sql += " ORDER BY p.ProductId DESC";
                             break;
+                        case Product.SortBy.IdASC:
+                            sql += " ORDER BY p.ProductId ASC";
+                            break;
                     }
                 }
 

@@ -13,7 +13,8 @@ namespace SHP.Entities {
             PriceASC = 2,
             PriceDESC = 3,
             DarkovySet = 4,
-            IdDESC = 5
+            IdDESC = 5,
+            IdASC = 6
         }
 
         public enum DiscountType : int {
