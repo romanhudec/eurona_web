@@ -198,25 +198,25 @@
                 <td class="stonetable_TD">
 				    <b>RB</b>
                     <div style="padding-top:10px;">
-                        <img id="Img9" src="~/images/reports/animace_rubin.gif" runat="server" visible='<%# Eurona.User.Advisor.Reports.ReportHelper.ShowBonusRubin(3, Eval("BonusRubinHladina")) %>' title="rubínový bonus" />
-                        <img id="Img10" src="~/images/reports/animace_seda.gif" runat="server" visible='<%# !Eurona.User.Advisor.Reports.ReportHelper.ShowBonusRubin(3, Eval("BonusRubinHladina")) %>' title="rubínový bonus" />
+                        <img id="Img9" src="~/images/reports/animace_rubin.gif" runat="server" visible='<%# Eurona.User.Advisor.Reports.ReportHelper.GreaterThanZero(Eval("Bonus2")) %>' title="rubínový bonus" />
+                        <img id="Img10" src="~/images/reports/animace_seda.gif" runat="server" visible='<%# !Eurona.User.Advisor.Reports.ReportHelper.GreaterThanZero(Eval("Bonus2")) %>' title="rubínový bonus" />
                     </div>
                 </td>
                 <td class="stonetable_TD">
 				    <b>SB</b>
                      <div style="padding-top:10px;">
-                        <img id="Img11" src="~/images/reports/animace_safir.gif" runat="server" visible='<%# Eurona.User.Advisor.Reports.ReportHelper.ShowBonusRubin(4, Eval("BonusRubinHladina")) %>' title="safírový bonus" />
-                        <img id="Img12" src="~/images/reports/animace_seda.gif" runat="server" visible='<%# !Eurona.User.Advisor.Reports.ReportHelper.ShowBonusRubin(4, Eval("BonusRubinHladina")) %>' title="safírový bonus" />
+                        <img id="Img11" src="~/images/reports/animace_safir.gif" runat="server" visible='<%# Eurona.User.Advisor.Reports.ReportHelper.GreaterThanZero(Eval("Bonus3")) %>' title="safírový bonus" />
+                        <img id="Img12" src="~/images/reports/animace_seda.gif" runat="server" visible='<%# !Eurona.User.Advisor.Reports.ReportHelper.GreaterThanZero(Eval("Bonus3")) %>' title="safírový bonus" />
                     </div>
                 </td>
                 <td class="stonetable_TD">
 				    <b>BB</b>
                     <div style="padding-top:10px;">
-                        <img id="Img13" src="~/images/reports/animace_briliant.gif" runat="server" visible='<%# Eurona.User.Advisor.Reports.ReportHelper.ShowBonusRubin(5, Eval("BonusRubinHladina")) %>' title="briliantový bonus" />
-                        <img id="Img14" src="~/images/reports/animace_seda.gif" runat="server" visible='<%# !Eurona.User.Advisor.Reports.ReportHelper.ShowBonusRubin(5, Eval("BonusRubinHladina")) %>' title="briliantový bonus" />
+                        <img id="Img13" src="~/images/reports/animace_briliant.gif" runat="server" visible='<%# Eurona.User.Advisor.Reports.ReportHelper.GreaterThanZero(Eval("Bonus4")) %>' title="briliantový bonus" />
+                        <img id="Img14" src="~/images/reports/animace_seda.gif" runat="server" visible='<%# !Eurona.User.Advisor.Reports.ReportHelper.GreaterThanZero(Eval("Bonus4")) %>' title="briliantový bonus" />
                     </div>
                 </td>
-                <td class="stonetable_TD">
+<%--                <td class="stonetable_TD">
 				    <b>2RB</b>
                      <div>
                         <img id="Img6" src="~/images/reports/animace_2rubin.gif" runat="server" visible='<%# Eurona.User.Advisor.Reports.ReportHelper.ShowBonusRubin(6, Eval("BonusRubinHladina")) %>' title="rubínový bonus" />
@@ -236,7 +236,7 @@
                         <img id="Img19" src="~/images/reports/animace_2briliant.gif" runat="server" visible='<%# Eurona.User.Advisor.Reports.ReportHelper.ShowBonusRubin(8, Eval("BonusRubinHladina")) %>' title="briliantový bonus" />
                         <img id="Img20" src="~/images/reports/animace_2seda.gif" runat="server" visible='<%# !Eurona.User.Advisor.Reports.ReportHelper.ShowBonusRubin(8, Eval("BonusRubinHladina")) %>' title="briliantový bonus" />
                     </div>
-                </td>
+                </td>--%>
 	        </tr>
 	        <tr>
                 <td colspan="7">
