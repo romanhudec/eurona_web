@@ -237,7 +237,7 @@
                 </tr>
                 <tr>
                     <td style="padding-top:20px;text-align:left;">
-                        <asp:Button ID="btnCancelAndLogout" runat="server" CssClass="button-blue" Text="<%$ Resources:Strings, EmailVerifyControl_ZrusitOvereni %>" OnClientClick="onContinueToCancel();" />    
+                        <%--<asp:Button ID="btnCancelAndLogout" runat="server" CssClass="button-blue" Text="<%$ Resources:Strings, EmailVerifyControl_ZrusitOvereni %>" OnClientClick="onContinueToCancel();" />   --%> 
                     </td>
                     <td style="padding-top:20px;text-align:right;">
                         <asp:Button ID="btnContinueToFinish" runat="server" CssClass="button-positive" disabled="true"  Text="<%$ Resources:Strings, EmailVerifyControl_DokoncitOvereni %>" OnClientClick="onContinueToFinish();" />    
