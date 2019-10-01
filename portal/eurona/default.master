@@ -11,7 +11,9 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
-    <script type="text/javascript" async data-luigisbox-tracker-id="22664-26399" src="https://cdn.luigisbox.com/euronabycerny.js"></script> 
+    <%--<script type="text/javascript" async data-luigisbox-tracker-id="22664-26399" src="https://cdn.luigisbox.com/euronabycerny.js"></script> --%>
+    <script async src="https://scripts.luigisbox.com/LBX-26399.js"></script>
+
     <!-- Google Tag Manager -->
     <script>(function (w, d, s, l, i) {
     w[l] = w[l] || []; w[l].push({

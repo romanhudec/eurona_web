@@ -11,7 +11,7 @@ using Eurona.DAL.Entities;
 namespace Eurona.DAL.MSSQL {
     [Serializable]
     public sealed class OrderStorage : MSSQLStorage<Order> {
-        private const string entitySelect = @"SELECT OrderId, InstanceId, OrderDate, OrderNumber ,CartId, PaydDate ,AccountId, AccountName, OrderStatusCode ,OrderStatusName, OrderStatusIcon ,
+        private const string entitySelect = @"SELECT TOP 1000 OrderId, InstanceId, OrderDate, OrderNumber ,CartId, PaydDate ,AccountId, AccountName, OrderStatusCode ,OrderStatusName, OrderStatusIcon ,
 						ShipmentCode ,ShipmentName, ShipmentIcon ,ShipmentPrice, ShipmentPriceWVAT ,Price, PriceWVAT, PaymentCode, PaymentName, PaymentIcon, DeliveryAddressId, InvoiceAddressId, InvoiceUrl, Notes, Notified, Exported,
 						CurrencyId, CurrencyCode, CurrencySymbol, ParentId, AssociationAccountId, AssociationRequestStatus,
 						CreatedByAccountId, OwnerName, CreatedByName, ShipmentFrom, ShipmentTo, TVD_Id, NoPostage, ChildsCount
@@ -52,7 +52,6 @@ namespace Eurona.DAL.MSSQL {
 
             order.CreatedByAccountId = Convert.ToInt32(record["CreatedByAccountId"]);
             order.NoPostage = Convert.ToBoolean(record["NoPostage"]);
-
 
             //Joined properties
             order.AccountId = Convert.ToInt32(record["AccountId"]);
@@ -111,36 +110,6 @@ namespace Eurona.DAL.MSSQL {
         private List<Order> LoadLastByAccountId(Order.ReadLastByAccount by) {
             List<Order> list = new List<Order>();
             using (SqlConnection connection = Connect()) {
-                //                string sql = entitySelect.Replace("SELECT", "SELECT TOP 1");
-                //                sql += @" WHERE (AccountId = @AccountId OR CreatedByAccountId=@AccountId) AND InstanceId = @InstanceId AND 
-                //                ( @OrderNumber IS NULL OR OrderNumber!=@OrderNumber )
-                //                ORDER BY OrderNumber DESC";
-
-                //string sql = entitySelect.Replace("SELECT", "SELECT TOP 1");
-                //sql += @" WHERE (AccountId = @AccountId OR CreatedByAccountId=@AccountId) AND InstanceId = @InstanceId";
-                //sql += !string.IsNullOrEmpty(by.GreaterAtOrderNumber) ? " AND (OrderNumber LIKE @OrderNumber + '%')" : "";
-                //sql += @"ORDER BY OrderNumber DESC";
-
-                /*
-                string sql = @"WITH orders (OrderId) AS
-                (                
-	                SELECT  o.OrderId FROM tShpOrder o WITH (NOLOCK)
-                    INNER JOIN tShpCart c WITH (NOLOCK) ON c.CartId = o.CartId
-	                WHERE o.HistoryId IS NULL AND o.InstanceId = @InstanceId" +
-                    " AND (c.AccountId = @AccountId OR CreatedByAccountId=@AccountId)"+
-                    (!string.IsNullOrEmpty(by.GreaterAtOrderNumber) ?" AND (OrderNumber LIKE @OrderNumber + '%')" : "") +
-	                @"GROUP BY 
-	                o.OrderId
-                )
-
-                SELECT ors.OrderId, o.InstanceId, o.OrderDate, o.OrderNumber ,o.CartId, o.PaydDate ,o.AccountId, o.AccountName, o.OrderStatusCode ,o.OrderStatusName, o.OrderStatusIcon ,
-                o.ShipmentCode ,o.ShipmentName, o.ShipmentIcon ,o.ShipmentPrice, o.ShipmentPriceWVAT ,o.Price, o.PriceWVAT, o.PaymentCode, o.PaymentName, o.PaymentIcon, o.DeliveryAddressId, o.InvoiceAddressId, o.InvoiceUrl, o.Notes, o.Notified, o.Exported,
-                o.CurrencyId, o.CurrencyCode, o.CurrencySymbol, o.ParentId, o.AssociationAccountId, o.AssociationRequestStatus,
-                o.CreatedByAccountId, o.OwnerName, o.CreatedByName, o.ShipmentFrom, o.ShipmentTo, o.TVD_Id, o.NoPostage, o.ChildsCount
-                FROM orders ors
-                INNER JOIN vShpOrders o ON o.OrderId=ors.OrderId
-                ORDER BY OrderNumber DESC";
-                 * */
                 string sql = @";WITH orders (OrderId) AS
                     (                
 	                    SELECT  o.OrderId FROM tShpOrder o WITH (NOLOCK)
@@ -171,27 +140,6 @@ namespace Eurona.DAL.MSSQL {
         private List<Order> LoadByAccountId(Order.ReadByAccount by) {
             List<Order> list = new List<Order>();
             using (SqlConnection connection = Connect()) {
-                //string sql = entitySelect;
-                //sql += " WHERE (AccountId = @AccountId OR CreatedByAccountId=@AccountId) AND InstanceId = @InstanceId";
-                /*
-                string sql = @"WITH orders (OrderId) AS
-                (                
-	                SELECT  o.OrderId FROM tShpOrder o WITH (NOLOCK)
-                    INNER JOIN tShpCart c WITH (NOLOCK) ON c.CartId = o.CartId
-	                WHERE o.HistoryId IS NULL AND o.InstanceId = @InstanceId
-                    AND (c.AccountId = @AccountId OR CreatedByAccountId=@AccountId)
-                    GROUP BY 
-	                o.OrderId
-                )
-
-                SELECT ors.OrderId, o.InstanceId, o.OrderDate, o.OrderNumber ,o.CartId, o.PaydDate ,o.AccountId, o.AccountName, o.OrderStatusCode ,o.OrderStatusName, o.OrderStatusIcon ,
-                o.ShipmentCode ,o.ShipmentName, o.ShipmentIcon ,o.ShipmentPrice, o.ShipmentPriceWVAT ,o.Price, o.PriceWVAT, o.PaymentCode, o.PaymentName, o.PaymentIcon, o.DeliveryAddressId, o.InvoiceAddressId, o.InvoiceUrl, o.Notes, o.Notified, o.Exported,
-                o.CurrencyId, o.CurrencyCode, o.CurrencySymbol, o.ParentId, o.AssociationAccountId, o.AssociationRequestStatus,
-                o.CreatedByAccountId, o.OwnerName, o.CreatedByName, o.ShipmentFrom, o.ShipmentTo, o.TVD_Id, o.NoPostage, o.ChildsCount
-                FROM orders ors
-                INNER JOIN vShpOrders o ON o.OrderId=ors.OrderId";
-                */
-
                 string sql = @";WITH orders (OrderId) AS
                 (                
 	                SELECT  o.OrderId FROM tShpOrder o WITH (NOLOCK)
@@ -218,25 +166,6 @@ namespace Eurona.DAL.MSSQL {
         private List<Order> LoadByCartId(Order.ReadByCart by) {
             List<Order> list = new List<Order>();
             using (SqlConnection connection = Connect()) {
-                //string sql = entitySelect;
-                //sql += " WHERE CartId = @CartId AND InstanceId = @InstanceId";
-                /*
-                string sql = @"WITH orders (OrderId) AS
-                (                
-	                SELECT  o.OrderId FROM tShpOrder o WITH (NOLOCK)
-	                WHERE o.HistoryId IS NULL AND o.InstanceId = @InstanceId
-                    AND (CartId=@CartId)
-                    GROUP BY 
-	                o.OrderId
-                )
-
-                SELECT ors.OrderId, o.InstanceId, o.OrderDate, o.OrderNumber ,o.CartId, o.PaydDate ,o.AccountId, o.AccountName, o.OrderStatusCode ,o.OrderStatusName, o.OrderStatusIcon ,
-                o.ShipmentCode ,o.ShipmentName, o.ShipmentIcon ,o.ShipmentPrice, o.ShipmentPriceWVAT ,o.Price, o.PriceWVAT, o.PaymentCode, o.PaymentName, o.PaymentIcon, o.DeliveryAddressId, o.InvoiceAddressId, o.InvoiceUrl, o.Notes, o.Notified, o.Exported,
-                o.CurrencyId, o.CurrencyCode, o.CurrencySymbol, o.ParentId, o.AssociationAccountId, o.AssociationRequestStatus,
-                o.CreatedByAccountId, o.OwnerName, o.CreatedByName, o.ShipmentFrom, o.ShipmentTo, o.TVD_Id, o.NoPostage, o.ChildsCount
-                FROM orders ors
-                INNER JOIN vShpOrders o ON o.OrderId=ors.OrderId";
-                 * */
                 string sql = @";WITH orders (OrderId) AS
                 (                
 	                SELECT  o.OrderId FROM tShpOrder o WITH (NOLOCK)
@@ -270,25 +199,11 @@ namespace Eurona.DAL.MSSQL {
             }
             return list;
         }
+
         private List<Order> LoadByFilter(Order.ReadByFilter by) {
             List<Order> list = new List<Order>();
             using (SqlConnection connection = Connect()) {
                 string sql = entitySelect;
-                //                sql += @" WHERE InstanceId = @InstanceId AND 
-                //					(@AccountId IS NULL OR (AccountId = @AccountId OR CreatedByAccountId=@AccountId)) AND
-                //					(@OrderNumber IS NULL OR OrderNumber LIKE @OrderNumber + '%') AND
-                //					(@OrderStatusCode IS NULL OR OrderStatusCode = @OrderStatusCode) AND
-                //					(@NotOrderStatusCode IS NULL OR OrderStatusCode != @NotOrderStatusCode) AND
-                //					(@ShipmentCode IS NULL OR ShipmentCode = @ShipmentCode) AND
-                //					(@Notified IS NULL OR Notified = @Notified) AND
-                //					(@Exported IS NULL OR Exported = @Exported) AND
-                //					(@ParentId IS NULL OR ParentId = @ParentId) AND
-                //					(@AssociationAccountId IS NULL OR AssociationAccountId = @AssociationAccountId) AND
-                //					(@AssociationRequestStatus IS NULL OR AssociationRequestStatus = @AssociationRequestStatus) AND
-                //					(@CreatedByAccountId IS NULL OR CreatedByAccountId = @CreatedByAccountId) AND
-                //					(@HasChilds IS NULL OR ( @HasChilds = 1 AND ChildsCount != 0) OR ( @HasChilds = 0 AND ChildsCount=0) ) AND
-                //					(@OnlyLastMonths IS NULL OR (OrderDate >= DATEADD(M, @OnlyLastMonths*-1, GETDATE()) ) )";
-
                 sql += @" WHERE InstanceId = @InstanceId";
                 sql += by.AccountId.HasValue ? " AND (AccountId = @AccountId OR CreatedByAccountId=@AccountId)" : "";
                 sql += !string.IsNullOrEmpty(by.OrderNumber) ? " AND (OrderNumber LIKE @OrderNumber + '%')" : "";
@@ -328,14 +243,6 @@ namespace Eurona.DAL.MSSQL {
         private List<Order> LoadByNot(Order.ReadNot by) {
             List<Order> list = new List<Order>();
             using (SqlConnection connection = Connect()) {
-                //string sql = entitySelect;
-                //                sql += @" WHERE InstanceId = @InstanceId AND 
-                //				(@AccountId IS NULL OR (AccountId = @AccountId OR CreatedByAccountId=@AccountId)) AND
-                //				(@OrderStatusCode IS NULL OR OrderStatusCode != @OrderStatusCode)";
-                //sql += @" WHERE InstanceId = @InstanceId";
-                //sql += by.AccountId.HasValue ? " AND (AccountId = @AccountId OR CreatedByAccountId=@AccountId)" : "";
-                //sql += !string.IsNullOrEmpty(by.OrderStatusCode) ? " AND (OrderStatusCode NOT LIKE @OrderStatusCode)" : "";
-
                 string sql = @"WITH orders (OrderId) AS
                 (                
 	                SELECT  o.OrderId FROM tShpOrder o WITH (NOLOCK)
