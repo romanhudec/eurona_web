@@ -11,16 +11,12 @@ using Eurona.DAL.Entities;
 namespace Eurona.DAL.MSSQL {
     [Serializable]
     public sealed class OrderFastViewStorage : MSSQLStorage<OrderFastView> {
-        private const string entitySelect = @"SELECT OrderId, InstanceId, ParentId, OrderDate, OrderNumber ,CartId ,AccountId, AccountName, OrderStatusCode ,OrderStatusName, OrderStatusIcon ,
+        private const string entitySelect = @"SELECT TOP 200 OrderId, InstanceId, ParentId, OrderDate, OrderNumber ,CartId ,AccountId, AccountName, OrderStatusCode ,OrderStatusName, OrderStatusIcon ,
 		ShipmentCode ,ShipmentName, ShipmentIcon ,ShipmentPrice, ShipmentPriceWVAT ,Price, PriceWVAT,
 		ParentId, AssociationRequestStatus, AssociationAccountId, CreatedByAccountId,
 		OwnerName, TVD_Id
 		FROM vShpOrdersFast o";
-        //        private const string entitySelect = @"SELECT OrderId, InstanceId, ParentId, OrderDate, OrderNumber ,CartId ,AccountId, OrderStatusCode ,OrderStatusName ,
-        //		Price, PriceWVAT,
-        //		ParentId, AssociationRequestStatus, AssociationAccountId, CreatedByAccountId,
-        //		OwnerName
-        //		FROM vShpOrdersFast o";
+
         public OrderFastViewStorage(int instanceId, Eurona.DAL.Entities.Account account, string connectionString)
             : base(instanceId, account, connectionString) {
         }
@@ -43,8 +39,6 @@ namespace Eurona.DAL.MSSQL {
 
             //Joined properties
             order.AccountId = Convert.ToInt32(record["AccountId"]);
-            //order.TVD_Id = ConvertNullable.ToInt32(record["TVD_Id"]);
-            //order.AccountName = Convert.ToString(record["AccountName"]);
             order.OrderStatusName = Convert.ToString(record["OrderStatusName"]);
 
             order.OrderStatusIcon = Convert.ToString(record["OrderStatusIcon"]);
@@ -78,16 +72,6 @@ namespace Eurona.DAL.MSSQL {
             List<OrderFastView> list = new List<OrderFastView>();
             using (SqlConnection connection = Connect()) {
                 string sql = entitySelect;
-                //                sql += @" WHERE InstanceId = @InstanceId AND 
-                //					(@AccountId IS NULL OR (AccountId = @AccountId OR CreatedByAccountId=@AccountId)) AND
-                //					(@CreatedByAccountId IS NULL OR CreatedByAccountId = @CreatedByAccountId) AND
-                //					(@OrderNumber IS NULL OR OrderNumber LIKE @OrderNumber + '%') AND
-                //                    (@OwnerName IS NULL OR OwnerName LIKE @OwnerName + '%') AND
-                //					(@OrderStatusCode IS NULL OR OrderStatusCode = @OrderStatusCode) AND
-                //                    (@OrderStatusName IS NULL OR OrderStatusName LIKE @OrderStatusName + '%') AND
-                //					(@NotOrderStatusCode IS NULL OR OrderStatusCode != @NotOrderStatusCode) AND
-                //					(@ParentId IS NULL OR ParentId = @ParentId) AND
-                //					(@OnlyLastMonths IS NULL OR (OrderDate >= DATEADD(M, @OnlyLastMonths*-1, GETDATE()) ) )";
 
                 sql += @" WHERE InstanceId = @InstanceId";
                 sql += by.AccountId.HasValue ? " AND (AccountId = @AccountId OR CreatedByAccountId=@AccountId)" : "";
