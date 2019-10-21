@@ -692,6 +692,7 @@ namespace Eurona.Controls {
             }
             return zprava.Value.ToString();
         }
+
         private static string DeleteTVDCart(OrderEntity order) {
             /*
             Pro vložení aktuálního datumu smazání je k dispozici procedura:
@@ -748,15 +749,8 @@ namespace Eurona.Controls {
             cart.DopravneEurosap = 0;
             //Nastavenie dopravneho
             if (cart.CartProducts.Count != 0) {
-                //if (shipmentCode.ToUpper() == "2"/*DPD*/ || shipmentCode.ToUpper() == "3"/*GLS*/) {
                 if (shipmentCode.ToUpper() != "1"/*Osobni odber*/) {
-                    /* //TODO:20171205
-                    CartProductEntity product = cart.CartProducts[0];
-                    int currencyId = product.CurrencyId.Value;
-                    SHP.Entities.Classifiers.Currency currency = Storage<SHP.Entities.Classifiers.Currency>.ReadFirst(new SHP.Entities.Classifiers.Currency.ReadById { Id = currencyId });
-                     * */
                     SHP.Entities.Classifiers.Currency currency = Storage<SHP.Entities.Classifiers.Currency>.ReadFirst(new SHP.Entities.Classifiers.Currency.ReadByLocale { Locale= cart.Locale});
-
                     decimal sumaBezPostovneho = Common.DAL.Entities.OrderSettings.GetFreePostageSuma(cart.Locale);
                     if (cart.KatalogovaCenaCelkemByEurosap >= sumaBezPostovneho) {
                         cart.DopravneEurosap = 0;

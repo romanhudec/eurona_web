@@ -37,7 +37,8 @@ namespace Eurona.Controls {
         private Button btnAddProduct = null;
 
         private GridView dataGrid = null;
-        private DropDownList ddlShipment = null;
+        //private DropDownList ddlShipment = null;
+        private List<RadioButton> shipmentRadioButtons = null;
         private AddressControl addressDeliveryControl = null;
         private ASPxDatePicker dtpShipmentFrom = null;
         private ASPxDatePicker dtpShipmentTo = null;
@@ -168,8 +169,17 @@ namespace Eurona.Controls {
             cell = new TableCell(); cell.Controls.Add(new LiteralControl(this.OrderEntity.OrderStatusName));
             row.Cells.Add(cell);
             tableUserInfo.Rows.Add(row);
+            
+            //No postage
+            row = new TableRow();
+            cell = new TableCell(); cell.CssClass = "form_label"; cell.HorizontalAlign = HorizontalAlign.Right; cell.Controls.Add(new LiteralControl("Bez poštovného"));
+            row.Cells.Add(cell);
+            cell = new TableCell(); cell.Controls.Add(this.cbNoPostage);
+            row.Cells.Add(cell);
+            tableUserInfo.Rows.Add(row);
 
             //Preprava
+            /*
             this.ddlShipment = new DropDownList();
             this.ddlShipment.ID = "ddlShipment";
             this.ddlShipment.Attributes.Add("name", "ddlShipment");
@@ -205,15 +215,38 @@ namespace Eurona.Controls {
             } else {
                 tableUserInfo.Rows.Add(CreateTableRow(SHP.Resources.Controls.OrderControl_Shipment, new LiteralControl(this.OrderEntity.ShipmentName), false));
             }
+             * */
+            List<ShipmentEntity> shipments = Storage<ShipmentEntity>.Read();
+            Table tableShipment = new Table();
+            tableShipment.Attributes.Add("style", "padding-left:25px;");
+            TableRow shipmentLabelRow = new TableRow();
+            tableShipment.Rows.Add(shipmentLabelRow);
+            TableCell shipmentLabelCell = new TableCell();
+            shipmentLabelCell.ColumnSpan = shipments.Count;
+            shipmentLabelRow.Cells.Add(shipmentLabelCell);
+            LiteralControl lcShipment = new LiteralControl("<span style='color:#F321CB;'>" + SHP.Resources.Controls.OrderControl_Shipment.ToUpper() + "</span>");
+            shipmentLabelCell.Controls.Add(lcShipment);
 
+            TableRow shipmentRow = new TableRow();
+            tableShipment.Rows.Add(shipmentRow);
+            shipmentRadioButtons = new List<RadioButton>();
+            foreach (ShipmentEntity shipment in shipments) {
+                RadioButton rbShipment = new RadioButton();
+                rbShipment.GroupName = "rbShipment";
+                rbShipment.ID =  rbShipment.GroupName  + "_" + shipment.Code;
+                rbShipment.Text = shipment.Name;
+                shipmentRadioButtons.Add(rbShipment);
+            }
+            foreach (RadioButton rbShipment in shipmentRadioButtons) {
+                TableCell shipmentCell = new TableCell();
+                shipmentCell.CssClass = "form_label"; shipmentCell.HorizontalAlign = HorizontalAlign.Right; 
+                shipmentCell.Controls.Add(rbShipment);
+                shipmentRow.Cells.Add(shipmentCell);
 
-            //Datum dodania Od
-            row = new TableRow();
-            cell = new TableCell(); cell.CssClass = "form_label"; cell.HorizontalAlign = HorizontalAlign.Right; cell.Controls.Add(new LiteralControl("Bez poštovného"));
-            row.Cells.Add(cell);
-            cell = new TableCell(); cell.Controls.Add(this.cbNoPostage);
-            row.Cells.Add(cell);
-            tableUserInfo.Rows.Add(row);
+                rbShipment.CheckedChanged +=rbShipment_CheckedChanged;
+            }
+            tableUserInfo.Rows.Add(CreateTableRow(tableShipment));
+
             #endregion
             leftCell.Controls.Add(tableUserInfo);
 
@@ -475,9 +508,13 @@ namespace Eurona.Controls {
                 if (this.dtpShipmentTo != null) this.dtpShipmentTo.Value = this.OrderEntity.ShipmentTo;
                 this.cbNoPostage.Checked = this.OrderEntity.NoPostage;
 
-                if (!string.IsNullOrEmpty(this.OrderEntity.ShipmentCode))
-                    this.ddlShipment.SelectedValue = this.OrderEntity.ShipmentCode;
-                this.ddlShipment.DataBind();
+                //if (!string.IsNullOrEmpty(this.OrderEntity.ShipmentCode))
+                //    this.ddlShipment.SelectedValue = this.OrderEntity.ShipmentCode;
+                //this.ddlShipment.DataBind();
+
+                 if (!string.IsNullOrEmpty(this.OrderEntity.ShipmentCode)){
+                     SetShipmentSelection(this.OrderEntity.ShipmentCode);
+                 }
             }
             #endregion
 
@@ -547,19 +584,41 @@ namespace Eurona.Controls {
             //Binding
             GridViewDataBind(this.OrderEntity, !IsPostBack);
         }
+
+        void rbShipment_CheckedChanged(object sender, EventArgs e)
+        {
+ 	        RadioButton rbShipment = (RadioButton)sender;
+            string value = rbShipment.ID.Replace(rbShipment.GroupName + "_", "");
+            if (value != null) this.OrderEntity.ShipmentCode = value;
+        }
+
+        private string GetShipmentSelection(){
+            foreach(RadioButton rbShipment in shipmentRadioButtons){
+                if( rbShipment.Checked ) return rbShipment.ID.Replace(rbShipment.GroupName + "_", "");
+            }
+            return null;
+        }
+
+        private void SetShipmentSelection(string shipmentCode) {
+            foreach (RadioButton rbShipment in shipmentRadioButtons) {
+                string code = rbShipment.ID.Replace(rbShipment.GroupName + "_", "");
+                if (code == shipmentCode) rbShipment.Checked = true;
+                else rbShipment.Checked = false;
+            }
+        }
                 
 
-        void ddlShipment_SelectedIndexChanged(object sender, EventArgs e) {
-            this.OrderEntity.NoPostage = this.cbNoPostage.Checked;
-            if (this.ddlShipment != null) this.OrderEntity.ShipmentCode = this.ddlShipment.SelectedValue;
-            Storage<OrderEntity>.Update(this.OrderEntity);
+        //void ddlShipment_SelectedIndexChanged(object sender, EventArgs e) {
+        //    this.OrderEntity.NoPostage = this.cbNoPostage.Checked;
+        //    if (this.ddlShipment != null) this.OrderEntity.ShipmentCode = this.ddlShipment.SelectedValue;
+        //    Storage<OrderEntity>.Update(this.OrderEntity);
 
-            this.RecalculateOrder();
-            UpdateDopravneUIbyOrder();
+        //    this.RecalculateOrder();
+        //    UpdateDopravneUIbyOrder();
 
-            this.lcDopravne.Text = Eurona.Common.Utilities.CultureUtilities.CurrencyInfo.ToString(OrderEntity.CartEntity.DopravneEurosap, OrderEntity.CurrencySymbol);
-            this.lblFakturovanaCena.Text = Eurona.Common.Utilities.CultureUtilities.CurrencyInfo.ToString(this.OrderEntity.PriceWVAT, this.OrderEntity.CurrencySymbol);
-        }
+        //    this.lcDopravne.Text = Eurona.Common.Utilities.CultureUtilities.CurrencyInfo.ToString(OrderEntity.CartEntity.DopravneEurosap, OrderEntity.CurrencySymbol);
+        //    this.lblFakturovanaCena.Text = Eurona.Common.Utilities.CultureUtilities.CurrencyInfo.ToString(this.OrderEntity.PriceWVAT, this.OrderEntity.CurrencySymbol);
+        //}
 
         void btnAddProduct_Click(object sender, EventArgs e) {
             int quantity = 1;
@@ -583,6 +642,16 @@ namespace Eurona.Controls {
 
         }
         #endregion
+
+
+        private TableRow CreateTableRow(Control control) {
+            TableRow row = new TableRow();
+            TableCell cell = new TableCell();
+            cell.ColumnSpan = 2;
+            cell.Controls.Add(control);
+            row.Cells.Add(cell);
+            return row;
+        }
 
         private TableRow CreateTableRow(string labelText, Control control, bool required) {
             TableRow row = new TableRow();
@@ -780,6 +849,8 @@ namespace Eurona.Controls {
             int? currencyId = order.CurrencyId;
 #if !__DEBUG_VERSION_WITHOUTTVD
             CartOrderHelper.RecalculateTVDCart(this.Page, this.updatePanel, order.OrderNumber, order.CartEntity, out currencyId, out bSuccess);
+#else
+            bSuccess = true;
 #endif
 
             //Nastavenie dopravneho
@@ -888,6 +959,13 @@ namespace Eurona.Controls {
                 return;
             }
 
+            //Validate Shipment
+            if (String.IsNullOrEmpty(this.OrderEntity.ShipmentCode)) {
+                string js = string.Format("blockUIAlert('Chyba', '{0}');", "Je třeba zvolit dopravce");
+                ScriptManager.RegisterStartupScript(this.updatePanel, this.updatePanel.GetType(), "addValidateShipment", js, true);
+                return;
+            }
+
             //Validate STATE
             message = Eurona.Common.PSCHelper.ValidateState(this.OrderEntity.DeliveryAddress.State);
             if (message != string.Empty) {
@@ -897,7 +975,7 @@ namespace Eurona.Controls {
             }
 
             this.OrderEntity.NoPostage = this.cbNoPostage.Checked;
-            if (this.ddlShipment != null) this.OrderEntity.ShipmentCode = this.ddlShipment.SelectedValue;
+            this.OrderEntity.ShipmentCode = GetShipmentSelection();
             Storage<OrderEntity>.Update(this.OrderEntity);
 
             //Prepocitanie kosiku a objednavky
@@ -925,8 +1003,17 @@ namespace Eurona.Controls {
             this.OrderEntity.AssociationRequestStatus = (int)OrderEntity.AssociationStatus.None;
             this.OrderEntity.ParentId = null;
             this.OrderEntity.OrderDate = DateTime.Now;//Added 20.04.2017
-            if (this.ddlShipment != null) this.OrderEntity.ShipmentCode = this.ddlShipment.SelectedValue;
+
+            //if (this.ddlShipment != null) this.OrderEntity.ShipmentCode = this.ddlShipment.SelectedValue;
+            this.OrderEntity.ShipmentCode = GetShipmentSelection();
             this.OrderEntity.OrderStatusCode = ((int)OrderEntity.OrderStatus.InProccess).ToString();
+
+            //Validate Shipment
+            if (String.IsNullOrEmpty(this.OrderEntity.ShipmentCode)) {
+                string js = string.Format("blockUIAlert('Chyba', '{0}');", "Je třeba zvolit dopravce");
+                ScriptManager.RegisterStartupScript(this.updatePanel, this.updatePanel.GetType(), "addValidateShipment", js, true);
+                return;
+            }
 
             //Validate STATE
             string message = Eurona.Common.PSCHelper.ValidateState(this.OrderEntity.DeliveryAddress.State);

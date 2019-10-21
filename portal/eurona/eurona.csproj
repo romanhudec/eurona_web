@@ -30,7 +30,7 @@
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
     <OutputPath>bin\</OutputPath>
-    <DefineConstants>TRACE;DEBUG;N__CUSTOM_ERROR;N__DEBUG_VERSION;N__DEBUG_VERSION_WITHOUTTVD;N__LOCAL_BANK_PAY</DefineConstants>
+    <DefineConstants>TRACE;DEBUG;N__CUSTOM_ERROR;__DEBUG_VERSION;N__DEBUG_VERSION_WITHOUTTVD;N__LOCAL_BANK_PAY</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>

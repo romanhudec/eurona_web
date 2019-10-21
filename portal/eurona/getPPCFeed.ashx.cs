@@ -10,6 +10,8 @@ using UrlAliasEntity = CMS.Entities.UrlAlias;
 using ProductsEntity = Eurona.Common.DAL.Entities.Product;
 using CategoryEntity = SHP.Entities.Category;
 using System.Xml;
+using System.Configuration;
+using System.Data.SqlClient;
 
 namespace Eurona {
     /// <summary>
@@ -28,15 +30,29 @@ namespace Eurona {
             shopAttribute.Value = "http://www.zbozi.cz/ns/offer/1.0";
             shopNode.Attributes.Append(shopAttribute);
             doc.AppendChild(shopNode);
-                   
+
             List<ProductsEntity> list = new List<ProductsEntity>();
             list = Storage<ProductsEntity>.Read();
+            string connectionString = ConfigurationManager.ConnectionStrings["TVDConnectionString"].ConnectionString;
             foreach (ProductsEntity product in list) {
 
+
+                //string sql = @"select Name from tShpProductLocalization where ProductId=@ProductId and Locale='en'";
+                string sql = @"select TOP 1 Name=Universal_nazev from produkty where Kod=@Kod";
+                DataTable dt = null;
+                CMS.Pump.MSSQLStorage storage = new CMS.Pump.MSSQLStorage(connectionString);
+                using (SqlConnection connection = storage.Connect()) {
+                    dt = storage.Query(connection, sql, new SqlParameter("@Kod", product.Code));
+                }
+                string nameEN = "";
+                if (dt != null && dt.Rows.Count != 0) {
+                    nameEN = dt.Rows[0]["Name"].ToString();
+                }
+
                 string categoryList = "";
-                if( product.ProductCategories.Count != 0 ){
-                CategoryEntity category = Storage<CategoryEntity>.ReadFirst(new CategoryEntity.ReadById { CategoryId = product.ProductCategories[0].CategoryId });
-                    categoryList= category.Name;
+                if (product.ProductCategories.Count != 0) {
+                    CategoryEntity category = Storage<CategoryEntity>.ReadFirst(new CategoryEntity.ReadById { CategoryId = product.ProductCategories[0].CategoryId });
+                    categoryList = category.Name;
                 }
 
                 XmlNode shopItemNode = doc.CreateElement("SHOPITEM");
@@ -58,6 +74,10 @@ namespace Eurona {
                 categoryNode.AppendChild(doc.CreateTextNode(categoryList));
                 shopItemNode.AppendChild(categoryNode);
 
+                XmlNode extraMessageNode = doc.CreateElement("EXTRA_MESSAGE");
+                extraMessageNode.AppendChild(doc.CreateTextNode(nameEN));
+                shopItemNode.AppendChild(extraMessageNode);
+
                 XmlNode codeNode = doc.CreateElement("PRODUCTNO");
                 codeNode.AppendChild(doc.CreateTextNode(product.Code));
                 shopItemNode.AppendChild(codeNode);
@@ -67,7 +87,7 @@ namespace Eurona {
                 shopItemNode.AppendChild(manufacturerNode);
 
                 XmlNode urlNode = doc.CreateElement("URL");
-                UrlAliasEntity alias = Storage<UrlAliasEntity>.ReadFirst(new UrlAliasEntity.ReadById { UrlAliasId = product.UrlAliasId.Value});
+                UrlAliasEntity alias = Storage<UrlAliasEntity>.ReadFirst(new UrlAliasEntity.ReadById { UrlAliasId = product.UrlAliasId.Value });
                 urlNode.AppendChild(doc.CreateTextNode(alias.Url.Replace("~", "https://euronabycerny.com")));
                 //urlNode.AppendChild(doc.CreateTextNode(product.Alias.Replace("~", "https://euronabycerny.com")));
                 shopItemNode.AppendChild(urlNode);
@@ -127,7 +147,7 @@ namespace Eurona {
             }
 
             string feedUrl = "~/feed/ppcfeed.xml";
-            doc.Save(context.Server.MapPath(feedUrl)); 
+            doc.Save(context.Server.MapPath(feedUrl));
 
             //doc.Save(context.Response.Output); 
             //context.Response.ContentType = "text/xml";
