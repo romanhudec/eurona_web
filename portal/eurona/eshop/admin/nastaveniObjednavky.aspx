@@ -1,8 +1,8 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/eshop/admin/admin.master" AutoEventWireup="true" CodeBehind="nastaveniObjednavky.aspx.cs" Inherits="Eurona.EShop.Admin.NastaveniObjednavky" %>
 <%@ Register src="../../Controls/UzavierkaControl.ascx" tagname="UzavierkaControl" tagprefix="uc1" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="content" runat="server">
-    <fieldset>
-<legend>Nastavení poštovného pro objednávky</legend>
+<fieldset>
+    <legend>Nastavení poštovného pro objednávky</legend>
     <table style="padding:10px;">
         <tr>
             <td colspan="2"><asp:CheckBox runat="server" ID="cbPovelena" AutoPostBack="true" OnCheckedChanged="OnPovolenaChecked" Text="Povolena" /></td>
@@ -42,8 +42,28 @@
         </tr>
         <tr>
             <td colspan="2">
-                <asp:Button runat="server" ID="btnSave" Text="Uložit změny" OnClick="OnSave" />
-                <asp:Button runat="server" ID="btnCancel" Text="Zrušit" OnClick="OnCancel" CausesValidation="false" />
+                <asp:Button runat="server" ID="btnSave" Text="Uložit změny" OnClick="OnSavePostovne" />
+                <asp:Button runat="server" ID="btnCancel" Text="Zrušit" OnClick="OnCancelPostovne" CausesValidation="false" />
+            </td>
+        </tr>
+        <tr>
+            <td><br /></td>
+        </tr>
+    </table>
+</fieldset>
+<fieldset>
+    <legend>Nastavení dopravce pro objednávky</legend>
+    <table style="padding:10px;">
+        <tr>
+            <td colspan="2">
+                <asp:Label runat="server" Text="Předvolený dopravce na objednávce :"></asp:Label>
+                <asp:DropDownList runat="server" ID="ddlShipment" />
+            </td>
+        </tr>     
+        <tr>
+            <td colspan="2">
+                <asp:Button runat="server" ID="Button1" Text="Uložit změny" OnClick="OnSaveDopravce" />
+                <asp:Button runat="server" ID="Button2" Text="Zrušit" OnClick="OnCancelDopravce" CausesValidation="false" />
             </td>
         </tr>
         <tr>
