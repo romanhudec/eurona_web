@@ -116,7 +116,7 @@ namespace Eurona.Controls {
             Table mainTable = new Table();
             mainTable.Width = Unit.Percentage(100);
             TableRow mainRow = new TableRow();
-            TableCell leftCell = new TableCell(); leftCell.Width = Unit.Percentage(35); leftCell.VerticalAlign = VerticalAlign.Top;
+            TableCell leftCell = new TableCell(); leftCell.Width = Unit.Percentage(45); leftCell.VerticalAlign = VerticalAlign.Top;
             TableCell rightCell = new TableCell(); rightCell.Width = Unit.Percentage(65); rightCell.HorizontalAlign = HorizontalAlign.Center; rightCell.VerticalAlign = VerticalAlign.Top;
             mainRow.Cells.Add(leftCell); mainRow.Cells.Add(rightCell);
             mainTable.Rows.Add(mainRow);
@@ -216,36 +216,37 @@ namespace Eurona.Controls {
                 tableUserInfo.Rows.Add(CreateTableRow(SHP.Resources.Controls.OrderControl_Shipment, new LiteralControl(this.OrderEntity.ShipmentName), false));
             }
              * */
-            List<ShipmentEntity> shipments = Storage<ShipmentEntity>.Read();
-            Table tableShipment = new Table();
-            tableShipment.Attributes.Add("style", "padding-left:25px;");
-            TableRow shipmentLabelRow = new TableRow();
-            tableShipment.Rows.Add(shipmentLabelRow);
-            TableCell shipmentLabelCell = new TableCell();
-            shipmentLabelCell.ColumnSpan = shipments.Count;
-            shipmentLabelRow.Cells.Add(shipmentLabelCell);
-            LiteralControl lcShipment = new LiteralControl("<span style='color:#F321CB;'>" + SHP.Resources.Controls.OrderControl_Shipment.ToUpper() + "</span>");
-            shipmentLabelCell.Controls.Add(lcShipment);
 
-            TableRow shipmentRow = new TableRow();
-            tableShipment.Rows.Add(shipmentRow);
-            shipmentRadioButtons = new List<RadioButton>();
-            foreach (ShipmentEntity shipment in shipments) {
-                RadioButton rbShipment = new RadioButton();
-                rbShipment.GroupName = "rbShipment";
-                rbShipment.ID =  rbShipment.GroupName  + "_" + shipment.Code;
-                rbShipment.Text = shipment.Name;
-                shipmentRadioButtons.Add(rbShipment);
-            }
-            foreach (RadioButton rbShipment in shipmentRadioButtons) {
-                TableCell shipmentCell = new TableCell();
-                shipmentCell.CssClass = "form_label"; shipmentCell.HorizontalAlign = HorizontalAlign.Right; 
-                shipmentCell.Controls.Add(rbShipment);
-                shipmentRow.Cells.Add(shipmentCell);
+            //List<ShipmentEntity> shipments = Storage<ShipmentEntity>.Read();
+            //Table tableShipment = new Table();
+            //tableShipment.Attributes.Add("style", "padding-left:25px;");
+            //TableRow shipmentLabelRow = new TableRow();
+            //tableShipment.Rows.Add(shipmentLabelRow);
+            //TableCell shipmentLabelCell = new TableCell();
+            //shipmentLabelCell.ColumnSpan = shipments.Count;
+            //shipmentLabelRow.Cells.Add(shipmentLabelCell);
+            //LiteralControl lcShipment = new LiteralControl("<span style='color:#F321CB;'>" + SHP.Resources.Controls.OrderControl_Shipment.ToUpper() + "</span>");
+            //shipmentLabelCell.Controls.Add(lcShipment);
 
-                rbShipment.CheckedChanged +=rbShipment_CheckedChanged;
-            }
-            tableUserInfo.Rows.Add(CreateTableRow(tableShipment));
+            //TableRow shipmentRow = new TableRow();
+            //tableShipment.Rows.Add(shipmentRow);
+            //shipmentRadioButtons = new List<RadioButton>();
+            //foreach (ShipmentEntity shipment in shipments) {
+            //    RadioButton rbShipment = new RadioButton();
+            //    rbShipment.GroupName = "rbShipment";
+            //    rbShipment.ID =  rbShipment.GroupName  + "_" + shipment.Code;
+            //    rbShipment.Text = shipment.Name;
+            //    shipmentRadioButtons.Add(rbShipment);
+            //}
+            //foreach (RadioButton rbShipment in shipmentRadioButtons) {
+            //    TableCell shipmentCell = new TableCell();
+            //    shipmentCell.CssClass = "form_label"; shipmentCell.HorizontalAlign = HorizontalAlign.Right; 
+            //    shipmentCell.Controls.Add(rbShipment);
+            //    shipmentRow.Cells.Add(shipmentCell);
+
+            //    rbShipment.CheckedChanged +=rbShipment_CheckedChanged;
+            //}
+            //tableUserInfo.Rows.Add(CreateTableRow(tableShipment));
 
             #endregion
             leftCell.Controls.Add(tableUserInfo);
@@ -405,13 +406,55 @@ namespace Eurona.Controls {
             this.btnOrder.Click += new EventHandler(OnOrder);
             this.btnOrder.Visible = this.IsEditing && (!this.OrderEntity.ParentId.HasValue && this.OrderEntity.OrderStatusCode == ((int)OrderEntity.OrderStatus.WaitingForProccess).ToString());
             this.btnOrder.Enabled = false;
+
+            #region Dopravne
+            RoundPanel rpDopravne = new RoundPanel();
+            rpDopravne.ID = "rpDopravne";
+            rpDopravne.CssClass = "roundPanel";
+            rpOrderProducts.Controls.Add(rpDopravne);
+
+            Table tblDopravneTitle = new Table();
+            tblDopravneTitle.CssClass = "order-warning-table";
+            row = new TableRow(); tblDopravneTitle.Rows.Add(row);
+            cell = new TableCell(); row.Cells.Add(cell);
+            LiteralControl lcDopravneTitleText = new LiteralControl("<span class='order-warning-table-label' style='width:600px;'><b>" + SHP.Resources.Controls.OrderControl_Shipment.ToUpper().Replace(":", "") + "</b></span>");
+            cell.Controls.Add(lcDopravneTitleText);
+            rpDopravne.Controls.Add(tblDopravneTitle);
+
+            List<ShipmentEntity> shipments = Storage<ShipmentEntity>.Read();
+            Table tableShipment = new Table();
+            TableRow shipmentLabelRow = new TableRow();
+            tableShipment.Rows.Add(shipmentLabelRow);
+
+            TableRow shipmentRow = new TableRow();
+            tableShipment.Rows.Add(shipmentRow);
+            shipmentRadioButtons = new List<RadioButton>();
+            foreach (ShipmentEntity shipment in shipments) {
+                RadioButton rbShipment = new RadioButton();
+                rbShipment.GroupName = "rbShipment";
+                rbShipment.ID = rbShipment.GroupName + "_" + shipment.Code;
+                rbShipment.Text = shipment.Name;
+                shipmentRadioButtons.Add(rbShipment);
+            }
+            foreach (RadioButton rbShipment in shipmentRadioButtons) {
+                TableCell shipmentCell = new TableCell();
+                shipmentCell.CssClass = "form_label"; shipmentCell.HorizontalAlign = HorizontalAlign.Right;
+                shipmentCell.Controls.Add(rbShipment);
+                shipmentRow.Cells.Add(shipmentCell);
+
+                rbShipment.CheckedChanged += rbShipment_CheckedChanged;
+            }
+            rpDopravne.Controls.Add(CreateTableRow(tableShipment));
+
+            #endregion
+
             #region Address
             RoundPanel rpAddress = new RoundPanel();
             rpAddress.ID = "rpAddress";
             rpAddress.CssClass = "roundPanel";
             rpOrderProducts.Controls.Add(rpAddress);
 
-            #region Warning
+            #region Title
             Table tblWarning = new Table();
             tblWarning.CssClass = "order-warning-table";
             row = new TableRow(); tblWarning.Rows.Add(row);
@@ -950,7 +993,7 @@ namespace Eurona.Controls {
             AccountEntity account = Storage<AccountEntity>.ReadFirst(new AccountEntity.ReadById { AccountId = this.OrderEntity.AccountId });
             string message = Eurona.Common.PSCHelper.ValidatePSCByPSC(this.OrderEntity.DeliveryAddress.Zip, this.OrderEntity.DeliveryAddress.City, this.OrderEntity.DeliveryAddress.State);
             if (message != string.Empty) {
-                string js = string.Format("blockUIAlert('Chyba', '{0}');" +
+                string js = string.Format("blockUIAlert('', '{0}');" +
                 @"document.getElementById('" + this.addressDeliveryControl.GetCityClientID() + @"').value ='';" +
                 @"document.getElementById('" + this.addressDeliveryControl.GetCityClientID() + @"').style.backgroundColor='#EFB6E6';" +
                 @"document.getElementById('" + this.addressDeliveryControl.GetZipClientID() + @"').style.backgroundColor='#EFB6E6';" +
@@ -961,7 +1004,7 @@ namespace Eurona.Controls {
 
             //Validate Shipment
             if (String.IsNullOrEmpty(this.OrderEntity.ShipmentCode)) {
-                string js = string.Format("blockUIAlert('Chyba', '{0}');", "Je třeba zvolit dopravce");
+                string js = string.Format("blockUIAlert('', '{0}');", "Je třeba zvolit dopravce");
                 ScriptManager.RegisterStartupScript(this.updatePanel, this.updatePanel.GetType(), "addValidateShipment", js, true);
                 return;
             }
@@ -969,7 +1012,7 @@ namespace Eurona.Controls {
             //Validate STATE
             message = Eurona.Common.PSCHelper.ValidateState(this.OrderEntity.DeliveryAddress.State);
             if (message != string.Empty) {
-                string js = string.Format("blockUIAlert('Chyba', '{0}');", message);
+                string js = string.Format("blockUIAlert('', '{0}');", message);
                 ScriptManager.RegisterStartupScript(this.updatePanel, this.updatePanel.GetType(), "addValidateState", js, true);
                 return;
             }
@@ -1010,7 +1053,7 @@ namespace Eurona.Controls {
 
             //Validate Shipment
             if (String.IsNullOrEmpty(this.OrderEntity.ShipmentCode)) {
-                string js = string.Format("blockUIAlert('Chyba', '{0}');", "Je třeba zvolit dopravce");
+                string js = string.Format("blockUIAlert('', '{0}');", "Je třeba zvolit dopravce");
                 ScriptManager.RegisterStartupScript(this.updatePanel, this.updatePanel.GetType(), "addValidateShipment", js, true);
                 return;
             }
@@ -1018,7 +1061,7 @@ namespace Eurona.Controls {
             //Validate STATE
             string message = Eurona.Common.PSCHelper.ValidateState(this.OrderEntity.DeliveryAddress.State);
             if (message != string.Empty) {
-                string js = string.Format("blockUIAlert('Chyba', '{0}');", message);
+                string js = string.Format("blockUIAlert('', '{0}');", message);
                 ScriptManager.RegisterStartupScript(this.updatePanel, this.updatePanel.GetType(), "addValidateState", js, true);
                 return;
             }
@@ -1027,7 +1070,7 @@ namespace Eurona.Controls {
             AccountEntity account = Storage<AccountEntity>.ReadFirst(new AccountEntity.ReadById { AccountId = this.OrderEntity.AccountId });
             message = Eurona.Common.PSCHelper.ValidatePSCByPSC(this.OrderEntity.DeliveryAddress.Zip, this.OrderEntity.DeliveryAddress.City, this.OrderEntity.DeliveryAddress.State);
             if (message != string.Empty) {
-                string js = string.Format("blockUIAlert('Chyba', '{0}');" +
+                string js = string.Format("blockUIAlert('', '{0}');" +
                 @"document.getElementById('" + this.addressDeliveryControl.GetCityClientID() + @"').value ='';" +
                 @"document.getElementById('" + this.addressDeliveryControl.GetCityClientID() + @"').style.backgroundColor='#EFB6E6';" +
                 @"document.getElementById('" + this.addressDeliveryControl.GetZipClientID() + @"').style.backgroundColor='#EFB6E6';" +

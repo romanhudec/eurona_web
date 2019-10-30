@@ -288,7 +288,7 @@ input[type=text]::-ms-clear {
 
 .payOrderControl{margin-bottom:20px;}
 
-.order-warning-table{ margin-left:auto; margin-right:auto;width:700px;}
+.order-warning-table{ }
 .order-warning-table span, .order-warning-table span b{color:#F321CB;}
 
 .order-buttons-table{ margin-left:auto; margin-right:auto;border-spacing: 0px;border-collapse: separate;}
