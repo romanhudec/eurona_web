@@ -78,6 +78,7 @@ namespace Eurona.Common.DAL.MSSQL {
 
             product.ZadniEtiketa = Convert.ToString(record["ZadniEtiketa"]);
             product.ZobrazovatZadniEtiketu = Convert.ToBoolean(record["ZobrazovatZadniEtiketu"] == DBNull.Value ? false : record["ZobrazovatZadniEtiketu"]);
+            product.BSR = Convert.ToBoolean(record["BSR"] == DBNull.Value ? false : record["BSR"]);
             return product;
         }
 
@@ -103,7 +104,7 @@ namespace Eurona.Common.DAL.MSSQL {
 						[Megasleva], [Supercena] , [CLHit] , [Action] , [Vyprodej], [OnWeb], [InternalStorageCount], [LimitDate], [VamiNejviceNakupovane], [DarkovySet],
 						Parfumacia, Discount,  VAT, Locale, UrlAliasId, Alias,
 						CommentsCount, ViewCount, Votes, TotalRating, RatingResult,
-                        ZadniEtiketa, ZobrazovatZadniEtiketu
+                        ZadniEtiketa, ZobrazovatZadniEtiketu, BSR
 				FROM vShpProducts p
 				WHERE p.OnWeb=1 AND Locale = @Locale AND (InstanceId = 0 OR InstanceId=@InstanceId ) AND (ProdejUkoncen IS NULL OR ProdejUkoncen=0)
 				ORDER BY Novinka DESC, Name ASC";
@@ -128,7 +129,7 @@ namespace Eurona.Common.DAL.MSSQL {
 							[Megasleva], [Supercena] , [CLHit] , [Action] , [Vyprodej], [OnWeb], [InternalStorageCount], [LimitDate], [VamiNejviceNakupovane], [DarkovySet],
 							Discount,  VAT, Locale, UrlAliasId, Alias,
 							CommentsCount, ViewCount, Votes, TotalRating, RatingResult,
-                            ZadniEtiketa, ZobrazovatZadniEtiketu
+                            ZadniEtiketa, ZobrazovatZadniEtiketu, BSR
 					FROM vShpProducts
 					WHERE ProductId = @ProductId AND Locale=@Locale
 					ORDER BY Novinka DESC, Name ASC";
@@ -147,7 +148,7 @@ namespace Eurona.Common.DAL.MSSQL {
 										[Megasleva], [Supercena] , [CLHit] , [Action] , [Vyprodej], [OnWeb], [InternalStorageCount], [LimitDate], [VamiNejviceNakupovane], [DarkovySet],
 										Discount,  VAT, Locale, UrlAliasId, Alias,
 										CommentsCount, ViewCount, Votes, TotalRating, RatingResult,
-                                        ZadniEtiketa, ZobrazovatZadniEtiketu
+                                        ZadniEtiketa, ZobrazovatZadniEtiketu, BSR
 								FROM vShpProducts
 								WHERE Code = @Code AND Locale=@Locale /*AND (InstanceId = 0 OR InstanceId=@InstanceId )*/ AND (ProdejUkoncen IS NULL OR ProdejUkoncen=0)
 								ORDER BY Novinka DESC, Name ASC";
@@ -168,7 +169,7 @@ namespace Eurona.Common.DAL.MSSQL {
 										p.[Megasleva], p.[Supercena] , p.[CLHit] , p.[Action] , p.[Vyprodej], p.[OnWeb], p.[InternalStorageCount], p.[LimitDate], p.[VamiNejviceNakupovane], p.[DarkovySet],
 										p.[Top], p.Parfumacia, p.Discount, p.VAT, p.Locale, p.UrlAliasId, p.Alias,
 										p.CommentsCount, p.ViewCount, p.Votes, p.TotalRating, p.RatingResult,
-                                        p.ZadniEtiketa, p.ZobrazovatZadniEtiketu
+                                        p.ZadniEtiketa, p.ZobrazovatZadniEtiketu, BSR
 								FROM vShpProducts p INNER JOIN
 										tShpProductCategories pc ON pc.ProductId = p.ProductId
 								WHERE p.OnWeb=1 AND pc.CategoryId=@CategoryId AND p.Locale=@Locale AND (p.ProdejUkoncen IS NULL OR p.ProdejUkoncen=0)
@@ -196,7 +197,7 @@ namespace Eurona.Common.DAL.MSSQL {
 						p.[Megasleva], p.[Supercena] , p.[CLHit] , p.[Action] , p.[Vyprodej], p.[OnWeb], p.[InternalStorageCount], p.[LimitDate], p.[VamiNejviceNakupovane], p.[DarkovySet],
 						p.Parfumacia, p.Discount, p.VAT, p.Locale, p.UrlAliasId, p.Alias,
 						p.CommentsCount, p.ViewCount, p.Votes, p.TotalRating, p.RatingResult,
-                        p.ZadniEtiketa, p.ZobrazovatZadniEtiketu
+                        p.ZadniEtiketa, p.ZobrazovatZadniEtiketu, BSR
 				FROM vShpProducts p INNER JOIN
 						tShpProductCategories pc ON pc.ProductId = p.ProductId INNER JOIN
 						[dbo].fAllChildCategories(@CategoryId) c ON c.CategoryId = pc.CategoryId
@@ -241,7 +242,7 @@ namespace Eurona.Common.DAL.MSSQL {
 										p.[Megasleva], p.[Supercena] , p.[CLHit] , p.[Action] , p.[Vyprodej], p.[OnWeb], p.[InternalStorageCount],  p.[LimitDate], p.[VamiNejviceNakupovane], p.[DarkovySet],
 										p.[Top], p.Parfumacia, p.Discount, p.VAT, p.Locale, p.UrlAliasId, p.Alias,
 										p.CommentsCount, p.ViewCount, p.Votes, p.TotalRating, p.RatingResult,
-                                        p.ZadniEtiketa, p.ZobrazovatZadniEtiketu
+                                        p.ZadniEtiketa, p.ZobrazovatZadniEtiketu, BSR
 								FROM vShpProducts p
 								INNER JOIN vShpProductHighlights ph ON ph.ProductId = p.ProductId
 								WHERE p.OnWeb=1 AND ph.HighlightId = @HighlightId AND /*(p.InstanceId = 0 OR p.InstanceId=@InstanceId ) AND*/ p.Locale=@Locale AND (p.ProdejUkoncen IS NULL OR p.ProdejUkoncen=0)
@@ -264,7 +265,7 @@ namespace Eurona.Common.DAL.MSSQL {
 										p.[Megasleva], p.[Supercena] , p.[CLHit] , p.[Action] , p.[Vyprodej], p.[OnWeb], p.[InternalStorageCount], p.[LimitDate], p.[VamiNejviceNakupovane], p.[DarkovySet],
 										p.[Top], p.Parfumacia, p.Discount, p.VAT, p.Locale, p.UrlAliasId, p.Alias,
 										p.CommentsCount, p.ViewCount, p.Votes, p.TotalRating, p.RatingResult,
-                                        p.ZadniEtiketa, p.ZobrazovatZadniEtiketu
+                                        p.ZadniEtiketa, p.ZobrazovatZadniEtiketu, BSR
 								FROM vShpProducts p
 								WHERE p.OnWeb=1 /*AND (p.InstanceId = 0 OR p.InstanceId=@InstanceId )*/ AND p.Locale=@Locale AND (p.ProdejUkoncen IS NULL OR p.ProdejUkoncen=0)
 								AND p.BonusovyKredit IS NOT NULL AND p.BonusovyKredit > 0
@@ -286,7 +287,7 @@ namespace Eurona.Common.DAL.MSSQL {
 							p.[Megasleva], p.[Supercena] , p.[CLHit] , p.[Action] , p.[Vyprodej], p.[OnWeb], p.[InternalStorageCount], p.[LimitDate], p.[VamiNejviceNakupovane], p.[DarkovySet],
 							p.[Top], p.Parfumacia, p.Discount, p.VAT, p.Locale, p.UrlAliasId, p.Alias,
 							p.CommentsCount, p.ViewCount, p.Votes, p.TotalRating, p.RatingResult,
-                            p.ZadniEtiketa, p.ZobrazovatZadniEtiketu
+                            p.ZadniEtiketa, p.ZobrazovatZadniEtiketu, BSR
 					FROM vShpProducts p
 					WHERE p.OnWeb=1 /*AND (p.InstanceId = 0 OR p.InstanceId=@InstanceId )*/ AND p.Locale=@Locale AND (p.ProdejUkoncen IS NULL OR p.ProdejUkoncen=0)
 					AND p.[VamiNejviceNakupovane] IS NOT NULL AND p.[VamiNejviceNakupovane] > 0
@@ -308,7 +309,7 @@ namespace Eurona.Common.DAL.MSSQL {
 					p.[Megasleva], p.[Supercena] , p.[CLHit] , p.[Action] , p.[Vyprodej], p.[OnWeb], p.[InternalStorageCount], p.[LimitDate], p.[VamiNejviceNakupovane], p.[DarkovySet],
 					p.[Top], p.Parfumacia, p.Discount, p.VAT, p.Locale, p.UrlAliasId, p.Alias,
 					p.CommentsCount, p.ViewCount, p.Votes, p.TotalRating, p.RatingResult,
-                    p.ZadniEtiketa, p.ZobrazovatZadniEtiketu
+                    p.ZadniEtiketa, p.ZobrazovatZadniEtiketu, BSR
 					FROM vShpProducts p
 					WHERE p.OnWeb=1 /*AND (p.InstanceId = 0 OR p.InstanceId=@InstanceId ) AND*/ p.Locale=@Locale AND (p.ProdejUkoncen IS NULL OR p.ProdejUkoncen=0)
 					AND p.[DarkovySet] IS NOT NULL AND p.[DarkovySet] > 0
@@ -334,7 +335,7 @@ namespace Eurona.Common.DAL.MSSQL {
 				p.[Megasleva], p.[Supercena] , p.[CLHit] , p.[Action] , p.[Vyprodej], p.[OnWeb], p.[InternalStorageCount], p.[LimitDate], p.[VamiNejviceNakupovane], p.[DarkovySet],
 				p.[Top], p.Parfumacia, p.Discount, p.VAT, p.Locale, p.UrlAliasId, p.Alias,
 				p.CommentsCount, p.ViewCount, p.Votes, p.TotalRating, p.RatingResult,
-                p.ZadniEtiketa, p.ZobrazovatZadniEtiketu
+                p.ZadniEtiketa, p.ZobrazovatZadniEtiketu, BSR
 				FROM vShpProducts p
 				WHERE p.OnWeb=1 AND p.Locale = @Locale AND (p.ProdejUkoncen IS NULL OR p.ProdejUkoncen=0)", top);
                 List<SqlParameter> sqlParams = new List<SqlParameter>();
@@ -400,6 +401,7 @@ namespace Eurona.Common.DAL.MSSQL {
 			(@CLHit IS NULL OR {0}CLHit=@CLHit) AND
 			(@Action IS NULL OR {0}Action=@Action) AND
 			(@Vyprodej IS NULL OR {0}Vyprodej=@Vyprodej) AND
+            (@BSR IS NULL OR {0}BSR=@BSR) AND
 			(@OnWeb IS NULL OR {0}OnWeb=@OnWeb)",
             columnPrefix);
 
@@ -425,6 +427,7 @@ namespace Eurona.Common.DAL.MSSQL {
             parameters.Add(new SqlParameter("@Action", Null(byFilter.Action)));
             parameters.Add(new SqlParameter("@Vyprodej", Null(byFilter.Vyprodej)));
             parameters.Add(new SqlParameter("@OnWeb", Null(byFilter.OnWeb)));
+            parameters.Add(new SqlParameter("@BSR", Null(byFilter.BSR)));
         }
 
         private void RemoveProductFromCategories(Product product) {
@@ -501,7 +504,9 @@ namespace Eurona.Common.DAL.MSSQL {
                     new SqlParameter("@VamiNejviceNakupovane", Null(product.VamiNejviceNakupovane)),
                     new SqlParameter("@DarkovySet", Null(product.DarkovySet)),
                     new SqlParameter("@InternalStorageCount", product.InternalStorageCount),
-                    new SqlParameter("@LimitDate", Null(product.LimitDate)));
+                    new SqlParameter("@LimitDate", Null(product.LimitDate)),
+                    new SqlParameter("@BSR", Null(product.BSR))
+                    );
             }
         }
 

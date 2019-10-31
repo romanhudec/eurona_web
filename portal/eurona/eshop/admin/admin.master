@@ -31,6 +31,7 @@
                     <a runat="server" href="~/eshop/admin/urlAliases.aspx"><asp:Literal runat="server" Text="<%$ Resources:EShopStrings, AdministrationMode_UrlAliases %>"></asp:Literal></a>
                     <a runat="server" href="~/eshop/admin/classifiers.aspx"><asp:Literal runat="server" Text="<%$ Resources:EShopStrings, AdministrationMode_Classifiers %>"></asp:Literal></a>
                     <a runat="server" href="~/eshop/admin/nastaveniObjednavky.aspx"><asp:Literal ID="Literal2" runat="server" Text="Nastavení objednávky"></asp:Literal></a>
+                     <a runat="server" href="~/eshop/admin/nastaveniZavozovehoMista.aspx"><asp:Literal ID="Literal4" runat="server" Text="Nastavení závozového místa"></asp:Literal></a>
                     <div class="pagemenu-header">
                         <b><asp:Label ID="Label3" runat="server" Text="Reporty"></asp:Label></b>
                     </div>

@@ -14,7 +14,7 @@ namespace Eurona.DAL.MSSQL {
         private const string entitySelect = @"SELECT TOP 1000 OrderId, InstanceId, OrderDate, OrderNumber ,CartId, PaydDate ,AccountId, AccountName, OrderStatusCode ,OrderStatusName, OrderStatusIcon ,
 						ShipmentCode ,ShipmentName, ShipmentIcon ,ShipmentPrice, ShipmentPriceWVAT ,Price, PriceWVAT, PaymentCode, PaymentName, PaymentIcon, DeliveryAddressId, InvoiceAddressId, InvoiceUrl, Notes, Notified, Exported,
 						CurrencyId, CurrencyCode, CurrencySymbol, ParentId, AssociationAccountId, AssociationRequestStatus,
-						CreatedByAccountId, OwnerName, CreatedByName, ShipmentFrom, ShipmentTo, TVD_Id, NoPostage, ChildsCount
+						CreatedByAccountId, OwnerName, CreatedByName, ShipmentFrom, ShipmentTo, TVD_Id, NoPostage, ChildsCount, ZavozoveMisto_Mesto, ZavozoveMisto_DatumACas
 						FROM vShpOrders o WITH (NOLOCK)";
         public OrderStorage(int instanceId, Eurona.DAL.Entities.Account account, string connectionString)
             : base(instanceId, account, connectionString) {
@@ -52,6 +52,9 @@ namespace Eurona.DAL.MSSQL {
 
             order.CreatedByAccountId = Convert.ToInt32(record["CreatedByAccountId"]);
             order.NoPostage = Convert.ToBoolean(record["NoPostage"]);
+
+            order.ZavozoveMisto_Mesto = Convert.ToString(record["ZavozoveMisto_Mesto"]);
+            order.ZavozoveMisto_DatumACas = ConvertNullable.ToDateTime(record["ZavozoveMisto_DatumACas"]);
 
             //Joined properties
             order.AccountId = Convert.ToInt32(record["AccountId"]);
@@ -124,7 +127,7 @@ namespace Eurona.DAL.MSSQL {
                         AND (CreatedByAccountId=@AccountId)" +
                         (!string.IsNullOrEmpty(by.GreaterAtOrderNumber) ? " AND (OrderNumber LIKE @OrderNumber + '%')" : "") +
                     @")
-                    SELECT ors.OrderId, o.InstanceId, o.OrderDate, o.OrderNumber ,o.CartId, o.PaydDate ,o.AccountId, o.AccountName, o.OrderStatusCode ,o.OrderStatusName, o.OrderStatusIcon , o.ShipmentCode ,o.ShipmentName, o.ShipmentIcon ,o.ShipmentPrice, o.ShipmentPriceWVAT ,o.Price, o.PriceWVAT, o.PaymentCode, o.PaymentName, o.PaymentIcon, o.DeliveryAddressId, o.InvoiceAddressId, o.InvoiceUrl, o.Notes, o.Notified, o.Exported,  o.CurrencyId, o.CurrencyCode, o.CurrencySymbol, o.ParentId, o.AssociationAccountId, o.AssociationRequestStatus, o.CreatedByAccountId, o.OwnerName, o.CreatedByName, o.ShipmentFrom, o.ShipmentTo, o.TVD_Id, o.NoPostage, o.ChildsCount
+                    SELECT ors.OrderId, o.InstanceId, o.OrderDate, o.OrderNumber ,o.CartId, o.PaydDate ,o.AccountId, o.AccountName, o.OrderStatusCode ,o.OrderStatusName, o.OrderStatusIcon , o.ShipmentCode ,o.ShipmentName, o.ShipmentIcon ,o.ShipmentPrice, o.ShipmentPriceWVAT ,o.Price, o.PriceWVAT, o.PaymentCode, o.PaymentName, o.PaymentIcon, o.DeliveryAddressId, o.InvoiceAddressId, o.InvoiceUrl, o.Notes, o.Notified, o.Exported,  o.CurrencyId, o.CurrencyCode, o.CurrencySymbol, o.ParentId, o.AssociationAccountId, o.AssociationRequestStatus, o.CreatedByAccountId, o.OwnerName, o.CreatedByName, o.ShipmentFrom, o.ShipmentTo, o.TVD_Id, o.NoPostage, o.ChildsCount, o.ZavozoveMisto_Mesto, o.ZavozoveMisto_DatumACas
                     FROM ( select * FROM orders group by OrderId )  as ors INNER JOIN vShpOrders o ON o.OrderId=ors.OrderId";
                 DataTable table = Query<DataTable>(connection, sql,
                         new SqlParameter("@AccountId", by.AccountId),
@@ -152,7 +155,7 @@ namespace Eurona.DAL.MSSQL {
 	                WHERE o.HistoryId IS NULL AND o.InstanceId = @InstanceId 
                     AND (CreatedByAccountId=@AccountId)
                 )
-                SELECT ors.OrderId, o.InstanceId, o.OrderDate, o.OrderNumber ,o.CartId, o.PaydDate ,o.AccountId, o.AccountName, o.OrderStatusCode ,o.OrderStatusName, o.OrderStatusIcon , o.ShipmentCode ,o.ShipmentName, o.ShipmentIcon ,o.ShipmentPrice, o.ShipmentPriceWVAT ,o.Price, o.PriceWVAT, o.PaymentCode, o.PaymentName, o.PaymentIcon, o.DeliveryAddressId, o.InvoiceAddressId, o.InvoiceUrl, o.Notes, o.Notified, o.Exported,  o.CurrencyId, o.CurrencyCode, o.CurrencySymbol, o.ParentId, o.AssociationAccountId, o.AssociationRequestStatus, o.CreatedByAccountId, o.OwnerName, o.CreatedByName, o.ShipmentFrom, o.ShipmentTo, o.TVD_Id, o.NoPostage, o.ChildsCount
+                SELECT ors.OrderId, o.InstanceId, o.OrderDate, o.OrderNumber ,o.CartId, o.PaydDate ,o.AccountId, o.AccountName, o.OrderStatusCode ,o.OrderStatusName, o.OrderStatusIcon , o.ShipmentCode ,o.ShipmentName, o.ShipmentIcon ,o.ShipmentPrice, o.ShipmentPriceWVAT ,o.Price, o.PriceWVAT, o.PaymentCode, o.PaymentName, o.PaymentIcon, o.DeliveryAddressId, o.InvoiceAddressId, o.InvoiceUrl, o.Notes, o.Notified, o.Exported,  o.CurrencyId, o.CurrencyCode, o.CurrencySymbol, o.ParentId, o.AssociationAccountId, o.AssociationRequestStatus, o.CreatedByAccountId, o.OwnerName, o.CreatedByName, o.ShipmentFrom, o.ShipmentTo, o.TVD_Id, o.NoPostage, o.ChildsCount, o.ZavozoveMisto_Mesto, o.ZavozoveMisto_DatumACas
                 FROM ( select * FROM orders group by OrderId )  as ors INNER JOIN vShpOrders o ON o.OrderId=ors.OrderId";
                 DataTable table = Query<DataTable>(connection, sql,
                         new SqlParameter("@AccountId", by.AccountId),
@@ -174,7 +177,7 @@ namespace Eurona.DAL.MSSQL {
                 )
                 SELECT ors.OrderId, o.InstanceId, o.OrderDate, o.OrderNumber ,o.CartId, o.PaydDate ,o.AccountId, o.AccountName, o.OrderStatusCode ,o.OrderStatusName, o.OrderStatusIcon , 
                 o.ShipmentCode ,o.ShipmentName, o.ShipmentIcon ,o.ShipmentPrice, o.ShipmentPriceWVAT ,o.Price, o.PriceWVAT, o.PaymentCode, o.PaymentName, o.PaymentIcon, o.DeliveryAddressId, o.InvoiceAddressId, o.InvoiceUrl, o.Notes, o.Notified, o.Exported,  
-                o.CurrencyId, o.CurrencyCode, o.CurrencySymbol, o.ParentId, o.AssociationAccountId, o.AssociationRequestStatus, o.CreatedByAccountId, o.OwnerName, o.CreatedByName, o.ShipmentFrom, o.ShipmentTo, o.TVD_Id, o.NoPostage, o.ChildsCount
+                o.CurrencyId, o.CurrencyCode, o.CurrencySymbol, o.ParentId, o.AssociationAccountId, o.AssociationRequestStatus, o.CreatedByAccountId, o.OwnerName, o.CreatedByName, o.ShipmentFrom, o.ShipmentTo, o.TVD_Id, o.NoPostage, o.ChildsCount, o.ZavozoveMisto_Mesto, o.ZavozoveMisto_DatumACas
                 FROM ( select * FROM orders group by OrderId )  as ors INNER JOIN vShpOrders o ON o.OrderId=ors.OrderId";
                 DataTable table = Query<DataTable>(connection, sql,
                         new SqlParameter("@CartId", by.CartId),
@@ -257,7 +260,7 @@ namespace Eurona.DAL.MSSQL {
                 SELECT ors.OrderId, o.InstanceId, o.OrderDate, o.OrderNumber ,o.CartId, o.PaydDate ,o.AccountId, o.AccountName, o.OrderStatusCode ,o.OrderStatusName, o.OrderStatusIcon ,
                 o.ShipmentCode ,o.ShipmentName, o.ShipmentIcon ,o.ShipmentPrice, o.ShipmentPriceWVAT ,o.Price, o.PriceWVAT, o.PaymentCode, o.PaymentName, o.PaymentIcon, o.DeliveryAddressId, o.InvoiceAddressId, o.InvoiceUrl, o.Notes, o.Notified, o.Exported,
                 o.CurrencyId, o.CurrencyCode, o.CurrencySymbol, o.ParentId, o.AssociationAccountId, o.AssociationRequestStatus,
-                o.CreatedByAccountId, o.OwnerName, o.CreatedByName, o.ShipmentFrom, o.ShipmentTo, o.TVD_Id, o.NoPostage, o.ChildsCount
+                o.CreatedByAccountId, o.OwnerName, o.CreatedByName, o.ShipmentFrom, o.ShipmentTo, o.TVD_Id, o.NoPostage, o.ChildsCount, o.ZavozoveMisto_Mesto, o.ZavozoveMisto_DatumACas
                 FROM orders ors
                 INNER JOIN vShpOrders o ON o.OrderId=ors.OrderId";
 
@@ -303,6 +306,8 @@ namespace Eurona.DAL.MSSQL {
                         new SqlParameter("@ShipmentFrom", Null(order.ShipmentFrom)),
                         new SqlParameter("@ShipmentTo", Null(order.ShipmentTo)),
                         new SqlParameter("@NoPostage", Null(order.NoPostage)),
+                        new SqlParameter("@ZavozoveMisto_Mesto", Null(order.ZavozoveMisto_Mesto)),
+                        new SqlParameter("@ZavozoveMisto_DatumACas", Null(order.ZavozoveMisto_DatumACas)),
                         result);
 
                 order.Id = Convert.ToInt32(result.Value);
@@ -336,7 +341,9 @@ namespace Eurona.DAL.MSSQL {
                         new SqlParameter("@CreatedByAccountId", Null(order.CreatedByAccountId)),
                         new SqlParameter("@ShipmentFrom", Null(order.ShipmentFrom)),
                         new SqlParameter("@ShipmentTo", Null(order.ShipmentTo)),
-                        new SqlParameter("@NoPostage", Null(order.NoPostage))
+                        new SqlParameter("@NoPostage", Null(order.NoPostage)),
+                        new SqlParameter("@ZavozoveMisto_Mesto", Null(order.ZavozoveMisto_Mesto)),
+                        new SqlParameter("@ZavozoveMisto_DatumACas", Null(order.ZavozoveMisto_DatumACas))
                         );
 
                 //CMS.EvenLog.WritoToEventLog( string.Format( "tShpOrder id={0} updated by account {1}!\n{2}", order.Id, (Account != null ? AccountId : 1), Environment.StackTrace ), System.Diagnostics.EventLogEntryType.Information );

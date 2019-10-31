@@ -20,6 +20,7 @@ namespace Eurona.Controls.Product {
         private TextBox txtInternalStorageCount = null;
         private ASPxDatePicker dtpLimitDate = null;
         private TextBox txtLimitTime = null;
+        private CheckBox cbBSRProdukt = null;
 
         private Table ctrlDocuments;
         private Button btnSave = null;
@@ -63,6 +64,7 @@ namespace Eurona.Controls.Product {
                 this.dtpLimitDate.Value = this.product.LimitDate;
                 if (this.product.LimitDate.HasValue)
                     this.txtLimitTime.Text = string.Format("{0}:{1}", this.product.LimitDate.Value.Hour, this.product.LimitDate.Value.Minute);
+                this.cbBSRProdukt.Checked = this.product.BSR;
             }
 
             LoadAttachments();
@@ -139,6 +141,10 @@ namespace Eurona.Controls.Product {
             this.txtLimitTime.ID = "txtLimitTime";
             this.txtLimitTime.Width = Unit.Pixel(100);
 
+            this.cbBSRProdukt = new CheckBox();
+            this.cbBSRProdukt.ID = "cbBSRProdukt";
+            this.cbBSRProdukt.Width = Unit.Pixel(100);
+
             this.btnSave = new Button();
             this.btnSave.CausesValidation = true;
             this.btnSave.Text = CMS.Resources.Controls.SaveButton_Text;
@@ -159,6 +165,7 @@ namespace Eurona.Controls.Product {
             table.Rows.Add(CreateTableRow("Interní stav skladu : ", this.txtInternalStorageCount, false, ValidationDataType.Integer, "(Pokud je hodnota -1, není interní stav skladu u tohoto produktu kontrolován!)"));
             table.Rows.Add(CreateTableRow("Datum odpočtu : ", this.dtpLimitDate, false, ValidationDataType.Date));
             table.Rows.Add(CreateTableRow("Čas odpočtu : ", this.txtLimitTime, false, null));
+            table.Rows.Add(CreateTableRow("BSR Produkt : ", this.cbBSRProdukt, false, null));
 
             TableRow r = new TableRow();
             TableCell c = new TableCell();
@@ -313,6 +320,7 @@ namespace Eurona.Controls.Product {
             this.product.DarkovySet = poradiDS;
             this.product.InternalStorageCount = internalStorageCount;
             this.product.LimitDate = limitDate;
+            this.product.BSR = this.cbBSRProdukt.Checked;
 
             Storage<ProductEntity>.Update(this.product);
 

@@ -16,6 +16,7 @@ namespace Eurona.Common.DAL.Entities {
         public int? MaximalniPocetVBaleni { get; set; }
         public int? MinimalniPocetVBaleni { get; set; }
         public bool CerpatBonusoveKredity { get; set; }
+        public bool BSRProdukt { get; set; }
 
         /// <summary>
         /// Cena produktu po zlave s DPH
