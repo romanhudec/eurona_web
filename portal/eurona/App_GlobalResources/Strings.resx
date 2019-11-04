@@ -1362,4 +1362,7 @@ e-mail: &lt;a href="mailto:prodej@eurona.cz"&gt;prodej@eurona.cz&lt;/a&gt;&lt;/p
   <data name="AdminAccountControl_LabelZrusitOvereniEmailem" xml:space="preserve">
     <value>Zrušit ověření</value>
   </data>
+  <data name="LoginControl_InvalidLogin" xml:space="preserve">
+    <value>Nesprávně zadané přihlašovací jméno či heslo. Vaše přihlašovací jméno je zpravidla Váš e-mail.</value>
+  </data>
 </root>

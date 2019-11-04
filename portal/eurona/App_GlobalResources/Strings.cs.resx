@@ -1359,4 +1359,7 @@ Eurona by Cerny</value>
   <data name="EmailVerifyControl_DescriptionBottom" xml:space="preserve">
     <value>V případě, že potřebujete s ověřením Vašeho účtu pomoci, obraťte se na svého TOP manažera.</value>
   </data>
+  <data name="LoginControl_InvalidLogin" xml:space="preserve">
+    <value>Nesprávně zadané přihlašovací jméno či heslo. Vaše přihlašovací jméno je zpravidla Váš e-mail.</value>
+  </data>
 </root>

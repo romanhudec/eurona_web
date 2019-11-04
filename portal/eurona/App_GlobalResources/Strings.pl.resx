@@ -1306,4 +1306,7 @@ Eurona by Cerny</value>
   <data name="EmailVerifyControl_DescriptionBottom" xml:space="preserve">
     <value>W przypadku, kiedy potrzebujesz pomoc przy kontroli swojego konto, zwróć się do swojego TOP managera.</value>
   </data>
+  <data name="LoginControl_InvalidLogin" xml:space="preserve">
+    <value>Nesprávně zadané přihlašovací jméno či heslo. Vaše přihlašovací jméno je zpravidla Váš e-mail.</value>
+  </data>
 </root>

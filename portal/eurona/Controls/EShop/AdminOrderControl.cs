@@ -685,6 +685,10 @@ namespace Eurona.Controls {
             string value = rbShipment.ID.Replace(rbShipment.GroupName + "_", "");
             if (value != null) this.OrderEntity.ShipmentCode = value;
 
+            this.OrderEntity.NoPostage = this.cbNoPostage.Checked;
+            this.OrderEntity.ShipmentCode = GetShipmentSelection();
+            Storage<OrderEntity>.Update(this.OrderEntity);
+
             //Prepocitanie kosiku a objednavky           
             this.RecalculateOrder();
             UpdateDopravneUIbyOrder();            
