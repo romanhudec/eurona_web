@@ -1342,7 +1342,7 @@ namespace SHP.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Zvolte dopravce :.
+        ///   Looks up a localized string similar to ZVOLTE DOPRAVCE (povinné pole).
         /// </summary>
         public static string OrderControl_Shipment {
             get {

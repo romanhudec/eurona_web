@@ -301,7 +301,7 @@
     <value>Objednať</value>
   </data>
   <data name="OrderControl_Shipment" xml:space="preserve">
-    <value>Zvolte prepravcu :</value>
+    <value>ZVOLTE PREPRAVCU (povinné pole)</value>
   </data>
   <data name="CartControl_ColumnId" xml:space="preserve">
     <value>Číslo objednávky</value>

@@ -109,6 +109,8 @@
     <Compile Include="DAL\Entities\VlastnostiProduktu.cs" />
     <Compile Include="DAL\Entities\Product.cs" />
     <Compile Include="DAL\Entities\ProductRelation.cs" />
+    <Compile Include="DAL\Entities\ZavozoveMisto.cs" />
+    <Compile Include="DAL\MSSQL\ZavozoveMistoStorage.cs" />
     <Compile Include="DAL\MSSQL\LastOrderAddressStorage.cs" />
     <Compile Include="DAL\MSSQL\BonusovyKreditStorage.cs" />
     <Compile Include="DAL\MSSQL\BonusovyKreditUzivateleStorage.cs" />

@@ -155,10 +155,12 @@
     <Content Include="App_Themes\Default\TabStrip\TabStripVStates.png" />
     <Content Include="Controls\BKProductsControl.ascx" />
     <Content Include="Controls\BonusoveKredityUzivateleInfoControl.ascx" />
+    <Content Include="eshop\admin\nastaveniZavozovehoMista.aspx" />
     <Content Include="images\Reports\animace_2briliant.gif" />
     <Content Include="images\Reports\animace_2rubin.gif" />
     <Content Include="images\Reports\animace_2safir.gif" />
     <Content Include="images\Reports\animace_2seda.gif" />
+    <Content Include="Scripts\dbUpgrade_2019_10_BSRProduct.sql" />
     <Content Include="styles\emailVerify.css" />
     <Content Include="user\anonymous\emailVerifycation.aspx" />
     <Content Include="user\anonymous\requestEmailVerifycation.aspx" />
@@ -1280,6 +1282,13 @@
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Controls\AngelTeamHelper.cs" />
+    <Compile Include="eshop\admin\nastaveniZavozovehoMista.aspx.cs">
+      <DependentUpon>nastaveniZavozovehoMista.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="eshop\admin\nastaveniZavozovehoMista.aspx.designer.cs">
+      <DependentUpon>nastaveniZavozovehoMista.aspx</DependentUpon>
+    </Compile>
     <Compile Include="user\anonymous\emailVerifycation.aspx.cs">
       <DependentUpon>emailVerifycation.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>

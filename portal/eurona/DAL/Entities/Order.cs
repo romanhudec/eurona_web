@@ -34,6 +34,9 @@ namespace Eurona.DAL.Entities {
         /// </summary>
         public bool NoPostage { get; set; }
 
+        public string ZavozoveMisto_Mesto { get; set; }
+        public DateTime? ZavozoveMisto_DatumACas { get; set; }
+
         public class ReadLastByAccount {
             public int AccountId { get; set; }
             public string GreaterAtOrderNumber { get; set; }

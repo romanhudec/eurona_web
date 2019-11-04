@@ -82,6 +82,7 @@ namespace Eurona
             if (typeof(T) == typeof(Eurona.Common.DAL.Entities.Settings)) access = new Eurona.Common.DAL.MSSQL.SettingsStorage(instanceId, account, connectionString) as IStorage<T>;
             if (typeof(T) == typeof(Eurona.Common.DAL.Entities.OrderSettings)) access = new Eurona.Common.DAL.MSSQL.OrderSettingsStorage(instanceId, account, connectionString) as IStorage<T>;
             if (typeof(T) == typeof(Eurona.Common.DAL.Entities.LastOrderAddress)) access = new Eurona.Common.DAL.MSSQL.LastOrderAddressStorage(instanceId, account, connectionString) as IStorage<T>;
+            if (typeof(T) == typeof(Eurona.Common.DAL.Entities.ZavozoveMisto)) access = new Eurona.Common.DAL.MSSQL.ZavozoveMistoStorage(instanceId, account, connectionString) as IStorage<T>;
 			if (session != null && account != null) session[GetType().ToString()] = access;
 
 			return access;
