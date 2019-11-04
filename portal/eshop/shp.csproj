@@ -251,7 +251,9 @@
       <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="Resources\Controls.ru.resx" />
-    <EmbeddedResource Include="Resources\Controls.sk.resx" />
+    <EmbeddedResource Include="Resources\Controls.sk.resx">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
     <EmbeddedResource Include="Resources\AttributeType.cs.resx">
     </EmbeddedResource>
     <EmbeddedResource Include="Resources\AttributeType.sk.resx">

@@ -351,7 +351,7 @@ namespace Eurona.Controls {
             tblDopravneTitle.CssClass = "order-warning-table";
             row = new TableRow(); tblDopravneTitle.Rows.Add(row);
             cell = new TableCell(); row.Cells.Add(cell);
-            LiteralControl lcDopravneTitleText = new LiteralControl("<span class='order-warning-table-label' style='width:600px;'><b>" + SHP.Resources.Controls.OrderControl_Shipment.ToUpper().Replace(":", "") + "</b></span>");
+            LiteralControl lcDopravneTitleText = new LiteralControl("<span class='order-warning-table-label' style='width:600px;'><b>" + SHP.Resources.Controls.OrderControl_Shipment + "</b></span>");
             cell.Controls.Add(lcDopravneTitleText);
             rpDopravne.Controls.Add(tblDopravneTitle);
 
@@ -399,7 +399,7 @@ namespace Eurona.Controls {
                 tblZavozoveMistoTitle.CssClass = "order-warning-table";
                 row = new TableRow(); tblZavozoveMistoTitle.Rows.Add(row);
                 cell = new TableCell(); row.Cells.Add(cell);
-                LiteralControl lcZavozoveMistoTitle = new LiteralControl("<span class='order-warning-table-label' style='width:600px;'><b>ZÁVOZOVÉ MÍSTO</b></span>");
+                LiteralControl lcZavozoveMistoTitle = new LiteralControl("<span class='order-warning-table-label' style='width:600px;'><b>ZÁVOZOVÉ MÍSTO ČERSTVÝCH RYB A CHLAZENÝCH PRODUKTÚ</b></span>");
                 cell.Controls.Add(lcZavozoveMistoTitle);
                 rpZavozoveMisto.Controls.Add(tblZavozoveMistoTitle);
 
