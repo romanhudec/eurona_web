@@ -132,16 +132,6 @@ namespace Eurona.Controls.Classifiers
 						btnEdit.CommandName = EDIT_COMMAND;
 						grid.MasterTableView.Columns.Add( btnEdit );
 
-						GridButtonColumn btnDelete = new GridButtonColumn();
-						btnDelete.HeaderStyle.Width = new Unit( 16, UnitType.Pixel );
-						btnDelete.ImageUrl = ConfigValue( "CMS:DeleteButtonImage" );
-						btnDelete.Text = SHP.Resources.Controls.GridView_ToolTip_DeleteItem;
-						btnDelete.ButtonType = GridButtonColumnType.ImageButton;
-                        btnDelete.ConfirmTitle = SHP.Resources.Controls.DeleteItemQuestion;
-                        btnDelete.ConfirmText = SHP.Resources.Controls.DeleteItemQuestion;
-						btnDelete.CommandName = DELETE_COMMAND;
-						grid.MasterTableView.Columns.Add( btnDelete );
-
 						grid.ItemCommand += OnRowCommand;
 
 						return grid;
