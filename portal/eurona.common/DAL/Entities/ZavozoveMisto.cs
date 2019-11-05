@@ -18,6 +18,7 @@ namespace Eurona.Common.DAL.Entities {
         public class ReadOnlyMestoDistinct {
         }
         public string Mesto { get; set; }
-        public DateTime DatumACas { get; set; }
+        public DateTime? DatumACas { get; set; }
+        public DateTime? DatumACas_Skryti { get; set; }
     }
 }

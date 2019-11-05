@@ -26,6 +26,7 @@ namespace SHP.MSSQL.Classifiers {
             shipment.VATId = ConvertNullable.ToInt32(record["VATId"]);
             shipment.PriceWVAT = ConvertNullable.ToDecimal(record["PriceWVAT"]);
             shipment.VAT = ConvertNullable.ToDecimal(record["VAT"]);
+            shipment.Order = ConvertNullable.ToInt32(record["Order"]);
 
             return shipment;
         }
@@ -37,10 +38,10 @@ namespace SHP.MSSQL.Classifiers {
             List<Shipment> list = new List<Shipment>();
             using (SqlConnection connection = Connect()) {
                 string sql = @"
-								SELECT ShipmentId, InstanceId, [Name], [Code], [Icon], [Locale], [Notes], [Price], [VATId], [PriceWVAT], [VAT]
+								SELECT ShipmentId, InstanceId, [Name], [Code], [Icon], [Locale], [Notes], [Price], [VATId], [PriceWVAT], [VAT], [Order]
 								FROM vShpShipments
 								WHERE Locale = @Locale AND InstanceId=@InstanceId
-								ORDER BY [Code] DESC";
+								ORDER BY [Order] ASC, [Code] DESC";
                 DataTable table = Query<DataTable>(connection, sql, new SqlParameter("@Locale", Locale), new SqlParameter("@InstanceId", InstanceId));
                 foreach (DataRow dr in table.Rows)
                     list.Add(GetShipment(dr));
@@ -52,10 +53,10 @@ namespace SHP.MSSQL.Classifiers {
             List<Shipment> list = new List<Shipment>();
             using (SqlConnection connection = Connect()) {
                 string sql = @"
-								SELECT ShipmentId, InstanceId, [Name], [Code], [Icon], [Locale], [Notes], [Price], [VATId], [PriceWVAT], [VAT]
+								SELECT ShipmentId, InstanceId, [Name], [Code], [Icon], [Locale], [Notes], [Price], [VATId], [PriceWVAT], [VAT], [Order]
 								FROM vShpShipments
 								WHERE Locale = @Locale AND InstanceId=@InstanceId AND [Default]=1
-								ORDER BY [Default] DESC";
+								ORDER BY  [Order] ASC, [Default] DESC";
                 DataTable table = Query<DataTable>(connection, sql, new SqlParameter("@Locale", Locale), new SqlParameter("@InstanceId", InstanceId));
                 foreach (DataRow dr in table.Rows)
                     list.Add(GetShipment(dr));
@@ -71,10 +72,10 @@ namespace SHP.MSSQL.Classifiers {
             List<Shipment> list = new List<Shipment>();
             using (SqlConnection connection = Connect()) {
                 string sql = @"
-								SELECT ShipmentId, InstanceId, [Name], [Code], [Icon], [Locale], [Notes], [Price], [VATId], [PriceWVAT], [VAT]
+								SELECT ShipmentId, InstanceId, [Name], [Code], [Icon], [Locale], [Notes], [Price], [VATId], [PriceWVAT], [VAT], [Order]
 								FROM vShpShipments
 								WHERE ShipmentId = @ShipmentId
-								ORDER BY [Code] DESC";
+								ORDER BY [Order] ASC, [Code] DESC";
                 DataTable table = Query<DataTable>(connection, sql,
                         new SqlParameter("@ShipmentId", by.Id));
                 foreach (DataRow dr in table.Rows)
@@ -88,10 +89,10 @@ namespace SHP.MSSQL.Classifiers {
             List<Shipment> list = new List<Shipment>();
             using (SqlConnection connection = Connect()) {
                 string sql = @"
-								SELECT ShipmentId, InstanceId, [Name], [Code], [Icon], [Locale], [Notes], [Price], [VATId], [PriceWVAT], [VAT]
+								SELECT ShipmentId, InstanceId, [Name], [Code], [Icon], [Locale], [Notes], [Price], [VATId], [PriceWVAT], [VAT], [Order]
 								FROM vShpShipments
 								WHERE Code = @Code AND Locale=@Locale AND InstanceId=@InstanceId
-								ORDER BY [Code] DESC";
+								ORDER BY [Order] ASC, [Code] DESC";
                 DataTable table = Query<DataTable>(connection, sql,
                         new SqlParameter("@Code", by.Code), new SqlParameter("@Locale", Locale), new SqlParameter("@InstanceId", InstanceId));
                 foreach (DataRow dr in table.Rows)
@@ -101,33 +102,38 @@ namespace SHP.MSSQL.Classifiers {
         }
 
         public override void Create(Shipment shipment) {
-            using (SqlConnection connection = Connect()) {
-                ExecProc(connection, "pShpShipmentCreate",
-                        new SqlParameter("@HistoryAccount", AccountId),
-                        new SqlParameter("@InstanceId", InstanceId),
-                        new SqlParameter("@Name", shipment.Name),
-                        new SqlParameter("@Code", shipment.Code),
-                        new SqlParameter("@Icon", shipment.Icon),
-                        new SqlParameter("@Notes", shipment.Notes),
-                        new SqlParameter("@Price", shipment.Price),
-                        new SqlParameter("@VATId", shipment.VATId),
-                        new SqlParameter("@Locale", String.IsNullOrEmpty(shipment.Locale) ? Locale : shipment.Locale));
-            }
+            //using (SqlConnection connection = Connect()) {
+            //    ExecProc(connection, "pShpShipmentCreate",
+            //            new SqlParameter("@HistoryAccount", AccountId),
+            //            new SqlParameter("@InstanceId", InstanceId),
+            //            new SqlParameter("@Name", shipment.Name),
+            //            new SqlParameter("@Code", shipment.Code),
+            //            new SqlParameter("@Icon", shipment.Icon),
+            //            new SqlParameter("@Notes", shipment.Notes),
+            //            new SqlParameter("@Price", shipment.Price),
+            //            new SqlParameter("@VATId", shipment.VATId),
+            //            new SqlParameter("@Locale", String.IsNullOrEmpty(shipment.Locale) ? Locale : shipment.Locale));
+            //}
         }
 
         public override void Update(Shipment shipment) {
             using (SqlConnection connection = Connect()) {
-                ExecProc(connection, "pShpShipmentModify",
-                        new SqlParameter("@HistoryAccount", AccountId),
-                        new SqlParameter("@ShipmentId", shipment.Id),
-                        new SqlParameter("@Name", shipment.Name),
+                Exec(connection, "UPDATE cShpShipment SET [Order]=@Order WHERE Code=@Code",
                         new SqlParameter("@Code", shipment.Code),
-                        new SqlParameter("@Icon", shipment.Icon),
-                        new SqlParameter("@Notes", shipment.Notes),
-                        new SqlParameter("@Price", shipment.Price),
-                        new SqlParameter("@VATId", shipment.VATId),
-                        new SqlParameter("@Locale", shipment.Locale));
+                        new SqlParameter("@Order", Null(shipment.Order)));
             }
+            //using (SqlConnection connection = Connect()) {
+            //    ExecProc(connection, "pShpShipmentModify",
+            //            new SqlParameter("@HistoryAccount", AccountId),
+            //            new SqlParameter("@ShipmentId", shipment.Id),
+            //            new SqlParameter("@Name", shipment.Name),
+            //            new SqlParameter("@Code", shipment.Code),
+            //            new SqlParameter("@Icon", shipment.Icon),
+            //            new SqlParameter("@Notes", shipment.Notes),
+            //            new SqlParameter("@Price", shipment.Price),
+            //            new SqlParameter("@VATId", shipment.VATId),
+            //            new SqlParameter("@Locale", shipment.Locale));
+            //}
         }
 
         public override void Delete(Shipment shipment) {

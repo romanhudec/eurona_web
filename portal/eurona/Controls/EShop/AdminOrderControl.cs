@@ -368,11 +368,13 @@ namespace Eurona.Controls {
                 rbShipment.GroupName = "rbShipment";
                 rbShipment.ID = rbShipment.GroupName + "_" + shipment.Code;
                 rbShipment.Text = shipment.Name;
+                rbShipment.AutoPostBack = true;
                 shipmentRadioButtons.Add(rbShipment);
             }
             foreach (RadioButton rbShipment in shipmentRadioButtons) {
                 TableCell shipmentCell = new TableCell();
                 shipmentCell.CssClass = "form_label"; shipmentCell.HorizontalAlign = HorizontalAlign.Right;
+                shipmentCell.Style.Add("padding-right", "20px");
                 shipmentCell.Controls.Add(rbShipment);
                 shipmentRow.Cells.Add(shipmentCell);
 
@@ -682,6 +684,14 @@ namespace Eurona.Controls {
             RadioButton rbShipment = (RadioButton)sender;
             string value = rbShipment.ID.Replace(rbShipment.GroupName + "_", "");
             if (value != null) this.OrderEntity.ShipmentCode = value;
+
+            this.OrderEntity.NoPostage = this.cbNoPostage.Checked;
+            this.OrderEntity.ShipmentCode = GetShipmentSelection();
+            Storage<OrderEntity>.Update(this.OrderEntity);
+
+            //Prepocitanie kosiku a objednavky           
+            this.RecalculateOrder();
+            UpdateDopravneUIbyOrder();            
         }
 
         private string GetShipmentSelection() {
@@ -704,7 +714,11 @@ namespace Eurona.Controls {
             if (this.ddlZavozoveMisto_DatumACas == null) return;
 
             string mesto = this.ddlZavozoveMisto_Mesto.SelectedValue;
+            ZavozoveMistoEntity emptyDatum = new ZavozoveMistoEntity();
+            emptyDatum.Id = 0;
+            emptyDatum.DatumACas = null;
             List<ZavozoveMistoEntity> zavozoveMistaDatumyList = Storage<ZavozoveMistoEntity>.Read(new ZavozoveMistoEntity.ReadJenAktualiByMesto() { Mesto = mesto });
+            zavozoveMistaDatumyList.Insert(0, emptyDatum);
             if (this.OrderEntity.ZavozoveMisto_DatumACas.HasValue) {
                 if (!checkIfBindedZavozoveMistoDatumIsInDatasource(zavozoveMistaDatumyList, this.OrderEntity.ZavozoveMisto_DatumACas.Value) && this.OrderEntity.ZavozoveMisto_Mesto == mesto) {
                     ZavozoveMistoEntity newZavozoveMisto = new ZavozoveMistoEntity();
@@ -1077,8 +1091,8 @@ namespace Eurona.Controls {
 
             if (this.hasBSRProduct == true) {
                 //Validate Shipment
-                if (String.IsNullOrEmpty(this.OrderEntity.ZavozoveMisto_Mesto) || this.OrderEntity.ZavozoveMisto_DatumACas == null) {
-                    string js = string.Format("blockUIAlert('', '{0}');", "Je třeba vyplnit zvozové místo!");
+                if (String.IsNullOrEmpty(this.OrderEntity.ZavozoveMisto_Mesto) || this.OrderEntity.ZavozoveMisto_DatumACas == null || String.IsNullOrEmpty(this.ddlZavozoveMisto_DatumACas.SelectedValue)) {
+                    string js = string.Format("blockUIAlert('', '{0}');", "Je třeba vyplnit závozové místo!");
                     ScriptManager.RegisterStartupScript(this.updatePanel, this.updatePanel.GetType(), "addValidateZvozoveMisto", js, true);
                     return;
                 }
@@ -1152,8 +1166,8 @@ namespace Eurona.Controls {
 
             if (this.hasBSRProduct == true) {
                 //Validate Shipment
-                if (String.IsNullOrEmpty(this.OrderEntity.ZavozoveMisto_Mesto) || this.OrderEntity.ZavozoveMisto_DatumACas == null ) {
-                    string js = string.Format("blockUIAlert('', '{0}');", "Je třeba vyplnit zvozové místo!");
+                if (String.IsNullOrEmpty(this.OrderEntity.ZavozoveMisto_Mesto) || this.OrderEntity.ZavozoveMisto_DatumACas == null || String.IsNullOrEmpty(this.ddlZavozoveMisto_DatumACas.SelectedValue)) {
+                    string js = string.Format("blockUIAlert('', '{0}');", "Je třeba vyplnit závozové místo!");
                     ScriptManager.RegisterStartupScript(this.updatePanel, this.updatePanel.GetType(), "addValidateZvozoveMisto", js, true);
                     return;
                 }

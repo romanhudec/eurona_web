@@ -21,6 +21,7 @@ namespace Eurona.Common.DAL.MSSQL {
             entiry.Id = Convert.ToInt32(record["ZavozoveMistoId"]);
             entiry.Mesto = Convert.ToString(record["Mesto"]);
             entiry.DatumACas = Convert.ToDateTime(record["DatumACas"]);
+            entiry.DatumACas_Skryti = ConvertNullable.ToDateTime(record["DatumACas_Skryti"]);
             return entiry;
         }
 
@@ -59,7 +60,7 @@ namespace Eurona.Common.DAL.MSSQL {
         public List<ZavozoveMisto> LoadOnlyMestoDistinct() {
             List<ZavozoveMisto> list = new List<ZavozoveMisto>();
             using (SqlConnection connection = Connect()) {
-                string sql = "SELECT DISTINCT  Mesto, DatumACas=GETDATE(), ZavozoveMistoId=0 FROM tShpZavozoveMisto ORDER BY Mesto ASC";
+                string sql = "SELECT DISTINCT  Mesto, DatumACas=GETDATE(), DatumACas_Skryti=GETDATE(), ZavozoveMistoId=0 FROM tShpZavozoveMisto ORDER BY Mesto ASC";
                 DataTable table = Query<DataTable>(connection, sql);
                 foreach (DataRow dr in table.Rows)
                     list.Add(GetError(dr));
@@ -81,7 +82,7 @@ namespace Eurona.Common.DAL.MSSQL {
             List<ZavozoveMisto> list = new List<ZavozoveMisto>();
             using (SqlConnection connection = Connect()) {
                 string sql = entitySelect;
-                sql += " WHERE Mesto = @Mesto AND DatumACas > GETDATE()";
+                sql += " WHERE Mesto = @Mesto AND (DatumACas_Skryti IS NULL OR DatumACas_Skryti > GETDATE())";
                 DataTable table = Query<DataTable>(connection, sql, new SqlParameter("@Mesto", mesto));
                 foreach (DataRow dr in table.Rows)
                     list.Add(GetError(dr));
@@ -95,15 +96,23 @@ namespace Eurona.Common.DAL.MSSQL {
 
         public override void Create(ZavozoveMisto entity) {
             using (SqlConnection connection = Connect()) {
-                Exec(connection, "INSERT INTO tShpZavozoveMisto (Mesto, DatumACas) VALUES (@Mesto, @DatumACas)",
+                Exec(connection, "INSERT INTO tShpZavozoveMisto (Mesto, DatumACas, DatumACas_Skryti) VALUES (@Mesto, @DatumACas, @DatumACas_Skryti)",
                         new SqlParameter("@Mesto", entity.Mesto),
-                        new SqlParameter("@DatumACas", entity.DatumACas)
+                        new SqlParameter("@DatumACas", entity.DatumACas),
+                        new SqlParameter("@DatumACas_Skryti", Null(entity.DatumACas_Skryti))
                         );
             }
         }
 
         public override void Update(ZavozoveMisto entity) {
-            throw new NotImplementedException();
+            using (SqlConnection connection = Connect()) {
+                Exec(connection, "UPDATE tShpZavozoveMisto SET Mesto=@Mesto, DatumACas=@DatumACas, DatumACas_Skryti=@DatumACas_Skryti WHERE ZavozoveMistoId=@Id",
+                        new SqlParameter("@Id", entity.Id),
+                        new SqlParameter("@Mesto", entity.Mesto),
+                        new SqlParameter("@DatumACas", entity.DatumACas),
+                        new SqlParameter("@DatumACas_Skryti", Null(entity.DatumACas_Skryti))
+                        );
+            }
         }
 
         public override void Delete(ZavozoveMisto entity) {

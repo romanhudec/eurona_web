@@ -41,7 +41,7 @@ namespace Eurona.Controls {
         private void DisplayInvalidLogin() {
             ClientScriptManager csm = Page.ClientScript;
             StringBuilder script = new StringBuilder();
-            script.Append("alert('Nesprávne přihlašovací údaje!');");
+            script.Append("alert('" + Resources.Strings.LoginControl_InvalidLogin + ");");
             csm.RegisterStartupScript(GetType(), "invalidLogin", script.ToString(), true);
         }
 

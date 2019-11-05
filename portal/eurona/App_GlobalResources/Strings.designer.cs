@@ -1642,6 +1642,15 @@ namespace Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Nesprávně zadané přihlašovací jméno či heslo. Vaše přihlašovací jméno je zpravidla Váš e-mail..
+        /// </summary>
+        internal static string LoginControl_InvalidLogin {
+            get {
+                return ResourceManager.GetString("LoginControl_InvalidLogin", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Přihlásit.
         /// </summary>
         internal static string LoginControl_LoginButton {

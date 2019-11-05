@@ -155,6 +155,7 @@
     <Content Include="App_Themes\Default\TabStrip\TabStripVStates.png" />
     <Content Include="Controls\BKProductsControl.ascx" />
     <Content Include="Controls\BonusoveKredityUzivateleInfoControl.ascx" />
+    <Content Include="eshop\admin\zavozoveMistoEdit.aspx" />
     <Content Include="eshop\admin\nastaveniZavozovehoMista.aspx" />
     <Content Include="images\Reports\animace_2briliant.gif" />
     <Content Include="images\Reports\animace_2rubin.gif" />
@@ -1254,6 +1255,12 @@
       <DependentUpon>BonusoveKredityUzivateleInfoControl.ascx</DependentUpon>
     </Compile>
     <Compile Include="Controls\BonusovyKreditUzivateleHelper.cs" />
+    <Compile Include="Controls\Classifiers\ShipmentControl.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Controls\Classifiers\ShipmentsControl.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
     <Compile Include="Controls\CMS\AdminBKAccountsControl.cs">
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
@@ -1282,6 +1289,13 @@
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Controls\AngelTeamHelper.cs" />
+    <Compile Include="eshop\admin\zavozoveMistoEdit.aspx.cs">
+      <DependentUpon>zavozoveMistoEdit.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="eshop\admin\zavozoveMistoEdit.aspx.designer.cs">
+      <DependentUpon>zavozoveMistoEdit.aspx</DependentUpon>
+    </Compile>
     <Compile Include="eshop\admin\nastaveniZavozovehoMista.aspx.cs">
       <DependentUpon>nastaveniZavozovehoMista.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>

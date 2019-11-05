@@ -24,6 +24,11 @@ namespace Eurona.Admin {
                 Storage<ZavozoveMisto>.Delete(zm);
             }
 
+            if (e.CommandName.ToUpper() == "EDIT_ITEM") {
+                int id = Convert.ToInt32(e.CommandArgument);
+                Response.Redirect(string.Format("~/eshop/admin/zavozoveMistoEdit.aspx?id={0}", id));
+            }
+
             this.zavozoveMistoList = null;
             this.gridView.DataSource = this.ZavozoveMistoList;
             this.gridView.DataBind();
@@ -61,13 +66,20 @@ namespace Eurona.Admin {
             datum = new DateTime(tmpDate.Year, tmpDate.Month, tmpDate.Day);
             datum = SetTimeToDateFromString(datum.Value, this.txtCas.Text);
 
+            DateTime? datumSkryti = null;
+            DateTime tmpDateSkryti = Convert.ToDateTime(this.dtpDatumSkryti.Value);
+            datumSkryti = new DateTime(tmpDateSkryti.Year, tmpDateSkryti.Month, tmpDateSkryti.Day);
+            datumSkryti = SetTimeToDateFromString(datumSkryti.Value, this.txtCasSkryti.Text);
+
             ZavozoveMisto zm = new ZavozoveMisto();
             zm.Mesto = this.txtMesto.Text;
             zm.DatumACas = datum.Value;
+            zm.DatumACas_Skryti = datumSkryti;
             Storage<ZavozoveMisto>.Create(zm);
             this.zavozoveMistoList = null;
 
             this.dtpDatum.Value = null;
+            this.dtpDatumSkryti.Value = null;
             this.txtMesto.Text = "";
             this.txtCas.Text = "";
 

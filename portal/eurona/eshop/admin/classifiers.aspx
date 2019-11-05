@@ -39,7 +39,11 @@
             &nbsp;&nbsp;            
             <a href="~/eshop/admin/classifier/highlights.aspx" runat="server">
 				<asp:Literal ID="Literal7" runat="server" Text="<%$ Resources:EShopStrings, Navigation_Classifier_Highlights %>" />
-			</a>																
+			</a>		
+            &nbsp;&nbsp;            
+            <a id="A1" href="~/eshop/admin/classifier/shipments.aspx" runat="server">
+				<asp:Literal ID="Literal1" runat="server" Text="<%$ Resources:EShopStrings, Navigation_Classifier_Shipments %>" />
+			</a>            														
 		</div>
 	</cms:RoundPanel>
 </asp:Content>
