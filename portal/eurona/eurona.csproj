@@ -1255,6 +1255,12 @@
       <DependentUpon>BonusoveKredityUzivateleInfoControl.ascx</DependentUpon>
     </Compile>
     <Compile Include="Controls\BonusovyKreditUzivateleHelper.cs" />
+    <Compile Include="Controls\Classifiers\ShipmentControl.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Controls\Classifiers\ShipmentsControl.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
     <Compile Include="Controls\CMS\AdminBKAccountsControl.cs">
       <SubType>ASPXCodeBehind</SubType>
     </Compile>

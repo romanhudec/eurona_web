@@ -1092,7 +1092,7 @@ namespace Eurona.Controls {
             if (this.hasBSRProduct == true) {
                 //Validate Shipment
                 if (String.IsNullOrEmpty(this.OrderEntity.ZavozoveMisto_Mesto) || this.OrderEntity.ZavozoveMisto_DatumACas == null || String.IsNullOrEmpty(this.ddlZavozoveMisto_DatumACas.SelectedValue)) {
-                    string js = string.Format("blockUIAlert('', '{0}');", "Je třeba vyplnit zvozové místo!");
+                    string js = string.Format("blockUIAlert('', '{0}');", "Je třeba vyplnit závozové místo!");
                     ScriptManager.RegisterStartupScript(this.updatePanel, this.updatePanel.GetType(), "addValidateZvozoveMisto", js, true);
                     return;
                 }
@@ -1167,7 +1167,7 @@ namespace Eurona.Controls {
             if (this.hasBSRProduct == true) {
                 //Validate Shipment
                 if (String.IsNullOrEmpty(this.OrderEntity.ZavozoveMisto_Mesto) || this.OrderEntity.ZavozoveMisto_DatumACas == null || String.IsNullOrEmpty(this.ddlZavozoveMisto_DatumACas.SelectedValue)) {
-                    string js = string.Format("blockUIAlert('', '{0}');", "Je třeba vyplnit zvozové místo!");
+                    string js = string.Format("blockUIAlert('', '{0}');", "Je třeba vyplnit závozové místo!");
                     ScriptManager.RegisterStartupScript(this.updatePanel, this.updatePanel.GetType(), "addValidateZvozoveMisto", js, true);
                     return;
                 }
