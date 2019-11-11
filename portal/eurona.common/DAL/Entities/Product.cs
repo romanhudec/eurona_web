@@ -172,5 +172,6 @@ namespace Eurona.Common.DAL.Entities {
         public string ZadniEtiketa{ get; set; }
         public bool ZobrazovatZadniEtiketu{ get; set; }
         public bool BSR { get; set; }
+        public int? Order { get; set; }
     }
 }

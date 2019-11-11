@@ -28,7 +28,7 @@ namespace Eurona.Controls.Product
 
 		public string SortExpression
 		{
-			get { return GetSession<string>("AdminProductsControl-SortExpression", "Code"); }
+			get { return GetSession<string>("AdminProductsControl-SortExpression", "Order"); }
 			set { SetSession<string>("AdminProductsControl-SortExpression", value); }
 		}
 

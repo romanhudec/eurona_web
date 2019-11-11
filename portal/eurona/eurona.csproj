@@ -161,6 +161,7 @@
     <Content Include="images\Reports\animace_2rubin.gif" />
     <Content Include="images\Reports\animace_2safir.gif" />
     <Content Include="images\Reports\animace_2seda.gif" />
+    <Content Include="Scripts\dbUpgrade_2019_11_Products_Order.sql" />
     <Content Include="Scripts\dbUpgrade_2019_10_BSRProduct.sql" />
     <Content Include="styles\emailVerify.css" />
     <Content Include="user\anonymous\emailVerifycation.aspx" />

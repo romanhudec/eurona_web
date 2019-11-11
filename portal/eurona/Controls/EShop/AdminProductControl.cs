@@ -21,6 +21,7 @@ namespace Eurona.Controls.Product {
         private ASPxDatePicker dtpLimitDate = null;
         private TextBox txtLimitTime = null;
         private CheckBox cbBSRProdukt = null;
+        private TextBox txtOrder = null;
 
         private Table ctrlDocuments;
         private Button btnSave = null;
@@ -65,6 +66,8 @@ namespace Eurona.Controls.Product {
                 if (this.product.LimitDate.HasValue)
                     this.txtLimitTime.Text = string.Format("{0}:{1}", this.product.LimitDate.Value.Hour, this.product.LimitDate.Value.Minute);
                 this.cbBSRProdukt.Checked = this.product.BSR;
+                if( this.product.Order.HasValue )
+                    this.txtOrder.Text = this.product.Order.Value.ToString();
             }
 
             LoadAttachments();
@@ -145,6 +148,10 @@ namespace Eurona.Controls.Product {
             this.cbBSRProdukt.ID = "cbBSRProdukt";
             this.cbBSRProdukt.Width = Unit.Pixel(100);
 
+            this.txtOrder = new TextBox();
+            this.txtOrder.ID = "txtOrder";
+            this.txtOrder.Width = Unit.Pixel(100);
+
             this.btnSave = new Button();
             this.btnSave.CausesValidation = true;
             this.btnSave.Text = CMS.Resources.Controls.SaveButton_Text;
@@ -166,6 +173,7 @@ namespace Eurona.Controls.Product {
             table.Rows.Add(CreateTableRow("Datum odpočtu : ", this.dtpLimitDate, false, ValidationDataType.Date));
             table.Rows.Add(CreateTableRow("Čas odpočtu : ", this.txtLimitTime, false, null));
             table.Rows.Add(CreateTableRow("BSR Produkt : ", this.cbBSRProdukt, false, null));
+            table.Rows.Add(CreateTableRow("Pořadí pro zobrazení : ", this.txtOrder, false, ValidationDataType.Integer));
 
             TableRow r = new TableRow();
             TableCell c = new TableCell();
@@ -282,6 +290,7 @@ namespace Eurona.Controls.Product {
             int? poradiVNN = null;
             int? poradiDS = null;
             int internalStorageCount = -1;
+            int? order = null;
             int tmp = 0;
 
             if (Int32.TryParse(this.txtMaximalniPocetVBaleni.Text, out tmp))
@@ -298,6 +307,9 @@ namespace Eurona.Controls.Product {
 
             if (Int32.TryParse(this.txtInternalStorageCount.Text, out tmp))
                 internalStorageCount = tmp;
+
+            if (Int32.TryParse(this.txtOrder.Text, out tmp))
+                order = tmp;
 
             DateTime? limitDate = null;
             if (this.dtpLimitDate.Value != null) {
@@ -321,6 +333,7 @@ namespace Eurona.Controls.Product {
             this.product.InternalStorageCount = internalStorageCount;
             this.product.LimitDate = limitDate;
             this.product.BSR = this.cbBSRProdukt.Checked;
+            this.product.Order = order;
 
             Storage<ProductEntity>.Update(this.product);
 
