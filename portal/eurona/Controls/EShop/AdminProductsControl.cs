@@ -130,14 +130,21 @@ namespace Eurona.Controls.Product
 					CurrentFilterFunction = GridKnownFunction.Contains
 				});
 
-				grid.MasterTableView.Columns.Add(new GridBoundColumn
-				{
-					DataField = "DarkovySet",
-					HeaderText = "Dárkový set",
-					SortExpression = "DarkovySet",
-					AutoPostBackOnFilter = true,
-					CurrentFilterFunction = GridKnownFunction.Contains
-				});
+                //grid.MasterTableView.Columns.Add(new GridBoundColumn
+                //{
+                //    DataField = "DarkovySet",
+                //    HeaderText = "Dárkový set",
+                //    SortExpression = "DarkovySet",
+                //    AutoPostBackOnFilter = true,
+                //    CurrentFilterFunction = GridKnownFunction.Contains
+                //});
+                grid.MasterTableView.Columns.Add(new GridCheckBoxColumn {
+                    DataField = "BSR",
+                    HeaderText = "BSR Produkt",
+                    SortExpression = "BSR",
+                    AutoPostBackOnFilter = true,
+                    CurrentFilterFunction = GridKnownFunction.Contains
+                });
 
 				grid.MasterTableView.Columns.Add(new GridBoundColumn
 				{
@@ -148,14 +155,22 @@ namespace Eurona.Controls.Product
 					CurrentFilterFunction = GridKnownFunction.Contains
 				});
 
-				grid.MasterTableView.Columns.Add(new GridBoundColumn
-				{
-					DataField = "StorageCount",
-					HeaderText = "Stav skladu K2",
-					SortExpression = "StorageCount",
-					AutoPostBackOnFilter = true,
-					CurrentFilterFunction = GridKnownFunction.Contains
-				});
+                //grid.MasterTableView.Columns.Add(new GridBoundColumn
+                //{
+                //    DataField = "StorageCount",
+                //    HeaderText = "Stav skladu K2",
+                //    SortExpression = "StorageCount",
+                //    AutoPostBackOnFilter = true,
+                //    CurrentFilterFunction = GridKnownFunction.Contains
+                //});
+                grid.MasterTableView.Columns.Add(new GridBoundColumn {
+                    DataField = "Order",
+                    HeaderText = "Pořadí",
+                    SortExpression = "Order",
+                    AutoPostBackOnFilter = true,
+                    CurrentFilterFunction = GridKnownFunction.Contains
+                });
+
 
 				grid.MasterTableView.Columns.Add(new GridBoundColumn
 				{

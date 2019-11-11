@@ -35,7 +35,8 @@ namespace Eurona.EShop
 			{
 				case "ds":
 					this.Title = Resources.EShopStrings.Navigation_MenuItem_DarkoveSady;
-					this.productsControl.Filter = new Eurona.Common.DAL.Entities.Product.ReadByFilter { DarkoveSety = true, SortBy= SHP.Entities.Product.SortBy.DarkovySet };
+                    //this.productsControl.Filter = new Eurona.Common.DAL.Entities.Product.ReadByFilter { DarkoveSety = true, SortBy= SHP.Entities.Product.SortBy.DarkovySet };
+                    this.productsControl.Filter = new Eurona.Common.DAL.Entities.Product.ReadByFilter { DarkoveSety = true };
 					break;
 				case "top":
 					this.Title = Resources.EShopStrings.Navigation_MenuItem_TopProducts;
@@ -43,7 +44,8 @@ namespace Eurona.EShop
 					break;
 				case "news":
 					this.Title = Resources.EShopStrings.Navigation_MenuItem_NewProducts;
-					this.productsControl.Filter = new Eurona.Common.DAL.Entities.Product.ReadByFilter { Novinka = true, SortBy = SHP.Entities.Product.SortBy.IdASC };
+					//this.productsControl.Filter = new Eurona.Common.DAL.Entities.Product.ReadByFilter { Novinka = true, SortBy = SHP.Entities.Product.SortBy.IdASC };
+                    this.productsControl.Filter = new Eurona.Common.DAL.Entities.Product.ReadByFilter { Novinka = true };
 					break;
                 case "vyprodej":
                     this.Title = Resources.EShopStrings.Navigation_MenuItem_Vyprodej;
