@@ -37,10 +37,16 @@ namespace Eurona.Controls {
         private bool lNameEnabled = true;
         private bool stateEnabled = true;
 
+        private string notesLocalization = null;
+
         private BaseValidator baseValidatorZip;
         #endregion
 
-        public AddressControl() {
+        public AddressControl(string notesLocalization = null) {
+            this.notesLocalization = notesLocalization;
+            if (string.IsNullOrEmpty(this.notesLocalization)) {
+                this.notesLocalization = SHP.Resources.Controls.AddressControl_Notes;
+            }
         }
 
         public ControlSettings Settings {
@@ -340,7 +346,7 @@ namespace Eurona.Controls {
             lcNotes.Controls.Add(new LiteralControl("<div><span class='address_notes_desription'>" + Resources.EShopStrings.AddressControl_notest_description + "</span></div>"));
             row = new TableRow();
             baseValidatorZip = AddControlToRow(row, SHP.Resources.Controls.AddressControl_City, this.txtCity, 0, true, null);
-            AddControlToRow(row, "<span class='address_notes_label'>" + SHP.Resources.Controls.AddressControl_Notes + "</span>", lcNotes, 0, false, null);
+            AddControlToRow(row, "<span class='address_notes_label'>" + this.notesLocalization + "</span>", lcNotes, 0, false, null);
             table.Rows.Add(row);
 
             //Zip|Id3

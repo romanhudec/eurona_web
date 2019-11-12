@@ -79,6 +79,7 @@ namespace Eurona.Common.DAL.MSSQL {
             product.ZadniEtiketa = Convert.ToString(record["ZadniEtiketa"]);
             product.ZobrazovatZadniEtiketu = Convert.ToBoolean(record["ZobrazovatZadniEtiketu"] == DBNull.Value ? false : record["ZobrazovatZadniEtiketu"]);
             product.BSR = Convert.ToBoolean(record["BSR"] == DBNull.Value ? false : record["BSR"]);
+            product.Order = ConvertNullable.ToInt32(record["Order"]);
             return product;
         }
 
@@ -104,10 +105,10 @@ namespace Eurona.Common.DAL.MSSQL {
 						[Megasleva], [Supercena] , [CLHit] , [Action] , [Vyprodej], [OnWeb], [InternalStorageCount], [LimitDate], [VamiNejviceNakupovane], [DarkovySet],
 						Parfumacia, Discount,  VAT, Locale, UrlAliasId, Alias,
 						CommentsCount, ViewCount, Votes, TotalRating, RatingResult,
-                        ZadniEtiketa, ZobrazovatZadniEtiketu, BSR
+                        ZadniEtiketa, ZobrazovatZadniEtiketu, BSR, [Order]
 				FROM vShpProducts p
 				WHERE p.OnWeb=1 AND Locale = @Locale AND (InstanceId = 0 OR InstanceId=@InstanceId ) AND (ProdejUkoncen IS NULL OR ProdejUkoncen=0)
-				ORDER BY Novinka DESC, Name ASC";
+				ORDER BY Novinka DESC, [Order] ASC, Name ASC";
                 DataTable table = Query<DataTable>(connection, sql,
                         new SqlParameter("@Locale", Locale),
                         new SqlParameter("@InstanceId", InstanceId));
@@ -129,10 +130,10 @@ namespace Eurona.Common.DAL.MSSQL {
 							[Megasleva], [Supercena] , [CLHit] , [Action] , [Vyprodej], [OnWeb], [InternalStorageCount], [LimitDate], [VamiNejviceNakupovane], [DarkovySet],
 							Discount,  VAT, Locale, UrlAliasId, Alias,
 							CommentsCount, ViewCount, Votes, TotalRating, RatingResult,
-                            ZadniEtiketa, ZobrazovatZadniEtiketu, BSR
+                            ZadniEtiketa, ZobrazovatZadniEtiketu, BSR, [Order]
 					FROM vShpProducts
 					WHERE ProductId = @ProductId AND Locale=@Locale
-					ORDER BY Novinka DESC, Name ASC";
+					ORDER BY Novinka DESC, [Order] ASC, Name ASC";
                 DataTable table = Query<DataTable>(connection, sql,
                         new SqlParameter("@ProductId", byProductId.ProductId), new SqlParameter("@Locale", Locale));
                 foreach (DataRow dr in table.Rows)
@@ -148,10 +149,10 @@ namespace Eurona.Common.DAL.MSSQL {
 										[Megasleva], [Supercena] , [CLHit] , [Action] , [Vyprodej], [OnWeb], [InternalStorageCount], [LimitDate], [VamiNejviceNakupovane], [DarkovySet],
 										Discount,  VAT, Locale, UrlAliasId, Alias,
 										CommentsCount, ViewCount, Votes, TotalRating, RatingResult,
-                                        ZadniEtiketa, ZobrazovatZadniEtiketu, BSR
+                                        ZadniEtiketa, ZobrazovatZadniEtiketu, BSR, [Order]
 								FROM vShpProducts
 								WHERE Code = @Code AND Locale=@Locale /*AND (InstanceId = 0 OR InstanceId=@InstanceId )*/ AND (ProdejUkoncen IS NULL OR ProdejUkoncen=0)
-								ORDER BY Novinka DESC, Name ASC";
+								ORDER BY Novinka DESC, [Order] ASC, Name ASC";
                 DataTable table = Query<DataTable>(connection, sql,
                         new SqlParameter("@Code", by.Code),
                         new SqlParameter("@Locale", Locale),
@@ -169,11 +170,11 @@ namespace Eurona.Common.DAL.MSSQL {
 										p.[Megasleva], p.[Supercena] , p.[CLHit] , p.[Action] , p.[Vyprodej], p.[OnWeb], p.[InternalStorageCount], p.[LimitDate], p.[VamiNejviceNakupovane], p.[DarkovySet],
 										p.[Top], p.Parfumacia, p.Discount, p.VAT, p.Locale, p.UrlAliasId, p.Alias,
 										p.CommentsCount, p.ViewCount, p.Votes, p.TotalRating, p.RatingResult,
-                                        p.ZadniEtiketa, p.ZobrazovatZadniEtiketu, BSR
+                                        p.ZadniEtiketa, p.ZobrazovatZadniEtiketu, BSR, [Order]
 								FROM vShpProducts p INNER JOIN
 										tShpProductCategories pc ON pc.ProductId = p.ProductId
 								WHERE p.OnWeb=1 AND pc.CategoryId=@CategoryId AND p.Locale=@Locale AND (p.ProdejUkoncen IS NULL OR p.ProdejUkoncen=0)
-                                ORDER BY p.Novinka DESC, p.Name ASC";
+                                ORDER BY p.Novinka DESC, p.[Order] ASC, p.Name ASC";
 
                 List<SqlParameter> sqlParams = new List<SqlParameter>();
                 sqlParams.Add(new SqlParameter("@CategoryId", Null(by.CategoryId)));
@@ -197,7 +198,7 @@ namespace Eurona.Common.DAL.MSSQL {
 						p.[Megasleva], p.[Supercena] , p.[CLHit] , p.[Action] , p.[Vyprodej], p.[OnWeb], p.[InternalStorageCount], p.[LimitDate], p.[VamiNejviceNakupovane], p.[DarkovySet],
 						p.Parfumacia, p.Discount, p.VAT, p.Locale, p.UrlAliasId, p.Alias,
 						p.CommentsCount, p.ViewCount, p.Votes, p.TotalRating, p.RatingResult,
-                        p.ZadniEtiketa, p.ZobrazovatZadniEtiketu, BSR
+                        p.ZadniEtiketa, p.ZobrazovatZadniEtiketu, BSR, [Order]
 				FROM vShpProducts p INNER JOIN
 						tShpProductCategories pc ON pc.ProductId = p.ProductId INNER JOIN
 						[dbo].fAllChildCategories(@CategoryId) c ON c.CategoryId = pc.CategoryId
@@ -213,6 +214,8 @@ namespace Eurona.Common.DAL.MSSQL {
                     sql = sql + " AND " + byFilterWhere;
                     switch (by.ByFilter.SortBy) {
                         case Product.SortBy.Default:
+                            sql += "ORDER BY p.Novinka DESC, p.[Order] ASC, p.[Name] ASC";
+                            break;
                         case Product.SortBy.NameASC:
                             sql += "ORDER BY p.Novinka DESC, p.[Name] ASC";
                             break;
@@ -224,7 +227,7 @@ namespace Eurona.Common.DAL.MSSQL {
                             break;
                     }
                 } else {
-                    sql += "ORDER BY p.Novinka DESC, p.[Name] ASC";
+                    sql += "ORDER BY p.Novinka DESC, p.[Order] ASC, p.[Name] ASC";
                 }
 
                 DataTable table = Query<DataTable>(connection, sql, sqlParams.ToArray());
@@ -242,11 +245,11 @@ namespace Eurona.Common.DAL.MSSQL {
 										p.[Megasleva], p.[Supercena] , p.[CLHit] , p.[Action] , p.[Vyprodej], p.[OnWeb], p.[InternalStorageCount],  p.[LimitDate], p.[VamiNejviceNakupovane], p.[DarkovySet],
 										p.[Top], p.Parfumacia, p.Discount, p.VAT, p.Locale, p.UrlAliasId, p.Alias,
 										p.CommentsCount, p.ViewCount, p.Votes, p.TotalRating, p.RatingResult,
-                                        p.ZadniEtiketa, p.ZobrazovatZadniEtiketu, BSR
+                                        p.ZadniEtiketa, p.ZobrazovatZadniEtiketu, BSR, [Order]
 								FROM vShpProducts p
 								INNER JOIN vShpProductHighlights ph ON ph.ProductId = p.ProductId
 								WHERE p.OnWeb=1 AND ph.HighlightId = @HighlightId AND /*(p.InstanceId = 0 OR p.InstanceId=@InstanceId ) AND*/ p.Locale=@Locale AND (p.ProdejUkoncen IS NULL OR p.ProdejUkoncen=0)
-								ORDER BY Novinka DESC, Name ASC", by.MaxCount.HasValue ? by.MaxCount.Value.ToString() : "100 PERCENT");
+								ORDER BY Novinka DESC, [Order] ASC, Name ASC", by.MaxCount.HasValue ? by.MaxCount.Value.ToString() : "100 PERCENT");
                 DataTable table = Query<DataTable>(connection, sql,
                         new SqlParameter("@HighlightId", by.HighlightId),
                         new SqlParameter("@InstanceId", InstanceId),
@@ -265,11 +268,11 @@ namespace Eurona.Common.DAL.MSSQL {
 										p.[Megasleva], p.[Supercena] , p.[CLHit] , p.[Action] , p.[Vyprodej], p.[OnWeb], p.[InternalStorageCount], p.[LimitDate], p.[VamiNejviceNakupovane], p.[DarkovySet],
 										p.[Top], p.Parfumacia, p.Discount, p.VAT, p.Locale, p.UrlAliasId, p.Alias,
 										p.CommentsCount, p.ViewCount, p.Votes, p.TotalRating, p.RatingResult,
-                                        p.ZadniEtiketa, p.ZobrazovatZadniEtiketu, BSR
+                                        p.ZadniEtiketa, p.ZobrazovatZadniEtiketu, BSR, [Order]
 								FROM vShpProducts p
 								WHERE p.OnWeb=1 /*AND (p.InstanceId = 0 OR p.InstanceId=@InstanceId )*/ AND p.Locale=@Locale AND (p.ProdejUkoncen IS NULL OR p.ProdejUkoncen=0)
 								AND p.BonusovyKredit IS NOT NULL AND p.BonusovyKredit > 0
-								ORDER BY Novinka DESC, Name ASC";
+								ORDER BY Novinka DESC, [Order] ASC, Name ASC";
                 DataTable table = Query<DataTable>(connection, sql,
                         new SqlParameter("@InstanceId", InstanceId),
                         new SqlParameter("@Locale", Locale));
@@ -287,11 +290,11 @@ namespace Eurona.Common.DAL.MSSQL {
 							p.[Megasleva], p.[Supercena] , p.[CLHit] , p.[Action] , p.[Vyprodej], p.[OnWeb], p.[InternalStorageCount], p.[LimitDate], p.[VamiNejviceNakupovane], p.[DarkovySet],
 							p.[Top], p.Parfumacia, p.Discount, p.VAT, p.Locale, p.UrlAliasId, p.Alias,
 							p.CommentsCount, p.ViewCount, p.Votes, p.TotalRating, p.RatingResult,
-                            p.ZadniEtiketa, p.ZobrazovatZadniEtiketu, BSR
+                            p.ZadniEtiketa, p.ZobrazovatZadniEtiketu, BSR, [Order]
 					FROM vShpProducts p
 					WHERE p.OnWeb=1 /*AND (p.InstanceId = 0 OR p.InstanceId=@InstanceId )*/ AND p.Locale=@Locale AND (p.ProdejUkoncen IS NULL OR p.ProdejUkoncen=0)
 					AND p.[VamiNejviceNakupovane] IS NOT NULL AND p.[VamiNejviceNakupovane] > 0
-					ORDER BY p.[VamiNejviceNakupovane] ASC";
+					ORDER BY p.[VamiNejviceNakupovane] ASC, p.[Order] ASC";
                 DataTable table = Query<DataTable>(connection, sql,
                         new SqlParameter("@InstanceId", InstanceId),
                         new SqlParameter("@Locale", Locale));
@@ -309,11 +312,11 @@ namespace Eurona.Common.DAL.MSSQL {
 					p.[Megasleva], p.[Supercena] , p.[CLHit] , p.[Action] , p.[Vyprodej], p.[OnWeb], p.[InternalStorageCount], p.[LimitDate], p.[VamiNejviceNakupovane], p.[DarkovySet],
 					p.[Top], p.Parfumacia, p.Discount, p.VAT, p.Locale, p.UrlAliasId, p.Alias,
 					p.CommentsCount, p.ViewCount, p.Votes, p.TotalRating, p.RatingResult,
-                    p.ZadniEtiketa, p.ZobrazovatZadniEtiketu, BSR
+                    p.ZadniEtiketa, p.ZobrazovatZadniEtiketu, BSR, [Order]
 					FROM vShpProducts p
 					WHERE p.OnWeb=1 /*AND (p.InstanceId = 0 OR p.InstanceId=@InstanceId ) AND*/ p.Locale=@Locale AND (p.ProdejUkoncen IS NULL OR p.ProdejUkoncen=0)
 					AND p.[DarkovySet] IS NOT NULL AND p.[DarkovySet] > 0
-					ORDER BY p.[DarkovySet] ASC";
+					ORDER BY p.[DarkovySet] ASC, p.[Order] ASC";
                 DataTable table = Query<DataTable>(connection, sql,
                         new SqlParameter("@InstanceId", InstanceId),
                         new SqlParameter("@Locale", Locale));
@@ -335,7 +338,7 @@ namespace Eurona.Common.DAL.MSSQL {
 				p.[Megasleva], p.[Supercena] , p.[CLHit] , p.[Action] , p.[Vyprodej], p.[OnWeb], p.[InternalStorageCount], p.[LimitDate], p.[VamiNejviceNakupovane], p.[DarkovySet],
 				p.[Top], p.Parfumacia, p.Discount, p.VAT, p.Locale, p.UrlAliasId, p.Alias,
 				p.CommentsCount, p.ViewCount, p.Votes, p.TotalRating, p.RatingResult,
-                p.ZadniEtiketa, p.ZobrazovatZadniEtiketu, BSR
+                p.ZadniEtiketa, p.ZobrazovatZadniEtiketu, BSR, [Order]
 				FROM vShpProducts p
 				WHERE p.OnWeb=1 AND p.Locale = @Locale AND (p.ProdejUkoncen IS NULL OR p.ProdejUkoncen=0)", top);
                 List<SqlParameter> sqlParams = new List<SqlParameter>();
@@ -348,10 +351,12 @@ namespace Eurona.Common.DAL.MSSQL {
                         case Product.SortBy.Default: {
                                 if (by.BestSellers.HasValue && by.BestSellers.Value == true)
                                     sql += " ORDER BY p.[SalesCount] DESC, p.[Name] ASC";
+                                else
+                                    sql += " ORDER BY p.[Order] ASC, p.[SalesCount] DESC, p.[Name] ASC";
                             }
                             break;
                         case Product.SortBy.NameASC:
-                            sql += " ORDER BY p.Novinka DESC, p.[Name] ASC";
+                            sql += " ORDER BY p.Novinka DESC, p.[Order] ASC, p.[Name] ASC";
                             break;
                         case Product.SortBy.PriceASC:
                             sql += " ORDER BY p.[Price] ASC";
@@ -360,7 +365,7 @@ namespace Eurona.Common.DAL.MSSQL {
                             sql += " ORDER BY p.[Price] DESC";
                             break;
                         case Product.SortBy.DarkovySet:
-                            sql += " ORDER BY p.[DarkovySet] ASC";
+                            sql += " ORDER BY p.[DarkovySet] ASC, p.[Order] ASC";
                             break;
                         case Product.SortBy.IdDESC:
                             sql += " ORDER BY p.ProductId DESC";
@@ -505,7 +510,8 @@ namespace Eurona.Common.DAL.MSSQL {
                     new SqlParameter("@DarkovySet", Null(product.DarkovySet)),
                     new SqlParameter("@InternalStorageCount", product.InternalStorageCount),
                     new SqlParameter("@LimitDate", Null(product.LimitDate)),
-                    new SqlParameter("@BSR", Null(product.BSR))
+                    new SqlParameter("@BSR", Null(product.BSR)),
+                    new SqlParameter("@Order", Null(product.Order))
                     );
             }
         }
