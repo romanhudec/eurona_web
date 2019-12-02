@@ -240,17 +240,17 @@ namespace Cron.Eurona.Import {
         }
 
         public static class Product {
-            public static void SyncProduct(CMS.Pump.MSSQLStorage mssqStorageDst, int productId, int instanceId, string kod, decimal? vat, int? body, int? parfumacia, int? top, bool novinka, bool inovace, bool doprodej, bool vyprodano, bool prodejUkoncen, int storageCount, bool megasleva, bool supercena, bool clHit, bool action, bool vyprodej, bool onWeb, string zadni_etiketa = "", bool zobrazovat_zadni_etiketu = false) {
+            public static void SyncProduct(CMS.Pump.MSSQLStorage mssqStorageDst, int productId, int instanceId, string kod, decimal? vat, int? body, int? parfumacia, int? top, bool novinka, bool inovace, bool doprodej, bool vyprodano, bool prodejUkoncen, int storageCount, bool megasleva, bool supercena, bool clHit, bool action, bool vyprodej, bool onWeb, bool bsrProdukt, string zadni_etiketa = "", bool zobrazovat_zadni_etiketu = false) {
                 string sql = string.Empty;
                 //INSERT
                 if (!EuronaDAL.ExistProduct(mssqStorageDst, productId)) {
                     sql = @"
 					SET IDENTITY_INSERT tShpProduct ON
 					INSERT INTO tShpProduct ([InstanceId], [ProductId], [StorageCount], [Code], [VAT], [Body], [Parfumacia], [Discount], [Top], [Novinka], [Inovace], [Doprodej], [Vyprodano], [ProdejUkoncen],
-							[Megasleva], [Supercena], [CLHit], [Action], [Vyprodej], [OnWeb], [ZadniEtiketa], [ZobrazovatZadniEtiketu],
+							[Megasleva], [Supercena], [CLHit], [Action], [Vyprodej], [OnWeb], [ZadniEtiketa], [ZobrazovatZadniEtiketu], [BSR]
 							[HistoryType], [HistoryStamp], [HistoryAccount])
 					VALUES( @InstanceId, @ProductId, @StorageCount, @Code, @VAT, @Body, @Parfumacia, 0, @Top, @Novinka, @Inovace, @Doprodej, @Vyprodano, @ProdejUkoncen, 
-							@Megasleva, @Supercena,@CLHit, @Action, @Vyprodej, @OnWeb, @ZadniEtiketa, @ZobrazovatZadniEtiketu,
+							@Megasleva, @Supercena,@CLHit, @Action, @Vyprodej, @OnWeb, @ZadniEtiketa, @ZobrazovatZadniEtiketu, @BSR
 							'C', GETDATE(), 1 )
 					SET IDENTITY_INSERT tShpProduct OFF";
                     mssqStorageDst.Exec(mssqStorageDst.Connection, sql,
@@ -274,12 +274,13 @@ namespace Cron.Eurona.Import {
                             new SqlParameter("@Vyprodej", Null(vyprodej)),
                             new SqlParameter("@OnWeb", Null(onWeb)),
                             new SqlParameter("@ZadniEtiketa", Null(zadni_etiketa)),
-                            new SqlParameter("@ZobrazovatZadniEtiketu", Null(zobrazovat_zadni_etiketu))
+                            new SqlParameter("@ZobrazovatZadniEtiketu", Null(zobrazovat_zadni_etiketu)),
+                            new SqlParameter("@BSR", Null(bsrProdukt))
                             );
                 } else {
                     sql = @"
 					UPDATE tShpProduct SET InstanceId=@InstanceId, StorageCount=@StorageCount, Code=@Code, VAT=@VAT, Body=@Body, Parfumacia=@Parfumacia, [Top]=@Top, Novinka=@Novinka, Inovace=@Inovace, Doprodej=@Doprodej, Vyprodano=@Vyprodano, ProdejUkoncen=@ProdejUkoncen,
-					[Megasleva]=@Megasleva, [Supercena]=@Supercena, [CLHit]=@CLHit, [Action]=@Action, [Vyprodej]=@Vyprodej, [OnWeb]=@OnWeb, [ZadniEtiketa]=@ZadniEtiketa, [ZobrazovatZadniEtiketu]=@ZobrazovatZadniEtiketu
+					[Megasleva]=@Megasleva, [Supercena]=@Supercena, [CLHit]=@CLHit, [Action]=@Action, [Vyprodej]=@Vyprodej, [OnWeb]=@OnWeb, [ZadniEtiketa]=@ZadniEtiketa, [ZobrazovatZadniEtiketu]=@ZobrazovatZadniEtiketu, [BSR]=@BSR
 					WHERE ProductId=@ProductId";
                     mssqStorageDst.Exec(mssqStorageDst.Connection, sql,
                             new SqlParameter("@InstanceId", instanceId),
@@ -302,7 +303,8 @@ namespace Cron.Eurona.Import {
                             new SqlParameter("@Vyprodej", Null(vyprodej)),
                             new SqlParameter("@OnWeb", Null(onWeb)),
                             new SqlParameter("@ZadniEtiketa", Null(zadni_etiketa)),
-                            new SqlParameter("@ZobrazovatZadniEtiketu", Null(zobrazovat_zadni_etiketu))
+                            new SqlParameter("@ZobrazovatZadniEtiketu", Null(zobrazovat_zadni_etiketu)),
+                            new SqlParameter("@BSR", Null(bsrProdukt))
                             );
                 }
             }

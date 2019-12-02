@@ -21,7 +21,10 @@ namespace Eurona.Controls.Product {
         private ASPxDatePicker dtpLimitDate = null;
         private TextBox txtLimitTime = null;
         private CheckBox cbBSRProdukt = null;
+        private CheckBox cbObal = null;
+        private CheckBox cbPozadujObal = null;
         private TextBox txtOrder = null;
+        private TextBox txtObalOrder = null;
 
         private Table ctrlDocuments;
         private Button btnSave = null;
@@ -66,8 +69,12 @@ namespace Eurona.Controls.Product {
                 if (this.product.LimitDate.HasValue)
                     this.txtLimitTime.Text = string.Format("{0}:{1}", this.product.LimitDate.Value.Hour, this.product.LimitDate.Value.Minute);
                 this.cbBSRProdukt.Checked = this.product.BSR;
+                this.cbObal.Checked = this.product.Obal;
+                this.cbPozadujObal.Checked = this.product.PozadujObal;
                 if( this.product.Order.HasValue )
                     this.txtOrder.Text = this.product.Order.Value.ToString();
+                if (this.product.ObalOrder.HasValue)
+                    this.txtObalOrder.Text = this.product.ObalOrder.Value.ToString();
             }
 
             LoadAttachments();
@@ -147,10 +154,23 @@ namespace Eurona.Controls.Product {
             this.cbBSRProdukt = new CheckBox();
             this.cbBSRProdukt.ID = "cbBSRProdukt";
             this.cbBSRProdukt.Width = Unit.Pixel(100);
+            this.cbBSRProdukt.Enabled = false;
+
+            this.cbObal = new CheckBox();
+            this.cbObal.ID = "cbObal";
+            this.cbObal.Width = Unit.Pixel(100);
+
+            this.cbPozadujObal = new CheckBox();
+            this.cbPozadujObal.ID = "cbPozadujObal";
+            this.cbPozadujObal.Width = Unit.Pixel(100);
 
             this.txtOrder = new TextBox();
             this.txtOrder.ID = "txtOrder";
             this.txtOrder.Width = Unit.Pixel(100);
+
+            this.txtObalOrder = new TextBox();
+            this.txtObalOrder.ID = "txtObalOrder";
+            this.txtObalOrder.Width = Unit.Pixel(100);
 
             this.btnSave = new Button();
             this.btnSave.CausesValidation = true;
@@ -173,7 +193,10 @@ namespace Eurona.Controls.Product {
             table.Rows.Add(CreateTableRow("Datum odpočtu : ", this.dtpLimitDate, false, ValidationDataType.Date));
             table.Rows.Add(CreateTableRow("Čas odpočtu : ", this.txtLimitTime, false, null));
             table.Rows.Add(CreateTableRow("BSR Produkt : ", this.cbBSRProdukt, false, null));
+            table.Rows.Add(CreateTableRow("Obal : ", this.cbObal, false, null));
+            table.Rows.Add(CreateTableRow("Požaduj obal : ", this.cbPozadujObal, false, null));
             table.Rows.Add(CreateTableRow("Pořadí pro zobrazení : ", this.txtOrder, false, ValidationDataType.Integer));
+            table.Rows.Add(CreateTableRow("Pořadí pro zobrazení obalu : ", this.txtObalOrder, false, ValidationDataType.Integer));
 
             TableRow r = new TableRow();
             TableCell c = new TableCell();
@@ -291,6 +314,7 @@ namespace Eurona.Controls.Product {
             int? poradiDS = null;
             int internalStorageCount = -1;
             int? order = null;
+            int? obalOrder = null;
             int tmp = 0;
 
             if (Int32.TryParse(this.txtMaximalniPocetVBaleni.Text, out tmp))
@@ -310,6 +334,9 @@ namespace Eurona.Controls.Product {
 
             if (Int32.TryParse(this.txtOrder.Text, out tmp))
                 order = tmp;
+
+            if (Int32.TryParse(this.txtObalOrder.Text, out tmp))
+                obalOrder = tmp;
 
             DateTime? limitDate = null;
             if (this.dtpLimitDate.Value != null) {
@@ -333,7 +360,10 @@ namespace Eurona.Controls.Product {
             this.product.InternalStorageCount = internalStorageCount;
             this.product.LimitDate = limitDate;
             this.product.BSR = this.cbBSRProdukt.Checked;
+            this.product.Obal = this.cbObal.Checked;
+            this.product.PozadujObal = this.cbPozadujObal.Checked;
             this.product.Order = order;
+            this.product.ObalOrder = obalOrder;
 
             Storage<ProductEntity>.Update(this.product);
 

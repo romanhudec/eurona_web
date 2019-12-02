@@ -12,30 +12,38 @@
             <h2><asp:Literal ID="Literal1" runat="server" Text="Nastavení závozových míst - detail" /></h2>
         </div>
         <div class="bkItem">
-            <table>
+            <table border="0">
                 <tr>
                     <td style="white-space:nowrap;">Město :</td>
-                    <td>
-                        <asp:TextBox runat="server" ID="txtMesto" Width="100"></asp:TextBox>
+                    <td colspan="3">
+                        <asp:TextBox runat="server" ID="txtMesto" Width="500px"></asp:TextBox>
+                    </td>
+                </tr>
+                <tr>
+                    <td style="white-space:nowrap;">PSČ :</td>
+                    <td colspan="3">
+                        <asp:TextBox runat="server" ID="txtPsc" Width="100px"></asp:TextBox>
+                    </td>
+                </tr>
+                <tr>
+                    <td style="white-space:nowrap;">Popis :</td>
+                    <td colspan="3">
+                        <asp:TextBox runat="server" ID="txtPopis" Width="500px"></asp:TextBox>
                     </td>
                 </tr>
                 <tr>
                     <td style="white-space:nowrap;">Datum :</td>
-                    <td><cms:ASPxDatePicker runat="server" ID="dtpDatum" Width="80px" /></td>
-                    <td>čas :</td>
-                    <td><asp:TextBox runat="server" ID="txtCas" Width="40px"></asp:TextBox></td>
+                    <td><cms:ASPxDatePicker runat="server" ID="dtpDatum" Width="80px" /> čas : <asp:TextBox runat="server" ID="txtCas" Width="40px"></asp:TextBox></td>
                 </tr>
                 <tr>
                     <td style="white-space:nowrap;">Datum skryti :</td>
-                    <td><cms:ASPxDatePicker runat="server" ID="dtpDatumSkryti" Width="80px" /></td>
-                    <td>čas :</td>
-                    <td><asp:TextBox runat="server" ID="txtCasSkryti" Width="40px"></asp:TextBox></td>
+                    <td><cms:ASPxDatePicker runat="server" ID="dtpDatumSkryti" Width="80px" /> čas : <asp:TextBox runat="server" ID="txtCasSkryti" Width="40px"></asp:TextBox></td>
                 </tr>
                 <tr>
-                    <td><asp:Button runat="server" ID="btnSave" Text="Uložit" OnClick="OnSave" CausesValidation="true" /></td>
+                    <td colspan="4"><asp:Button runat="server" ID="btnSave" Text="Uložit" OnClick="OnSave" CausesValidation="true" /></td>
                 </tr>
                 <tr>
-                    <td colspan="11">
+                    <td  colspan="4">
                      <asp:RegularExpressionValidator ID="RegularExpressionValidator1" runat="server" ControlToValidate="txtCas" ErrorMessage="Čas musí být ve fomátu 00:00!" ValidationExpression="^(([0-1]?[0-9])|([2][0-3])):([0-5]?[0-9])?$">
                      </asp:RegularExpressionValidator>
                      <asp:RegularExpressionValidator ID="RegularExpressionValidator2" runat="server" ControlToValidate="txtCasSkryti" ErrorMessage="Čas skryti musí být ve fomátu 00:00!" ValidationExpression="^(([0-1]?[0-9])|([2][0-3])):([0-5]?[0-9])?$">
@@ -43,7 +51,7 @@
                     </td>
                 </tr>
                 <tr>
-                    <td colspan="11">
+                    <td  colspan="4">
                     </td>
                 </tr>
             </table>

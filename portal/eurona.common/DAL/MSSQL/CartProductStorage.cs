@@ -47,6 +47,8 @@ namespace Eurona.Common.DAL.MSSQL {
 
             cartProduct.ProductAvailability = Convert.ToString(record["ProductAvailability"]);
             cartProduct.BSRProdukt = Convert.ToBoolean(record["BSRProdukt"] == DBNull.Value ? false : record["BSRProdukt"]);
+            cartProduct.PozadujObal = Convert.ToBoolean(record["PozadujObal"] == DBNull.Value ? false : record["PozadujObal"]);
+            cartProduct.Obal = Convert.ToBoolean(record["Obal"] == DBNull.Value ? false : record["Obal"]);
             cartProduct.Alias = Convert.ToString(record["Alias"]);
 
             /* commented 24.06.2013 - integracia CL do Eurona
@@ -66,7 +68,8 @@ namespace Eurona.Common.DAL.MSSQL {
                 string sql = @"
 				SELECT CartProductId, InstanceId, CartId, ProductId, Quantity, AccountId, ProductCode, ProductName, 
 						Price, PriceWVAT, VAT, Discount, PriceTotal, PriceTotalWVAT, ProductAvailability,
-						Alias, CurrencyId, CurrencyCode, CurrencySymbol, Body, BodyCelkem, KatalogPriceWVAT, KatalogPriceWVATTotal, MaximalniPocetVBaleni, MinimalniPocetVBaleni, CerpatBK, BSRProdukt
+						Alias, CurrencyId, CurrencyCode, CurrencySymbol, Body, BodyCelkem, KatalogPriceWVAT, KatalogPriceWVATTotal, 
+                        MaximalniPocetVBaleni, MinimalniPocetVBaleni, CerpatBK, BSRProdukt, PozadujObal, Obal
 				FROM vShpCartProducts WHERE InstanceId=@InstanceId AND Locale=@Locale
                 ORDER BY POrder ASC";
                 DataTable table = Query<DataTable>(connection, sql, new SqlParameter("@InstanceId", InstanceId), new SqlParameter("@Locale", Locale));
@@ -86,7 +89,8 @@ namespace Eurona.Common.DAL.MSSQL {
                 string sql = @"
 				SELECT CartProductId, InstanceId, CartId, ProductId, Quantity, AccountId, ProductCode, ProductName, 
 						Price, PriceWVAT, VAT, Discount, PriceTotal, PriceTotalWVAT, ProductAvailability,
-						Alias, CurrencyId, CurrencyCode, CurrencySymbol, Body, BodyCelkem, KatalogPriceWVAT, KatalogPriceWVATTotal, MaximalniPocetVBaleni, MinimalniPocetVBaleni, CerpatBK, BSRProdukt
+						Alias, CurrencyId, CurrencyCode, CurrencySymbol, Body, BodyCelkem, KatalogPriceWVAT, KatalogPriceWVATTotal,
+                        MaximalniPocetVBaleni, MinimalniPocetVBaleni, CerpatBK, BSRProdukt, PozadujObal, Obal
 				FROM vShpCartProducts
 				WHERE CartProductId = @CartProductId AND Locale=@Locale
                 ORDER BY POrder ASC";
@@ -105,7 +109,8 @@ namespace Eurona.Common.DAL.MSSQL {
                 string sql = @"
 				SELECT CartProductId, InstanceId, CartId, ProductId, Quantity, AccountId, ProductCode, ProductName, 
 						Price, PriceWVAT, VAT, Discount, PriceTotal, PriceTotalWVAT, ProductAvailability,
-						Alias, CurrencyId, CurrencyCode, CurrencySymbol, Body, BodyCelkem, KatalogPriceWVAT, KatalogPriceWVATTotal, MaximalniPocetVBaleni, MinimalniPocetVBaleni, CerpatBK, BSRProdukt
+						Alias, CurrencyId, CurrencyCode, CurrencySymbol, Body, BodyCelkem, KatalogPriceWVAT, KatalogPriceWVATTotal,
+                        MaximalniPocetVBaleni, MinimalniPocetVBaleni, CerpatBK, BSRProdukt, PozadujObal, Obal
 				FROM vShpCartProducts
 				WHERE CartId = @CartId AND ( @InstanceId=0 OR InstanceId=@InstanceId ) AND Locale=@Locale
                 ORDER BY POrder ASC";
@@ -125,7 +130,8 @@ namespace Eurona.Common.DAL.MSSQL {
                 string sql = @"
 				SELECT CartProductId, InstanceId, CartId, ProductId, Quantity, AccountId, ProductCode, ProductName, 
 						Price, PriceWVAT, VAT, Discount, PriceTotal, PriceTotalWVAT, ProductAvailability,
-						Alias, CurrencyId, CurrencyCode, CurrencySymbol, Body, BodyCelkem, KatalogPriceWVAT, KatalogPriceWVATTotal, MaximalniPocetVBaleni, MinimalniPocetVBaleni, CerpatBK, BSRProdukt
+						Alias, CurrencyId, CurrencyCode, CurrencySymbol, Body, BodyCelkem, KatalogPriceWVAT, KatalogPriceWVATTotal, 
+                        MaximalniPocetVBaleni, MinimalniPocetVBaleni, CerpatBK, BSRProdukt, PozadujObal, Obal
 				FROM vShpCartProducts
 				WHERE CartId = @CartId AND ProductId = @ProductId AND ( @InstanceId=0 OR InstanceId=@InstanceId ) AND Locale=@Locale AND (@CerpatBK IS NULL OR CerpatBK=@CerpatBK)
                 ORDER BY POrder ASC";
@@ -146,7 +152,8 @@ namespace Eurona.Common.DAL.MSSQL {
                 string sql = @"
 				SELECT CartProductId, InstanceId, CartId, ProductId, Quantity, AccountId, ProductCode, ProductName, 
 						Price, PriceWVAT, VAT, Discount, PriceTotal, PriceTotalWVAT, ProductAvailability,
-						Alias, CurrencyId, CurrencyCode, CurrencySymbol, Body, BodyCelkem, KatalogPriceWVAT, KatalogPriceWVATTotal, MaximalniPocetVBaleni, MinimalniPocetVBaleni, CerpatBK, BSRProdukt
+						Alias, CurrencyId, CurrencyCode, CurrencySymbol, Body, BodyCelkem, KatalogPriceWVAT, KatalogPriceWVATTotal,
+                        MaximalniPocetVBaleni, MinimalniPocetVBaleni, CerpatBK, BSRProdukt, PozadujObal, Obal
 				FROM vShpCartProducts
 				WHERE AccountId = @AccountId AND InstanceId=@InstanceId AND Locale=@Locale
                 ORDER BY POrder ASC";
