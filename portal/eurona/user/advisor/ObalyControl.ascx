@@ -6,12 +6,12 @@
         </HeaderTemplate>
         <AlternatingItemTemplate>
             <tr valign="center">
-                <td style="padding-left:10px"><span><%#Eval("Name")%></span></td>
+                <td style="padding-left:10px"><a href='<%=Page.ResolveUrl("~/eshop/product.aspx?id=") %><%#Eval("Id")%>' ><%#Eval("Name")%></a></td>
 			    <td><asp:TextBox Enabled="true" ID="txtPocetKs" runat="server" Text=""  Width="25px"/></td>
                 <td><asp:Button runat="server" ID="btnPridat" CommandArgument='<%#Eval("Id") %>' Text="+" CausesValidation="false"/></td>
         </AlternatingItemTemplate>
         <ItemTemplate>
-                <td style="padding-left:10px"><span><%#Eval("Name")%></span></tdstyle="padding-left:10px>
+                <td style="padding-left:10px"><a href='<%=Page.ResolveUrl("~/eshop/product.aspx?id=") %><%#Eval("Id")%>' ><%#Eval("Name")%></a></td>
 			    <td><asp:TextBox Enabled="true" ID="txtPocetKs" runat="server" Text="" Width="25px"/></td>
                 <td><asp:Button runat="server" ID="btnPridat" CommandArgument='<%#Eval("Id") %>' Text="+" CausesValidation="false"/></td>
             </tr>

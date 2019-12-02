@@ -539,7 +539,7 @@ namespace Eurona.Controls {
                     cell = new TableCell();
                     cell.ColumnSpan = 4;
                     zavozoveMistoOsobniOdberLimitRow.Cells.Add(cell);
-                    cell.Controls.Add(new LiteralControl("<div style='padding-top:5px;'>" + limitsDisplayString + "</div>"));
+                    cell.Controls.Add(new LiteralControl("<div style='margin-left:10px;margin-top:10px;color:#0077b6;text-align=center;'>" + limitsDisplayString + "</div>"));
                     #endregion
 
                 } else {
@@ -1261,7 +1261,7 @@ namespace Eurona.Controls {
                         if (limit.IsInLimit(datumOsobnihoOdberu)) {
                             this.OrderEntity.ZavozoveMisto_DatumACas = datumOsobnihoOdberu;
                         } else {
-                            string js = string.Format("blockUIAlert('', '{0}');", "Daum a čas osobního odběru není v povoleném období!");
+                            string js = string.Format("blockUIAlert('', '{0}');", "Datum a čas osobního odběru není v povoleném období!");
                             ScriptManager.RegisterStartupScript(this.updatePanel, this.updatePanel.GetType(), "addValidateZvozoveMisto", js, true);
                             return;
                         }
@@ -1293,6 +1293,12 @@ namespace Eurona.Controls {
                     ScriptManager.RegisterStartupScript(this.updatePanel, this.updatePanel.GetType(), "addValidateZvozoveMisto", js, true);
                     return;
                 }
+            }
+            //Obaly na ribi produkty
+            if (this.pozadujObal && this.hasObalProdukt == false) {
+                string js = string.Format("blockUIAlert('', '{0}');", "Pro dokončení Vaší objednávky je nutné zvolit odpovídající obal!");
+                ScriptManager.RegisterStartupScript(this.updatePanel, this.updatePanel.GetType(), "addValidateObal", js, true);
+                return;
             }
 
             //Validate PSČ                  
@@ -1371,7 +1377,7 @@ namespace Eurona.Controls {
                         if (limit.IsInLimit(datumOsobnihoOdberu)) {
                             this.OrderEntity.ZavozoveMisto_DatumACas = datumOsobnihoOdberu;
                         } else {
-                            string js = string.Format("blockUIAlert('', '{0}');", "Daum a čas osobního odběru není v povoleném období!");
+                            string js = string.Format("blockUIAlert('', '{0}');", "Datum a čas osobního odběru není v povoleném období!");
                             ScriptManager.RegisterStartupScript(this.updatePanel, this.updatePanel.GetType(), "addValidateZvozoveMisto", js, true);
                             return;
                         }
@@ -1405,6 +1411,13 @@ namespace Eurona.Controls {
                     ScriptManager.RegisterStartupScript(this.updatePanel, this.updatePanel.GetType(), "addValidateZvozoveMisto", js, true);
                     return;
                 }
+            }
+
+            //Obaly na ribi produkty
+            if (this.pozadujObal && this.hasObalProdukt == false) {
+                string js = string.Format("blockUIAlert('', '{0}');", "Pro dokončení Vaší objednávky je nutné zvolit odpovídající obal!");
+                ScriptManager.RegisterStartupScript(this.updatePanel, this.updatePanel.GetType(), "addValidateObal", js, true);
+                return;
             }
 
             //Validate Shipment

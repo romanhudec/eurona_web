@@ -16,7 +16,7 @@ namespace Eurona.user.advisor {
         public event OnAddObalProductHandler OnAddObalProduct;
 
         protected void Page_Load(object sender, EventArgs e) {
-            dataSource = Storage<ProductEntity>.Read(new ProductEntity.ReadByFilter { Obal = true });
+            dataSource = Storage<ProductEntity>.Read(new ProductEntity.ReadByFilter { Obal = true, SortBy = SHP.Entities.Product.SortBy.ObalAsc });
             if (!IsPostBack && this.rpObaly != null) {
                 this.rpObaly.DataSource = dataSource;
                 this.rpObaly.DataBind();

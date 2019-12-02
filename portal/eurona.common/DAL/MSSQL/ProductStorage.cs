@@ -376,6 +376,9 @@ namespace Eurona.Common.DAL.MSSQL {
                         case Product.SortBy.IdASC:
                             sql += " ORDER BY p.ProductId ASC";
                             break;
+                        case Product.SortBy.ObalAsc:
+                            sql += " ORDER BY p.ObalOrder ASC";
+                            break;
                     }
                 }
 

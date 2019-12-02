@@ -14,7 +14,8 @@ namespace SHP.Entities {
             PriceDESC = 3,
             DarkovySet = 4,
             IdDESC = 5,
-            IdASC = 6
+            IdASC = 6,
+            ObalAsc = 7
         }
 
         public enum DiscountType : int {
