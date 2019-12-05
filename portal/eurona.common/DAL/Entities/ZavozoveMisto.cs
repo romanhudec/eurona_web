@@ -147,10 +147,23 @@ namespace Eurona.Common.DAL.Entities {
                     string dayNameFrom = ci.DateTimeFormat.DayNames[(int)this.IntervalFrom.DayInWeek];
                     string dayNameTo = ci.DateTimeFormat.DayNames[(int)this.IntervalTo.DayInWeek];
 
+                    string[] fromItems = from.Split('|');
+                    string[] toItems = to.Split('|');
+
+                    string fromTime = fromItems[1];
+                    string toTime = toItems[1];
+
+                    /*
                     from = from.Replace(this.IntervalFrom.DayInWeek.ToString() + "|", "od " + dayNameFrom + " ");
                     to = to.Replace(this.IntervalTo.DayInWeek.ToString() + "|", "do " + dayNameTo + " ");
 
                     return string.Format("{0} {1}", from, to);
+                     * */
+
+                    if (dayNameFrom != dayNameTo) {
+                        return string.Format("{0} až {1} od {2} do {3}", dayNameFrom, dayNameTo, fromTime, toTime);
+                    }
+                    return string.Format("{0} od {1} do {2}", dayNameFrom, fromTime, toTime);
                 }
             }
 

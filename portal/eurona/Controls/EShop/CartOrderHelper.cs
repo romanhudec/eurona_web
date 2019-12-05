@@ -533,10 +533,12 @@ namespace Eurona.Controls {
                     // NAPLNENIE TVD STRUKTUR
                     string sql = @"INSERT INTO www_prepocty (id_prepoctu ,id_odberatele ,datum ,potvrzeno ,
 										zpusob_dodani ,zpusob_platby ,poznamka , id_sdruzeneho_prepoctu , dor_telefon, dor_email,
-										dor_nazev_firmy ,dor_nazev_firmy_radek ,dor_ulice ,dor_misto ,dor_psc ,dor_stat, dodat_od, dodat_do, zadano_operatorem, bez_postovneho, procento_marze_intensa, id_web_objednavky) 
+										dor_nazev_firmy ,dor_nazev_firmy_radek ,dor_ulice ,dor_misto ,dor_psc ,dor_stat, dodat_od, dodat_do, zadano_operatorem, bez_postovneho, procento_marze_intensa, id_web_objednavky,
+                                        zavoz_misto, zavoz_psc, zavoz_datum) 
 										VALUES (@id_prepoctu ,@id_odberatele ,@datum ,@potvrzeno ,
 										@zpusob_dodani ,@zpusob_platby ,@poznamka , @id_sdruzeneho_prepoctu , @dor_telefon, @dor_email,
-										@dor_nazev_firmy ,@dor_nazev_firmy_radek ,@dor_ulice ,@dor_misto ,@dor_psc ,@dor_stat, @dodat_od, @dodat_do, @zadano_operatorem, @bez_postovneho, @procento_marze_intensa, @id_web_objednavky)";
+										@dor_nazev_firmy ,@dor_nazev_firmy_radek ,@dor_ulice ,@dor_misto ,@dor_psc ,@dor_stat, @dodat_od, @dodat_do, @zadano_operatorem, @bez_postovneho, @procento_marze_intensa, @id_web_objednavky,
+                                        @zavoz_misto, @zavoz_psc, @zavoz_datum) ";
                     tvdStorage.Exec(connection, sql,
                             new SqlParameter("@id_prepoctu", order.Id),
                             new SqlParameter("@id_odberatele", account.TVD_Id.Value),
@@ -559,7 +561,10 @@ namespace Eurona.Controls {
                             new SqlParameter("@zadano_operatorem", zadano_operatorem),
                             new SqlParameter("@bez_postovneho", order.NoPostage),
                             new SqlParameter("@procento_marze_intensa", procento_marze_intensa.HasValue ? (object)procento_marze_intensa.Value : DBNull.Value),
-                            new SqlParameter("@id_web_objednavky", order.OrderNumber)
+                            new SqlParameter("@id_web_objednavky", order.OrderNumber),
+                            new SqlParameter("@zavoz_misto", order.ZavozoveMisto_Mesto),
+                            new SqlParameter("@zavoz_psc", order.ZavozoveMisto_Psc),
+                            new SqlParameter("@zavoz_datum", order.ZavozoveMisto_DatumACas)
                             );
 
                     //Naplnenie riadkov (produktov) pre prepocet

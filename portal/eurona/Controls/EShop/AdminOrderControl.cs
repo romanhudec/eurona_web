@@ -532,15 +532,16 @@ namespace Eurona.Controls {
                     zavozoveMistoOsobniOdberRow.Cells.Add(cell);
 
                     ZavozoveMistoEntity zavozoveMisto = Storage<ZavozoveMistoEntity>.ReadFirst(new ZavozoveMistoEntity.ReadJenAktualiByKod { Kod = 1 });
-                    Eurona.Common.DAL.Entities.ZavozoveMistoLimit zavozoveMistoLimit = new Eurona.Common.DAL.Entities.ZavozoveMistoLimit(zavozoveMisto.OsobniOdberPovoleneCasy);
-                    string limitsDisplayString = zavozoveMistoLimit.ToDisplayString();
-                    TableRow zavozoveMistoOsobniOdberLimitRow = new TableRow();
-                    tableZavozoveMistoOsobniOdber.Rows.Add(zavozoveMistoOsobniOdberLimitRow);
-                    cell = new TableCell();
-                    cell.ColumnSpan = 4;
-                    zavozoveMistoOsobniOdberLimitRow.Cells.Add(cell);
-                    cell.Controls.Add(new LiteralControl("<div style='margin-left:10px;margin-top:10px;color:#0077b6;text-align=center;'>" + limitsDisplayString + "</div>"));
-
+                    if (zavozoveMisto != null) {
+                        Eurona.Common.DAL.Entities.ZavozoveMistoLimit zavozoveMistoLimit = new Eurona.Common.DAL.Entities.ZavozoveMistoLimit(zavozoveMisto.OsobniOdberPovoleneCasy);
+                        string limitsDisplayString = zavozoveMistoLimit.ToDisplayString();
+                        TableRow zavozoveMistoOsobniOdberLimitRow = new TableRow();
+                        tableZavozoveMistoOsobniOdber.Rows.Add(zavozoveMistoOsobniOdberLimitRow);
+                        cell = new TableCell();
+                        cell.ColumnSpan = 4;
+                        zavozoveMistoOsobniOdberLimitRow.Cells.Add(cell);
+                        cell.Controls.Add(new LiteralControl("<div style='margin-left:10px;margin-top:10px;color:#0077b6;text-align=center;'>" + limitsDisplayString + "</div>"));
+                    }
                     tableZavozoveMistoOsobniOdber.Visible = false;
                     cellZavozoveMisto_DatumACas.Visible = true;
                     #endregion
@@ -1247,7 +1248,7 @@ namespace Eurona.Controls {
         /// <summary>
         /// //Ulozi  Zavozove misto a dalsie veci ktore je potrebne ukladat priebezne
         /// </summary>
-        public void OnSaveInternalToNextProcessing() {
+        public bool OnSaveInternalToNextProcessing() {
             this.OrderEntity.ZavozoveMisto_DatumACas = null;
             this.OrderEntity.ZavozoveMisto_Mesto = null;
             this.OrderEntity.ZavozoveMisto_OsobniOdberVSidleSpolecnosti = false;
@@ -1270,9 +1271,9 @@ namespace Eurona.Controls {
                         if (limit.IsInLimit(datumOsobnihoOdberu)) {
                             this.OrderEntity.ZavozoveMisto_DatumACas = datumOsobnihoOdberu;
                         } else {
-                            string js = string.Format("alert('{0}');", "Datum a čas osobního odběru není v povoleném období!");
-                            this.Page.ClientScript.RegisterStartupScript(this.Page.GetType(), "addValidateZvozoveMisto", js, true);
-                            return;
+                            string js = string.Format("blockUIAlert('', '{0}');", "Datum a čas osobního odběru není v povoleném období!");
+                            ScriptManager.RegisterStartupScript(this.updatePanel, this.updatePanel.GetType(), "addValidateZvozoveMisto", js, true);
+                            return false;
                         }
                     } catch {
                     }
@@ -1289,6 +1290,7 @@ namespace Eurona.Controls {
             }
 
             Storage<OrderEntity>.Update(this.OrderEntity);
+            return true;
         }
 
 
@@ -1299,7 +1301,9 @@ namespace Eurona.Controls {
             if (this.dtpShipmentTo != null) this.OrderEntity.ShipmentTo = this.dtpShipmentTo.Value != null ? Convert.ToDateTime(this.dtpShipmentTo.Value) : (DateTime?)null;
 
             //Ulozi  Zavozove misto a dalsie veci ktore je potrebne ukladat priebezne
-            OnSaveInternalToNextProcessing();
+            if (!OnSaveInternalToNextProcessing()) {
+                return;
+            }
 
             this.OrderEntity.ShipmentCode = GetShipmentSelection();
 
@@ -1382,7 +1386,9 @@ namespace Eurona.Controls {
             this.OrderEntity.OrderDate = DateTime.Now;//Added 20.04.2017
 
             //Ulozi  Zavozove misto a dalsie veci ktore je potrebne ukladat priebezne
-            OnSaveInternalToNextProcessing();
+            if (!OnSaveInternalToNextProcessing()) {
+                return;
+            }
 
             //if (this.ddlShipment != null) this.OrderEntity.ShipmentCode = this.ddlShipment.SelectedValue;
             this.OrderEntity.ShipmentCode = GetShipmentSelection();
