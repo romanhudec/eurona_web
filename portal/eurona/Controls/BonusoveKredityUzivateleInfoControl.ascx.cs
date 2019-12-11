@@ -18,7 +18,9 @@ namespace Eurona.Controls {
         }
 
         public void ReloadControlData() {
-            DateTime date = DateTime.Now.AddMonths(-1);
+            //DateTime date = DateTime.Now.AddMonths(-1);
+            DateTime date = BonusovyKreditUzivateleHelper.GetCurrentObdobiFromTVD();
+            date = date.AddMonths(-1);
 
             this.lblDosazenoTentoMesic.Text = BonusovyKreditUzivateleHelper.GetBonusoveKredityUzivateleNazbiraneTentoMesicCelkem(/*Security.Account.Id*/this.AccountId).ToString("F0");
             this.lblPlatnychTentoMesic.Text = "0";

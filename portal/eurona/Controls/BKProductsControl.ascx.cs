@@ -19,10 +19,16 @@ namespace Eurona.Controls {
             if (!IsPostBack)
                 this.rpBKProducts.DataBind();
 
-            DateTime date = DateTime.Now.AddMonths(-1);
+            //DateTime date = DateTime.Now.AddMonths(-1);
+            DateTime? date = BonusovyKreditUzivateleHelper.GetCurrentObdobiFromTVD();
+            if (!date.HasValue) {
+                date = DateTime.Now;
+            }
+            date = date.Value.AddMonths(-1);
+
             //decimal narokKreditCelkem = BonusovyKreditUzivateleHelper.GetPlatnyKreditCelkem(Security.Account, date.Year, date.Month);
-            decimal platnychNaTentoMesic = BonusovyKreditUzivateleHelper.GetPlatnyKreditCelkem(Security.Account, date.Year, date.Month);
-            decimal cerpanoTentoMesic = BonusovyKreditUzivateleHelper.GetCerpaniKredituCelkem(Security.Account, date.Year, date.Month);
+            decimal platnychNaTentoMesic = BonusovyKreditUzivateleHelper.GetPlatnyKreditCelkem(Security.Account, date.Value.Year, date.Value.Month);
+            decimal cerpanoTentoMesic = BonusovyKreditUzivateleHelper.GetCerpaniKredituCelkem(Security.Account, date.Value.Year, date.Value.Month);
             decimal narokKreditCelkem = platnychNaTentoMesic - cerpanoTentoMesic;
             if (narokKreditCelkem <= 0 ) {
                 this.addToCart.Visible = false;
@@ -90,10 +96,15 @@ namespace Eurona.Controls {
                 productKreditTotal += p.BonusovyKredit.Value*quantity;
             }
 
-            DateTime date = DateTime.Now.AddMonths(-1);
-            //decimal kreditNarok = BonusovyKreditUzivateleHelper.GetPlatnyKreditCelkem(Security.Account, date.Year, date.Month);//BonusovyKreditUzivateleHelper.GetKreditNarokCelkem(Security.Account, DateTime.Now.Year, DateTime.Now.Month);
-            decimal platnychNaTentoMesic = BonusovyKreditUzivateleHelper.GetPlatnyKreditCelkem(Security.Account, date.Year, date.Month);
-            decimal cerpanoTentoMesic = BonusovyKreditUzivateleHelper.GetCerpaniKredituCelkem(Security.Account, date.Year, date.Month);
+            //DateTime date = DateTime.Now.AddMonths(-1);
+            DateTime? date = BonusovyKreditUzivateleHelper.GetCurrentObdobiFromTVD();
+            if (!date.HasValue) {
+                date = DateTime.Now;
+            }
+            date = date.Value.AddMonths(-1);
+
+            decimal platnychNaTentoMesic = BonusovyKreditUzivateleHelper.GetPlatnyKreditCelkem(Security.Account, date.Value.Year, date.Value.Month);
+            decimal cerpanoTentoMesic = BonusovyKreditUzivateleHelper.GetCerpaniKredituCelkem(Security.Account, date.Value.Year, date.Value.Month);
             decimal kreditNarok = platnychNaTentoMesic - cerpanoTentoMesic;
             if (kreditNarok < (productKreditTotal + bkKreditInCart)) {
                 //Alert s informaciou o pridani do nakupneho kosika

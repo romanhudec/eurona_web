@@ -16,6 +16,7 @@ namespace Eurona.user.advisor.reports {
 
         //private DateTime aktualniObdobiUzavierkaFrom;
         //private DateTime aktualniObdobiUzavierkaTo;
+        private int? currentObdobiRRRRMM = null;
 
         protected void Page_Load(object sender, EventArgs e) {
             if (this.ForAdvisor == null) return;
@@ -67,10 +68,20 @@ namespace Eurona.user.advisor.reports {
         /// <summary>
         /// Aktualne obdobie RRRRMM
         /// </summary>
+
+        /// <summary>
+        /// Aktualne obdobie RRRRMM
+        /// </summary>
         public int CurrentObdobiRRRRMM {
             get {
-                int year = DateTime.Now.Year * 100;
-                return year + DateTime.Now.Month;
+                if (currentObdobiRRRRMM == null) {
+                    this.currentObdobiRRRRMM = ReportPage.GetCurrentObdobiFromTVD();
+                }
+                if (currentObdobiRRRRMM == null) {
+                    int year = DateTime.Now.Year * 100;
+                    currentObdobiRRRRMM = year + DateTime.Now.Month;
+                }
+                return currentObdobiRRRRMM.Value;
             }
         }
         /// <summary>

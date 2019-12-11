@@ -10,6 +10,7 @@ using System.Data;
 
 namespace Eurona.User.Advisor.Reports {
     public class ReportPage : WebPage {
+        private int? currentObdobiRRRRMM = null;
         public OrganizationEntity ForAdvisor {
             get {
                 return (this.Page.Master as User.Advisor.Reports.ReportMasterPage).ForAdvisor;
@@ -34,8 +35,14 @@ namespace Eurona.User.Advisor.Reports {
         /// </summary>
         public int CurrentObdobiRRRRMM {
             get {
-                int year = DateTime.Now.Year * 100;
-                return year + DateTime.Now.Month;
+                if (currentObdobiRRRRMM == null) {
+                    this.currentObdobiRRRRMM = GetCurrentObdobiFromTVD();
+                }
+                if (currentObdobiRRRRMM == null) {
+                    int year = DateTime.Now.Year * 100;
+                    currentObdobiRRRRMM = year + DateTime.Now.Month;
+                }
+                return currentObdobiRRRRMM.Value;
             }
         }
         public bool DisableObdobi {

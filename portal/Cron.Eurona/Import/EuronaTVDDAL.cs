@@ -73,7 +73,7 @@ namespace Cron.Eurona.Import {
                 string sql = @"SELECT C_Zbo,[Kod],[Universal_nazev],[Vat],[Stock_Unit],[Bod_hodnota],
 								[Obrazek],[Obrazek2], [Obrazek3], [Obrazek4], [Obrazek5], [Obrazek6], [Obrazek7], [Obrazek8], [Obrazek9], 
 								[Novinka],[Doprodej],[Inovace],[Prodej_Ukoncen],[Vyprodano], [Top_Produkt], [Eurona_Produkt], [Intensa_Produkt], [CL_Produkt]=Intensa_Produkt, [Dispozice_HR], [Dispozice_HR1],
-								[Megasleva], [Supercena], [CLHit], [Action], [Vyprodej], [On_web],
+								[Megasleva], [Supercena], [CLHit], [Action], [Vyprodej], [On_web], [BSR_Produkt],
 								Parfumacia = (SELECT MAX(ppa.Parfemace_Id) FROM Produkty_Parfemace ppa WHERE ppa.C_Zbo=@ProductId ),
                                 Zadni_etiketa,
                                 Zobrazovat_zadni_etiketu

@@ -11,16 +11,13 @@ using System.Data.SqlClient;
 using System.Configuration;
 using System.Data;
 
-namespace Eurona.User.Advisor.Reports
-{
-    public partial class ReportMasterPage : System.Web.UI.MasterPage
-    {
-        protected void Page_Load(object sender, EventArgs e)
-        {
+namespace Eurona.User.Advisor.Reports {
+    public partial class ReportMasterPage : System.Web.UI.MasterPage {
+        private int? currentObdobiRRRRMM = null;
+        protected void Page_Load(object sender, EventArgs e) {
             this.lblTitle.Text = this.Page.Title;
-            if (!IsPostBack)
-            {
-                this.txtObdobi.Text = string.Format("{0}{1:#00}", DateTime.Now.Year, DateTime.Now.Month);
+            if (!IsPostBack) {
+                this.txtObdobi.Text = string.Format("{0}", this.CurrentObdobiRRRRMM);
                 if (!string.IsNullOrEmpty(Request["obdobi"]))
                     this.txtObdobi.Text = Request["obdobi"];
             }
@@ -32,16 +29,30 @@ namespace Eurona.User.Advisor.Reports
             if (!string.IsNullOrEmpty(Request["id"])) OnGenearte(this, null);
         }
 
-        public bool DisableObdobi
-        {
+        /// <summary>
+        /// Aktualne obdobie RRRRMM
+        /// </summary>
+        public int CurrentObdobiRRRRMM {
+            get {
+                if (currentObdobiRRRRMM == null) {
+                    this.currentObdobiRRRRMM = ReportPage.GetCurrentObdobiFromTVD();
+                }
+                if (currentObdobiRRRRMM == null) {
+                    int year = DateTime.Now.Year * 100;
+                    currentObdobiRRRRMM = year + DateTime.Now.Month;
+                }
+                return currentObdobiRRRRMM.Value;
+            }
+        }
+
+        public bool DisableObdobi {
             get { return !this.txtObdobi.Enabled; }
             set { this.txtObdobi.Enabled = !value; }
         }
 
-        public bool HideObdobi
-        {
+        public bool HideObdobi {
             get { return !this.txtObdobi.Visible; }
-            set { 
+            set {
                 this.txtObdobi.Visible = !value;
                 this.lblObdobi.Visible = this.txtObdobi.Visible;
             }
@@ -50,19 +61,15 @@ namespace Eurona.User.Advisor.Reports
         /// <summary>
         /// Report pre poradcu
         /// </summary>
-        public OrganizationEntity ForAdvisor
-        {
-            get
-            {
-                if (!string.IsNullOrEmpty(Request["id"]))
-                {
+        public OrganizationEntity ForAdvisor {
+            get {
+                if (!string.IsNullOrEmpty(Request["id"])) {
                     string connectionString = ConfigurationManager.ConnectionStrings["TVDConnectionString"].ConnectionString;
                     OrganizationEntity byAdvisor = Storage<OrganizationEntity>.ReadFirst(new OrganizationEntity.ReadByTVDId { TVD_Id = Convert.ToInt32(Request["id"]) });
                     if (byAdvisor == null) return null;
 
                     CMS.Pump.MSSQLStorage tvdStorage = new CMS.Pump.MSSQLStorage(connectionString);
-                    using (SqlConnection connection = tvdStorage.Connect())
-                    {
+                    using (SqlConnection connection = tvdStorage.Connect()) {
                         //string sql = @"SELECT Id_Odberatele FROM fGetOdberateleStrom(@Id_odberatele) WHERE Id_Odberatele=@childId";
                         string sql = @"SELECT Id_Odberatele FROM fGetOdberateleStrom(@Id_odberatele, DATEPART(YEAR, GETDATE())*100 +  DATEPART(MONTH, GETDATE())) WHERE Id_Odberatele=@childId";
                         DataTable dt = tvdStorage.Query(connection, sql, new SqlParameter("@Id_odberatele", this.LogedAdvisor.TVD_Id), new SqlParameter("@childId", byAdvisor.TVD_Id));
@@ -76,10 +83,8 @@ namespace Eurona.User.Advisor.Reports
         /// <summary>
         /// Prihlaseny poradca
         /// </summary>
-        public OrganizationEntity LogedAdvisor
-        {
-            get
-            {
+        public OrganizationEntity LogedAdvisor {
+            get {
                 return (this.Master as User.Advisor.Reports.PageMasterPage).LogedAdvisor;
             }
         }
@@ -87,26 +92,21 @@ namespace Eurona.User.Advisor.Reports
         /// <summary>
         /// Vrati aktualny filter
         /// </summary>
-        public object GetFilter()
-        {
+        public object GetFilter() {
             int obdobi = Convert.ToInt32(string.Format("{0}{1:#00}", DateTime.Now.Year, DateTime.Now.Month));
             Int32.TryParse(this.txtObdobi.Text, out obdobi);
             return obdobi;
         }
 
-        protected void OnGenearte(object sender, EventArgs e)
-        {
-            if (this.Page is ReportPage)
-            {
+        protected void OnGenearte(object sender, EventArgs e) {
+            if (this.Page is ReportPage) {
                 ReportPage reportPage = (this.Page as ReportPage);
                 reportPage.OnGenerateReport();
             }
         }
 
-        protected void OnExport(object sender, EventArgs e)
-        {
-            if (this.Page is Reports.ReportPage)
-            {
+        protected void OnExport(object sender, EventArgs e) {
+            if (this.Page is Reports.ReportPage) {
                 ReportPage rp = (this.Page as Reports.ReportPage);
                 RadGrid grid = rp.GetGridView();
                 if (grid == null) return;
