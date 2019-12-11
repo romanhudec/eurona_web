@@ -29,7 +29,7 @@ namespace Eurona.User.Advisor.Reports {
             if (!IsPostBack)
                 this.txtAdvisorCode.Text = this.ForAdvisor.Code;
 
-
+            
             UzavierkaEntity uzavierkaBefore = Storage<UzavierkaEntity>.ReadFirst(new UzavierkaEntity.ReadById { UzavierkaId = (int)UzavierkaEntity.UzavierkaId.EuronaBefor });
             if (uzavierkaBefore == null) {
                 uzavierkaBefore = new UzavierkaEntity();

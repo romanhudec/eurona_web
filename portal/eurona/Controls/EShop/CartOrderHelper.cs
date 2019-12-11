@@ -562,9 +562,9 @@ namespace Eurona.Controls {
                             new SqlParameter("@bez_postovneho", order.NoPostage),
                             new SqlParameter("@procento_marze_intensa", procento_marze_intensa.HasValue ? (object)procento_marze_intensa.Value : DBNull.Value),
                             new SqlParameter("@id_web_objednavky", order.OrderNumber),
-                            new SqlParameter("@zavoz_misto", order.ZavozoveMisto_Mesto),
-                            new SqlParameter("@zavoz_psc", order.ZavozoveMisto_Psc),
-                            new SqlParameter("@zavoz_datum", order.ZavozoveMisto_DatumACas)
+                            new SqlParameter("@zavoz_misto", string.IsNullOrEmpty(order.ZavozoveMisto_Mesto) ? (object)DBNull.Value : order.ZavozoveMisto_Mesto),
+                            new SqlParameter("@zavoz_psc", string.IsNullOrEmpty(order.ZavozoveMisto_Psc) ? (object)DBNull.Value : order.ZavozoveMisto_Psc),
+                            new SqlParameter("@zavoz_datum", order.ZavozoveMisto_DatumACas.HasValue == false ? (object)DBNull.Value : order.ZavozoveMisto_DatumACas)
                             );
 
                     //Naplnenie riadkov (produktov) pre prepocet
