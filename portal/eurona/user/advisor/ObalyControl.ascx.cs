@@ -23,6 +23,18 @@ namespace Eurona.user.advisor {
             }
         }
 
+        protected void OnAddProduct (object sender, EventArgs e) {
+            RepeaterItem ritem = (sender as Button).NamingContainer as RepeaterItem;
+            TextBox txtPocetKs = (TextBox)ritem.FindControl("txtPocetKs");
+            int productId = Convert.ToInt32((sender as Button).CommandArgument);
+
+            int quantity = 1;
+            if (!Int32.TryParse(txtPocetKs.Text, out quantity)) quantity = 1;
+            if (OnAddObalProduct != null) {
+                OnAddObalProduct(productId, quantity);
+            }
+        }
+
 
         protected void rpObaly_ItemCommand(object source, RepeaterCommandEventArgs e) {
             RepeaterItem ritem = (RepeaterItem)e.Item;

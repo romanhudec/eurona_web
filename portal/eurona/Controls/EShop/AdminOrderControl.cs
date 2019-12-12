@@ -589,7 +589,7 @@ namespace Eurona.Controls {
                 tblObalyTitle.CssClass = "order-warning-table";
                 row = new TableRow(); tblObalyTitle.Rows.Add(row);
                 cell = new TableCell(); row.Cells.Add(cell);
-                LiteralControl lcObalyTitle = new LiteralControl("<span class='order-warning-table-label' style='width:600px;'><b>ZVOLTE OBALY PRO RYBÍ CHLAZENÉ PRODUKTY</b></span>");
+                LiteralControl lcObalyTitle = new LiteralControl("<span class='order-warning-table-label' style='width:600px;'><b>ZVOLTE OBALY PRO CHLAZENÉ RYBÍ PRODUKTY</b></span>");
                 cell.Controls.Add(lcObalyTitle);
                 rpObaly.Controls.Add(tblObalyTitle);
 
@@ -913,6 +913,9 @@ namespace Eurona.Controls {
         void btnAddProduct_Click(object sender, EventArgs e) {
             int quantity = 1;
             if (!Int32.TryParse(this.txtMnozstvi.Text, out quantity)) quantity = 1;
+
+            if (string.IsNullOrEmpty(this.txtMnozstvi.Text) && String.IsNullOrEmpty(this.txtKod.Text))
+                return;
 
             ProductEntity p = Storage<ProductEntity>.ReadFirst(new ProductEntity.ReadByCode { Code = this.txtKod.Text });
             bool isOperator = Security.IsLogged(false) && Security.Account.IsInRole(Role.OPERATOR);
