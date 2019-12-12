@@ -40,7 +40,6 @@ namespace Eurona.Controls {
         private Button btnAddProduct = null;
 
         private GridView dataGrid = null;
-        //private DropDownList ddlShipment = null;
         private List<RadioButton> shipmentRadioButtons = null;
         private AddressControl addressDeliveryControl = null;
         private ASPxDatePicker dtpShipmentFrom = null;
@@ -53,6 +52,7 @@ namespace Eurona.Controls {
         private bool hasBSRProduct = false;
         private bool pozadujObal = false;
         private bool hasObalProdukt = false;
+        private bool hasZavozoveMistoPreStat = false;
         private DropDownList ddlZavozoveMisto_Mesto = null;
         private TableCell cellZavozoveMisto_DatumACas = null;
         private DropDownList ddlZavozoveMisto_DatumACas = null;
@@ -124,6 +124,11 @@ namespace Eurona.Controls {
                 if (this.OrderEntity.AccountId != Security.Account.Id)
                     this.IsEditing = false;
             }
+
+            //Nacitanie zavozovych miest pre dany stat
+            string stat = ZavozoveMistoEntity.GetStatByLocale(Security.Account.Locale);
+            zavozoveMistaList = Storage<ZavozoveMistoEntity>.Read(new ZavozoveMistoEntity.ReadOnlyMestoDistinctByStat { Stat = stat });
+            hasZavozoveMistoPreStat = zavozoveMistaList.Count > 1;
 
             HtmlGenericControl div = new HtmlGenericControl("div");
             div.ID = "divOrderNumber";
@@ -413,14 +418,15 @@ namespace Eurona.Controls {
             rpDopravne.Controls.Add(CreateTableRow(tableShipment));
             #endregion
 
-            #region Warning
-            RoundPanel rpWarningZavozoveMisto = new RoundPanel();
-            rpWarningZavozoveMisto.ID = "rpWarningZavozoveMisto";
-            rpWarningZavozoveMisto.CssClass = "roundPanel";
-            rpOrderProducts.Controls.Add(rpWarningZavozoveMisto);
-            LiteralControl lcZavozoveMistoWarning = new LiteralControl("<span style='width:600px;'><b style='color:#FF0000!important;font-size:20px!important;'>Pro daný stát není v tuto chvíli vypsáno žádné závozové místo pro vyzvednutí chlazených rybích produktů</b></span>");
-            rpWarningZavozoveMisto.Controls.Add(lcZavozoveMistoWarning);
-            #endregion
+            //#region Warning
+            //RoundPanel rpWarningZavozoveMisto = new RoundPanel();
+            //rpWarningZavozoveMisto.ID = "rpWarningZavozoveMisto";
+            //rpWarningZavozoveMisto.CssClass = "roundPanel";
+            //rpOrderProducts.Controls.Add(rpWarningZavozoveMisto);
+            //LiteralControl lcZavozoveMistoWarning = new LiteralControl("<span style='width:600px;'><b style='color:#FF0000!important;font-size:20px!important;'>Pro daný stát není v tuto chvíli vypsáno žádné závozové místo pro vyzvednutí chlazených rybích produktů</b></span>");
+            //rpWarningZavozoveMisto.Controls.Add(lcZavozoveMistoWarning);
+            //rpWarningZavozoveMisto.Visible = false;
+            //#endregion
 
             #region ZavozoveMisto
             List<CartProductEntity> cartProducts = this.order.CartEntity.CartProducts;
@@ -446,15 +452,12 @@ namespace Eurona.Controls {
 
 
                 if (this.IsEditing) {
-                    string stat = GetStatByLocale(Security.Account.Locale);
-                    zavozoveMistaList = Storage<ZavozoveMistoEntity>.Read(new ZavozoveMistoEntity.ReadOnlyMestoDistinctByStat { Stat = stat });
-                    bool hasZavozoveMisto = zavozoveMistaList.Count > 1;
-                    rpWarningZavozoveMisto.Visible = false;
-                    if (!hasZavozoveMisto) {
-                        rpWarningZavozoveMisto.Visible = true;
-                    }
+                    //rpWarningZavozoveMisto.Visible = false;
+                    //if (!hasZavozoveMistoPreStat) {
+                    //    rpWarningZavozoveMisto.Visible = true;
+                    //}
                     ZavozoveMistoEntity emptyZavozoveMisto = new ZavozoveMistoEntity();
-                    if (hasZavozoveMisto) {
+                    if (hasZavozoveMistoPreStat) {
                         if (this.OrderEntity.ZavozoveMisto_OsobniOdberVSidleSpolecnosti == false && !String.IsNullOrEmpty(this.OrderEntity.ZavozoveMisto_Mesto)) {
                             if (!checkIfBindedZavozoveMistoMestoIsInDatasource(zavozoveMistaList, this.OrderEntity.ZavozoveMisto_Mesto)) {
                                 ZavozoveMistoEntity newZavozoveMisto = new ZavozoveMistoEntity();
@@ -937,6 +940,15 @@ namespace Eurona.Controls {
                 return;
 
             ProductEntity p = Storage<ProductEntity>.ReadFirst(new ProductEntity.ReadByCode { Code = this.txtKod.Text });
+            #region Validacia BSR produktu a existencia zavozoveho miesta
+            if (!hasZavozoveMistoPreStat && p.BSR) {
+                string message = "Pro daný stát není v tuto chvíli vypsáno žádné závozové místo pro vyzvednutí chlazených rybích produktů";
+                string js = string.Format("blockUIAlert('', '{0}');", message);
+                ScriptManager.RegisterStartupScript(this.updatePanel, this.updatePanel.GetType(), "addValidateZavozoveMistoProdukt", js, true);
+                return;
+            }
+            #endregion
+
             bool isOperator = Security.IsLogged(false) && Security.Account.IsInRole(Role.OPERATOR);
             if (!EuronaCartHelper.ValidateProductBeforeAddingToChart(this.txtKod.Text, p, quantity, false, this, isOperator))
                 return;
@@ -1597,12 +1609,6 @@ namespace Eurona.Controls {
                 Object dataItem = (Object)row.DataItem;
                 GridViewDataBind(false, dataItem, row);
             }
-        }
-
-        public string GetStatByLocale(string locale) {
-            if (locale.ToUpper() == "SK") return "SK";
-            if (locale.ToUpper() == "PL") return "PL";
-            return "CZ";
         }
     }
 }

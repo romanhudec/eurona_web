@@ -52,6 +52,12 @@ namespace Eurona.Common.DAL.Entities {
             int minutes = Convert.ToInt32(data[1]);
             return new DateTime(1, 1, 1, hours, minutes, 0);
         }
+
+        public static string GetStatByLocale(string locale) {
+            if (locale.ToUpper() == "SK") return "SK";
+            if (locale.ToUpper() == "PL") return "PL";
+            return "CZ";
+        }
     }
 
     public class ZavozoveMistoLimit {
@@ -202,6 +208,7 @@ namespace Eurona.Common.DAL.Entities {
                 return string.Format("{0}|{1:00}:{2:00}", this.DayInWeek, this.Time.Hour, this.Time.Minute);
             }
         }
-    }
 
+    }
+    
 }

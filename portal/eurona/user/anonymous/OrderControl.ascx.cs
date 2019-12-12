@@ -347,6 +347,7 @@ namespace Eurona.User.Anonymous {
             rpOrderProducts.Controls.Add(rpWarningZavozoveMisto);
             LiteralControl lcZavozoveMistoWarning = new LiteralControl("<span style='width:600px;'><b style='color:#FF0000!important;font-size:20px!important;'>Pro daný stát není v tuto chvíli vypsáno žádné závozové místo pro vyzvednutí chlazených rybích produktů</b></span>");
             rpWarningZavozoveMisto.Controls.Add(lcZavozoveMistoWarning);
+            rpWarningZavozoveMisto.Visible = false;
             #endregion
 
             #region ZavozoveMisto
@@ -373,7 +374,7 @@ namespace Eurona.User.Anonymous {
 
 
                 if (this.IsEditing) {
-                    string stat = GetStatByLocale(Security.Account.Locale);
+                    string stat = Eurona.Common.DAL.Entities.ZavozoveMisto.GetStatByLocale(Security.Account.Locale);
                     zavozoveMistaList = Storage<ZavozoveMistoEntity>.Read(new ZavozoveMistoEntity.ReadOnlyMestoDistinctByStat { Stat = stat });
                     bool hasZavozoveMisto = zavozoveMistaList.Count > 1;
                     rpWarningZavozoveMisto.Visible = false;
@@ -1125,10 +1126,5 @@ namespace Eurona.User.Anonymous {
             Response.Redirect(Page.ResolveUrl(string.Format(this.FinishUrlFormat, this.OrderEntity.Id)));
         }
 
-        public string GetStatByLocale(string locale) {
-            if (locale.ToUpper() == "SK") return "SK";
-            if (locale.ToUpper() == "PL") return "PL";
-            return "CZ";
-        }
     }
 }
