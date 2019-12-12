@@ -14,6 +14,16 @@
         <div class="bkItem">
             <table border="0">
                 <tr>
+                    <td style="white-space:nowrap;">Stát :</td>
+                    <td colspan="3">
+                        <asp:DropDownList runat="server" ID="ddlStat" Width="100px">
+                            <asp:ListItem Text="CZ" Value="CZ"></asp:ListItem>
+                            <asp:ListItem Text="SK" Value="SK"></asp:ListItem>
+                            <asp:ListItem Text="PL" Value="PL"></asp:ListItem>
+                        </asp:DropDownList>
+                    </td>
+                </tr>
+                <tr>
                     <td style="white-space:nowrap;">Město :</td>
                     <td colspan="3">
                         <asp:TextBox runat="server" ID="txtMesto" Width="500px"></asp:TextBox>

@@ -319,6 +319,7 @@ namespace Eurona.User.Anonymous {
             tableShipment.Rows.Add(shipmentRow);
             shipmentRadioButtons = new List<RadioButton>();
             foreach (ShipmentEntity shipment in shipments) {
+                if (shipment.Hide == true && IsEditing) continue;
                 RadioButton rbShipment = new RadioButton();
                 rbShipment.GroupName = "rbShipment";
                 rbShipment.ID = rbShipment.GroupName + "_" + shipment.Code;
@@ -337,6 +338,15 @@ namespace Eurona.User.Anonymous {
                 //rbShipment.CheckedChanged += rbShipment_CheckedChanged;
             }
             rpDopravne.Controls.Add(CreateTableRow(tableShipment));
+            #endregion
+
+            #region Warning
+            RoundPanel rpWarningZavozoveMisto = new RoundPanel();
+            rpWarningZavozoveMisto.ID = "rpWarningZavozoveMisto";
+            rpWarningZavozoveMisto.CssClass = "roundPanel";
+            rpOrderProducts.Controls.Add(rpWarningZavozoveMisto);
+            LiteralControl lcZavozoveMistoWarning = new LiteralControl("<span style='width:600px;'><b style='color:#FF0000!important;font-size:20px!important;'>Pro daný stát není v tuto chvíli vypsáno žádné závozové místo pro vyzvednutí chlazených rybích produktů</b></span>");
+            rpWarningZavozoveMisto.Controls.Add(lcZavozoveMistoWarning);
             #endregion
 
             #region ZavozoveMisto
@@ -363,7 +373,14 @@ namespace Eurona.User.Anonymous {
 
 
                 if (this.IsEditing) {
-                    zavozoveMistaList = Storage<ZavozoveMistoEntity>.Read(new ZavozoveMistoEntity.ReadOnlyMestoDistinct());
+                    string stat = GetStatByLocale(Security.Account.Locale);
+                    zavozoveMistaList = Storage<ZavozoveMistoEntity>.Read(new ZavozoveMistoEntity.ReadOnlyMestoDistinctByStat { Stat = stat });
+                    bool hasZavozoveMisto = zavozoveMistaList.Count > 1;
+                    rpWarningZavozoveMisto.Visible = false;
+                    if (!hasZavozoveMisto) {
+                        rpWarningZavozoveMisto.Visible = true;
+                    }
+
                     ZavozoveMistoEntity emptyZavozoveMisto = new ZavozoveMistoEntity();
                     if (this.OrderEntity.ZavozoveMisto_OsobniOdberVSidleSpolecnosti == false && !String.IsNullOrEmpty(this.OrderEntity.ZavozoveMisto_Mesto)) {
                         if (!checkIfBindedZavozoveMistoMestoIsInDatasource(zavozoveMistaList, this.OrderEntity.ZavozoveMisto_Mesto)) {
@@ -1106,6 +1123,12 @@ namespace Eurona.User.Anonymous {
                 return;
 
             Response.Redirect(Page.ResolveUrl(string.Format(this.FinishUrlFormat, this.OrderEntity.Id)));
+        }
+
+        public string GetStatByLocale(string locale) {
+            if (locale.ToUpper() == "SK") return "SK";
+            if (locale.ToUpper() == "PL") return "PL";
+            return "CZ";
         }
     }
 }

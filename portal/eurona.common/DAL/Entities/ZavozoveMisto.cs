@@ -24,8 +24,11 @@ namespace Eurona.Common.DAL.Entities {
         public class ReadJenAktualiByKod {
             public int Kod { get; set; }
         }
-        public class ReadOnlyMestoDistinct {
+        public class ReadOnlyMestoDistinctByStat {
+            public string Stat { get; set; }
         }
+
+        public string Stat { get; set; }
         public string Mesto { get; set; }
         public string Psc { get; set; }
         public int Kod { get; set; }

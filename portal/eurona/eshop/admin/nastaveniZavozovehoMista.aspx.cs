@@ -115,6 +115,7 @@ namespace Eurona.Admin {
             }
 
             ZavozoveMisto zm = new ZavozoveMisto();
+            zm.Stat = this.ddlStat.SelectedValue.ToString();
             zm.Mesto = this.txtMesto.Text;
             zm.Psc = this.txtPsc.Text;
             zm.Popis = this.txtPopis.Text;

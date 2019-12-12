@@ -21,6 +21,7 @@ namespace Eurona.Admin {
                 this.txtCas.Text = string.Format("{0:00}:{1:00}", zavozoveMisto.DatumACas.Value.Hour, zavozoveMisto.DatumACas.Value.Minute);
                 this.dtpDatumSkryti.Text = zavozoveMisto.DatumACas_Skryti.HasValue ? zavozoveMisto.DatumACas_Skryti.Value.ToString() : "";
                 this.txtCasSkryti.Text = zavozoveMisto.DatumACas_Skryti.HasValue ? string.Format("{0:00}:{1:00}", zavozoveMisto.DatumACas_Skryti.Value.Hour, zavozoveMisto.DatumACas_Skryti.Value.Minute) : "";
+                this.ddlStat.SelectedValue = zavozoveMisto.Stat;
             }
         }
 
@@ -55,6 +56,7 @@ namespace Eurona.Admin {
                 datumSkryti = null;
             }
 
+            zavozoveMisto.Stat = this.ddlStat.SelectedValue.ToString();
             zavozoveMisto.Mesto = this.txtMesto.Text;
             zavozoveMisto.Psc = this.txtPsc.Text;
             zavozoveMisto.Popis = this.txtPopis.Text;

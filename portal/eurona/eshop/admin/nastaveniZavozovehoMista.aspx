@@ -19,6 +19,14 @@
                     <td width="100%">
                         <asp:TextBox runat="server" ID="txtMesto" Width="100%"></asp:TextBox>
                     </td>
+                    <td style="white-space:nowrap;">Stát :</td>
+                    <td>
+                        <asp:DropDownList runat="server" ID="ddlStat" Width="100px">
+                            <asp:ListItem Text="CZ" Value="CZ"></asp:ListItem>
+                            <asp:ListItem Text="SK" Value="SK"></asp:ListItem>
+                            <asp:ListItem Text="PL" Value="PL"></asp:ListItem>
+                        </asp:DropDownList>
+                    </td>
                     <td style="white-space:nowrap;">PSČ :</td>
                     <td>
                         <asp:TextBox runat="server" ID="txtPsc"></asp:TextBox>
@@ -64,6 +72,7 @@
             <asp:GridView runat="server" ID="gridView" DataKeyNames="Id" OnRowCommand="OnRowCommand" AutoGenerateColumns="False" Width="100%" CellPadding="4" EnableModelValidation="True" ForeColor="#333333" GridLines="None">
                 <AlternatingRowStyle BackColor="White" />
                 <Columns>
+                    <asp:BoundField HeaderText="Stát" DataField="Stat" HeaderStyle-HorizontalAlign="Left" ItemStyle-HorizontalAlign="Left" />
                     <asp:BoundField HeaderText="Město" DataField="Mesto" HeaderStyle-HorizontalAlign="Left" ItemStyle-HorizontalAlign="Left" />
                     <asp:BoundField HeaderText="PSČ" DataField="Psc" HeaderStyle-HorizontalAlign="Left" ItemStyle-HorizontalAlign="Left" />
                     <asp:BoundField HeaderText="Popis" DataField="Popis" HeaderStyle-HorizontalAlign="Left" ItemStyle-HorizontalAlign="Left" />
