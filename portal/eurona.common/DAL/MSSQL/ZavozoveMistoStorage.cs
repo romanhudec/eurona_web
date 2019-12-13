@@ -84,7 +84,7 @@ namespace Eurona.Common.DAL.MSSQL {
                 string sql = @"SELECT DISTINCT Stat=@Stat,  Mesto, Kod, Psc, Popis, DatumACas=GETDATE(), DatumACas_Skryti=GETDATE(), ZavozoveMistoId=0, OsobniOdberPovoleneCasy=NULL, OsobniOdberVSidleSpolecnosti, OsobniOdberAdresaSidlaSpolecnosti=NULL
                 FROM tShpZavozoveMisto
                 WHERE ( DatumACas IS NULL OR DatumACas>GETDATE()) and ( DatumACas_Skryti IS NULL OR DatumACas_Skryti > GETDATE()) AND
-                ( [Kod]=1 OR [Stat]=@Stat)
+                ([Stat]=@Stat)
                 ORDER BY OsobniOdberVSidleSpolecnosti, Mesto ASC";
                 DataTable table = Query<DataTable>(connection, sql, new SqlParameter("@Stat", stat));
                 foreach (DataRow dr in table.Rows)

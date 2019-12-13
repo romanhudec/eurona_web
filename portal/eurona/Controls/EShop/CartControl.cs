@@ -268,7 +268,7 @@ namespace Eurona.Controls {
                 //Nacitanie zavozovych miest pre dany stat
                 string stat = ZavozoveMistoEntity.GetStatByLocale(Security.Account.Locale);
                 List<ZavozoveMistoEntity> zavozoveMistaList = Storage<ZavozoveMistoEntity>.Read(new ZavozoveMistoEntity.ReadOnlyMestoDistinctByStat { Stat = stat });
-                bool hasZavozoveMistoPreStat = zavozoveMistaList.Count > 1;
+                bool hasZavozoveMistoPreStat = stat == "CZ" ? zavozoveMistaList.Count > 1 : zavozoveMistaList.Count > 0;//CZ  maju aj osobny odber
 
                 if (!hasZavozoveMistoPreStat) {
                     string msg = "Pro daný stát není v tuto chvíli vypsáno žádné závozové místo pro vyzvednutí chlazených rybích produktů";
