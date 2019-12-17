@@ -644,7 +644,8 @@ namespace Eurona.Controls {
             #region Addresses
             bool isOperator = Security.IsLogged(false) && Security.Account.IsInRole(Role.OPERATOR);
             bool isAdmin = Security.IsLogged(false) && Security.Account.IsInRole(Role.ADMINISTRATOR);
-            this.addressDeliveryControl = new AddressControl("Kód voucheru:");
+            //this.addressDeliveryControl = new AddressControl("Kód voucheru:");
+            this.addressDeliveryControl = new AddressControl();
             this.addressDeliveryControl.ID = "addressDeliveryControl";
             this.addressDeliveryControl.Width = Unit.Percentage(100);
             this.addressDeliveryControl.IsEditing = this.IsEditing;
