@@ -49,9 +49,15 @@ namespace Eurona.User.Advisor {
             List<OrderEntity> listOrders = Storage<OrderEntity>.Read(filterOrder);
             waitingOrdersToAccept = listOrders.Count;
 
-            DateTime date = DateTime.Now.AddMonths(-1);
-            decimal platnychNaTentoMesic = BonusovyKreditUzivateleHelper.GetPlatnyKreditCelkem(Security.Account, date.Year, date.Month);
-            decimal cerpanoTentoMesic = BonusovyKreditUzivateleHelper.GetCerpaniKredituCelkem(Security.Account, date.Year, date.Month);
+            //DateTime date = DateTime.Now.AddMonths(-1);
+            DateTime? date = BonusovyKreditUzivateleHelper.GetCurrentObdobiFromTVD();
+            if (!date.HasValue) {
+                date = DateTime.Now;
+            }
+            date = date.Value.AddMonths(-1);
+
+            decimal platnychNaTentoMesic = BonusovyKreditUzivateleHelper.GetPlatnyKreditCelkem(Security.Account, date.Value.Year, date.Value.Month);
+            decimal cerpanoTentoMesic = BonusovyKreditUzivateleHelper.GetCerpaniKredituCelkem(Security.Account, date.Value.Year, date.Value.Month);
             this.lblStavBK.InnerText = (platnychNaTentoMesic - cerpanoTentoMesic).ToString("F0");
 
 

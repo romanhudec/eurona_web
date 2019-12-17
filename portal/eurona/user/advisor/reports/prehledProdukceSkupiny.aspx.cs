@@ -12,13 +12,13 @@ using OrganizationEntity = Eurona.Common.DAL.Entities.Organization;
 using UzavierkaEntity = Eurona.Common.DAL.Entities.Uzavierka;
 namespace Eurona.User.Advisor.Reports {
     public partial class PrehledProdukceSkupinyReport : ReportPage {
-        private DateTime aktualniObdobiUzavierkaFrom;
-        private DateTime aktualniObdobiUzavierkaTo;
+        //private DateTime aktualniObdobiUzavierkaFrom;
+        //private DateTime aktualniObdobiUzavierkaTo;
 
         protected void Page_Load(object sender, EventArgs e) {
             if (this.ForAdvisor == null) return;
             if (this.ForAdvisor.TVD_Id == null) return;
-
+            /*
             #region Uzavierka
             UzavierkaEntity uzavierkaBefore = Storage<UzavierkaEntity>.ReadFirst(new UzavierkaEntity.ReadById { UzavierkaId = (int)UzavierkaEntity.UzavierkaId.EuronaBefor });
             if (uzavierkaBefore == null) {
@@ -27,17 +27,6 @@ namespace Eurona.User.Advisor.Reports {
                 aktualniObdobiUzavierkaFrom = new DateTime(beforeOd.Year, beforeOd.Month, beforeOd.Day, 0, 0, 0);
                 aktualniObdobiUzavierkaTo = new DateTime(beforeOd.Year, beforeOd.Month, beforeOd.Day, 23, 59, 59);
             } else {
-
-                //Dopracovane 02.12.2018
-                /*
-                {
-                    if (uzavierkaBefore.UzavierkaDo.Value.Month < DateTime.Now.Month)
-                        aktualniObdobiUzavierkaFrom = new DateTime(DateTime.Now.Year, DateTime.Now.Month, 1, 0, 0, 0);
-                    else
-                        aktualniObdobiUzavierkaFrom = uzavierkaBefore.UzavierkaDo.Value;
-                }
-                //Zakomentovane 02.12.2018
-                 */
 
                 //Takto to musi byt pre tento pripad
                 //Before   = 02.01.2019 10:00 - 02.01.2019 16:00
@@ -54,6 +43,7 @@ namespace Eurona.User.Advisor.Reports {
                 aktualniObdobiUzavierkaTo = uzavierka.UzavierkaDo.Value;
             }
             #endregion
+             * */
             //Ak nie je vierihodny - len seba
             if (this.ForAdvisor.RestrictedAccess == 1) {
                 this.txtAdvisorCode.Enabled = false;
@@ -109,28 +99,11 @@ namespace Eurona.User.Advisor.Reports {
 
             if (this.rbPrvniLinie.Checked) this.Title = this.Title + " - " + Resources.Reports.PrvniLinie.ToLower();
             bool include21Pordce = !this.cbBez21.Checked;
+
             /*
             #region Uzavierka
             int currentObdobiRRRRMM = this.CurrentObdobiRRRRMM;
-            if (obdobi == currentObdobiRRRRMM) {
-                if (aktualniObdobiUzavierkaTo <= DateTime.Now) {
-                    int year = aktualniObdobiUzavierkaTo.Year * 100;
-                    currentObdobiRRRRMM = year + aktualniObdobiUzavierkaTo.Month;
-                    if (this.CurrentObdobiRRRRMM == currentObdobiRRRRMM) {
-                        DateTime date = aktualniObdobiUzavierkaTo.AddMonths(-1);
-                        year = date.Year * 100;
-                        currentObdobiRRRRMM = year + date.Month;
-                    }
-                } else if (aktualniObdobiUzavierkaFrom <= DateTime.Now && aktualniObdobiUzavierkaTo >= DateTime.Now && aktualniObdobiUzavierkaFrom.Month != aktualniObdobiUzavierkaTo.Month) {
-                    int year = aktualniObdobiUzavierkaFrom.Year * 100;//aktualniObdobiUzavierkaTo.Year * 100;
-                    currentObdobiRRRRMM = year + aktualniObdobiUzavierkaFrom.Month;
-                }
-            }
-            #endregion
-             * */
-            #region Uzavierka
-            int currentObdobiRRRRMM = this.CurrentObdobiRRRRMM;
-            if (/*obdobi == currentObdobiRRRRMM*/true) {
+            if (true) {
                 if (aktualniObdobiUzavierkaTo <= DateTime.Now) {
                     int year = aktualniObdobiUzavierkaTo.Year * 100;
                     currentObdobiRRRRMM = year + aktualniObdobiUzavierkaTo.Month;
@@ -147,10 +120,12 @@ namespace Eurona.User.Advisor.Reports {
             }
 
             #endregion
-
+            */
+            int? currentObdobiRRRRMM = ReportPage.GetCurrentObdobiFromTVD();
             if (obdobi == 0) {
                 obdobi = currentObdobiRRRRMM;
             }
+
             CMS.Pump.MSSQLStorage tvdStorage = new CMS.Pump.MSSQLStorage(base.ConnectionString);
             using (SqlConnection connection = tvdStorage.Connect()) {
                 string sql = @"";

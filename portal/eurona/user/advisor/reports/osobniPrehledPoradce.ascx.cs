@@ -9,17 +9,19 @@ using OrganizationEntity = Eurona.Common.DAL.Entities.Organization;
 using System.Data.SqlClient;
 using System.Data;
 using UzavierkaEntity = Eurona.Common.DAL.Entities.Uzavierka;
+using Eurona.User.Advisor.Reports;
 
 namespace Eurona.user.advisor.reports {
     public partial class osobniPrehledPoradce : System.Web.UI.UserControl {
 
-        private DateTime aktualniObdobiUzavierkaFrom;
-        private DateTime aktualniObdobiUzavierkaTo;
+        //private DateTime aktualniObdobiUzavierkaFrom;
+        //private DateTime aktualniObdobiUzavierkaTo;
+        private int? currentObdobiRRRRMM = null;
 
         protected void Page_Load(object sender, EventArgs e) {
             if (this.ForAdvisor == null) return;
             if (this.ForAdvisor.TVD_Id == null) return;
-
+            /*
             #region Uzavierka
             UzavierkaEntity uzavierkaBefore = Storage<UzavierkaEntity>.ReadFirst(new UzavierkaEntity.ReadById { UzavierkaId = (int)UzavierkaEntity.UzavierkaId.EuronaBefor });
             if (uzavierkaBefore == null) {
@@ -28,15 +30,6 @@ namespace Eurona.user.advisor.reports {
                 aktualniObdobiUzavierkaFrom = new DateTime(beforeOd.Year, beforeOd.Month, beforeOd.Day, 0, 0, 0);
                 aktualniObdobiUzavierkaTo = new DateTime(beforeOd.Year, beforeOd.Month, beforeOd.Day, 23, 59, 59);
             } else {
-                //Dopracovane 02.12.2018
-                /*
-                {
-                    if (uzavierkaBefore.UzavierkaDo.Value.Month < DateTime.Now.Month)
-                        aktualniObdobiUzavierkaFrom = new DateTime(DateTime.Now.Year, DateTime.Now.Month, 1, 0, 0, 0);
-                    else
-                        aktualniObdobiUzavierkaFrom = uzavierkaBefore.UzavierkaDo.Value;
-                }
-                */
                 //Zakomentovane 02.12.2018
                 //Takto to musi byt pre tento pripad
                 //Before   = 02.01.2019 10:00 - 02.01.2019 16:00
@@ -53,7 +46,7 @@ namespace Eurona.user.advisor.reports {
                 aktualniObdobiUzavierkaTo = uzavierka.UzavierkaDo.Value;
             }
             #endregion
-
+            */
             GridViewDataBind(!IsPostBack);
         }
 
@@ -75,10 +68,20 @@ namespace Eurona.user.advisor.reports {
         /// <summary>
         /// Aktualne obdobie RRRRMM
         /// </summary>
+
+        /// <summary>
+        /// Aktualne obdobie RRRRMM
+        /// </summary>
         public int CurrentObdobiRRRRMM {
             get {
-                int year = DateTime.Now.Year * 100;
-                return year + DateTime.Now.Month;
+                if (currentObdobiRRRRMM == null) {
+                    this.currentObdobiRRRRMM = ReportPage.GetCurrentObdobiFromTVD();
+                }
+                if (currentObdobiRRRRMM == null) {
+                    int year = DateTime.Now.Year * 100;
+                    currentObdobiRRRRMM = year + DateTime.Now.Month;
+                }
+                return currentObdobiRRRRMM.Value;
             }
         }
         /// <summary>
@@ -101,26 +104,7 @@ namespace Eurona.user.advisor.reports {
             /*
             #region Uzavierka
             int currentObdobiRRRRMM = this.CurrentObdobiRRRRMM;
-            if (obdobi == currentObdobiRRRRMM) {
-                if (aktualniObdobiUzavierkaTo <= DateTime.Now) {
-                    int year = aktualniObdobiUzavierkaTo.Year * 100;
-                    currentObdobiRRRRMM = year + aktualniObdobiUzavierkaTo.Month;
-                    if (this.CurrentObdobiRRRRMM == currentObdobiRRRRMM) {
-                        DateTime date = aktualniObdobiUzavierkaTo.AddMonths(-1);
-                        year = date.Year * 100;
-                        currentObdobiRRRRMM = year + date.Month;
-                    }
-                } else if (aktualniObdobiUzavierkaFrom <= DateTime.Now && aktualniObdobiUzavierkaTo >= DateTime.Now && aktualniObdobiUzavierkaFrom.Month != aktualniObdobiUzavierkaTo.Month) {
-                    int year = aktualniObdobiUzavierkaFrom.Year * 100;
-                    currentObdobiRRRRMM = year + aktualniObdobiUzavierkaFrom.Month;
-                }
-            }
-            #endregion
-            */
-
-            #region Uzavierka
-            int currentObdobiRRRRMM = this.CurrentObdobiRRRRMM;
-            if (/*obdobi == currentObdobiRRRRMM*/true) {
+            if (true) {
                 if (aktualniObdobiUzavierkaTo <= DateTime.Now) {
                     int year = aktualniObdobiUzavierkaTo.Year * 100;
                     currentObdobiRRRRMM = year + aktualniObdobiUzavierkaTo.Month;
@@ -137,10 +121,13 @@ namespace Eurona.user.advisor.reports {
             }
 
             #endregion
+            */
 
+            int? currentObdobiRRRRMM = ReportPage.GetCurrentObdobiFromTVD();
             if (obdobi == 0) {
                 obdobi = currentObdobiRRRRMM;
             }
+
 
             this.sqlDirectGroup.ConnectionString = this.ConnectionString;
             this.sqlDirectGroup.SelectParameters["Id_odberatele"].DefaultValue = this.ForAdvisor.TVD_Id.ToString();

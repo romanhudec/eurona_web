@@ -15,10 +15,13 @@ namespace Eurona.Admin {
 
             if (!IsPostBack) {
                 this.txtMesto.Text = zavozoveMisto.Mesto;
+                this.txtPsc.Text = zavozoveMisto.Psc;
+                this.txtPopis.Text = zavozoveMisto.Popis;
                 this.dtpDatum.Text = zavozoveMisto.DatumACas.Value.ToString();
                 this.txtCas.Text = string.Format("{0:00}:{1:00}", zavozoveMisto.DatumACas.Value.Hour, zavozoveMisto.DatumACas.Value.Minute);
                 this.dtpDatumSkryti.Text = zavozoveMisto.DatumACas_Skryti.HasValue ? zavozoveMisto.DatumACas_Skryti.Value.ToString() : "";
                 this.txtCasSkryti.Text = zavozoveMisto.DatumACas_Skryti.HasValue ? string.Format("{0:00}:{1:00}", zavozoveMisto.DatumACas_Skryti.Value.Hour, zavozoveMisto.DatumACas_Skryti.Value.Minute) : "";
+                this.ddlStat.SelectedValue = zavozoveMisto.Stat;
             }
         }
 
@@ -53,7 +56,10 @@ namespace Eurona.Admin {
                 datumSkryti = null;
             }
 
+            zavozoveMisto.Stat = this.ddlStat.SelectedValue.ToString();
             zavozoveMisto.Mesto = this.txtMesto.Text;
+            zavozoveMisto.Psc = this.txtPsc.Text;
+            zavozoveMisto.Popis = this.txtPopis.Text;
             zavozoveMisto.DatumACas = datum.Value;
             zavozoveMisto.DatumACas_Skryti = datumSkryti;
             Storage<ZavozoveMisto>.Update(zavozoveMisto);
@@ -61,6 +67,8 @@ namespace Eurona.Admin {
             this.dtpDatum.Value = null;
             this.dtpDatumSkryti.Value = null;
             this.txtMesto.Text = "";
+            this.txtPsc.Text = "";
+            this.txtPopis.Text = "";
             this.txtCas.Text = "";
 
             Response.Redirect("~/eshop/admin/nastaveniZavozovehoMista.aspx");

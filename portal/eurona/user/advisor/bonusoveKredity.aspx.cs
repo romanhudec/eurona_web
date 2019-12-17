@@ -24,8 +24,14 @@ namespace Eurona.user.advisor {
             if (dosazenoTentoMesic == maxBKZaMesic)
                 this.divMaxPocetBKDosazen.Visible = true;
             */
-            DateTime date = DateTime.Now.AddMonths(-1);
-            narokKreditCelkem = BonusovyKreditUzivateleHelper.GetPlatnyKreditCelkem(Security.Account, date.Year, date.Month);
+            //DateTime date = DateTime.Now.AddMonths(-1);
+            DateTime? date = BonusovyKreditUzivateleHelper.GetCurrentObdobiFromTVD();
+            if (!date.HasValue) {
+                date = DateTime.Now;
+            }
+            date = date.Value.AddMonths(-1);
+
+            narokKreditCelkem = BonusovyKreditUzivateleHelper.GetPlatnyKreditCelkem(Security.Account, date.Value.Year, date.Value.Month);
             if (narokKreditCelkem == 0) {
                 this.divKreditErrorMessage.Visible = true;
             }

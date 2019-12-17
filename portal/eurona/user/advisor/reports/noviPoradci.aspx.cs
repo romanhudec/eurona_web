@@ -11,14 +11,15 @@ using Telerik.Web.UI;
 
 namespace Eurona.User.Advisor.Reports {
     public partial class NoviPoradciReport : ReportPage {
-        private DateTime aktualniObdobiUzavierkaFrom;
-        private DateTime aktualniObdobiUzavierkaTo;
+        //private DateTime aktualniObdobiUzavierkaFrom;
+        //private DateTime aktualniObdobiUzavierkaTo;
         private int? obdobi;
         protected void Page_Load(object sender, EventArgs e) {
             if (this.ForAdvisor == null) return;
             if (this.ForAdvisor.TVD_Id == null) return;
 
-            #region Uzavierka
+            /*
+            #region Uzavierka             
             UzavierkaEntity uzavierkaBefore = Storage<UzavierkaEntity>.ReadFirst(new UzavierkaEntity.ReadById { UzavierkaId = (int)UzavierkaEntity.UzavierkaId.EuronaBefor });
             if (uzavierkaBefore == null) {
                 uzavierkaBefore = new UzavierkaEntity();
@@ -26,16 +27,6 @@ namespace Eurona.User.Advisor.Reports {
                 aktualniObdobiUzavierkaFrom = new DateTime(beforeOd.Year, beforeOd.Month, beforeOd.Day, 0, 0, 0);
                 aktualniObdobiUzavierkaTo = new DateTime(beforeOd.Year, beforeOd.Month, beforeOd.Day, 23, 59, 59);
             } else {
-                //Dopracovane 02.12.2018
-                /*
-                {
-                    if (uzavierkaBefore.UzavierkaDo.Value.Month < DateTime.Now.Month)
-                        aktualniObdobiUzavierkaFrom = new DateTime(DateTime.Now.Year, DateTime.Now.Month, 1, 0, 0, 0);
-                    else
-                        aktualniObdobiUzavierkaFrom = uzavierkaBefore.UzavierkaDo.Value;
-                }
-                //Zakomentovane 02.12.2018
-                 * */
                 //Takto to musi byt pre tento pripad
                 //Before   = 02.01.2019 10:00 - 02.01.2019 16:00
                 //Aktualni = 01.02.2019 10:00 - 01.02.2019 16:00
@@ -51,6 +42,7 @@ namespace Eurona.User.Advisor.Reports {
                 aktualniObdobiUzavierkaTo = uzavierka.UzavierkaDo.Value;
             }
             #endregion
+             * */
 
             string code = this.ForAdvisor.Code;
             GridViewDataBind(!IsPostBack);
@@ -76,7 +68,7 @@ namespace Eurona.User.Advisor.Reports {
             if (filter != null) obdobi = (int)filter;
             if (!obdobi.HasValue || obdobi.ToString().Length != 6) return;
 
-            int mesic = obdobi.Value - DateTime.Now.Year*100;
+            int mesic = obdobi.Value - DateTime.Now.Year * 100;
             int mesic1 = mesic + 1;
             if ((mesic1 % 100) > 12) mesic1 = mesic - (mesic % 100) + 101;
             int mesic2 = mesic1 + 1;
@@ -85,7 +77,7 @@ namespace Eurona.User.Advisor.Reports {
 
             int obdobi1 = Convert.ToInt32(obdobi.ToString().Substring(0, 4)) * 100 + mesic1;
             int obdobi2 = Convert.ToInt32(obdobi.ToString().Substring(0, 4)) * 100 + mesic2;
-
+            /*
             #region Uzavierka
             int currentObdobiRRRRMM = this.CurrentObdobiRRRRMM;
             if (aktualniObdobiUzavierkaTo <= DateTime.Now) {
@@ -103,10 +95,12 @@ namespace Eurona.User.Advisor.Reports {
             }
 
             #endregion
-
+            */
+            int? currentObdobiRRRRMM = ReportPage.GetCurrentObdobiFromTVD();
             if (this.obdobi == 0) {
                 this.obdobi = currentObdobiRRRRMM;
             }
+
 
             CMS.Pump.MSSQLStorage tvdStorage = new CMS.Pump.MSSQLStorage(base.ConnectionString);
             using (SqlConnection connection = tvdStorage.Connect()) {

@@ -385,9 +385,9 @@ a, a:hover{	color: #00B8EC;}
 .cartInfo .image{background-image:url(../images/cart-button-small.png); width:30px; height:20px; margin-top:5px;margin-bottom:13px;}  
 .cartInfo .kpokladne{text-align:right;color:#878787;}
 
-/* CUSTOM STYLES */
 
-.header
+/* CUSTOM STYLES */
+.page-container-header .header
 {
     display: none;
 }

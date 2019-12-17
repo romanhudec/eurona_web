@@ -81,13 +81,15 @@ namespace Cron.Eurona.Import {
                         bool action = GetBool(drProduct["Action"]);
                         bool vyprodej = GetBool(drProduct["Vyprodej"]);
                         bool onWeb = GetBool(drProduct["On_web"]);
+                        bool bsrProdukt = GetBool(drProduct["BSR_Produkt"]);
 
                         string zadniEtiketa = GetString(drProduct["Zadni_etiketa"]);
                         bool zobrazovat_zadni_etiketu = GetBool(drProduct["Zobrazovat_zadni_etiketu"]);
 
-                        EuronaDAL.Product.SyncProduct(this.DestinationDataStorage, this.ProductId, productInstance, GetString(drProduct["Kod"]), ConvertNullable.ToDecimal(drProduct["Vat"]), ConvertNullable.ToInt32(drProduct["Bod_hodnota"]), ConvertNullable.ToInt32(drProduct["Parfumacia"]),
+                        EuronaDAL.Product.SyncProduct(this.DestinationDataStorage, this.ProductId, productInstance, GetString(drProduct["Kod"]), ConvertNullable.ToDecimal(drProduct["Vat"]), 
+                                ConvertNullable.ToInt32(drProduct["Bod_hodnota"]), ConvertNullable.ToInt32(drProduct["Parfumacia"]),
                                 top, novinka, inovace, doprodej, vyprodano, prodejUkoncen, (int)dispozice_HR,
-                                megasleva, supercena, clHit, action, vyprodej, onWeb, zadniEtiketa, zobrazovat_zadni_etiketu);
+                                megasleva, supercena, clHit, action, vyprodej, onWeb, bsrProdukt, zadniEtiketa, zobrazovat_zadni_etiketu);
                         foreach (int jazyk in CernyForLifeTVDDAL.TVDJazyky) {
                             DataRow drLocalize = CernyForLifeTVDDAL.GetTVDProductLocalize(this.SourceDataStorage, this.ProductId, jazyk);
                             DataTable dtVlastnosti = CernyForLifeTVDDAL.GetTVDProductVlastnosti(this.SourceDataStorage, this.ProductId, jazyk);

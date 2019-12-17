@@ -36,6 +36,8 @@ namespace Eurona.Common.DAL.Entities {
             public bool? Vyprodej { get; set; }
             public bool? OnWeb { get; set; }
             public bool? BSR { get; set; }
+            public bool? PozadujObal { get; set; }
+            public bool? Obal { get; set; }
 
             public bool? BestSellers { get; set; }
             public string Manufacturer { get; set; }
@@ -173,5 +175,8 @@ namespace Eurona.Common.DAL.Entities {
         public bool ZobrazovatZadniEtiketu{ get; set; }
         public bool BSR { get; set; }
         public int? Order { get; set; }
+        public bool PozadujObal { get; set; }
+        public bool Obal { get; set; }
+        public int? ObalOrder { get; set; }
     }
 }

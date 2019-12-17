@@ -27,6 +27,7 @@ namespace SHP.MSSQL.Classifiers {
             shipment.PriceWVAT = ConvertNullable.ToDecimal(record["PriceWVAT"]);
             shipment.VAT = ConvertNullable.ToDecimal(record["VAT"]);
             shipment.Order = ConvertNullable.ToInt32(record["Order"]);
+            shipment.Hide = record["Hide"] == DBNull.Value ? false : Convert.ToBoolean(record["Hide"]);
 
             return shipment;
         }
@@ -38,7 +39,7 @@ namespace SHP.MSSQL.Classifiers {
             List<Shipment> list = new List<Shipment>();
             using (SqlConnection connection = Connect()) {
                 string sql = @"
-								SELECT ShipmentId, InstanceId, [Name], [Code], [Icon], [Locale], [Notes], [Price], [VATId], [PriceWVAT], [VAT], [Order]
+								SELECT ShipmentId, InstanceId, [Name], [Code], [Icon], [Locale], [Notes], [Price], [VATId], [PriceWVAT], [VAT], [Order], [Hide]
 								FROM vShpShipments
 								WHERE Locale = @Locale AND InstanceId=@InstanceId
 								ORDER BY [Order] ASC, [Code] DESC";
@@ -53,7 +54,7 @@ namespace SHP.MSSQL.Classifiers {
             List<Shipment> list = new List<Shipment>();
             using (SqlConnection connection = Connect()) {
                 string sql = @"
-								SELECT ShipmentId, InstanceId, [Name], [Code], [Icon], [Locale], [Notes], [Price], [VATId], [PriceWVAT], [VAT], [Order]
+								SELECT ShipmentId, InstanceId, [Name], [Code], [Icon], [Locale], [Notes], [Price], [VATId], [PriceWVAT], [VAT], [Order], [Hide]
 								FROM vShpShipments
 								WHERE Locale = @Locale AND InstanceId=@InstanceId AND [Default]=1
 								ORDER BY  [Order] ASC, [Default] DESC";
@@ -72,7 +73,7 @@ namespace SHP.MSSQL.Classifiers {
             List<Shipment> list = new List<Shipment>();
             using (SqlConnection connection = Connect()) {
                 string sql = @"
-								SELECT ShipmentId, InstanceId, [Name], [Code], [Icon], [Locale], [Notes], [Price], [VATId], [PriceWVAT], [VAT], [Order]
+								SELECT ShipmentId, InstanceId, [Name], [Code], [Icon], [Locale], [Notes], [Price], [VATId], [PriceWVAT], [VAT], [Order], [Hide]
 								FROM vShpShipments
 								WHERE ShipmentId = @ShipmentId
 								ORDER BY [Order] ASC, [Code] DESC";
@@ -89,7 +90,7 @@ namespace SHP.MSSQL.Classifiers {
             List<Shipment> list = new List<Shipment>();
             using (SqlConnection connection = Connect()) {
                 string sql = @"
-								SELECT ShipmentId, InstanceId, [Name], [Code], [Icon], [Locale], [Notes], [Price], [VATId], [PriceWVAT], [VAT], [Order]
+								SELECT ShipmentId, InstanceId, [Name], [Code], [Icon], [Locale], [Notes], [Price], [VATId], [PriceWVAT], [VAT], [Order], [Hide]
 								FROM vShpShipments
 								WHERE Code = @Code AND Locale=@Locale AND InstanceId=@InstanceId
 								ORDER BY [Order] ASC, [Code] DESC";
@@ -118,9 +119,10 @@ namespace SHP.MSSQL.Classifiers {
 
         public override void Update(Shipment shipment) {
             using (SqlConnection connection = Connect()) {
-                Exec(connection, "UPDATE cShpShipment SET [Order]=@Order WHERE Code=@Code",
+                Exec(connection, "UPDATE cShpShipment SET [Order]=@Order, [Hide]=@Hide WHERE Code=@Code", 
                         new SqlParameter("@Code", shipment.Code),
-                        new SqlParameter("@Order", Null(shipment.Order)));
+                        new SqlParameter("@Order", Null(shipment.Order)),
+                         new SqlParameter("@Hide", Null(shipment.Hide)));
             }
             //using (SqlConnection connection = Connect()) {
             //    ExecProc(connection, "pShpShipmentModify",

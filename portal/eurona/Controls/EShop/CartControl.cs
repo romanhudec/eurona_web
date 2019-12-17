@@ -14,6 +14,7 @@ using AccountEntity = Eurona.DAL.Entities.Account;
 using ProductEntity = Eurona.Common.DAL.Entities.Product;
 using ShpAddressEntity = SHP.Entities.Address;
 using LastOrderAddressEntity = Eurona.Common.DAL.Entities.LastOrderAddress;
+using ZavozoveMistoEntity = Eurona.Common.DAL.Entities.ZavozoveMisto;
 using System.ComponentModel;
 using CMS.Utilities;
 using SHP.Controls;
@@ -237,6 +238,8 @@ namespace Eurona.Controls {
         /// </summary>
         /// <param name="orderAccount"></param>
         public void CreateOrder(int orderAccountId, bool redirect) {
+
+
             //Prepocitanie kosika a nastavenie spravnej marze na kosiku.
             EuronaCartHelper.RecalculateCart(this.Page, this.CartEntity.Id);
 
@@ -250,6 +253,31 @@ namespace Eurona.Controls {
             this.cartEntity = Storage<CartEntity>.Update(this.cartEntity);
             //Reload Cart entity pre refresh account a locale
             this.cartEntity = Storage<Cart>.ReadFirst(new Cart.ReadById { CartId = this.CartEntity.Id });
+
+            #region Validacia BSR produktu a existencia zavozoveho miesta
+            //Check BSR Produckt
+            bool hasBSRProduct = false;
+            List<CartProductEntity> cartProducts = this.CartEntity.CartProducts;
+            foreach (CartProductEntity cartProduct in cartProducts) {
+                if (cartProduct.BSRProdukt) {
+                    hasBSRProduct = true;
+                    break;
+                }
+            }
+            if (hasBSRProduct) {
+                //Nacitanie zavozovych miest pre dany stat
+                string stat = ZavozoveMistoEntity.GetStatByLocale(Security.Account.Locale);
+                List<ZavozoveMistoEntity> zavozoveMistaList = Storage<ZavozoveMistoEntity>.Read(new ZavozoveMistoEntity.ReadOnlyMestoDistinctByStat { Stat = stat });
+                bool hasZavozoveMistoPreStat = stat == "CZ" ? zavozoveMistaList.Count > 1 : zavozoveMistaList.Count > 0;//CZ  maju aj osobny odber
+
+                if (!hasZavozoveMistoPreStat) {
+                    string msg = "Pro daný stát není v tuto chvíli vypsáno žádné závozové místo pro vyzvednutí chlazených rybích produktů";
+                    string js = string.Format("alert('{0}');", msg);
+                    this.Page.ClientScript.RegisterStartupScript(this.Page.GetType(), "alert", js, true);
+                    return;
+                }
+            }
+            #endregion
 
             //Vykonanie prepoctu v TVD
             //Ak sa z eurosapu vrati chyba -> objednavku nemozno vytvorit.
@@ -763,4 +791,5 @@ namespace Eurona.Controls {
             GridViewDataBind(false, dataItem, row);
         }
     }
+
 }

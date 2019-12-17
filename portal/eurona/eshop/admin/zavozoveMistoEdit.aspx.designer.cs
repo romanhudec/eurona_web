@@ -31,6 +31,15 @@ namespace Eurona.Admin {
         protected global::System.Web.UI.WebControls.Literal Literal1;
         
         /// <summary>
+        /// ddlStat control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList ddlStat;
+        
+        /// <summary>
         /// txtMesto control.
         /// </summary>
         /// <remarks>
@@ -38,6 +47,24 @@ namespace Eurona.Admin {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtMesto;
+        
+        /// <summary>
+        /// txtPsc control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtPsc;
+        
+        /// <summary>
+        /// txtPopis control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtPopis;
         
         /// <summary>
         /// dtpDatum control.

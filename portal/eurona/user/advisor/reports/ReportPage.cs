@@ -5,9 +5,12 @@ using System.Web;
 using OrganizationEntity = Eurona.Common.DAL.Entities.Organization;
 using System.Configuration;
 using Telerik.Web.UI;
+using System.Data.SqlClient;
+using System.Data;
 
 namespace Eurona.User.Advisor.Reports {
     public class ReportPage : WebPage {
+        private int? currentObdobiRRRRMM = null;
         public OrganizationEntity ForAdvisor {
             get {
                 return (this.Page.Master as User.Advisor.Reports.ReportMasterPage).ForAdvisor;
@@ -32,8 +35,14 @@ namespace Eurona.User.Advisor.Reports {
         /// </summary>
         public int CurrentObdobiRRRRMM {
             get {
-                int year = DateTime.Now.Year * 100;
-                return year + DateTime.Now.Month;
+                if (currentObdobiRRRRMM == null) {
+                    this.currentObdobiRRRRMM = GetCurrentObdobiFromTVD();
+                }
+                if (currentObdobiRRRRMM == null) {
+                    int year = DateTime.Now.Year * 100;
+                    currentObdobiRRRRMM = year + DateTime.Now.Month;
+                }
+                return currentObdobiRRRRMM.Value;
             }
         }
         public bool DisableObdobi {
@@ -55,6 +64,24 @@ namespace Eurona.User.Advisor.Reports {
         public string ConnectionString {
             get {
                 return ConfigurationManager.ConnectionStrings["TVDConnectionString"].ConnectionString;
+            }
+        }
+
+        public static int? GetCurrentObdobiFromTVD() {
+            string connectionString = ConfigurationManager.ConnectionStrings["TVDConnectionString"].ConnectionString;
+
+            CMS.Pump.MSSQLStorage tvdStorage = new CMS.Pump.MSSQLStorage(connectionString);
+            using (SqlConnection connection = tvdStorage.Connect()) {
+                string sql = string.Empty;
+                sql = @"SELECT TOP 1 RRRRMM FROM provize_aktualni";
+                //Clear data
+                DataTable dt = tvdStorage.Query(connection, sql);
+                if (dt == null) return null;
+                if (dt.Rows.Count == 0) return null;
+                object objectValue = dt.Rows[0]["RRRRMM"];
+                if (objectValue == DBNull.Value) return null;
+                return Convert.ToInt32(objectValue);
+
             }
         }
     }

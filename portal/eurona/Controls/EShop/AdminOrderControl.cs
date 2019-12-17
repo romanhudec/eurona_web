@@ -28,17 +28,18 @@ using SHP.Controls;
 using Eurona.Common;
 using System.Data;
 using CMS.Controls.Page;
+using Eurona.user.advisor;
 
 namespace Eurona.Controls {
     public class AdminOrderControl : CmsControl {
         private const string DELETE_COMMAND = "DELETE_ITEM";
-
+        private List<ZavozoveMistoEntity> zavozoveMistaList;
+        private List<ZavozoveMistoEntity> zavozoveMistaDatumyList;
         private TextBox txtKod = null;
         private TextBox txtMnozstvi = null;
         private Button btnAddProduct = null;
 
         private GridView dataGrid = null;
-        //private DropDownList ddlShipment = null;
         private List<RadioButton> shipmentRadioButtons = null;
         private AddressControl addressDeliveryControl = null;
         private ASPxDatePicker dtpShipmentFrom = null;
@@ -49,8 +50,16 @@ namespace Eurona.Controls {
         private LiteralControl lcDopravne = null;
         private Label lblFakturovanaCena = null;
         private bool hasBSRProduct = false;
+        private bool pozadujObal = false;
+        private bool hasObalProdukt = false;
+        private bool hasZavozoveMistoPreStat = false;
         private DropDownList ddlZavozoveMisto_Mesto = null;
+        private TableCell cellZavozoveMisto_DatumACas = null;
         private DropDownList ddlZavozoveMisto_DatumACas = null;
+        private Table tableZavozoveMistoOsobniOdber;
+        private ASPxDatePicker dtpZavozoveMistoOsobniOdberDatum;
+        private TextBox txtZavozoveMistoOsobniOdberCas;
+        private ObalyControl obalyControl;
 
         private Button btnSave = null;
         private Image imgSaveHelp = null;
@@ -81,6 +90,25 @@ namespace Eurona.Controls {
             }
         }
 
+        private ZavozoveMistoEntity findZavozoveMistoByOsobniOdber() {
+            foreach (ZavozoveMistoEntity zm in this.zavozoveMistaList) {
+                if (zm.OsobniOdberVSidleSpolecnosti) return zm;
+            }
+            return null;
+        }
+        private ZavozoveMistoEntity findZavozoveMistoByMesto(string mesto) {
+            foreach (ZavozoveMistoEntity zm in this.zavozoveMistaList) {
+                if (zm.Mesto == mesto) return zm;
+            }
+            return null;
+        }
+        private ZavozoveMistoEntity findZavozoveMistoByDatumACas(DateTime datum) {
+            foreach (ZavozoveMistoEntity zm in this.zavozoveMistaDatumyList) {
+                if (!zm.DatumACas.HasValue) continue;
+                if (zm.DatumACas.Value == datum) return zm;
+            }
+            return null;
+        }
         public string CssGridView { get; set; }
         public string FinishUrlFormat { get; set; }
 
@@ -96,6 +124,11 @@ namespace Eurona.Controls {
                 if (this.OrderEntity.AccountId != Security.Account.Id)
                     this.IsEditing = false;
             }
+
+            //Nacitanie zavozovych miest pre dany stat
+            string stat = ZavozoveMistoEntity.GetStatByLocale(Security.Account.Locale);
+            zavozoveMistaList = Storage<ZavozoveMistoEntity>.Read(new ZavozoveMistoEntity.ReadOnlyMestoDistinctByStat { Stat = stat });
+            hasZavozoveMistoPreStat = stat == "CZ" ? zavozoveMistaList.Count > 1 : zavozoveMistaList.Count > 0;//CZ  maju aj osobny odber
 
             HtmlGenericControl div = new HtmlGenericControl("div");
             div.ID = "divOrderNumber";
@@ -364,11 +397,13 @@ namespace Eurona.Controls {
             tableShipment.Rows.Add(shipmentRow);
             shipmentRadioButtons = new List<RadioButton>();
             foreach (ShipmentEntity shipment in shipments) {
+                if (shipment.Hide == true && IsEditing) continue;
                 RadioButton rbShipment = new RadioButton();
                 rbShipment.GroupName = "rbShipment";
                 rbShipment.ID = rbShipment.GroupName + "_" + shipment.Code;
                 rbShipment.Text = shipment.Name;
                 rbShipment.AutoPostBack = true;
+                rbShipment.Enabled = IsEditing;
                 shipmentRadioButtons.Add(rbShipment);
             }
             foreach (RadioButton rbShipment in shipmentRadioButtons) {
@@ -382,6 +417,16 @@ namespace Eurona.Controls {
             }
             rpDopravne.Controls.Add(CreateTableRow(tableShipment));
             #endregion
+
+            //#region Warning
+            //RoundPanel rpWarningZavozoveMisto = new RoundPanel();
+            //rpWarningZavozoveMisto.ID = "rpWarningZavozoveMisto";
+            //rpWarningZavozoveMisto.CssClass = "roundPanel";
+            //rpOrderProducts.Controls.Add(rpWarningZavozoveMisto);
+            //LiteralControl lcZavozoveMistoWarning = new LiteralControl("<span style='width:600px;'><b style='color:#FF0000!important;font-size:20px!important;'>Pro daný stát není v tuto chvíli vypsáno žádné závozové místo pro vyzvednutí chlazených rybích produktů</b></span>");
+            //rpWarningZavozoveMisto.Controls.Add(lcZavozoveMistoWarning);
+            //rpWarningZavozoveMisto.Visible = false;
+            //#endregion
 
             #region ZavozoveMisto
             List<CartProductEntity> cartProducts = this.order.CartEntity.CartProducts;
@@ -407,62 +452,121 @@ namespace Eurona.Controls {
 
 
                 if (this.IsEditing) {
-                    List<ZavozoveMistoEntity> zavozoveMistaList = Storage<ZavozoveMistoEntity>.Read(new ZavozoveMistoEntity.ReadOnlyMestoDistinct());
+                    //rpWarningZavozoveMisto.Visible = false;
+                    //if (!hasZavozoveMistoPreStat) {
+                    //    rpWarningZavozoveMisto.Visible = true;
+                    //}
                     ZavozoveMistoEntity emptyZavozoveMisto = new ZavozoveMistoEntity();
-                    if (!String.IsNullOrEmpty(this.OrderEntity.ZavozoveMisto_Mesto)) {
-                        if (!checkIfBindedZavozoveMistoMestoIsInDatasource(zavozoveMistaList, this.OrderEntity.ZavozoveMisto_Mesto)) {
-                            ZavozoveMistoEntity newZavozoveMisto = new ZavozoveMistoEntity();
-                            newZavozoveMisto.Mesto = this.OrderEntity.ZavozoveMisto_Mesto;
-                            newZavozoveMisto.DatumACas = this.OrderEntity.ZavozoveMisto_DatumACas.Value;
-                            zavozoveMistaList.Add(newZavozoveMisto);
+                    if (hasZavozoveMistoPreStat) {
+                        if (this.OrderEntity.ZavozoveMisto_OsobniOdberVSidleSpolecnosti == false && !String.IsNullOrEmpty(this.OrderEntity.ZavozoveMisto_Mesto)) {
+                            if (!checkIfBindedZavozoveMistoMestoIsInDatasource(zavozoveMistaList, this.OrderEntity.ZavozoveMisto_Mesto)) {
+                                ZavozoveMistoEntity newZavozoveMisto = new ZavozoveMistoEntity();
+
+                                newZavozoveMisto.Mesto = this.OrderEntity.ZavozoveMisto_Mesto;
+                                newZavozoveMisto.DatumACas = this.OrderEntity.ZavozoveMisto_DatumACas.Value;
+                                zavozoveMistaList.Add(newZavozoveMisto);
+                            }
                         }
                     }
 
-                    emptyZavozoveMisto.Id = 0;
+                    emptyZavozoveMisto.Id = 999999;
                     emptyZavozoveMisto.Mesto = "-- Vyberte město --";
                     zavozoveMistaList.Insert(0, emptyZavozoveMisto);
 
                     this.ddlZavozoveMisto_Mesto = new DropDownList();
                     this.ddlZavozoveMisto_Mesto.ID = "ddlZavozoveMisto_Mesto";
                     this.ddlZavozoveMisto_Mesto.Attributes.Add("name", "ddlZavozoveMisto_Mesto");
-                    //this.ddlZavozoveMisto_Mesto.CssClass = "order_shipment";
                     this.ddlZavozoveMisto_Mesto.AutoPostBack = true;
                     this.ddlZavozoveMisto_Mesto.DataSource = zavozoveMistaList;
-                    this.ddlZavozoveMisto_Mesto.DataTextField = "Mesto";
-                    this.ddlZavozoveMisto_Mesto.DataValueField = "Mesto";
+                    this.ddlZavozoveMisto_Mesto.DataTextField = "DisplayMesto";
+                    this.ddlZavozoveMisto_Mesto.DataValueField = "Kod";
                     this.ddlZavozoveMisto_Mesto.Enabled = this.IsEditing && (!this.OrderEntity.Payed || Security.Account.IsInRole(CMS.Entities.Role.ADMINISTRATOR));
-                    this.ddlZavozoveMisto_Mesto.Width = Unit.Pixel(150);
+                    this.ddlZavozoveMisto_Mesto.Width = Unit.Pixel(350);
                     this.ddlZavozoveMisto_Mesto.SelectedIndexChanged += new EventHandler(ddlZavozoveMisto_Mesto_SelectedIndexChanged);
 
                     this.ddlZavozoveMisto_DatumACas = new DropDownList();
                     this.ddlZavozoveMisto_DatumACas.ID = "ddlZavozoveMisto_DatumACas";
                     this.ddlZavozoveMisto_DatumACas.Attributes.Add("name", "ddlZavozoveMisto_DatumACas");
-                    //this.ddlZavozoveMisto_DatumACas.CssClass = "order_shipment";
                     this.ddlZavozoveMisto_DatumACas.AutoPostBack = false;
                     this.ddlZavozoveMisto_DatumACas.DataTextField = "DatumACas";
-                    this.ddlZavozoveMisto_DatumACas.DataValueField = "DatumACas";
+                    this.ddlZavozoveMisto_DatumACas.DataValueField = "Id";
                     this.ddlZavozoveMisto_DatumACas.Enabled = this.IsEditing && (!this.OrderEntity.Payed || Security.Account.IsInRole(CMS.Entities.Role.ADMINISTRATOR));
                     this.ddlZavozoveMisto_DatumACas.Width = Unit.Pixel(150);
 
+                    this.dtpZavozoveMistoOsobniOdberDatum = new ASPxDatePicker();
+                    this.dtpZavozoveMistoOsobniOdberDatum.ID = "dtpZavozoveMistoOsobniOdberDatum";
+                    this.dtpZavozoveMistoOsobniOdberDatum.Width = Unit.Pixel(100);
+                    this.txtZavozoveMistoOsobniOdberCas = new TextBox();
+                    this.txtZavozoveMistoOsobniOdberCas.ID = "txtZavozoveMistoOsobniOdberCas";
+                    this.txtZavozoveMistoOsobniOdberCas.Width = Unit.Pixel(50);
+
                     Table tableZavozoveMisto = new Table();
+                    tableZavozoveMisto.CellPadding = 0;
+                    tableZavozoveMisto.CellSpacing = 0;
                     rpZavozoveMisto.Controls.Add(tableZavozoveMisto);
                     TableRow zavozoveMistoRow = new TableRow();
                     tableZavozoveMisto.Rows.Add(zavozoveMistoRow);
                     //Mesto
                     cell = new TableCell();
-                    cell.Controls.Add(new LiteralControl("<span>Město:</span>"));
+                    cell.VerticalAlign = VerticalAlign.Top;
+                    cell.Controls.Add(new LiteralControl("<span style='padding:5px;'>Město:</span>&nbsp;"));
                     zavozoveMistoRow.Cells.Add(cell);
                     cell = new TableCell();
+                    cell.VerticalAlign = VerticalAlign.Top;
                     cell.Controls.Add(ddlZavozoveMisto_Mesto);
                     zavozoveMistoRow.Cells.Add(cell);
 
                     //DatumACas
+                    cellZavozoveMisto_DatumACas = new TableCell();
+                    cellZavozoveMisto_DatumACas.VerticalAlign = VerticalAlign.Top;
+                    cellZavozoveMisto_DatumACas.Controls.Add(new LiteralControl("<span style='padding:5px;'>Datum a čas:</span>&nbsp;"));
+                    cellZavozoveMisto_DatumACas.Controls.Add(ddlZavozoveMisto_DatumACas);
+                    zavozoveMistoRow.Cells.Add(cellZavozoveMisto_DatumACas);
+
+                    //Zavozove misto Osobni odber
+                    #region Zavozove misto Osobni odber
                     cell = new TableCell();
-                    cell.Controls.Add(new LiteralControl("<span>Datum a čas:</span>"));
                     zavozoveMistoRow.Cells.Add(cell);
+                    tableZavozoveMistoOsobniOdber = new Table();
+                    tableZavozoveMistoOsobniOdber.CellPadding = 0;
+                    tableZavozoveMistoOsobniOdber.CellSpacing = 0;
+                    cell.Controls.Add(tableZavozoveMistoOsobniOdber);
+
+                    TableRow zavozoveMistoOsobniOdberRow = new TableRow();
+                    tableZavozoveMistoOsobniOdber.Rows.Add(zavozoveMistoOsobniOdberRow);
                     cell = new TableCell();
-                    cell.Controls.Add(ddlZavozoveMisto_DatumACas);
-                    zavozoveMistoRow.Cells.Add(cell);
+                    cell.VerticalAlign = VerticalAlign.Top;
+                    cell.Controls.Add(new LiteralControl("<span style='padding:5px;'>Datum:</span>&nbsp;"));
+                    zavozoveMistoOsobniOdberRow.Cells.Add(cell);
+                    cell = new TableCell();
+                    cell.VerticalAlign = VerticalAlign.Top;
+                    cell.Controls.Add(this.dtpZavozoveMistoOsobniOdberDatum);
+                    zavozoveMistoOsobniOdberRow.Cells.Add(cell);
+                    cell = new TableCell();
+                    cell.VerticalAlign = VerticalAlign.Top;
+                    cell.Controls.Add(new LiteralControl("<span style='padding:5px;'>Čas:</span>&nbsp;"));
+                    zavozoveMistoOsobniOdberRow.Cells.Add(cell);
+                    cell = new TableCell();
+                    cell.VerticalAlign = VerticalAlign.Top;
+                    cell.Controls.Add(this.txtZavozoveMistoOsobniOdberCas);
+                    cell.Controls.Add(new LiteralControl("<span style='padding:5px;'>hh:mm</span>"));
+                    zavozoveMistoOsobniOdberRow.Cells.Add(cell);
+
+                    ZavozoveMistoEntity zavozoveMisto = Storage<ZavozoveMistoEntity>.ReadFirst(new ZavozoveMistoEntity.ReadJenAktualiByKod { Kod = 1 });
+                    if (zavozoveMisto != null) {
+                        Eurona.Common.DAL.Entities.ZavozoveMistoLimit zavozoveMistoLimit = new Eurona.Common.DAL.Entities.ZavozoveMistoLimit(zavozoveMisto.OsobniOdberPovoleneCasy);
+                        string limitsDisplayString = zavozoveMistoLimit.ToDisplayString();
+                        TableRow zavozoveMistoOsobniOdberLimitRow = new TableRow();
+                        tableZavozoveMistoOsobniOdber.Rows.Add(zavozoveMistoOsobniOdberLimitRow);
+                        cell = new TableCell();
+                        cell.ColumnSpan = 4;
+                        zavozoveMistoOsobniOdberLimitRow.Cells.Add(cell);
+                        cell.Controls.Add(new LiteralControl("<div style='margin-left:10px;margin-top:10px;color:#0077b6;text-align=center;'>" + limitsDisplayString + "</div>"));
+                    }
+                    tableZavozoveMistoOsobniOdber.Visible = false;
+                    cellZavozoveMisto_DatumACas.Visible = true;
+                    #endregion
+
                 } else {
                     Table tableZavozoveMisto = new Table();
                     rpZavozoveMisto.Controls.Add(tableZavozoveMisto);
@@ -487,6 +591,40 @@ namespace Eurona.Controls {
             }
             #endregion
 
+            #region Obaly
+            foreach (CartProductEntity cartProduct in cartProducts) {
+                if (cartProduct.PozadujObal) {
+                    this.pozadujObal = true;
+                }
+                if (cartProduct.Obal) {
+                    this.hasObalProdukt = true;
+                }
+            }
+
+            if (this.pozadujObal && this.hasObalProdukt == false) {
+                RoundPanel rpObaly = new RoundPanel();
+                rpObaly.ID = "rpObaly";
+                rpObaly.CssClass = "roundPanel";
+                rpOrderProducts.Controls.Add(rpObaly);
+
+                Table tblObalyTitle = new Table();
+                tblObalyTitle.CssClass = "order-warning-table";
+                row = new TableRow(); tblObalyTitle.Rows.Add(row);
+                cell = new TableCell(); row.Cells.Add(cell);
+                LiteralControl lcObalyTitle = new LiteralControl("<span class='order-warning-table-label' style='width:600px;'><b>ZVOLTE OBALY PRO CHLAZENÉ RYBÍ PRODUKTY</b></span>");
+                cell.Controls.Add(lcObalyTitle);
+                rpObaly.Controls.Add(tblObalyTitle);
+
+                if (this.IsEditing) {
+                    this.obalyControl = (ObalyControl)this.Page.LoadControl("~/user/advisor/ObalyControl.ascx");
+                    this.obalyControl.ID = "obalyControl";
+                    rpObaly.Controls.Add(this.obalyControl);
+                    this.obalyControl.OnAddObalProduct += obalyControl_OnAddObalProduct;
+                } else {
+                }
+            }
+            #endregion
+
             #region Address
             RoundPanel rpAddress = new RoundPanel();
             rpAddress.ID = "rpAddress";
@@ -506,7 +644,8 @@ namespace Eurona.Controls {
             #region Addresses
             bool isOperator = Security.IsLogged(false) && Security.Account.IsInRole(Role.OPERATOR);
             bool isAdmin = Security.IsLogged(false) && Security.Account.IsInRole(Role.ADMINISTRATOR);
-            this.addressDeliveryControl = new AddressControl("Kód voucheru:");
+            //this.addressDeliveryControl = new AddressControl("Kód voucheru:");
+            this.addressDeliveryControl = new AddressControl();
             this.addressDeliveryControl.ID = "addressDeliveryControl";
             this.addressDeliveryControl.Width = Unit.Percentage(100);
             this.addressDeliveryControl.IsEditing = this.IsEditing;
@@ -594,17 +733,32 @@ namespace Eurona.Controls {
                 if (this.IsEditing) {
                     if (this.ddlZavozoveMisto_Mesto != null) {
                         if (!string.IsNullOrEmpty(this.OrderEntity.ZavozoveMisto_Mesto)) {
-                            this.ddlZavozoveMisto_Mesto.Text = this.OrderEntity.ZavozoveMisto_Mesto;
+                            ZavozoveMistoEntity zavozoveMisto = null;
+                            if (this.OrderEntity.ZavozoveMisto_OsobniOdberVSidleSpolecnosti == true) {
+                                zavozoveMisto = findZavozoveMistoByOsobniOdber();
+                            } else {
+                                zavozoveMisto = findZavozoveMistoByMesto(this.OrderEntity.ZavozoveMisto_Mesto);
+                            }
+                            if (zavozoveMisto != null) this.ddlZavozoveMisto_Mesto.SelectedValue = zavozoveMisto.Kod.ToString();
                         }
                         this.ddlZavozoveMisto_Mesto.DataBind();
+                    }
+                    if (this.OrderEntity.ZavozoveMisto_DatumACas.HasValue) {
+                        this.dtpZavozoveMistoOsobniOdberDatum.Value = this.OrderEntity.ZavozoveMisto_DatumACas.Value;
+                        this.txtZavozoveMistoOsobniOdberCas.Text = string.Format("{0:00}:{1:00}", this.OrderEntity.ZavozoveMisto_DatumACas.Value.Hour, this.OrderEntity.ZavozoveMisto_DatumACas.Value.Minute);
                     }
                     if (this.ddlZavozoveMisto_DatumACas != null) {
                         if (this.OrderEntity.ZavozoveMisto_DatumACas.HasValue) {
                             ddlZavozoveMisto_Mesto_SelectedIndexChanged(this.ddlZavozoveMisto_Mesto, null);
-                            this.ddlZavozoveMisto_DatumACas.Text = this.OrderEntity.ZavozoveMisto_DatumACas.ToString();
+                            ZavozoveMistoEntity zavozoveMisto = findZavozoveMistoByDatumACas(this.OrderEntity.ZavozoveMisto_DatumACas.Value);
+                            if (zavozoveMisto != null) {
+                                this.ddlZavozoveMisto_DatumACas.SelectedValue = zavozoveMisto.Id.ToString();
+                                this.ddlZavozoveMisto_DatumACas.DataBind();
+                            }
+
                         }
-                        this.ddlZavozoveMisto_DatumACas.DataBind();
                     }
+
                 }
 
                 if (!string.IsNullOrEmpty(this.OrderEntity.ShipmentCode)) {
@@ -678,6 +832,26 @@ namespace Eurona.Controls {
 
             //Binding
             GridViewDataBind(this.OrderEntity, !IsPostBack);
+
+        }
+
+        void obalyControl_OnAddObalProduct(int productId, int quantity) {
+            ProductEntity p = Storage<ProductEntity>.ReadFirst(new ProductEntity.ReadById { ProductId = productId });
+            //bool isOperator = Security.IsLogged(false) && Security.Account.IsInRole(Role.OPERATOR);
+            //if (!EuronaCartHelper.ValidateProductBeforeAddingToChart(this.txtKod.Text, p, quantity, false, this, isOperator))
+            //    return;
+
+            bool updateResult = false;
+            EuronaCartHelper.UpdateCartProduct(this.Page, this.OrderEntity.CartId, p.Id, quantity, out updateResult, false);
+            if (updateResult == false)
+                return;
+
+            //Prepocitanie kosiku a objednavky           
+            this.RecalculateOrder();
+            UpdateDopravneUIbyOrder();
+
+            OnSaveInternalToNextProcessing();
+            Response.Redirect(this.Request.RawUrl);
         }
 
         void rbShipment_CheckedChanged(object sender, EventArgs e) {
@@ -691,7 +865,7 @@ namespace Eurona.Controls {
 
             //Prepocitanie kosiku a objednavky           
             this.RecalculateOrder();
-            UpdateDopravneUIbyOrder();            
+            UpdateDopravneUIbyOrder();
         }
 
         private string GetShipmentSelection() {
@@ -711,13 +885,28 @@ namespace Eurona.Controls {
 
 
         void ddlZavozoveMisto_Mesto_SelectedIndexChanged(object sender, EventArgs e) {
+            int zavozoveMistoKod = 0;
+            if (!string.IsNullOrEmpty(this.ddlZavozoveMisto_Mesto.SelectedValue)) {
+                zavozoveMistoKod = Convert.ToInt32(this.ddlZavozoveMisto_Mesto.SelectedValue);
+            }
+
+            if (zavozoveMistoKod == 1) {
+                tableZavozoveMistoOsobniOdber.Visible = true;
+                cellZavozoveMisto_DatumACas.Visible = false;
+            } else {
+                tableZavozoveMistoOsobniOdber.Visible = false;
+                cellZavozoveMisto_DatumACas.Visible = true;
+            }
+
             if (this.ddlZavozoveMisto_DatumACas == null) return;
 
-            string mesto = this.ddlZavozoveMisto_Mesto.SelectedValue;
+            int kod = Convert.ToInt32(this.ddlZavozoveMisto_Mesto.SelectedValue);
             ZavozoveMistoEntity emptyDatum = new ZavozoveMistoEntity();
             emptyDatum.Id = 0;
+            emptyDatum.Kod = 0;
             emptyDatum.DatumACas = null;
-            List<ZavozoveMistoEntity> zavozoveMistaDatumyList = Storage<ZavozoveMistoEntity>.Read(new ZavozoveMistoEntity.ReadJenAktualiByMesto() { Mesto = mesto });
+            zavozoveMistaDatumyList = Storage<ZavozoveMistoEntity>.Read(new ZavozoveMistoEntity.ReadJenAktualiByKod() { Kod = kod });
+            string mesto = zavozoveMistaDatumyList.Count != 0 ? zavozoveMistaDatumyList[0].Mesto : "";
             zavozoveMistaDatumyList.Insert(0, emptyDatum);
             if (this.OrderEntity.ZavozoveMisto_DatumACas.HasValue) {
                 if (!checkIfBindedZavozoveMistoDatumIsInDatasource(zavozoveMistaDatumyList, this.OrderEntity.ZavozoveMisto_DatumACas.Value) && this.OrderEntity.ZavozoveMisto_Mesto == mesto) {
@@ -748,7 +937,19 @@ namespace Eurona.Controls {
             int quantity = 1;
             if (!Int32.TryParse(this.txtMnozstvi.Text, out quantity)) quantity = 1;
 
+            if (string.IsNullOrEmpty(this.txtMnozstvi.Text) && String.IsNullOrEmpty(this.txtKod.Text))
+                return;
+
             ProductEntity p = Storage<ProductEntity>.ReadFirst(new ProductEntity.ReadByCode { Code = this.txtKod.Text });
+            #region Validacia BSR produktu a existencia zavozoveho miesta
+            if (!hasZavozoveMistoPreStat && p.BSR) {
+                string message = "Pro daný stát není v tuto chvíli vypsáno žádné závozové místo pro vyzvednutí chlazených rybích produktů";
+                string js = string.Format("blockUIAlert('', '{0}');", message);
+                ScriptManager.RegisterStartupScript(this.updatePanel, this.updatePanel.GetType(), "addValidateZavozoveMistoProdukt", js, true);
+                return;
+            }
+            #endregion
+
             bool isOperator = Security.IsLogged(false) && Security.Account.IsInRole(Role.OPERATOR);
             if (!EuronaCartHelper.ValidateProductBeforeAddingToChart(this.txtKod.Text, p, quantity, false, this, isOperator))
                 return;
@@ -762,6 +963,7 @@ namespace Eurona.Controls {
             this.RecalculateOrder();
             UpdateDopravneUIbyOrder();
 
+            OnSaveInternalToNextProcessing();
             Response.Redirect(this.Request.RawUrl);
 
         }
@@ -1073,8 +1275,59 @@ namespace Eurona.Controls {
             this.lblFakturovanaCena.Text = Eurona.Common.Utilities.CultureUtilities.CurrencyInfo.ToString(this.OrderEntity.PriceWVAT, this.OrderEntity.CurrencySymbol);
 
             GridViewDataBind(this.OrderEntity, true);
+
+            OnSaveInternalToNextProcessing();
             Response.Redirect(this.Request.RawUrl);
         }
+
+        /// <summary>
+        /// //Ulozi  Zavozove misto a dalsie veci ktore je potrebne ukladat priebezne
+        /// </summary>
+        public bool OnSaveInternalToNextProcessing() {
+            this.OrderEntity.ZavozoveMisto_DatumACas = null;
+            this.OrderEntity.ZavozoveMisto_Mesto = null;
+            this.OrderEntity.ZavozoveMisto_OsobniOdberVSidleSpolecnosti = false;
+            this.OrderEntity.ZavozoveMisto_Psc = null;
+            //Osobni Odber
+            if (this.ddlZavozoveMisto_Mesto != null && this.ddlZavozoveMisto_Mesto.SelectedValue != null && Convert.ToInt32(this.ddlZavozoveMisto_Mesto.SelectedValue) == 1) {
+                int zavozoveMistoKod = Convert.ToInt32(this.ddlZavozoveMisto_Mesto.SelectedValue);
+                ZavozoveMistoEntity zavozoveMisto = Storage<ZavozoveMistoEntity>.ReadFirst(new ZavozoveMistoEntity.ReadJenAktualiByKod { Kod = zavozoveMistoKod });
+                if (zavozoveMisto != null) {
+                    Eurona.Common.DAL.Entities.ZavozoveMistoLimit limit = new Eurona.Common.DAL.Entities.ZavozoveMistoLimit(zavozoveMisto.OsobniOdberPovoleneCasy);
+                    this.OrderEntity.ZavozoveMisto_DatumACas = null;
+                    this.OrderEntity.ZavozoveMisto_Mesto = zavozoveMisto.OsobniOdberAdresaSidlaSpolecnosti;
+                    this.OrderEntity.ZavozoveMisto_OsobniOdberVSidleSpolecnosti = zavozoveMisto.OsobniOdberVSidleSpolecnosti;
+                    this.OrderEntity.ZavozoveMisto_Psc = zavozoveMisto.Psc;
+                    try {
+                        DateTime datumOsobnihoOdberu = Convert.ToDateTime(this.dtpZavozoveMistoOsobniOdberDatum.Value);
+                        DateTime cas = ZavozoveMistoEntity.GetTimeFromString(this.txtZavozoveMistoOsobniOdberCas.Text);
+                        datumOsobnihoOdberu = datumOsobnihoOdberu.AddHours(cas.Hour);
+                        datumOsobnihoOdberu = datumOsobnihoOdberu.AddMinutes(cas.Minute);
+                        if (limit.IsInLimit(datumOsobnihoOdberu)) {
+                            this.OrderEntity.ZavozoveMisto_DatumACas = datumOsobnihoOdberu;
+                        } else {
+                            string js = string.Format("blockUIAlert('', '{0}');", "Datum a čas osobního odběru není v povoleném období!");
+                            ScriptManager.RegisterStartupScript(this.updatePanel, this.updatePanel.GetType(), "addValidateZvozoveMisto", js, true);
+                            return false;
+                        }
+                    } catch {
+                    }
+                }
+            } else if (this.ddlZavozoveMisto_Mesto != null && this.ddlZavozoveMisto_Mesto.SelectedItem != null && !String.IsNullOrEmpty(this.ddlZavozoveMisto_DatumACas.SelectedValue)) {
+                int zavozoveMistoId = Convert.ToInt32(this.ddlZavozoveMisto_DatumACas.SelectedValue);
+                ZavozoveMistoEntity zavozoveMisto = Storage<ZavozoveMistoEntity>.ReadFirst(new ZavozoveMistoEntity.ReadById { Id = zavozoveMistoId });
+                if (zavozoveMisto != null) {
+                    this.OrderEntity.ZavozoveMisto_Mesto = zavozoveMisto.Mesto;
+                    this.OrderEntity.ZavozoveMisto_Psc = zavozoveMisto.Psc;
+                    this.OrderEntity.ZavozoveMisto_DatumACas = zavozoveMisto.DatumACas.Value;
+                    this.OrderEntity.ZavozoveMisto_OsobniOdberVSidleSpolecnosti = zavozoveMisto.OsobniOdberVSidleSpolecnosti;
+                }
+            }
+
+            Storage<OrderEntity>.Update(this.OrderEntity);
+            return true;
+        }
+
 
         void OnSave(object sender, EventArgs e) {
             if (this.OrderEntity.DeliveryAddress == null) return;
@@ -1082,25 +1335,30 @@ namespace Eurona.Controls {
             if (this.dtpShipmentFrom != null) this.OrderEntity.ShipmentFrom = this.dtpShipmentFrom.Value != null ? Convert.ToDateTime(this.dtpShipmentFrom.Value) : (DateTime?)null;
             if (this.dtpShipmentTo != null) this.OrderEntity.ShipmentTo = this.dtpShipmentTo.Value != null ? Convert.ToDateTime(this.dtpShipmentTo.Value) : (DateTime?)null;
 
-            if (this.ddlZavozoveMisto_Mesto != null && this.ddlZavozoveMisto_Mesto.SelectedItem != null && !String.IsNullOrEmpty(this.ddlZavozoveMisto_DatumACas.SelectedValue)) {
-                this.OrderEntity.ZavozoveMisto_Mesto = this.ddlZavozoveMisto_Mesto.SelectedValue;
-                this.OrderEntity.ZavozoveMisto_DatumACas = Convert.ToDateTime(this.ddlZavozoveMisto_DatumACas.SelectedValue);
+            //Ulozi  Zavozove misto a dalsie veci ktore je potrebne ukladat priebezne
+            if (!OnSaveInternalToNextProcessing()) {
+                return;
             }
 
             this.OrderEntity.ShipmentCode = GetShipmentSelection();
+            //Validate Shipment
+            if (String.IsNullOrEmpty(this.OrderEntity.ShipmentCode)) {
+                string js = string.Format("blockUIAlert('', '{0}');", "Je třeba zvolit dopravce");
+                ScriptManager.RegisterStartupScript(this.updatePanel, this.updatePanel.GetType(), "addValidateShipment", js, true);
+                return;
+            }
 
-            if (this.hasBSRProduct == true) {
-                //Validate Shipment
-                if (String.IsNullOrEmpty(this.OrderEntity.ZavozoveMisto_Mesto) || this.OrderEntity.ZavozoveMisto_DatumACas == null || String.IsNullOrEmpty(this.ddlZavozoveMisto_DatumACas.SelectedValue)) {
-                    string js = string.Format("blockUIAlert('', '{0}');", "Je třeba vyplnit závozové místo!");
-                    ScriptManager.RegisterStartupScript(this.updatePanel, this.updatePanel.GetType(), "addValidateZvozoveMisto", js, true);
-                    return;
-                }
+            //Validate STATE
+            string message = Eurona.Common.PSCHelper.ValidateState(this.OrderEntity.DeliveryAddress.State);
+            if (message != string.Empty) {
+                string js = string.Format("blockUIAlert('', '{0}');", message);
+                ScriptManager.RegisterStartupScript(this.updatePanel, this.updatePanel.GetType(), "addValidateState", js, true);
+                return;
             }
 
             //Validate PSČ                  
             AccountEntity account = Storage<AccountEntity>.ReadFirst(new AccountEntity.ReadById { AccountId = this.OrderEntity.AccountId });
-            string message = Eurona.Common.PSCHelper.ValidatePSCByPSC(this.OrderEntity.DeliveryAddress.Zip, this.OrderEntity.DeliveryAddress.City, this.OrderEntity.DeliveryAddress.State);
+            message = Eurona.Common.PSCHelper.ValidatePSCByPSC(this.OrderEntity.DeliveryAddress.Zip, this.OrderEntity.DeliveryAddress.City, this.OrderEntity.DeliveryAddress.State);
             if (message != string.Empty) {
                 string js = string.Format("blockUIAlert('', '{0}');" +
                 @"document.getElementById('" + this.addressDeliveryControl.GetCityClientID() + @"').value ='';" +
@@ -1111,20 +1369,27 @@ namespace Eurona.Controls {
                 return;
             }
 
-            //Validate Shipment
-            if (String.IsNullOrEmpty(this.OrderEntity.ShipmentCode)) {
-                string js = string.Format("blockUIAlert('', '{0}');", "Je třeba zvolit dopravce");
-                ScriptManager.RegisterStartupScript(this.updatePanel, this.updatePanel.GetType(), "addValidateShipment", js, true);
+            //Validate Zavozove misto
+            if (this.hasBSRProduct == true) {
+                //Validate Shipment
+                if (String.IsNullOrEmpty(this.OrderEntity.ZavozoveMisto_Mesto)) {
+                    string js = string.Format("blockUIAlert('', '{0}');", "Je třeba vyplnit závozové místo!");
+                    ScriptManager.RegisterStartupScript(this.updatePanel, this.updatePanel.GetType(), "addValidateZvozoveMisto", js, true);
+                    return;
+                }
+                if (this.OrderEntity.ZavozoveMisto_DatumACas == null) {
+                    string js = string.Format("blockUIAlert('', '{0}');", "Je třeba vyplnit datum a čas závozového místa!");
+                    ScriptManager.RegisterStartupScript(this.updatePanel, this.updatePanel.GetType(), "addValidateZvozoveMisto", js, true);
+                    return;
+                }
+            }
+            //Validate Obaly na ribi produkty
+            if (this.pozadujObal && this.hasObalProdukt == false) {
+                string js = string.Format("blockUIAlert('', '{0}');", "Pro dokončení Vaší objednávky je nutné zvolit odpovídající obal!");
+                ScriptManager.RegisterStartupScript(this.updatePanel, this.updatePanel.GetType(), "addValidateObal", js, true);
                 return;
             }
 
-            //Validate STATE
-            message = Eurona.Common.PSCHelper.ValidateState(this.OrderEntity.DeliveryAddress.State);
-            if (message != string.Empty) {
-                string js = string.Format("blockUIAlert('', '{0}');", message);
-                ScriptManager.RegisterStartupScript(this.updatePanel, this.updatePanel.GetType(), "addValidateState", js, true);
-                return;
-            }
 
             this.OrderEntity.NoPostage = this.cbNoPostage.Checked;
             this.OrderEntity.ShipmentCode = GetShipmentSelection();
@@ -1155,23 +1420,15 @@ namespace Eurona.Controls {
             this.OrderEntity.AssociationRequestStatus = (int)OrderEntity.AssociationStatus.None;
             this.OrderEntity.ParentId = null;
             this.OrderEntity.OrderDate = DateTime.Now;//Added 20.04.2017
-            if (this.ddlZavozoveMisto_Mesto != null && this.ddlZavozoveMisto_Mesto.SelectedItem != null && !String.IsNullOrEmpty(this.ddlZavozoveMisto_DatumACas.SelectedValue)) {
-                this.OrderEntity.ZavozoveMisto_Mesto = this.ddlZavozoveMisto_Mesto.SelectedValue;
-                this.OrderEntity.ZavozoveMisto_DatumACas = Convert.ToDateTime(this.ddlZavozoveMisto_DatumACas.SelectedValue);
+
+            //Ulozi  Zavozove misto a dalsie veci ktore je potrebne ukladat priebezne
+            if (!OnSaveInternalToNextProcessing()) {
+                return;
             }
 
             //if (this.ddlShipment != null) this.OrderEntity.ShipmentCode = this.ddlShipment.SelectedValue;
             this.OrderEntity.ShipmentCode = GetShipmentSelection();
             this.OrderEntity.OrderStatusCode = ((int)OrderEntity.OrderStatus.InProccess).ToString();
-
-            if (this.hasBSRProduct == true) {
-                //Validate Shipment
-                if (String.IsNullOrEmpty(this.OrderEntity.ZavozoveMisto_Mesto) || this.OrderEntity.ZavozoveMisto_DatumACas == null || String.IsNullOrEmpty(this.ddlZavozoveMisto_DatumACas.SelectedValue)) {
-                    string js = string.Format("blockUIAlert('', '{0}');", "Je třeba vyplnit závozové místo!");
-                    ScriptManager.RegisterStartupScript(this.updatePanel, this.updatePanel.GetType(), "addValidateZvozoveMisto", js, true);
-                    return;
-                }
-            }
 
             //Validate Shipment
             if (String.IsNullOrEmpty(this.OrderEntity.ShipmentCode)) {
@@ -1198,6 +1455,27 @@ namespace Eurona.Controls {
                 @"document.getElementById('" + this.addressDeliveryControl.GetZipClientID() + @"').style.backgroundColor='#EFB6E6';" +
                 @"document.getElementById('" + this.addressDeliveryControl.GetZipClientID() + @"').value = '';", message);
                 ScriptManager.RegisterStartupScript(this.updatePanel, this.updatePanel.GetType(), "addValidateOrganization", js, true);
+                return;
+            }
+
+            //Validate Zavozove misto
+            if (this.hasBSRProduct == true) {
+                if (String.IsNullOrEmpty(this.OrderEntity.ZavozoveMisto_Mesto)) {
+                    string js = string.Format("blockUIAlert('', '{0}');", "Je třeba vyplnit závozové místo!");
+                    ScriptManager.RegisterStartupScript(this.updatePanel, this.updatePanel.GetType(), "addValidateZvozoveMisto", js, true);
+                    return;
+                }
+                if (this.OrderEntity.ZavozoveMisto_DatumACas == null) {
+                    string js = string.Format("blockUIAlert('', '{0}');", "Je třeba vyplnit datum a čas závozového místa!");
+                    ScriptManager.RegisterStartupScript(this.updatePanel, this.updatePanel.GetType(), "addValidateZvozoveMisto", js, true);
+                    return;
+                }
+            }
+
+            //Validate Obaly na ribi produkty
+            if (this.pozadujObal && this.hasObalProdukt == false) {
+                string js = string.Format("blockUIAlert('', '{0}');", "Pro dokončení Vaší objednávky je nutné zvolit odpovídající obal!");
+                ScriptManager.RegisterStartupScript(this.updatePanel, this.updatePanel.GetType(), "addValidateObal", js, true);
                 return;
             }
 

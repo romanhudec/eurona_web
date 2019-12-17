@@ -13,7 +13,7 @@ using SHP.Controls.Classifiers;
 namespace Eurona.Controls.Classifiers {
     public class ShipmentControl : ClassifierControl<ShipmentEntity> {
         protected TextBox txtOrder = null;
-
+        protected CheckBox cbHide = null;
         public ShipmentControl() {
         }
 
@@ -32,6 +32,7 @@ namespace Eurona.Controls.Classifiers {
             if (!IsPostBack) {
                 this.txtName.Text = this.classifier.Name;
                 this.txtOrder.Text = this.classifier.Order.ToString();
+                this.cbHide.Checked = this.classifier.Hide;
                 this.DataBind();
             }
         }
@@ -47,10 +48,13 @@ namespace Eurona.Controls.Classifiers {
             this.txtName.Width = Unit.Percentage(100);
             this.txtName.Enabled = false;
 
-
             this.txtOrder = new TextBox();
             this.txtOrder.ID = "txtOrder";
             this.txtOrder.Width = Unit.Pixel(100);
+
+            this.cbHide = new CheckBox();
+            this.cbHide.ID = "cbHide";
+            this.cbHide.Width = Unit.Pixel(100);
 
             this.btnSave = new Button();
             this.btnSave.CausesValidation = true;
@@ -92,6 +96,19 @@ namespace Eurona.Controls.Classifiers {
             row.Cells.Add(cell);
             table.Rows.Add(row);
 
+            //Hide 
+            row = new TableRow();
+            cell = new TableCell();
+            cell.CssClass = "form_label";
+            cell.Text = "Skrýt";
+            row.Cells.Add(cell);
+
+            cell = new TableCell();
+            cell.CssClass = "form_control";
+            cell.Controls.Add(this.cbHide);
+            row.Cells.Add(cell);
+            table.Rows.Add(row);
+
             //Save Cancel Buttons
             row = new TableRow();
             cell = new TableCell();
@@ -108,6 +125,7 @@ namespace Eurona.Controls.Classifiers {
             int order = 0;
             Int32.TryParse(this.txtOrder.Text, out order);
             this.classifier.Order = order;
+            this.classifier.Hide = cbHide.Checked;
             Storage<ShipmentEntity>.Update(this.classifier);
         }
     }

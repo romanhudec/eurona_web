@@ -21,5 +21,6 @@ namespace CMS.Entities.Classifiers {
         public string Notes { get; set; }
         public string Icon { get; set; }
         public int? Order { get; set; }
+        public bool Hide { get; set; }
     }
 }

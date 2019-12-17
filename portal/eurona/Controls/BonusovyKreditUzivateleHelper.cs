@@ -108,7 +108,27 @@ namespace Eurona.Controls {
             if (bk == null) return 99999999;
             else return bk.Kredit;
         }
-    
+
+        public static DateTime GetCurrentObdobiFromTVD() {
+            string connectionString = ConfigurationManager.ConnectionStrings["TVDConnectionString"].ConnectionString;
+
+            CMS.Pump.MSSQLStorage tvdStorage = new CMS.Pump.MSSQLStorage(connectionString);
+            using (SqlConnection connection = tvdStorage.Connect()) {
+                string sql = string.Empty;
+                sql = @"SELECT TOP 1 RRRRMM FROM provize_aktualni";
+                //Clear data
+                DataTable dt = tvdStorage.Query(connection, sql);
+                if (dt == null) return DateTime.Now;
+                if (dt.Rows.Count == 0) return DateTime.Now;
+                object objectValue = dt.Rows[0]["RRRRMM"];
+                if (objectValue == DBNull.Value) return DateTime.Now; ;
+
+                int year = Convert.ToInt32(objectValue.ToString().Substring(0, 4));
+                int month = Convert.ToInt32(objectValue.ToString().Substring(4, 2));
+                return new DateTime(year, month, 1);
+            }
+        }
+
         /// <summary>
         /// Celkovy pocet kreditov nazbieranych tento mesiac
         /// </summary>
@@ -118,16 +138,20 @@ namespace Eurona.Controls {
             Int32.TryParse(ConfigurationManager.AppSettings["InstanceId"], out instanceId);
             int bkTyp = (int)DAL.Entities.Classifiers.BonusovyKreditTyp.Eurosap;
 
+            DateTime? nowTVD = GetCurrentObdobiFromTVD();
+            if (!nowTVD.HasValue) {
+                nowTVD = DateTime.Now;
+            }
+
             string connectionString = ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString;
             CMS.Pump.MSSQLStorage storage = new CMS.Pump.MSSQLStorage(connectionString);
             using (SqlConnection connection = storage.Connect()) {
-                DateTime now = DateTime.Now;
                 string sql = @"SELECT Kredit=ISNULL(SUM(Hodnota),0) FROM vBonusoveKredityUzivatele
 								WHERE AccountId = @accountId AND InstanceId=@InstanceId AND Typ=@bkTyp AND
 								(YEAR(PlatnostOd)=@rok AND MONTH(PlatnostOd)=@mesic)";
                 DataTable dt = storage.Query(connection, sql,
-                        new SqlParameter("@mesic", now.Month),
-                        new SqlParameter("@rok", now.Year),
+                        new SqlParameter("@mesic", nowTVD.Value.Month),
+                        new SqlParameter("@rok", nowTVD.Value.Year),
                         new SqlParameter("@accountId", accountId),
                         new SqlParameter("@InstanceId", instanceId),
                         new SqlParameter("@bkTyp", bkTyp));
@@ -136,6 +160,7 @@ namespace Eurona.Controls {
                 return Convert.ToDecimal(dt.Rows[0]["Kredit"]);
             }
         }
+
         public static decimal GetPlatnyKreditCelkem(Account account, int rok, int mesic) {
             if (!account.TVD_Id.HasValue) return 0;
 
