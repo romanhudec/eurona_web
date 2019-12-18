@@ -94,7 +94,14 @@ namespace Eurona.User.Anonymous {
                 Response.Redirect(aliasUtilities.Resolve("~/user/anonymous/default.aspx"));
                 return;
             }
+
             cart.ShipmentCode = this.rblPreprava.SelectedValue;
+            //Validate Shipment
+            if (String.IsNullOrEmpty(cart.ShipmentCode)) {
+                string js = string.Format("alert('{0}');", "Je třeba zvolit dopravce!");
+                this.Page.ClientScript.RegisterStartupScript(this.Page.GetType(), "addValidateShipment", js, true);
+                return;
+            }
             Storage<Cart>.Update(cart);
 
             this.cartControl.CreateOrder(Security.Account.Id, true, aliasUtilities.Resolve("~/user/anonymous/order.aspx") + "?id={0}");
