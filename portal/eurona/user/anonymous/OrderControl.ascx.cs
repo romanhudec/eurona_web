@@ -1041,7 +1041,6 @@ namespace Eurona.User.Anonymous {
             this.OrderEntity.AssociationAccountId = null;
             this.OrderEntity.AssociationRequestStatus = (int)OrderEntity.AssociationStatus.None;
             this.OrderEntity.ParentId = null;
-            this.OrderEntity.OrderStatusCode = ((int)OrderEntity.OrderStatus.InProccess).ToString();
 
 
             //Ulozi  Zavozove misto a dalsie veci ktore je potrebne ukladat priebezne
@@ -1050,6 +1049,7 @@ namespace Eurona.User.Anonymous {
             }
 
             this.OrderEntity.ShipmentCode = GetShipmentSelection();
+            this.OrderEntity.OrderStatusCode = ((int)OrderEntity.OrderStatus.InProccess).ToString();
             //Validate Shipment
             if (String.IsNullOrEmpty(this.OrderEntity.ShipmentCode)) {
                 string js = string.Format("alert('{0}');", "Je třeba zvolit dopravce!");
