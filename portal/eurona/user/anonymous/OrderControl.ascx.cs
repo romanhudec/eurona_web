@@ -631,6 +631,13 @@ namespace Eurona.User.Anonymous {
 
         #endregion
 
+        private string GetShipmentSelection() {
+            foreach (RadioButton rbShipment in shipmentRadioButtons) {
+                if (rbShipment.Checked) return rbShipment.ID.Replace(rbShipment.GroupName + "_", "");
+            }
+            return null;
+        }
+
         private void SetShipmentSelection(string shipmentCode) {
             foreach (RadioButton rbShipment in shipmentRadioButtons) {
                 string code = rbShipment.ID.Replace(rbShipment.GroupName + "_", "");
@@ -1041,7 +1048,15 @@ namespace Eurona.User.Anonymous {
             if (!OnSaveInternalToNextProcessing()) {
                 return;
             }
-            
+
+            this.OrderEntity.ShipmentCode = GetShipmentSelection();
+            //Validate Shipment
+            if (String.IsNullOrEmpty(this.OrderEntity.ShipmentCode)) {
+                string js = string.Format("alert('{0}');", "Je třeba zvolit dopravce!");
+                this.Page.ClientScript.RegisterStartupScript(this.Page.GetType(), "addValidateShipment", js, true);
+                return;
+            }
+
             if (this.hasBSRProduct == true) {
                 //Validate Shipment
                 if (String.IsNullOrEmpty(this.OrderEntity.ZavozoveMisto_Mesto)) {

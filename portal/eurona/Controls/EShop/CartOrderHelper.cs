@@ -109,7 +109,7 @@ namespace Eurona.Controls {
             //id_prepoctu	int	prim. klíč		
             bSuccess = Convert.ToBoolean(probehlo.Value);
             if (zprava != null && zprava.Value != null) {
-                string msg = string.Format("TVD Prepocet -> esp_www_prepocet(id_prepoctu:{0}) = {1}", recalcId, zprava.Value.ToString());
+                string msg = string.Format("TVD Prepocet -> esp_www_prepocet(id_prepoctu:{0}) = {1}, Sucess:{2}", recalcId, zprava.Value.ToString(), bSuccess);
                 CMS.EvenLog.WritoToEventLog(msg, EventLogEntryType.Information);
             }
             return zprava.Value.ToString();
