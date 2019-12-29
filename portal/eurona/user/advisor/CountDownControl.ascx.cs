@@ -34,11 +34,12 @@ namespace Eurona.user.advisor {
                 return;
             }
 
+            /*
             //Ak je to aktualny rok a aktualny alebo nasledujuci mesiac!
             if (this.uzavierka.UzavierkaOd.Value.Year != DateTime.Now.Year || (this.uzavierka.UzavierkaOd.Value.Month != DateTime.Now.Month && this.uzavierka.UzavierkaOd.Value.Month != DateTime.Now.AddMonths(1).Month)) {
                 this.Visible = false;
                 return;
-            }
+            }*/
 
             //Ak uz uzavierka bola, nezobrazuje sa
             if (this.uzavierka.UzavierkaDo.Value < DateTime.Now) {
