@@ -247,10 +247,10 @@ namespace Cron.Eurona.Import {
                     sql = @"
 					SET IDENTITY_INSERT tShpProduct ON
 					INSERT INTO tShpProduct ([InstanceId], [ProductId], [StorageCount], [Code], [VAT], [Body], [Parfumacia], [Discount], [Top], [Novinka], [Inovace], [Doprodej], [Vyprodano], [ProdejUkoncen],
-							[Megasleva], [Supercena], [CLHit], [Action], [Vyprodej], [OnWeb], [ZadniEtiketa], [ZobrazovatZadniEtiketu], [BSR]
+							[Megasleva], [Supercena], [CLHit], [Action], [Vyprodej], [OnWeb], [ZadniEtiketa], [ZobrazovatZadniEtiketu], [BSR],
 							[HistoryType], [HistoryStamp], [HistoryAccount])
 					VALUES( @InstanceId, @ProductId, @StorageCount, @Code, @VAT, @Body, @Parfumacia, 0, @Top, @Novinka, @Inovace, @Doprodej, @Vyprodano, @ProdejUkoncen, 
-							@Megasleva, @Supercena,@CLHit, @Action, @Vyprodej, @OnWeb, @ZadniEtiketa, @ZobrazovatZadniEtiketu, @BSR
+							@Megasleva, @Supercena,@CLHit, @Action, @Vyprodej, @OnWeb, @ZadniEtiketa, @ZobrazovatZadniEtiketu, @BSR, 
 							'C', GETDATE(), 1 )
 					SET IDENTITY_INSERT tShpProduct OFF";
                     mssqStorageDst.Exec(mssqStorageDst.Connection, sql,
