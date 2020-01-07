@@ -13,6 +13,7 @@ namespace Eurona.Admin {
         private static string OSOBNI_ODBER_MESTO = "Osobní odběr v sídle společnosti";
         private static string OSOBNI_ODBER_PSC = "549 41";
         private static string OSOBNI_ODBER_ADRESA = "Lhota za Červeným Kostelcem 261, Červený Kostelec";
+        private static string OSOBNI_ODBER_STAT = "CZ";
 
         private ZavozoveMistoLimit zavozoveMistoLimit = new ZavozoveMistoLimit("");
         protected void Page_Load(object sender, EventArgs e) {
@@ -144,6 +145,7 @@ namespace Eurona.Admin {
                 this.zavozoveMistoOsobniOdber.OsobniOdberVSidleSpolecnosti = true;
                 this.zavozoveMistoOsobniOdber.Mesto = OSOBNI_ODBER_MESTO;
                 this.zavozoveMistoOsobniOdber.Psc = OSOBNI_ODBER_PSC;
+                this.zavozoveMistoOsobniOdber.Stat = OSOBNI_ODBER_STAT;
                 this.zavozoveMistoOsobniOdber.OsobniOdberAdresaSidlaSpolecnosti = OSOBNI_ODBER_ADRESA;
                 this.zavozoveMistoOsobniOdber = Storage<ZavozoveMisto>.Create(this.zavozoveMistoOsobniOdber);
             }
@@ -155,6 +157,7 @@ namespace Eurona.Admin {
             }
             this.zavozoveMistoOsobniOdber.Mesto = OSOBNI_ODBER_MESTO;
             this.zavozoveMistoOsobniOdber.Psc = OSOBNI_ODBER_PSC;
+            this.zavozoveMistoOsobniOdber.Stat = OSOBNI_ODBER_STAT;
             this.zavozoveMistoOsobniOdber.OsobniOdberAdresaSidlaSpolecnosti = OSOBNI_ODBER_ADRESA;
             Storage<ZavozoveMisto>.Update(this.zavozoveMistoOsobniOdber);
         }
@@ -193,12 +196,14 @@ namespace Eurona.Admin {
                 this.zavozoveMistoOsobniOdber.OsobniOdberVSidleSpolecnosti = true;
                 this.zavozoveMistoOsobniOdber.Mesto = OSOBNI_ODBER_MESTO;
                 this.zavozoveMistoOsobniOdber.Psc = OSOBNI_ODBER_PSC;
+                this.zavozoveMistoOsobniOdber.Stat = OSOBNI_ODBER_STAT;
                 this.zavozoveMistoOsobniOdber.OsobniOdberAdresaSidlaSpolecnosti = OSOBNI_ODBER_ADRESA;
                 this.zavozoveMistoOsobniOdber = Storage<ZavozoveMisto>.Create(this.zavozoveMistoOsobniOdber);
             }
 
             this.zavozoveMistoOsobniOdber.Mesto = OSOBNI_ODBER_MESTO;
             this.zavozoveMistoOsobniOdber.Psc = OSOBNI_ODBER_PSC;
+            this.zavozoveMistoOsobniOdber.Stat = OSOBNI_ODBER_STAT;
             this.zavozoveMistoOsobniOdber.OsobniOdberAdresaSidlaSpolecnosti = OSOBNI_ODBER_ADRESA;
             this.zavozoveMistoOsobniOdber.OsobniOdberPovoleneCasy = this.zavozoveMistoLimit.ToString();
             Storage<ZavozoveMisto>.Update(this.zavozoveMistoOsobniOdber);
