@@ -837,9 +837,9 @@ namespace Eurona.Controls {
 
         void obalyControl_OnAddObalProduct(int productId, int quantity) {
             ProductEntity p = Storage<ProductEntity>.ReadFirst(new ProductEntity.ReadById { ProductId = productId });
-            //bool isOperator = Security.IsLogged(false) && Security.Account.IsInRole(Role.OPERATOR);
-            //if (!EuronaCartHelper.ValidateProductBeforeAddingToChart(this.txtKod.Text, p, quantity, false, this, isOperator))
-            //    return;
+            bool isOperator = Security.IsLogged(false) && Security.Account.IsInRole(Role.OPERATOR);
+            if (!EuronaCartHelper.ValidateProductBeforeAddingToChart(this.txtKod.Text, p, quantity, false, this, isOperator))
+                return;
 
             bool updateResult = false;
             EuronaCartHelper.UpdateCartProduct(this.Page, this.OrderEntity.CartId, p.Id, quantity, out updateResult, false);

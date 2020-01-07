@@ -19,7 +19,7 @@
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
     <OutputPath>bin\Debug\</OutputPath>
-    <DefineConstants>TRACE;DEBUG;N__DEBUG_VERSION;N__DEBUG_VERSION_WITHOUTTVD</DefineConstants>
+    <DefineConstants>TRACE;DEBUG;__DEBUG_VERSION;__DEBUG_VERSION_WITHOUTTVD</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
