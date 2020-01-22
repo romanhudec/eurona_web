@@ -12,73 +12,61 @@ using System.ComponentModel;
 using CMS.Controls;
 using CMS;
 
-namespace Eurona.Common.Controls.Product
-{
+namespace Eurona.Common.Controls.Product {
     // do not show the StatsData class in the Toolbox...
     [ToolboxItem(false)]
-    public class ProductCommentsData : WebControl, INamingContainer
-    {
+    public class ProductCommentsData : WebControl, INamingContainer {
         private ProductCommentEntity comment;
 
         internal ProductCommentsData(ProductCommentsControl owner, ProductCommentEntity comment)
-            : base("div")
-        {
+            : base("div") {
             this.comment = comment;
             this.CssClass = owner.CssClass + "_container";
             this.Childs = new List<ProductCommentsData>();
         }
 
         [Bindable(true)]
-        public int Id
-        {
+        public int Id {
             get { return this.comment.Id; }
         }
 
         [Bindable(true)]
-        public int CommentId
-        {
+        public int CommentId {
             get { return this.comment.CommentId; }
         }
 
         [Bindable(true)]
-        public int? ParentId
-        {
+        public int? ParentId {
             get { return this.comment.ParentId; }
         }
 
         [Bindable(true)]
-        public int AccountId
-        {
+        public int AccountId {
             get { return this.comment.AccountId; }
         }
 
         [Bindable(true)]
-        public DateTime Date
-        {
+        public DateTime Date {
             get { return this.comment.Date; }
         }
 
         [Bindable(true)]
-        public string AccountName
-        {
+        public string AccountName {
             get { return this.comment.AccountName; }
         }
 
         [Bindable(true)]
-        public string Title
-        {
+        public string Title {
             get { return this.comment.Title; }
         }
 
         [Bindable(true)]
-        public string Content
-        {
+        public string Content {
             get { return this.comment.Content; }
         }
 
         [Bindable(true)]
-        public double RatingResult
-        {
+        public double RatingResult {
             get { return this.comment.RatingResult; }
         }
 
@@ -87,20 +75,17 @@ namespace Eurona.Common.Controls.Product
 
     }
 
-    public class ProductCommentsControl : CmsControl
-    {
+    public class ProductCommentsControl : CmsControl {
         public int MaxItemsCount { get; set; }
         public string DisplayUrlFormat { get; set; }
         public string CssCarma { get; set; }
 
-        public string CommentFormID
-        {
+        public string CommentFormID {
             get { return ViewState["CommentFormID"] == null ? string.Empty : ViewState["CommentFormID"].ToString(); }
             set { ViewState["CommentFormID"] = value; }
         }
 
-        public int ProductId
-        {
+        public int ProductId {
             get { return Convert.ToInt32(ViewState["ProductId"]); }
             set { ViewState["ProductId"] = value; }
         }
@@ -115,20 +100,16 @@ namespace Eurona.Common.Controls.Product
         // For composite controls, the Controls collection needs to be overriden to
         // ensure that the child controls have been created before the Controls
         // property can be modified by the page developer...
-        public override ControlCollection Controls
-        {
-            get
-            {
+        public override ControlCollection Controls {
+            get {
                 this.EnsureChildControls();
                 return base.Controls;
             }
         }
 
-        private List<ProductCommentsData> BuildTreeData(List<ProductCommentEntity> entityList)
-        {
+        private List<ProductCommentsData> BuildTreeData(List<ProductCommentEntity> entityList) {
             List<ProductCommentsData> list = new List<ProductCommentsData>();
-            foreach (ProductCommentEntity entity in entityList)
-            {
+            foreach (ProductCommentEntity entity in entityList) {
                 if (entity.ParentId != null) continue;
 
                 ProductCommentsData data = new ProductCommentsData(this, entity);
@@ -139,11 +120,9 @@ namespace Eurona.Common.Controls.Product
             return list;
         }
 
-        private List<ProductCommentsData> GetChilds(int parentId, List<ProductCommentEntity> entityList)
-        {
+        private List<ProductCommentsData> GetChilds(int parentId, List<ProductCommentEntity> entityList) {
             List<ProductCommentsData> list = new List<ProductCommentsData>();
-            foreach (ProductCommentEntity entity in entityList)
-            {
+            foreach (ProductCommentEntity entity in entityList) {
                 if (entity.ParentId != parentId) continue;
 
                 ProductCommentsData data = new ProductCommentsData(this, entity);
@@ -154,14 +133,12 @@ namespace Eurona.Common.Controls.Product
             return list;
         }
 
-        public override void RenderControl(HtmlTextWriter writer)
-        {
+        public override void RenderControl(HtmlTextWriter writer) {
             writer.Write(string.Format("<div id='{0}'>", this.ClientID));
             base.RenderControl(writer);
             writer.Write("</div>");
         }
-        protected override void CreateChildControls()
-        {
+        protected override void CreateChildControls() {
             ProductEntity product = Storage<ProductEntity>.ReadFirst(new ProductEntity.ReadById { ProductId = this.ProductId });
             if (product == null)
                 return;
@@ -187,8 +164,7 @@ namespace Eurona.Common.Controls.Product
             HyperLink hlReply = new HyperLink();
             hlReply.CssClass = this.CssClass + "_item_reply";
             hlReply.Text = global::SHP.Resources.Controls.ProductCommentsControl_Reply;
-            hlReply.DataBinding += (sender, e) =>
-            {
+            hlReply.DataBinding += (sender, e) => {
                 HtmlGenericControl control = sender as HtmlGenericControl;
                 hlReply.Attributes.Add("onclick", string.Format("showReplyForm('{0}', '{1}', null )",
                         this.CommentFormID,
@@ -220,8 +196,7 @@ namespace Eurona.Common.Controls.Product
             List<ProductCommentEntity> list = Storage<ProductCommentEntity>.Read(new ProductCommentEntity.ReadByProductId { ProductId = this.ProductId });
             List<ProductCommentsData> dataSource = BuildTreeData(list);
 
-            foreach (ProductCommentsData data in dataSource)
-            {
+            foreach (ProductCommentsData data in dataSource) {
                 template.InstantiateIn(data);
                 Controls.Add(data);
             }
@@ -230,27 +205,23 @@ namespace Eurona.Common.Controls.Product
         }
 
 
-        public override void DataBind()
-        {
+        public override void DataBind() {
             this.ChildControlsCreated = true;
             base.DataBind();
         }
 
-        internal sealed class DefaultProductCommentsTemplate : ITemplate
-        {
+        internal sealed class DefaultProductCommentsTemplate : ITemplate {
             public string CssClass { get; set; }
             public ProductCommentsControl Owner { get; set; }
             public string CommentFormID { get; set; }
 
-            public DefaultProductCommentsTemplate(ProductCommentsControl owner)
-            {
+            public DefaultProductCommentsTemplate(ProductCommentsControl owner) {
                 this.Owner = owner;
                 this.CssClass = owner.CssClass;
                 this.CommentFormID = owner.CommentFormID;
             }
 
-            void ITemplate.InstantiateIn(Control container)
-            {
+            void ITemplate.InstantiateIn(Control container) {
                 HtmlGenericControl divReplyFormContainer = new HtmlGenericControl("div");
 
                 HtmlGenericControl div = new HtmlGenericControl("div");
@@ -266,8 +237,7 @@ namespace Eurona.Common.Controls.Product
                 cell.VerticalAlign = VerticalAlign.Top;
                 cell.CssClass = this.CssClass + "_item_title";
                 Label lblTitle = new Label();
-                lblTitle.DataBinding += (sender, e) =>
-                {
+                lblTitle.DataBinding += (sender, e) => {
                     ProductCommentsData data = (ProductCommentsData)lblTitle.NamingContainer;
                     Label control = sender as Label;
                     control.Text = data.Title;
@@ -282,8 +252,7 @@ namespace Eurona.Common.Controls.Product
                 cell.CssClass = this.CssClass + "_item_carma";
                 CMS.Controls.Vote.CarmaControl carmaControl = new CMS.Controls.Vote.CarmaControl();
                 carmaControl.CssClass = this.Owner.CssCarma;
-                carmaControl.OnVote += (objectId, rating) =>
-                {
+                carmaControl.OnVote += (objectId, rating) => {
                     ProductCommentEntity.IncrementVoteCommand cmd = new ProductCommentEntity.IncrementVoteCommand();
                     cmd.AccountId = Security.Account.Id;
                     cmd.CommentId = objectId;
@@ -294,8 +263,7 @@ namespace Eurona.Common.Controls.Product
                     return comment.RatingResult;
                 };
 
-                carmaControl.DataBinding += (sender, e) =>
-                {
+                carmaControl.DataBinding += (sender, e) => {
                     ProductCommentsData data = (ProductCommentsData)lblTitle.NamingContainer;
                     CMS.Controls.Vote.CarmaControl control = sender as CMS.Controls.Vote.CarmaControl;
                     control.ObjectId = data.CommentId;
@@ -313,8 +281,7 @@ namespace Eurona.Common.Controls.Product
                 cell.ColumnSpan = 2;
                 Label lblContent = new Label();
                 lblContent.CssClass = this.CssClass + "_item_content";
-                lblContent.DataBinding += (sender, e) =>
-                {
+                lblContent.DataBinding += (sender, e) => {
                     ProductCommentsData data = (ProductCommentsData)lblContent.NamingContainer;
                     Label control = sender as Label;
                     control.Text = data.Content;
@@ -330,8 +297,7 @@ namespace Eurona.Common.Controls.Product
                 HyperLink hlReply = new HyperLink();
                 hlReply.CssClass = this.CssClass + "_item_reply";
                 hlReply.Text = global::SHP.Resources.Controls.ProductCommentsControl_Reply;
-                hlReply.DataBinding += (sender, e) =>
-                {
+                hlReply.DataBinding += (sender, e) => {
                     ProductCommentsData data = (ProductCommentsData)hlReply.NamingContainer;
                     HtmlGenericControl control = sender as HtmlGenericControl;
                     divReplyFormContainer.Attributes.Add("id", string.Format("formContainer_{0}", data.CommentId));
@@ -350,8 +316,7 @@ namespace Eurona.Common.Controls.Product
                 cell.HorizontalAlign = HorizontalAlign.Right;
                 Label lblUserName = new Label();
                 lblUserName.CssClass = this.CssClass + "_item_user";
-                lblUserName.DataBinding += (sender, e) =>
-                {
+                lblUserName.DataBinding += (sender, e) => {
                     ProductCommentsData data = (ProductCommentsData)lblUserName.NamingContainer;
                     Label control = sender as Label;
                     control.Text = data.AccountName;
@@ -363,8 +328,7 @@ namespace Eurona.Common.Controls.Product
                 //DateTime
                 Label lblDateTime = new Label();
                 lblDateTime.CssClass = this.CssClass + "_item_date";
-                lblDateTime.DataBinding += (sender, e) =>
-                {
+                lblDateTime.DataBinding += (sender, e) => {
                     ProductCommentsData data = (ProductCommentsData)lblDateTime.NamingContainer;
                     Label control = sender as Label;
                     control.Text = data.Date.ToString();
@@ -374,30 +338,25 @@ namespace Eurona.Common.Controls.Product
 
                 //Nevhodny prispevok
                 bool showInappropriatePost = false;
-                if (Security.IsInRole(CMS.Entities.Role.ADMINISTRATOR) || Security.IsInRole(Eurona.Common.DAL.Entities.Role.OPERATOR))
-                {
+                if (Security.IsInRole(CMS.Entities.Role.ADMINISTRATOR) || Security.IsInRole(Eurona.Common.DAL.Entities.Role.OPERATOR)) {
                     cell.Controls.Add(new LiteralControl("|"));
                     LinkButton btnInappropriatePost = new LinkButton();
                     btnInappropriatePost.Text = "Smazat";//SHP.Resources.Controls.ProductCommentsControl_InappropriatePost;
                     btnInappropriatePost.CausesValidation = false;
                     btnInappropriatePost.CssClass = this.CssClass + "_item_deletecomment";
-                    btnInappropriatePost.DataBinding += (sender, e) =>
-                    {
+                    btnInappropriatePost.DataBinding += (sender, e) => {
                         ProductCommentsData data = (ProductCommentsData)btnInappropriatePost.NamingContainer;
                         LinkButton control = sender as LinkButton;
                         control.CommandArgument = data.Id.ToString();
                     };
-                    btnInappropriatePost.Click += (s, e) =>
-                    {
+                    btnInappropriatePost.Click += (s, e) => {
                         ProductCommentsData data = (ProductCommentsData)lblTitle.NamingContainer;
                         LinkButton control = s as LinkButton;
                         int id = Convert.ToInt32(control.CommandArgument);
                         ProductCommentEntity pce = Storage<ProductCommentEntity>.ReadFirst(new ProductCommentEntity.ReadById { ProductCommentId = id });
-                        if (pce != null)
-                        {
+                        if (pce != null) {
                             CommentEntity ce = Storage<CommentEntity>.ReadFirst(new CommentEntity.ReadById { CommentId = pce.CommentId });
-                            if (ce != null)
-                            {
+                            if (ce != null) {
                                 /*
                                 lblContent.Text = SHP.Resources.Controls.ProductCommentsControl_InappropriatePost;
                                 ce.Content = SHP.Resources.Controls.ProductCommentsControl_InappropriatePost;
@@ -428,11 +387,9 @@ namespace Eurona.Common.Controls.Product
                 cell.ColumnSpan = showInappropriatePost ? 3 : 2;
                 HtmlGenericControl divChilds = new HtmlGenericControl("div");
                 divChilds.Attributes.Add("class", this.CssClass + "_item_children");
-                divChilds.DataBinding += (sender, e) =>
-                {
+                divChilds.DataBinding += (sender, e) => {
                     ProductCommentsData data = (ProductCommentsData)lblContent.NamingContainer;
-                    foreach (ProductCommentsData child in data.Childs)
-                    {
+                    foreach (ProductCommentsData child in data.Childs) {
                         ITemplate template = new DefaultProductCommentsTemplate(this.Owner);
                         template.InstantiateIn(child);
                         divChilds.Controls.Add(child);

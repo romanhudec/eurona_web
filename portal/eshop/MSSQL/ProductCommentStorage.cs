@@ -45,7 +45,7 @@ namespace SHP.MSSQL {
 										Votes , TotalRating, RatingResult
 								FROM vShpProductComments 
 								WHERE InstanceId=@InstanceId
-								ORDER BY [Date] ASC";
+								ORDER BY [Date] DESC";
                 DataTable table = Query<DataTable>(connection, sql, new SqlParameter("@InstanceId", InstanceId));
                 foreach (DataRow dr in table.Rows)
                     list.Add(GetComment(dr));
@@ -65,7 +65,7 @@ namespace SHP.MSSQL {
 										Votes , TotalRating, RatingResult
 								FROM vShpProductComments
 								WHERE ProductCommentId = @ProductCommentId AND InstanceId=@InstanceId
-								ORDER BY [Date] ASC";
+								ORDER BY [Date] DESC";
                 DataTable table = Query<DataTable>(connection, sql,
                         new SqlParameter("@ProductCommentId", by.ProductCommentId),
                         new SqlParameter("@InstanceId", InstanceId));
@@ -82,7 +82,7 @@ namespace SHP.MSSQL {
 										Votes , TotalRating, RatingResult
 								FROM vShpProductComments
 								WHERE ProductId = @ProductId AND InstanceId=@InstanceId
-								ORDER BY [Date] ASC";
+								ORDER BY [Date] DESC";
                 DataTable table = Query<DataTable>(connection, sql,
                         new SqlParameter("@ProductId", byProductId.ProductId),
                         new SqlParameter("@InstanceId", InstanceId));
@@ -100,7 +100,7 @@ namespace SHP.MSSQL {
 										Votes , TotalRating, RatingResult
 								FROM vShpProductComments
 								WHERE CommentId = @CommentId AND InstanceId=@InstanceId
-								ORDER BY [Date] ASC";
+								ORDER BY [Date] DESC";
                 DataTable table = Query<DataTable>(connection, sql,
                         new SqlParameter("@CommentId", byCommentId.CommentId),
                         new SqlParameter("@InstanceId", InstanceId));
