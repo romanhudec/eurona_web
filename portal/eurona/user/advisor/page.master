@@ -239,7 +239,7 @@
                                     <a class="advisor-pagesubmenu" id="hlAkcnyCennik" runat="server"><asp:Literal ID="Literal11" runat="server" Text="<%$ Resources:Strings, Navigation_Podpora_AkcniCenik  %>"></asp:Literal></a> 
                                     <a class="advisor-pagesubmenu" id="hlEuronaNews" runat="server"><asp:Literal ID="Literal13" runat="server" Text="<%$ Resources:Strings, Navigation_Podpora_EuronaNews  %>"></asp:Literal></a> 
                                     <a class="advisor-pagesubmenu" id="hlPrezentacniLetaky" runat="server" ><asp:Literal ID="Literal12" runat="server" Text="<%$ Resources:Strings, Navigation_Podpora_PrezentacniLetaky   %>"></asp:Literal></a> 
-                                    <a class="advisor-pagesubmenu" id="hlVzdelavani" runat="server"><asp:Literal ID="Literal14" runat="server" Text="<%$ Resources:Strings, Navigation_Podpora_Vzdelavani  %>"></asp:Literal></a> 
+                                    <%--<a class="advisor-pagesubmenu" id="hlVzdelavani" runat="server"><asp:Literal ID="Literal14" runat="server" Text="<%$ Resources:Strings, Navigation_Podpora_Vzdelavani  %>"></asp:Literal></a> --%>
                                     </div>
                                     <br />
                                     <cmsPage:PageControl ID="genericPage" IsEditing="false" runat="server" CssEditorToolBar="contentEditorToolbar" CssEditorContent="contentEditorContent" NewUrl="" 

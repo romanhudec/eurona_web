@@ -88,8 +88,8 @@ namespace Eurona.User.Advisor {
             alias = util.Resolve("~/user/advisor/page.aspx?name=advisor-menu-podpora-prodeje-prezentacni-letaky", this.Page);
             this.hlPrezentacniLetaky.HRef = alias;
 
-            alias = util.Resolve("~/user/advisor/page.aspx?name=advisor-menu-podpora-prodeje-vzdelavani", this.Page);
-            this.hlVzdelavani.HRef = alias;
+            //alias = util.Resolve("~/user/advisor/page.aspx?name=advisor-menu-podpora-prodeje-vzdelavani", this.Page);
+            //this.hlVzdelavani.HRef = alias;
 
 
             //Nastavenie spravnej meny do Session podla locale
