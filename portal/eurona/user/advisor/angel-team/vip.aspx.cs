@@ -79,7 +79,8 @@ namespace Eurona.User.Advisor.AngelTeam {
                 if (anonymniRegistraceLimit.IsInLimitForATPClen(DateTime.Now) && this.LogedAdvisor.AngelTeamClen && this.LogedAdvisor.TopManager == 0) {
                     listCekajici = Storage<Organization>.Read(new Organization.ReadByAnonymous { AnonymousRegistration = true, Assigned = false, RegionCode = this.LogedAdvisor.RegionCode });
                 } else if (anonymniRegistraceLimit.IsInLimitForATPManager(DateTime.Now) && this.LogedAdvisor.AngelTeamClen && (this.LogedAdvisor.TopManager == 1 || this.LogedAdvisor.AngelTeamManager)) {
-                    listCekajici = Storage<Organization>.Read(new Organization.ReadByAnonymous { AnonymousRegistration = true, Assigned = false, RegionCode = null });
+                    listCekajici = Storage<Organization>.Read(new Organization.ReadByAnonymous { AnonymousRegistration = true, Assigned = false, RegionCode = this.LogedAdvisor.RegionCode });
+                    listCekajici.AddRange(Storage<Organization>.Read(new Organization.ReadByAnonymous { AnonymousRegistration = true, Assigned = false, RegionCode = null }));
                 }
             }
 
