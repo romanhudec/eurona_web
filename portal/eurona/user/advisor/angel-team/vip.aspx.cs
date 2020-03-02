@@ -73,13 +73,12 @@ namespace Eurona.User.Advisor.AngelTeam {
                 /*
                 Ak je pouzivatel OTP clen (tOrganization.Angel_team_clen=1), tak moze odchytavat novacikou iba v stanoveny cas 19-20 (tak ako je nastavene)a to iba vo svojom regione
                 Ak je pouzivate OTP manager (tOrganization.Angel_team_clen=1 AND (tOrganization.Angel_team_manager=1 OR tOrganization.TopManager=1)), 
-                moze odchytavat novacikou v case 19-20 (ako je nastavene) + este jednu hodinu teda 20-21 a to bezohladu na region.                  
+                moze odchytavat novacikou v case 19-20 (ako je nastavene) + este jednu hodinu po, teda 20-21 a to bezohladu na region.                  
                 */
                 AnonymniRegistraceLimit anonymniRegistraceLimit = new AnonymniRegistraceLimit(nastaveni.ZobrazitVSeznamuLimit);
                 if (anonymniRegistraceLimit.IsInLimitForATPClen(DateTime.Now) && this.LogedAdvisor.AngelTeamClen && this.LogedAdvisor.TopManager == 0) {
                     listCekajici = Storage<Organization>.Read(new Organization.ReadByAnonymous { AnonymousRegistration = true, Assigned = false, RegionCode = this.LogedAdvisor.RegionCode });
                 } else if (anonymniRegistraceLimit.IsInLimitForATPManager(DateTime.Now) && this.LogedAdvisor.AngelTeamClen && (this.LogedAdvisor.TopManager == 1 || this.LogedAdvisor.AngelTeamManager)) {
-                    listCekajici = Storage<Organization>.Read(new Organization.ReadByAnonymous { AnonymousRegistration = true, Assigned = false, RegionCode = this.LogedAdvisor.RegionCode });
                     listCekajici.AddRange(Storage<Organization>.Read(new Organization.ReadByAnonymous { AnonymousRegistration = true, Assigned = false, RegionCode = null }));
                 }
             }
