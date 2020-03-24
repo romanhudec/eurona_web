@@ -643,24 +643,6 @@ namespace Eurona.User.Advisor {
         protected global::System.Web.UI.WebControls.Literal Literal12;
         
         /// <summary>
-        /// hlVzdelavani control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlAnchor hlVzdelavani;
-        
-        /// <summary>
-        /// Literal14 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Literal Literal14;
-        
-        /// <summary>
         /// genericPage control.
         /// </summary>
         /// <remarks>
