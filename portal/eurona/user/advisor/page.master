@@ -59,6 +59,8 @@
             else elm.style.display = 'block';
         }
     </script>  
+   <script data-queueit-c='euronabycerny' type='text/javascript'src='//static.queue-it.net/script/queueconfigloader.min.js'>
+    </script>
 </head>
 <body class="main-body">
     <form id="form1" runat="server">

@@ -25,6 +25,9 @@
     })(window, document, 'script', 'dataLayer', 'GTM-P7NM5X6');</script>
     <!-- End Google Tag Manager -->
 
+    <script type='text/javascript' src='//static.queue-it.net/script/queueclient.min.js'></script>
+    <script data-queueit-c='euronabycerny' type='text/javascript'src='//static.queue-it.net/script/queueconfigloader.min.js'>
+    </script>
 
     <title>Eurona by Cerny</title>
     <meta name="author" content="EuronabyCerny (prodej@eurona.cz)" />
