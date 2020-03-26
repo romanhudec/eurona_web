@@ -46,21 +46,21 @@ namespace Cron.Eurona.Import {
             using (SqlConnection connection = mssqStorageSrc.Connect()) {
                 if (instanceId == 1) //Eurona
 				{
-                    string sql = "SELECT DISTINCT C_Zbo, [Eurona_Produkt], [Intensa_Produkt], [CernyForLife_Produkt]=[Intensa_Produkt], [Dispozice_HR], [Dispozice_HR1] FROM Produkty WHERE Eurona_Produkt=1";
+                    string sql = "SELECT DISTINCT C_Zbo, [Eurona_Produkt], [Intensa_Produkt], [CernyForLife_Produkt]=[Intensa_Produkt], [Dispozice_HR], [Dispozice_HR1] FROM Produkty WHERE Eurona_Produkt=1 ORDER BY C_Zbo DESC";
                     DataTable dt = mssqStorageSrc.Query(connection, sql);
                     return dt;
                 } else if (instanceId == 2) //Intensa
 				{
-                    string sql = "SELECT DISTINCT C_Zbo, [Eurona_Produkt], [Intensa_Produkt], [CernyForLife_Produkt]=[Intensa_Produkt], [Dispozice_HR], [Dispozice_HR1] FROM Produkty WHERE Intensa_Produkt=1";
+                    string sql = "SELECT DISTINCT C_Zbo, [Eurona_Produkt], [Intensa_Produkt], [CernyForLife_Produkt]=[Intensa_Produkt], [Dispozice_HR], [Dispozice_HR1] FROM Produkty WHERE Intensa_Produkt=1 ORDER BY C_Zbo DESC";
                     DataTable dt = mssqStorageSrc.Query(connection, sql);
                     return dt;
                 } else if (instanceId == 3) //Cerny for Life
 				{
-                    string sql = "SELECT DISTINCT C_Zbo, [Eurona_Produkt], [Intensa_Produkt], [CernyForLife_Produkt]=[Intensa_Produkt], [Dispozice_HR], [Dispozice_HR1] FROM Produkty WHERE Intensa_Produkt=1";
+                    string sql = "SELECT DISTINCT C_Zbo, [Eurona_Produkt], [Intensa_Produkt], [CernyForLife_Produkt]=[Intensa_Produkt], [Dispozice_HR], [Dispozice_HR1] FROM Produkty WHERE Intensa_Produkt=1 ORDER BY C_Zbo DESC";
                     DataTable dt = mssqStorageSrc.Query(connection, sql);
                     return dt;
                 } else {
-                    string sql = "SELECT DISTINCT C_Zbo, [Eurona_Produkt], [Intensa_Produkt], [CernyForLife_Produkt]=[Intensa_Produkt], [Dispozice_HR], [Dispozice_HR1] FROM Produkty";
+                    string sql = "SELECT DISTINCT C_Zbo, [Eurona_Produkt], [Intensa_Produkt], [CernyForLife_Produkt]=[Intensa_Produkt], [Dispozice_HR], [Dispozice_HR1] FROM Produkty ORDER BY C_Zbo DESC";
                     DataTable dt = mssqStorageSrc.Query(connection, sql);
                     return dt;
                 }

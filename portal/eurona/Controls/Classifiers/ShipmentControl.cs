@@ -14,6 +14,8 @@ namespace Eurona.Controls.Classifiers {
     public class ShipmentControl : ClassifierControl<ShipmentEntity> {
         protected TextBox txtOrder = null;
         protected CheckBox cbHide = null;
+        protected CheckBox cbPlatbaDobirkou = null;
+        protected CheckBox cbPlatbaKartou = null;
         public ShipmentControl() {
         }
 
@@ -33,6 +35,8 @@ namespace Eurona.Controls.Classifiers {
                 this.txtName.Text = this.classifier.Name;
                 this.txtOrder.Text = this.classifier.Order.ToString();
                 this.cbHide.Checked = this.classifier.Hide;
+                this.cbPlatbaDobirkou.Checked = this.classifier.PlatbaDobirkou;
+                this.cbPlatbaKartou.Checked = this.classifier.PlatbaKartou;
                 this.DataBind();
             }
         }
@@ -55,6 +59,14 @@ namespace Eurona.Controls.Classifiers {
             this.cbHide = new CheckBox();
             this.cbHide.ID = "cbHide";
             this.cbHide.Width = Unit.Pixel(100);
+
+            this.cbPlatbaDobirkou = new CheckBox();
+            this.cbPlatbaDobirkou.ID = "cbPlatbaDobirkou";
+            this.cbPlatbaDobirkou.Width = Unit.Pixel(100);
+
+            this.cbPlatbaKartou = new CheckBox();
+            this.cbPlatbaKartou.ID = "cbPlatbaKartou";
+            this.cbPlatbaKartou.Width = Unit.Pixel(100);
 
             this.btnSave = new Button();
             this.btnSave.CausesValidation = true;
@@ -109,6 +121,30 @@ namespace Eurona.Controls.Classifiers {
             row.Cells.Add(cell);
             table.Rows.Add(row);
 
+            //Platba Dobirkou 
+            row = new TableRow();
+            cell = new TableCell();
+            cell.CssClass = "form_label";
+            cell.Text = "Platba dobírkou";
+            row.Cells.Add(cell);
+            cell = new TableCell();
+            cell.CssClass = "form_control";
+            cell.Controls.Add(this.cbPlatbaDobirkou);
+            row.Cells.Add(cell);
+            table.Rows.Add(row);
+
+            //Platba Kartou 
+            row = new TableRow();
+            cell = new TableCell();
+            cell.CssClass = "form_label";
+            cell.Text = "Platba kartou";
+            row.Cells.Add(cell);
+            cell = new TableCell();
+            cell.CssClass = "form_control";
+            cell.Controls.Add(this.cbPlatbaKartou);
+            row.Cells.Add(cell);
+            table.Rows.Add(row);
+
             //Save Cancel Buttons
             row = new TableRow();
             cell = new TableCell();
@@ -126,6 +162,8 @@ namespace Eurona.Controls.Classifiers {
             Int32.TryParse(this.txtOrder.Text, out order);
             this.classifier.Order = order;
             this.classifier.Hide = cbHide.Checked;
+            this.classifier.PlatbaDobirkou = cbPlatbaDobirkou.Checked;
+            this.classifier.PlatbaKartou = cbPlatbaKartou.Checked;
             Storage<ShipmentEntity>.Update(this.classifier);
         }
     }

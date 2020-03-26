@@ -26,7 +26,12 @@ namespace SHP.Entities.Classifiers {
             }
         }
 
+        public bool PlatbaDobirkou { get; set; }
+        public bool PlatbaKartou { get; set; }
+
         public class ReadDefault{
+        }
+        public class Read4AllLocales{
         }
     }
     [Serializable]

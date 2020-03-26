@@ -5,6 +5,7 @@ using System.Data;
 using Eurona.Controls;
 using System.Web.UI;
 using SettingsEntity = Eurona.Common.DAL.Entities.Settings;
+using ShipmentEntity = SHP.Entities.Classifiers.Shipment;
 using Eurona.Common.DAL.Entities;
 using System.Collections.Generic;
 using System.Web.UI.WebControls;
@@ -14,12 +15,22 @@ namespace Eurona.EShop {
     public partial class PayOrderControl : Eurona.Common.Controls.UserControl {
         private OrderEntity order = null;
         private SettingsEntity settingsPlatbaKartouLimit = null;
+        private bool isPlatbaKartouPovolena = false;
 
         protected void Page_Load(object sender, EventArgs e) {
             btnPay.Attributes["onclick"] = "this.disabled=true;this.value='Please wait...';" + Page.ClientScript.GetPostBackEventReference(btnPay, null).ToString();
             this.settingsPlatbaKartouLimit = Storage<SettingsEntity>.ReadFirst(new SettingsEntity.ReadByCode { Code = "ESHOP_PLATBAKARTOU_LIMIT" });
 
-            if (Eurona.Common.DAL.Entities.Settings.IsPlatbaKartouPovolena()) {
+
+            ShipmentEntity shipment = Storage<ShipmentEntity>.ReadFirst(new ShipmentEntity.ReadByCode { Code = this.OrderEntity.ShipmentCode });
+            this.isPlatbaKartouPovolena = Eurona.Common.DAL.Entities.Settings.IsPlatbaKartouPovolena();
+            if (isPlatbaKartouPovolena) {
+                if (shipment.PlatbaKartou == false) {
+                    isPlatbaKartouPovolena = false;
+                }
+            }
+
+            if (isPlatbaKartouPovolena) {
                 if (this.settingsPlatbaKartouLimit != null) {
                     int limit = Eurona.Common.DAL.Entities.Settings.GetPlatbaKartouLimit();
                     if (limit > 0) {
@@ -39,6 +50,14 @@ namespace Eurona.EShop {
                         }
                     }
                 }
+            }
+
+            if (!shipment.PlatbaKartou) {
+                payLimit.Visible = false;
+                this.btnPay.Visible = false;
+            }
+            if (!shipment.PlatbaDobirkou) {
+                this.btnUhradaDobirkou.Visible = false;
             }
 
             ////Zdruzene Objednavky
@@ -81,7 +100,7 @@ namespace Eurona.EShop {
         //}
 
         private void RegisterStartupCountDownScript(string containerId, int seconds) {
-            if (!Eurona.Common.DAL.Entities.Settings.IsPlatbaKartouPovolena())
+            if (!isPlatbaKartouPovolena)
                 return;
 
             ClientScriptManager cs = this.Page.ClientScript;
@@ -125,7 +144,7 @@ namespace Eurona.EShop {
         }
 
         protected void OnPayNow(object sender, EventArgs e) {
-            if (!Eurona.Common.DAL.Entities.Settings.IsPlatbaKartouPovolena()) {
+            if (!isPlatbaKartouPovolena) {
                 string jsAlert = string.Format("alert('{0}');", "Omlouváme se, ale platba kartou je dočasne nedostupná!");
                 this.Page.ClientScript.RegisterStartupScript(this.GetType(), "payTransactionResult", jsAlert, true);
                 return;

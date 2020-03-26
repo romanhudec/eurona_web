@@ -18,7 +18,7 @@
     <tr>
         <%--<td class="label"><asp:Literal runat="server" Text="<%$ Resources:EShopStrings, PayOrderControl_OrderIsNotPayed%>"></asp:Literal></td>--%>
         <td align="center" valign="top">
-			<asp:Button CssClass="button-uhrada-dobirkou" runat="server" ID="Button1" Text="<%$ Resources:EShopStrings, PayOrderControl_UhradaDobirkou%>" OnClick="OnUhradaDobirkou" />
+			<asp:Button CssClass="button-uhrada-dobirkou" runat="server" ID="btnUhradaDobirkou" Text="<%$ Resources:EShopStrings, PayOrderControl_UhradaDobirkou%>" OnClick="OnUhradaDobirkou" />
 		</td>
         <td align="center" valign="top">
         <%if (!Eurona.Common.DAL.Entities.Settings.IsPlatbaKartouPovolena()) { %>

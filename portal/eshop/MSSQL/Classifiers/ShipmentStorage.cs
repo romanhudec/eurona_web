@@ -28,6 +28,8 @@ namespace SHP.MSSQL.Classifiers {
             shipment.VAT = ConvertNullable.ToDecimal(record["VAT"]);
             shipment.Order = ConvertNullable.ToInt32(record["Order"]);
             shipment.Hide = record["Hide"] == DBNull.Value ? false : Convert.ToBoolean(record["Hide"]);
+            shipment.PlatbaDobirkou = Convert.ToBoolean(record["PlatbaDobirkou"]);
+            shipment.PlatbaKartou = Convert.ToBoolean(record["PlatbaKartou"]);
 
             return shipment;
         }
@@ -36,10 +38,11 @@ namespace SHP.MSSQL.Classifiers {
             if (criteria is Shipment.ReadById) return LoadById(criteria as Shipment.ReadById);
             if (criteria is Shipment.ReadByCode) return LoadByCode(criteria as Shipment.ReadByCode);
             if (criteria is Shipment.ReadDefault) return LoadDefault();
+            if (criteria is Shipment.Read4AllLocales) return Load4AllLocales();
             List<Shipment> list = new List<Shipment>();
             using (SqlConnection connection = Connect()) {
                 string sql = @"
-								SELECT ShipmentId, InstanceId, [Name], [Code], [Icon], [Locale], [Notes], [Price], [VATId], [PriceWVAT], [VAT], [Order], [Hide]
+								SELECT ShipmentId, InstanceId, [Name], [Code], [Icon], [Locale], [Notes], [Price], [VATId], [PriceWVAT], [VAT], [Order], [Hide], [PlatbaDobirkou], [PlatbaKartou]
 								FROM vShpShipments
 								WHERE Locale = @Locale AND InstanceId=@InstanceId
 								ORDER BY [Order] ASC, [Code] DESC";
@@ -50,11 +53,27 @@ namespace SHP.MSSQL.Classifiers {
             return list;
         }
 
+        public List<Shipment> Load4AllLocales() {
+            List<Shipment> list = new List<Shipment>();
+            using (SqlConnection connection = Connect()) {
+                string sql = @"
+								SELECT ShipmentId, InstanceId, [Name], [Code], [Icon], [Locale], [Notes], [Price], [VATId], [PriceWVAT], [VAT], [Order], [Hide], [PlatbaDobirkou], [PlatbaKartou]
+								FROM vShpShipments
+								WHERE InstanceId=@InstanceId
+								ORDER BY  [Order] ASC, [Default] DESC";
+                DataTable table = Query<DataTable>(connection, sql, new SqlParameter("@InstanceId", InstanceId));
+                foreach (DataRow dr in table.Rows)
+                    list.Add(GetShipment(dr));
+            }
+            return list;
+        }
+
+
         public List<Shipment> LoadDefault() {
             List<Shipment> list = new List<Shipment>();
             using (SqlConnection connection = Connect()) {
                 string sql = @"
-								SELECT ShipmentId, InstanceId, [Name], [Code], [Icon], [Locale], [Notes], [Price], [VATId], [PriceWVAT], [VAT], [Order], [Hide]
+								SELECT ShipmentId, InstanceId, [Name], [Code], [Icon], [Locale], [Notes], [Price], [VATId], [PriceWVAT], [VAT], [Order], [Hide], [PlatbaDobirkou], [PlatbaKartou]
 								FROM vShpShipments
 								WHERE Locale = @Locale AND InstanceId=@InstanceId AND [Default]=1
 								ORDER BY  [Order] ASC, [Default] DESC";
@@ -73,7 +92,7 @@ namespace SHP.MSSQL.Classifiers {
             List<Shipment> list = new List<Shipment>();
             using (SqlConnection connection = Connect()) {
                 string sql = @"
-								SELECT ShipmentId, InstanceId, [Name], [Code], [Icon], [Locale], [Notes], [Price], [VATId], [PriceWVAT], [VAT], [Order], [Hide]
+								SELECT ShipmentId, InstanceId, [Name], [Code], [Icon], [Locale], [Notes], [Price], [VATId], [PriceWVAT], [VAT], [Order], [Hide], [PlatbaDobirkou], [PlatbaKartou]
 								FROM vShpShipments
 								WHERE ShipmentId = @ShipmentId
 								ORDER BY [Order] ASC, [Code] DESC";
@@ -90,7 +109,7 @@ namespace SHP.MSSQL.Classifiers {
             List<Shipment> list = new List<Shipment>();
             using (SqlConnection connection = Connect()) {
                 string sql = @"
-								SELECT ShipmentId, InstanceId, [Name], [Code], [Icon], [Locale], [Notes], [Price], [VATId], [PriceWVAT], [VAT], [Order], [Hide]
+								SELECT ShipmentId, InstanceId, [Name], [Code], [Icon], [Locale], [Notes], [Price], [VATId], [PriceWVAT], [VAT], [Order], [Hide], [PlatbaDobirkou], [PlatbaKartou]
 								FROM vShpShipments
 								WHERE Code = @Code AND Locale=@Locale AND InstanceId=@InstanceId
 								ORDER BY [Order] ASC, [Code] DESC";
@@ -103,39 +122,17 @@ namespace SHP.MSSQL.Classifiers {
         }
 
         public override void Create(Shipment shipment) {
-            //using (SqlConnection connection = Connect()) {
-            //    ExecProc(connection, "pShpShipmentCreate",
-            //            new SqlParameter("@HistoryAccount", AccountId),
-            //            new SqlParameter("@InstanceId", InstanceId),
-            //            new SqlParameter("@Name", shipment.Name),
-            //            new SqlParameter("@Code", shipment.Code),
-            //            new SqlParameter("@Icon", shipment.Icon),
-            //            new SqlParameter("@Notes", shipment.Notes),
-            //            new SqlParameter("@Price", shipment.Price),
-            //            new SqlParameter("@VATId", shipment.VATId),
-            //            new SqlParameter("@Locale", String.IsNullOrEmpty(shipment.Locale) ? Locale : shipment.Locale));
-            //}
         }
 
         public override void Update(Shipment shipment) {
             using (SqlConnection connection = Connect()) {
-                Exec(connection, "UPDATE cShpShipment SET [Order]=@Order, [Hide]=@Hide WHERE Code=@Code", 
-                        new SqlParameter("@Code", shipment.Code),
-                        new SqlParameter("@Order", Null(shipment.Order)),
-                         new SqlParameter("@Hide", Null(shipment.Hide)));
+                Exec(connection, "UPDATE cShpShipment SET [Order]=@Order, [Hide]=@Hide, [PlatbaKartou]=@PlatbaKartou, [PlatbaDobirkou]=@PlatbaDobirkou WHERE ShipmentId=@Id", 
+                    new SqlParameter("@Id", shipment.Id),
+                    new SqlParameter("@Order", Null(shipment.Order)),
+                    new SqlParameter("@Hide", Null(shipment.Hide)),
+                    new SqlParameter("@PlatbaKartou", Null(shipment.PlatbaKartou)),
+                    new SqlParameter("@PlatbaDobirkou", Null(shipment.PlatbaDobirkou)));
             }
-            //using (SqlConnection connection = Connect()) {
-            //    ExecProc(connection, "pShpShipmentModify",
-            //            new SqlParameter("@HistoryAccount", AccountId),
-            //            new SqlParameter("@ShipmentId", shipment.Id),
-            //            new SqlParameter("@Name", shipment.Name),
-            //            new SqlParameter("@Code", shipment.Code),
-            //            new SqlParameter("@Icon", shipment.Icon),
-            //            new SqlParameter("@Notes", shipment.Notes),
-            //            new SqlParameter("@Price", shipment.Price),
-            //            new SqlParameter("@VATId", shipment.VATId),
-            //            new SqlParameter("@Locale", shipment.Locale));
-            //}
         }
 
         public override void Delete(Shipment shipment) {

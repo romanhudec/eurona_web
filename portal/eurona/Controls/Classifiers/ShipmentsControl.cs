@@ -115,12 +115,37 @@ namespace Eurona.Controls.Classifiers {
             grid.Columns.Add(bf);
 
             bf = new GridBoundColumn();
-            bf.DataField = "Hide";
-            bf.HeaderText = "Skrytí";
-            bf.SortExpression = "Hide";
+            bf.DataField = "Locale";
+            bf.HeaderText = "Krajina";
+            bf.SortExpression = "Locale";
             bf.AutoPostBackOnFilter = true;
             bf.CurrentFilterFunction = GridKnownFunction.Contains;
             grid.Columns.Add(bf);
+
+            GridCheckBoxColumn cbf = new GridCheckBoxColumn();
+            cbf.DataField = "PlatbaKartou";
+            cbf.HeaderText = "Platba kartou";
+            cbf.SortExpression = "PlatbaKartou";
+            cbf.AutoPostBackOnFilter = true;
+            cbf.CurrentFilterFunction = GridKnownFunction.Contains;
+            grid.Columns.Add(cbf);
+
+
+            cbf = new GridCheckBoxColumn();
+            cbf.DataField = "PlatbaDobirkou";
+            cbf.HeaderText = "Platba dobírkou";
+            cbf.SortExpression = "PlatbaDobirkou";
+            cbf.AutoPostBackOnFilter = true;
+            cbf.CurrentFilterFunction = GridKnownFunction.Contains;
+            grid.Columns.Add(cbf);
+
+            cbf = new GridCheckBoxColumn();
+            cbf.DataField = "Hide";
+            cbf.HeaderText = "Skrytí";
+            cbf.SortExpression = "Hide";
+            cbf.AutoPostBackOnFilter = true;
+            cbf.CurrentFilterFunction = GridKnownFunction.Contains;
+            grid.Columns.Add(cbf);
 
             GridButtonColumn btnEdit = new GridButtonColumn();
             btnEdit.HeaderStyle.Width = new Unit(16, UnitType.Pixel);
@@ -136,7 +161,7 @@ namespace Eurona.Controls.Classifiers {
         }
 
         protected virtual List<ShipmentEntity> GetDataGridData() {
-            List<ShipmentEntity> list = Storage<ShipmentEntity>.Read(null);
+            List<ShipmentEntity> list = Storage<ShipmentEntity>.Read(new ShipmentEntity.Read4AllLocales());
 
             SortDirection previous = SortDirection;
             string sortExpression = String.IsNullOrEmpty(SortExpression) ? "Order" : SortExpression;

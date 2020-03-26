@@ -44,6 +44,7 @@ namespace Eurona.Controls {
         private AddressControl addressDeliveryControl = null;
         private ASPxDatePicker dtpShipmentFrom = null;
         private ASPxDatePicker dtpShipmentTo = null;
+        private Table dopravnePodporovanePlatbyInfo = null;
         private CheckBox cbNoPostage = null;
         private LiteralControl lcBodyByEurosap = null;
         private LiteralControl lcKatalogovaCenaCelkemByEurosap = null;
@@ -60,6 +61,7 @@ namespace Eurona.Controls {
         private ASPxDatePicker dtpZavozoveMistoOsobniOdberDatum;
         private TextBox txtZavozoveMistoOsobniOdberCas;
         private ObalyControl obalyControl;
+        
 
         private Button btnSave = null;
         private Image imgSaveHelp = null;
@@ -416,6 +418,9 @@ namespace Eurona.Controls {
                 rbShipment.CheckedChanged += rbShipment_CheckedChanged;
             }
             rpDopravne.Controls.Add(CreateTableRow(tableShipment));
+
+            this.dopravnePodporovanePlatbyInfo = new Table();
+            rpDopravne.Controls.Add(CreateTableRow(dopravnePodporovanePlatbyInfo));
             #endregion
 
             //#region Warning
@@ -863,9 +868,40 @@ namespace Eurona.Controls {
             this.OrderEntity.ShipmentCode = GetShipmentSelection();
             Storage<OrderEntity>.Update(this.OrderEntity);
 
+            //Render podporovane sposoby platby pre daneho dopravcu
+            RenderDopravaPodporovanePlatbyInfo();
+
             //Prepocitanie kosiku a objednavky           
             this.RecalculateOrder();
             UpdateDopravneUIbyOrder();
+        }
+
+        /// <summary>
+        ///  //Render podporovane sposoby platby pre daneho dopravcu
+        /// </summary>
+        private void RenderDopravaPodporovanePlatbyInfo() {
+            ShipmentEntity shipment = Storage<ShipmentEntity>.ReadFirst(new ShipmentEntity.ReadByCode { Code = this.OrderEntity.ShipmentCode });
+            if( shipment.PlatbaDobirkou == false || shipment.PlatbaKartou == false ){
+                TableCell cell = new TableCell();
+                cell.Controls.Add(new LiteralControl("<span style='color:#FF8266; font-style: italic;'>Zvolený dopravce podporuje pouze způsob platby:</span>"));
+                TableRow row = new TableRow();
+                row.Cells.Add(cell);
+                dopravnePodporovanePlatbyInfo.Rows.Add(row);
+                if (shipment.PlatbaDobirkou) {
+                    cell = new TableCell();
+                    cell.Controls.Add(new LiteralControl("<span style='color:#FF8266; font-style: italic;'> • Platba dobírkou při převzetí tovaru</span>"));
+                    row = new TableRow();
+                    row.Cells.Add(cell);
+                    dopravnePodporovanePlatbyInfo.Rows.Add(row);
+                }
+                if (shipment.PlatbaKartou) {
+                    cell = new TableCell();
+                    cell.Controls.Add(new LiteralControl("<span style='color:#FF8266; font-style: italic;'> • Platba platební kartou</span>"));
+                    row = new TableRow();
+                    row.Cells.Add(cell);
+                    dopravnePodporovanePlatbyInfo.Rows.Add(row);
+                }
+            }
         }
 
         private string GetShipmentSelection() {
@@ -881,6 +917,8 @@ namespace Eurona.Controls {
                 if (code == shipmentCode) rbShipment.Checked = true;
                 else rbShipment.Checked = false;
             }
+
+            RenderDopravaPodporovanePlatbyInfo();
         }
 
 
