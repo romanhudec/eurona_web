@@ -208,11 +208,11 @@ namespace Eurona.User.Advisor {
             //this.linkAccount.HRef = String.Format(this.linkAccount.HRef, Security.Account.Id);
             this.linkChangePassword.HRef = String.Format(this.linkChangePassword.HRef, Security.Account.Id);
 
-            if (this.LogedAdvisor != null && !logedAdvisor.Account.Verified) {
-                Literal lblMessage = new Literal();
-                lblMessage.Text = string.Format("{0}&nbsp;<span style='color:#f00;font-weight:bold;font-size:16px;'>{1} {2}</span>", Resources.Strings.NotVerifiedTimeSpanUserMessage, logedAdvisor.LeftToVerification, Resources.Strings.Days);
-                this.divNotVerifiedUserMessage.Controls.Add(lblMessage);
-            }
+            //if (this.LogedAdvisor != null && !logedAdvisor.Account.Verified) {
+            //    Literal lblMessage = new Literal();
+            //    lblMessage.Text = string.Format("{0}&nbsp;<span style='color:#f00;font-weight:bold;font-size:16px;'>{1} {2}</span>", Resources.Strings.NotVerifiedTimeSpanUserMessage, logedAdvisor.LeftToVerification, Resources.Strings.Days);
+            //    this.divNotVerifiedUserMessage.Controls.Add(lblMessage);
+            //}
         }
     }
 }
