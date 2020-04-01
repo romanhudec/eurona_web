@@ -19,6 +19,12 @@ namespace Eurona {
             return cookie;
         }
 
+        public static void CreateCookie(Page page, string name, string value) {
+            HttpCookie StudentCookies = new HttpCookie(name);
+            StudentCookies.Value = value;
+            page.Response.Cookies.Add(StudentCookies);
+        }
+
         public static void CreateCookie(Page page, string name, string value, int expirationDurationDays) {
             HttpCookie StudentCookies = new HttpCookie(name);
             StudentCookies.Value = value;
