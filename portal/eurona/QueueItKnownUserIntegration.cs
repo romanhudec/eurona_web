@@ -12,8 +12,8 @@ namespace Eurona {
     public static class QueueItKnownUserIntegration {
         public static void DoValidation(Page page) {
             try {
-                var customerId = "Your Queue-it customer ID";
-                var secretKey = "Your 72 char secrete key as specified in Go Queue-it self-service platform";
+                var customerId = "euronabycerny";
+                var secretKey = "a2032ca8-bc41-4363-a9a8-0f631e9cb3774d7a315d-42a1-4b14-8002-acff93fed702";
 
                 var queueitToken = page.Request.QueryString[KnownUser.QueueITTokenKey];
                 var currentUrlWithoutQueueITToken = Regex.Replace(page.Request.Url.AbsoluteUri, @"([\?&])(" + KnownUser.QueueITTokenKey + "=[^&]*)", string.Empty, RegexOptions.IgnoreCase);

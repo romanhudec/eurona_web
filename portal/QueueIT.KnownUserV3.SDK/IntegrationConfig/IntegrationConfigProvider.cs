@@ -48,12 +48,14 @@ namespace QueueIT.KnownUserV3.SDK.IntegrationConfig {
         }
 
         private static void RefreshCache(bool init) {
+            SecurityProtocolType Tls11OrTsl12 = (SecurityProtocolType)3072;
             int tryCount = 0;
             while (tryCount < 5) {
                 var timeBaseQueryString = (DateTime.UtcNow.Subtract(new DateTime(1970, 1, 1))).TotalSeconds.ToString();
                 var configUrl = string.Format("https://{0}.queue-it.net/status/integrationconfig/{0}?qr={1}", _customerId, timeBaseQueryString);
                 try {
                     HttpWebRequest request = (HttpWebRequest)WebRequest.Create(configUrl);
+                    ServicePointManager.SecurityProtocol = Tls11OrTsl12;
                     request.Timeout = _downloadTimeoutMS;
                     using (HttpWebResponse response = (HttpWebResponse)request.GetResponse()) {
                         if (response.StatusCode != HttpStatusCode.OK)
