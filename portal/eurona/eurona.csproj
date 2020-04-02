@@ -1307,6 +1307,7 @@
     <Compile Include="eshop\admin\nastaveniZavozovehoMista.aspx.designer.cs">
       <DependentUpon>nastaveniZavozovehoMista.aspx</DependentUpon>
     </Compile>
+    <Compile Include="QueueItKnownUserIntegration.cs" />
     <Compile Include="user\advisor\ObalyControl.ascx.cs">
       <DependentUpon>ObalyControl.ascx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -3401,6 +3402,10 @@
       <Project>{6EDE9055-5EC0-4706-BAA5-453FF2C32B62}</Project>
       <Name>eurona.common</Name>
     </ProjectReference>
+    <ProjectReference Include="..\QueueIT.KnownUserV3.SDK\QueueIT.KnownUserV3.SDK.csproj">
+      <Project>{d6e1d188-2ea9-4b5a-bcbe-5f361c7bfdbd}</Project>
+      <Name>QueueIT.KnownUserV3.SDK</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <Folder Include="images\lotos\" />
@@ -3474,7 +3479,7 @@
         <WebProjectProperties>
           <UseIIS>False</UseIIS>
           <AutoAssignPort>True</AutoAssignPort>
-          <DevelopmentServerPort>61462</DevelopmentServerPort>
+          <DevelopmentServerPort>54694</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
           <IISUrl>http://localhost:83/</IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
