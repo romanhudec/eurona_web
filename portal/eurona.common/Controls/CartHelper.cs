@@ -116,7 +116,8 @@ namespace Eurona.Common.Controls.Cart {
                 cart = Storage<CartEntity>.ReadFirst(new CartEntity.ReadOpenByAccount { AccountId = Security.Account.Id });
                 if (cart == null) {
                     //Zistim, ci pouzivatel nema vtvoreny kosik ako anonymny pouzivatel.
-                    cart = Storage<CartEntity>.ReadFirst(new CartEntity.ReadBySessionId { SessionId = sessionId });
+                    //cart = Storage<CartEntity>.ReadFirst(new CartEntity.ReadBySessionId { SessionId = sessionId });
+                    cart = GetAnonymousCartBySession(sessionId);
                     if (cart == null) {
                         cart = new CartEntity();
                         cart.AccountId = Security.Account.Id;
@@ -130,7 +131,8 @@ namespace Eurona.Common.Controls.Cart {
                 }
             } else {
                 //Anonymny nakupny kosik.
-                cart = Storage<CartEntity>.ReadFirst(new CartEntity.ReadBySessionId { SessionId = sessionId });
+                //cart = Storage<CartEntity>.ReadFirst(new CartEntity.ReadBySessionId { SessionId = sessionId });
+                cart = GetAnonymousCartBySession(sessionId);
                 if (cart == null) {
                     cart = new CartEntity();
                     cart.SessionId = sessionId;
@@ -327,7 +329,8 @@ namespace Eurona.Common.Controls.Cart {
                 cart = Storage<CartEntity>.ReadFirst(new CartEntity.ReadOpenByAccount { AccountId = Security.Account.Id });
                 if (cart == null) {
                     //Zistim, ci pouzivatel nema vtvoreny kosik ako anonymny pouzivatel.
-                    cart = Storage<CartEntity>.ReadFirst(new CartEntity.ReadBySessionId { SessionId = sessionId });
+                    //cart = Storage<CartEntity>.ReadFirst(new CartEntity.ReadBySessionId { SessionId = sessionId });
+                    cart = GetAnonymousCartBySession(sessionId);
                     if (cart == null) return null;
                     if (!cart.AccountId.HasValue) {
                         //Vytvorevie pouzivatelsky nakupny kosik z anonymneho.
@@ -337,6 +340,7 @@ namespace Eurona.Common.Controls.Cart {
                     }
                 }
             } else {
+                /*
                 //Anonymny nakupny kosik.
                 int cartId = 0;
                 int instanceId = 0;
@@ -358,8 +362,33 @@ namespace Eurona.Common.Controls.Cart {
                 }
                 //TODO: zakomentovane 29.06.2018 - najprv rychly select na ID a az potom select na cely kosik!!!!
                 //cart = Storage<CartEntity>.ReadFirst(new CartEntity.ReadBySessionId { SessionId = sessionId });
+                 * */
+                cart = GetAnonymousCartBySession(sessionId);
             }
             return cart;
+        }
+
+        private static CartEntity GetAnonymousCartBySession(int sessionId) {
+            int cartId = 0;
+            int instanceId = 0;
+            Int32.TryParse(ConfigurationManager.AppSettings["InstanceId"], out instanceId);
+            string connectionString = ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString;
+            CMS.Pump.MSSQLStorage euronaStorage = new CMS.Pump.MSSQLStorage(connectionString);
+            using (SqlConnection connection = euronaStorage.Connect()) {
+                string sql = @"SELECT c.CartId FROM tShpCart c WITH (NOLOCK)WHERE c.InstanceId = @InstanceId AND c.SessionId = @SessionId";
+                DataTable dt = euronaStorage.Query(connection, sql,
+                    new SqlParameter("@InstanceId", instanceId),
+                    new SqlParameter("@SessionId", sessionId));
+
+                if (dt.Rows.Count != 0) {
+                    cartId = Convert.ToInt32(dt.Rows[0]["CartId"]);
+                }
+            }
+            if (cartId != 0) {
+                CartEntity cart = Storage<CartEntity>.ReadFirst(new CartEntity.ReadById { CartId = cartId });
+                return cart;
+            }
+            return null;
         }
 
         /// <summary>
@@ -396,7 +425,8 @@ namespace Eurona.Common.Controls.Cart {
                 cart = Storage<CartEntity>.ReadFirst(new CartEntity.ReadOpenByAccount { AccountId = Security.Account.Id });
                 if (cart == null) {
                     //Zistim, ci pouzivatel nema vtvoreny kosik ako anonymny pouzivatel.
-                    cart = Storage<CartEntity>.ReadFirst(new CartEntity.ReadBySessionId { SessionId = sessionId });
+                    //cart = Storage<CartEntity>.ReadFirst(new CartEntity.ReadBySessionId { SessionId = sessionId });
+                    cart = GetAnonymousCartBySession(sessionId);
                     if (cart == null) {
                         cart = new CartEntity();
                         cart.AccountId = Security.Account.Id;
@@ -410,7 +440,8 @@ namespace Eurona.Common.Controls.Cart {
                 }
             } else {
                 //Anonymny nakupny kosik.
-                cart = Storage<CartEntity>.ReadFirst(new CartEntity.ReadBySessionId { SessionId = sessionId });
+                //cart = Storage<CartEntity>.ReadFirst(new CartEntity.ReadBySessionId { SessionId = sessionId });
+                cart = GetAnonymousCartBySession(sessionId);
                 if (cart == null) {
                     cart = new CartEntity();
                     cart.SessionId = sessionId;
@@ -541,7 +572,8 @@ namespace Eurona.Common.Controls.Cart {
                 cart = Storage<CartEntity>.ReadFirst(new CartEntity.ReadOpenByAccount { AccountId = Security.Account.Id });
                 if (cart == null) {
                     //Zistim, ci pouzivatel nema vtvoreny kosik ako anonymny pouzivatel.
-                    cart = Storage<CartEntity>.ReadFirst(new CartEntity.ReadBySessionId { SessionId = sessionId });
+                    //cart = Storage<CartEntity>.ReadFirst(new CartEntity.ReadBySessionId { SessionId = sessionId });
+                    cart = GetAnonymousCartBySession(sessionId);
                     if (cart == null) {
                         cart = new CartEntity();
                         cart.AccountId = Security.Account.Id;
@@ -555,7 +587,8 @@ namespace Eurona.Common.Controls.Cart {
                 }
             } else {
                 //Anonymny nakupny kosik.
-                cart = Storage<CartEntity>.ReadFirst(new CartEntity.ReadBySessionId { SessionId = sessionId });
+                //cart = Storage<CartEntity>.ReadFirst(new CartEntity.ReadBySessionId { SessionId = sessionId });
+                cart = GetAnonymousCartBySession(sessionId);
                 if (cart == null) {
                     cart = new CartEntity();
                     cart.SessionId = sessionId;
@@ -759,7 +792,8 @@ namespace Eurona.Common.Controls.Cart {
                 cart = Storage<CartEntity>.ReadFirst(new CartEntity.ReadOpenByAccount { AccountId = Security.Account.Id });
                 if (cart == null) {
                     //Zistim, ci pouzivatel nema vtvoreny kosik ako anonymny pouzivatel.
-                    cart = Storage<CartEntity>.ReadFirst(new CartEntity.ReadBySessionId { SessionId = sessionId });
+                    //cart = Storage<CartEntity>.ReadFirst(new CartEntity.ReadBySessionId { SessionId = sessionId });
+                    cart = GetAnonymousCartBySession(sessionId);
                     if (cart == null) return null;
                     if (!cart.AccountId.HasValue) {
                         //Vytvorevie pouzivatelsky nakupny kosik z anonymneho.
@@ -770,7 +804,8 @@ namespace Eurona.Common.Controls.Cart {
                 }
             } else {
                 //Anonymny nakupny kosik.
-                cart = Storage<CartEntity>.ReadFirst(new CartEntity.ReadBySessionId { SessionId = sessionId });
+                //cart = Storage<CartEntity>.ReadFirst(new CartEntity.ReadBySessionId { SessionId = sessionId });
+                cart = GetAnonymousCartBySession(sessionId);
             }
             return cart;
         }
@@ -808,7 +843,8 @@ namespace Eurona.Common.Controls.Cart {
                 cart = Storage<CartEntity>.ReadFirst(new CartEntity.ReadOpenByAccount { AccountId = Security.Account.Id });
                 if (cart == null) {
                     //Zistim, ci pouzivatel nema vtvoreny kosik ako anonymny pouzivatel.
-                    cart = Storage<CartEntity>.ReadFirst(new CartEntity.ReadBySessionId { SessionId = sessionId });
+                    //cart = Storage<CartEntity>.ReadFirst(new CartEntity.ReadBySessionId { SessionId = sessionId });
+                    cart = GetAnonymousCartBySession(sessionId);
                     if (cart == null) {
                         cart = new CartEntity();
                         cart.AccountId = Security.Account.Id;
@@ -822,7 +858,8 @@ namespace Eurona.Common.Controls.Cart {
                 }
             } else {
                 //Anonymny nakupny kosik.
-                cart = Storage<CartEntity>.ReadFirst(new CartEntity.ReadBySessionId { SessionId = sessionId });
+                //cart = Storage<CartEntity>.ReadFirst(new CartEntity.ReadBySessionId { SessionId = sessionId });
+                cart = GetAnonymousCartBySession(sessionId);
                 if (cart == null) {
                     cart = new CartEntity();
                     cart.SessionId = sessionId;
@@ -868,5 +905,29 @@ namespace Eurona.Common.Controls.Cart {
             */
             return null;
         }
+
+        private static CartEntity GetAnonymousCartBySession(int sessionId) {
+            int cartId = 0;
+            int instanceId = 0;
+            Int32.TryParse(ConfigurationManager.AppSettings["InstanceId"], out instanceId);
+            string connectionString = ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString;
+            CMS.Pump.MSSQLStorage euronaStorage = new CMS.Pump.MSSQLStorage(connectionString);
+            using (SqlConnection connection = euronaStorage.Connect()) {
+                string sql = @"SELECT c.CartId FROM tShpCart c WITH (NOLOCK)WHERE c.InstanceId = @InstanceId AND c.SessionId = @SessionId";
+                DataTable dt = euronaStorage.Query(connection, sql,
+                    new SqlParameter("@InstanceId", instanceId),
+                    new SqlParameter("@SessionId", sessionId));
+
+                if (dt.Rows.Count != 0) {
+                    cartId = Convert.ToInt32(dt.Rows[0]["CartId"]);
+                }
+            }
+            if (cartId != 0) {
+                CartEntity cart = Storage<CartEntity>.ReadFirst(new CartEntity.ReadById { CartId = cartId });
+                return cart;
+            }
+            return null;
+        }
+
     }
 }
