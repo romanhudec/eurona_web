@@ -271,57 +271,49 @@ namespace Cron.Eurona.Import {
                 string sql = @"SELECT k.Kategorie_Id, k.Kategorie_Parent, kn.Jazyk, kn.Nazev from Kategorie k
 										INNER JOIN Kategorie_Nazvy kn ON kn.Kategorie_Id = k.Kategorie_Id
 										WHERE k.Kategorie_Id=@CategoryId AND kn.Jazyk=@Jazyk AND kn.Shop=@Shop";
-				DataTable dt = mssqStorageSrc.Query(connection, sql,
-						new SqlParameter("@CategoryId", categoryId),
-						new SqlParameter("@Jazyk", jazyk),
-						new SqlParameter("@Shop", shop));
+                DataTable dt = mssqStorageSrc.Query(connection, sql,
+                        new SqlParameter("@CategoryId", categoryId),
+                        new SqlParameter("@Jazyk", jazyk),
+                        new SqlParameter("@Shop", shop));
 
-				if (dt.Rows.Count == 0) return null;
-				return dt.Rows[0];
-			}
-		}
-		#endregion
+                if (dt.Rows.Count == 0) return null;
+                return dt.Rows[0];
+            }
+        }
+        #endregion
 
-		#region Orders
-		public static DataTable GetTVDFinalOrders(CMS.Pump.MSSQLStorage mssqStorageSrc, int instanceId)
-		{
-			using (SqlConnection connection = mssqStorageSrc.Connect())
-			{
+        #region Orders
+        public static DataTable GetTVDFinalOrders(CMS.Pump.MSSQLStorage mssqStorageSrc, int instanceId) {
+            using (SqlConnection connection = mssqStorageSrc.Connect()) {
                 string sql = @"SELECT orderId = fa.id_prepoctu, fa.cislo_objednavky_eurosap, fa.potvrzeno, obfa.StavK2, obfa.Kod_meny, fa.sdeleni_pro_poradce_html
 								FROM objednavkyfaktury obfa
 								INNER JOIN www_faktury fa ON fa.cislo_objednavky_eurosap=obfa.Id_objednavky
 								WHERE fa.potvrzeno=1 AND obfa.Datum_zmeny > DATEADD(DAY ,-2, GETDATE()) AND ( obfa.StavK2 IS NOT NULL AND obfa.StavK2 != 0 )";
-				DataTable dt = mssqStorageSrc.Query(connection, sql/*, new SqlParameter("@InstanceId", instanceId)*/);
-				return dt;
-			}
-		}
-		public static DataTable GetTVDFakturyOrders(CMS.Pump.MSSQLStorage mssqStorageSrc, int instanceId)
-		{
-			using (SqlConnection connection = mssqStorageSrc.Connect())
-			{
+                DataTable dt = mssqStorageSrc.Query(connection, sql/*, new SqlParameter("@InstanceId", instanceId)*/);
+                return dt;
+            }
+        }
+        public static DataTable GetTVDFakturyOrders(CMS.Pump.MSSQLStorage mssqStorageSrc, int instanceId) {
+            using (SqlConnection connection = mssqStorageSrc.Connect()) {
                 string sql = @"SELECT orderId = fa.id_prepoctu, fa.cislo_objednavky_eurosap, fa.potvrzeno, fa.Kod_meny, fa.sdeleni_pro_poradce_html
 								FROM www_faktury fa
 								WHERE fa.datum_splatnosti > DATEADD(DAY ,-2, GETDATE()) AND fa.potvrzeno=1";
-				DataTable dt = mssqStorageSrc.Query(connection, sql/*, new SqlParameter("@InstanceId", instanceId)*/);
-				return dt;
-			}
-		}
-		#endregion
+                DataTable dt = mssqStorageSrc.Query(connection, sql/*, new SqlParameter("@InstanceId", instanceId)*/);
+                return dt;
+            }
+        }
+        #endregion
 
-		#region Users
-		public static void UpdateTVDPoradciStav(CMS.Pump.MSSQLStorage mssqStorageSrc, int poradcaId, int stav)
-		{
-			using (SqlConnection connection = mssqStorageSrc.Connect())
-			{
-				string sql = @"UPDATE odberatele SET Stav=@Stav WHERE Id_odberatele = @OderatelId";
-				mssqStorageSrc.Exec(connection, sql, new SqlParameter("OderatelId", poradcaId), new SqlParameter("@Stav", stav));
-			}
-		}
-		public static DataTable GetTVDPoradci(CMS.Pump.MSSQLStorage mssqStorageSrc)
-		{
-			using (SqlConnection connection = mssqStorageSrc.Connect())
-			{
-				string sql = @"SELECT 
+        #region Users
+        public static void UpdateTVDPoradciStav(CMS.Pump.MSSQLStorage mssqStorageSrc, int poradcaId, int stav) {
+            using (SqlConnection connection = mssqStorageSrc.Connect()) {
+                string sql = @"UPDATE odberatele SET Stav=@Stav WHERE Id_odberatele = @OderatelId";
+                mssqStorageSrc.Exec(connection, sql, new SqlParameter("OderatelId", poradcaId), new SqlParameter("@Stav", stav));
+            }
+        }
+        public static DataTable GetTVDPoradci(CMS.Pump.MSSQLStorage mssqStorageSrc) {
+            using (SqlConnection connection = mssqStorageSrc.Connect()) {
+                string sql = @"SELECT 
 					Id_odberatele ,Kod_odberatele ,Stat_odberatele ,Cislo_nadrizeneho ,Nazev_firmy ,Nazev_firmy_radek ,Ulice ,Psc,
 					Misto ,Stat ,Dor_nazev_firmy ,Dor_nazev_firmy_radek ,Dor_ulice ,Dor_psc ,Dor_misto ,Dor_stat ,Telefon ,Mobil,
 					E_mail ,Cislo_op ,Ico ,Dic ,P_f ,Banka ,Cislo_uctu ,Skupina ,Login_www ,Heslo_www ,Datum_zahajeni,

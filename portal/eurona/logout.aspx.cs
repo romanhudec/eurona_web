@@ -9,7 +9,6 @@ namespace Eurona {
     public partial class LogOut : WebPage {
         protected void Page_Load(object sender, EventArgs e) {
             Security.Logout();
-           // CookiesUtils.CreateCookie(this, "cancel_q_id", "1");
             Response.Redirect("~/?cancel_q_id=1");
         }
     }
