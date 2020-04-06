@@ -56,9 +56,9 @@ namespace QueueIT.KnownUserV3.SDK {
         public string ActionName { get; set; }
 
         public override string ToString() {
-            return "EventId:{EventId}&Version:{Version}" +
-                "&QueueDomain:{QueueDomain}&CookieDomain:{CookieDomain}&ExtendCookieValidity:{ExtendCookieValidity}" +
-                "&CookieValidityMinute:{CookieValidityMinute}&LayoutName:{LayoutName}&Culture:{Culture}&ActionName:{ActionName}";
+            return "EventId:" + EventId + "&Version:" + Version +
+                "&QueueDomain:" + QueueDomain + "&CookieDomain:" + CookieDomain + "&ExtendCookieValidity:" + ExtendCookieValidity + "" +
+                "&CookieValidityMinute:" + CookieValidityMinute + "&LayoutName:" + LayoutName + "&Culture:" + Culture + "&ActionName:" + ActionName;
         }
     }
 
@@ -75,8 +75,8 @@ namespace QueueIT.KnownUserV3.SDK {
         public string ActionName { get; set; }
 
         public override string ToString() {
-            return "EventId:{EventId}&Version:{Version}" +
-                "&QueueDomain:{QueueDomain}&CookieDomain:{CookieDomain}&ActionName:{ActionName}";
+            return "EventId:" + EventId + "&Version:" + Version + "" +
+                "&QueueDomain:" + QueueDomain + "&CookieDomain:" + CookieDomain + "&ActionName:" + ActionName + "";
         }
     }
 }

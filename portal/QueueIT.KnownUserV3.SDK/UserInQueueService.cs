@@ -102,11 +102,11 @@ namespace QueueIT.KnownUserV3.SDK {
              string errorCode) {
             _userInQueueStateRepository.CancelQueueCookie(config.EventId, config.CookieDomain);
             var query = GetQueryString(customerId, config.EventId, config.Version, config.ActionName, config.Culture, config.LayoutName) +
-                "&queueittoken={qParams.QueueITToken}" +
-                "&ts={DateTimeHelper.GetUnixTimeStampFromDate(DateTime.UtcNow)}" +
-                (!string.IsNullOrEmpty(targetUrl) ? "&t={Uri.EscapeDataString(targetUrl)}" : "");
+                "&queueittoken="+qParams.QueueITToken+"" +
+                "&ts="+DateTimeHelper.GetUnixTimeStampFromDate(DateTime.UtcNow)+"" +
+                (!string.IsNullOrEmpty(targetUrl) ? "&t="+Uri.EscapeDataString(targetUrl)+"" : "");
 
-            var redirectUrl = GenerateRedirectUrl(config.QueueDomain, "error/{errorCode}/", query);
+            var redirectUrl = GenerateRedirectUrl(config.QueueDomain, "error/"+errorCode+"/", query);
 
             return new RequestValidationResult(
                 ActionType.QueueAction,
@@ -121,7 +121,7 @@ namespace QueueIT.KnownUserV3.SDK {
             string customerId) {
             _userInQueueStateRepository.CancelQueueCookie(config.EventId, config.CookieDomain);
             var query = GetQueryString(customerId, config.EventId, config.Version, config.ActionName, config.Culture, config.LayoutName) +
-                            (!string.IsNullOrEmpty(targetUrl) ? "&t={Uri.EscapeDataString(targetUrl)}" : "");
+                            (!string.IsNullOrEmpty(targetUrl) ? "&t="+Uri.EscapeDataString(targetUrl)+"" : "");
 
             var redirectUrl = GenerateRedirectUrl(config.QueueDomain, "", query);
 
@@ -140,11 +140,11 @@ namespace QueueIT.KnownUserV3.SDK {
             string culture = null,
             string layoutName = null) {
             List<string> queryStringList = new List<string>();
-            queryStringList.Add("c={Uri.EscapeDataString(customerId)}");
-            queryStringList.Add("e={Uri.EscapeDataString(eventId)}");
-            queryStringList.Add("ver={SDK_VERSION}");
-            queryStringList.Add("cver={configVersion.ToString()}");
-            queryStringList.Add("man={Uri.EscapeDataString(actionName)}");
+            queryStringList.Add("c="+Uri.EscapeDataString(customerId)+"");
+            queryStringList.Add("e="+Uri.EscapeDataString(eventId)+"");
+            queryStringList.Add("ver="+SDK_VERSION+"");
+            queryStringList.Add("cver="+configVersion.ToString()+"");
+            queryStringList.Add("man="+Uri.EscapeDataString(actionName)+"");
 
             if (!string.IsNullOrEmpty(culture))
                 queryStringList.Add(string.Concat("cid=", Uri.EscapeDataString(culture)));
@@ -159,7 +159,7 @@ namespace QueueIT.KnownUserV3.SDK {
             if (!queueDomain.EndsWith("/"))
                 queueDomain += "/";
 
-            return "https://{queueDomain}{uriPath}?{query}";
+            return "https://"+queueDomain+""+uriPath+"?"+query+"";
         }
 
         public void ExtendQueueCookie(
@@ -181,9 +181,9 @@ namespace QueueIT.KnownUserV3.SDK {
             if (state.IsValid) {
                 _userInQueueStateRepository.CancelQueueCookie(config.EventId, config.CookieDomain);
                 var query = GetQueryString(customerId, config.EventId, config.Version, config.ActionName) +
-                                (!string.IsNullOrEmpty(targetUrl) ? "&r={Uri.EscapeDataString(targetUrl)}" : "");
+                                (!string.IsNullOrEmpty(targetUrl) ? "&r="+Uri.EscapeDataString(targetUrl)+"" : "");
 
-                var redirectUrl = GenerateRedirectUrl(config.QueueDomain, "cancel/{customerId}/{config.EventId}/", query);
+                var redirectUrl = GenerateRedirectUrl(config.QueueDomain, "cancel/"+customerId+"/"+config.EventId+"/", query);
 
                 return new RequestValidationResult(ActionType.CancelAction,
                     redirectUrl: redirectUrl,

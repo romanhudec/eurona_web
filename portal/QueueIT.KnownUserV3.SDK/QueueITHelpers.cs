@@ -66,7 +66,7 @@ namespace QueueIT.KnownUserV3.SDK {
                 }
             }
             result.QueueITTokenWithoutHash =
-               result.QueueITToken.Replace(@"{KeyValueSeparatorGroupChar}{HashKey}{KeyValueSeparatorChar}{result.HashCode}", "");
+               result.QueueITToken.Replace(KeyValueSeparatorGroupChar + "" + HashKey + "" + KeyValueSeparatorChar + "" + result.HashCode, "");
             return result;
         }
     }
@@ -196,7 +196,7 @@ namespace QueueIT.KnownUserV3.SDK {
             List<string> values = new List<string>();
 
             foreach (string key in cookieValues)
-                values.Add(@"{key}={cookieValues[key]}");
+                values.Add(key + "=" + cookieValues[key]);
 
             var result = string.Join("&", values.ToArray());
             return result;

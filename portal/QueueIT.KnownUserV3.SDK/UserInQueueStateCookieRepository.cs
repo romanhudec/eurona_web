@@ -43,7 +43,7 @@ namespace QueueIT.KnownUserV3.SDK {
 
 
         internal static string GetCookieKey(string eventId) {
-            return "{_QueueITDataKey}_{eventId}";
+            return "" + _QueueITDataKey + "_" + eventId + "";
         }
 
         public UserInQueueStateCookieRepository(IHttpContextProvider httpContextProvider) {

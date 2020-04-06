@@ -237,8 +237,10 @@ namespace QueueIT.KnownUserV3.SDK {
                 return;
 
             string cookieValue = string.Empty;
-            foreach (var nameVal in debugEntries)
-                cookieValue += @"{nameVal.Key}={nameVal.Value}|";
+            foreach (var nameVal in debugEntries) {
+                //cookieValue += @"{nameVal.Key}={nameVal.Value}|";
+                cookieValue += nameVal.Key + "=" + nameVal.Value + "|";
+            }
 
             cookieValue = cookieValue.TrimEnd('|');
             GetHttpContextProvider().HttpResponse.SetCookie(QueueITDebugKey, cookieValue, null, DateTime.UtcNow.AddMinutes(20));
