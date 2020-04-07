@@ -9,7 +9,7 @@ using OrderEntity = Eurona.DAL.Entities.Order;
 
 namespace Eurona.EShop.User {
     public partial class OrderPage : WebPage {
-        private OrderEntity order = null;
+        //private OrderEntity order = null;
         protected void Page_Load(object sender, EventArgs e) {
 
             if (Request.Browser.MSDomVersion.Major == 0) // Non IE Browser?
@@ -28,7 +28,7 @@ namespace Eurona.EShop.User {
             }
 
             if (!string.IsNullOrEmpty(this.Request["id"])) {
-                this.order = Storage<OrderEntity>.ReadFirst(new OrderEntity.ReadById { OrderId = Convert.ToInt32(Request["id"]) });
+                //this.order = Storage<OrderEntity>.ReadFirst(new OrderEntity.ReadById { OrderId = Convert.ToInt32(Request["id"]) });
 
                 this.adminOrderControl.OrderId = Convert.ToInt32(this.Request["id"]);
                 if (this.adminOrderControl.OrderEntity == null) return;

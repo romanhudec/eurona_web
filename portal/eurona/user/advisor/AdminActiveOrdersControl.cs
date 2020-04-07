@@ -11,10 +11,8 @@ using Telerik.Web.UI;
 using SHP.Controls;
 using Eurona.Controls;
 
-namespace Eurona.User.Advisor
-{
-    public class AdminActiveOrdersControl : CmsControl
-    {
+namespace Eurona.User.Advisor {
+    public class AdminActiveOrdersControl : CmsControl {
         private const string DELETE_COMMAND = "DELETE_ITEM";
         private const string EDIT_COMMAND = "EDIT_ITEM";
 
@@ -23,20 +21,17 @@ namespace Eurona.User.Advisor
         public string EditUrlFormat { get; set; }
         public string UserUrlFormat { get; set; }
 
-        public SortDirection SortDirection
-        {
+        public SortDirection SortDirection {
             get { return GetSession<SortDirection>("AdminActiveOrdersControl-SortDirection", SortDirection.Descending); }
             set { SetSession<SortDirection>("AdminActiveOrdersControl-SortDirection", value); }
         }
 
-        public string SortExpression
-        {
+        public string SortExpression {
             get { return GetSession<string>("AdminActiveOrdersControl-SortExpression", "OrderDate"); }
             set { SetSession<string>("AdminActiveOrdersControl-SortExpression", value); }
         }
 
-        protected override void CreateChildControls()
-        {
+        protected override void CreateChildControls() {
             base.CreateChildControls();
 
             Control filter = CreateFilterControl();
@@ -53,15 +48,12 @@ namespace Eurona.User.Advisor
         /// Vráti zoznam objednávok pre asociaciu (Nepridruzene a oznacene )
         /// </summary>
         /// <returns></returns>
-        public List<OrderEntity> GetSelectedOrdersToAssociation()
-        {
+        public List<OrderEntity> GetSelectedOrdersToAssociation() {
             List<OrderEntity> list = new List<OrderEntity>();
-            foreach (GridDataItem dataItem in this.gridView.Items)
-            {
+            foreach (GridDataItem dataItem in this.gridView.Items) {
                 int checkIndex = 2;
                 CheckBox cbAssociate = (dataItem.Cells[checkIndex].Controls[0] as CheckBox);
-                if (cbAssociate.Checked)
-                {
+                if (cbAssociate.Checked) {
                     int orderId = Convert.ToInt32(dataItem.OwnerTableView.DataKeyValues[dataItem.ItemIndex]["Id"]);
                     OrderEntity order = Storage<OrderEntity>.ReadFirst(new OrderEntity.ReadById { OrderId = orderId });
                     if (order.ParentId.HasValue) continue;
@@ -75,13 +67,11 @@ namespace Eurona.User.Advisor
         /// Vráti zoznam objednávok ktore nie su pridruzene ani necakaju na akceptaciu pridruzenia
         /// </summary>
         /// <returns></returns>
-        public List<OrderEntity> GetOrdersNotAssociated()
-        {
+        public List<OrderEntity> GetOrdersNotAssociated() {
             OrderEntity.ReadByFilter filter = GetFilterValue();
             List<OrderEntity> list = Storage<OrderEntity>.Read(filter);
             List<OrderEntity> newList = new List<OrderEntity>();
-            foreach (OrderEntity order in list)
-            {
+            foreach (OrderEntity order in list) {
                 if (order.ParentId.HasValue) continue;
                 if (order.AssociationAccountId.HasValue) continue;
 
@@ -90,8 +80,7 @@ namespace Eurona.User.Advisor
             return newList;
         }
 
-        private Table CreateFilterControl()
-        {
+        private Table CreateFilterControl() {
             Table table = new Table();
             table.Width = Unit.Percentage(100);
             TableRow row = new TableRow();
@@ -158,8 +147,7 @@ namespace Eurona.User.Advisor
             return table;
         }
 
-        private OrderEntity.ReadByFilter GetFilterValue()
-        {
+        private OrderEntity.ReadByFilter GetFilterValue() {
             OrderEntity.ReadByFilter filter = new OrderEntity.ReadByFilter();
             filter.OrderStatusCode = ((int)OrderEntity.OrderStatus.WaitingForProccess).ToString();
             filter.AccountId = Security.Account.Id;
@@ -167,8 +155,7 @@ namespace Eurona.User.Advisor
             return filter;
         }
 
-        public void GridViewDataBind(bool bind)
-        {
+        public void GridViewDataBind(bool bind) {
             OrderEntity.ReadByFilter filter = GetFilterValue();
             List<OrderEntity> list = Storage<OrderEntity>.Read(filter);
 
@@ -177,8 +164,7 @@ namespace Eurona.User.Advisor
             if (bind) gridView.DataBind();
         }
 
-        private RadGrid CreateGridView()
-        {
+        private RadGrid CreateGridView() {
             RadGrid grid = new RadGrid();
             CMS.Utilities.RadGridUtilities.Localize(grid);
             grid.MasterTableView.DataKeyNames = new string[] { "Id" };
@@ -200,18 +186,16 @@ namespace Eurona.User.Advisor
             grid.MasterTableView.AllowSorting = true;
             grid.MasterTableView.GridLines = GridLines.None;
             grid.MasterTableView.AutoGenerateColumns = false;
-            grid.MasterTableView.NestedViewTemplate = new AssociatedOrdersDetailTemplate(this.EditUrlFormat, this, base.BuildReturnUrlQueryParam());
+            //grid.MasterTableView.NestedViewTemplate = new AssociatedOrdersDetailTemplate(this.EditUrlFormat, this, base.BuildReturnUrlQueryParam());
 
             grid.MasterTableView.Columns.Add(new GridCheckBoxColumn { ShowFilterIcon = false, ShowSortIcon = false, AllowFiltering = false, AllowSorting = false });
 
-            grid.MasterTableView.Columns.Add(new GridBoundColumn
-            {
+            grid.MasterTableView.Columns.Add(new GridBoundColumn {
                 DataField = "OrderNumber",
                 HeaderText = SHP.Resources.Controls.AdminOrdersControl_ColumnOrderNumber,
                 SortExpression = "OrderNumber",
             });
-            grid.Columns.Add(new GridBoundColumn
-            {
+            grid.Columns.Add(new GridBoundColumn {
                 DataField = "OrderDate",
                 DataFormatString = "{0:d}",
                 HeaderText = SHP.Resources.Controls.AdminOrdersControl_ColumnOrderDate,
@@ -219,8 +203,7 @@ namespace Eurona.User.Advisor
                 AutoPostBackOnFilter = true,
                 CurrentFilterFunction = GridKnownFunction.Contains
             });
-            grid.Columns.Add(new GridIconColumn
-            {
+            grid.Columns.Add(new GridIconColumn {
                 ImageWidth = Unit.Pixel(16),
                 ImageHeight = Unit.Pixel(16),
                 DataImageUrlFields = new string[] { "OrderStatusIcon" },
@@ -230,8 +213,7 @@ namespace Eurona.User.Advisor
                 AutoPostBackOnFilter = true,
                 CurrentFilterFunction = GridKnownFunction.Contains
             });
-            grid.Columns.Add(new GridIconColumn
-            {
+            grid.Columns.Add(new GridIconColumn {
                 ImageWidth = Unit.Pixel(16),
                 ImageHeight = Unit.Pixel(16),
                 DataImageUrlFields = new string[] { "ShipmentIcon" },
@@ -241,16 +223,7 @@ namespace Eurona.User.Advisor
                 AutoPostBackOnFilter = true,
                 CurrentFilterFunction = GridKnownFunction.Contains
             });
-            //grid.Columns.Add( new GridPriceColumn
-            //{
-            //    DataField = "Price",
-            //    HeaderText = SHP.Resources.Controls.AdminOrdersControl_ColumnPriceTotal,
-            //    SortExpression = "Price",
-            //    AutoPostBackOnFilter = true,
-            //    CurrentFilterFunction = GridKnownFunction.Contains
-            //} );
-            grid.Columns.Add(new GridPriceColumn
-            {
+            grid.Columns.Add(new GridPriceColumn {
                 //CurrencySymbolField = "CurrencySymbol",
                 DataField = "PriceWVAT",
                 HeaderText = SHP.Resources.Controls.AdminOrdersControl_ColumnPriceTotalWVAT,
@@ -258,8 +231,7 @@ namespace Eurona.User.Advisor
                 AutoPostBackOnFilter = true,
                 CurrentFilterFunction = GridKnownFunction.Contains
             });
-            grid.Columns.Add(new GridBoundColumn
-            {
+            grid.Columns.Add(new GridBoundColumn {
                 DataField = "AssociationStatusText",
                 HeaderText = Resources.EShopStrings.AdminOrdersControl_ColumnAssociated,
                 SortExpression = "AssociationStatusText",
@@ -290,8 +262,7 @@ namespace Eurona.User.Advisor
             return grid;
         }
 
-        void OnRowDataBound(object sender, GridItemEventArgs e)
-        {
+        void OnRowDataBound(object sender, GridItemEventArgs e) {
             if (e.Item.ItemType != GridItemType.Item && e.Item.ItemType != GridItemType.AlternatingItem)
                 return;
 
@@ -318,19 +289,16 @@ namespace Eurona.User.Advisor
                 btnEdit.ImageUrl = ConfigValue("CMS:EditButtonImageD");
         }
 
-        void OnRowCommand(object sender, GridCommandEventArgs e)
-        {
+        void OnRowCommand(object sender, GridCommandEventArgs e) {
             if (e.CommandName == EDIT_COMMAND) OnEditCommand(sender, e);
             if (e.CommandName == DELETE_COMMAND) OnDeleteCommand(sender, e);
         }
-        private void OnEditCommand(object sender, GridCommandEventArgs e)
-        {
+        private void OnEditCommand(object sender, GridCommandEventArgs e) {
             GridDataItem dataItem = (GridDataItem)e.Item;
             int orderId = Convert.ToInt32(dataItem.OwnerTableView.DataKeyValues[dataItem.ItemIndex]["Id"]);
             Response.Redirect(String.Format(EditUrlFormat, orderId) + "&" + base.BuildReturnUrlQueryParam());
         }
-        private void OnDeleteCommand(object sender, GridCommandEventArgs e)
-        {
+        private void OnDeleteCommand(object sender, GridCommandEventArgs e) {
             GridDataItem dataItem = (GridDataItem)e.Item;
             int orderId = Convert.ToInt32(dataItem.OwnerTableView.DataKeyValues[dataItem.ItemIndex]["Id"]);
             OrderEntity entity = Storage<OrderEntity>.ReadFirst(new OrderEntity.ReadById { OrderId = orderId });
@@ -341,29 +309,26 @@ namespace Eurona.User.Advisor
             GridViewDataBind(true);
         }
 
-        internal sealed class AssociatedOrdersDetailTemplate : ITemplate
-        {
+        /*
+        internal sealed class AssociatedOrdersDetailTemplate : ITemplate {
             private RadGrid gridView = null;
             public string EditUrlFormat { get; set; }
             private CmsControl Parent { get; set; }
             private string ReturnUrl { get; set; }
-            public AssociatedOrdersDetailTemplate(string editUrlFormat, CmsControl parent, string returnUrl)
-            {
+            public AssociatedOrdersDetailTemplate(string editUrlFormat, CmsControl parent, string returnUrl) {
                 this.EditUrlFormat = editUrlFormat;
                 this.Parent = parent;
                 this.ReturnUrl = returnUrl;
             }
 
-            void ITemplate.InstantiateIn(Control container)
-            {
+            void ITemplate.InstantiateIn(Control container) {
                 gridView = CreateGridView();
                 gridView.DataBinding += new EventHandler(detail_DataBinding);
 
                 container.Controls.Add(gridView);
             }
 
-            private RadGrid CreateGridView()
-            {
+            private RadGrid CreateGridView() {
                 RadGrid grid = new RadGrid();
                 CMS.Utilities.RadGridUtilities.Localize(grid);
                 grid.MasterTableView.DataKeyNames = new string[] { "Id" };
@@ -385,14 +350,12 @@ namespace Eurona.User.Advisor
                 grid.MasterTableView.GridLines = GridLines.None;
                 grid.MasterTableView.AutoGenerateColumns = false;
 
-                grid.MasterTableView.Columns.Add(new GridBoundColumn
-                {
+                grid.MasterTableView.Columns.Add(new GridBoundColumn {
                     DataField = "OrderNumber",
                     HeaderText = SHP.Resources.Controls.AdminOrdersControl_ColumnOrderNumber,
                     SortExpression = "OrderNumber",
                 });
-                grid.Columns.Add(new GridBoundColumn
-                {
+                grid.Columns.Add(new GridBoundColumn {
                     DataField = "OrderDate",
                     DataFormatString = "{0:d}",
                     HeaderText = SHP.Resources.Controls.AdminOrdersControl_ColumnOrderDate,
@@ -400,8 +363,7 @@ namespace Eurona.User.Advisor
                     AutoPostBackOnFilter = true,
                     CurrentFilterFunction = GridKnownFunction.Contains
                 });
-                grid.Columns.Add(new GridIconColumn
-                {
+                grid.Columns.Add(new GridIconColumn {
                     ImageWidth = Unit.Pixel(16),
                     ImageHeight = Unit.Pixel(16),
                     DataImageUrlFields = new string[] { "OrderStatusIcon" },
@@ -411,16 +373,14 @@ namespace Eurona.User.Advisor
                     AutoPostBackOnFilter = true,
                     CurrentFilterFunction = GridKnownFunction.Contains
                 });
-                grid.Columns.Add(new GridBoundColumn
-                {
+                grid.Columns.Add(new GridBoundColumn {
                     DataField = "OwnerName",
                     HeaderText = Resources.EShopStrings.AdminOrdersControl_ColumnOrderOwnerName,
                     SortExpression = "OwnerName",
                     AutoPostBackOnFilter = true,
                     CurrentFilterFunction = GridKnownFunction.Contains
                 });
-                grid.Columns.Add(new GridPriceColumn
-                {
+                grid.Columns.Add(new GridPriceColumn {
                     //CurrencySymbolField = "CurrencySymbol",
                     DataField = "Price",
                     HeaderText = SHP.Resources.Controls.AdminOrdersControl_ColumnPriceTotal,
@@ -428,8 +388,7 @@ namespace Eurona.User.Advisor
                     AutoPostBackOnFilter = true,
                     CurrentFilterFunction = GridKnownFunction.Contains
                 });
-                grid.Columns.Add(new GridPriceColumn
-                {
+                grid.Columns.Add(new GridPriceColumn {
                     //CurrencySymbolField = "CurrencySymbol",
                     DataField = "PriceWVAT",
                     HeaderText = SHP.Resources.Controls.AdminOrdersControl_ColumnPriceTotalWVAT,
@@ -449,26 +408,22 @@ namespace Eurona.User.Advisor
 
                 return grid;
             }
-            void OnRowCommand(object sender, GridCommandEventArgs e)
-            {
+            void OnRowCommand(object sender, GridCommandEventArgs e) {
                 if (e.CommandName == EDIT_COMMAND) OnEditCommand(sender, e);
             }
-            private void OnEditCommand(object sender, GridCommandEventArgs e)
-            {
+            private void OnEditCommand(object sender, GridCommandEventArgs e) {
 
                 GridDataItem dataItem = (GridDataItem)e.Item;
                 int orderId = Convert.ToInt32(dataItem.OwnerTableView.DataKeyValues[dataItem.ItemIndex]["Id"]);
                 (sender as Control).Page.Response.Redirect(String.Format(EditUrlFormat, orderId) + "&" + this.ReturnUrl);
             }
-            private void GridViewDataBind(bool bind, int parentId, GridNestedViewItem gni)
-            {
+            private void GridViewDataBind(bool bind, int parentId, GridNestedViewItem gni) {
                 OrderEntity.ReadByFilter filter = new OrderEntity.ReadByFilter();
                 filter.ParentId = parentId;
                 //filter.AssociationAccountId = accountId;
 
                 List<OrderEntity> list = Storage<OrderEntity>.Read(filter);
-                if (list.Count == 0)
-                {
+                if (list.Count == 0) {
                     gridView.Visible = false;
                     Control c = gni.ParentItem.Cells[0];
                     c.Controls[0].Visible = false;
@@ -479,8 +434,7 @@ namespace Eurona.User.Advisor
                 //gridView.DataBind();
             }
 
-            void detail_DataBinding(object sender, EventArgs e)
-            {
+            void detail_DataBinding(object sender, EventArgs e) {
                 RadGrid control = sender as RadGrid;
                 GridNestedViewItem gni = (GridNestedViewItem)control.NamingContainer;
                 OrderEntity order = (gni.DataItem as OrderEntity);
@@ -488,6 +442,7 @@ namespace Eurona.User.Advisor
                 GridViewDataBind(false, order.Id, gni);
             }
         }
+         * */
 
     }
 }

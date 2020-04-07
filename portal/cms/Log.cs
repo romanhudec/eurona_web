@@ -15,7 +15,7 @@ namespace CMS {
 
             string value = ConfigurationManager.AppSettings["SMTP:Support"];
             if (value != null && !String.IsNullOrEmpty(value)) {
-                EmailNotification email = new EmailNotification();
+                ErrorEmailNotification email = new ErrorEmailNotification();
                 email.To = value;
                 email.Subject = string.Format("Application Exeption!");
 
@@ -47,7 +47,7 @@ namespace CMS {
 
             string value = ConfigurationManager.AppSettings["SMTP:Support"];
             if (value != null && !String.IsNullOrEmpty(value)) {
-                EmailNotification email = new EmailNotification();
+                ErrorEmailNotification email = new ErrorEmailNotification();
                 email.To = value;
                 email.Subject = string.Format("Application Exeption!");
 

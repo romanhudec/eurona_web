@@ -280,8 +280,6 @@
 			    </tr>
 			    <tr>
 				    <td><asp:Literal ID="Literal13" runat="server" Text="<%$ Resources:Reports, ProZiskaniDalsihoEuraZbyvaObjednatZa %>"></asp:Literal></td>
-                     <%--   <%# Eurona.User.Advisor.Reports.ReportHelper.RestMarginCredit( Eval( "Objem_vlastni" ), Eval( "Kod_meny" ) )%>
-						<%# Eurona.User.Advisor.Reports.ReportHelper.PriceCurrency( Eval( "Kod_meny" ) )%>			--%>		
 				    <td align="right">
 					    <asp:Repeater ID="Repeater4" runat="server" DataSourceID="sqlRestMarginPrice" >
 						    <ItemTemplate>

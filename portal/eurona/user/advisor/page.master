@@ -33,11 +33,6 @@
 
     <link href="~/styles/eshop.css" type="text/css" rel="Stylesheet" />
 
-    
-    <script data-queueit-c='euronabycerny' type='text/javascript'src='//static.queue-it.net/script/queueconfigloader.min.js'></script>
-    <script type='text/javascript' src='//static.queue-it.net/script/queueclient.min.js'></script>
-
-
     <script type="text/javascript"  src="https://code.jquery.com/jquery-1.12.4.js"></script>
     <script type="text/javascript"  src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
 
