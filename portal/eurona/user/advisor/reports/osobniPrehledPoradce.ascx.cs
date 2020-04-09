@@ -50,8 +50,7 @@ namespace Eurona.user.advisor.reports {
             GridViewDataBind(!IsPostBack);
         }
 
-        private DateTime GetLastDayOfMonth(int year, int month)
-        {
+        private DateTime GetLastDayOfMonth(int year, int month) {
             return new DateTime(year, month, DateTime.DaysInMonth(year, month));
         }
 
@@ -141,6 +140,7 @@ namespace Eurona.user.advisor.reports {
             this.sqlRestMarginPrice.ConnectionString = this.ConnectionString;
             this.sqlRestMarginPrice.SelectParameters["rok"].DefaultValue = rok.ToString();
             this.sqlRestMarginPrice.SelectParameters["mesic"].DefaultValue = mesic.ToString();
+            //this.sqlRestMarginPrice.SelectParameters["RRRRMM"].DefaultValue = obdobi.ToString();
             this.sqlRestMarginPrice.SelectParameters["Id_odberatele"].DefaultValue = this.ForAdvisor.TVD_Id.ToString();
 
             CMS.Pump.MSSQLStorage tvdStorage = new CMS.Pump.MSSQLStorage(this.ConnectionString);

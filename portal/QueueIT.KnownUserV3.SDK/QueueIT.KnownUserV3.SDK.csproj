@@ -46,6 +46,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="EvenLog.cs" />
     <Compile Include="HttpContextProvider.cs" />
     <Compile Include="IntegrationConfig\IntegrationConfigHelpers.cs" />
     <Compile Include="IntegrationConfig\IntegrationConfigProvider.cs" />

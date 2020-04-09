@@ -458,6 +458,14 @@ WHERE oTop.Id_odberatele = @Id_odberatele and o.Stav_odberatele!='Z'" SelectComm
 		<asp:Parameter Name="Id_odberatele" Type="Int32" />
 	</SelectParameters>
 </asp:SqlDataSource>
+<%--<asp:SqlDataSource ID="sqlRestMarginPrice" runat="server"
+	SelectCommand="SELECT objem_pro_marzi=[Body_marze] FROM [aktualni_produkce]
+     WHERE (Id_odberatele=@Id_odberatele) AND RRRRMM=@RRRRMM" SelectCommandType="Text">
+	<SelectParameters>
+		<asp:Parameter Name="Id_odberatele" Type="Int32" />
+        <asp:Parameter Name="RRRRMM" Type="Int32" />
+	</SelectParameters>
+</asp:SqlDataSource>--%>
 <asp:SqlDataSource ID="sqlRestMarginPrice" runat="server"
 	SelectCommand="SELECT objem_pro_marzi = SUM( fr.zapocet_mj_body_marze*fr.mnozstvi), cena_mj_katalogova=SUM(fr.cena_mj_katalogova*fr.mnozstvi), f.kod_meny from www_faktury f
         INNER JOIN www_faktury_radky fr ON fr.id_prepoctu = f.id_prepoctu

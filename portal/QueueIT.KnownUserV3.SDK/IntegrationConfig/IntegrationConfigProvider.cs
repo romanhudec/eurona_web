@@ -62,7 +62,8 @@ namespace QueueIT.KnownUserV3.SDK.IntegrationConfig {
                             throw new Exception("It was not sucessful retriving config file status code {response.StatusCode} from {configUrl}");
                         using (StreamReader reader = new StreamReader(response.GetResponseStream())) {
                             JavaScriptSerializer deserializer = new JavaScriptSerializer();
-                            var deserialized = deserializer.Deserialize<CustomerIntegration>(reader.ReadToEnd());
+                            string responseData = reader.ReadToEnd();                           
+                            var deserialized = deserializer.Deserialize<CustomerIntegration>(responseData);
                             if (deserialized == null)
                                 throw new Exception("CustomerIntegration is null");
                             _cachedIntegrationConfig = deserialized;
@@ -71,6 +72,7 @@ namespace QueueIT.KnownUserV3.SDK.IntegrationConfig {
                         return;
                     }
                 } catch (Exception ex) {
+                    EvenLog.WritoToEventLog(ex);
                     ++tryCount;
                     if (tryCount >= 5) {
                         //Use your favorit logging framework to log the exceptoin

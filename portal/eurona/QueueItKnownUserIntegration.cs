@@ -1,16 +1,22 @@
 ﻿
+using CMS;
 using QueueIT.KnownUserV3.SDK;
 using QueueIT.KnownUserV3.SDK.IntegrationConfig;
 using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Linq;
 using System.Text.RegularExpressions;
 using System.Web;
+using System.Web.Script.Serialization;
 using System.Web.UI;
 
 namespace Eurona {
     public static class QueueItKnownUserIntegration {
         public static void DoValidation(Page page) {
+
+            string traceQueueIT = ConfigurationManager.AppSettings["QueueIT:Trace"];
+
             try {
                 var customerId = "euronabycerny";
                 var secretKey = "a2032ca8-bc41-4363-a9a8-0f631e9cb3774d7a315d-42a1-4b14-8002-acff93fed702";
@@ -21,10 +27,16 @@ namespace Eurona {
                 // It is therefor important that the currentUrlWithoutQueueITToken is exactly the url of the users browsers. So if your webserver is 
                 // e.g. behind a load balancer that modifies the host name or port, reformat the currentUrlWithoutQueueITToken before proceeding
                 var integrationConfig = IntegrationConfigProvider.GetCachedIntegrationConfig(customerId);
+                JavaScriptSerializer serializer = new JavaScriptSerializer();
+                var integrationConfigJson = serializer.Serialize(integrationConfig);
 
                 //Verify if the user has been through the queue
                 var validationResult = KnownUser.ValidateRequestByIntegrationConfig(currentUrlWithoutQueueITToken, queueitToken, integrationConfig, customerId, secretKey);
-
+                var validationResultJson = serializer.Serialize(validationResult);
+                string serializedData = page.Request.Url.PathAndQuery + "\r\n" + validationResultJson + "\r\n\r\nIntergartionConfig:\r\n" + integrationConfigJson;
+                if (!String.IsNullOrEmpty(traceQueueIT)) {
+                    QueueIT.KnownUserV3.SDK.EvenLog.WritoToEventLog(serializedData, System.Diagnostics.EventLogEntryType.Information);
+                }
                 if (validationResult.DoRedirect) {
                     //Adding no cache headers to prevent browsers to cache requests
                     page.Response.Cache.SetCacheability(HttpCacheability.NoCache);
