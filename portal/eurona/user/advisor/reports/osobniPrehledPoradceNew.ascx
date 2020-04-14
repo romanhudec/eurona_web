@@ -1,4 +1,4 @@
-﻿<%@ Control Language="C#" AutoEventWireup="true" CodeBehind="osobniPrehledPoradce.ascx.cs" Inherits="Eurona.user.advisor.reports.osobniPrehledPoradce" %>
+﻿<%@ Control Language="C#" AutoEventWireup="true" CodeBehind="osobniPrehledPoradceNew.ascx.cs" Inherits="Eurona.user.advisor.reports.osobniPrehledPoradceNew" %>
 <style>
 .reporttable
 	{
@@ -251,9 +251,7 @@
 		<tr>
 		<td valign="top">
 		    <table class="credittable_">
-		    <tr>
-		   
-			   
+		    <tr>			   
 			<td>
 				<%--<img id="Img2" src="~/images/reports/eurocredit.gif" runat="server" />
 				<br />--%>
@@ -427,7 +425,7 @@ WHERE oTop.Id_odberatele = @Id_odberatele and o.Stav_odberatele!='Z'" SelectComm
         <asp:Parameter Name="RRRRMM" Type="Int32" />
 	</SelectParameters>
 </asp:SqlDataSource>
-<asp:SqlDataSource ID="sqlRestMarginPrice" runat="server"
+<%--<asp:SqlDataSource ID="sqlRestMarginPrice" runat="server"
 	SelectCommand="SELECT objem_pro_marzi = SUM( fr.zapocet_mj_body_marze*fr.mnozstvi), cena_mj_katalogova=SUM(fr.cena_mj_katalogova*fr.mnozstvi), f.kod_meny from www_faktury f
         INNER JOIN www_faktury_radky fr ON fr.id_prepoctu = f.id_prepoctu
         WHERE f.cislo_objednavky_eurosap IS NOT NULL 
@@ -441,4 +439,4 @@ WHERE oTop.Id_odberatele = @Id_odberatele and o.Stav_odberatele!='Z'" SelectComm
         <asp:Parameter Name="rok" Type="Int32" />
         <asp:Parameter Name="mesic" Type="Int32" />
 	</SelectParameters>
-</asp:SqlDataSource>
+</asp:SqlDataSource>--%>
