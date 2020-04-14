@@ -196,6 +196,9 @@ namespace Eurona.Common.DAL.Entities {
             public int? NotAssignedDays { get; set; }
             public int? NotAssignedHours { get; set; }
             public int? NotAssignedMinutes { get; set; }
+
+            public DateTime? AnonymousCreatedFrom { get; set; }
+            public DateTime? AnonymousCreatedTo { get; set; }
         }
 
         public class ReadAnonymousAssignManager {

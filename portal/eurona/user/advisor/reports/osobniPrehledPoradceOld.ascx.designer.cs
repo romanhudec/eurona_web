@@ -7,63 +7,54 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Eurona.User.Advisor {
+namespace Eurona.user.advisor.reports {
     
     
-    public partial class AnonymousAssignPage {
+    public partial class osobniPrehledPoradceOld {
         
         /// <summary>
-        /// lblTitle control.
+        /// formActivity control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblTitle;
+        protected global::System.Web.UI.WebControls.FormView formActivity;
         
         /// <summary>
-        /// dtpDatumOd control.
+        /// sqlDirectGroup control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::CMS.Controls.ASPxDatePicker dtpDatumOd;
+        protected global::System.Web.UI.WebControls.SqlDataSource sqlDirectGroup;
         
         /// <summary>
-        /// dtpDatumDo control.
+        /// sqlBonusGroup control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::CMS.Controls.ASPxDatePicker dtpDatumDo;
+        protected global::System.Web.UI.WebControls.SqlDataSource sqlBonusGroup;
         
         /// <summary>
-        /// btnNacitat control.
+        /// sqlTotalGroup control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnNacitat;
+        protected global::System.Web.UI.WebControls.SqlDataSource sqlTotalGroup;
         
         /// <summary>
-        /// rpCekajiciNovacci control.
+        /// sqlRestMarginPrice control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Repeater rpCekajiciNovacci;
-        
-        /// <summary>
-        /// btnPotvrditVybrane control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnPotvrditVybrane;
+        protected global::System.Web.UI.WebControls.SqlDataSource sqlRestMarginPrice;
     }
 }

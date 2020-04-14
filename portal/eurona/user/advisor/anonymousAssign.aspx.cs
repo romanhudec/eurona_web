@@ -23,8 +23,21 @@ namespace Eurona.User.Advisor {
         }
 
         private void LoadData(bool bind) {
+            DateTime? dateFrom = null;
+            if (!dtpDatumOd.IsNullDate)
+                dateFrom = (DateTime)dtpDatumOd.Value;
+
+            DateTime? dateTo = null;
+            if (!dtpDatumDo.IsNullDate)
+                dateTo = (DateTime)dtpDatumDo.Value;
+
             DateTime beforDate = DateTime.Now.AddMonths(-1);
-            List<Organization> listNovacci = Storage<Organization>.Read(new Organization.ReadByAnonymous { AnonymousRegistration = true, Assigned = true, AssignedAndConfirmed = false, CreatedAtYear = beforDate.Year, CreatedAtMonth = beforDate.Month });
+            List<Organization> listNovacci = new List<OrganizationEntity>();
+            if (dateFrom.HasValue || dateTo.HasValue) {
+                listNovacci = Storage<Organization>.Read(new Organization.ReadByAnonymous { AnonymousRegistration = true, Assigned = true, AssignedAndConfirmed = false, AnonymousCreatedFrom = dateFrom, AnonymousCreatedTo = dateTo });
+            } else {
+                listNovacci = Storage<Organization>.Read(new Organization.ReadByAnonymous { AnonymousRegistration = true, Assigned = true, AssignedAndConfirmed = false, CreatedAtYear = beforDate.Year, CreatedAtMonth = beforDate.Month });
+            }
             int index = 1;
             foreach (Organization org in listNovacci) {
                 org.BankContactId = index;
@@ -33,6 +46,10 @@ namespace Eurona.User.Advisor {
             this.btnPotvrditVybrane.Enabled = listNovacci.Count != 0;
             this.rpCekajiciNovacci.DataSource = listNovacci;
             if (bind) this.rpCekajiciNovacci.DataBind();
+        }
+
+        protected void btnNacitat_Click(object sender, EventArgs e) {
+            this.LoadData(true);
         }
 
         private OrganizationEntity logedAdvisor = null;

@@ -1,11 +1,12 @@
 ﻿<%@ Page Title="Potvrzení požadavku na přiřazení nováčka" Language="C#" MasterPageFile="~/user/advisor/page.master" AutoEventWireup="true" CodeBehind="anonymousAssign.aspx.cs" Inherits="Eurona.User.Advisor.AnonymousAssignPage" %>
+<%@ Register Assembly="cms" Namespace="CMS.Controls" TagPrefix="cms" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 	<script type="text/javascript">
 	    function fnOnPageSubmit() {
 	        blockUIProcessing('<%=Resources.Strings.Please_Wait%>');
 	    }
 
-        /*
+	    /*
 	    $(function () {
 	        var $allCheckbox = $('.rpCekajiciNovacci :checkbox');
 	        var btnPotvrditVybrane = document.getElementById('%=this.btnPotvrditVybrane.ClientID %');
@@ -33,6 +34,17 @@
 <asp:Content ID="Content3" ContentPlaceHolderID="content" runat="server">
 <%--    <asp:HiddenField runat="server" ID="hfRegistracniCislo" EnableViewState="true" />
 	<asp:HiddenField runat="server" ID="hfJmenoSponzora" EnableViewState="true" />--%>
+    <div>
+        <table>
+            <tr>
+            <td>Registrace Od: <cms:aspxdatepicker runat="server" ID="dtpDatumOd" Width="80px" /> </td>
+            <td> Registrace Do: <cms:aspxdatepicker runat="server" ID="dtpDatumDo" Width="80px" /> </td>
+            <td>
+                <asp:Button runat="server" ID="btnNacitat" Text="Načítat nováčky" OnClick="btnNacitat_Click" />
+            </td>
+            </tr>
+        </table>       
+    </div>
     <div style="margin:0px;" class="rpCekajiciNovacci">
         <asp:Repeater runat="server" ID="rpCekajiciNovacci" OnItemDataBound="OnItemDataBound">
             <HeaderTemplate>

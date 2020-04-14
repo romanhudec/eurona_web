@@ -167,6 +167,8 @@
     <Content Include="Scripts\dbUpgrade_2019_10_BSRProduct.sql" />
     <Content Include="styles\emailVerify.css" />
     <Content Include="user\advisor\ObalyControl.ascx" />
+    <Content Include="user\advisor\reports\osobniPrehledPoradceOld.aspx" />
+    <Content Include="user\advisor\reports\osobniPrehledPoradceOld.ascx" />
     <Content Include="user\anonymous\emailVerifycation.aspx" />
     <Content Include="user\anonymous\requestEmailVerifycation.aspx" />
     <Content Include="user\requestEmailChangeFromAdmin.aspx" />
@@ -1314,6 +1316,20 @@
     </Compile>
     <Compile Include="user\advisor\ObalyControl.ascx.designer.cs">
       <DependentUpon>ObalyControl.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="user\advisor\reports\osobniPrehledPoradceOld.aspx.cs">
+      <DependentUpon>osobniPrehledPoradceOld.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="user\advisor\reports\osobniPrehledPoradceOld.aspx.designer.cs">
+      <DependentUpon>osobniPrehledPoradceOld.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="user\advisor\reports\osobniPrehledPoradceOld.ascx.cs">
+      <DependentUpon>osobniPrehledPoradceOld.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="user\advisor\reports\osobniPrehledPoradceOld.ascx.designer.cs">
+      <DependentUpon>osobniPrehledPoradceOld.ascx</DependentUpon>
     </Compile>
     <Compile Include="user\anonymous\emailVerifycation.aspx.cs">
       <DependentUpon>emailVerifycation.aspx</DependentUpon>

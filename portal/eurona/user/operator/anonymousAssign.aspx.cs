@@ -16,13 +16,25 @@ namespace Eurona.User.Operator {
         }
 
         private void LoadData(bool bind) {
+
+            DateTime? dateFrom = null;
+            if (!dtpDatumOd.IsNullDate)
+                dateFrom = (DateTime)dtpDatumOd.Value;
+
+            DateTime? dateTo = null;
+            if (!dtpDatumDo.IsNullDate)
+                dateTo = (DateTime)dtpDatumDo.Value;
+
             DateTime beforDate = DateTime.Now.AddMonths(-1);
             List<Organization> listNovacci = new List<OrganizationEntity>();
-            if (this.cbShowAll.Checked)
-                listNovacci = Storage<Organization>.Read(new Organization.ReadByAnonymous { AnonymousRegistration = true, Assigned = true, AssignedAndConfirmed = false });
-            else
-                listNovacci = Storage<Organization>.Read(new Organization.ReadByAnonymous { AnonymousRegistration = true, Assigned = true, AssignedAndConfirmed = false, CreatedAtYear = beforDate.Year, CreatedAtMonth = beforDate.Month });
-
+            if (dateFrom.HasValue || dateTo.HasValue) {
+                listNovacci = Storage<Organization>.Read(new Organization.ReadByAnonymous { AnonymousRegistration = true, Assigned = true, AssignedAndConfirmed = false, AnonymousCreatedFrom = dateFrom, AnonymousCreatedTo = dateTo });
+            } else {
+                if (this.cbShowAll.Checked)
+                    listNovacci = Storage<Organization>.Read(new Organization.ReadByAnonymous { AnonymousRegistration = true, Assigned = true, AssignedAndConfirmed = false });
+                else
+                    listNovacci = Storage<Organization>.Read(new Organization.ReadByAnonymous { AnonymousRegistration = true, Assigned = true, AssignedAndConfirmed = false, CreatedAtYear = beforDate.Year, CreatedAtMonth = beforDate.Month });
+            }
             int index = 1;
             foreach (Organization org in listNovacci) {
                 org.BankContactId = index;
@@ -31,6 +43,11 @@ namespace Eurona.User.Operator {
             this.btnUlozitVybrane.Enabled = listNovacci.Count != 0;
             this.rpCekajiciNovacci.DataSource = listNovacci;
             if (bind) this.rpCekajiciNovacci.DataBind();
+        }
+
+
+        protected void btnNacitat_Click(object sender, EventArgs e) {
+            this.LoadData(true);
         }
 
         protected void OnCheckAllCheckedChanged(object sender, EventArgs e) {
