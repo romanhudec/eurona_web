@@ -252,46 +252,7 @@
 		<td valign="top">
 		    <table class="credittable_">
 		    <tr>
-		    <td style="display:none;">
-			    <table class="reporttable" border="0" cellpadding="3" cellspacing="0">
-			    <tr>
-                    <th colspan="3">kredity</th>
-                </tr>
-			    <tr>
-				    <td><asp:Literal ID="Literal11" runat="server" Text="<%$ Resources:Reports, KreditZiskanyVMesici %>"></asp:Literal></td>
-				    <td align="right"><%# Eval("ecredit") %></td>
-				    <td rowspan="5"><img src="~/images/reports/pocket.jpg" runat="server" /></td>
-			    </tr>
-			    <tr>
-				    <td><asp:Literal ID="Literal12" runat="server" Text="<%$ Resources:Reports, AktualniZbyvajiciKreditProCerpani %>"></asp:Literal></td>
-				    <td align="right"><%# Eval( "Narok_eurokredit" )%></td>
-			    </tr>
-    			
-			    <tr>
-				    <td>Zisk EURO</td>
-				    <td align="right">
-                        <%# Eurona.User.Advisor.Reports.ReportHelper.ActualCredit( Eval( "Objem_vlastni" ), Eval( "Kod_meny" ) )%>
-					    <asp:Repeater ID="Repeater3" runat="server" DataSourceID="sqlRestMarginPrice" >
-						    <ItemTemplate>
-							    <%# Eurona.User.Advisor.Reports.ReportHelper.ActualCredit( Eval( "cena_mj_katalogova" ), Eval( "Kod_meny" ) )%>
-						    </ItemTemplate>
-					    </asp:Repeater>
-				    </td>
-			    </tr>
-			    <tr>
-				    <td><asp:Literal ID="Literal13" runat="server" Text="<%$ Resources:Reports, ProZiskaniDalsihoEuraZbyvaObjednatZa %>"></asp:Literal></td>
-				    <td align="right">
-					    <asp:Repeater ID="Repeater4" runat="server" DataSourceID="sqlRestMarginPrice" >
-						    <ItemTemplate>
-							    <%# Eurona.User.Advisor.Reports.ReportHelper.RestMarginCredit( Eval( "cena_mj_katalogova" ), Eval( "Kod_meny" ) )%>
-							    <%# Eurona.User.Advisor.Reports.ReportHelper.PriceCurrency( Eval( "Kod_meny" ) )%>						
-						    </ItemTemplate>
-					    </asp:Repeater>
-				    </td>
-			    </tr>		
- 
-			    </table>
-			</td>
+		   
 			   
 			<td>
 				<%--<img id="Img2" src="~/images/reports/eurocredit.gif" runat="server" />

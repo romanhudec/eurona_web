@@ -52,7 +52,7 @@ namespace CMS {
                     smtpClient.Port = section.Network.Port;
                     smtpClient.UseDefaultCredentials = section.Network.DefaultCredentials;
 
-                    smtpClient.Credentials = new NetworkCredential(section.Network.UserName, section.Network.Password, section.Network.ClientDomain);
+                    smtpClient.Credentials = new NetworkCredential(section.Network.UserName, section.Network.Password);
                     smtpClient.EnableSsl = useSSL;
 
                     if (section.Network.TargetName != null)

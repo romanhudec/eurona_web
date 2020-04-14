@@ -53,19 +53,21 @@ namespace Eurona.EShop.User {
                 this.lblTitle.Text = Resources.EShopStrings.AdminOrdersControl_Title_ActiveOrders;
 
                 EnsureChildControls();
-                List<OrderEntity> list = adminActiveOrdersControl.GetOrdersNotAssociated();
-                if (list.Count != 0) {
-                    divOrderAssociation.Visible = true && Settings.IsZdruzeneObjednavkyPovolena();
-                    if (!IsPostBack) {
-                        this.ddlRegion.Items.Clear();
-                        List<ListItem> items = new Eurona.Common.Controls.UserManagement.OrganizationControl.Hepler().GetRegions();
-                        foreach (ListItem item in items)
-                            this.ddlRegion.Items.Add(new RadComboBoxItem(item.Text, item.Value));
 
-                        RadComboBoxItem itemEmpty = new RadComboBoxItem(string.Empty, string.Empty);
-                        this.ddlRegion.Items.Insert(0, itemEmpty);
-                    }
-                }
+                divOrderAssociation.Visible = false;
+                //List<OrderEntity> list = adminActiveOrdersControl.GetOrdersNotAssociated();
+                //if (list.Count != 0) {
+                //    divOrderAssociation.Visible = true && Settings.IsZdruzeneObjednavkyPovolena();
+                //    if (!IsPostBack) {
+                //        this.ddlRegion.Items.Clear();
+                //        List<ListItem> items = new Eurona.Common.Controls.UserManagement.OrganizationControl.Hepler().GetRegions();
+                //        foreach (ListItem item in items)
+                //            this.ddlRegion.Items.Add(new RadComboBoxItem(item.Text, item.Value));
+
+                //        RadComboBoxItem itemEmpty = new RadComboBoxItem(string.Empty, string.Empty);
+                //        this.ddlRegion.Items.Insert(0, itemEmpty);
+                //    }
+                //}
             }
 
         }
