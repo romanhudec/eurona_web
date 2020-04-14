@@ -22,6 +22,33 @@ namespace Eurona.User.Advisor {
         protected global::System.Web.UI.WebControls.Label lblTitle;
         
         /// <summary>
+        /// dtpDatumOd control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::CMS.Controls.ASPxDatePicker dtpDatumOd;
+        
+        /// <summary>
+        /// dtpDatumDo control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::CMS.Controls.ASPxDatePicker dtpDatumDo;
+        
+        /// <summary>
+        /// btnNacitat control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnNacitat;
+        
+        /// <summary>
         /// rpCekajiciNovacci control.
         /// </summary>
         /// <remarks>

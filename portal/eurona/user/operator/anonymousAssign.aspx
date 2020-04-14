@@ -1,4 +1,5 @@
 ﻿<%@ Page Title="Potvrzení požadavku na přiřazení nováčka" Language="C#" MasterPageFile="~/user/operator/admin.master" AutoEventWireup="true" CodeBehind="anonymousAssign.aspx.cs" Inherits="Eurona.User.Operator.AnonymousAssignPage" %>
+<%@ Register Assembly="cms" Namespace="CMS.Controls" TagPrefix="cms" %>
 <asp:Content ID="Content2" ContentPlaceHolderID="navigation" runat="server">
 	<div class="navigation-links">
 		<a id="A1" href="~/default.aspx" runat="server"><asp:Literal ID="Literal3" runat="server" Text="<%$ Resources:Strings, Navigation_Home %>" /></a>
@@ -9,12 +10,12 @@
 	</div>
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="content" runat="server">
-	<script type="text/javascript">	  
+	<script type="text/javascript">
 	    function fnOnPageSubmit() {
 	        blockUIProcessing('<%=Resources.Strings.Please_Wait%>');
-        }
-        
-        /*
+	    }
+
+	    /*
 	    $(function () {
 	        var $allCheckbox = $('.select-to-save :checkbox');
         	var btnUlozitVybrane = document.getElementById('%=this.btnUlozitVybrane.ClientID %');
@@ -32,6 +33,15 @@
 	<h2>Potvrzení požadavku na přiřazení nováčka</h2>
 	<div>
 		<asp:CheckBox runat="server" ID="cbShowAll" Text="Zobrazit všechny (standardne se zobrazuje jen předchozí měsíc)." OnCheckedChanged="OnCheckAllCheckedChanged" AutoPostBack="true" />
+        <table>
+        <tr>
+        <td>Registrace Od: <cms:ASPxDatePicker runat="server" ID="dtpDatumOd" Width="80px" /> </td>
+        <td> Registrace Do: <cms:ASPxDatePicker runat="server" ID="dtpDatumDo" Width="80px" /> </td>
+        <td>
+        <asp:Button runat="server" ID="btnNacitat" Text="Načítat nováčky" OnClick="btnNacitat_Click" />
+        </td>
+        </tr>
+        </table>       
 	</div>
     <%--<asp:HiddenField runat="server" ID="hfRegistracniCislo" EnableViewState="true" />
 	<asp:HiddenField runat="server" ID="hfJmenoSponzora" EnableViewState="true" />--%>
