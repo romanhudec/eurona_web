@@ -167,8 +167,8 @@
     <Content Include="Scripts\dbUpgrade_2019_10_BSRProduct.sql" />
     <Content Include="styles\emailVerify.css" />
     <Content Include="user\advisor\ObalyControl.ascx" />
-    <Content Include="user\advisor\reports\osobniPrehledPoradceNew.aspx" />
-    <Content Include="user\advisor\reports\osobniPrehledPoradceNew.ascx" />
+    <Content Include="user\advisor\reports\osobniPrehledPoradce.aspx" />
+    <Content Include="user\advisor\reports\osobniPrehledPoradce.ascx" />
     <Content Include="user\anonymous\emailVerifycation.aspx" />
     <Content Include="user\anonymous\requestEmailVerifycation.aspx" />
     <Content Include="user\requestEmailChangeFromAdmin.aspx" />
@@ -571,12 +571,10 @@
     <Content Include="user\advisor\reports\aktivityReportPoradce.aspx" />
     <Content Include="user\advisor\reports\historieObjednavek.aspx" />
     <Content Include="user\advisor\reports\objednavka.aspx" />
-    <Content Include="user\advisor\reports\osobniPrehledPoradce.ascx" />
     <Content Include="user\advisor\reports\zauctovanaProdukce.aspx" />
     <Content Include="user\advisor\reports\reporty.aspx" />
     <Content Include="user\advisor\reports\nezauctovanaProdukce.aspx" />
     <Content Include="user\advisor\reports\noviPoradci.aspx" />
-    <Content Include="user\advisor\reports\osobniPrehledPoradce.aspx" />
     <Content Include="user\advisor\reports\prehledProdukceSkupiny.aspx" />
     <Content Include="user\advisor\user.aspx" />
     <Content Include="user\host\cart.aspx" />
@@ -1317,19 +1315,19 @@
     <Compile Include="user\advisor\ObalyControl.ascx.designer.cs">
       <DependentUpon>ObalyControl.ascx</DependentUpon>
     </Compile>
-    <Compile Include="user\advisor\reports\osobniPrehledPoradceNew.aspx.cs">
-      <DependentUpon>osobniPrehledPoradceNew.aspx</DependentUpon>
+    <Compile Include="user\advisor\reports\osobniPrehledPoradce.aspx.cs">
+      <DependentUpon>osobniPrehledPoradce.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="user\advisor\reports\osobniPrehledPoradceNew.aspx.designer.cs">
-      <DependentUpon>osobniPrehledPoradceNew.aspx</DependentUpon>
+    <Compile Include="user\advisor\reports\osobniPrehledPoradce.aspx.designer.cs">
+      <DependentUpon>osobniPrehledPoradce.aspx</DependentUpon>
     </Compile>
-    <Compile Include="user\advisor\reports\osobniPrehledPoradceNew.ascx.cs">
-      <DependentUpon>osobniPrehledPoradceNew.ascx</DependentUpon>
+    <Compile Include="user\advisor\reports\osobniPrehledPoradce.ascx.cs">
+      <DependentUpon>osobniPrehledPoradce.ascx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="user\advisor\reports\osobniPrehledPoradceNew.ascx.designer.cs">
-      <DependentUpon>osobniPrehledPoradceNew.ascx</DependentUpon>
+    <Compile Include="user\advisor\reports\osobniPrehledPoradce.ascx.designer.cs">
+      <DependentUpon>osobniPrehledPoradce.ascx</DependentUpon>
     </Compile>
     <Compile Include="user\anonymous\emailVerifycation.aspx.cs">
       <DependentUpon>emailVerifycation.aspx</DependentUpon>
@@ -2295,13 +2293,6 @@
     <Compile Include="user\advisor\reports\objednavka.aspx.designer.cs">
       <DependentUpon>objednavka.aspx</DependentUpon>
     </Compile>
-    <Compile Include="user\advisor\reports\osobniPrehledPoradce.ascx.cs">
-      <DependentUpon>osobniPrehledPoradce.ascx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="user\advisor\reports\osobniPrehledPoradce.ascx.designer.cs">
-      <DependentUpon>osobniPrehledPoradce.ascx</DependentUpon>
-    </Compile>
     <Compile Include="user\advisor\reports\zauctovanaProdukce.aspx.cs">
       <DependentUpon>zauctovanaProdukce.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -2337,13 +2328,6 @@
     </Compile>
     <Compile Include="user\advisor\reports\noviPoradci.aspx.designer.cs">
       <DependentUpon>noviPoradci.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="user\advisor\reports\osobniPrehledPoradce.aspx.cs">
-      <DependentUpon>osobniPrehledPoradce.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="user\advisor\reports\osobniPrehledPoradce.aspx.designer.cs">
-      <DependentUpon>osobniPrehledPoradce.aspx</DependentUpon>
     </Compile>
     <Compile Include="user\advisor\reports\prehledProdukceSkupiny.aspx.cs">
       <DependentUpon>prehledProdukceSkupiny.aspx</DependentUpon>
