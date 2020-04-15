@@ -51,6 +51,10 @@ namespace Eurona.DAL.Entities {
         /// </summary>
         public bool NoPostage { get; set; }
 
+        public class ReadById {
+            public int OrderId { get; set; }
+        }
+
         public class ReadByFilter {
             public int? AccountId { get; set; }
             public string OrderNumber { get; set; }

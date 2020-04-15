@@ -11,7 +11,7 @@ using Eurona.DAL.Entities;
 namespace Eurona.DAL.MSSQL {
     [Serializable]
     public sealed class OrderFastViewStorage : MSSQLStorage<OrderFastView> {
-        private const string entitySelect = @"SELECT TOP 200 OrderId, InstanceId, ParentId, OrderDate, OrderNumber ,CartId ,AccountId, AccountName, OrderStatusCode ,OrderStatusName, OrderStatusIcon ,
+        private const string entitySelect = @"SELECT TOP 100 OrderId, InstanceId, ParentId, OrderDate, OrderNumber ,CartId ,AccountId, AccountName, OrderStatusCode ,OrderStatusName, OrderStatusIcon ,
 		ShipmentCode ,ShipmentName, ShipmentIcon ,ShipmentPrice, ShipmentPriceWVAT ,Price, PriceWVAT,
 		ParentId, AssociationRequestStatus, AssociationAccountId, CreatedByAccountId,
 		OwnerName, TVD_Id
@@ -53,10 +53,12 @@ namespace Eurona.DAL.MSSQL {
 
         public override List<OrderFastView> Read(object criteria) {
             if (criteria is OrderFastView.ReadByFilter) return LoadByFilter(criteria as OrderFastView.ReadByFilter);
+            if (criteria is OrderFastView.ReadById) return LoadById(criteria as OrderFastView.ReadById);
             List<OrderFastView> list = new List<OrderFastView>();
             using (SqlConnection connection = Connect()) {
                 string sql = entitySelect;
                 sql += " WHERE InstanceId = @InstanceId";
+                sql += " ORDER BY OrderId DESC";
                 DataTable table = Query<DataTable>(connection, sql, new SqlParameter("@InstanceId", InstanceId));
                 foreach (DataRow dr in table.Rows)
                     list.Add(GetOrderFastView(dr));
@@ -66,6 +68,19 @@ namespace Eurona.DAL.MSSQL {
 
         public override int Count(object criteria) {
             throw new NotImplementedException();
+        }
+
+        private List<OrderFastView> LoadById(OrderFastView.ReadById by) {
+            List<OrderFastView> list = new List<OrderFastView>();
+            using (SqlConnection connection = Connect()) {
+                string sql = entitySelect;
+
+                sql += @" WHERE OrderId = @OrderId";            
+                DataTable table = Query<DataTable>(connection, sql, new SqlParameter("@OrderId", by.OrderId));
+                foreach (DataRow dr in table.Rows)
+                    list.Add(GetOrderFastView(dr));
+            }
+            return list;
         }
 
         private List<OrderFastView> LoadByFilter(OrderFastView.ReadByFilter by) {
@@ -83,6 +98,7 @@ namespace Eurona.DAL.MSSQL {
                 sql += !string.IsNullOrEmpty(by.NotOrderStatusCode) ? " AND (OrderStatusCode NOT LIKE @NotOrderStatusCode)" : "";
                 sql += by.ParentId.HasValue ? " AND (ParentId = @ParentId)" : "";
                 sql += by.OnlyLastMonths.HasValue ? " AND (OrderDate >= DATEADD(M, @OnlyLastMonths*-1, GETDATE()))" : "";
+                sql += " ORDER BY OrderId DESC";
                 DataTable table = Query<DataTable>(connection, sql,
                         new SqlParameter("@InstanceId", InstanceId),
                         new SqlParameter("@AccountId", Null(by.AccountId)),

@@ -229,6 +229,8 @@ namespace Eurona.Common.DAL.MSSQL {
 					( @CreatedAtMonth IS NULL OR ( MONTH(o.AnonymousCreatedAt)=@CreatedAtMonth ) ) AND
 					( @CreatedAtDay IS NULL OR ( DAY(o.AnonymousCreatedAt)=@CreatedAtDay ) ) AND
 					( @AnonymousCreatedAt IS NULL OR ( YEAR(o.AnonymousCreatedAt)=YEAR(@AnonymousCreatedAt) AND MONTH(o.AnonymousCreatedAt)=MONTH(@AnonymousCreatedAt) AND DAY(o.AnonymousCreatedAt)=DAY(@AnonymousCreatedAt) ) ) AND
+                    ( @AnonymousCreatedFrom IS NULL OR ( YEAR(o.AnonymousCreatedAt)>=YEAR(@AnonymousCreatedFrom) AND MONTH(o.AnonymousCreatedAt)>=MONTH(@AnonymousCreatedFrom) AND DAY(o.AnonymousCreatedAt)>=DAY(@AnonymousCreatedFrom) ) ) AND
+                    ( @AnonymousCreatedTo IS NULL OR ( YEAR(o.AnonymousCreatedAt)<=YEAR(@AnonymousCreatedTo) AND MONTH(o.AnonymousCreatedAt)<=MONTH(@AnonymousCreatedTo) AND DAY(o.AnonymousCreatedAt)<=DAY(@AnonymousCreatedTo) ) ) AND
 					( @AnonymousAssignAt IS NULL OR ( YEAR(o.AnonymousAssignAt)=YEAR(@AnonymousAssignAt) AND MONTH(o.AnonymousAssignAt)=MONTH(@AnonymousAssignAt) AND DAY(o.AnonymousAssignAt)=DAY(@AnonymousAssignAt) ) ) AND
                     ( @AnonymousTempAssignAt IS NULL OR ( YEAR(o.AnonymousTempAssignAt)=YEAR(@AnonymousTempAssignAt) AND MONTH(o.AnonymousTempAssignAt)=MONTH(@AnonymousTempAssignAt) AND DAY(o.AnonymousTempAssignAt)=DAY(@AnonymousTempAssignAt) ) ) AND
 					( @Assigned IS NULL OR (@Assigned = 1 AND o.AnonymousAssignBy IS NOT NULL ) OR (@Assigned = 0 AND o.AnonymousAssignBy IS NULL ) ) AND
@@ -256,7 +258,9 @@ namespace Eurona.Common.DAL.MSSQL {
                         new SqlParameter("@CreatedAtMonth", Null(by.CreatedAtMonth)),
                         new SqlParameter("@CreatedAtYear", Null(by.CreatedAtYear)),
                         new SqlParameter("@NotAssignedMinutesTotal", Null(notAssignedMinutesTotal)),
-                        new SqlParameter("@RegionCode", Null(by.RegionCode))
+                        new SqlParameter("@RegionCode", Null(by.RegionCode)),
+                        new SqlParameter("@AnonymousCreatedFrom", Null(by.AnonymousCreatedFrom)),
+                        new SqlParameter("@AnonymousCreatedTo", Null(by.AnonymousCreatedTo))
                         );
                 foreach (DataRow dr in table.Rows) orgs.Add(GetOrganization(dr));
             }
