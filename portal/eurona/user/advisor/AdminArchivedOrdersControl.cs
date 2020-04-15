@@ -4,7 +4,7 @@ using System.Linq;
 using System.Linq.Dynamic;
 using System.Web.UI.WebControls;
 using CMS.Controls;
-using OrderEntity = Eurona.DAL.Entities.Order;
+using OrderEntity = Eurona.DAL.Entities.OrderFastView;
 using CMS;
 using System.Web.UI;
 using Telerik.Web.UI;
@@ -115,16 +115,18 @@ namespace Eurona.User.Advisor {
             return table;
         }
 
-        private OrderEntity.ReadNot GetFilterValue() {
-            OrderEntity.ReadNot filter = new OrderEntity.ReadNot();
-            filter.OrderStatusCode = ((int)OrderEntity.OrderStatus.WaitingForProccess).ToString();
+        private OrderEntity.ReadByFilter GetFilterValue() {
+            //OrderEntity.ReadNot filter = new OrderEntity.ReadNot();
+            //filter.OrderStatusCode = ((int)Order.OrderStatus.WaitingForProccess).ToString();
+            //filter.AccountId = Security.Account.Id;
+            OrderEntity.ReadByFilter filter = new OrderEntity.ReadByFilter();
+            filter.NotOrderStatusCode = ((int)Order.OrderStatus.WaitingForProccess).ToString();
             filter.AccountId = Security.Account.Id;
-
             return filter;
         }
 
         private void GridViewDataBind(bool bind) {
-            OrderEntity.ReadNot filter = GetFilterValue();
+            OrderEntity.ReadByFilter filter = GetFilterValue();
             List<OrderEntity> list = Storage<OrderEntity>.Read(filter);
 
             var ordered = list.AsQueryable().OrderBy(SortExpression + " " + SortDirection);
@@ -191,7 +193,6 @@ namespace Eurona.User.Advisor {
             });
 
             grid.Columns.Add(new GridPriceColumn {
-                //CurrencySymbolField = "CurrencySymbol",
                 DataField = "PriceWVAT",
                 HeaderText = SHP.Resources.Controls.AdminOrdersControl_ColumnPriceTotalWVAT,
                 SortExpression = "PriceWVAT",
@@ -232,17 +233,14 @@ namespace Eurona.User.Advisor {
 
             OrderEntity order = e.Item.DataItem as OrderEntity;
 
-            bool isEditable = OrderEntity.GetOrderStatusFromCode(order.OrderStatusCode) == OrderEntity.OrderStatus.WaitingForProccess;
+            bool isEditable = Order.GetOrderStatusFromCode(order.OrderStatusCode) == Order.OrderStatus.WaitingForProccess;
 
             int editIndex = e.Item.Cells.Count - 1;
             int payIndex = e.Item.Cells.Count - 2;
 
             ImageButton btnEdit = (e.Item.Cells[editIndex].Controls[0] as ImageButton);
-            //ImageButton btnPay = (e.Item.Cells[payIndex].Controls[0] as ImageButton);
-
             if (!btnEdit.Enabled) {
                 btnEdit.ImageUrl = ConfigValue("CMS:EditButtonImageD");
-                //btnPay.Enabled = false;
             }
         }
 
@@ -260,134 +258,5 @@ namespace Eurona.User.Advisor {
             int orderId = Convert.ToInt32(dataItem.OwnerTableView.DataKeyValues[dataItem.ItemIndex]["Id"]);
             Response.Redirect(String.Format(PayUrlFormat, orderId) + "&" + base.BuildReturnUrlQueryParam());
         }
-        /*
-        internal sealed class AssociatedOrdersDetailTemplate : ITemplate {
-            private RadGrid gridView = null;
-            public string EditUrlFormat { get; set; }
-            private CmsControl Parent { get; set; }
-            private string ReturnUrl { get; set; }
-            public AssociatedOrdersDetailTemplate(string editUrlFormat, CmsControl parent, string returnUrl) {
-                this.EditUrlFormat = editUrlFormat;
-                this.Parent = parent;
-                this.ReturnUrl = returnUrl;
-            }
-
-            void ITemplate.InstantiateIn(Control container) {
-                gridView = CreateGridView();
-                gridView.DataBinding += new EventHandler(detail_DataBinding);
-
-                container.Controls.Add(gridView);
-            }
-
-            private RadGrid CreateGridView() {
-                RadGrid grid = new RadGrid();
-                CMS.Utilities.RadGridUtilities.Localize(grid);
-                grid.MasterTableView.DataKeyNames = new string[] { "Id" };
-
-                grid.AllowAutomaticInserts = false;
-                grid.AllowFilteringByColumn = false;
-                grid.ShowStatusBar = false;
-                grid.ShowGroupPanel = false;
-                grid.GroupingEnabled = false;
-                grid.GroupingSettings.ShowUnGroupButton = false;
-                grid.ClientSettings.AllowDragToGroup = false;
-                grid.ClientSettings.AllowColumnsReorder = false;
-
-                grid.MasterTableView.ShowHeader = true;
-                grid.MasterTableView.ShowFooter = false;
-                grid.MasterTableView.AllowPaging = false;
-                grid.MasterTableView.AllowSorting = false;
-                grid.MasterTableView.GridLines = GridLines.None;
-                grid.MasterTableView.AutoGenerateColumns = false;
-
-                grid.MasterTableView.Columns.Add(new GridBoundColumn {
-                    DataField = "OrderNumber",
-                    HeaderText = SHP.Resources.Controls.AdminOrdersControl_ColumnOrderNumber,
-                    SortExpression = "OrderNumber",
-                });
-                grid.Columns.Add(new GridBoundColumn {
-                    DataField = "OrderDate",
-                    DataFormatString = "{0:d}",
-                    HeaderText = SHP.Resources.Controls.AdminOrdersControl_ColumnOrderDate,
-                    SortExpression = "OrderDate",
-                    AutoPostBackOnFilter = true,
-                    CurrentFilterFunction = GridKnownFunction.Contains
-                });
-                grid.Columns.Add(new GridIconColumn {
-                    ImageWidth = Unit.Pixel(16),
-                    ImageHeight = Unit.Pixel(16),
-                    DataImageUrlFields = new string[] { "OrderStatusIcon" },
-                    DataAlternateTextField = "OrderStatusName",
-                    HeaderText = SHP.Resources.Controls.AdminOrdersControl_ColumnOrderStatus,
-                    SortExpression = "OrderStatusName",
-                    AutoPostBackOnFilter = true,
-                    CurrentFilterFunction = GridKnownFunction.Contains
-                });
-                grid.Columns.Add(new GridBoundColumn {
-                    DataField = "OwnerName",
-                    HeaderText = Resources.EShopStrings.AdminOrdersControl_ColumnOrderOwnerName,
-                    SortExpression = "OwnerName",
-                    AutoPostBackOnFilter = true,
-                    CurrentFilterFunction = GridKnownFunction.Contains
-                });
-                grid.Columns.Add(new GridPriceColumn {
-                    //CurrencySymbolField = "CurrencySymbol",
-                    DataField = "Price",
-                    HeaderText = SHP.Resources.Controls.AdminOrdersControl_ColumnPriceTotal,
-                    SortExpression = "Price",
-                    AutoPostBackOnFilter = true,
-                    CurrentFilterFunction = GridKnownFunction.Contains
-                });
-                grid.Columns.Add(new GridPriceColumn {
-                    //CurrencySymbolField = "CurrencySymbol",
-                    DataField = "PriceWVAT",
-                    HeaderText = SHP.Resources.Controls.AdminOrdersControl_ColumnPriceTotalWVAT,
-                    SortExpression = "PriceWVAT",
-                    AutoPostBackOnFilter = true,
-                    CurrentFilterFunction = GridKnownFunction.Contains
-                });
-                GridButtonColumn btnEdit = new GridButtonColumn();
-                btnEdit.HeaderStyle.Width = new Unit(16, UnitType.Pixel);
-                btnEdit.ImageUrl = CMS.Utilities.ConfigUtilities.ConfigValue("CMS:EditButtonImage", this.Parent.Page);
-                btnEdit.Text = SHP.Resources.Controls.GridView_ToolTip_EditItem;
-                btnEdit.ButtonType = GridButtonColumnType.ImageButton;
-                btnEdit.CommandName = EDIT_COMMAND;
-                grid.MasterTableView.Columns.Add(btnEdit);
-
-                grid.ItemCommand += OnRowCommand;
-
-                return grid;
-            }
-            void OnRowCommand(object sender, GridCommandEventArgs e) {
-                if (e.CommandName == EDIT_COMMAND) OnEditCommand(sender, e);
-            }
-            private void OnEditCommand(object sender, GridCommandEventArgs e) {
-                GridDataItem dataItem = (GridDataItem)e.Item;
-                int orderId = Convert.ToInt32(dataItem.OwnerTableView.DataKeyValues[dataItem.ItemIndex]["Id"]);
-                (sender as Control).Page.Response.Redirect(String.Format(EditUrlFormat, orderId) + "&" + this.ReturnUrl);
-            }
-            private void GridViewDataBind(bool bind, int parentId, GridNestedViewItem gni) {
-                OrderEntity.ReadByFilter filter = new OrderEntity.ReadByFilter();
-                filter.ParentId = parentId;
-                List<OrderEntity> list = Storage<OrderEntity>.Read(filter);
-                if (list.Count == 0) {
-                    gridView.Visible = false;
-                    Control c = gni.ParentItem.Cells[0];
-                    c.Controls[0].Visible = false;
-                    return;
-                }
-                gridView.DataSource = list;
-                //gridView.DataBind();
-            }
-
-            void detail_DataBinding(object sender, EventArgs e) {
-                RadGrid control = sender as RadGrid;
-                GridNestedViewItem gni = (GridNestedViewItem)control.NamingContainer;
-                OrderEntity order = (gni.DataItem as OrderEntity);
-
-                GridViewDataBind(false, order.Id, gni);
-            }
-        }
-         * */
     }
 }

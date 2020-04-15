@@ -398,7 +398,7 @@
 </asp:SqlDataSource>--%>
 
 
-<asp:SqlDataSource ID="sqlBonusGroup" runat="server"
+<%--<asp:SqlDataSource ID="sqlBonusGroup" runat="server"
 	SelectCommand="SELECT usercount = Count(f.Id_Odberatele) FROM fGetOdberateleStrom(@Id_odberatele, DATEPART(YEAR, GETDATE())*100 +  DATEPART(MONTH, GETDATE())) f
 INNER JOIN provize_aktualni p ON p.Id_odberatele = f.Id_Odberatele
 INNER JOIN odberatele o  ON o.Id_odberatele = p.Id_odberatele
@@ -406,6 +406,17 @@ INNER JOIN odberatele op  ON op.Id_odberatele = o.Cislo_nadrizeneho
 LEFT JOIN odberatele oTop  ON oTop.Id_odberatele = p.Id_topmanagera
 LEFT JOIN uspesny_start us ON us.Id_odberatele = p.Id_odberatele AND us.RRRRMM = p.RRRRMM
 WHERE oTop.Id_odberatele = @Id_odberatele and o.Stav_odberatele!='Z'" SelectCommandType="Text">
+	<SelectParameters>
+		<asp:Parameter Name="Id_odberatele" Type="Int32" />
+	</SelectParameters>
+</asp:SqlDataSource>--%>
+<asp:SqlDataSource ID="sqlBonusGroup" runat="server"
+	SelectCommand="SELECT usercount = Count(p.Id_Odberatele) FROM provize_aktualni p 
+INNER JOIN odberatele o  ON o.Id_odberatele = p.Id_odberatele
+INNER JOIN odberatele op  ON op.Id_odberatele = o.Cislo_nadrizeneho
+LEFT JOIN odberatele oTop  ON oTop.Id_odberatele = p.Id_topmanagera
+LEFT JOIN uspesny_start us ON us.Id_odberatele = p.Id_odberatele AND us.RRRRMM = p.RRRRMM
+WHERE oTop.Id_odberatele = @Id_odberatele and o.Stav_odberatele!='Z' and p.Id_odberatele IN (SELECT Id_Odberatele FROM fGetOdberateleStrom(@Id_odberatele, DATEPART(YEAR, GETDATE())*100 +  DATEPART(MONTH, GETDATE())) )" SelectCommandType="Text">
 	<SelectParameters>
 		<asp:Parameter Name="Id_odberatele" Type="Int32" />
 	</SelectParameters>

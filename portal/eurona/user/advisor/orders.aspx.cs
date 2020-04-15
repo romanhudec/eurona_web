@@ -53,19 +53,21 @@ namespace Eurona.EShop.User {
                 this.lblTitle.Text = Resources.EShopStrings.AdminOrdersControl_Title_ActiveOrders;
 
                 EnsureChildControls();
-                List<OrderEntity> list = adminActiveOrdersControl.GetOrdersNotAssociated();
-                if (list.Count != 0) {
-                    divOrderAssociation.Visible = true && Settings.IsZdruzeneObjednavkyPovolena();
-                    if (!IsPostBack) {
-                        this.ddlRegion.Items.Clear();
-                        List<ListItem> items = new Eurona.Common.Controls.UserManagement.OrganizationControl.Hepler().GetRegions();
-                        foreach (ListItem item in items)
-                            this.ddlRegion.Items.Add(new RadComboBoxItem(item.Text, item.Value));
 
-                        RadComboBoxItem itemEmpty = new RadComboBoxItem(string.Empty, string.Empty);
-                        this.ddlRegion.Items.Insert(0, itemEmpty);
-                    }
-                }
+                divOrderAssociation.Visible = false;
+                //List<OrderEntity> list = adminActiveOrdersControl.GetOrdersNotAssociated();
+                //if (list.Count != 0) {
+                //    divOrderAssociation.Visible = true && Settings.IsZdruzeneObjednavkyPovolena();
+                //    if (!IsPostBack) {
+                //        this.ddlRegion.Items.Clear();
+                //        List<ListItem> items = new Eurona.Common.Controls.UserManagement.OrganizationControl.Hepler().GetRegions();
+                //        foreach (ListItem item in items)
+                //            this.ddlRegion.Items.Add(new RadComboBoxItem(item.Text, item.Value));
+
+                //        RadComboBoxItem itemEmpty = new RadComboBoxItem(string.Empty, string.Empty);
+                //        this.ddlRegion.Items.Insert(0, itemEmpty);
+                //    }
+                //}
             }
 
         }
@@ -109,42 +111,43 @@ namespace Eurona.EShop.User {
                 btnAssociate.Page.ClientScript.RegisterStartupScript(btnAssociate.Page.GetType(), "OrderAssociation", js, true);
                 return;
             }
-            int associationAccountId = Convert.ToInt32(this.ddlAdvisor.SelectedValue);
-            List<OrderEntity> list = this.adminActiveOrdersControl.GetSelectedOrdersToAssociation();
-            if (list.Count == 0) {
-                string js = "alert('Musíte označit aspoň jednu objednávku, která má být přidružená!');showControl('tblOrdersAssociation');";
-                btnAssociate.Page.ClientScript.RegisterStartupScript(btnAssociate.Page.GetType(), "OrderAssociation", js, true);
-                return;
-            }
 
-            /* DOCASNE ZAKOMENTOVANE ESTE AJ V 'Eurona.User.Operator.MyOrdersPage' a 'Eurona.User.Advisor.OrdersPage'*/
-            /*Povolene od 01.11.2017*/
-            //-------------------------------------------------------------//
-            //Kontrola katalogovych cien objednavok
-            foreach (OrderEntity order in list) {
-                decimal katalogovaCena = order.CartEntity.KatalogovaCenaCelkemByEurosap;//order.PriceWVAT;
+            //int associationAccountId = Convert.ToInt32(this.ddlAdvisor.SelectedValue);
+            //List<OrderEntity> list = this.adminActiveOrdersControl.GetSelectedOrdersToAssociation();
+            //if (list.Count == 0) {
+            //    string js = "alert('Musíte označit aspoň jednu objednávku, která má být přidružená!');showControl('tblOrdersAssociation');";
+            //    btnAssociate.Page.ClientScript.RegisterStartupScript(btnAssociate.Page.GetType(), "OrderAssociation", js, true);
+            //    return;
+            //}
 
-                //Ceny striktní > 500Kč/83zl/18,5euro.
-                decimal minAssociationPrice = GetMinAssociationPrice(order.CartEntity.Locale);
-                String message = Resources.EShopStrings.AdminOrdersControl_AsociatePriceLimitMessage;
-                message = string.Format(message, minAssociationPrice);
+            ////DOCASNE ZAKOMENTOVANE ESTE AJ V 'Eurona.User.Operator.MyOrdersPage' a 'Eurona.User.Advisor.OrdersPage'
+            ////Povolene od 01.11.2017
+            ////-------------------------------------------------------------//
+            ////Kontrola katalogovych cien objednavok
+            //foreach (OrderEntity order in list) {
+            //    decimal katalogovaCena = order.CartEntity.KatalogovaCenaCelkemByEurosap;//order.PriceWVAT;
 
-                if (katalogovaCena < minAssociationPrice) {
-                    string js = string.Format("alert('" + message + "');showControl('tblOrdersAssociation');", minAssociationPrice);
-                    btnAssociate.Page.ClientScript.RegisterStartupScript(btnAssociate.Page.GetType(), "OrderAssociationCatalogPriceCheck", js, true);
-                    return;
-                }
-            }
-            //-------------------------------------------------------------//
+            //    //Ceny striktní > 500Kč/83zl/18,5euro.
+            //    decimal minAssociationPrice = GetMinAssociationPrice(order.CartEntity.Locale);
+            //    String message = Resources.EShopStrings.AdminOrdersControl_AsociatePriceLimitMessage;
+            //    message = string.Format(message, minAssociationPrice);
 
-            //Ulozenie objednavok
-            foreach (OrderEntity order in list) {
-                order.AssociationAccountId = associationAccountId;
-                order.AssociationRequestStatus = (int)OrderEntity.AssociationStatus.WaitingToAccept;
-                Storage<OrderEntity>.Update(order);
-            }
+            //    if (katalogovaCena < minAssociationPrice) {
+            //        string js = string.Format("alert('" + message + "');showControl('tblOrdersAssociation');", minAssociationPrice);
+            //        btnAssociate.Page.ClientScript.RegisterStartupScript(btnAssociate.Page.GetType(), "OrderAssociationCatalogPriceCheck", js, true);
+            //        return;
+            //    }
+            //}
+            ////-------------------------------------------------------------//
 
-            Response.Redirect(this.Request.RawUrl);
+            ////Ulozenie objednavok
+            //foreach (OrderEntity order in list) {
+            //    order.AssociationAccountId = associationAccountId;
+            //    order.AssociationRequestStatus = (int)OrderEntity.AssociationStatus.WaitingToAccept;
+            //    Storage<OrderEntity>.Update(order);
+            //}
+
+            //Response.Redirect(this.Request.RawUrl);
         }
 
     }

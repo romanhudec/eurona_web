@@ -48,11 +48,12 @@ namespace CMS {
             SmtpClient smtpClient = new SmtpClient();
             if (section != null) {
                 if (section.Network != null) {
+                    smtpClient.UseDefaultCredentials = section.Network.DefaultCredentials;
+                    smtpClient.DeliveryMethod = SmtpDeliveryMethod.Network;
                     smtpClient.Host = section.Network.Host;
                     smtpClient.Port = section.Network.Port;
-                    smtpClient.UseDefaultCredentials = section.Network.DefaultCredentials;
 
-                    smtpClient.Credentials = new NetworkCredential(section.Network.UserName, section.Network.Password, section.Network.ClientDomain);
+                    smtpClient.Credentials = new NetworkCredential(section.Network.UserName, section.Network.Password);
                     smtpClient.EnableSsl = useSSL;
 
                     if (section.Network.TargetName != null)
@@ -86,6 +87,8 @@ namespace CMS {
                         msg.From = new MailAddress(ConfigurationManager.AppSettings["SMTP:From"], ConfigurationManager.AppSettings["SMTP:FromDisplay"]);
                     else
                         msg.From = new MailAddress(fromEmail, fromEmail);
+
+                    msg.From = new MailAddress(section.Network.UserName, section.Network.UserName);
 
                     List<string> toList = GetEmailAddress(this.To);
                     List<string> bccList = GetEmailAddress(this.Bcc);
