@@ -75,9 +75,9 @@ public partial class DefaultMasterPage : System.Web.UI.MasterPage {
                 }
             }
         }
-#if N__DEBUG_VERSION
+//#if N__DEBUG_VERSION
         QueueItKnownUserIntegration.DoValidation(this.Page);
-#endif
+//#endif
     }
 
     protected override void CreateChildControls() {

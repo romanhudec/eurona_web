@@ -178,5 +178,7 @@ namespace Eurona.Common.DAL.Entities {
         public bool PozadujObal { get; set; }
         public bool Obal { get; set; }
         public int? ObalOrder { get; set; }
+
+        public string FiullText{ get; set; }
     }
 }

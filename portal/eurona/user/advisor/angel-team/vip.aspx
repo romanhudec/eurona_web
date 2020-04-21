@@ -61,7 +61,7 @@
                                 <ItemTemplate>
                                     <tr>
                                         <td style="width:70px;"><img runat="server" src="~/images/angel-man-red.png" width="70" height="72" alt=""/></td>
-                                        <td><span class="mesto"><%#Eval( "RegisteredAddress.City" )%></span></td>
+                                        <td><span class="mesto"><%#Eval( "RegisteredAddressCity" )%></span></td>
                                         <td style="width:110px;"><div class="blue-button" onclick='showPrijemEdit(<%#Eval("Id") %>)' style="width:100px;"><asp:Literal runat="server" Text="<%$ Resources:EShopStrings, ATP_PrijmoutNovacka %>"></asp:Literal></div></td>
                                         <td style="width:100%;">
                                             <div id='edit_<%#Eval("Id") %>' class="edit" style="display:none;">
@@ -82,7 +82,7 @@
                                 <ItemTemplate>
                                     <tr>
                                         <td style="width:50px;"><img id="Img1" runat="server" src="~/images/angel-man-green.png" width="50" height="49"/></td>
-                                        <td><span class="mesto"><%#Eval( "RegisteredAddress.City" )%></span></td>
+                                        <td><span class="mesto"><%#Eval( "RegisteredAddressCity" )%></span></td>
                                     </tr>
                                 </ItemTemplate>
                                 <FooterTemplate></table></FooterTemplate>

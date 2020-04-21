@@ -6,6 +6,7 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using Eurona.Common.DAL.Entities;
 using OrganizationEntity = Eurona.Common.DAL.Entities.Organization;
+using OrganizationATPEntity = Eurona.Common.DAL.Entities.OrganizationATP;
 using Eurona.Controls.UserManagement;
 using System.Web.UI.HtmlControls;
 
@@ -32,14 +33,14 @@ namespace Eurona.User.Advisor {
                 dateTo = (DateTime)dtpDatumDo.Value;
 
             DateTime beforDate = DateTime.Now.AddMonths(-1);
-            List<Organization> listNovacci = new List<OrganizationEntity>();
+            List<OrganizationATPEntity> listNovacci = new List<OrganizationATPEntity>();
             if (dateFrom.HasValue || dateTo.HasValue) {
-                listNovacci = Storage<Organization>.Read(new Organization.ReadByAnonymous { AnonymousRegistration = true, Assigned = true, AssignedAndConfirmed = false, AnonymousCreatedFrom = dateFrom, AnonymousCreatedTo = dateTo });
+                listNovacci = Storage<OrganizationATPEntity>.Read(new OrganizationATPEntity.ReadByAnonymous { AnonymousRegistration = true, Assigned = true, AssignedAndConfirmed = false, AnonymousCreatedFrom = dateFrom, AnonymousCreatedTo = dateTo });
             } else {
-                listNovacci = Storage<Organization>.Read(new Organization.ReadByAnonymous { AnonymousRegistration = true, Assigned = true, AssignedAndConfirmed = false, CreatedAtYear = beforDate.Year, CreatedAtMonth = beforDate.Month });
+                listNovacci = Storage<OrganizationATPEntity>.Read(new OrganizationATPEntity.ReadByAnonymous { AnonymousRegistration = true, Assigned = true, AssignedAndConfirmed = false, CreatedAtYear = beforDate.Year, CreatedAtMonth = beforDate.Month });
             }
             int index = 1;
-            foreach (Organization org in listNovacci) {
+            foreach (OrganizationATPEntity org in listNovacci) {
                 org.BankContactId = index;
                 index++;
             }

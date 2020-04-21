@@ -56,18 +56,13 @@ namespace Eurona.User.Advisor.AngelTeam {
                 this.rpPrihlaseniClenVIP.DataBind();
                 this.rpPrihlaseniManagerVIP.DataBind();
             }
-
-            //if (this.LogedAdvisor != null && this.LogedAdvisor.AngelTeamManager)
-            //    this.angelTeamClen.Attributes.Add("class", "angel-man-yellow");
-            //else
-            //    this.angelTeamClen.Attributes.Add("class", "angel-man-blue");
         }
 
         private void LoadData(bool bind) {
             AnonymniRegistrace nastaveni = Storage<AnonymniRegistrace>.ReadFirst(new AnonymniRegistrace.ReadById { AnonymniRegistraceId = (int)AnonymniRegistrace.AnonymniRegistraceId.Eurona });
-            List<Organization> listCekajici = new List<Organization>();
+            List<OrganizationATP> listCekajici = new List<OrganizationATP>();
             if (nastaveni == null || nastaveni.ZobrazitVSeznamuNeomezene)
-                listCekajici = Storage<Organization>.Read(new Organization.ReadByAnonymous { AnonymousRegistration = true, Assigned = false, RegionCode = this.LogedAdvisor.RegionCode });
+                listCekajici = Storage<OrganizationATP>.Read(new OrganizationATP.ReadByAnonymous { AnonymousRegistration = true, Assigned = false, RegionCode = this.LogedAdvisor.RegionCode });
             else {
 
                 /*
@@ -77,24 +72,24 @@ namespace Eurona.User.Advisor.AngelTeam {
                 */
                 AnonymniRegistraceLimit anonymniRegistraceLimit = new AnonymniRegistraceLimit(nastaveni.ZobrazitVSeznamuLimit);
                 if (anonymniRegistraceLimit.IsInLimitForATPClen(DateTime.Now) && this.LogedAdvisor.AngelTeamClen && this.LogedAdvisor.TopManager == 0) {
-                    listCekajici = Storage<Organization>.Read(new Organization.ReadByAnonymous { AnonymousRegistration = true, Assigned = false, RegionCode = this.LogedAdvisor.RegionCode });
+                    listCekajici = Storage<OrganizationATP>.Read(new OrganizationATP.ReadByAnonymous { AnonymousRegistration = true, Assigned = false, RegionCode = this.LogedAdvisor.RegionCode });
                 } else if (anonymniRegistraceLimit.IsInLimitForATPManager(DateTime.Now) && this.LogedAdvisor.AngelTeamClen && (this.LogedAdvisor.TopManager == 1 || this.LogedAdvisor.AngelTeamManager)) {
-                    listCekajici.AddRange(Storage<Organization>.Read(new Organization.ReadByAnonymous { AnonymousRegistration = true, Assigned = false, RegionCode = null }));
+                    listCekajici.AddRange(Storage<OrganizationATP>.Read(new OrganizationATP.ReadByAnonymous { AnonymousRegistration = true, Assigned = false, RegionCode = null }));
                 }
             }
 
             //Dnes prijati a cekajici na potvrzeni
-            List<Organization> listDnesPrijati = Storage<Organization>.Read(new Organization.ReadByAnonymous { AnonymousRegistration = true, Assigned = true, AnonymousAssignAt = DateTime.Now });
+            List<OrganizationATP> listDnesPrijati = Storage<OrganizationATP>.Read(new OrganizationATP.ReadByAnonymous { AnonymousRegistration = true, Assigned = true, AnonymousAssignAt = DateTime.Now });
 
             //Vsichni prijati a cekajici na potvrzeni
             DateTime date = DateTime.Now;
-            List<Organization> listAllPrijatiCekajiciNaPotvrzeni = Storage<Organization>.Read(new Organization.ReadByAnonymous { AnonymousRegistration = true, Assigned = true, AssignedAndConfirmed = false, CreatedAtYear = date.Year, CreatedAtMonth = date.Month, CreatedAtDay = date.Day });
+            List<OrganizationATP> listAllPrijatiCekajiciNaPotvrzeni = Storage<OrganizationATP>.Read(new OrganizationATP.ReadByAnonymous { AnonymousRegistration = true, Assigned = true, AssignedAndConfirmed = false, CreatedAtYear = date.Year, CreatedAtMonth = date.Month, CreatedAtDay = date.Day });
 
             this.rpCekajiciNovacci.DataSource = listCekajici;
             if (bind)
                 this.rpCekajiciNovacci.DataBind();
 
-            List<Organization> listAllPrijati = new List<Organization>();
+            List<OrganizationATP> listAllPrijati = new List<OrganizationATP>();
             listAllPrijati.AddRange(listDnesPrijati);
             listAllPrijati.AddRange(listAllPrijatiCekajiciNaPotvrzeni);
 
@@ -117,7 +112,7 @@ namespace Eurona.User.Advisor.AngelTeam {
             if (e.Item.ItemType == ListItemType.Item || e.Item.ItemType == ListItemType.AlternatingItem) {
                 Button btn = (Button)e.Item.FindControl("btnOk");
                 if (btn != null) {
-                    btn.OnClientClick = string.Format("return validatePrijemNovacka({0})", (e.Item.DataItem as Organization).Id);
+                    btn.OnClientClick = string.Format("return validatePrijemNovacka({0})", (e.Item.DataItem as OrganizationATP).Id);
                 }
             }
         }

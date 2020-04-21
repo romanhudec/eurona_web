@@ -84,6 +84,7 @@
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="CultureUtilities.cs" />
+    <Compile Include="DAL\Entities\OrganizationATP.cs" />
     <Compile Include="DAL\Entities\LastOrderAddress.cs" />
     <Compile Include="DAL\Entities\BonusovyKredit.cs" />
     <Compile Include="DAL\Entities\BonusovyKreditUzivatele.cs" />
@@ -110,6 +111,7 @@
     <Compile Include="DAL\Entities\Product.cs" />
     <Compile Include="DAL\Entities\ProductRelation.cs" />
     <Compile Include="DAL\Entities\ZavozoveMisto.cs" />
+    <Compile Include="DAL\MSSQL\OrganizationATPStorage.cs" />
     <Compile Include="DAL\MSSQL\ZavozoveMistoStorage.cs" />
     <Compile Include="DAL\MSSQL\LastOrderAddressStorage.cs" />
     <Compile Include="DAL\MSSQL\BonusovyKreditStorage.cs" />

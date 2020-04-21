@@ -76,6 +76,7 @@ namespace Eurona
 			if (typeof(T) == typeof(Eurona.Common.DAL.Entities.AngelTeamSettings)) access = new Eurona.Common.DAL.MSSQL.AngelTeamSettingsStorage(instanceId, account, connectionString) as IStorage<T>;
 			if (typeof(T) == typeof(Eurona.Common.DAL.Entities.AngelTeamViews)) access = new Eurona.Common.DAL.MSSQL.AngelTeamViewsStorage(instanceId, account, connectionString) as IStorage<T>;
 			if (typeof(T) == typeof(Eurona.Common.DAL.Entities.Organization)) access = new Eurona.Common.DAL.MSSQL.OrganizationStorage(instanceId, account, connectionString) as IStorage<T>;
+            if (typeof(T) == typeof(Eurona.Common.DAL.Entities.OrganizationATP)) access = new Eurona.Common.DAL.MSSQL.OrganizationATPStorage(instanceId, account, connectionString) as IStorage<T>;
 			if (typeof(T) == typeof(Eurona.Common.DAL.Entities.AnonymniRegistrace)) access = new Eurona.Common.DAL.MSSQL.AnonymniRegistraceStorage(instanceId, account, connectionString) as IStorage<T>;
 			if (typeof(T) == typeof(Eurona.Common.DAL.Entities.AngelTeam)) access = new Eurona.Common.DAL.MSSQL.AngelTeamStorage(instanceId, account, connectionString) as IStorage<T>;
 			if (typeof(T) == typeof(Eurona.Common.DAL.Entities.LoggedAccount)) access = new Eurona.Common.DAL.MSSQL.LoggedAccountStorage(instanceId, account, connectionString) as IStorage<T>;

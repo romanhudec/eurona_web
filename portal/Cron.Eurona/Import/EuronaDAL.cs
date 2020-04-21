@@ -371,8 +371,8 @@ if (dtAlias.Rows.Count != 0)
                     #endregion
 
                     sql = @"
-					INSERT INTO tShpProductLocalization  ([ProductId], [Locale], [Name], [Description], [DescriptionLong], [InstructionsForUse], [AdditionalInformation], [UrlAliasId] )
-					VALUES( @ProductId, @Locale, @Name, @Description, @DescriptionLong, @InstructionsForUse, @AdditionalInformation, @UrlAliasId )";
+					INSERT INTO tShpProductLocalization  ([ProductId], [Locale], [Name], [Description], [DescriptionLong], [InstructionsForUse], [AdditionalInformation], [UrlAliasId], [FiullText] )
+					VALUES( @ProductId, @Locale, @Name, @Description, @DescriptionLong, @InstructionsForUse, @AdditionalInformation, @UrlAliasId,  LOWER(dbo.fMakeAnsi(Name + ' ' + Description + ' ' + '" + code + @"')) )";
                     mssqStorageDst.Exec(mssqStorageDst.Connection, sql,
                     new SqlParameter("@ProductId", productId),
                             new SqlParameter("@Locale", locale),
@@ -418,7 +418,8 @@ if (dtAlias.Rows.Count != 0)
                         #endregion
 
                         sql = @"
-						UPDATE tShpProductLocalization SET [Name]=@Name, [Description]=@Description, [DescriptionLong]=@DescriptionLong, [InstructionsForUse]=@InstructionsForUse, [AdditionalInformation]=@AdditionalInformation
+						UPDATE tShpProductLocalization SET [Name]=@Name, [Description]=@Description, [DescriptionLong]=@DescriptionLong, [InstructionsForUse]=@InstructionsForUse, [AdditionalInformation]=@AdditionalInformation,
+                        [FiullText] = LOWER(dbo.fMakeAnsi(Name + ' ' + Description + ' ' +  + ' ' + '" + code + @"'))
 						WHERE ProductId=@ProductId AND Locale=@Locale";
                         mssqStorageDst.Exec(mssqStorageDst.Connection, sql,
                         new SqlParameter("@ProductId", productId),

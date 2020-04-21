@@ -355,7 +355,7 @@ namespace Eurona.Common.DAL.MSSQL {
                                 if (by.BestSellers.HasValue && by.BestSellers.Value == true)
                                     sql += " ORDER BY p.[SalesCount] DESC, p.[Name] ASC";
                                 else
-                                    sql += " ORDER BY p.[Order] ASC, p.[SalesCount] DESC, p.[Name] ASC";
+                                    sql += " ORDER BY p.[Order] ASC, p.[Name] ASC";
                             }
                             break;
                         case Product.SortBy.NameASC:
@@ -392,31 +392,58 @@ namespace Eurona.Common.DAL.MSSQL {
         private void BuildByFilter(Product.ReadByFilter byFilter, string columnPrefix, ref string where, ref List<SqlParameter> parameters) {
             if (!string.IsNullOrEmpty(columnPrefix))
                 columnPrefix = columnPrefix + ".";
-            where = string.Format(@" 
-			(@BestSellers IS NULL OR ( @BestSellers=1 AND {0}SalesCount != 0 ) )  AND
-			(@Manufacturer IS NULL OR {0}Manufacturer = @Manufacturer)  AND
-			(@Expression IS NULL OR LOWER(dbo.fMakeAnsi({0}Name)) LIKE '%'+LOWER(dbo.fMakeAnsi(@Expression))+'%' OR LOWER(dbo.fMakeAnsi({0}Description)) LIKE '%'+LOWER(dbo.fMakeAnsi(@Expression))+'%' OR {0}Code LIKE '%'+@Expression)  AND
-			(@PriceFrom IS NULL OR {0}Price >= @PriceFrom)  AND
-			(@PriceTo IS NULL OR {0}Price <= @PriceTo) AND
-			(@TOPProducts IS NULL OR {0}[Top] = @TOPProducts) AND
-			(@DarkoveSety IS NULL OR {0}[DarkovySet] != 0) AND
+            //            where = string.Format(@" 
+            //			(@BestSellers IS NULL OR ( @BestSellers=1 AND {0}SalesCount != 0 ) )  AND
+            //			(@Manufacturer IS NULL OR {0}Manufacturer = @Manufacturer)  AND
+            //			(@Expression IS NULL OR LOWER(dbo.fMakeAnsi({0}Name)) LIKE '%'+LOWER(dbo.fMakeAnsi(@Expression))+'%' OR LOWER(dbo.fMakeAnsi({0}Description)) LIKE '%'+LOWER(dbo.fMakeAnsi(@Expression))+'%' OR {0}Code LIKE '%'+@Expression)  AND
+            //			(@PriceFrom IS NULL OR {0}Price >= @PriceFrom)  AND
+            //			(@PriceTo IS NULL OR {0}Price <= @PriceTo) AND
+            //			(@TOPProducts IS NULL OR {0}[Top] = @TOPProducts) AND
+            //			(@DarkoveSety IS NULL OR {0}[DarkovySet] != 0) AND
+            //
+            //			(@Novinka IS NULL OR {0}Novinka=@Novinka) AND
+            //			(@Inovace IS NULL OR {0}Inovace=@Inovace) AND
+            //			(@Doprodej IS NULL OR {0}Doprodej=@Doprodej) AND
+            //			(@Vyprodano IS NULL OR {0}Vyprodano=@Vyprodano) AND
+            //			(@ProdejUkoncen IS NULL OR {0}ProdejUkoncen=@ProdejUkoncen) AND
+            //										
+            //			(@Megasleva IS NULL OR {0}Megasleva=@Megasleva) AND
+            //			(@Supercena IS NULL OR {0}Supercena=@Supercena) AND
+            //			(@CLHit IS NULL OR {0}CLHit=@CLHit) AND
+            //			(@Action IS NULL OR {0}Action=@Action) AND
+            //			(@Vyprodej IS NULL OR {0}Vyprodej=@Vyprodej) AND
+            //            (@BSR IS NULL OR {0}BSR=@BSR) AND
+            //            (@PozadujObal IS NULL OR {0}PozadujObal=@PozadujObal) AND
+            //            (@Obal IS NULL OR {0}Obal=@Obal) AND
+            //			(@OnWeb IS NULL OR {0}OnWeb=@OnWeb)",
+            //            columnPrefix);
 
-			(@Novinka IS NULL OR {0}Novinka=@Novinka) AND
-			(@Inovace IS NULL OR {0}Inovace=@Inovace) AND
-			(@Doprodej IS NULL OR {0}Doprodej=@Doprodej) AND
-			(@Vyprodano IS NULL OR {0}Vyprodano=@Vyprodano) AND
-			(@ProdejUkoncen IS NULL OR {0}ProdejUkoncen=@ProdejUkoncen) AND
-										
-			(@Megasleva IS NULL OR {0}Megasleva=@Megasleva) AND
-			(@Supercena IS NULL OR {0}Supercena=@Supercena) AND
-			(@CLHit IS NULL OR {0}CLHit=@CLHit) AND
-			(@Action IS NULL OR {0}Action=@Action) AND
-			(@Vyprodej IS NULL OR {0}Vyprodej=@Vyprodej) AND
-            (@BSR IS NULL OR {0}BSR=@BSR) AND
-            (@PozadujObal IS NULL OR {0}PozadujObal=@PozadujObal) AND
-            (@Obal IS NULL OR {0}Obal=@Obal) AND
-			(@OnWeb IS NULL OR {0}OnWeb=@OnWeb)",
-            columnPrefix);
+            where = string.Format("{0}InstanceId = 1", columnPrefix);
+            where += !byFilter.BestSellers.HasValue ? "" : string.Format(" AND (( @BestSellers=1 AND {0}SalesCount != 0 ) )", columnPrefix);
+            where += string.IsNullOrEmpty(byFilter.Manufacturer) ? "" : string.Format(" AND ({0}Manufacturer = @Manufacturer)");
+            where += string.IsNullOrEmpty(byFilter.Expression) ? "" : string.Format(" AND ({0}FiullText LIKE '%'+LOWER(dbo.fMakeAnsi(@Expression))+'%')", columnPrefix);
+            //where += string.IsNullOrEmpty(byFilter.Expression) ? "" : string.Format(" AND (LOWER(dbo.fMakeAnsi({0}Name)) LIKE '%'+LOWER(dbo.fMakeAnsi(@Expression))+'%' OR LOWER(dbo.fMakeAnsi({0}Description)) LIKE '%'+LOWER(dbo.fMakeAnsi(@Expression))+'%' OR {0}Code LIKE '%'+@Expression) ", columnPrefix);
+            //where += string.IsNullOrEmpty(byFilter.Expression) ? "" : string.Format(" AND ({0}expr LIKE '%'+LOWER(dbo.fMakeAnsi(@Expression))+'%') ", columnPrefix);
+            where += !byFilter.PriceFrom.HasValue ? "" : string.Format(" AND ({0}Price >= @PriceFrom)", columnPrefix);
+            where += !byFilter.PriceTo.HasValue ? "" : string.Format(" AND ({0}Price <= @PriceTo)", columnPrefix);
+            where += !byFilter.TOPProducts.HasValue ? "" : string.Format(" AND ({0}[Top] = @TOPProducts)", columnPrefix);
+            where += !byFilter.DarkoveSety.HasValue ? "" : string.Format(" AND ({0}[DarkovySet] != 0)", columnPrefix);
+
+            where += !byFilter.Novinka.HasValue ? "" : string.Format(" AND ({0}Novinka=@Novinka)", columnPrefix);
+            where += !byFilter.Inovace.HasValue ? "" : string.Format(" AND ({0}Inovace=@Inovace)", columnPrefix);
+            where += !byFilter.Doprodej.HasValue ? "" : string.Format(" AND ({0}Doprodej=@Doprodej)", columnPrefix);
+            where += !byFilter.Vyprodano.HasValue ? "" : string.Format(" AND ({0}Vyprodano=@Vyprodano)", columnPrefix);
+            where += !byFilter.ProdejUkoncen.HasValue ? "" : string.Format(" AND ({0}ProdejUkoncen=@ProdejUkoncen)", columnPrefix);
+
+            where += !byFilter.Megasleva.HasValue ? "" : string.Format(" AND ({0}Megasleva=@Megasleva)", columnPrefix);
+            where += !byFilter.Supercena.HasValue ? "" : string.Format(" AND ({0}Supercena=@Supercena)", columnPrefix);
+            where += !byFilter.CLHit.HasValue ? "" : string.Format(" AND ({0}CLHit=@CLHit)", columnPrefix);
+            where += !byFilter.Action.HasValue ? "" : string.Format(" AND ({0}Action=@Action)", columnPrefix);
+            where += !byFilter.Vyprodej.HasValue ? "" : string.Format(" AND ({0}Vyprodej=@Vyprodej)", columnPrefix);
+            where += !byFilter.BSR.HasValue ? "" : string.Format(" AND ({0}BSR=@BSR)", columnPrefix);
+            where += !byFilter.PozadujObal.HasValue ? "" : string.Format(" AND ({0}PozadujObal=@PozadujObal)", columnPrefix);
+            where += !byFilter.Obal.HasValue ? "" : string.Format(" AND ({0}Obal=@Obal)", columnPrefix);
+            where += !byFilter.OnWeb.HasValue ? "" : string.Format(" AND ({0}OnWeb=@OnWeb)", columnPrefix);
 
             byFilter.Manufacturer = string.IsNullOrEmpty(byFilter.Manufacturer) ? null : byFilter.Manufacturer;
             byFilter.Expression = string.IsNullOrEmpty(byFilter.Expression) ? null : byFilter.Expression;
