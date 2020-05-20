@@ -440,39 +440,62 @@ if (dtAlias.Rows.Count != 0)
                 }
             }
 
-            public static void SyncProductCeny(CMS.Pump.MSSQLStorage mssqStorageDst, int productId, string locale, int jazyk, int body, decimal? cena, decimal? beznaCena, bool? marzePovolena, bool? marzePovolenaMinimalni, decimal? cenaBk) {
-                string sql = @"SELECT * FROM  tShpCenyProduktu WITH (NOLOCK) WHERE ProductId=@ProductId AND Locale=@Locale";
+//            public static void SyncProductCeny(CMS.Pump.MSSQLStorage mssqStorageDst, int productId, string locale, int jazyk, int body, decimal? cena, decimal? beznaCena, bool? marzePovolena, bool? marzePovolenaMinimalni, decimal? cenaBk, DateTime? platnostOd, DateTime? platnostDo) {
+//                string sql = @"SELECT * FROM  tShpCenyProduktu WITH (NOLOCK) WHERE ProductId=@ProductId AND Locale=@Locale";
+//                DataTable dt = mssqStorageDst.Query(mssqStorageDst.Connection, sql, new SqlParameter("@ProductId", productId),
+//                        new SqlParameter("@Locale", locale));
+
+//                //INSERT
+//                if (dt.Rows.Count == 0) {
+//                    sql = @"
+//					INSERT INTO tShpCenyProduktu ([ProductId], [Locale], [CurrencyId], [Body], [Cena], [BeznaCena], [MarzePovolena], [MarzePovolenaMinimalni], [CenaBK])
+//					VALUES( @ProductId, @Locale, @CurrencyId, @Body, @Cena, @Bezna_cena, @MarzePovolena, @MarzePovolenaMinimalni, @CenaBK  )";
+//                    mssqStorageDst.Exec(mssqStorageDst.Connection, sql,
+//                            new SqlParameter("@ProductId", productId),
+//                            new SqlParameter("@Locale", locale),
+//                            new SqlParameter("@CurrencyId", jazyk),
+//                            new SqlParameter("@Body", Null(body)),
+//                            new SqlParameter("@Cena", Null(cena)),
+//                            new SqlParameter("@Bezna_cena", Null(beznaCena)),
+//                            new SqlParameter("@MarzePovolena", Null(marzePovolena)),
+//                            new SqlParameter("@MarzePovolenaMinimalni", Null(marzePovolenaMinimalni)),
+//                            new SqlParameter("@CenaBK", Null(cenaBk)));
+//                } else {
+//                    sql = @"
+//					UPDATE tShpCenyProduktu SET Body=@Body, Cena=@Cena, BeznaCena=@Bezna_cena, MarzePovolena=@MarzePovolena, MarzePovolenaMinimalni=@MarzePovolenaMinimalni, CenaBK=@CenaBK WHERE ProductId=@ProductId AND Locale=@Locale";
+//                    mssqStorageDst.Exec(mssqStorageDst.Connection, sql,
+//                            new SqlParameter("@ProductId", productId),
+//                            new SqlParameter("@Locale", locale),
+//                            new SqlParameter("@Body", Null(body)),
+//                            new SqlParameter("@Cena", Null(cena)),
+//                            new SqlParameter("@Bezna_cena", Null(beznaCena)),
+//                            new SqlParameter("@MarzePovolena", Null(marzePovolena)),
+//                            new SqlParameter("@MarzePovolenaMinimalni", Null(marzePovolenaMinimalni)),
+//                            new SqlParameter("@CenaBK", Null(cenaBk)));
+//                }
+//            }
+
+            public static void SyncDeleteProductCeny(CMS.Pump.MSSQLStorage mssqStorageDst, int productId, string locale) {
+                string sql = @"DELETE FROM  tShpCenyProduktu WITH (NOLOCK) WHERE ProductId=@ProductId AND Locale=@Locale";
                 DataTable dt = mssqStorageDst.Query(mssqStorageDst.Connection, sql, new SqlParameter("@ProductId", productId),
                         new SqlParameter("@Locale", locale));
-
-                //INSERT
-                if (dt.Rows.Count == 0) {
-                    sql = @"
-					INSERT INTO tShpCenyProduktu ([ProductId], [Locale], [CurrencyId], [Body], [Cena], [BeznaCena], [MarzePovolena], [MarzePovolenaMinimalni], [CenaBK])
-					VALUES( @ProductId, @Locale, @CurrencyId, @Body, @Cena, @Bezna_cena, @MarzePovolena, @MarzePovolenaMinimalni, @CenaBK  )";
-                    mssqStorageDst.Exec(mssqStorageDst.Connection, sql,
-                            new SqlParameter("@ProductId", productId),
-                            new SqlParameter("@Locale", locale),
-                            new SqlParameter("@CurrencyId", jazyk),
-                            new SqlParameter("@Body", Null(body)),
-                            new SqlParameter("@Cena", Null(cena)),
-                            new SqlParameter("@Bezna_cena", Null(beznaCena)),
-                            new SqlParameter("@MarzePovolena", Null(marzePovolena)),
-                            new SqlParameter("@MarzePovolenaMinimalni", Null(marzePovolenaMinimalni)),
-                            new SqlParameter("@CenaBK", Null(cenaBk)));
-                } else {
-                    sql = @"
-					UPDATE tShpCenyProduktu SET Body=@Body, Cena=@Cena, BeznaCena=@Bezna_cena, MarzePovolena=@MarzePovolena, MarzePovolenaMinimalni=@MarzePovolenaMinimalni, CenaBK=@CenaBK WHERE ProductId=@ProductId AND Locale=@Locale";
-                    mssqStorageDst.Exec(mssqStorageDst.Connection, sql,
-                            new SqlParameter("@ProductId", productId),
-                            new SqlParameter("@Locale", locale),
-                            new SqlParameter("@Body", Null(body)),
-                            new SqlParameter("@Cena", Null(cena)),
-                            new SqlParameter("@Bezna_cena", Null(beznaCena)),
-                            new SqlParameter("@MarzePovolena", Null(marzePovolena)),
-                            new SqlParameter("@MarzePovolenaMinimalni", Null(marzePovolenaMinimalni)),
-                            new SqlParameter("@CenaBK", Null(cenaBk)));
-                }
+            }
+            public static void SyncProductCeny(CMS.Pump.MSSQLStorage mssqStorageDst, int productId, string locale, int jazyk, int body, decimal? cena, decimal? beznaCena, bool? marzePovolena, bool? marzePovolenaMinimalni, decimal? cenaBk, DateTime? platnostOd, DateTime? platnostDo) {
+               string sql = @"
+					INSERT INTO tShpCenyProduktu ([ProductId], [Locale], [CurrencyId], [Body], [Cena], [BeznaCena], [MarzePovolena], [MarzePovolenaMinimalni], [CenaBK], [PlatnostOd], [PlatnostDo])
+					VALUES( @ProductId, @Locale, @CurrencyId, @Body, @Cena, @Bezna_cena, @MarzePovolena, @MarzePovolenaMinimalni, @CenaBK, @PlatnostOd, @PlatnostDo )";
+                mssqStorageDst.Exec(mssqStorageDst.Connection, sql,
+                        new SqlParameter("@ProductId", productId),
+                        new SqlParameter("@Locale", locale),
+                        new SqlParameter("@CurrencyId", jazyk),
+                        new SqlParameter("@Body", Null(body)),
+                        new SqlParameter("@Cena", Null(cena)),
+                        new SqlParameter("@Bezna_cena", Null(beznaCena)),
+                        new SqlParameter("@MarzePovolena", Null(marzePovolena)),
+                        new SqlParameter("@MarzePovolenaMinimalni", Null(marzePovolenaMinimalni)),
+                        new SqlParameter("@CenaBK", Null(cenaBk)),
+                        new SqlParameter("@PlatnostOd", Null(platnostOd)),
+                        new SqlParameter("@PlatnostDo", Null(platnostDo)));
             }
             public static void SyncProductCenyCL(CMS.Pump.MSSQLStorage mssqStorageDst, int productId, string locale, int jazyk, int body, decimal? cena, decimal? beznaCena, bool? dynamickaSleva, decimal? statickaSleva, decimal? cenaBk) {
                 string sql = @"SELECT * FROM  tShpCenyProduktu WITH (NOLOCK) WHERE ProductId=@ProductId AND Locale=@Locale";

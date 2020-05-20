@@ -96,7 +96,8 @@ namespace Cron.Eurona.Import {
                             DataTable dtVlastnosti = EuronaTVDDAL.GetTVDProductVlastnosti(this.SourceDataStorage, this.ProductId, jazyk);
                             DataTable dtPiktogramy = EuronaTVDDAL.GetTVDProductPiktogramy(this.SourceDataStorage, this.ProductId, jazyk);
                             DataTable dtUcinky = EuronaTVDDAL.GetTVDProductUcinky(this.SourceDataStorage, this.ProductId, jazyk);
-                            DataRow drCeny = EuronaTVDDAL.GetTVDProductCeny(this.SourceDataStorage, this.ProductId, jazyk);
+                            //DataRowCollection drCeny = EuronaTVDDAL.GetTVDProductCeny(this.SourceDataStorage, this.ProductId, jazyk);
+                            DataRowCollection drcCeny = EuronaTVDDAL.GetTVDProductCeny(this.SourceDataStorage, this.ProductId, jazyk);
 
                             string locale = EuronaTVDDAL.GetLocale(jazyk);
 
@@ -111,14 +112,32 @@ namespace Cron.Eurona.Import {
 
 
                             #region ProductCeny
-                            EuronaDAL.Product.SyncProductCeny(this.DestinationDataStorage, this.ProductId, locale,
-                                    jazyk,
-                                    (drCeny != null ? Convert.ToInt32(drCeny["Body"]) : 0),
-                                    (drCeny != null ? ConvertNullable.ToDecimal(drCeny["Cena"]) : 0m),
-                                    (drCeny != null ? ConvertNullable.ToDecimal(drCeny["Bezna_cena"]) : 0m),
-                                    (drCeny != null ? ConvertNullable.ToBool(drCeny["Marze_povolena"]) : false),
-                                    (drCeny != null ? ConvertNullable.ToBool(drCeny["Marze_povolena_minimalni"]) : false),
-                                    (drCeny != null ? ConvertNullable.ToDecimal(drCeny["Cena_BK"] == DBNull.Value ? 0m : drCeny["Cena_BK"]) : 0m));
+                            //EuronaDAL.Product.SyncProductCeny(this.DestinationDataStorage, this.ProductId, locale,
+                            //    jazyk,
+                            //    (drCeny != null ? Convert.ToInt32(drCeny["Body"]) : 0),
+                            //    (drCeny != null ? ConvertNullable.ToDecimal(drCeny["Cena"]) : 0m),
+                            //    (drCeny != null ? ConvertNullable.ToDecimal(drCeny["Bezna_cena"]) : 0m),
+                            //    (drCeny != null ? ConvertNullable.ToBool(drCeny["Marze_povolena"]) : false),
+                            //    (drCeny != null ? ConvertNullable.ToBool(drCeny["Marze_povolena_minimalni"]) : false),
+                            //    (drCeny != null ? ConvertNullable.ToDecimal(drCeny["Cena_BK"] == DBNull.Value ? 0m : drCeny["Cena_BK"]) : 0m),
+                            //    (drCeny != null ? ConvertNullable.ToDateTime(drCeny["Platnost_od"]) : null),
+                            //    (drCeny != null ? ConvertNullable.ToDateTime(drCeny["Platnost_do"]) : null)
+                            //    );
+                            //}
+                            EuronaDAL.Product.SyncDeleteProductCeny(this.DestinationDataStorage, this.ProductId, locale);
+                            foreach (DataRow drCeny in drcCeny) {
+                                EuronaDAL.Product.SyncProductCeny(this.DestinationDataStorage, this.ProductId, locale,
+                                        jazyk,
+                                        (drCeny != null ? Convert.ToInt32(drCeny["Body"]) : 0),
+                                        (drCeny != null ? ConvertNullable.ToDecimal(drCeny["Cena"]) : 0m),
+                                        (drCeny != null ? ConvertNullable.ToDecimal(drCeny["Bezna_cena"]) : 0m),
+                                        (drCeny != null ? ConvertNullable.ToBool(drCeny["Marze_povolena"]) : false),
+                                        (drCeny != null ? ConvertNullable.ToBool(drCeny["Marze_povolena_minimalni"]) : false),
+                                        (drCeny != null ? ConvertNullable.ToDecimal(drCeny["Cena_BK"] == DBNull.Value ? 0m : drCeny["Cena_BK"]) : 0m),
+                                        (drCeny != null ? ConvertNullable.ToDateTime(drCeny["Platnost_od"]) : null),
+                                        (drCeny != null ? ConvertNullable.ToDateTime(drCeny["Platnost_do"]) : null)
+                                        );
+                            }
                             #endregion
 
                             #region Vlastnosti produktu

@@ -168,7 +168,7 @@ namespace Cron.Eurona.Import {
             }
         }
 
-        public static DataRow GetTVDProductCeny(CMS.Pump.MSSQLStorage mssqStorageSrc, int productId, int jazyk) {
+        public static DataRowCollection GetTVDProductCeny(CMS.Pump.MSSQLStorage mssqStorageSrc, int productId, int jazyk) {
             string mena = "CZK";
             switch (jazyk) {
                 case 0: mena = "CZK";
@@ -202,7 +202,7 @@ namespace Cron.Eurona.Import {
             }
 
             using (SqlConnection connection = mssqStorageSrc.Connect()) {
-                string sql = @"SELECT pc.C_Zbo, pc.Mena, Kod=@Kod, pc.Body, pc.Cena, pc.Bezna_cena, pc.Marze_povolena, pc.Marze_povolena_minimalni, pc.Cena_BK
+                string sql = @"SELECT pc.C_Zbo, pc.Mena, Kod=@Kod, pc.Body, pc.Cena, pc.Bezna_cena, pc.Marze_povolena, pc.Marze_povolena_minimalni, pc.Cena_BK, pc.Platnost_od, pc.Platnost_do
 										FROM Produkty_Ceny pc
 										WHERE pc.C_Zbo=@ProductId AND pc.Mena = @Mena";
                 DataTable dt = mssqStorageSrc.Query(connection, sql,
@@ -211,7 +211,7 @@ namespace Cron.Eurona.Import {
                         new SqlParameter("@Kod", kod));
 
                 if (dt.Rows.Count == 0) return null;
-                return dt.Rows[0];
+                return dt.Rows;
             }
         }
         #endregion

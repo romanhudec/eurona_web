@@ -881,6 +881,7 @@ namespace Eurona.Controls {
         /// </summary>
         private void RenderDopravaPodporovanePlatbyInfo() {
             ShipmentEntity shipment = Storage<ShipmentEntity>.ReadFirst(new ShipmentEntity.ReadByCode { Code = this.OrderEntity.ShipmentCode });
+            if (shipment == null) return;
             if( shipment.PlatbaDobirkou == false || shipment.PlatbaKartou == false ){
                 TableCell cell = new TableCell();
                 cell.Controls.Add(new LiteralControl("<span style='color:#FF8266; font-style: italic;'>Zvolený dopravce podporuje pouze způsob platby:</span>"));
