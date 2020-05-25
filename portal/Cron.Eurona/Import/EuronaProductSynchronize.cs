@@ -124,19 +124,21 @@ namespace Cron.Eurona.Import {
                             //    (drCeny != null ? ConvertNullable.ToDateTime(drCeny["Platnost_do"]) : null)
                             //    );
                             //}
-                            EuronaDAL.Product.SyncDeleteProductCeny(this.DestinationDataStorage, this.ProductId, locale);
-                            foreach (DataRow drCeny in drcCeny) {
-                                EuronaDAL.Product.SyncProductCeny(this.DestinationDataStorage, this.ProductId, locale,
-                                        jazyk,
-                                        (drCeny != null ? Convert.ToInt32(drCeny["Body"]) : 0),
-                                        (drCeny != null ? ConvertNullable.ToDecimal(drCeny["Cena"]) : 0m),
-                                        (drCeny != null ? ConvertNullable.ToDecimal(drCeny["Bezna_cena"]) : 0m),
-                                        (drCeny != null ? ConvertNullable.ToBool(drCeny["Marze_povolena"]) : false),
-                                        (drCeny != null ? ConvertNullable.ToBool(drCeny["Marze_povolena_minimalni"]) : false),
-                                        (drCeny != null ? ConvertNullable.ToDecimal(drCeny["Cena_BK"] == DBNull.Value ? 0m : drCeny["Cena_BK"]) : 0m),
-                                        (drCeny != null ? ConvertNullable.ToDateTime(drCeny["Platnost_od"]) : null),
-                                        (drCeny != null ? ConvertNullable.ToDateTime(drCeny["Platnost_do"]) : null)
-                                        );
+                            if (drcCeny != null && drcCeny.Count != 0) {
+                                EuronaDAL.Product.SyncDeleteProductCeny(this.DestinationDataStorage, this.ProductId, locale);
+                                foreach (DataRow drCeny in drcCeny) {
+                                    EuronaDAL.Product.SyncProductCeny(this.DestinationDataStorage, this.ProductId, locale,
+                                            jazyk,
+                                            (drCeny != null ? Convert.ToInt32(drCeny["Body"]) : 0),
+                                            (drCeny != null ? ConvertNullable.ToDecimal(drCeny["Cena"]) : 0m),
+                                            (drCeny != null ? ConvertNullable.ToDecimal(drCeny["Bezna_cena"]) : 0m),
+                                            (drCeny != null ? ConvertNullable.ToBool(drCeny["Marze_povolena"]) : false),
+                                            (drCeny != null ? ConvertNullable.ToBool(drCeny["Marze_povolena_minimalni"]) : false),
+                                            (drCeny != null ? ConvertNullable.ToDecimal(drCeny["Cena_BK"] == DBNull.Value ? 0m : drCeny["Cena_BK"]) : 0m),
+                                            (drCeny != null ? ConvertNullable.ToDateTime(drCeny["Platnost_od"]) : null),
+                                            (drCeny != null ? ConvertNullable.ToDateTime(drCeny["Platnost_do"]) : null)
+                                            );
+                                }
                             }
                             #endregion
 

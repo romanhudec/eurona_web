@@ -476,7 +476,7 @@ if (dtAlias.Rows.Count != 0)
 //            }
 
             public static void SyncDeleteProductCeny(CMS.Pump.MSSQLStorage mssqStorageDst, int productId, string locale) {
-                string sql = @"DELETE FROM  tShpCenyProduktu WITH (NOLOCK) WHERE ProductId=@ProductId AND Locale=@Locale";
+                string sql = @"DELETE FROM  tShpCenyProduktu WHERE ProductId=@ProductId AND Locale=@Locale";
                 DataTable dt = mssqStorageDst.Query(mssqStorageDst.Connection, sql, new SqlParameter("@ProductId", productId),
                         new SqlParameter("@Locale", locale));
             }
