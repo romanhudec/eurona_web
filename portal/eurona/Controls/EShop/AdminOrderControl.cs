@@ -128,7 +128,7 @@ namespace Eurona.Controls {
             }
 
             //Nacitanie zavozovych miest pre dany stat
-            string stat = ZavozoveMistoEntity.GetStatByLocale(Security.Account.Locale);
+            string stat = ZavozoveMistoEntity.GetStatByLocale(/*Security.Account.Locale*/ this.OrderEntity.CartEntity.Locale);
             zavozoveMistaList = Storage<ZavozoveMistoEntity>.Read(new ZavozoveMistoEntity.ReadOnlyMestoDistinctByStat { Stat = stat });
             hasZavozoveMistoPreStat = stat == "CZ" ? zavozoveMistaList.Count > 1 : zavozoveMistaList.Count > 0;//CZ  maju aj osobny odber
 
