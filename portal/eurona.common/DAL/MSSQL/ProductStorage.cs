@@ -28,7 +28,7 @@ namespace Eurona.Common.DAL.MSSQL {
             product.InstructionsForUse = Convert.ToString(record["InstructionsForUse"]);
             product.Availability = Convert.ToString(record["Availability"]);
             product.StorageCount = ConvertNullable.ToInt32(record["StorageCount"]);
-            product.Price = Convert.ToDecimal(record["Price"]);
+            product.Price =  (record["Price"] == DBNull.Value) ? 0m :  Convert.ToDecimal(record["Price"]);
             product.BeznaCena = Convert.ToDecimal(record["BeznaCena"]);
             product.CurrencyId = ConvertNullable.ToInt32(record["CurrencyId"]);
             product.CurrencySymbol = Convert.ToString(record["CurrencySymbol"]);
