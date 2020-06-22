@@ -715,4 +715,55 @@ E: prodej@eurona.cz</value>
   <data name="OrderControl_PSC_Hint" xml:space="preserve">
     <value>PSČ nevyplňujte. Začnite vypisovaním mesta a vyberte ho z ponuky.</value>
   </data>
+  <data name="Anonymous_Register_PredmetCinnosti" xml:space="preserve">
+    <value>Predmět činnosti :</value>
+  </data>
+  <data name="Anonymous_Register_Region" xml:space="preserve">
+    <value>Region :</value>
+  </data>
+  <data name="Anonymous_Register_Stat" xml:space="preserve">
+    <value>Štát :</value>
+  </data>
+  <data name="Anonymous_Register_BudeVasePrihlasovaciJmeno" xml:space="preserve">
+    <value>bude tiež Vaše piihlasovacie meno</value>
+  </data>
+  <data name="Anonymous_Register_Mobil" xml:space="preserve">
+    <value>Mobil :</value>
+  </data>
+  <data name="Anonymous_Register_TelefonniCiloVeTvaru" xml:space="preserve">
+    <value>Telefonné číslo v tvare 123456789</value>
+  </data>
+  <data name="Anonymous_Register_ReklamniZasilka" xml:space="preserve">
+    <value>Reklamná zásielka</value>
+  </data>
+  <data name="Anonymous_Register_ReklamniZasilky_Souhlas" xml:space="preserve">
+    <value>Súhlas</value>
+  </data>
+  <data name="Anonymous_Navigation_MenuItem_Eshop" xml:space="preserve">
+    <value>eshop</value>
+  </data>
+  <data name="Anonymous_Navigation_MenuItem_MujKosikPoPrepoctu" xml:space="preserve">
+    <value>môj košik&lt;br /&gt;(po prepočte)</value>
+  </data>
+  <data name="Anonymous_Navigation_MenuItem_MujKosikPredPrepoctem" xml:space="preserve">
+    <value>môj košik&lt;br /&gt;(pred prepočtom)</value>
+  </data>
+  <data name="Anonymous_Navigation_MenuItem_NakupniKosik" xml:space="preserve">
+    <value>nákupní košík</value>
+  </data>
+  <data name="Anonymous_Navigation_MenuItem_PotvrzeniObjednavky" xml:space="preserve">
+    <value>potvrdenie&lt;br /&gt;objednávky</value>
+  </data>
+  <data name="Anonymous_Navigation_MenuItem_VylneniUdaju" xml:space="preserve">
+    <value>vyplnenie údajov&lt;br /&gt; pro registracii</value>
+  </data>
+  <data name="Anonymous_Objednat" xml:space="preserve">
+    <value>Objednať</value>
+  </data>
+  <data name="Anonymous_Register_VypneniUdajuProRegistraci" xml:space="preserve">
+    <value>vyplnenie údajov pre registráciu</value>
+  </data>
+  <data name="Anonymous_Register_SouhlasSe" xml:space="preserve">
+    <value>Súhlas s</value>
+  </data>
 </root>

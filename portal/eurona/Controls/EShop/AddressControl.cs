@@ -313,7 +313,7 @@ namespace Eurona.Controls {
             row = new TableRow();
             Panel lcPhone = new Panel();
             AddControlToRow(row, "<span></span>", new Label(), 0, false, null);
-            lcPhone.Controls.Add(new LiteralControl("<div><span class='address_notes_desription'>Telefonní číslo ve tvaru 123456789</span></div>"));
+            lcPhone.Controls.Add(new LiteralControl("<div><span class='address_notes_desription'>" + SHP.Resources.Controls.AddressControl_TelefonniCisloVeTvaru+ " 123456789</span></div>"));
             AddControlToRow(row, "<span></span>", lcPhone, 0, false, null);
             table.Rows.Add(row);
 

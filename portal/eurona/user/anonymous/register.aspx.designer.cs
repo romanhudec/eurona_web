@@ -13,6 +13,15 @@ namespace Eurona.User.Anonymous {
     public partial class RegisterPage {
         
         /// <summary>
+        /// Literal17 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Literal Literal17;
+        
+        /// <summary>
         /// Label1 control.
         /// </summary>
         /// <remarks>
@@ -346,6 +355,24 @@ namespace Eurona.User.Anonymous {
         protected global::System.Web.UI.WebControls.TextBox txtTelefon;
         
         /// <summary>
+        /// Literal14 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Literal Literal14;
+        
+        /// <summary>
+        /// Literal15 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Literal Literal15;
+        
+        /// <summary>
         /// lblMobilPrefix control.
         /// </summary>
         /// <remarks>
@@ -472,6 +499,15 @@ namespace Eurona.User.Anonymous {
         protected global::System.Web.UI.WebControls.CheckBox cbAcceptTerms;
         
         /// <summary>
+        /// Literal16 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Literal Literal16;
+        
+        /// <summary>
         /// hlSmluvniPodminky control.
         /// </summary>
         /// <remarks>
@@ -479,6 +515,15 @@ namespace Eurona.User.Anonymous {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.HyperLink hlSmluvniPodminky;
+        
+        /// <summary>
+        /// Literal18 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Literal Literal18;
         
         /// <summary>
         /// hlObchodniPodminky control.

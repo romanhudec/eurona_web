@@ -38,8 +38,8 @@ namespace Eurona.Common.DAL.MSSQL {
             //JOIN-ed properties
             cartProduct.Body = ConvertNullable.ToDecimal(record["Body"]);
             cartProduct.BodyCelkem = ConvertNullable.ToDecimal(record["BodyCelkem"]);
-            cartProduct.KatalogPriceWVAT = Convert.ToDecimal(record["KatalogPriceWVAT"]);
-            cartProduct.KatalogPriceWVATTotal = Convert.ToDecimal(record["KatalogPriceWVATTotal"]);
+            cartProduct.KatalogPriceWVAT = (record["KatalogPriceWVAT"] == DBNull.Value) ? 0m : Convert.ToDecimal(record["KatalogPriceWVAT"]);
+            cartProduct.KatalogPriceWVATTotal = (record["KatalogPriceWVATTotal"] == DBNull.Value) ? 0m : Convert.ToDecimal(record["KatalogPriceWVATTotal"]);
 
             cartProduct.AccountId = ConvertNullable.ToInt32(record["AccountId"]);
             cartProduct.ProductCode = Convert.ToString(record["ProductCode"]);

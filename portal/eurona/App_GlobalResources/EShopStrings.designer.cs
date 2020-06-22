@@ -322,6 +322,69 @@ namespace Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to eshop.
+        /// </summary>
+        internal static string Anonymous_Navigation_MenuItem_Eshop {
+            get {
+                return ResourceManager.GetString("Anonymous_Navigation_MenuItem_Eshop", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to můj košik&lt;br /&gt;(po přepočtu).
+        /// </summary>
+        internal static string Anonymous_Navigation_MenuItem_MujKosikPoPrepoctu {
+            get {
+                return ResourceManager.GetString("Anonymous_Navigation_MenuItem_MujKosikPoPrepoctu", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to můj košik&lt;br /&gt;(před přepočtem).
+        /// </summary>
+        internal static string Anonymous_Navigation_MenuItem_MujKosikPredPrepoctem {
+            get {
+                return ResourceManager.GetString("Anonymous_Navigation_MenuItem_MujKosikPredPrepoctem", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to nákupní košík.
+        /// </summary>
+        internal static string Anonymous_Navigation_MenuItem_NakupniKosik {
+            get {
+                return ResourceManager.GetString("Anonymous_Navigation_MenuItem_NakupniKosik", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to potvrzení&lt;br /&gt;objednávky.
+        /// </summary>
+        internal static string Anonymous_Navigation_MenuItem_PotvrzeniObjednavky {
+            get {
+                return ResourceManager.GetString("Anonymous_Navigation_MenuItem_PotvrzeniObjednavky", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to vyplnení údajů&lt;br /&gt; pro registraci.
+        /// </summary>
+        internal static string Anonymous_Navigation_MenuItem_VylneniUdaju {
+            get {
+                return ResourceManager.GetString("Anonymous_Navigation_MenuItem_VylneniUdaju", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Objednat.
+        /// </summary>
+        internal static string Anonymous_Objednat {
+            get {
+                return ResourceManager.GetString("Anonymous_Objednat", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Děkujeme! Vaše objednávka byla úspěšně přijata..
         /// </summary>
         internal static string Anonymous_OrderFinish_Dekujeme {
@@ -403,6 +466,15 @@ namespace Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to a.
+        /// </summary>
+        internal static string Anonymous_Register_A {
+            get {
+                return ResourceManager.GetString("Anonymous_Register_A", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Je třeba souhlasit se zásadami MLM systému Eurona a Podmínkami obchodní spolupráce.
         /// </summary>
         internal static string Anonymous_Register_AcceptTerms_Error {
@@ -417,6 +489,15 @@ namespace Resources {
         internal static string Anonymous_Register_BankovniUcet {
             get {
                 return ResourceManager.GetString("Anonymous_Register_BankovniUcet", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to bude také Vaše přihlašovací jméno.
+        /// </summary>
+        internal static string Anonymous_Register_BudeVasePrihlasovaciJmeno {
+            get {
+                return ResourceManager.GetString("Anonymous_Register_BudeVasePrihlasovaciJmeno", resourceCulture);
             }
         }
         
@@ -583,6 +664,15 @@ namespace Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Mobil :.
+        /// </summary>
+        internal static string Anonymous_Register_Mobil {
+            get {
+                return ResourceManager.GetString("Anonymous_Register_Mobil", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Podmínkami obchodní spolupráce se společností Eurona s.r.o.
         /// </summary>
         internal static string Anonymous_Register_ObchodnimiPodminkami {
@@ -606,6 +696,15 @@ namespace Resources {
         internal static string Anonymous_Register_PovinneUdaje {
             get {
                 return ResourceManager.GetString("Anonymous_Register_PovinneUdaje", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Předmět činnosti :.
+        /// </summary>
+        internal static string Anonymous_Register_PredmetCinnosti {
+            get {
+                return ResourceManager.GetString("Anonymous_Register_PredmetCinnosti", resourceCulture);
             }
         }
         
@@ -637,6 +736,24 @@ namespace Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Region :.
+        /// </summary>
+        internal static string Anonymous_Register_Region {
+            get {
+                return ResourceManager.GetString("Anonymous_Register_Region", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Reklamní zásilka.
+        /// </summary>
+        internal static string Anonymous_Register_ReklamniZasilka {
+            get {
+                return ResourceManager.GetString("Anonymous_Register_ReklamniZasilka", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Chcete pravidelně odebírat nové a aktuální informace o Euroně? Zde si můžete zvolit typ zasílaných propagačních materiálů:.
         /// </summary>
         internal static string Anonymous_Register_ReklamniZasilky_Header {
@@ -646,11 +763,38 @@ namespace Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Souhlas.
+        /// </summary>
+        internal static string Anonymous_Register_ReklamniZasilky_Souhlas {
+            get {
+                return ResourceManager.GetString("Anonymous_Register_ReklamniZasilky_Souhlas", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Zásadami MLM systému Eurona.
         /// </summary>
         internal static string Anonymous_Register_SmluvnimiPodminkami {
             get {
                 return ResourceManager.GetString("Anonymous_Register_SmluvnimiPodminkami", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Souhlas se.
+        /// </summary>
+        internal static string Anonymous_Register_SouhlasSe {
+            get {
+                return ResourceManager.GetString("Anonymous_Register_SouhlasSe", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Stát :.
+        /// </summary>
+        internal static string Anonymous_Register_Stat {
+            get {
+                return ResourceManager.GetString("Anonymous_Register_Stat", resourceCulture);
             }
         }
         
@@ -669,6 +813,15 @@ namespace Resources {
         internal static string Anonymous_Register_Telefon {
             get {
                 return ResourceManager.GetString("Anonymous_Register_Telefon", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Telefonní číslo ve tvaru 123456789.
+        /// </summary>
+        internal static string Anonymous_Register_TelefonniCiloVeTvaru {
+            get {
+                return ResourceManager.GetString("Anonymous_Register_TelefonniCiloVeTvaru", resourceCulture);
             }
         }
         
@@ -696,6 +849,15 @@ namespace Resources {
         internal static string Anonymous_Register_VyplntePovinnouPolozku {
             get {
                 return ResourceManager.GetString("Anonymous_Register_VyplntePovinnouPolozku", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to vyplnení údajů pro registraci.
+        /// </summary>
+        internal static string Anonymous_Register_VypneniUdajuProRegistraci {
+            get {
+                return ResourceManager.GetString("Anonymous_Register_VypneniUdajuProRegistraci", resourceCulture);
             }
         }
         

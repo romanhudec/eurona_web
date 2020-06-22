@@ -487,7 +487,7 @@
     <value>Korekta</value>
   </data>
   <data name="OrderControl_DeliveryAddress" xml:space="preserve">
-    <value>Adres dla doręczenia</value>
+    <value>Wybór dostawcy</value>
   </data>
   <data name="OrderControl_InvoiceAddress" xml:space="preserve">
     <value>Adres do fakturowania</value>
@@ -532,7 +532,7 @@ Pozdrawiam&lt;br/&gt;
     <value>Do zapłaty z VAT</value>
   </data>
   <data name="OrderControl_Shipment" xml:space="preserve">
-    <value>Zvolte dopravce :</value>
+    <value>Wybór dostawcy :</value>
   </data>
   <data name="ProductCommentsControl_InappropriatePost" xml:space="preserve">
     <value>Niewłaściwy wkład </value>
@@ -623,5 +623,29 @@ Pozdrawiam&lt;br/&gt;
   </data>
   <data name="AdminAttributeTypeControl_ValueLabelText" xml:space="preserve">
     <value>Wartość:</value>
+  </data>
+  <data name="CartControl_ColumnBody" xml:space="preserve">
+    <value>Punkty</value>
+  </data>
+  <data name="CartControl_ColumnBodyCelkem" xml:space="preserve">
+    <value>Punkty razem</value>
+  </data>
+  <data name="CartControl_ColumnCenaCelkem" xml:space="preserve">
+    <value>Cena razem</value>
+  </data>
+  <data name="CartControl_ColumnKatalogovaCenaCelkem" xml:space="preserve">
+    <value>Cena katalogowa razem</value>
+  </data>
+  <data name="CartControl_ColumnKod" xml:space="preserve">
+    <value>Kód</value>
+  </data>
+  <data name="CartControl_ColumnKatalogovaCena" xml:space="preserve">
+    <value>Cena katalogowa</value>
+  </data>
+  <data name="CartControl_ColumnZvyhodnenaCena" xml:space="preserve">
+    <value>Cena bez marży</value>
+  </data>
+  <data name="AddressControl_TelefonniCisloVeTvaru" xml:space="preserve">
+    <value>Numer telefonu np.</value>
   </data>
 </root>
