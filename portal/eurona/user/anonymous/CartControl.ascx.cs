@@ -115,7 +115,7 @@ namespace Eurona.User.Anonymous
 			grid.Columns.Add(new HyperLinkField
 			{
 				DataTextField = "ProductCode",
-				HeaderText = "Kód",
+                HeaderText = SHP.Resources.Controls.CartControl_ColumnKod,
 				SortExpression = "ProductCode",
 			});
 			grid.Columns.Add(new HyperLinkField
@@ -138,13 +138,13 @@ namespace Eurona.User.Anonymous
 			grid.Columns.Add(new BoundField
 			{
 				DataField = "BodyCelkem",
-				HeaderText = "Body",
+                HeaderText = SHP.Resources.Controls.CartControl_ColumnBody,
 				SortExpression = "BodyCelkem",
 			});
 			grid.Columns.Add(new PriceField
 			{
 				DataField = "KatalogPriceWVATTotal",
-				HeaderText = "Katalogová cena celkem",
+                HeaderText = SHP.Resources.Controls.CartControl_ColumnKatalogovaCenaCelkem,
 				SortExpression = "KatalogPriceWVATTotal",
 			});
 			grid.Columns.Add(new PriceField
@@ -195,7 +195,7 @@ namespace Eurona.User.Anonymous
 			{
 				//Cena celkom/Cena celkom s DPH
 				string price = string.Empty;
-				price = string.Format("Body celkem : {0}&nbsp;&nbsp;&nbsp;&nbsp;Cena celkem : {1}", this.CartEntity.BodyKatalogTotal,
+				price = string.Format(SHP.Resources.Controls.CartControl_ColumnBodyCelkem + " : {0}&nbsp;&nbsp;&nbsp;&nbsp;" + SHP.Resources.Controls.CartControl_ColumnCenaCelkem + " : {1}", this.CartEntity.BodyKatalogTotal,
 				SHP.Utilities.CultureUtilities.CurrencyInfo.ToString(this.CartEntity.PriceTotalWVAT, this.Session));
 
 				e.Row.Cells[0].Text = SHP.Resources.Controls.CartControl_ColumnPriceTotal;

@@ -390,7 +390,7 @@ e-mail: &lt;a href="mailto:prodej@eurona.cz"&gt;prodej@eurona.cz&lt;/a&gt;&lt;/p
     <value>Imię do zameldowania</value>
   </data>
   <data name="RegisterControl_PasswordConfirmLabel" xml:space="preserve">
-    <value>Kontrola hasła</value>
+    <value>Powtórz hasło</value>
   </data>
   <data name="RegisterControl_PasswordLabel" xml:space="preserve">
     <value>Hasło</value>

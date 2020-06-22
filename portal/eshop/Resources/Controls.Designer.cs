@@ -169,6 +169,15 @@ namespace SHP.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Telefonní číslo ve tvaru.
+        /// </summary>
+        public static string AddressControl_TelefonniCisloVeTvaru {
+            get {
+                return ResourceManager.GetString("AddressControl_TelefonniCisloVeTvaru", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to PSČ :.
         /// </summary>
         public static string AddressControl_Zip {
@@ -862,11 +871,65 @@ namespace SHP.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Body.
+        /// </summary>
+        public static string CartControl_ColumnBody {
+            get {
+                return ResourceManager.GetString("CartControl_ColumnBody", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Body celkem.
+        /// </summary>
+        public static string CartControl_ColumnBodyCelkem {
+            get {
+                return ResourceManager.GetString("CartControl_ColumnBodyCelkem", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Cena celkem.
+        /// </summary>
+        public static string CartControl_ColumnCenaCelkem {
+            get {
+                return ResourceManager.GetString("CartControl_ColumnCenaCelkem", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Číslo objednávky.
         /// </summary>
         public static string CartControl_ColumnId {
             get {
                 return ResourceManager.GetString("CartControl_ColumnId", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Katalogová cena.
+        /// </summary>
+        public static string CartControl_ColumnKatalogovaCena {
+            get {
+                return ResourceManager.GetString("CartControl_ColumnKatalogovaCena", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Katalogová cena celkem.
+        /// </summary>
+        public static string CartControl_ColumnKatalogovaCenaCelkem {
+            get {
+                return ResourceManager.GetString("CartControl_ColumnKatalogovaCenaCelkem", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Kód.
+        /// </summary>
+        public static string CartControl_ColumnKod {
+            get {
+                return ResourceManager.GetString("CartControl_ColumnKod", resourceCulture);
             }
         }
         
@@ -921,6 +984,15 @@ namespace SHP.Resources {
         public static string CartControl_ColumnQuantity {
             get {
                 return ResourceManager.GetString("CartControl_ColumnQuantity", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Zvýhodnená cena.
+        /// </summary>
+        public static string CartControl_ColumnZvyhodnenaCena {
+            get {
+                return ResourceManager.GetString("CartControl_ColumnZvyhodnenaCena", resourceCulture);
             }
         }
         

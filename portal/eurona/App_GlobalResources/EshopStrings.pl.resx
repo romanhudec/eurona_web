@@ -530,16 +530,16 @@ E: prodej@eurona.cz</value>
     <value>Dziękujemy za zamówienie!</value>
   </data>
   <data name="OrderFinish_NeviteSiRady" xml:space="preserve">
-    <value>Czy potrzebujesz porady, skontaktuj&lt;br/&gt; sie z naszymi operatorami</value>
+    <value>Potrzebujesz pomocy ? Skontaktuj się z naszymi konsultantami.</value>
   </data>
   <data name="OrderFinish_PomocSNakupem" xml:space="preserve">
-    <value>Pomoc w zakupie&lt;br/&gt; i zamawiania</value>
+    <value>Pomoc w zamawianiu</value>
   </data>
   <data name="OrderFinish_PtejteSeEmailem" xml:space="preserve">
-    <value>Zapytać przez e-mail!</value>
+    <value>Napisz !</value>
   </data>
   <data name="OrderFinish_Volejte" xml:space="preserve">
-    <value>Wezwanie!</value>
+    <value>Zadzwoń !</value>
   </data>
   <data name="PayOrderControl_OrderHeader" xml:space="preserve">
     <value>Wybierz teraz sposób zapłaty zamówienia</value>
@@ -566,7 +566,7 @@ E: prodej@eurona.cz</value>
     <value>WYŚLIJ ZAMÓWIENIE I WYBRAĆ PŁATNOŚĆ</value>
   </data>
   <data name="Anonymous_UhradaObjednavky" xml:space="preserve">
-    <value>Płatnośći za zamówieńie</value>
+    <value>PŁATNOŚĆ ZA ZAMÓWIENIE</value>
   </data>
   <data name="AutomaticEmptyCartWarning" xml:space="preserve">
     <value>Uwaga! Wyślij swoje zamówienie do godz. {0}. Zawartość koszyka jest codziennie automatycznie w nocy o godz. {0} opróżniana.</value>
@@ -608,16 +608,16 @@ E: prodej@eurona.cz</value>
     <value>Twoje zamówienie możesz zobaczyć</value>
   </data>
   <data name="Anonymous_OrderFinish_VNejblizsichDnechVasKontaktujeme" xml:space="preserve">
-    <value>W najbliższych dniach skontaktuje się z Tobą konsultant spółki Eurona, który w wypadku potrzeby poinformuje Cię o naszych unikalnych produktach oraz doradzi jak uzyskać niezależność finansową i odstartować karierę z Euroną.</value>
+    <value>W najbliższych dniach skontaktuje się z Tobą konsultant spółki Eurona, który w razie potrzeby udzieli informacji o produktach oraz doradzi jak uzyskać niezależność finansową i rozpocząć karierę z Euroną.</value>
   </data>
   <data name="Anonymous_OrderFinish_VPripadeDalsichDotazu" xml:space="preserve">
-    <value>W wypadku jakichkolwiek pytań prosimy o kontakt z naszymi operatorami:</value>
+    <value>W przypadku jakichkolwiek pytań prosimy o kontakt z naszymi konsultantami:</value>
   </data>
   <data name="Anonymous_OrderFinish_Zde" xml:space="preserve">
     <value>TUTAJ.</value>
   </data>
   <data name="Anonymous_Register_ReklamniZasilky_Header" xml:space="preserve">
-    <value>Chcete pravidelně odebírat nové a aktuální informace o Euroně? Zde si můžete zvolit typ zasílaných propagačních materiálů:</value>
+    <value>Chcesz otrzymywać aktualne informacje o Euronie ? Tutaj możesz wybrać rodzaj przesyłanych materiałów reklamowych:</value>
   </data>
   <data name="Anonymous_Register_AcceptTerms_Error" xml:space="preserve">
     <value>Konieczne jest uzgodnienie z zasadami Euron MLM i warunkami współpracy biznesowej</value>
@@ -630,5 +630,131 @@ E: prodej@eurona.cz</value>
   </data>
   <data name="OrderControl_PSC_Hint" xml:space="preserve">
     <value>Nie wypełniaj kodu pocztowego. Zacznij od wpisania miasta i wybierz je z menu.</value>
+  </data>
+  <data name="Anonymous_Navigation_MenuItem_Eshop" xml:space="preserve">
+    <value>eshop</value>
+  </data>
+  <data name="Anonymous_Navigation_MenuItem_MujKosikPoPrepoctu" xml:space="preserve">
+    <value>mój koszyk&lt;br /&gt;(po przeliczeniu)</value>
+  </data>
+  <data name="Anonymous_Navigation_MenuItem_MujKosikPredPrepoctem" xml:space="preserve">
+    <value>mój koszyk&lt;br /&gt;(przed przeliczeniem)</value>
+  </data>
+  <data name="Anonymous_Navigation_MenuItem_NakupniKosik" xml:space="preserve">
+    <value>wózek sklepowy</value>
+  </data>
+  <data name="Anonymous_Navigation_MenuItem_PotvrzeniObjednavky" xml:space="preserve">
+    <value>potwierdzenie&lt;br /&gt;zamówienia</value>
+  </data>
+  <data name="Anonymous_Navigation_MenuItem_VylneniUdaju" xml:space="preserve">
+    <value>dane &lt;br /&gt;do rejestracji</value>
+  </data>
+  <data name="Anonymous_Objednat" xml:space="preserve">
+    <value>Zamówić czy Wysłać zamówienie</value>
+  </data>
+  <data name="Anonymous_Register_BankovniUcet" xml:space="preserve">
+    <value>Numer konta :</value>
+  </data>
+  <data name="Anonymous_Register_BudeVasePrihlasovaciJmeno" xml:space="preserve">
+    <value>będzie również Twoją nazwą użytkownika do logowania</value>
+  </data>
+  <data name="Anonymous_Register_DatumNarozeni" xml:space="preserve">
+    <value>Data urodzenia :</value>
+  </data>
+  <data name="Anonymous_Register_DIC" xml:space="preserve">
+    <value>NIP : </value>
+  </data>
+  <data name="Anonymous_Register_DodaciAdresa" xml:space="preserve">
+    <value>Adres dostawy :</value>
+  </data>
+  <data name="Anonymous_Register_FakturacniAdresa" xml:space="preserve">
+    <value>Adres :</value>
+  </data>
+  <data name="Anonymous_Register_HesloProHosta" xml:space="preserve">
+    <value>Hasło dla gościa :</value>
+  </data>
+  <data name="Anonymous_Register_HesloProHosta_AnoText" xml:space="preserve">
+    <value>TAK, mam hasło dla gościa od konsultanta EURONY</value>
+  </data>
+  <data name="Anonymous_Register_HesloProHosta_AnoText_Tooltip" xml:space="preserve">
+    <value>Pokud Vám Váš obchodní specialista, poradce Eurona předal heslo pro hosta, vyplňte ho zde a pokračujte v objednávce.</value>
+  </data>
+  <data name="Anonymous_Register_HesloProHosta_NeText" xml:space="preserve">
+    <value>NIE, nie mam hasła dla gościa od konsultanta EURONY</value>
+  </data>
+  <data name="Anonymous_Register_HesloProHosta_Tooltip" xml:space="preserve">
+    <value>Pokud Vám Váš obchodní specialista, poradce Eurona předal heslo pro hosta, vyplňte ho zde a pokračujte v objednávce.</value>
+  </data>
+  <data name="Anonymous_Register_ICO" xml:space="preserve">
+    <value>REGON :</value>
+  </data>
+  <data name="Anonymous_Register_JinaVyplnte" xml:space="preserve">
+    <value>Inna (proszę wypełnić)</value>
+  </data>
+  <data name="Anonymous_Register_JmenoAPrijmeni" xml:space="preserve">
+    <value>Imię i Nazwisko/Nazwa :</value>
+  </data>
+  <data name="Anonymous_Register_Mesto" xml:space="preserve">
+    <value>Miejscowość : </value>
+  </data>
+  <data name="Anonymous_Register_Mobil" xml:space="preserve">
+    <value>Telefon komórkowy :</value>
+  </data>
+  <data name="Anonymous_Register_PlatceDPH" xml:space="preserve">
+    <value>Płatnik VAT :</value>
+  </data>
+  <data name="Anonymous_Register_PovinneUdaje" xml:space="preserve">
+    <value>Dane wymagane</value>
+  </data>
+  <data name="Anonymous_Register_PredmetCinnosti" xml:space="preserve">
+    <value>Przedmiot działalności : </value>
+  </data>
+  <data name="Anonymous_Register_PSC" xml:space="preserve">
+    <value>Kod pocztowy :</value>
+  </data>
+  <data name="Anonymous_Register_Region" xml:space="preserve">
+    <value>Województwo : </value>
+  </data>
+  <data name="Anonymous_Register_ReklamniZasilka" xml:space="preserve">
+    <value>Materiały reklamowe</value>
+  </data>
+  <data name="Anonymous_Register_ReklamniZasilky_Souhlas" xml:space="preserve">
+    <value>Zaznacz</value>
+  </data>
+  <data name="Anonymous_Register_Stat" xml:space="preserve">
+    <value>Państwo : </value>
+  </data>
+  <data name="Anonymous_Register_StejnaJakoFakturacni" xml:space="preserve">
+    <value>Taki sam jak na fakturze</value>
+  </data>
+  <data name="Anonymous_Register_TelefonniCiloVeTvaru" xml:space="preserve">
+    <value>Numer telefonu np. 123456789</value>
+  </data>
+  <data name="Anonymous_Register_Ulice" xml:space="preserve">
+    <value>Ulica i nr :</value>
+  </data>
+  <data name="Anonymous_Register_VasePrihlasovaciUdaje" xml:space="preserve">
+    <value>Hasło do Twojego konta</value>
+  </data>
+  <data name="Anonymous_Register_VypneniUdajuProRegistraci" xml:space="preserve">
+    <value>DANE DO REJESTRACJI</value>
+  </data>
+  <data name="Anonymous_Register_ZadejteHesloVeTvaru" xml:space="preserve">
+    <value>(Wpisz hasło: np. 480-11223344)</value>
+  </data>
+  <data name="Anonymous_VyberDopravy" xml:space="preserve">
+    <value>Wybór dostawcy:</value>
+  </data>
+  <data name="Anonymous_Register_A" xml:space="preserve">
+    <value>oraz</value>
+  </data>
+  <data name="Anonymous_Register_ObchodnimiPodminkami" xml:space="preserve">
+    <value>Warunki współpracy handlowej ze spółką Eurona s.r.o.</value>
+  </data>
+  <data name="Anonymous_Register_SmluvnimiPodminkami" xml:space="preserve">
+    <value>Zasady systemu MLM Eurona</value>
+  </data>
+  <data name="Anonymous_Register_SouhlasSe" xml:space="preserve">
+    <value>Zapoznałem sie i akceptuję</value>
   </data>
 </root>

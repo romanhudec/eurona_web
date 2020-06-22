@@ -30,7 +30,7 @@
     <div style="margin-top:10px;margin-bottom:10px;">
         <span>
             <a class="add-button-150" href='<%=aliasUtilities.Resolve("~/eshop/default.aspx") %>'><asp:Literal runat="server" Text="<%$ Resources:EShopStrings, Anonymous_PridatDalsiVyrobky %>"></asp:Literal></a>
-            <asp:Button runat="server" id="btnContinue" class="button" Text="Objednat" OnClick="OnContinue" CausesValidation="true"></asp:Button>
+            <asp:Button runat="server" id="btnContinue" class="button" Text="<%$ Resources:EShopStrings, Anonymous_Objednat %>" OnClick="OnContinue" CausesValidation="true"></asp:Button>
         </span>
     </div>
     <div>

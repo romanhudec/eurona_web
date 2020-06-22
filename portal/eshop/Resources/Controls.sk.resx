@@ -624,4 +624,28 @@ S pozdravom&lt;br/&gt;
   <data name="ProductCommentsControl_InappropriatePost" xml:space="preserve">
     <value>Nevhodný príspevok</value>
   </data>
+  <data name="CartControl_ColumnBody" xml:space="preserve">
+    <value>Body</value>
+  </data>
+  <data name="CartControl_ColumnBodyCelkem" xml:space="preserve">
+    <value>Body celkom</value>
+  </data>
+  <data name="CartControl_ColumnCenaCelkem" xml:space="preserve">
+    <value>Cena celkom</value>
+  </data>
+  <data name="CartControl_ColumnKatalogovaCenaCelkem" xml:space="preserve">
+    <value>Katalogová cena celkom</value>
+  </data>
+  <data name="CartControl_ColumnKod" xml:space="preserve">
+    <value>Kód</value>
+  </data>
+  <data name="CartControl_ColumnKatalogovaCena" xml:space="preserve">
+    <value>Katalogová cena</value>
+  </data>
+  <data name="CartControl_ColumnZvyhodnenaCena" xml:space="preserve">
+    <value>Zvýhodnená cena</value>
+  </data>
+  <data name="AddressControl_TelefonniCisloVeTvaru" xml:space="preserve">
+    <value>Telefonní číslo v tvare</value>
+  </data>
 </root>

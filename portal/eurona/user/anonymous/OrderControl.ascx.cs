@@ -823,7 +823,7 @@ namespace Eurona.User.Anonymous {
             };
             grid.Columns.Add(new HyperLinkField {
                 DataTextField = "ProductCode",
-                HeaderText = "Kód",
+                HeaderText = SHP.Resources.Controls.CartControl_ColumnKod,
                 SortExpression = "ProductCode",
             });
             grid.Columns.Add(new HyperLinkField {
@@ -849,20 +849,20 @@ namespace Eurona.User.Anonymous {
             }
             grid.Columns.Add(new BoundField {
                 DataField = "BodyCelkem",
-                HeaderText = "Body",
+                HeaderText = SHP.Resources.Controls.CartControl_ColumnBody,
                 SortExpression = "BodyCelkem"
             });
 
             grid.Columns.Add(new Eurona.Common.Controls.PriceField {
                 DataField = "KatalogPriceWVATTotal",
                 CurrencySymbolDataField = "CurrencySymbol",
-                HeaderText = "Katalogová cena",
+                HeaderText = SHP.Resources.Controls.CartControl_ColumnKatalogovaCena,
                 SortExpression = "KatalogPriceWVATTotal",
             });
             grid.Columns.Add(new Eurona.Common.Controls.PriceField {
                 DataField = "PriceTotalWVAT",
                 CurrencySymbolDataField = "CurrencySymbol",
-                HeaderText = "Zvýhodnená cena",
+                HeaderText = SHP.Resources.Controls.CartControl_ColumnZvyhodnenaCena,
                 SortExpression = "PriceTotalWVAT",
             });
             CMSButtonField btnDelete = new CMSButtonField();

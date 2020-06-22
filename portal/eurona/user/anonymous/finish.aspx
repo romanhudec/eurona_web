@@ -68,7 +68,7 @@
         <br /><br />
         - telefon CZ: +420 491 477 361<br />
         <%} else if(locale == "pl" ){ %>
-        - PO- PIĄ 8:00 – 16:00 godzin<br />
+        - Pn-Pt w godzinach 8:00-16:00<br />
         - e-mail: prodej@eurona.cz<br />
         <br /><br />
         - telefon CZ: +420 491 477 361<br />

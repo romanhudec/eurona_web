@@ -267,7 +267,7 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="navigation" runat="server">
 </asp:Content>
 <asp:Content ID="Content4" ContentPlaceHolderID="content_header" runat="server">
-    vyplnení údajů pro registraci
+    <asp:Literal ID="Literal17" runat="server" Text="<%$ Resources:EShopStrings, Anonymous_Register_VypneniUdajuProRegistraci %>"></asp:Literal>    
 </asp:Content>
 <asp:Content ID="Content5" ContentPlaceHolderID="content" runat="server">
     <div style="margin:0px 30px 20px 30px;">
@@ -317,7 +317,7 @@
                         </td>
                         <td>
                             <asp:TextBox runat="server" ID="txtEmail" CausesValidation="True" Width="200px" onclick="hideElm('validatorEmail');" oninput="checkEmail()" autocomplete="false"></asp:TextBox>
-                            &nbsp;<span style="color:#c10076;font-size:16px;vertical-align:middle;"><asp:Literal ID="Literal10" runat="server" Text="bude také Vaše přihlašovací jméno"></asp:Literal></span>
+                            &nbsp;<span style="color:#c10076;font-size:16px;vertical-align:middle;"><asp:Literal ID="Literal10" runat="server" Text="<%$ Resources:EShopStrings, Anonymous_Register_BudeVasePrihlasovaciJmeno %>"></asp:Literal></span>
                            <%-- <asp:RegularExpressionValidator ID="emailValidator" runat="server" ControlToValidate="txtEmail"
                                 ErrorMessage="!" ValidationExpression="^([\w-\.]+)@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([\w-]+\.)+))([a-zA-Z]{2,4}|[0-9]{1,3})(\]?)$">
                                 <div class="validator" id='validatorEmail1' onclick="hideElm('validatorEmail1');" style="display:block;">
@@ -348,7 +348,7 @@
                     <tr>
                         <td>
                             <span class="required">*</span>
-                            <asp:Literal ID="Literal5" runat="server" Text="Stát : " />
+                            <asp:Literal ID="Literal5" runat="server" Text="<%$ Resources:EShopStrings, Anonymous_Register_Stat %>" />
                         </td>
                         <td>
                             <asp:DropDownList runat="server" ID="ddlStat" Width="200px" AutoPostBack="true"></asp:DropDownList>
@@ -357,7 +357,7 @@
                     <tr>
                         <td>
                             <span class="required">*</span>
-                            <asp:Literal ID="Literal6" runat="server" Text="Region : " />
+                            <asp:Literal ID="Literal6" runat="server" Text="<%$ Resources:EShopStrings, Anonymous_Register_Region %>" />
                         </td>
                         <td>
                             <asp:DropDownList runat="server" ID="ddlRegion" Width="200px"></asp:DropDownList>
@@ -374,7 +374,7 @@
                     </tr>
                     <tr>
                         <td>
-                            <asp:Literal ID="Literal8" runat="server" Text="Předmět činnosti : " />
+                            <asp:Literal ID="Literal8" runat="server" Text="<%$ Resources:EShopStrings, Anonymous_Register_PredmetCinnosti %>" />
                         </td>
                         <td>
                             <asp:TextBox runat="server" ID="txtPredmetCinnosti" Width="200px"></asp:TextBox>
@@ -590,14 +590,14 @@
                     <tr>
                         <td>
                             <span class="required">*</span>
-                            Mobil : 
+                            <asp:Literal ID="Literal14" runat="server" Text="<%$ Resources:EShopStrings, Anonymous_Register_Mobil %>"></asp:Literal>
                         </td>
                         <td>
                             <table width="100%" border="0" cellpadding="0" cellspacing="0">
                                 <tr>
                                     <td colspan="2">
                                         <div>
-                                            <span class='address_notes_desription'>Telefonní číslo ve tvaru 123456789</span>                                
+                                            <span class='address_notes_desription'><asp:Literal ID="Literal15" runat="server" Text="<%$ Resources:EShopStrings, Anonymous_Register_TelefonniCiloVeTvaru %>"></asp:Literal></span>                                
                                         </div>
                                     </td>
                                 </tr>
@@ -702,8 +702,8 @@
                         <HeaderTemplate>
 			                <table border="0" cellpadding="0" cellspacing="0" class="dataGrid" style="width:auto!important;">
 			                <tr>
-				                <td class="dataGrid_headerStyle">Reklamní zásilka</td>
-				                <td class="dataGrid_headerStyle">Souhlas</td>
+				                <td class="dataGrid_headerStyle"> <asp:Literal ID="Literal9" runat="server" Text="<%$ Resources:EShopStrings, Anonymous_Register_ReklamniZasilka %>"></asp:Literal></td>
+				                <td class="dataGrid_headerStyle"> <asp:Literal ID="Literal16" runat="server" Text="<%$ Resources:EShopStrings, Anonymous_Register_ReklamniZasilky_Souhlas %>"></asp:Literal></td>
 			                </tr>
 		                </HeaderTemplate>
                         <ItemTemplate>
@@ -724,8 +724,8 @@
                 <span class="required">*</span> <asp:Literal runat="server" Text="<%$ Resources:EShopStrings, Anonymous_Register_PovinneUdaje %>"></asp:Literal>
                 <div>
                     <%--<asp:CheckBox ID="cbAcceptTerms" runat="server" Text="Souhlas se " onclick="AcceptTermsAndConditions(this)" />&nbsp;--%>
-                    <asp:CheckBox ID="cbAcceptTerms" runat="server" />&nbsp; <span class="required">*</span>Souhlas se&nbsp; 
-                    <asp:HyperLink ID="hlSmluvniPodminky" runat="server" NavigateUrl="" Text="<%$ Resources:EShopStrings, Anonymous_Register_SmluvnimiPodminkami %>" Target="_blank" ></asp:HyperLink>&nbsp;a&nbsp;
+                    <asp:CheckBox ID="cbAcceptTerms" runat="server" />&nbsp; <span class="required">*</span><asp:Literal ID="Literal16" runat="server" Text="<%$ Resources:EShopStrings, Anonymous_Register_SouhlasSe %>"></asp:Literal>&nbsp; 
+                    <asp:HyperLink ID="hlSmluvniPodminky" runat="server" NavigateUrl="" Text="<%$ Resources:EShopStrings, Anonymous_Register_SmluvnimiPodminkami %>" Target="_blank" ></asp:HyperLink>&nbsp;<asp:Literal ID="Literal18" runat="server" Text="<%$ Resources:EShopStrings, Anonymous_Register_A %>"></asp:Literal>&nbsp;
                     <asp:HyperLink ID="hlObchodniPodminky" runat="server" NavigateUrl="" Text="<%$ Resources:EShopStrings, Anonymous_Register_ObchodnimiPodminkami %>" Target="_blank" ></asp:HyperLink>
                 </div>
                 <asp:Button runat="server" ID="btnContinue"  Enabled="true" CssClass="button" Text="<%$ Resources:Strings, RegisterControl_ContinueButton %>" OnClick="OnContinueClick" />
