@@ -131,18 +131,13 @@ namespace Eurona.User.Advisor {
         protected void OnAddCart(object sender, EventArgs e) {
             int quantity = 1;
             if (!Int32.TryParse(this.txtMnozstvi.Text, out quantity)) quantity = 1;
+            if (quantity == 0) return;
 
             Product p = Storage<Product>.ReadFirst(new Product.ReadByCode { Code = this.txtKod.Text });
             if (!EuronaCartHelper.ValidateProductBeforeAddingToChart(this.txtKod.Text, p, quantity, this))
                 return;
             if (!EuronaCartHelper.AddProductToCart(this.Page, p.Id, quantity, this))
                 return;
-
-            ////Alert s informaciou o pridani do nakupneho kosika
-            //string js = string.Format( "alert('{0}');window.location.href=window.location.href+'{1}nocache='+(new Date()).getSeconds();",
-            //    string.Format( SHP.Resources.Controls.AdminProductControl_ProductWasAddedToCart_Message, p.Name, quantity ),
-            //   this.Request.RawUrl.Contains( "?" ) ? "&" : "?" );
-            //this.Page.ClientScript.RegisterStartupScript( this.GetType(), "addProductToCart", js, true );
 
             Response.Redirect(this.Request.RawUrl);
         }

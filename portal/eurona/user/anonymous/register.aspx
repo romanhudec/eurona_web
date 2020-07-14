@@ -327,8 +327,8 @@
                                 </div> 
                             </asp:RegularExpressionValidator>--%>
                              <asp:RequiredFieldValidator ID="emailValidator" runat="server" ControlToValidate="txtEmail" ErrorMessage="!">
-                                <div class="validator" id='validatorEmail1' onclick="hideElm('validatorEmail1');" style="display:block;">
-                                    <div style="position:absolute;margin-top:-20px;width:100%;">
+                                <div class="validator" id='validatorEmail1' onclick="hideElm('validatorEmail1');" style="display:block; width:200px;">
+                                    <div style="position:absolute;margin-top:-20px;width:198px;">
                                         <asp:Literal ID="Literal3" runat="server" Text="<%$ Resources:EShopStrings, Anonymous_Register_VyplntePovinnouPolozku %>"></asp:Literal>            
                                     </div>
                                 </div> 

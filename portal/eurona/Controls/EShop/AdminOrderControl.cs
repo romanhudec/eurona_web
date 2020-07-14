@@ -975,6 +975,7 @@ namespace Eurona.Controls {
         void btnAddProduct_Click(object sender, EventArgs e) {
             int quantity = 1;
             if (!Int32.TryParse(this.txtMnozstvi.Text, out quantity)) quantity = 1;
+            if (quantity == 0) return;
 
             if (string.IsNullOrEmpty(this.txtMnozstvi.Text) && String.IsNullOrEmpty(this.txtKod.Text))
                 return;

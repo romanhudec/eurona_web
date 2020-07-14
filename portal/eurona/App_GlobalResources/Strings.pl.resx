@@ -384,7 +384,7 @@ e-mail: &lt;a href="mailto:prodej@eurona.cz"&gt;prodej@eurona.cz&lt;/a&gt;&lt;/p
     <value>Kontynuować</value>
   </data>
   <data name="RegisterControl_EmailLabel" xml:space="preserve">
-    <value>Email</value>
+    <value>E-mail :</value>
   </data>
   <data name="RegisterControl_LoginLabel" xml:space="preserve">
     <value>Imię do zameldowania</value>

@@ -2605,7 +2605,7 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Email :.
+        ///   Looks up a localized string similar to E-mail :.
         /// </summary>
         internal static string RegisterControl_EmailLabel {
             get {

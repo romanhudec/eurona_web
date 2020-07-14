@@ -127,6 +127,7 @@ namespace Eurona.User.Anonymous {
         protected void OnAddCart(object sender, EventArgs e) {
             int quantity = 1;
             if (!Int32.TryParse(this.txtMnozstvi.Text, out quantity)) quantity = 1;
+            if (quantity == 0) return;
 
             Product p = Storage<Product>.ReadFirst(new Product.ReadByCode { Code = this.txtKod.Text });
             if (!EuronaCartHelper.ValidateProductBeforeAddingToChart(this.txtKod.Text, p, quantity, this))

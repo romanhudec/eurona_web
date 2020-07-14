@@ -553,7 +553,7 @@ E: prodej@eurona.cz</value>
     <value>Heslo do Vašeho účtu</value>
   </data>
   <data name="Anonymous_Register_VyplntePovinnouPolozku" xml:space="preserve">
-    <value>Prosím vyplňe!</value>
+    <value>Prosím vyplňte!</value>
   </data>
   <data name="Anonymous_Register_ZadejteHesloVeTvaru" xml:space="preserve">
     <value>( Zadejte heslo ve tvaru : 420-11223344 )</value>
