@@ -25,7 +25,11 @@ using CMS.Controls;
 namespace Eurona.EShop {
     public partial class Product : WebPage {
         protected void Page_Load(object sender, EventArgs e) {
-            if (string.IsNullOrEmpty(Request["id"])) return;
+
+            if (string.IsNullOrEmpty(Request["id"])) {
+                CMS.EvenLog.WritoToEventLog("product.aspx, Request without id", System.Diagnostics.EventLogEntryType.Error);
+                return;
+            }
             string id = Request["id"];
             string[] ids = id.Split(',');
             if (ids.Length > 1) {
@@ -33,7 +37,10 @@ namespace Eurona.EShop {
             }
 
             this.productControl.ProductId = Convert.ToInt32(id);
-            if (this.productControl.Product == null) return;
+            if (this.productControl.Product == null) {
+                CMS.EvenLog.WritoToEventLog("(this.productControl.Product == null !!!, ProductId:" + id, System.Diagnostics.EventLogEntryType.Error);
+                return;
+            }
             this.Title = this.productControl.Name;
 
             (this.Master as Eurona.EShop.DefautMasterPage).SelectedProduct = this.productControl.ProductId;
@@ -218,27 +225,44 @@ namespace Eurona.EShop {
             (this.Master as Eurona.EShop.DefautMasterPage).UpdateCartInfo();
         }
 
-        protected void OnAddCart(object sender, ImageClickEventArgs e) {
+        protected void OnAddProductToClickCart(object sender, ImageClickEventArgs e) {
             //Button btn = ( sender as Button );
 
             int quantity = 1;
             int productId = this.ProductEntity.Id;
-
+            
             if (!Int32.TryParse(this.txtQuantity.Text, out quantity))
                 quantity = 1;
 
             ShpProductEntity product = Storage<ShpProductEntity>.ReadFirst(new ShpProductEntity.ReadById { ProductId = productId });
-            if (!EuronaCartHelper.ValidateProductBeforeAddingToChart(product.Code, product, quantity, this))
+            if (product == null) {
+                CMS.EvenLog.WritoToEventLog("product == null -> Failed! ProductId:" + productId.ToString(), System.Diagnostics.EventLogEntryType.Error);
                 return;
-            if (!EuronaCartHelper.AddProductToCart(this.Page, product.Id, quantity, this))
+            }
+            if (!EuronaCartHelper.ValidateProductBeforeAddingToChart(product.Code, product, quantity, this)) {
+                CMS.EvenLog.WritoToEventLog("ValidateProductBeforeAddingToChart: Failed! ProductCode:" + this.ProductEntity.Code, System.Diagnostics.EventLogEntryType.Error);
                 return;
+            }
+            if (!EuronaCartHelper.AddProductToCart(this.Page, product.Id, quantity, this)) {
+                CMS.EvenLog.WritoToEventLog("AddProductToCart: Failed! ProductCode:" + this.ProductEntity.Code, System.Diagnostics.EventLogEntryType.Error);
+                return;
+            }
 
             this.UpdateCartInfo();
 
+
+            string url = Page.ResolveUrl(this.ProductEntity.Alias);
+            url = (url.StartsWith("/") ? url.Remove(0, 1) : url);
+            string root = ServerUtilities.Root(this.Request);
+            url = root + url;
+            string js = string.Format("alert('{0}');window.location.href='{1}?nocache='+(new Date()).getSeconds();",
+                string.Format(ShpResources.AdminProductControl_ProductWasAddedToCart_Message, this.ProductEntity.Name, quantity),
+                url);
+
             //Alert s informaciou o pridani do nakupneho kosika
-            string js = string.Format("alert('{0}');window.location.href=window.location.href+'{1}nocache='+(new Date()).getSeconds();",
-                 string.Format(ShpResources.AdminProductControl_ProductWasAddedToCart_Message, this.ProductEntity.Name, quantity),
-                 this.Request.RawUrl.Contains("?") ? "&" : "?");
+            //string js = string.Format("alert('{0}');window.location.href=window.location.href+'{1}nocache='+(new Date()).getSeconds();",
+            //     string.Format(ShpResources.AdminProductControl_ProductWasAddedToCart_Message, this.ProductEntity.Name, quantity),
+            //     this.Request.RawUrl.Contains("?") ? "&" : "?");
             this.ClientScript.RegisterStartupScript(this.GetType(), "addProductToCart", js, true);
         }
 

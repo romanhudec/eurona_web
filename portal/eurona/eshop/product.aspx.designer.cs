@@ -103,13 +103,13 @@ namespace Eurona.EShop {
         protected global::System.Web.UI.HtmlControls.HtmlImage Img2;
         
         /// <summary>
-        /// btnAddCart control.
+        /// btnAddProductToCart control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.ImageButton btnAddCart;
+        protected global::System.Web.UI.WebControls.ImageButton btnAddProductToCart;
         
         /// <summary>
         /// txtQuantity control.

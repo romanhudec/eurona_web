@@ -98,7 +98,7 @@
                                         </td>
                                         <td rowspan="2">
                                             <div style="margin-left:20px;">
-                                                <asp:ImageButton runat="server" ID="btnAddCart" ImageUrl="~/images/cart-button.png" OnClick="OnAddCart" ToolTip="Do košíku" CausesValidation="false" CommandName="AddCart" CommandArgument='<%=ProductEntity.Id %>' />
+                                                <asp:ImageButton runat="server" ID="btnAddProductToCart" ImageUrl="~/images/cart-button.png" OnClick="OnAddProductToClickCart" ToolTip="Do košíku" CausesValidation="false" UseSubmitBehavior="false"/>
                                             </div> 
                                         </td>
                                     </tr>

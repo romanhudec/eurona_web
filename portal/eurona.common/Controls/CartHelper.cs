@@ -23,21 +23,25 @@ namespace Eurona.Common.Controls.Cart {
             if (product == null) {
                 string alert = string.Format("alert('Produkt s kódem {0}, nebyl nalezen!');", productCode);
                 owner.Page.ClientScript.RegisterStartupScript(owner.GetType(), "addProductToCart", alert, true);
+                CMS.EvenLog.WritoToEventLog(alert, System.Diagnostics.EventLogEntryType.Error);
                 return false;
             }
             if (cerpatBK && (!product.BonusovyKredit.HasValue || product.BonusovyKredit.Value == 0)) {
                 string jsAlert = string.Format("alert('{0}');", string.Format("Tento produkt nelze koupit za bonusové kredity!"));
                 owner.Page.ClientScript.RegisterStartupScript(owner.Page.GetType(), "addProductToCart", jsAlert, true);
+                CMS.EvenLog.WritoToEventLog(jsAlert, System.Diagnostics.EventLogEntryType.Error);
                 return false;
             }
             if (product.ProdejUkoncen == true) {
                 string alert = string.Format("alert('Prodej produktu s kódem {0}, byl ukončen!');", product.Code);
                 owner.Page.ClientScript.RegisterStartupScript(owner.GetType(), "addProductToCart", alert, true);
+                CMS.EvenLog.WritoToEventLog(alert, System.Diagnostics.EventLogEntryType.Error);
                 return false;
             }
             if (product.Vyprodano == true) {
                 string alert = string.Format("alert('Produktu s kódem {0}, je vyprodán!');", product.Code);
                 owner.Page.ClientScript.RegisterStartupScript(owner.GetType(), "addProductToCart", alert, true);
+                CMS.EvenLog.WritoToEventLog(alert, System.Diagnostics.EventLogEntryType.Error);
                 return false;
             }
 
@@ -45,6 +49,7 @@ namespace Eurona.Common.Controls.Cart {
             if (product.InternalStorageCount != ProductEntity.INTERNAL_STORAGE_NOT_AVAILABLE && product.InternalStorageCount < quantity) {
                 string jsAlert = string.Format("alert('{0}');", string.Format("Omlouváme se, ale tento produkt momentálne na sklade není!"));
                 owner.Page.ClientScript.RegisterStartupScript(owner.Page.GetType(), "addProductToCart", jsAlert, true);
+                CMS.EvenLog.WritoToEventLog(jsAlert, System.Diagnostics.EventLogEntryType.Error);
                 return false;
             }
 
@@ -63,6 +68,7 @@ namespace Eurona.Common.Controls.Cart {
                 if (product.InternalStorageCount != ProductEntity.INTERNAL_STORAGE_NOT_AVAILABLE && product.InternalStorageCount < quantity) {
                     string jsAlert = string.Format("alert('{0}');", string.Format("Omlouváme se, ale tento produkt momentálne na sklade není!"));
                     owner.Page.ClientScript.RegisterStartupScript(owner.Page.GetType(), "addProductToCart", jsAlert, true);
+                    CMS.EvenLog.WritoToEventLog(jsAlert, System.Diagnostics.EventLogEntryType.Error);
                     return false;
                 }
                 //Ak sa nema internal storage pouzivat tak sa kontroluje Storage
@@ -70,6 +76,7 @@ namespace Eurona.Common.Controls.Cart {
                     if (product.StorageCount <= 0 || product.StorageCount < quantity) {
                         string jsAlert = string.Format("alert('{0}');", string.Format("Omlouváme se, ale tento produkt momentálne na sklade není!"));
                         owner.Page.ClientScript.RegisterStartupScript(owner.Page.GetType(), "addProductToCart", jsAlert, true);
+                        CMS.EvenLog.WritoToEventLog(jsAlert, System.Diagnostics.EventLogEntryType.Error);
                         return false;
                     }
                 }
@@ -81,6 +88,7 @@ namespace Eurona.Common.Controls.Cart {
                 CMS.Entities.Translation translation = vu.Translate("NedostatecnyMinimalniPocetObjednatelnehoPoctu");
                 string jsAlert = string.Format("alert('{0}');", string.Format(translation.Trans, product.MinimalniPocetVBaleni.Value));
                 owner.Page.ClientScript.RegisterStartupScript(owner.Page.GetType(), "addProductToCart", jsAlert, true);
+                CMS.EvenLog.WritoToEventLog(jsAlert, System.Diagnostics.EventLogEntryType.Error);
                 return false;
             }
 
@@ -91,6 +99,7 @@ namespace Eurona.Common.Controls.Cart {
                 CMS.Entities.Translation translation = vu.Translate("PrekroceniMaximalnihoObjednatelnehoPoctu");
                 string jsAlert = string.Format("alert('{0}');", string.Format(translation.Trans, product.MaximalniPocetVBaleni.Value));
                 owner.Page.ClientScript.RegisterStartupScript(owner.Page.GetType(), "addProductToCart", jsAlert, true);
+                CMS.EvenLog.WritoToEventLog(jsAlert, System.Diagnostics.EventLogEntryType.Error);
                 return false;
             }
 
@@ -100,6 +109,7 @@ namespace Eurona.Common.Controls.Cart {
                 CMS.Entities.Translation translation = vu.Translate("LimitovanaAkceUkoncena");
                 string jsAlert = string.Format("alert('{0}');", translation.Trans);
                 owner.Page.ClientScript.RegisterStartupScript(owner.Page.GetType(), "addProductToCart", jsAlert, true);
+                CMS.EvenLog.WritoToEventLog(jsAlert, System.Diagnostics.EventLogEntryType.Error);
                 return false;
             }
 
