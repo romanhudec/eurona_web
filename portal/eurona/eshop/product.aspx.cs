@@ -26,6 +26,7 @@ namespace Eurona.EShop {
     public partial class Product : WebPage {
         protected void Page_Load(object sender, EventArgs e) {
 
+            Response.Cache.SetCacheability(HttpCacheability.NoCache);
             if (string.IsNullOrEmpty(Request["id"])) {
                 CMS.EvenLog.WritoToEventLog("product.aspx, Request without id", System.Diagnostics.EventLogEntryType.Error);
                 return;
@@ -63,7 +64,7 @@ namespace Eurona.EShop {
             this.lblZadniEtiketa.Visible = this.ProductEntity.ZobrazovatZadniEtiketu && !string.IsNullOrEmpty(this.ProductEntity.ZadniEtiketa);
 
             this.rpUcinkyProduktu.DataSource = this.ProductEntity.UcinkyProduktu;
-            this.tdUcinkyProduktu.Visible = this.ProductEntity.UcinkyProduktu.Count != 0 || this.lblZadniEtiketa.Visible;
+            this.tdUcinkyProduktu.Visible = this.ProductEntity.UcinkyProduktu.Count != 0; /*|| this.lblZadniEtiketa.Visible;*/
 
             this.trParfumacie.Visible = this.ProductEntity.Parfumacia.HasValue;
             this.tdInstructionsForUse.Visible = !String.IsNullOrEmpty(this.ProductEntity.InstructionsForUse);

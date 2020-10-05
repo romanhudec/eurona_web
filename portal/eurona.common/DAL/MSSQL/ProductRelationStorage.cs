@@ -27,14 +27,21 @@ namespace Eurona.Common.DAL.MSSQL {
             productRelation.CurrencyCode = Convert.ToString(record["CurrencyCode"]);
             //JOIN-ed properties
             productRelation.ProductName = Convert.ToString(record["ProductName"]);
+#if __DEBUG_VERSION
+            productRelation.ProductPrice = record["ProductPrice"] == DBNull.Value ? 0m :  Convert.ToDecimal(record["ProductPrice"]);
+            productRelation.ProductDiscount = record["ProductPrice"] == DBNull.Value ? 0m : Convert.ToDecimal(record["ProductDiscount"]);
+            productRelation.ProductPriceWDiscount = record["ProductPriceWDiscount"] == DBNull.Value ? 0m : Convert.ToDecimal(record["ProductPriceWDiscount"]);
+            productRelation.PriceTotal = record["PriceTotal"] == DBNull.Value ? 0m : Convert.ToDecimal(record["PriceTotal"]);
+            productRelation.PriceTotalWVAT = record["PriceTotalWVAT"] == DBNull.Value ? 0m : Convert.ToDecimal(record["PriceTotalWVAT"]);
+#else
             productRelation.ProductPrice = Convert.ToDecimal(record["ProductPrice"]);
             productRelation.ProductDiscount = Convert.ToDecimal(record["ProductDiscount"]);
-            productRelation.ProductAvailability = Convert.ToString(record["ProductAvailability"]);
             productRelation.ProductPriceWDiscount = Convert.ToDecimal(record["ProductPriceWDiscount"]);
             productRelation.PriceTotal = Convert.ToDecimal(record["PriceTotal"]);
             productRelation.PriceTotalWVAT = Convert.ToDecimal(record["PriceTotalWVAT"]);
+#endif
+            productRelation.ProductAvailability = Convert.ToString(record["ProductAvailability"]);
             productRelation.Alias = Convert.ToString(record["Alias"]);
-
             return productRelation;
         }
 

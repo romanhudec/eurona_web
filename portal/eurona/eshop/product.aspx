@@ -98,7 +98,7 @@
                                         </td>
                                         <td rowspan="2">
                                             <div style="margin-left:20px;">
-                                                <asp:ImageButton runat="server" ID="btnAddProductToCart" ImageUrl="~/images/cart-button.png" OnClick="OnAddProductToClickCart" ToolTip="Do košíku" CausesValidation="false" UseSubmitBehavior="false"/>
+                                                <asp:ImageButton runat="server" ID="btnAddProductToCart" ImageUrl="~/images/cart-button.png" OnClick="OnAddProductToClickCart" ToolTip="Do košíku" CommandName="ADD_PRODUCT_TO_CART" CommandArgument="<%=ProductEntity.Id %>" CausesValidation="false" UseSubmitBehavior="false"/>
                                             </div> 
                                         </td>
                                     </tr>
@@ -174,12 +174,6 @@
                 </telerik:RadPageView>
                 <telerik:RadPageView ID="RadPageView2" runat="server" CssClass="pageView">
                     <table width="100%" style="padding:5px;">
-<%--                    <tr>
-                        <td colspan="2" runat="server" id="tdZadniEtiketa" style="vertical-align:top;">
-                            <span class="property"><asp:HyperLink ID="lblZadniEtiketa" runat="server" Text="<%$ Resources:EShopStrings, ProductControl_BackList %>"></asp:HyperLink></span>
-                            <br />
-                        </td>
-                    </tr>--%>
                     <tr>
                         <td colspan="2" runat="server" id="tdAdditionalInformation" style="vertical-align:top;text-align:justify;">
                             <span class="property"><asp:Label ID="Literal3" runat="server" Text="<%$ Resources:EShopStrings, ProductControl_AdditionalInformation %>"></asp:Label></span>
@@ -198,18 +192,6 @@
                             </asp:Repeater>
                         </td>
                     </tr>
-<%--                    <tr>
-                        <td colspan="2" runat="server" id="tdPiktogramyProduktu" style="vertical-align:top;">
-                            <span class="property"><asp:Label ID="lblPiktogramyProduktu" runat="server" Text="<%$ Resources:EShopStrings, ProductControl_Pictograms %>"></asp:Label></span>
-                            <hr />
-                            <asp:Repeater ID="rpPiktogramyProduktu" runat="server" >
-                                <ItemTemplate>
-                                    <%#Eval("Name") %>
-                                    <img src='<%# "../images/Piktogramy/" + Eval( "ImageUrl" )%>' alt="" width="70px" />
-                                </ItemTemplate>
-                            </asp:Repeater>
-                        </td>
-                    </tr>--%>
                     <tr>
                         <td colspan="2" runat="server" id="tdInstructionsForUse" style="vertical-align:top;text-align:justify;">
                             <span class="property"><asp:Label ID="lblInstructionsForUse" runat="server" Text="<%$ Resources:EShopStrings, ProductControl_InstructionsForUse %>"></asp:Label></span>
