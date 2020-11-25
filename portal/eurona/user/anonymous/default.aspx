@@ -28,9 +28,11 @@
          return false;
      }
     </script>
-    <span style="color:#e2008b;">
-	<asp:Literal runat="server" Text="<%$ Resources:EShopStrings, Anonymous_Vitejte %>"></asp:Literal>
-    </span>
+    <div style="margin-top:10px!important;">
+        <span style="color:#e2008b;">
+	        <asp:Literal runat="server" Text="<%$ Resources:EShopStrings, Anonymous_Vitejte %>"></asp:Literal>
+        </span>
+    </div>
     <div>
         <cmsPage:PageControl ID="PageControl1" IsEditing="true" runat="server" CssEditorToolBar="contentEditorToolbar" CssEditorContent="contentEditorContent" NewUrl="" 
 	    ManageUrl="" NotFoundUrlFormat="~/notFound.aspx?page={0}" PageName="anonymous-cart-banner-content" PopUpEditorUrlFormat="~/admin/contentEditor.aspx?id={0}" />

@@ -67,11 +67,12 @@ namespace Eurona.User {
             Account account = Storage<Account>.ReadFirst(new Account.ReadByEmailToVerify { EmailToVerify = email, OnlyEmailVerified = true });
             StringBuilder sbJson = new StringBuilder();
 
+            string root = Utilities.Root(context.Request);
             int status = (int)JSONResponseStatus.SUCCESS;
             string errorMessage = "";
             if (account != null) {
                 status = (int)JSONResponseStatus.ERROR;
-                errorMessage = Resources.Strings.EmailVerifyControl_EmailValidation_EmailJeJizOveren;
+                errorMessage = Resources.Strings.EmailVerifyControl_EmailValidation_EmailJeJizOveren + "Přihlaste se <a href='" + root + "default.aspx?login'>zde</a>.";
             }
 
             if (status != (int)JSONResponseStatus.SUCCESS) {

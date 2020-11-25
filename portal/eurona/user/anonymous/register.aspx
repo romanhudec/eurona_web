@@ -164,7 +164,8 @@
                 dataFilter: function (data) { return data; },
                 success: function (data) {
                     if (data.Status != 0) {
-                        labelElm.innerText = data.ErrorMessage;
+                        //labelElm.innerText = data.ErrorMessage;
+                        labelElm.innerHTML = data.ErrorMessage;
                         labelElm.style.display = "block";
                         checkElm.style.display = "block";
                         isTypedEmailValid = false
@@ -262,7 +263,7 @@
 			});
         });
  
-	</script>
+    </script>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="navigation" runat="server">
 </asp:Content>
@@ -271,9 +272,12 @@
 </asp:Content>
 <asp:Content ID="Content5" ContentPlaceHolderID="content" runat="server">
     <div style="margin:0px 30px 20px 30px;">
+    <div style="margin-top:10px!important;">
+        <span style="color:#e2008b;font-size:20px;">Už jste u nás nakupovali? Přihlaste se <a style="font-size:20px;" runat="server" href="~/default.aspx?login">zde</a>.</span>
+    </div>
     <table border="0" width="100%">
         <tr>
-            <td valign="top" colspan="2" style="padding-top:20px;padding-bottom:20px;">
+            <td valign="top" colspan="2" style="padding-top:10px;padding-bottom:20px;">
                 <table border="0" width="100%">
 					<tr>
 						<td></td>
@@ -318,14 +322,6 @@
                         <td>
                             <asp:TextBox runat="server" ID="txtEmail" CausesValidation="True" Width="200px" onclick="hideElm('validatorEmail');" oninput="checkEmail()" autocomplete="false"></asp:TextBox>
                             &nbsp;<span style="color:#c10076;font-size:16px;vertical-align:middle;"><asp:Literal ID="Literal10" runat="server" Text="<%$ Resources:EShopStrings, Anonymous_Register_BudeVasePrihlasovaciJmeno %>"></asp:Literal></span>
-                           <%-- <asp:RegularExpressionValidator ID="emailValidator" runat="server" ControlToValidate="txtEmail"
-                                ErrorMessage="!" ValidationExpression="^([\w-\.]+)@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([\w-]+\.)+))([a-zA-Z]{2,4}|[0-9]{1,3})(\]?)$">
-                                <div class="validator" id='validatorEmail1' onclick="hideElm('validatorEmail1');" style="display:block;">
-                                    <div style="position:absolute;margin-top:-20px;">
-                                        <asp:Literal runat="server" Text="<%$ Resources:EShopStrings, Anonymous_Register_VyplntePovinnouPolozku %>"></asp:Literal>            
-                                    </div>
-                                </div> 
-                            </asp:RegularExpressionValidator>--%>
                              <asp:RequiredFieldValidator ID="emailValidator" runat="server" ControlToValidate="txtEmail" ErrorMessage="!">
                                 <div class="validator" id='validatorEmail1' onclick="hideElm('validatorEmail1');" style="display:block; width:200px;">
                                     <div style="position:absolute;margin-top:-20px;width:198px;">
@@ -557,7 +553,6 @@
                             <div style="margin-left:3px; width:150px; display:inline-flex;vertical-align:middle;word-wrap:break-word;" class='address_notes_desription'>
                                 <asp:Literal ID="Literal12" runat="server" Text="<%$ Resources:EShopStrings, OrderControl_PSC_Hint %>"></asp:Literal>
                             </div>
-							<%--<span style="font-size:8px;"><asp:Literal runat="server" Text="<%$Resources:Strings, ZipDescription %>"></asp:Literal></span>--%>
                             <div class="validator" id='validatorPSC' onclick="hideElm('validatorPSC');">
                                 <div style="position:absolute;margin-top:-20px;">
                                     <asp:Literal runat="server" Text="<%$ Resources:EShopStrings, Anonymous_Register_VyplntePovinnouPolozku %>"></asp:Literal>            
@@ -565,20 +560,6 @@
                             </div>
                         </td>
                     </tr>
-                    <%--<tr>
-                        <td>
-                            <span class="required">*</span>
-							<asp:Literal runat="server" Text="<%$ Resources:EShopStrings, Anonymous_Register_Kraj %>"></asp:Literal>
-                        </td>
-                        <td>
-                            <asp:TextBox runat="server" ID="txtKraj" Width="200px" onclick="hideElm('validatorKraj');"></asp:TextBox>
-                            <div class="validator" id='validatorKraj' onclick="hideElm('validatorKraj');">
-                                <div style="position:absolute;margin-top:-20px;">
-                                    <asp:Literal runat="server" Text="<%$ Resources:EShopStrings, Anonymous_Register_VyplntePovinnouPolozku %>"></asp:Literal>              
-                                </div>
-                            </div>
-                        </td>
-                    </tr>--%>
                     <tr>
                         <td>
 							<asp:Literal runat="server" Text="<%$ Resources:EShopStrings, Anonymous_Register_Telefon %>"></asp:Literal>
@@ -632,21 +613,6 @@
                     <tr>
                         <td>
                             <table border="0" style="border:2px solid #c10076;margin:10px 0px 10px 0px;padding:10px 0px 10px 0px;">
-
-<%--                                <tr>
-                                    <td style="width:130px;">
-                                        <span class="required">*</span>
-                                        <asp:Literal ID="Literal3" runat="server" Text="<%$ Resources:Strings, RegisterControl_LoginLabel %>" />
-                                    </td>
-                                    <td>
-                                        <asp:TextBox runat="server" ID="txtLogin" Width="200px" onclick="hideElm('validatorLogin');" autocomplete="false"></asp:TextBox>
-                                        <div class="validator" id='validatorLogin' onclick="hideElm('validatorLogin');">
-                                            <div style="position:absolute;margin-top:-20px;">
-                                                <asp:Literal runat="server" Text="<%$ Resources:EShopStrings, Anonymous_Register_VyplntePovinnouPolozku %>"></asp:Literal>
-                                            </div>
-                                        </div>
-                                    </td>
-                                </tr>--%>
                                 <tr>
                                     <td>
                                         <span class="required">*</span>
@@ -685,7 +651,6 @@
                         </td>
                         <td>
                             <span style="color:#c10076;font-size:16px;"><asp:Literal runat="server" Text="<%$ Resources:EShopStrings, Anonymous_Register_VasePrihlasovaciUdaje %>"></asp:Literal>&nbsp;<br />
-                                <%--<asp:Literal runat="server" Text="<%$ Resources:EShopStrings, Anonymous_Register_ProVasiDalsiObjednavku %>"></asp:Literal>--%>
                             </span>                            
                         </td>
                     </tr>
@@ -723,7 +688,6 @@
             <td colspan="2">
                 <span class="required">*</span> <asp:Literal runat="server" Text="<%$ Resources:EShopStrings, Anonymous_Register_PovinneUdaje %>"></asp:Literal>
                 <div>
-                    <%--<asp:CheckBox ID="cbAcceptTerms" runat="server" Text="Souhlas se " onclick="AcceptTermsAndConditions(this)" />&nbsp;--%>
                     <asp:CheckBox ID="cbAcceptTerms" runat="server" />&nbsp; <span class="required">*</span><asp:Literal ID="Literal16" runat="server" Text="<%$ Resources:EShopStrings, Anonymous_Register_SouhlasSe %>"></asp:Literal>&nbsp; 
                     <asp:HyperLink ID="hlSmluvniPodminky" runat="server" NavigateUrl="" Text="<%$ Resources:EShopStrings, Anonymous_Register_SmluvnimiPodminkami %>" Target="_blank" ></asp:HyperLink>&nbsp;<asp:Literal ID="Literal18" runat="server" Text="<%$ Resources:EShopStrings, Anonymous_Register_A %>"></asp:Literal>&nbsp;
                     <asp:HyperLink ID="hlObchodniPodminky" runat="server" NavigateUrl="" Text="<%$ Resources:EShopStrings, Anonymous_Register_ObchodnimiPodminkami %>" Target="_blank" ></asp:HyperLink>

@@ -8,10 +8,10 @@
 //------------------------------------------------------------------------------
 
 namespace Eurona.User.Anonymous {
-    
-    
+
+
     public partial class PageMasterPage {
-        
+
         /// <summary>
         /// Head1 control.
         /// </summary>
@@ -20,7 +20,7 @@ namespace Eurona.User.Anonymous {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlHead Head1;
-        
+
         /// <summary>
         /// head control.
         /// </summary>
@@ -29,7 +29,7 @@ namespace Eurona.User.Anonymous {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.ContentPlaceHolder head;
-        
+
         /// <summary>
         /// form1 control.
         /// </summary>
@@ -38,7 +38,7 @@ namespace Eurona.User.Anonymous {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlForm form1;
-        
+
         /// <summary>
         /// ScriptManager control.
         /// </summary>
@@ -47,7 +47,7 @@ namespace Eurona.User.Anonymous {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.ScriptManager ScriptManager;
-        
+
         /// <summary>
         /// lblIEVersion control.
         /// </summary>
@@ -56,7 +56,7 @@ namespace Eurona.User.Anonymous {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Literal lblIEVersion;
-        
+
         /// <summary>
         /// debugVersion control.
         /// </summary>
@@ -65,7 +65,7 @@ namespace Eurona.User.Anonymous {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl debugVersion;
-        
+
         /// <summary>
         /// lblDEBUGVersion control.
         /// </summary>
@@ -74,7 +74,7 @@ namespace Eurona.User.Anonymous {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Literal lblDEBUGVersion;
-        
+
         /// <summary>
         /// sitemenu control.
         /// </summary>
@@ -83,7 +83,7 @@ namespace Eurona.User.Anonymous {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::CMS.Controls.Menu.NavigationMenuControl sitemenu;
-        
+
         /// <summary>
         /// loginContent control.
         /// </summary>
@@ -92,7 +92,7 @@ namespace Eurona.User.Anonymous {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.ContentPlaceHolder loginContent;
-        
+
         /// <summary>
         /// trAkcniNabidky control.
         /// </summary>
@@ -101,7 +101,7 @@ namespace Eurona.User.Anonymous {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlTableCell trAkcniNabidky;
-        
+
         /// <summary>
         /// lblAkcniNabidky control.
         /// </summary>
@@ -110,7 +110,7 @@ namespace Eurona.User.Anonymous {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlAnchor lblAkcniNabidky;
-        
+
         /// <summary>
         /// trNovinky control.
         /// </summary>
@@ -119,7 +119,7 @@ namespace Eurona.User.Anonymous {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlTableCell trNovinky;
-        
+
         /// <summary>
         /// lblNovinky control.
         /// </summary>
@@ -128,7 +128,7 @@ namespace Eurona.User.Anonymous {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlAnchor lblNovinky;
-        
+
         /// <summary>
         /// Literal27 control.
         /// </summary>
@@ -137,7 +137,7 @@ namespace Eurona.User.Anonymous {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Literal Literal27;
-        
+
         /// <summary>
         /// trDarkoveSady control.
         /// </summary>
@@ -146,7 +146,7 @@ namespace Eurona.User.Anonymous {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlTableCell trDarkoveSady;
-        
+
         /// <summary>
         /// lblVanoce2014 control.
         /// </summary>
@@ -155,7 +155,7 @@ namespace Eurona.User.Anonymous {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlAnchor lblVanoce2014;
-        
+
         /// <summary>
         /// Literal1 control.
         /// </summary>
@@ -164,7 +164,7 @@ namespace Eurona.User.Anonymous {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Literal Literal1;
-        
+
         /// <summary>
         /// cartInfoControl control.
         /// </summary>
@@ -173,7 +173,7 @@ namespace Eurona.User.Anonymous {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::Eurona.Eshop.CartInfoControl cartInfoControl;
-        
+
         /// <summary>
         /// navigation control.
         /// </summary>
@@ -182,7 +182,7 @@ namespace Eurona.User.Anonymous {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.ContentPlaceHolder navigation;
-        
+
         /// <summary>
         /// twitter control.
         /// </summary>
@@ -191,7 +191,7 @@ namespace Eurona.User.Anonymous {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::Eurona.Common.Controls.TwitterControlAdvisor11 twitter;
-        
+
         /// <summary>
         /// categoryNavigation control.
         /// </summary>
@@ -200,16 +200,7 @@ namespace Eurona.User.Anonymous {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::Eurona.User.Anonymous.CategoryNavigation categoryNavigation;
-        
-        /// <summary>
-        /// content_header control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.ContentPlaceHolder content_header;
-        
+
         /// <summary>
         /// CountDownControl1 control.
         /// </summary>
@@ -218,7 +209,7 @@ namespace Eurona.User.Anonymous {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::Eurona.User.Anonymous.CountDownControl CountDownControl1;
-        
+
         /// <summary>
         /// Literal2 control.
         /// </summary>
@@ -227,7 +218,7 @@ namespace Eurona.User.Anonymous {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Literal Literal2;
-        
+
         /// <summary>
         /// Literal3 control.
         /// </summary>
@@ -236,7 +227,7 @@ namespace Eurona.User.Anonymous {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Literal Literal3;
-        
+
         /// <summary>
         /// Literal4 control.
         /// </summary>
@@ -245,7 +236,7 @@ namespace Eurona.User.Anonymous {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Literal Literal4;
-        
+
         /// <summary>
         /// Literal5 control.
         /// </summary>
@@ -254,7 +245,7 @@ namespace Eurona.User.Anonymous {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Literal Literal5;
-        
+
         /// <summary>
         /// Literal6 control.
         /// </summary>
@@ -263,7 +254,7 @@ namespace Eurona.User.Anonymous {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Literal Literal6;
-        
+
         /// <summary>
         /// Literal7 control.
         /// </summary>
@@ -272,7 +263,16 @@ namespace Eurona.User.Anonymous {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Literal Literal7;
-        
+
+        /// <summary>
+        /// content_header control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.ContentPlaceHolder content_header;
+
         /// <summary>
         /// content control.
         /// </summary>
@@ -281,7 +281,7 @@ namespace Eurona.User.Anonymous {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.ContentPlaceHolder content;
-        
+
         /// <summary>
         /// aliasUtilities control.
         /// </summary>

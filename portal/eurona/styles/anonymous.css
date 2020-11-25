@@ -186,7 +186,7 @@
 /*-------------------------------------------------------------------------------------------------------
 /* REGISTE NAVIGATION CSS STYLES*/
 /*-------------------------------------------------------------------------------------------------------*/
-.register-navigation{height:36px; margin-top:10px; margin-bottom:5px;}
+.register-navigation{height:36px; margin-top:5px; margin-bottom:10px;}
 .register-navigation .first-item{width:126px;height:37px;background-image:url(../images/anonymous-register-navigation-item-first.png);}
 .register-navigation .item {width:126px;height:37px;background-image:url(../images/anonymous-register-navigation-item.png);}
 .register-navigation .last-item{width:126px;height:37px;background-image:url(../images/anonymous-register-navigation-item-last.png);}
