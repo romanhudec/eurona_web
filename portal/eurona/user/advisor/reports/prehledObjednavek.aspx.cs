@@ -26,11 +26,13 @@ namespace Eurona.User.Advisor.Reports {
                 DateTime beforeMonth = DateTime.Now.AddMonths(-1);
                 minDate = new DateTime(beforeMonth.Year, beforeMonth.Month, 1);
                 this.dtpDatumOd.MinDate = minDate;
-                this.dtpDatumOd.MaxDate = now;
+                //this.dtpDatumOd.MaxDate = now;
+                this.dtpDatumOd.MaxDate = now.AddDays(14); //Doplnene 2020/12/28
                 this.dtpDatumOd.SelectedDate = now;//minDate;
 
                 this.dtpDatumDo.MinDate = minDate;
-                this.dtpDatumDo.MaxDate = now.AddDays(7);
+                //this.dtpDatumDo.MaxDate = now.AddDays(7);
+                this.dtpDatumDo.MaxDate = now.AddDays(14); //Doplnene 2020/12/28
                 this.dtpDatumDo.SelectedDate = now;
             }
             //Ak nie je vierihodny - len seba

@@ -145,5 +145,27 @@ namespace CMS.Pump {
                 throw new MSSQLStorageException(ex, storedProcedure, parameters);
             }
         }
+
+        public DataSet QueryProcDataSet(SqlConnection connection, string storedProcedure, params SqlParameter[] parameters) {
+            try {
+                using (SqlCommand command = new SqlCommand(storedProcedure, connection)) {
+                    command.CommandTimeout = default_timeout;
+                    command.CommandType = CommandType.StoredProcedure;
+                    if (parameters != null && parameters.Length > 0) {
+                        foreach (SqlParameter param in parameters)
+                            command.Parameters.Add(param);
+                    }
+
+                    DataSet dataSet = new DataSet();
+                    using (SqlDataAdapter da = new SqlDataAdapter(command)) {
+                        da.Fill(dataSet);
+                    }
+                    command.Dispose();
+                    return dataSet;
+                }
+            } catch (Exception ex) {
+                throw new MSSQLStorageException(ex, storedProcedure, parameters);
+            }
+        }
     }
 }
