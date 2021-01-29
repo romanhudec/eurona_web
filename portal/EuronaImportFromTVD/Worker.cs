@@ -12,11 +12,11 @@ namespace EuronaImportFromTVD {
     /// Summary description for Worker.
     /// </summary>
     public class Worker : WorkerBase {
-        private List<int> odberateleIds;
+        private List<Odberatel> odberatele;
         private List<int> objednavkyIds;
 
-        public Worker(List<int> odberateleIds, List<int> objednavkyIds) {
-            this.odberateleIds = odberateleIds;
+        public Worker(List<Odberatel> odberatele, List<int> objednavkyIds) {
+            this.odberatele = odberatele;
             this.objednavkyIds = objednavkyIds;
         }
 
@@ -32,7 +32,7 @@ namespace EuronaImportFromTVD {
             Trace.WriteLine("================================================================================================================================", TraceCategory.Information);
             */
 
-            int accounts = ImportAccounts(this.odberateleIds);
+            int accounts = ImportAccounts(this.odberatele);
             int orders = ImportOrders(this.objednavkyIds);
 
             string finishMessage = string.Format("Koniec importu! Celkovo naimportovaných {0} accounts", accounts);
@@ -42,7 +42,7 @@ namespace EuronaImportFromTVD {
             OnCompletted(finishMessage);
         }
 
-        private int ImportAccounts(List<int> odberateleIds) {
+        private int ImportAccounts(List<Odberatel> odberatele) {
             int instanceId = 1;
             CMS.Pump.MSSQLStorage mssqStorageSrc = new CMS.Pump.MSSQLStorage(ConfigurationSettings.AppSettings["connectionStringTVD"].ToString());
             CMS.Pump.MSSQLStorage mssqStorageDst = new CMS.Pump.MSSQLStorage(ConfigurationSettings.AppSettings["connectionStringEurona"].ToString());
@@ -53,8 +53,8 @@ namespace EuronaImportFromTVD {
             int itemsError = 0;
             string errors = string.Empty;
 
-            foreach (int idOdberatele in odberateleIds) {
-                EuronaAccoutsImport eas = new EuronaAccoutsImport(instanceId, mssqStorageSrc, mssqStorageDst, idOdberatele);
+            foreach (Odberatel odberatel in odberatele) {
+                EuronaAccoutsImport eas = new EuronaAccoutsImport(instanceId, mssqStorageSrc, mssqStorageDst, odberatel);
                 eas.Info += (message) => {
                     Trace.WriteLine(message);
                 };

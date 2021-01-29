@@ -53,7 +53,7 @@ namespace EuronaImportFromTVD {
             // btnImportData
             // 
             this.btnImportData.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.btnImportData.Location = new System.Drawing.Point(477, 9);
+            this.btnImportData.Location = new System.Drawing.Point(1288, 9);
             this.btnImportData.Name = "btnImportData";
             this.btnImportData.Size = new System.Drawing.Size(214, 40);
             this.btnImportData.TabIndex = 35;
@@ -68,7 +68,7 @@ namespace EuronaImportFromTVD {
             this.lblStatus.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.lblStatus.Location = new System.Drawing.Point(0, 699);
             this.lblStatus.Name = "lblStatus";
-            this.lblStatus.Size = new System.Drawing.Size(699, 25);
+            this.lblStatus.Size = new System.Drawing.Size(1510, 25);
             this.lblStatus.TabIndex = 34;
             this.lblStatus.Text = "...";
             this.lblStatus.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -85,7 +85,7 @@ namespace EuronaImportFromTVD {
             this.lvStatus.HideSelection = false;
             this.lvStatus.Location = new System.Drawing.Point(12, 6);
             this.lvStatus.Name = "lvStatus";
-            this.lvStatus.Size = new System.Drawing.Size(675, 410);
+            this.lvStatus.Size = new System.Drawing.Size(1486, 410);
             this.lvStatus.TabIndex = 36;
             this.lvStatus.UseCompatibleStateImageBehavior = false;
             this.lvStatus.View = System.Windows.Forms.View.Details;
@@ -101,7 +101,7 @@ namespace EuronaImportFromTVD {
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel1.Location = new System.Drawing.Point(0, 220);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(699, 479);
+            this.panel1.Size = new System.Drawing.Size(1510, 479);
             this.panel1.TabIndex = 37;
             // 
             // panel2
@@ -111,7 +111,7 @@ namespace EuronaImportFromTVD {
             this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel2.Location = new System.Drawing.Point(0, 0);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(699, 220);
+            this.panel2.Size = new System.Drawing.Size(1510, 220);
             this.panel2.TabIndex = 38;
             // 
             // splitContainer1
@@ -129,8 +129,8 @@ namespace EuronaImportFromTVD {
             // 
             this.splitContainer1.Panel2.Controls.Add(this.groupBox2);
             this.splitContainer1.Panel2.Padding = new System.Windows.Forms.Padding(10);
-            this.splitContainer1.Size = new System.Drawing.Size(699, 183);
-            this.splitContainer1.SplitterDistance = 366;
+            this.splitContainer1.Size = new System.Drawing.Size(1510, 183);
+            this.splitContainer1.SplitterDistance = 790;
             this.splitContainer1.TabIndex = 2;
             // 
             // groupBox1
@@ -140,7 +140,7 @@ namespace EuronaImportFromTVD {
             this.groupBox1.Location = new System.Drawing.Point(10, 10);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Padding = new System.Windows.Forms.Padding(5);
-            this.groupBox1.Size = new System.Drawing.Size(346, 163);
+            this.groupBox1.Size = new System.Drawing.Size(770, 163);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Odberatele";
@@ -152,7 +152,7 @@ namespace EuronaImportFromTVD {
             this.txtOdberatele.Multiline = true;
             this.txtOdberatele.Name = "txtOdberatele";
             this.txtOdberatele.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.txtOdberatele.Size = new System.Drawing.Size(336, 140);
+            this.txtOdberatele.Size = new System.Drawing.Size(760, 140);
             this.txtOdberatele.TabIndex = 0;
             // 
             // groupBox2
@@ -162,7 +162,7 @@ namespace EuronaImportFromTVD {
             this.groupBox2.Location = new System.Drawing.Point(10, 10);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Padding = new System.Windows.Forms.Padding(5);
-            this.groupBox2.Size = new System.Drawing.Size(309, 163);
+            this.groupBox2.Size = new System.Drawing.Size(696, 163);
             this.groupBox2.TabIndex = 1;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Objednavky";
@@ -174,7 +174,7 @@ namespace EuronaImportFromTVD {
             this.txtObjednavky.Multiline = true;
             this.txtObjednavky.Name = "txtObjednavky";
             this.txtObjednavky.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.txtObjednavky.Size = new System.Drawing.Size(299, 140);
+            this.txtObjednavky.Size = new System.Drawing.Size(686, 140);
             this.txtObjednavky.TabIndex = 1;
             // 
             // panel4
@@ -183,7 +183,7 @@ namespace EuronaImportFromTVD {
             this.panel4.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel4.Location = new System.Drawing.Point(0, 0);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(699, 37);
+            this.panel4.Size = new System.Drawing.Size(1510, 37);
             this.panel4.TabIndex = 1;
             // 
             // lblTitle
@@ -193,7 +193,7 @@ namespace EuronaImportFromTVD {
             this.lblTitle.ForeColor = System.Drawing.Color.SeaGreen;
             this.lblTitle.Location = new System.Drawing.Point(0, 0);
             this.lblTitle.Name = "lblTitle";
-            this.lblTitle.Size = new System.Drawing.Size(699, 37);
+            this.lblTitle.Size = new System.Drawing.Size(1510, 37);
             this.lblTitle.TabIndex = 0;
             this.lblTitle.Text = "Import odberatelu a objednavek z databaze TVD";
             this.lblTitle.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -204,14 +204,14 @@ namespace EuronaImportFromTVD {
             this.panel3.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.panel3.Location = new System.Drawing.Point(0, 642);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(699, 57);
+            this.panel3.Size = new System.Drawing.Size(1510, 57);
             this.panel3.TabIndex = 39;
             // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(699, 724);
+            this.ClientSize = new System.Drawing.Size(1510, 724);
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.panel2);

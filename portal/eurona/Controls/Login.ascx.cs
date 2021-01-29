@@ -54,10 +54,10 @@ namespace Eurona.Controls {
                 if (account != null && !account.IsInRole(DAL.Entities.Role.ADMINISTRATOR))
                     account = null;
             }
-            string pwd = Cryptographer.MD5Hash(password.Value);
-
+            
+            //string pwd = Cryptographer.MD5Hash(password.Value);
             //Kontrola novych pouzivatelov na existenciu objednavky
-            if (account != null && account.Enabled && account.Authenticate(pwd)) {
+            if (account != null && account.Enabled && /*account.Authenticate(pwd)*/Authenticate(account, password.Value)) {
                 //Ak je pouzivatel neovereny a bol vytvoreny skor ako pred 48 hodinami
                 if (!account.Verified && account.Created <= (DateTime.Now.AddHours(-48))) {
                     OrderEntity order = Storage<OrderEntity>.ReadFirst(new OrderEntity.ReadNot { AccountId = account.Id, OrderStatusCode = ((int)OrderEntity.OrderStatus.WaitingForProccess).ToString() });
@@ -83,7 +83,7 @@ namespace Eurona.Controls {
                 }
             }
 
-            if (account != null && account.Enabled && account.Authenticate(pwd)) {
+            if (account != null && account.Enabled && /*account.Authenticate(pwd)*/Authenticate(account, password.Value)) {
                 CMS.Entities.Role admininistrator = account.Roles.Find(r => r.Name == CMS.Entities.Role.ADMINISTRATOR);
                 Security.Login(account, admininistrator == null);
 
@@ -124,6 +124,16 @@ namespace Eurona.Controls {
                 }
             }
             DisplayInvalidLogin();
+        }
+
+        private bool Authenticate( Account account, string plainPwd) {
+            string pwd = Cryptographer.MD5Hash(plainPwd);
+            if (account.Authenticate(pwd)) return true;
+
+            //string mySalt = BCrypt.Net.BCrypt.GenerateSalt();
+            //string myHash = BCrypt.Net.BCrypt.HashPassword(plainPwd, mySalt);
+            bool doesPasswordMatch = BCrypt.Net.BCrypt.Verify(plainPwd, account.Password);
+            return doesPasswordMatch;
         }
 
         protected void OnLogoutClick(object sender, EventArgs e) {

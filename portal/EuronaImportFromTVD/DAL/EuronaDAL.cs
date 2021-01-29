@@ -274,7 +274,8 @@ namespace EuronaImportFromTVD.DAL {
             }
 
             public static int SyncAccount(CMS.Pump.MSSQLStorage mssqStorageDst, int accountTVDId, int instanceId, string login, string password, string email, bool enabled, string roles, bool canAccessIntensa, DateTime? registerDate) {
-                string pwd = CMS.Utilities.Cryptographer.MD5Hash(password);
+                //string pwd = CMS.Utilities.Cryptographer.MD5Hash(password);
+                string pwd = password;
 
                 string sql = "SELECT AccountId FROM vAccounts WHERE TVD_Id=@TVD_Id AND InstanceId = @InstanceId";
                 DataTable dt = mssqStorageDst.Query(mssqStorageDst.Connection, sql, new SqlParameter("@TVD_Id", accountTVDId), new SqlParameter("@InstanceId", instanceId));
@@ -287,7 +288,7 @@ namespace EuronaImportFromTVD.DAL {
                     mssqStorageDst.ExecProc(mssqStorageDst.Connection, "pAccountCreate",
                             new SqlParameter("@HistoryAccount", 1),
                             new SqlParameter("@InstanceId", instanceId),
-                            new SqlParameter("@Login", login),
+                            new SqlParameter("@Login", email),
                             new SqlParameter("@Password", pwd),
                             new SqlParameter("@Enabled", enabled),
                             new SqlParameter("@Verified", 1),
@@ -297,8 +298,14 @@ namespace EuronaImportFromTVD.DAL {
 
                     if (result.Value == DBNull.Value) return 0;
 
-                    //!!!!! update tAccount set EmailVerified=@registerDate, Email=@email, EmailToVerify=@email, EmailBeforeVerify=@email, EmailVerifyStatus=0 where AccountId=@accountId
                     int accountId = Convert.ToInt32(result.Value);
+                    sql = @"UPDATE tAccount SET EmailVerified=@registerDate, Email=@email, EmailToVerify=@email, EmailBeforeVerify=@email, EmailVerifyStatus=0 where AccountId=@accountId";
+                    mssqStorageDst.Exec(mssqStorageDst.Connection, sql,
+                            new SqlParameter("@AccountId", accountId),
+                            new SqlParameter("@email", email),
+                            new SqlParameter("@registerDate", Null(registerDate)));
+
+
                     sql = @"UPDATE tAccount SET TVD_Id=@TVD_Id, CanAccessIntensa=@CanAccessIntensa, HistoryStamp=ISNULL(@registerDate, HistoryStamp) WHERE AccountId=@AccountId";
                     mssqStorageDst.Exec(mssqStorageDst.Connection, sql,
                             new SqlParameter("@AccountId", accountId),
@@ -308,17 +315,6 @@ namespace EuronaImportFromTVD.DAL {
 
                     return accountId;
                 } else {
-                    /*
-                    int accountId = Convert.ToInt32(dt.Rows[0][0]);
-                    sql = @"UPDATE tAccount SET Enabled=@Enabled, Email=@Email, CanAccessIntensa=@CanAccessIntensa  WHERE AccountId=@AccountId";
-                    mssqStorageDst.Exec(mssqStorageDst.Connection, sql,
-                            new SqlParameter("@Enabled", enabled),
-                            new SqlParameter("@AccountId", accountId),
-                            new SqlParameter("@Email", email),
-                            new SqlParameter("@CanAccessIntensa", canAccessIntensa));
-
-                    return accountId;
-                    */
                     throw new Exception("Account " + accountTVDId.ToString() + " uz v Eurona Existuje!!!");
                 }
             }

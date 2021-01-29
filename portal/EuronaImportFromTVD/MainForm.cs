@@ -11,19 +11,51 @@ using System.Windows.Forms;
 
 namespace EuronaImportFromTVD {
     public partial class MainForm : Form {
-        private List<int> odberateleIds;
+        private List<Odberatel> odberateleIds;
         private List<int> objednavkyIds;
         public MainForm() {
             Trace.SetFileListener(System.IO.Path.ChangeExtension(Application.ExecutablePath, ".log"));
             InitializeComponent();
 
-            this.odberateleIds = new List<int>();
-            this.odberateleIds.Add(1403);
+            this.odberateleIds = new List<Odberatel>();
+            //this.odberateleIds.Add(1403);
             this.objednavkyIds = new List<int>();
-            this.objednavkyIds.Add(161204);
+            //this.objednavkyIds.Add(161204);
+
+            //1403;$2y$10$FnGwmHWryKzOLykycNo.gOxJsIdpGotbZ5aKywxSaUgDBXzeBWar2
+
+                /*
+            string mySalt = BCrypt.Net.BCrypt.GenerateSalt();
+            string myPassword = "Doe12345";
+            string myHash = BCrypt.Net.BCrypt.HashPassword(myPassword, mySalt);
+            
+            bool doesPasswordMatch= BCrypt.Net.BCrypt.Verify(myPassword, "$2y$10$FnGwmHWryKzOLykycNo.gOxJsIdpGotbZ5aKywxSaUgDBXzeBWar2");
+                */
+
+/*            user doe@peterslavka.com
+            pass Doe12345 => $2y$10$FnGwmHWryKzOLykycNo.gOxJsIdpGotbZ5aKywxSaUgDBXzeBWar2
+            sedi aj podla https://bcrypt-generator.com/*/
         }
 
         private void btnImportData_Click(object sender, EventArgs e) {
+
+            if (!string.IsNullOrEmpty(this.txtOdberatele.Text)) {
+                string[] rows = this.txtOdberatele.Text.Split('\n');
+                foreach (string row in rows) {
+                    string[] odberatelData = row.Split(';');
+
+                    Odberatel odberatel = new Odberatel(Convert.ToInt32(odberatelData[0]), odberatelData[1]);
+                    this.odberateleIds.Add(odberatel);
+                }
+            }
+
+            if (!string.IsNullOrEmpty(this.txtObjednavky.Text)) { 
+            string[] ids = this.txtObjednavky.Text.Split('\n');
+                foreach (string sId in ids) {
+                    this.objednavkyIds.Add(Convert.ToInt32(sId));
+                }
+            }
+
             this.btnImportData.Enabled = false;
             Worker worker = new Worker(this.odberateleIds, this.objednavkyIds);
             worker.ProgressChanged += Worker_ProgressChanged;

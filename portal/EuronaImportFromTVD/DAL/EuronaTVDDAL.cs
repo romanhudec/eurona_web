@@ -154,7 +154,7 @@ select Id_objednavky, Poradi, C_Zbo = Kod_polozky, Mnozstvi, Body_mj, Cena_mj_fa
         }
         public static DataTable GetTVDObjednavkaRadky(CMS.Pump.MSSQLStorage mssqStorageSrc, int idObjednavky) {
             using (SqlConnection connection = mssqStorageSrc.Connect()) {
-                string sql = @"select Id_objednavky, Poradi, C_Zbo = Kod_polozky, Mnozstvi, Body_mj, Cena_mj_fakt_sdph, Sazba_dph, Cena_mj_fakt_bezdph from objednavkyfaktury_radky where Id_objednavky = @idObjednavky";
+                string sql = @"select Id_objednavky, Poradi, C_Zbo = Kod_polozky, Mnozstvi, Body_mj, Cena_mj_fakt_sdph, Sazba_dph, Cena_mj_fakt_bezdph from objednavkyfaktury_radky where Id_objednavky = @idObjednavky and idakce=1";
                 DataTable dt = mssqStorageSrc.Query(connection, sql, new SqlParameter("@idObjednavky", idObjednavky));
                 return dt;
             }

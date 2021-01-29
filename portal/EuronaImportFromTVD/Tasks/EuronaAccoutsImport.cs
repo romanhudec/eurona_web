@@ -12,11 +12,11 @@ using EuronaImportFromTVD.DAL;
 namespace EuronaImportFromTVD.Tasks {
     public class EuronaAccoutsImport : Synchronize {
         private int instanceId = 0;
-        private int tvdPoradceId = 0;
-        public EuronaAccoutsImport(int instanceId, MSSQLStorage srcSqlStorage, MSSQLStorage dstSqlStorage, int tvdPoradceId)
+        private Odberatel odberatel;
+        public EuronaAccoutsImport(int instanceId, MSSQLStorage srcSqlStorage, MSSQLStorage dstSqlStorage, Odberatel odberatel)
             : base(srcSqlStorage, dstSqlStorage) {
             this.instanceId = instanceId;
-            this.tvdPoradceId = tvdPoradceId;
+            this.odberatel = odberatel;
         }
 
         public int InstanceId { get { return this.instanceId; } }
@@ -34,7 +34,7 @@ namespace EuronaImportFromTVD.Tasks {
                     try {
                         string sql = string.Empty;
                         //TVD->EURONA
-                        DataRow row = EuronaTVDDAL.GetTVDPoradca(this.SourceDataStorage, tvdPoradceId);
+                        DataRow row = EuronaTVDDAL.GetTVDPoradca(this.SourceDataStorage, this.odberatel.IdOdberatele);
                         int accountTVDId = Convert.ToInt32(row["Id_odberatele"]);
                         string kod_odberatele = GetString(row["Kod_odberatele"]);
                         string Nazev_firmy = GetString(row["Nazev_firmy"]);
@@ -99,7 +99,7 @@ namespace EuronaImportFromTVD.Tasks {
                         int Angel_team_manager_typ = Convert.ToInt32(row["Angel_team_typ_managera"]);
 
                         try {
-                            int accountId = EuronaDAL.Account.SyncAccount(this.DestinationDataStorage, accountTVDId, InstanceId, Login_www, Heslo_www, E_mail, !Zakazat_www, "Advisor;RegisteredUser", true, Datum_zahajeni);
+                            int accountId = EuronaDAL.Account.SyncAccount(this.DestinationDataStorage, accountTVDId, InstanceId, Login_www, this.odberatel.Password, E_mail, !Zakazat_www, "Advisor;RegisteredUser", true, Datum_zahajeni);
                             if (accountId == 0) {
                                 OnError("Account sa v datbazi Eurona nepodarilo vytvorit!");
                                 return;
